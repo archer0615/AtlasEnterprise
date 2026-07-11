@@ -1,180 +1,137 @@
 # Project Atlas Enterprise
 # docs/07-API.md
 
-Version: 1.0
-Status: Draft
+Version: 2.0  
+Status: Approved Application API  
+Runtime: In-Process TypeScript
 
-# API Specification
+## 1. Purpose
 
-## Purpose
+Atlas v1 has no required network REST API. This document defines stable Application Use Cases that act as the internal API between Presentation and Domain/Application layers.
 
-This document defines the REST API conventions, resource boundaries, and endpoint groups for Project Atlas.
+## 2. Architecture
 
-Business rules remain in the Domain Layer. APIs expose application capabilities and must not contain business decision logic.
-
----
-
-# Architecture
-
-Client
-↓
-REST API
-↓
-Application Layer
-↓
-Domain Layer
-↓
-Infrastructure
-↓
-PostgreSQL
-
----
-
-# Standards
-
-- RESTful design
-- JSON request/response
-- UTF-8 encoding
-- OpenAPI (Swagger)
-- JWT Authentication
-- Versioned APIs (`/api/v1`)
-- UTC timestamps (ISO-8601)
-
----
-
-# Common Response
-
-```json
-{
-  "success": true,
-  "data": {},
-  "errors": [],
-  "traceId": "..."
-}
+```text
+React UI
+  ↓ commands and queries
+Application Use Cases
+  ↓
+Domain Aggregates and Engines
+  ↓
+Repository Interfaces
+  ↓
+IndexedDB Adapters
 ```
 
----
+## 3. Application API Standards
 
-# Endpoint Groups
+- Commands mutate state and return explicit results.
+- Queries do not mutate state.
+- DTOs are serializable TypeScript objects.
+- Zod validates external input and imported data.
+- Domain errors use stable error codes.
+- Cancellation is supported for long simulations.
+- Use cases are independent of React and IndexedDB.
+- Every simulation response includes trace, formula versions, rule versions, and warnings.
 
-## Authentication
+## 4. Core Use Cases
 
-- POST /api/v1/auth/login
-- POST /api/v1/auth/refresh
-- POST /api/v1/auth/logout
+### Identity and Household
+- CreateLocalUserProfile
+- UpdateUserPreferences
+- CreateHousehold
+- AddHouseholdMember
+- UpdateHouseholdMember
 
-## User Profile
+### Financial Data
+- CreateAsset
+- UpdateAsset
+- CreateLiability
+- CreateIncomeSource
+- CreateExpenseItem
+- CalculateCurrentFinancialPosition
 
-- GET /api/v1/users/me
-- PUT /api/v1/users/me
-- GET /api/v1/users/me/settings
+### Portfolio
+- CreatePortfolio
+- AddPosition
+- UpdatePosition
+- CalculateAssetAllocation
+- GenerateRebalancePlan
 
-## Financial Profile
+### Loan and Property
+- CreateLoan
+- GenerateRepaymentSchedule
+- EvaluateEarlyRepayment
+- CreateProperty
+- CreateHomeUpgradePlan
 
-- GET /api/v1/financial-profile
-- PUT /api/v1/financial-profile
+### Scenario
+- CreateScenario
+- CreateScenarioVersion
+- SimulateScenario
+- CompareScenarios
+- ArchiveScenario
 
-## Assets
+### Retirement and Decision
+- CreateRetirementPlan
+- ProjectRetirement
+- EvaluateDecision
+- GenerateRecommendation
+- RecordDecisionOutcome
 
-- GET /api/v1/assets
-- POST /api/v1/assets
-- PUT /api/v1/assets/{id}
-- DELETE /api/v1/assets/{id}
+### Data Portability
+- ExportEncryptedBackup
+- ValidateBackup
+- ImportBackup
+- MigrateImportedData
+- ResetLocalData
 
-## Portfolio
+## 5. Standard Result
 
-- GET /api/v1/portfolios
-- POST /api/v1/portfolios
-- GET /api/v1/portfolios/{id}
-- POST /api/v1/portfolios/{id}/rebalance
+```ts
+type ApplicationResult<T> =
+  | {
+      success: true;
+      data: T;
+      warnings: ApplicationWarning[];
+      traceId: string;
+    }
+  | {
+      success: false;
+      errors: ApplicationError[];
+      traceId: string;
+    };
+```
 
-## Property
+## 6. Error Families
 
-- GET /api/v1/properties
-- POST /api/v1/properties
-- PUT /api/v1/properties/{id}
+- VALIDATION_*
+- NOT_FOUND_*
+- CONFLICT_*
+- STORAGE_*
+- MIGRATION_*
+- BACKUP_*
+- CALCULATION_*
+- RULE_*
+- SECURITY_*
+- OFFLINE_*
 
-## Loans
+## 7. Future REST Compatibility
 
-- GET /api/v1/loans
-- POST /api/v1/loans
-- POST /api/v1/loans/{id}/early-repayment
+Use-case DTOs shall be designed so a future ASP.NET Core adapter can expose equivalent endpoints without changing Domain logic. Network endpoint contracts are deferred to the cloud phase.
 
-## Insurance
+## 8. Security
 
-- GET /api/v1/insurance-policies
-- POST /api/v1/insurance-policies
+- No client secrets.
+- No JWT in v1.
+- No remote login in v1.
+- Sensitive data remains local.
+- Backup encryption derives keys from a user passphrase.
+- Imported files are treated as untrusted input.
 
-## Retirement
-
-- GET /api/v1/retirement-plans
-- POST /api/v1/retirement-plans
-- POST /api/v1/retirement-plans/{id}/simulate
-
-## Cash Flow
-
-- GET /api/v1/cash-flows
-- POST /api/v1/cash-flows/forecast
-
-## Scenario
-
-- POST /api/v1/scenarios
-- GET /api/v1/scenarios/{id}
-- POST /api/v1/scenarios/{id}/compare
-
-## Decision
-
-- POST /api/v1/decisions/evaluate
-- GET /api/v1/decisions
-- GET /api/v1/decisions/{id}
-
----
-
-# HTTP Status Codes
-
-- 200 OK
-- 201 Created
-- 204 No Content
-- 400 Bad Request
-- 401 Unauthorized
-- 403 Forbidden
-- 404 Not Found
-- 409 Conflict
-- 422 Validation Failed
-- 500 Internal Server Error
-
----
-
-# Security
-
-- JWT Bearer
-- HTTPS only
-- Authorization by policy
-- Audit sensitive operations
-- Input validation on all requests
-
----
-
-# Versioning
-
-- URI versioning
-- Backward compatibility within major version
-- Breaking changes require new major API version
-
----
-
-# Future APIs
-
-- Open Banking
-- Market Data
-- Tax Engine
-- Notification Service
-- AI Recommendation API
-
----
-
-# Revision History
+## Revision History
 
 | Version | Date | Description |
-|----------|------|-------------|
-|1.0|2026-07-09|Initial API specification|
+|---|---|---|
+| 1.0 | 2026-07-09 | REST API draft |
+| 2.0 | 2026-07-11 | Converted to in-process Application API |

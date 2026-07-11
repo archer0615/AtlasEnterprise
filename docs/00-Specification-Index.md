@@ -167,3 +167,22 @@ All specifications must:
 | Version | Date | Description |
 |----------|------|-------------|
 |1.0|2026-07-09|Initial Phase 0 specification index|
+
+---
+
+## PWA Architecture Document Set
+
+| Document | Status | Purpose |
+|---|---|---|
+| architecture/ADR-001-Local-First-PWA.md | Approved | Architecture decision |
+| pwa/00-PWA-Overview.md | Approved | PWA scope and boundaries |
+| pwa/AppManifest.md | Approved | Install metadata |
+| pwa/ServiceWorker.md | Approved | Service worker lifecycle |
+| pwa/OfflineStrategy.md | Approved | Offline behavior |
+| pwa/CacheStrategy.md | Approved | Cache policy |
+| pwa/IndexedDBDesign.md | Approved | Local persistence |
+| pwa/DataMigration.md | Approved | Schema migration |
+| pwa/BackupRestore.md | Approved | Backup and recovery |
+| pwa/Security.md | Approved | Local data security |
+| pwa/GitHubPagesDeployment.md | Approved | Static deployment |
+| pwa/UpdateStrategy.md | Approved | Application updates |

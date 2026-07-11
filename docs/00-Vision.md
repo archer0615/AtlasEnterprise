@@ -1,177 +1,106 @@
 # Project Atlas Enterprise
-# 00-Vision.md
+# docs/00-Vision.md
 
-Version: 1.0  
-Status: Foundation
+Version: 2.0  
+Status: Approved Architecture Direction  
+Architecture: Local-First Static PWA
 
-# 1. Vision
+## 1. Vision
 
-Project Atlas is a **Life Financial Decision Operating System** designed to support long-term, high-impact financial decisions throughout a person's lifetime.
+Project Atlas is a **Life Financial Decision Operating System** for long-term, high-impact personal and household financial decisions.
 
-Atlas is **not**:
+Atlas is not an accounting application, stock trading platform, insurance sales system, or generic budgeting tool. It integrates cash flow, assets, liabilities, property, loans, investment, insurance, retirement, goals, scenarios, and explainable decisions.
 
-- An accounting application
-- A budgeting application
-- A stock trading platform
-- An insurance management system
+## 2. Product Mission
 
-Atlas exists to integrate these domains into a single decision framework.
+Enable individuals and families to make consistent, rational, traceable financial decisions that improve lifetime resilience, flexibility, and financial freedom.
 
----
+## 3. Delivery Model
 
-# 2. Mission
+Atlas v1 is delivered as a static, installable, local-first Progressive Web App hosted on GitHub Pages.
 
-Enable individuals and families to make consistent, rational, data-driven financial decisions that maximize lifetime financial resilience, flexibility, and freedom.
+The application shall:
 
----
+- Execute all Domain, Formula, Scenario, KPI, and Decision logic in the browser.
+- Persist user data in IndexedDB.
+- Remain usable without network access after installation.
+- Require no server, database server, login service, or cloud account for the primary workflow.
+- Keep financial data on the user's device by default.
+- Support encrypted export and restore.
+- Preserve an optional future migration path to a .NET 8 API and PostgreSQL.
 
-# 3. Product Positioning
-
-Atlas focuses on decisions such as:
-
-- Home purchase
-- Home upgrade
-- Retaining or selling existing property
-- Mortgage optimization
-- Personal loan evaluation
-- Asset allocation
-- Retirement planning
-- Cash-flow management
-- Insurance adequacy
-- Major family events
-
----
-
-# 4. Core Principles
+## 4. Core Principles
 
 1. Decisions before transactions.
 2. Cash flow before net worth.
 3. Risk before return.
 4. Liquidity before optimization.
-5. Long-term consistency over short-term performance.
-6. Every recommendation must be explainable.
-7. Business rules are deterministic and versioned.
+5. Local data ownership before cloud dependency.
+6. Offline capability before remote integration.
+7. Every calculation must be deterministic, versioned, and traceable.
+8. Every recommendation must be explainable.
+9. Domain and Application layers must not depend on React, IndexedDB, or browser-specific APIs.
+10. Static hosting must not weaken financial-data security.
 
----
+## 5. Target Users
 
-# 5. Target Users
+Primary: individual or household users operating Atlas on trusted personal devices.
 
-Primary users:
+Future: multi-device users, shared households, financial planners, and cloud-assisted users.
 
-- Salaried professionals
-- Dual-income families
-- Property owners
-- Long-term ETF investors
-- Users planning retirement or housing upgrades
+## 6. Non-Goals for v1
 
-Secondary users:
+- No server-side authentication.
+- No multi-user collaboration.
+- No automatic bank or brokerage synchronization.
+- No centralized cloud database.
+- No background server jobs.
+- No secret API keys embedded in the client.
+- No direct securities execution.
+- No legal, tax, or licensed-adviser replacement.
 
-- Financial planners
-- Wealth consultants
-- Family financial decision makers
+## 7. Technology Direction
 
----
+### v1 Local-First PWA
 
-# 6. Problems Atlas Solves
+- React
+- TypeScript
+- Vite
+- Progressive Web App
+- Web App Manifest
+- Service Worker
+- IndexedDB
+- Dexie or idb
+- Zod
+- React Router with HashRouter
+- Vitest
+- Playwright
+- GitHub Actions
+- GitHub Pages
 
-Traditional tools optimize isolated domains.
-
-Examples:
-
-- Mortgage calculators ignore investment opportunity cost.
-- Portfolio tools ignore housing decisions.
-- Retirement planners ignore future life events.
-- Budget tools rarely model decades of cash flow.
-
-Atlas integrates these into a unified model.
-
----
-
-# 7. System Objectives
-
-The platform shall:
-
-- Maintain a unified financial profile.
-- Simulate future scenarios.
-- Compare alternative decisions.
-- Evaluate risk exposure.
-- Explain every recommendation.
-- Preserve historical decision context.
-
----
-
-# 8. Design Philosophy
-
-Architecture principles:
-
-- Domain Driven Design
-- Clean Architecture
-- Event-oriented decision history
-- Immutable financial assumptions
-- Rule-driven engines
-- Explainable calculations
-
----
-
-# 9. Non-Goals
-
-Atlas will not:
-
-- Execute securities trades
-- Replace tax professionals
-- Replace licensed legal advice
-- Replace licensed financial advisors
-- Predict future market prices
-
----
-
-# 10. Success Metrics
-
-Success is measured by:
-
-- Better decision consistency
-- Reduced financial risk
-- Improved long-term cash flow
-- Faster scenario evaluation
-- Transparent recommendations
-
----
-
-# 11. Guiding Questions
-
-Every engine should answer:
-
-- Should I buy this property?
-- Should I keep my first home?
-- Should I repay debt early?
-- Can I afford retirement?
-- Which option produces the strongest lifetime outcome?
-- What are the risks if assumptions change?
-
----
-
-# 12. Technology Direction
-
-Target stack:
+### Future Optional Cloud Layer
 
 - .NET 8
+- ASP.NET Core REST API
 - PostgreSQL
 - EF Core
-- React + TypeScript
-- REST API
-- Swagger
-- xUnit
+- Authentication and household sharing
 
----
+The future cloud layer is not required by the v1 Domain Model.
 
-# 13. Future Vision
+## 8. Success Criteria
 
-Atlas evolves from a personal financial operating system into a lifetime decision platform capable of supporting family planning, business ownership, tax optimization, estate planning, and AI-assisted financial guidance.
+- The complete core workflow functions offline.
+- User data remains available after browser restart.
+- Schema upgrades preserve existing data.
+- Backup files can be encrypted, validated, imported, and migrated.
+- GitHub Pages deployment is reproducible.
+- No personal financial data is committed to the repository.
+- A future remote repository implementation can replace IndexedDB without changing Domain logic.
 
----
-
-# Revision History
+## Revision History
 
 | Version | Date | Description |
-|----------|------|-------------|
-|1.0|2026-07-09|Initial Vision specification|
+|---|---|---|
+| 1.0 | 2026-07-09 | Initial vision |
+| 2.0 | 2026-07-11 | Adopted Local-First Static PWA and GitHub Pages |

@@ -1,216 +1,102 @@
 # Project Atlas Enterprise
 # docs/20-Roadmap.md
 
-Version: 1.0
-Status: Foundation
+Version: 2.0  
+Status: Approved PWA Roadmap
 
-# Product Roadmap
+## Phase 0 — Specification Foundation
 
-## Purpose
+Complete Domain, Formula, Rule, Decision, Knowledge, and traceability specifications.
 
-This roadmap defines the phased evolution of Project Atlas from a specification-driven knowledge base into a production-ready Life Financial Decision Operating System.
+Exit criteria: Codex can implement core logic without inventing business concepts.
 
----
+## Phase 1 — Local-First Platform
 
-# Guiding Principles
+Deliver:
 
-- Business rules before implementation
-- Knowledge first
-- Domain Driven Design
-- Explainable financial decisions
-- Incremental delivery
-- Testability by design
+- React + TypeScript + Vite
+- Clean Architecture boundaries
+- IndexedDB repositories
+- Schema migration framework
+- HashRouter
+- Web App Manifest
+- Service Worker
+- Offline application shell
+- GitHub Actions deployment
+- GitHub Pages hosting
 
----
+Exit criteria: application installs and reopens offline.
 
-# Phase 0 — Foundation
+## Phase 2 — Data Safety
 
-## Goal
+Deliver:
 
-Establish the complete knowledge base.
+- Encrypted JSON backup
+- Import validation
+- Backup checksum
+- Version migration
+- Recovery workflow
+- Local data reset
+- Multi-tab conflict control
 
-### Deliverables
+Exit criteria: tested export/import round trip across schema versions.
 
-- 00-Specification-Index.md
-- 00-Vision.md
-- 01-Blueprint.md
-- 02-IPS.md
-- 03-Formula.md
-- 04-DomainModel.md
-- 04A-DomainInventory.md
-- 20-Roadmap.md
+## Phase 3 — Core Financial Engines
 
-### Exit Criteria
-
-- Core business concepts defined
-- Financial philosophy documented
-- Domain model approved
-- Formula library initialized
-
----
-
-# Phase 1 — Core Platform
-
-## Goal
-
-Build the platform foundation.
-
-### Deliverables
-
-- Database Design
-- ERD
-- REST API
-- Authentication
-- Shared Domain Library
-- Audit Framework
-- Logging
-- Configuration
-
----
-
-# Phase 2 — Financial Engines
-
-## Goal
-
-Implement deterministic business engines.
-
-### Deliverables
+Deliver:
 
 - Cash Flow Engine
-- Investment Engine
 - Loan Engine
-- Home Upgrade Engine
+- Investment Engine
+- Property and Home Upgrade Engine
 - Retirement Engine
-- Decision Engine
 - Scenario Engine
+- Decision and Explainability Engine
 
----
+Exit criteria: deterministic, traceable, offline calculations.
 
-# Phase 3 — User Experience
+## Phase 4 — User Experience
 
-## Goal
+Deliver dashboard, timeline, goals, scenario comparison, decision explanation, reports, install prompts, update notifications, and data-health diagnostics.
 
-Provide an end-to-end planning experience.
+## Phase 5 — Optional Cloud Sync
 
-### Deliverables
+Only after local-first stability:
 
-- Dashboard
-- Timeline
-- Goal Management
-- Scenario Comparison
-- Decision Explanation
-- Reports
-
----
-
-# Phase 4 — Intelligence
-
-## Goal
-
-Introduce AI-assisted planning.
-
-### Deliverables
-
-- Recommendation Assistant
-- Decision Summaries
-- Financial Insights
-- Rule Explanation
-- Forecast Narratives
-
----
-
-# Phase 5 — Enterprise
-
-## Goal
-
-Enterprise-grade governance.
-
-### Deliverables
-
-- Multi-user support
-- Role-based authorization
-- Versioned business rules
-- Regulatory reporting
-- Operational monitoring
-
----
-
-# Milestones
-
-| Milestone | Objective |
-|-----------|-----------|
-| M1 | Foundation completed |
-| M2 | Domain model stable |
-| M3 | Core APIs available |
-| M4 | Financial engines complete |
-| M5 | MVP release |
-| M6 | Beta validation |
-| M7 | Production release |
-
----
-
-# Success Criteria
-
-## Technical
-
-- Clean Architecture
-- DDD compliance
-- Automated testing
-- API documentation
-- Database versioning
-
-## Business
-
-- Explainable decisions
-- Consistent recommendations
-- Scenario comparison
-- Long-term planning support
-
----
-
-# Risks
-
-- Incomplete business rules
-- Formula inconsistency
-- Domain model drift
-- Scope expansion
-- Regulatory changes
-
-Mitigation:
-- Versioned specifications
-- Traceability
-- Automated validation
-- Rule governance
-
----
-
-# Technology Stack
-
-- .NET 8
+- .NET 8 API
 - PostgreSQL
 - EF Core
-- React + TypeScript
-- REST API
-- Swagger
-- xUnit
+- Authentication
+- Encrypted synchronization
+- Household sharing
+- Server audit
+- Scheduled operations
 
----
+The cloud phase must implement existing repository contracts rather than replace Domain logic.
 
-# Future Vision
+## Milestones
 
-Future roadmap may include:
+| Milestone | Objective |
+|---|---|
+| M1 | Specification stable |
+| M2 | PWA shell deployed |
+| M3 | IndexedDB and migrations stable |
+| M4 | Backup and recovery verified |
+| M5 | Core engines complete |
+| M6 | Offline MVP |
+| M7 | Optional cloud design |
 
-- Tax optimization
-- Estate planning
-- Business finance
-- AI financial coach
-- Mobile applications
-- Open banking integration
+## Technology Stack
 
----
+### v1
+React, TypeScript, Vite, IndexedDB, Dexie/idb, PWA, Zod, Vitest, Playwright, GitHub Actions, GitHub Pages.
 
-# Revision History
+### Future
+.NET 8, ASP.NET Core, PostgreSQL, EF Core.
+
+## Revision History
 
 | Version | Date | Description |
-|----------|------|-------------|
-|1.0|2026-07-09|Initial roadmap specification|
+|---|---|---|
+| 1.0 | 2026-07-09 | Server-first roadmap |
+| 2.0 | 2026-07-11 | Local-first PWA roadmap |

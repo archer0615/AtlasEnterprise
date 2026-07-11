@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-07-11",
+  "source": "docs.zip",
+  "architecture": "Local-First Static PWA on GitHub Pages",
+  "rewrittenDocuments": [
+    "docs/00-Vision.md",
+    "docs/05-DatabaseDesign.md",
+    "docs/06-ERD.md",
+    "docs/07-API.md",
+    "docs/08D-CashFlowEngine-API.md",
+    "docs/20-Roadmap.md"
+  ],
+  "addedDocuments": [
+    "docs/architecture/ADR-001-Local-First-PWA.md",
+    "docs/pwa/00-PWA-Overview.md",
+    "docs/pwa/AppManifest.md",
+    "docs/pwa/ServiceWorker.md",
+    "docs/pwa/OfflineStrategy.md",
+    "docs/pwa/CacheStrategy.md",
+    "docs/pwa/IndexedDBDesign.md",
+    "docs/pwa/DataMigration.md",
+    "docs/pwa/BackupRestore.md",
+    "docs/pwa/Security.md",
+    "docs/pwa/GitHubPagesDeployment.md",
+    "docs/pwa/UpdateStrategy.md",
+    ".codex/architecture-pwa.md",
+    ".codex/database-pwa.md",
+    ".codex/deployment-pages.md"
+  ],
+  "legacyDocumentsWithArchitectureAmendment": [
+    "docs/01-Blueprint.md",
+    ".codex/architecture-pwa.md",
+    "docs/knowledge/api-governance-framework.md",
+    "docs/knowledge/backup-recovery-framework.md",
+    "docs/knowledge/financial-health-score.md",
+    "docs/knowledge/scenario-framework.md",
+    "docs/knowledge/entity/User.md",
+    "docs/knowledge/entity/User_p2.md",
+    "docs/knowledge/entity/User_p3.md"
+  ]
+}

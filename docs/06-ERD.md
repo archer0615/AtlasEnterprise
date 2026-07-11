@@ -1,188 +1,69 @@
 # Project Atlas Enterprise
 # docs/06-ERD.md
 
-Version: 1.0
-Status: Draft
+Version: 2.0  
+Status: Conceptual Local Data Model
 
-# Entity Relationship Diagram (ERD)
+## 1. Purpose
 
-## Purpose
+This document describes conceptual aggregate relationships and their IndexedDB persistence representation. It is not a relational PostgreSQL ERD.
 
-This document defines the conceptual Entity Relationship Diagram (ERD) for Project Atlas.
-It complements `05-DatabaseDesign.md` by describing the major entities and their relationships.
+## 2. Aggregate Relationship Model
 
----
-
-# ERD Design Principles
-
-- One Aggregate Root owns its child entities.
-- Foreign keys reflect business ownership.
-- Historical records are preserved.
-- Reference data is normalized.
-- Business rules remain in the Domain layer.
-
----
-
-# Core Entity Groups
-
-## Identity
-
-```text
-Users
- ├── UserSettings
- ├── UserRoles
- └── RefreshTokens
+```mermaid
+erDiagram
+    USER_PROFILE ||--o{ HOUSEHOLD : owns
+    HOUSEHOLD ||--o{ HOUSEHOLD_MEMBER : contains
+    HOUSEHOLD ||--o{ GOAL : defines
+    HOUSEHOLD ||--o{ ASSET : owns
+    HOUSEHOLD ||--o{ LIABILITY : owes
+    HOUSEHOLD ||--o{ LOAN : manages
+    HOUSEHOLD ||--o{ PROPERTY : owns
+    HOUSEHOLD ||--o{ PORTFOLIO : owns
+    PORTFOLIO ||--o{ POSITION : contains
+    HOUSEHOLD ||--o{ INCOME_SOURCE : receives
+    HOUSEHOLD ||--o{ EXPENSE_ITEM : incurs
+    HOUSEHOLD ||--o{ INSURANCE_POLICY : holds
+    HOUSEHOLD ||--o{ RETIREMENT_PLAN : defines
+    HOUSEHOLD ||--o{ SCENARIO : evaluates
+    SCENARIO ||--o{ SCENARIO_VERSION : versions
+    SCENARIO_VERSION ||--o{ CALCULATION_RESULT : produces
+    HOUSEHOLD ||--o{ DECISION : records
+    DECISION ||--o{ RECOMMENDATION : produces
 ```
 
-## Financial Profile
+## 3. IndexedDB Relationship Rules
 
-```text
-Users
- └── FinancialProfiles
-      ├── IncomeSources
-      ├── ExpenseCategories
-      ├── MonthlyExpenses
-      └── NetWorthSnapshots
-```
+IndexedDB does not enforce foreign keys. Atlas shall enforce relationships through repository and application validation.
 
-## Portfolio
+- Child records carry parent IDs.
+- Aggregate children are loaded and saved through the aggregate repository where practical.
+- Scenario versions reference immutable input snapshots.
+- Calculation results reference formula and rule versions.
+- Soft-deleted parents remain resolvable by audit and decision history.
+- Integrity scans report orphaned or version-incompatible records.
 
-```text
-Users
- └── Portfolios
-      ├── PortfolioHoldings
-      ├── PortfolioTransactions
-      ├── DividendRecords
-      ├── AllocationTargets
-      └── RebalanceHistory
-```
+## 4. Key Relationship Summary
 
-## Property
+| Parent | Child | Cardinality | Enforcement |
+|---|---|---|---|
+| UserProfile | Household | 1:N | Application service |
+| Household | HouseholdMember | 1:N | Household aggregate |
+| Household | Asset | 1:N | Asset repository |
+| Household | Loan | 1:N | Loan repository |
+| Household | Scenario | 1:N | Scenario repository |
+| Scenario | ScenarioVersion | 1:N | Immutable version rule |
+| ScenarioVersion | CalculationResult | 1:N | Calculation repository |
+| Portfolio | Position | 1:N | Portfolio aggregate |
+| Decision | Recommendation | 1:N | Decision aggregate |
 
-```text
-Users
- └── Properties
-      ├── PropertyValuations
-      ├── Mortgages
-      └── HomeUpgradePlans
-```
+## 5. Physical Storage Mapping
 
-## Loan
+See `docs/05-DatabaseDesign.md` and `docs/pwa/IndexedDBDesign.md`.
 
-```text
-Users
- └── Loans
-      ├── LoanSchedules
-      ├── LoanPayments
-      └── LoanRateHistory
-```
-
-## Insurance
-
-```text
-Users
- └── InsurancePolicies
-      ├── InsuranceCoverage
-      └── InsurancePremiums
-```
-
-## Retirement
-
-```text
-Users
- └── RetirementPlans
-      ├── RetirementAssumptions
-      └── RetirementSnapshots
-```
-
-## Cash Flow
-
-```text
-Users
- └── CashFlowRecords
-      ├── IncomeForecasts
-      ├── ExpenseForecasts
-      └── CashFlowForecasts
-```
-
-## Scenario
-
-```text
-Users
- └── Scenarios
-      ├── ScenarioAssumptions
-      ├── ScenarioOutputs
-      └── ScenarioComparisons
-```
-
-## Decision
-
-```text
-Users
- └── Decisions
-      ├── DecisionScores
-      ├── DecisionRules
-      └── RecommendationHistory
-```
-
----
-
-# High-Level Relationship Summary
-
-| Parent | Child | Cardinality |
-|---------|-------|-------------|
-| User | FinancialProfile | 1 : 1 |
-| User | Portfolio | 1 : N |
-| User | Property | 1 : N |
-| User | Loan | 1 : N |
-| User | InsurancePolicy | 1 : N |
-| User | RetirementPlan | 1 : N |
-| User | Scenario | 1 : N |
-| User | Decision | 1 : N |
-| Portfolio | Holding | 1 : N |
-| Property | Mortgage | 1 : N |
-| Scenario | ScenarioOutput | 1 : N |
-
----
-
-# Reference Data
-
-Master tables include:
-
-- AssetCategories
-- Currency
-- Country
-- GoalTypes
-- InsuranceTypes
-- LoanTypes
-- PropertyTypes
-
----
-
-# Integrity Rules
-
-- Every child references one valid parent.
-- Aggregate children cannot exist independently.
-- Cascade delete is avoided for business history.
-- Historical snapshots are immutable.
-
----
-
-# Future ERD Expansion
-
-Future diagrams will include:
-
-- Complete table attributes
-- Primary and foreign keys
-- Index annotations
-- Domain-to-table mapping
-- Bounded context diagrams
-- Physical PostgreSQL model
-
----
-
-# Revision History
+## Revision History
 
 | Version | Date | Description |
-|----------|------|-------------|
-|1.0|2026-07-09|Initial conceptual ERD specification|
+|---|---|---|
+| 1.0 | 2026-07-09 | Relational ERD draft |
+| 2.0 | 2026-07-11 | Converted to conceptual IndexedDB relationship model |
