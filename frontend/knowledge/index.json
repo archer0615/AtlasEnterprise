@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T14:30:01.708Z",
-  "buildId": "7728928ed36a",
+  "generatedAt": "2026-07-15T14:32:03.303Z",
+  "buildId": "4ee83cadd0f6",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -150,8 +150,168 @@
       "title": "System Module Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/system-module-catalog.md",
-      "sourceHash": "8d7e5de2162aa3c5dbc56aebc8221e13062f72ff11d2db977c15a8f07cad4148",
+      "sourceHash": "6efa1bdb2f700117ca8f0e02a3577bbbd7cde456a9e00c660bd2f79031d24ab7",
       "summary": "# System Module Catalog # Document Control Document Name: System Module Catalog Document Path: knowledge/system-module-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification"
+    },
+    {
+      "id": "54fc7895415fdc59",
+      "title": "System Module - Administration",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/administration.md",
+      "sourceHash": "dc62929f12a29c998818a2a179127984735edc63beb2fb419af99a49714dc962",
+      "summary": "# System Module - Administration # Document Control Document Name: System Module - Administration Document Path: knowledge/catalog/system-modules/administration.md Document Type: Atlas Enterprise Module Specification Parent Specification:"
+    },
+    {
+      "id": "fd66470c49688179",
+      "title": "System Module - Audit",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/audit.md",
+      "sourceHash": "9c18780eb5b45ad92623b80ed6aa3b059017d95ba7572d8af1352445724ca92d",
+      "summary": "# System Module - Audit # Document Control Document Name: System Module - Audit Document Path: knowledge/catalog/system-modules/audit.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledge/catalog/system-m"
+    },
+    {
+      "id": "cbfc864e28707e40",
+      "title": "System Module - Automation",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/automation.md",
+      "sourceHash": "96cd6badb098bb77435383c4072752e771a1d4a036bf30da0a25e3ae8d06206b",
+      "summary": "# System Module - Automation # Document Control Document Name: System Module - Automation Document Path: knowledge/catalog/system-modules/automation.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledge/c"
+    },
+    {
+      "id": "fb4f23fdefec715e",
+      "title": "System Module - Blueprint",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/blueprint.md",
+      "sourceHash": "d37d635c4c1e6a6b684765cda7f5b9c22effa9b8a57592f6d09723ff81811914",
+      "summary": "# System Module - Blueprint # Document Control Document Name: System Module - Blueprint Document Path: knowledge/catalog/system-modules/blueprint.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledge/cata"
+    },
+    {
+      "id": "4bbeeaad5327058d",
+      "title": "System Module - Cash Flow Engine",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/cash-flow-engine.md",
+      "sourceHash": "e29c06fd2a98e6595bd039adbe0cf1fb9186ab4e634f5cd6e6f1b286ff50be9d",
+      "summary": "# System Module - Cash Flow Engine # Document Control Document Name: System Module - Cash Flow Engine Document Path: knowledge/catalog/system-modules/cash-flow-engine.md Document Type: Atlas Enterprise Module Specification Parent Specific"
+    },
+    {
+      "id": "683cfb1092b700a0",
+      "title": "System Module - Configuration",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/configuration.md",
+      "sourceHash": "5dfc8c408d758352245670e6b3083849842a70f2e138645a65c4142a365f5cb2",
+      "summary": "# System Module - Configuration # Document Control Document Name: System Module - Configuration Document Path: knowledge/catalog/system-modules/configuration.md Document Type: Atlas Enterprise Module Specification Parent Specification: kn"
+    },
+    {
+      "id": "1f3b0a5686494f61",
+      "title": "System Module - Dashboard",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/dashboard.md",
+      "sourceHash": "5f0b42febd15b37fa10c0b6fcf64c3be69a082e4c245e928d3489ba2680584b2",
+      "summary": "# System Module - Dashboard # Document Control Document Name: System Module - Dashboard Document Path: knowledge/catalog/system-modules/dashboard.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledge/cata"
+    },
+    {
+      "id": "2c34628c8732b11d",
+      "title": "System Module - Decision Engine",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/decision-engine.md",
+      "sourceHash": "9fe139f87ee2560bf051055284fc50f394d0cec16bd1c1566c18a6a9b34fb83d",
+      "summary": "# System Module - Decision Engine # Document Control Document Name: System Module - Decision Engine Document Path: knowledge/catalog/system-modules/decision-engine.md Document Type: Atlas Enterprise Module Specification Parent Specificati"
+    },
+    {
+      "id": "7eec007f44658365",
+      "title": "System Module - Feature Flag",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/feature-flag.md",
+      "sourceHash": "b41101d950f238339ea5e92cabf5749f427a9f8755c981c0469d61267f55aed0",
+      "summary": "# System Module - Feature Flag # Document Control Document Name: System Module - Feature Flag Document Path: knowledge/catalog/system-modules/feature-flag.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowl"
+    },
+    {
+      "id": "d97c742603292c1e",
+      "title": "System Module - Home Upgrade Engine",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/home-upgrade-engine.md",
+      "sourceHash": "c7a0739a0ab435c4a7f9f791333e5708d956905ed2032015f71f3b83a6e08f4d",
+      "summary": "# System Module - Home Upgrade Engine # Document Control Document Name: System Module - Home Upgrade Engine Document Path: knowledge/catalog/system-modules/home-upgrade-engine.md Document Type: Atlas Enterprise Module Specification Parent"
+    },
+    {
+      "id": "f5da0160160a5bc6",
+      "title": "System Module - Identity",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/identity.md",
+      "sourceHash": "47332f5d191b16fe67cd52a927cdddd8813cea3c65f48711d0a0f180fa0bc23b",
+      "summary": "# System Module - Identity # Document Control Document Name: System Module - Identity Document Path: knowledge/catalog/system-modules/identity.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledge/catalog"
+    },
+    {
+      "id": "72aeaea4df3519e8",
+      "title": "System Module - Integration",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/integration.md",
+      "sourceHash": "f388b6a5208b25f0e1a929a8a065626c67502579811bc3f740265164d23fbcba",
+      "summary": "# System Module - Integration # Document Control Document Name: System Module - Integration Document Path: knowledge/catalog/system-modules/integration.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledg"
+    },
+    {
+      "id": "726b32bec099086d",
+      "title": "System Module - Investment Engine",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/investment-engine.md",
+      "sourceHash": "300153bf2c3ee6cfc47076b6c74221d38c84307e784916e7babe4ed200da748c",
+      "summary": "# System Module - Investment Engine # Document Control Document Name: System Module - Investment Engine Document Path: knowledge/catalog/system-modules/investment-engine.md Document Type: Atlas Enterprise Module Specification Parent Speci"
+    },
+    {
+      "id": "c547a7e81ede5dfd",
+      "title": "System Module - IPS",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/ips.md",
+      "sourceHash": "236f4b9a11ac20e70a31d02c115feb01a3064f03390fc9bac51f553fa5d1e2e6",
+      "summary": "# System Module - IPS # Document Control Document Name: System Module - IPS Document Path: knowledge/catalog/system-modules/ips.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledge/catalog/system-module-"
+    },
+    {
+      "id": "713254b2d8766735",
+      "title": "System Module - Loan Engine",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/loan-engine.md",
+      "sourceHash": "4d275c64a1923de95b1847980c3c9aae669e2aa41d616b7fc423322a3e4d8bd2",
+      "summary": "# System Module - Loan Engine # Document Control Document Name: System Module - Loan Engine Document Path: knowledge/catalog/system-modules/loan-engine.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledg"
+    },
+    {
+      "id": "15fc0196b774abae",
+      "title": "System Module - Notification",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/notification.md",
+      "sourceHash": "1a0b67f55aa66386420b7c178f2698af429d53f956b8d9459fdf7f15c25af12f",
+      "summary": "# System Module - Notification # Document Control Document Name: System Module - Notification Document Path: knowledge/catalog/system-modules/notification.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowl"
+    },
+    {
+      "id": "db3f6543668b9f47",
+      "title": "System Module - Policy",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/policy.md",
+      "sourceHash": "ecd544d1731c0e3461b1e46b2ad190d8cbc995985b7b1c873b5c9e5102c35841",
+      "summary": "# System Module - Policy # Document Control Document Name: System Module - Policy Document Path: knowledge/catalog/system-modules/policy.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledge/catalog/syste"
+    },
+    {
+      "id": "335a7594be69e6ab",
+      "title": "System Module - Reporting",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/reporting.md",
+      "sourceHash": "015220b6b9d945aeb533749f73a7b3c7976f5794238fe92006a3f65778cd1cfd",
+      "summary": "# System Module - Reporting # Document Control Document Name: System Module - Reporting Document Path: knowledge/catalog/system-modules/reporting.md Document Type: Atlas Enterprise Module Specification Parent Specification: knowledge/cata"
+    },
+    {
+      "id": "3a9af5f33337a3b3",
+      "title": "System Module - Retirement Engine",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/retirement-engine.md",
+      "sourceHash": "eb3d7639280801d9dbf72d95d30f1522f985e2bbe893ee44c467278b269e5f64",
+      "summary": "# System Module - Retirement Engine # Document Control Document Name: System Module - Retirement Engine Document Path: knowledge/catalog/system-modules/retirement-engine.md Document Type: Atlas Enterprise Module Specification Parent Speci"
+    },
+    {
+      "id": "f7a190606f56bc82",
+      "title": "System Module - Scenario Engine",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-modules/scenario-engine.md",
+      "sourceHash": "d4ac5926cf4a630bdd5332b3454c46ee61caad1f4504073186adc626b9a776ee",
+      "summary": "# System Module - Scenario Engine # Document Control Document Name: System Module - Scenario Engine Document Path: knowledge/catalog/system-modules/scenario-engine.md Document Type: Atlas Enterprise Module Specification Parent Specificati"
     },
     {
       "id": "c9039782df1e8ca8",
