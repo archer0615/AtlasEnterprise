@@ -3,7 +3,7 @@
   "title": "Domain Rule Catalog",
   "category": "rule",
   "canonicalPath": "knowledge/rule/domain-rule-catalog.md",
-  "sourceHash": "745dab0e023c0c136a9c588042bb8cc10a151ca5d16b70bb2d3ffc84d1503e59",
+  "sourceHash": "ce8152814f4c8e2443205ac85447dbc2d12516bfc467b3e47b28d7ed668673e4",
   "headings": [
     {
       "level": 1,
@@ -11,9 +11,25 @@
     },
     {
       "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
       "text": "Categories"
+    },
+    {
+      "level": 2,
+      "text": "Governance Requirements"
+    },
+    {
+      "level": 2,
+      "text": "Rule Metadata"
+    },
+    {
+      "level": 2,
+      "text": "Runtime Relationship"
     }
   ],
-  "bodyMarkdown": "# Domain Rule Catalog\n\n## Categories\n- Validation Rules\n- Constraint Rules\n- Decision Rules\n- Scoring Rules\n- Eligibility Rules\n- Financial Rules\n\nRules are deterministic, versioned, explainable, auditable and executable through AREL.\n",
+  "bodyMarkdown": "# Domain Rule Catalog\n\n## Purpose\n\nThe domain rule catalog defines the rule categories used by Atlas Enterprise to keep decision behavior deterministic, explainable, versioned, auditable, and executable through AREL.\n\n## Categories\n\n| Category | Purpose |\n| --- | --- |\n| Validation Rules | Confirm that input data is complete, well-formed, and acceptable before processing. |\n| Constraint Rules | Enforce hard limits, invariants, policy boundaries, and impossible-state prevention. |\n| Decision Rules | Select outcomes or recommendations from domain facts and decision context. |\n| Scoring Rules | Convert qualitative and quantitative signals into comparable scores. |\n| Eligibility Rules | Determine whether a user, household, asset, liability, scenario, or goal qualifies for an action. |\n| Financial Rules | Apply financial assumptions, ratios, thresholds, cash-flow checks, and Taiwan-specific constraints. |\n\n## Governance Requirements\n\n- Rules must be deterministic for the same input facts and rule version.\n- Rules must be versioned so historical decisions can be reconstructed.\n- Rules must be explainable with rule name, matched condition, input facts, and produced outcome.\n- Rules must be auditable through execution records and decision traces.\n- Rules must be executable through AREL when they participate in runtime evaluation.\n\n## Rule Metadata\n\nEach governed rule should define:\n\n- Rule identifier\n- Rule category\n- Rule version\n- Effective date\n- Owning domain or bounded context\n- Input facts\n- Output value or decision\n- Explanation template\n- Audit requirements\n\n## Runtime Relationship\n\nDomain rules are referenced by decision workflows, scoring models, recommendation logic, financial checks, and policy enforcement. A runtime rule should avoid hidden side effects and should return explicit outcomes that can be logged, explained, tested, and replayed.\n",
   "references": []
 }

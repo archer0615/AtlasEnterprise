@@ -1,26 +1,27 @@
-# Markdown Inventory
+﻿# Markdown Inventory
 
 Generated: 2026-07-15
 
-Total markdown files: 231
+Total markdown files: 233
 
-- .codex/architecture-pwa.md
 - .codex/architecture.md
+- .codex/architecture-pwa.md
 - .codex/database-pwa.md
 - .codex/deployment-pages.md
 - .codex/policies/development-rules.md
 - .codex/policies/testing-rules.md
 - .codex/project.md
 - .codex/prompts/prompt.md
+- .codex/reports/final-validation-report-2026-07-15.md
 - .codex/reports/git-change-inventory-2026-07-15.md
 - .codex/reports/knowledge-canonical-duplicate-decision-report.md
 - .codex/reports/knowledge-inventory-reconciliation-report.md
 - .codex/reports/knowledge-path-governance-report.md
 - .codex/reports/knowledge-progress-reconciliation-report.md
-- .codex/reports/knowledge-repository-migration-batch-s1-report.md
 - .codex/reports/knowledge-repository-migration-batch-s10-report.md
 - .codex/reports/knowledge-repository-migration-batch-s11-report.md
 - .codex/reports/knowledge-repository-migration-batch-s12-report.md
+- .codex/reports/knowledge-repository-migration-batch-s1-report.md
 - .codex/reports/knowledge-repository-migration-batch-s2-report.md
 - .codex/reports/knowledge-repository-migration-batch-s3-report.md
 - .codex/reports/knowledge-repository-migration-batch-s4-report.md
@@ -70,8 +71,8 @@ Total markdown files: 231
 - docs/specification/01-Blueprint.md
 - docs/specification/02-IPS.md
 - docs/specification/03-Formula.md
-- docs/specification/04-DomainModel.md
 - docs/specification/04A-DomainInventory.md
+- docs/specification/04-DomainModel.md
 - docs/specification/08A-CashFlowEngine-Architecture.md
 - docs/specification/08B-CashFlowEngine-Formula.md
 - docs/specification/08C-CashFlowEngine-DecisionRules.md
@@ -115,10 +116,10 @@ Total markdown files: 231
 - knowledge/entity/Position.md
 - knowledge/entity/Recommendation.md
 - knowledge/entity/Scenario.md
+- knowledge/entity/User.md
 - knowledge/entity/User_p1.md
 - knowledge/entity/User_p2.md
 - knowledge/entity/User_p3.md
-- knowledge/entity/User.md
 - knowledge/framework/action-planning-framework.md
 - knowledge/framework/asset-allocation-framework.md
 - knowledge/framework/automation-framework.md
@@ -129,9 +130,9 @@ Total markdown files: 231
 - knowledge/framework/cash-reserve-framework.md
 - knowledge/framework/compliance-framework.md
 - knowledge/framework/configuration-management-framework.md
+- knowledge/framework/database-governance-framework.md
 - knowledge/framework/data-governance-framework.md
 - knowledge/framework/data-retention-framework.md
-- knowledge/framework/database-governance-framework.md
 - knowledge/framework/decision-history-framework.md
 - knowledge/framework/decision-learning-framework.md
 - knowledge/framework/decision-metrics-framework.md
@@ -206,8 +207,8 @@ Total markdown files: 231
 - knowledge/supporting/goal-dependency.md
 - knowledge/supporting/goal-governance.md
 - knowledge/supporting/goal-insights.md
-- knowledge/supporting/goal-lifecycle-management.md
 - knowledge/supporting/goal-lifecycle.md
+- knowledge/supporting/goal-lifecycle-management.md
 - knowledge/supporting/goal-optimization.md
 - knowledge/supporting/goal-prioritization.md
 - knowledge/supporting/goal-progress-tracking.md
@@ -217,8 +218,8 @@ Total markdown files: 231
 - knowledge/supporting/life-stage-model.md
 - knowledge/supporting/loan.md
 - knowledge/supporting/market-assumptions.md
-- knowledge/supporting/portfolio-lifecycle.md
 - knowledge/supporting/portfolio.md
+- knowledge/supporting/portfolio-lifecycle.md
 - knowledge/supporting/property.md
 - knowledge/supporting/recommendation-evaluation.md
 - knowledge/supporting/recommendation-execution.md
@@ -233,5 +234,6 @@ Total markdown files: 231
 - knowledge/supporting/taiwan-tax.md
 - knowledge/supporting/terminology.md
 - knowledge/workflow/decision-workflow.md
+- markdown-inventory.md
 - README.md
 - simulator/README.md

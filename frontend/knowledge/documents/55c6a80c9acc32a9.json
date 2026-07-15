@@ -3,13 +3,17 @@
   "title": "Capability Matrix",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/capability-matrix.md",
-  "sourceHash": "a088d3cea1f8b3ac9178158469d7a6ab9962f7b3762f3ec6e71f6499ec83979b",
+  "sourceHash": "d27c22de409efbe93e437a7c2789de748a739d7e658e02813a8dad2eb72eb093",
   "headings": [
     {
       "level": 1,
       "text": "Capability Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Governance Notes"
     }
   ],
-  "bodyMarkdown": "# Capability Matrix\n\n| Capability | User | Advisor | Admin |\n|---|:--:|:--:|:--:|\n| Financial Profile | ✓ | ✓ | ✓ |\n| Goal Planning | ✓ | ✓ | |\n| Scenario Simulation | ✓ | ✓ | |\n| Portfolio Analysis | ✓ | ✓ | |\n| Loan Analysis | ✓ | ✓ | |\n| Retirement Planning | ✓ | ✓ | |\n| Decision Recommendation | ✓ | ✓ | |\n| Reports | ✓ | ✓ | ✓ |\n| Policy Management | | | ✓ |\n| Configuration | | | ✓ |\n| Feature Flags | | | ✓ |\n| Tenant Management | | | ✓ |\n| Audit Review | | ✓ | ✓ |\n",
+  "bodyMarkdown": "# Capability Matrix\n\nThe capability matrix identifies which user roles can access major Atlas Enterprise functional areas. It is a planning artifact for authorization, navigation, reporting, and future multi-role expansion.\n\n| Capability | User | Advisor | Admin |\n| --- | :---: | :---: | :---: |\n| Financial Profile | Yes | Yes | Yes |\n| Goal Planning | Yes | Yes | No |\n| Scenario Simulation | Yes | Yes | No |\n| Portfolio Analysis | Yes | Yes | No |\n| Loan Analysis | Yes | Yes | No |\n| Retirement Planning | Yes | Yes | No |\n| Decision Recommendation | Yes | Yes | No |\n| Reports | Yes | Yes | Yes |\n| Policy Management | No | No | Yes |\n| Configuration | No | No | Yes |\n| Feature Flags | No | No | Yes |\n| Tenant Management | No | No | Yes |\n| Audit Review | No | Yes | Yes |\n\n## Governance Notes\n\n- The User role owns personal financial inputs, scenarios, goals, and decisions.\n- The Advisor role may review and explain decisions but should not silently change user-owned assumptions.\n- The Admin role manages system policies, configuration, feature flags, tenancy, and audit access.\n- Any runtime permission model should preserve audit records for privileged actions.\n",
   "references": []
 }
