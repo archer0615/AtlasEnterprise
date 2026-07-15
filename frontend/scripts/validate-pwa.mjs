@@ -7,6 +7,7 @@ const requiredFiles = [
   "index.html",
   "manifest.webmanifest",
   "sw.js",
+  "sw-version.js",
   "src/main.js",
   "src/styles.css",
   "knowledge/index.json",
@@ -39,6 +40,10 @@ if (!Array.isArray(manifest.icons) || manifest.icons.length === 0) {
 }
 
 const serviceWorker = await readFile(path.join(frontendRoot, "sw.js"), "utf8");
+const serviceWorkerVersion = await readFile(path.join(frontendRoot, "sw-version.js"), "utf8");
+if (!serviceWorker.includes('importScripts("/sw-version.js")')) {
+  throw new Error("service worker must import sw-version.js");
+}
 for (const file of requiredFiles.filter((item) => item !== "sw.js")) {
   const url = `/${file.replaceAll("\\", "/")}`;
   if (!serviceWorker.includes(url)) {
@@ -54,6 +59,12 @@ if (!Array.isArray(knowledgeIndex.documents) || knowledgeIndex.documents.length 
 const searchIndex = JSON.parse(await readFile(path.join(frontendRoot, "knowledge", "search-index.json"), "utf8"));
 const documentAssets = JSON.parse(await readFile(path.join(frontendRoot, "knowledge", "document-assets.json"), "utf8"));
 const documentFiles = (await readdir(path.join(frontendRoot, "knowledge", "documents"))).filter((file) => file.endsWith(".json"));
+if (!knowledgeIndex.buildId || searchIndex.buildId !== knowledgeIndex.buildId || documentAssets.buildId !== knowledgeIndex.buildId) {
+  throw new Error("generated knowledge files must share the same buildId");
+}
+if (!serviceWorkerVersion.includes(`atlas-knowledge-${knowledgeIndex.buildId}`)) {
+  throw new Error("service worker cache version must match knowledge buildId");
+}
 if (!Array.isArray(searchIndex.documents) || searchIndex.documents.length !== knowledgeIndex.documents.length) {
   throw new Error("search index document count must match knowledge index");
 }

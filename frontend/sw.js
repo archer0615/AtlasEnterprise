@@ -1,8 +1,11 @@
-const CACHE_NAME = "atlas-knowledge-v1";
+importScripts("/sw-version.js");
+
+const CACHE_NAME = self.ATLAS_CACHE_NAME || "atlas-knowledge-dev";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/manifest.webmanifest",
+  "/sw-version.js",
   "/src/main.js",
   "/src/styles.css",
   "/knowledge/index.json",

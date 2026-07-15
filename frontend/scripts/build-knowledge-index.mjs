@@ -4,7 +4,8 @@ import path from "node:path";
 
 const root = process.cwd();
 const knowledgeRoot = path.join(root, "knowledge");
-const outputRoot = path.join(root, "frontend", "knowledge");
+const frontendRoot = path.join(root, "frontend");
+const outputRoot = path.join(frontendRoot, "knowledge");
 const documentsRoot = path.join(outputRoot, "documents");
 
 async function listMarkdownFiles(dir) {
@@ -109,9 +110,14 @@ for (const file of files) {
 
 documents.sort((a, b) => a.path.localeCompare(b.path));
 const categories = [...new Set(documents.map((doc) => doc.category))].sort();
+const buildId = createHash("sha256")
+  .update(JSON.stringify(documents.map((doc) => [doc.id, doc.sourceHash])))
+  .digest("hex")
+  .slice(0, 12);
 
 await writeFile(path.join(outputRoot, "index.json"), JSON.stringify({
   generatedAt: new Date().toISOString(),
+  buildId,
   source: "knowledge/",
   strategy: "BUILD_COPY_FROM_KNOWLEDGE",
   categories,
@@ -120,12 +126,20 @@ await writeFile(path.join(outputRoot, "index.json"), JSON.stringify({
 
 await writeFile(path.join(outputRoot, "search-index.json"), JSON.stringify({
   generatedAt: new Date().toISOString(),
+  buildId,
   documents: searchIndex,
 }, null, 2), "utf8");
 
 await writeFile(path.join(outputRoot, "document-assets.json"), JSON.stringify({
   generatedAt: new Date().toISOString(),
+  buildId,
   documents: documentAssets.sort(),
 }, null, 2), "utf8");
+
+await writeFile(
+  path.join(frontendRoot, "sw-version.js"),
+  `self.ATLAS_CACHE_NAME = "atlas-knowledge-${buildId}";\n`,
+  "utf8"
+);
 
 console.log(`Generated ${documents.length} knowledge documents.`);
