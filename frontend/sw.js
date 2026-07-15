@@ -7,11 +7,19 @@ const APP_SHELL = [
   "/src/styles.css",
   "/knowledge/index.json",
   "/knowledge/search-index.json",
+  "/knowledge/document-assets.json",
   "/icons/atlas-icon.svg"
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(async (cache) => {
+      await cache.addAll(APP_SHELL);
+      const response = await fetch("/knowledge/document-assets.json");
+      const assets = await response.json();
+      await cache.addAll(assets.documents || []);
+    })
+  );
   self.skipWaiting();
 });
 
@@ -39,7 +47,7 @@ self.addEventListener("fetch", (event) => {
         const copy = response.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
         return response;
-      });
+      }).catch(() => caches.match("/index.html"));
     })
   );
 });

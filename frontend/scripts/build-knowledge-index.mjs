@@ -61,6 +61,7 @@ await mkdir(documentsRoot, { recursive: true });
 const files = await listMarkdownFiles(knowledgeRoot);
 const documents = [];
 const searchIndex = [];
+const documentAssets = [];
 
 for (const file of files) {
   const markdown = await readFile(file, "utf8");
@@ -101,6 +102,7 @@ for (const file of files) {
     keywords,
     terms: keywords.join(" "),
   });
+  documentAssets.push(`/knowledge/documents/${id}.json`);
 
   await writeFile(path.join(documentsRoot, `${id}.json`), JSON.stringify(payload, null, 2), "utf8");
 }
@@ -119,6 +121,11 @@ await writeFile(path.join(outputRoot, "index.json"), JSON.stringify({
 await writeFile(path.join(outputRoot, "search-index.json"), JSON.stringify({
   generatedAt: new Date().toISOString(),
   documents: searchIndex,
+}, null, 2), "utf8");
+
+await writeFile(path.join(outputRoot, "document-assets.json"), JSON.stringify({
+  generatedAt: new Date().toISOString(),
+  documents: documentAssets.sort(),
 }, null, 2), "utf8");
 
 console.log(`Generated ${documents.length} knowledge documents.`);

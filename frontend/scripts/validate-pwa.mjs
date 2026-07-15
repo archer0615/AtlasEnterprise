@@ -11,6 +11,7 @@ const requiredFiles = [
   "src/styles.css",
   "knowledge/index.json",
   "knowledge/search-index.json",
+  "knowledge/document-assets.json",
   "icons/atlas-icon.svg",
 ];
 
@@ -51,6 +52,7 @@ if (!Array.isArray(knowledgeIndex.documents) || knowledgeIndex.documents.length 
 }
 
 const searchIndex = JSON.parse(await readFile(path.join(frontendRoot, "knowledge", "search-index.json"), "utf8"));
+const documentAssets = JSON.parse(await readFile(path.join(frontendRoot, "knowledge", "document-assets.json"), "utf8"));
 const documentFiles = (await readdir(path.join(frontendRoot, "knowledge", "documents"))).filter((file) => file.endsWith(".json"));
 if (!Array.isArray(searchIndex.documents) || searchIndex.documents.length !== knowledgeIndex.documents.length) {
   throw new Error("search index document count must match knowledge index");
@@ -58,9 +60,15 @@ if (!Array.isArray(searchIndex.documents) || searchIndex.documents.length !== kn
 if (documentFiles.length !== knowledgeIndex.documents.length) {
   throw new Error("generated document file count must match knowledge index");
 }
+if (!Array.isArray(documentAssets.documents) || documentAssets.documents.length !== knowledgeIndex.documents.length) {
+  throw new Error("document asset count must match knowledge index");
+}
 for (const doc of knowledgeIndex.documents) {
   if (!documentFiles.includes(`${doc.id}.json`)) {
     throw new Error(`generated document is missing ${doc.id}.json`);
+  }
+  if (!documentAssets.documents.includes(`/knowledge/documents/${doc.id}.json`)) {
+    throw new Error(`document asset list is missing ${doc.id}.json`);
   }
 }
 
