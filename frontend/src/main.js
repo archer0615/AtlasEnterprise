@@ -204,5 +204,5 @@ if ("serviceWorker" in navigator) {
 
 loadIndex().catch((error) => {
   statusText.textContent = "Index missing";
-  documentViewer.innerHTML = `<p class="empty-state">${error.message}</p>`;
+  documentViewer.innerHTML = `<p class="empty-state">${escapeHtml(error.message)}</p>`;
 });
