@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T13:57:25.711Z",
+  "generatedAt": "2026-07-15T13:59:57.703Z",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -333,16 +333,16 @@
       "title": "User Entity Specification (Part 2)",
       "category": "entity",
       "path": "knowledge/entity/User_p2.md",
-      "sourceHash": "b5f0af2c578b489fb33232b0596bd6a43be1489b4e3cbc70085de4bb11056cf3",
-      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+      "sourceHash": "a74b7a83767edc3dcd0cc0937a9d2d7e56b497e92a2cb75b3e49c42aecc7f50e",
+      "summary": "# User Entity Specification (Part 2) > **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapp"
     },
     {
       "id": "60e94ebf27fc0bd2",
       "title": "User Entity Specification (Part 3)",
       "category": "entity",
       "path": "knowledge/entity/User_p3.md",
-      "sourceHash": "b5255d0902bdde61b0ae54dcba0b474b38b7e405679a29143bdfbbfde66bc89a",
-      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+      "sourceHash": "49b7474775b36de461da8b79973db74ce5362a00e9452c1c57861ab1bd668e0b",
+      "summary": "# User Entity Specification (Part 3) > **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapp"
     },
     {
       "id": "97487245259fae2f",
@@ -389,8 +389,8 @@
       "title": "backup-recovery-framework.md",
       "category": "framework",
       "path": "knowledge/framework/backup-recovery-framework.md",
-      "sourceHash": "c8af770bcc7b04dcd995c592fb99bf9797384fef48670442a075a8fa1ce75cb0",
-      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+      "sourceHash": "d7e214b4e7501c629166994c4819db7eeb4c09ce41c21faab5929a3262be6a92",
+      "summary": "# backup-recovery-framework.md > **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. A"
     },
     {
       "id": "d78c68e7b334ad33",
@@ -666,11 +666,11 @@
     },
     {
       "id": "3f8c51f02351390b",
-      "title": "Project Atlas — Scenario Framework",
+      "title": "Project Atlas Scenario Framework",
       "category": "framework",
       "path": "knowledge/framework/scenario-framework.md",
-      "sourceHash": "7af33e715d5b2ed20d81cb2e4a4d897adad61852aa852c384e9894592a463c71",
-      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+      "sourceHash": "1593d74a0ca94cee012772bb80231c8d548756e1dd269fd18779e93251efab6a",
+      "summary": "# Project Atlas Scenario Framework > **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mappin"
     },
     {
       "id": "fc274e6a6d1e5768",
@@ -978,11 +978,11 @@
     },
     {
       "id": "59c5a7fd55bbb374",
-      "title": "knowledge/financial-health-score.md",
+      "title": "Financial Health Score",
       "category": "supporting",
       "path": "knowledge/supporting/financial-health-score.md",
-      "sourceHash": "985852ada3342a0575d20a222703a30ef02e62250694ead2221cc8d49c55d9ba",
-      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+      "sourceHash": "54eb0b4f5c998018da95c0bb07adc517a42bc41d86a85f8e545e0c682cfde34e",
+      "summary": "# Financial Health Score > **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v"
     },
     {
       "id": "0e83dc79d191c611",
