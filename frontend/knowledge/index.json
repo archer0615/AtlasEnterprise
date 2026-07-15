@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T14:34:52.267Z",
-  "buildId": "2631d0e48850",
+  "generatedAt": "2026-07-15T14:43:40.000Z",
+  "buildId": "0eeec960bcec",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -142,8 +142,248 @@
       "title": "Service Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/service-catalog.md",
-      "sourceHash": "571f014b3cee8370c68f4a813f1451c43ab659fe3f80019fa89630ed1e3a5013",
+      "sourceHash": "b0c4d1ffabec729e91011e1eb66af65bcb80dc1d455a0070c011bd18f5eeb16b",
       "summary": "# Service Catalog # Document Control Document Name: Service Catalog Document Path: knowledge/service-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Platform"
+    },
+    {
+      "id": "bc7e152a5a1d16f1",
+      "title": "Service - AdministrationApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/administration-application-service.md",
+      "sourceHash": "be052a5082df9025d2d5e4dcf40b3e9a690417759c4f76b2ec443f3a1ca52ad2",
+      "summary": "# Service - AdministrationApplicationService # Document Control Document Name: Service - AdministrationApplicationService Document Path: knowledge/catalog/services/administration-application-service.md Document Type: Atlas Enterprise Serv"
+    },
+    {
+      "id": "ec76d913b5a6c9fd",
+      "title": "Service - AllocationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/allocation-service.md",
+      "sourceHash": "61956ffea993fdbbf387d162cf57c182490ce8d2b97c74e6a8f2046a4bb86657",
+      "summary": "# Service - AllocationService # Document Control Document Name: Service - AllocationService Document Path: knowledge/catalog/services/allocation-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowle"
+    },
+    {
+      "id": "a112c97693c464ca",
+      "title": "Service - AuditService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/audit-service.md",
+      "sourceHash": "24aa2a11862c93fabf75474812322f641c86bfe9023e1a44cb066feee6d4dc7f",
+      "summary": "# Service - AuditService # Document Control Document Name: Service - AuditService Document Path: knowledge/catalog/services/audit-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/catalog/ser"
+    },
+    {
+      "id": "e87e00b45268ceea",
+      "title": "Service - BackupService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/backup-service.md",
+      "sourceHash": "b7a741bb2ab1b2921d281089bb2751f14353ff9f1fe9fa22068ef6130a4f2101",
+      "summary": "# Service - BackupService # Document Control Document Name: Service - BackupService Document Path: knowledge/catalog/services/backup-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/catalog/"
+    },
+    {
+      "id": "dd3c40740d782bf7",
+      "title": "Service - BlueprintApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/blueprint-application-service.md",
+      "sourceHash": "65aef6b27c5240e9acdad506f4950c33e2a4dbb10afadd8a4d268c82a83d2c2c",
+      "summary": "# Service - BlueprintApplicationService # Document Control Document Name: Service - BlueprintApplicationService Document Path: knowledge/catalog/services/blueprint-application-service.md Document Type: Atlas Enterprise Service Specificati"
+    },
+    {
+      "id": "1b7e51fcedab99bd",
+      "title": "Service - CacheService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/cache-service.md",
+      "sourceHash": "078a69ca6a7198579b16fee525eb0d46c1cb06d7c6caa5499e891f4d4e922aeb",
+      "summary": "# Service - CacheService # Document Control Document Name: Service - CacheService Document Path: knowledge/catalog/services/cache-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/catalog/ser"
+    },
+    {
+      "id": "70238532bf447edf",
+      "title": "Service - CashFlowService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/cash-flow-service.md",
+      "sourceHash": "e71e74632086f0a93e9b1f878bc3ed5a3ab61600fe6e435702f068cf759aa0ce",
+      "summary": "# Service - CashFlowService # Document Control Document Name: Service - CashFlowService Document Path: knowledge/catalog/services/cash-flow-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/c"
+    },
+    {
+      "id": "ad9518b624d9c045",
+      "title": "Service - DashboardApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/dashboard-application-service.md",
+      "sourceHash": "528e8a421e197c19a84f5572c9b22db6dca57a18de94f908d4df04d3dc1d729c",
+      "summary": "# Service - DashboardApplicationService # Document Control Document Name: Service - DashboardApplicationService Document Path: knowledge/catalog/services/dashboard-application-service.md Document Type: Atlas Enterprise Service Specificati"
+    },
+    {
+      "id": "a3fd60fbc5ebf16a",
+      "title": "Service - DecisionApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/decision-application-service.md",
+      "sourceHash": "f49f09849ad709d51504e50c0a23a30f2cda77009c1840fb57f5c401df512126",
+      "summary": "# Service - DecisionApplicationService # Document Control Document Name: Service - DecisionApplicationService Document Path: knowledge/catalog/services/decision-application-service.md Document Type: Atlas Enterprise Service Specification"
+    },
+    {
+      "id": "1a957df0951e6026",
+      "title": "Service - DecisionService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/decision-service.md",
+      "sourceHash": "da86a6233452bd2328b084cfbe1dfd1c06190b335578ceec19dd7091a0e0b0ce",
+      "summary": "# Service - DecisionService # Document Control Document Name: Service - DecisionService Document Path: knowledge/catalog/services/decision-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/ca"
+    },
+    {
+      "id": "7c2155971532dbb8",
+      "title": "Service - EmailService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/email-service.md",
+      "sourceHash": "7ec4dc792a4353d7bdc976f1045ef04fff61b3064d98064b8911d4deaf998219",
+      "summary": "# Service - EmailService # Document Control Document Name: Service - EmailService Document Path: knowledge/catalog/services/email-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/catalog/ser"
+    },
+    {
+      "id": "5f21354f9f371010",
+      "title": "Service - ExplainabilityService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/explainability-service.md",
+      "sourceHash": "a9557bb9d2451f1f1d160ae115ad2c278aae1ad175470a541f4ab1065128a9e4",
+      "summary": "# Service - ExplainabilityService # Document Control Document Name: Service - ExplainabilityService Document Path: knowledge/catalog/services/explainability-service.md Document Type: Atlas Enterprise Service Specification Parent Specifica"
+    },
+    {
+      "id": "209d33b6ffb0c57f",
+      "title": "Service - ExternalApiService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/external-api-service.md",
+      "sourceHash": "93229f57d4e403e10e6e4f2f5a52f84403c7822d3119d97fa04adbdce33dd4ef",
+      "summary": "# Service - ExternalApiService # Document Control Document Name: Service - ExternalApiService Document Path: knowledge/catalog/services/external-api-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: kn"
+    },
+    {
+      "id": "d78cc9b8dd329e35",
+      "title": "Service - FileStorageService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/file-storage-service.md",
+      "sourceHash": "bad7efc19d5f31ab8e00afec2f01a9d4b4d0d72e45e3df7ba34840facb9e33ef",
+      "summary": "# Service - FileStorageService # Document Control Document Name: Service - FileStorageService Document Path: knowledge/catalog/services/file-storage-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: kn"
+    },
+    {
+      "id": "d3ed8db84bf2e0af",
+      "title": "Service - GoalApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/goal-application-service.md",
+      "sourceHash": "1cfd188c129feeb66719aa31f73ab545c6fc85de7497ef18b446c51da12b7be5",
+      "summary": "# Service - GoalApplicationService # Document Control Document Name: Service - GoalApplicationService Document Path: knowledge/catalog/services/goal-application-service.md Document Type: Atlas Enterprise Service Specification Parent Speci"
+    },
+    {
+      "id": "486c9a9842a703b9",
+      "title": "Service - IPSApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/ips-application-service.md",
+      "sourceHash": "4c96cc93f6618e60bb74eaf8f930e13d1c8b25097f34eb7b2f7e953668faebd1",
+      "summary": "# Service - IPSApplicationService # Document Control Document Name: Service - IPSApplicationService Document Path: knowledge/catalog/services/ips-application-service.md Document Type: Atlas Enterprise Service Specification Parent Specific"
+    },
+    {
+      "id": "28c3c22fe7348d37",
+      "title": "Service - LoanApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/loan-application-service.md",
+      "sourceHash": "1d3b546b3bf6998c4ed5727db78e6cfa97823e47b27ef78c778918020b41f6c6",
+      "summary": "# Service - LoanApplicationService # Document Control Document Name: Service - LoanApplicationService Document Path: knowledge/catalog/services/loan-application-service.md Document Type: Atlas Enterprise Service Specification Parent Speci"
+    },
+    {
+      "id": "989398af0a863f20",
+      "title": "Service - LoanService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/loan-service.md",
+      "sourceHash": "a579f659c9df91734c7e51e5416a1ab9ee1a6c9ac7d941b1d78e886cc0d0862e",
+      "summary": "# Service - LoanService # Document Control Document Name: Service - LoanService Document Path: knowledge/catalog/services/loan-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/catalog/servic"
+    },
+    {
+      "id": "d5e200de0c22b669",
+      "title": "Service - NotificationApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/notification-application-service.md",
+      "sourceHash": "1faf5b09ba7affde0fabdff8a44b0bb1dc479209433442e6620eb041b14848cc",
+      "summary": "# Service - NotificationApplicationService # Document Control Document Name: Service - NotificationApplicationService Document Path: knowledge/catalog/services/notification-application-service.md Document Type: Atlas Enterprise Service Sp"
+    },
+    {
+      "id": "4a2356b028810800",
+      "title": "Service - NotificationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/notification-service.md",
+      "sourceHash": "a889035679102c8b79cfca956086c069549903a8490829be60b2a0b40de75455",
+      "summary": "# Service - NotificationService # Document Control Document Name: Service - NotificationService Document Path: knowledge/catalog/services/notification-service.md Document Type: Atlas Enterprise Service Specification Parent Specification:"
+    },
+    {
+      "id": "b68b9d5ebb67dda0",
+      "title": "Service - PortfolioApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/portfolio-application-service.md",
+      "sourceHash": "2c7845becace99f949a8ae19719b80461819f7186ae471447302b90fe00216f2",
+      "summary": "# Service - PortfolioApplicationService # Document Control Document Name: Service - PortfolioApplicationService Document Path: knowledge/catalog/services/portfolio-application-service.md Document Type: Atlas Enterprise Service Specificati"
+    },
+    {
+      "id": "de26b523b7c75d5f",
+      "title": "Service - PortfolioService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/portfolio-service.md",
+      "sourceHash": "5a71f9468692b04589d3a8748e10696ffae8455f4845766488635685ebf17a2b",
+      "summary": "# Service - PortfolioService # Document Control Document Name: Service - PortfolioService Document Path: knowledge/catalog/services/portfolio-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge"
+    },
+    {
+      "id": "9393e8c68e4c5fa3",
+      "title": "Service - ReportApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/report-application-service.md",
+      "sourceHash": "6d65fcb8b93c364518cf2ccf114034fa67734071eec16efbfce01d82a6786a39",
+      "summary": "# Service - ReportApplicationService # Document Control Document Name: Service - ReportApplicationService Document Path: knowledge/catalog/services/report-application-service.md Document Type: Atlas Enterprise Service Specification Parent"
+    },
+    {
+      "id": "fa7cca4cc6f5866c",
+      "title": "Service - RetirementService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/retirement-service.md",
+      "sourceHash": "c52dba5bae4449afe52b5f2efd438444b5dc2fe59b6234aaafff7a58369d9396",
+      "summary": "# Service - RetirementService # Document Control Document Name: Service - RetirementService Document Path: knowledge/catalog/services/retirement-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowle"
+    },
+    {
+      "id": "9e1a63ac2f6d3cce",
+      "title": "Service - RiskService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/risk-service.md",
+      "sourceHash": "8a33f0053496f6fe99b0dde4b3ff139c74e7b5336e09de8a46de491d7afa4665",
+      "summary": "# Service - RiskService # Document Control Document Name: Service - RiskService Document Path: knowledge/catalog/services/risk-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/catalog/servic"
+    },
+    {
+      "id": "518e21e747a52a4c",
+      "title": "Service - ScenarioApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/scenario-application-service.md",
+      "sourceHash": "481fcc8935f0190dfe1dae7a5f749591a0f17c17bc3e560c4bbb74ddbd2e0c6e",
+      "summary": "# Service - ScenarioApplicationService # Document Control Document Name: Service - ScenarioApplicationService Document Path: knowledge/catalog/services/scenario-application-service.md Document Type: Atlas Enterprise Service Specification"
+    },
+    {
+      "id": "895c191ef3eea6e7",
+      "title": "Service - ScenarioService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/scenario-service.md",
+      "sourceHash": "4d52c80b00e338b93090df2ece7f3da23697897a9f4a8188dede0a297bf5cbed",
+      "summary": "# Service - ScenarioService # Document Control Document Name: Service - ScenarioService Document Path: knowledge/catalog/services/scenario-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/ca"
+    },
+    {
+      "id": "34baa69e32964ad6",
+      "title": "Service - SchedulerService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/scheduler-service.md",
+      "sourceHash": "ebed06e7f5513e5906204da58aee845bcd90503f0b61a2809fb096c6bc8f1d24",
+      "summary": "# Service - SchedulerService # Document Control Document Name: Service - SchedulerService Document Path: knowledge/catalog/services/scheduler-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge"
+    },
+    {
+      "id": "f2601e75ecfd3023",
+      "title": "Service - ScoringService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/scoring-service.md",
+      "sourceHash": "496bc17014f2908428371faefd98bcfbbbd0bda5cac480f361b46ace39ab706e",
+      "summary": "# Service - ScoringService # Document Control Document Name: Service - ScoringService Document Path: knowledge/catalog/services/scoring-service.md Document Type: Atlas Enterprise Service Specification Parent Specification: knowledge/catal"
+    },
+    {
+      "id": "9416d84b7a8354eb",
+      "title": "Service - UserApplicationService",
+      "category": "catalog",
+      "path": "knowledge/catalog/services/user-application-service.md",
+      "sourceHash": "9cfd45c687bb47d17c4ea5450d0bb4f64a92eaf52bbccb50a03d82f6f1ed8f7a",
+      "summary": "# Service - UserApplicationService # Document Control Document Name: Service - UserApplicationService Document Path: knowledge/catalog/services/user-application-service.md Document Type: Atlas Enterprise Service Specification Parent Speci"
     },
     {
       "id": "6bbb72e5b5127cc5",
