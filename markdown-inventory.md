@@ -2,7 +2,7 @@
 
 Generated: 2026-07-15
 
-Total markdown files: 233
+Total markdown files: 234
 
 - .codex/architecture.md
 - .codex/architecture-pwa.md
@@ -67,6 +67,7 @@ Total markdown files: 233
 - docs/pwa/UpdateStrategy.md
 - docs/roadmap/20-Roadmap.md
 - docs/roadmap/document-governance-report-2026-07-15.md
+- docs/roadmap/document-link-enrichment-plan.md
 - docs/roadmap/entity-filename-normalization-plan.md
 - docs/roadmap/large-document-split-plan-batch-1.md
 - docs/specification/00-Specification-Index.md
