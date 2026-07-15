@@ -68,7 +68,7 @@ function renderList() {
     return inCategory && matchesQuery;
   }).sort((a, b) => b.score - a.score || a.path.localeCompare(b.path));
 
-  pageTitle.textContent = state.selectedCategory === "all" ? "Knowledge Index" : state.selectedCategory;
+  pageTitle.textContent = state.selectedCategory === "all" ? "LifeOS Knowledge Base" : state.selectedCategory;
   resultCount.textContent = `${docs.length} results`;
   documentList.innerHTML = docs.map((doc) => `
     <button class="document-card ${doc.id === state.selectedDocumentId ? "active" : ""}" type="button" data-id="${doc.id}">
