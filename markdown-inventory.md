@@ -2,7 +2,7 @@
 
 Generated: 2026-07-15
 
-Total markdown files: 234
+Total markdown files: 231
 
 - .codex/architecture.md
 - .codex/architecture-pwa.md
@@ -118,9 +118,6 @@ Total markdown files: 234
 - knowledge/entity/Recommendation.md
 - knowledge/entity/Scenario.md
 - knowledge/entity/User.md
-- knowledge/entity/User_p1.md
-- knowledge/entity/User_p2.md
-- knowledge/entity/User_p3.md
 - knowledge/framework/action-planning-framework.md
 - knowledge/framework/asset-allocation-framework.md
 - knowledge/framework/automation-framework.md

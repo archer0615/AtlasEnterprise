@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T13:59:57.703Z",
+  "generatedAt": "2026-07-15T14:02:09.263Z",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -319,30 +319,6 @@
       "path": "knowledge/entity/Scenario.md",
       "sourceHash": "13bb8d188255db10b0396f7d507f71aeabed9579c1a718e0131de5bb30f43677",
       "summary": "# Scenario Entity Specification # Document Control Document Name: Scenario Entity Specification Document Path: knowledge/entity/Scenario.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specificati"
-    },
-    {
-      "id": "643940531cebdd46",
-      "title": "User Entity Specification (Part 1)",
-      "category": "entity",
-      "path": "knowledge/entity/User_p1.md",
-      "sourceHash": "1f5110a32c8a704d0a8f7fa5e4370d2d60cb88ac1abdf197f14a5325d06b3a86",
-      "summary": "# User Entity Specification (Part 1) # Entity Overview ## Purpose The User entity represents an individual who owns financial data, goals, assets, liabilities, scenarios, and decisions within Atlas. ## Responsibilities - Identity"
-    },
-    {
-      "id": "b6395022cc837121",
-      "title": "User Entity Specification (Part 2)",
-      "category": "entity",
-      "path": "knowledge/entity/User_p2.md",
-      "sourceHash": "a74b7a83767edc3dcd0cc0937a9d2d7e56b497e92a2cb75b3e49c42aecc7f50e",
-      "summary": "# User Entity Specification (Part 2) > **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapp"
-    },
-    {
-      "id": "60e94ebf27fc0bd2",
-      "title": "User Entity Specification (Part 3)",
-      "category": "entity",
-      "path": "knowledge/entity/User_p3.md",
-      "sourceHash": "49b7474775b36de461da8b79973db74ce5362a00e9452c1c57861ab1bd668e0b",
-      "summary": "# User Entity Specification (Part 3) > **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapp"
     },
     {
       "id": "97487245259fae2f",
