@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local environment
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local generated/private data
+*.bak
+*.backup
+*.tmp
+*.temp
+*.local
+
+# Personal exports
+exports/
+backups/
