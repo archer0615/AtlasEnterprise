@@ -95,12 +95,17 @@ function scoreDocument(doc, tokens) {
   const searchDoc = state.searchDocuments.get(doc.id);
   const title = doc.title.toLowerCase();
   const path = doc.path.toLowerCase();
+  const category = doc.category.toLowerCase();
   const terms = searchDoc?.terms || `${doc.title} ${doc.path} ${doc.summary || ""}`.toLowerCase();
+  const headings = (searchDoc?.headings || []).join(" ").toLowerCase();
   let score = 0;
 
   for (const token of tokens) {
+    if (title === token) score += 40;
     if (title.includes(token)) score += 10;
+    if (category === token) score += 8;
     if (path.includes(token)) score += 6;
+    if (headings.includes(token)) score += 4;
     if (terms.includes(token)) score += 2;
   }
 
