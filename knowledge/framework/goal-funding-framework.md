@@ -1,5 +1,10 @@
 # Goal Funding Framework
 
+## Split Navigation
+
+- [Goal funding targets and contributions](goal-funding/targets-and-contributions.md)
+- [Goal funding prioritization and reallocation](goal-funding/prioritization-and-reallocation.md)
+
 Version: 1.0
 
 ## Purpose

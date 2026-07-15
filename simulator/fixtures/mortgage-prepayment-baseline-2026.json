@@ -1,0 +1,45 @@
+{
+  "fixtureId": "mortgage-prepayment-baseline-2026",
+  "name": "Mortgage prepayment baseline",
+  "asOfDate": "2026-07-15",
+  "assumptionVersion": "taiwan-financial-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Should the household accelerate ordinary mortgage repayment in 2027?",
+  "inputs": {
+    "currency": "TWD",
+    "monthlyIncome": 180000,
+    "monthlyExpenses": 92000,
+    "cashReserve": 1200000,
+    "ordinaryMortgageBalance": 4200000,
+    "mortgageRate": 0.021,
+    "plannedPrepayment": 600000,
+    "planningHorizonMonths": 60
+  },
+  "expected": {
+    "metrics": {
+      "minimumReserveMonths": 6,
+      "postPrepaymentReserveMonths": 6.52,
+      "debtPressure": "moderate"
+    },
+    "warnings": [
+      "reserve-must-remain-above-target"
+    ],
+    "recommendation": {
+      "status": "conditional",
+      "score": 72,
+      "explanation": "Proceed only if emergency reserve remains above target after prepayment.",
+      "warningReferences": [
+        "reserve-must-remain-above-target"
+      ]
+    }
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/supporting/taiwan-mortgage.md",
+    "docs/specification/08B-CashFlowEngine-Formula.md",
+    "knowledge/framework/cash-reserve-framework.md"
+  ]
+}

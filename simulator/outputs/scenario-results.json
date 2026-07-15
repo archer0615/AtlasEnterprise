@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-07-15T15:39:43.581Z",
+  "mode": "fixture-runtime-scaffold",
+  "results": [
+    {
+      "fixtureId": "home-upgrade-2031-baseline",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "defer",
+      "score": 61,
+      "warningCount": 1,
+      "metrics": {
+        "transactionCostEstimate": 910000
+      },
+      "generatedFrom": "fixture-runtime-formula"
+    },
+    {
+      "fixtureId": "investment-drawdown-stress",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "market-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "monitor",
+      "score": 71,
+      "warningCount": 1,
+      "metrics": {
+        "stressedPortfolioValue": 5304000,
+        "reserveMonths": 13.04
+      },
+      "generatedFrom": "fixture-runtime-formula"
+    },
+    {
+      "fixtureId": "loan-refinancing-rate-shock",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "conditional",
+      "score": 66,
+      "warningCount": 2,
+      "metrics": {},
+      "generatedFrom": "fixture-expected-output"
+    },
+    {
+      "fixtureId": "mortgage-prepayment-baseline-2026",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "conditional",
+      "score": 72,
+      "warningCount": 1,
+      "metrics": {
+        "postPrepaymentReserveMonths": 6.52
+      },
+      "generatedFrom": "fixture-runtime-formula"
+    },
+    {
+      "fixtureId": "retirement-readiness-stress",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "market-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "monitor",
+      "score": 69,
+      "warningCount": 1,
+      "metrics": {},
+      "generatedFrom": "fixture-expected-output"
+    }
+  ]
+}

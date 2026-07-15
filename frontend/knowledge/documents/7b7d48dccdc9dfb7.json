@@ -1,0 +1,35 @@
+{
+  "id": "7b7d48dccdc9dfb7",
+  "title": "Loan Identity and Repayment",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/loan/identity-and-repayment.md",
+  "sourceHash": "3589dc62ec51973e4ef4538ac7fed70d9b627f8159c7cd3fc48c2984b569f56d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Loan Identity and Repayment"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Identity Rules"
+    },
+    {
+      "level": 2,
+      "text": "Repayment Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Loan Identity and Repayment\n\n## Purpose\n\nThis split document prepares the Loan entity for focused review by isolating identity and repayment behavior.\n\n## Source\n\n- Parent specification: [Loan Entity Specification](../Loan.md)\n\n## Identity Rules\n\n- Loan identity must remain stable across repayment, refinancing, and reporting workflows.\n- Loan ownership must remain scoped to Household context.\n- Mortgage-specific behavior should link to Mortgage where it is separately modeled.\n\n## Repayment Rules\n\n- Scheduled repayment, prepayment, and payoff scenarios must remain deterministic.\n- Repayment decisions should reference loan decision rules and cash-flow formulas.\n- Early repayment analysis must preserve emergency reserve constraints.\n\n## Related References\n\n- [Loan Entity Specification](../Loan.md)\n- [Mortgage Entity](../Mortgage.md)\n- [Loan Supporting Document](../../supporting/loan.md)\n- [Loan Decision Rule Catalog](../../rule/loan-decision-rule-catalog.md)\n",
+  "references": []
+}

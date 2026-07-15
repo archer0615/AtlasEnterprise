@@ -21,3 +21,12 @@ The simulator directory is reserved for scenario, projection, stress-test, and d
 - `knowledge/engine/simulation-engine-framework.md`
 - `knowledge/supporting/market-assumptions.md`
 - `knowledge/supporting/taiwan-financial-assumptions.md`
+
+## Fixture Design
+
+- [Scenario simulator fixture design](fixtures/scenario-fixture-design.md)
+- [Mortgage prepayment baseline fixture](fixtures/mortgage-prepayment-baseline-2026.json)
+- [Home upgrade 2031 baseline fixture](fixtures/home-upgrade-2031-baseline.json)
+- [Retirement readiness stress fixture](fixtures/retirement-readiness-stress.json)
+- [Loan refinancing rate shock fixture](fixtures/loan-refinancing-rate-shock.json)
+- [Investment drawdown stress fixture](fixtures/investment-drawdown-stress.json)

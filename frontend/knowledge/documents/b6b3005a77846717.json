@@ -1,0 +1,35 @@
+{
+  "id": "b6b3005a77846717",
+  "title": "Loan API and Audit",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/loan/api-and-audit.md",
+  "sourceHash": "cf3a922c6ad4ca07c2c4dacee96cb8be24f3a7c5d716d3577b58c7a2e75e32c9",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Loan API and Audit"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "API Rules"
+    },
+    {
+      "level": 2,
+      "text": "Permission and Audit Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Loan API and Audit\n\n## Purpose\n\nThis split document isolates Loan API, permission, and audit concerns from the larger Loan entity specification.\n\n## Source\n\n- Parent specification: [Loan Entity Specification](../Loan.md)\n\n## API Rules\n\n- Loan API behavior must preserve Loan aggregate ownership.\n- Loan request and response DTOs are implementation details and are not entities.\n- Cash-flow engine endpoints must remain governed by the cash-flow API specification.\n- Loan commands should route through LoanApplicationService.\n\n## Permission and Audit Rules\n\n- Loan read and mutation operations must enforce household scope.\n- Loan repayment and refinancing decisions must produce auditable explanations.\n- Audit records must preserve command, actor, timestamp, and decision context.\n- Unsupported API fields must be rejected rather than silently ignored.\n\n## Related References\n\n- [Loan Entity Specification](../Loan.md)\n- [API Governance Framework](../../api/api-governance-framework.md)\n- [Permission Framework](../../security/permission-framework.md)\n- [Audit Framework](../../security/audit-framework.md)\n",
+  "references": []
+}

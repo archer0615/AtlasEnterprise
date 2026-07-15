@@ -1,5 +1,10 @@
 # Risk Budget Framework
 
+## Split Navigation
+
+- [Risk budget allocation and limits](risk-budget/allocation-and-limits.md)
+- [Risk budget breach and reporting](risk-budget/breach-and-reporting.md)
+
 Version: 1.0
 
 ## Purpose

@@ -1,0 +1,35 @@
+export const dashboardStorage = {
+  version: 1,
+  snapshotIdKey: "atlas.dashboard.snapshotId",
+  legacySnapshotIdKeys: ["atlas.dashboard.selectedScenario"],
+};
+
+export const fallbackDashboardSnapshot = {
+  snapshotId: "fallback-dashboard",
+  label: "房貸提前還款",
+  asOfDate: "2026-07-15",
+  metrics: [
+    { label: "現金流安全", value: "88K", detail: "每月自由現金流 TWD" },
+    { label: "緊急預備金", value: "6.5 月", detail: "高於最低 6 個月" },
+    { label: "房貸壓力", value: "中", detail: "提前還款需保留流動性" },
+    { label: "決策分數", value: "72", detail: "有條件執行" },
+  ],
+  scenarios: [
+    { name: "基準", score: 72, status: "可行" },
+    { name: "提前還款", score: 68, status: "需控管現金" },
+    { name: "延後購車", score: 79, status: "較穩健" },
+  ],
+  actions: [
+    "確認 2027 房貸提前還款後預備金仍高於 6 個月",
+    "補齊 2031 換屋情境的頭期款與交易成本假設",
+    "建立退休與市場下跌壓力測試 fixture",
+  ],
+};
+
+export function normalizeDashboardCollection(payload) {
+  const snapshots = Array.isArray(payload?.snapshots) && payload.snapshots.length
+    ? payload.snapshots
+    : [fallbackDashboardSnapshot];
+  const defaultSnapshotId = payload?.defaultSnapshotId || snapshots[0].snapshotId;
+  return { snapshots, defaultSnapshotId };
+}

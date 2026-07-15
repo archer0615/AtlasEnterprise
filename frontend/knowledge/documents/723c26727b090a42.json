@@ -1,0 +1,35 @@
+{
+  "id": "723c26727b090a42",
+  "title": "Portfolio Performance Attribution and Reporting",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/portfolio-performance/attribution-and-reporting.md",
+  "sourceHash": "af3d814eaa695b5e61bbf5baf124c490a60eb468fc98893e4c0716371d3e9390",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Performance Attribution and Reporting"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Attribution Rules"
+    },
+    {
+      "level": 2,
+      "text": "Reporting Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Performance Attribution and Reporting\n\n## Purpose\n\nThis split document isolates attribution and reporting behavior from the larger Portfolio Performance Framework.\n\n## Source\n\n- Parent specification: [Portfolio Performance Framework](../portfolio-performance-framework.md)\n\n## Attribution Rules\n\n- Attribution should explain performance drivers without changing Portfolio source state.\n- Attribution should distinguish allocation, selection, cash flow, and market movement effects.\n- Attribution calculations must remain reproducible for the same input period.\n\n## Reporting Rules\n\n- Dashboard reporting may summarize performance and drawdown.\n- Reports must include benchmark, period, method, and calculation version.\n- Stress scenario reports must identify assumptions and warning references.\n\n## Related References\n\n- [Portfolio Performance Framework](../portfolio-performance-framework.md)\n- [Financial Dashboard Metrics](../../reporting/financial-dashboard-metrics.md)\n- [Risk Framework](../risk-framework.md)\n",
+  "references": []
+}

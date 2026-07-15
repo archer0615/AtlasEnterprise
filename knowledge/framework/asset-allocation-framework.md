@@ -1,5 +1,10 @@
 # Asset Allocation Framework
 
+## Split Navigation
+
+- [Asset allocation targets and constraints](asset-allocation/targets-and-constraints.md)
+- [Asset allocation drift and scenarios](asset-allocation/drift-and-scenarios.md)
+
 Version: 1.0
 
 ## Purpose

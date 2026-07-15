@@ -1,0 +1,45 @@
+{
+  "fixtureId": "home-upgrade-2031-baseline",
+  "name": "Home upgrade 2031 baseline",
+  "asOfDate": "2026-07-15",
+  "assumptionVersion": "taiwan-financial-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Is a 2031 home upgrade financially feasible?",
+  "inputs": {
+    "currency": "TWD",
+    "targetYear": 2031,
+    "currentHomeEstimatedValue": 16000000,
+    "targetHomeEstimatedValue": 26000000,
+    "availableDownPayment": 5200000,
+    "monthlyIncome": 180000,
+    "monthlyExpenses": 92000,
+    "transactionCostRate": 0.035
+  },
+  "expected": {
+    "metrics": {
+      "downPaymentGap": 900000,
+      "transactionCostEstimate": 910000,
+      "readiness": "partial"
+    },
+    "warnings": [
+      "down-payment-gap-remains"
+    ],
+    "recommendation": {
+      "status": "defer",
+      "score": 61,
+      "explanation": "Delay commitment until down payment and transaction cost assumptions are covered.",
+      "warningReferences": [
+        "down-payment-gap-remains"
+      ]
+    }
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/framework/house-decision-framework.md",
+    "knowledge/supporting/property.md",
+    "knowledge/supporting/taiwan-financial-assumptions.md"
+  ]
+}

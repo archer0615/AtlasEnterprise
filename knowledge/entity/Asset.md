@@ -1,5 +1,12 @@
 # Asset Entity Specification
 
+## Split Navigation
+
+- [Asset identity and ownership](asset/identity-and-ownership.md)
+- [Asset valuation and reporting](asset/valuation-and-reporting.md)
+- [Asset classification and risk](asset/classification-and-risk.md)
+- [Asset API and audit](asset/api-and-audit.md)
+
 # Document Control
 
 - Document Name: Asset Entity Specification

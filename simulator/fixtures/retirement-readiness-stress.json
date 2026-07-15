@@ -1,0 +1,44 @@
+{
+  "fixtureId": "retirement-readiness-stress",
+  "name": "Retirement readiness stress",
+  "asOfDate": "2026-07-15",
+  "assumptionVersion": "market-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Does retirement readiness survive lower long-term returns?",
+  "inputs": {
+    "currency": "TWD",
+    "portfolioValue": 6800000,
+    "monthlyContribution": 45000,
+    "baselineAnnualReturn": 0.05,
+    "stressAnnualReturn": 0.025,
+    "retirementYear": 2046,
+    "monthlyRetirementExpense": 90000
+  },
+  "expected": {
+    "metrics": {
+      "baselineReadiness": "on-track",
+      "stressReadiness": "watch",
+      "shortfallRisk": "medium"
+    },
+    "warnings": [
+      "return-assumption-sensitive"
+    ],
+    "recommendation": {
+      "status": "monitor",
+      "score": 69,
+      "explanation": "Keep retirement plan under monitoring because stress returns reduce readiness margin.",
+      "warningReferences": [
+        "return-assumption-sensitive"
+      ]
+    }
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/supporting/retirement.md",
+    "knowledge/supporting/market-assumptions.md",
+    "knowledge/framework/risk-framework.md"
+  ]
+}

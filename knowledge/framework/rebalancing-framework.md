@@ -1,5 +1,10 @@
 # Rebalancing Framework
 
+## Split Navigation
+
+- [Rebalancing drift and thresholds](rebalancing/drift-and-thresholds.md)
+- [Rebalancing execution and validation](rebalancing/execution-and-validation.md)
+
 Version: 1.0
 
 ## Purpose

@@ -1,0 +1,35 @@
+{
+  "id": "4dc25f8114695ce2",
+  "title": "Portfolio Holdings and Allocation",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/portfolio/holdings-and-allocation.md",
+  "sourceHash": "a0b4021b52e52272f5a3a047f9b7667bf421f6321a1b190be1214d7752742a78",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Holdings and Allocation"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Holdings Rules"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Holdings and Allocation\n\n## Purpose\n\nThis split document isolates holdings and allocation concepts from the larger Portfolio knowledge base.\n\n## Source\n\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\n\n## Holdings Rules\n\n- Holdings represent portfolio positions and must remain separate from Asset identity.\n- Holdings must preserve quantity, valuation, currency, and source snapshot where applicable.\n- Holdings are used for performance, risk, allocation, and scenario analysis.\n\n## Allocation Rules\n\n- Allocation compares current holdings with target policy.\n- Allocation outputs may feed rebalancing, recommendation, and dashboard workflows.\n- Allocation calculations must preserve assumptions and formula versions.\n\n## Related References\n\n- [Asset Entity](../../entity/Asset.md)\n- [Portfolio Entity](../../entity/Portfolio.md)\n- [Asset Allocation Framework](../../framework/asset-allocation-framework.md)\n",
+  "references": []
+}

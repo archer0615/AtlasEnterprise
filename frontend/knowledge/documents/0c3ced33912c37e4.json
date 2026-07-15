@@ -1,0 +1,35 @@
+{
+  "id": "0c3ced33912c37e4",
+  "title": "Asset Valuation and Reporting",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/asset/valuation-and-reporting.md",
+  "sourceHash": "f34704c05af87416aad952462e44f459d28f127f594d490e76c5983ca0b1e9c8",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Asset Valuation and Reporting"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Valuation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Reporting Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Asset Valuation and Reporting\n\n## Purpose\n\nThis split document isolates Asset valuation, liquidity, projection, and reporting boundaries from the larger Asset entity specification.\n\n## Source\n\n- Parent specification: [Asset Entity Specification](../Asset.md)\n\n## Valuation Rules\n\n- Asset market value is an input or snapshot, not real-time price discovery.\n- Asset valuation results are produced by calculation or valuation flow.\n- Valuation may be persisted as a snapshot or projection when needed for reporting.\n- Money values must use `Money` and `Currency` concepts instead of database-specific money types.\n\n## Reporting Rules\n\n- Asset projection and reporting are read models.\n- Read models are not Asset source of truth.\n- Asset allocation is calculated by Portfolio or AllocationService.\n- CashFlow consumption happens through catalog events and read models.\n\n## Related References\n\n- [Asset Entity Specification](../Asset.md)\n- [Portfolio Supporting Document](../../supporting/portfolio.md)\n- [Financial Formula Catalog](../../catalog/financial-formula-catalog.md)\n- [Calculation Engine Framework](../../engine/calculation-engine-framework.md)\n",
+  "references": []
+}

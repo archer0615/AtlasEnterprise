@@ -1,0 +1,35 @@
+{
+  "id": "efebb147aa17d051",
+  "title": "Rebalancing Drift and Thresholds",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/rebalancing/drift-and-thresholds.md",
+  "sourceHash": "581d33fe24401923036ed51f4dbf88f38528f02985fb640cf66c08b47bfc6472",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Rebalancing Drift and Thresholds"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Drift Rules"
+    },
+    {
+      "level": 2,
+      "text": "Threshold Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Rebalancing Drift and Thresholds\n\n## Purpose\n\nThis split document isolates drift detection and threshold rules from the larger Rebalancing Framework.\n\n## Source\n\n- Parent specification: [Rebalancing Framework](../rebalancing-framework.md)\n\n## Drift Rules\n\n- Drift detection compares current allocation with target allocation.\n- Drift should preserve asset class, portfolio, and household scope.\n- Drift calculations must remain deterministic for the same holdings and prices.\n\n## Threshold Rules\n\n- Rebalancing thresholds should prevent unnecessary trading.\n- Threshold breaches should identify asset class, target, current value, and deviation.\n- Threshold policy must account for risk, tax, and transaction cost constraints.\n\n## Related References\n\n- [Asset Allocation Framework](../asset-allocation-framework.md)\n- [Portfolio Performance Framework](../portfolio-performance-framework.md)\n- [Risk Budget Framework](../risk-budget-framework.md)\n",
+  "references": []
+}

@@ -1,0 +1,45 @@
+{
+  "fixtureId": "investment-drawdown-stress",
+  "name": "Investment drawdown stress",
+  "asOfDate": "2026-07-15",
+  "assumptionVersion": "market-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Can liquidity and goals survive a market drawdown?",
+  "inputs": {
+    "currency": "TWD",
+    "portfolioValue": 6800000,
+    "drawdownRate": 0.22,
+    "cashReserve": 1200000,
+    "monthlyExpenses": 92000,
+    "goalFundingRequirement": 5200000,
+    "planningHorizonMonths": 60
+  },
+  "expected": {
+    "metrics": {
+      "stressedPortfolioValue": 5304000,
+      "reserveMonths": 13.04,
+      "goalFundingRisk": "watch"
+    },
+    "warnings": [
+      "portfolio-drawdown-reduces-goal-margin"
+    ],
+    "recommendation": {
+      "status": "monitor",
+      "score": 71,
+      "explanation": "Liquidity survives the drawdown, but goal funding margin should remain under review.",
+      "warningReferences": [
+        "portfolio-drawdown-reduces-goal-margin"
+      ]
+    }
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/framework/risk-framework.md",
+    "knowledge/supporting/portfolio.md",
+    "knowledge/supporting/market-assumptions.md",
+    "knowledge/supporting/financial-health-score.md"
+  ]
+}

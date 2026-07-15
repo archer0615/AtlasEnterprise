@@ -1,0 +1,35 @@
+{
+  "id": "e4fd30468c9152a3",
+  "title": "Recommendation Evaluation Feedback and Learning",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-evaluation/feedback-and-learning.md",
+  "sourceHash": "8761276e81d7ecda3d3eb70f66feae859541309042bd51288c29908a019d4ffe",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Evaluation Feedback and Learning"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Feedback Rules"
+    },
+    {
+      "level": 2,
+      "text": "Learning Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Evaluation Feedback and Learning\n\n## Purpose\n\nThis split document isolates feedback and learning loop behavior from the larger Recommendation Evaluation overview.\n\n## Source\n\n- Parent specification: [Recommendation Evaluation Overview](../recommendation-evaluation.md)\n\n## Feedback Rules\n\n- Capture whether a Recommendation was accepted, deferred, rejected, or executed.\n- Preserve outcome evidence without rewriting the original Recommendation.\n- Feedback must remain auditable and permission-aware.\n- Feedback should support future score calibration.\n\n## Learning Rules\n\n- Learning outputs must not silently change domain rules.\n- Calibration should preserve assumption and formula versions.\n- Model or rule updates must be explainable and governed.\n\n## Related References\n\n- [Recommendation Evaluation Overview](../recommendation-evaluation.md)\n- [Decision Learning Framework](../../framework/decision-learning-framework.md)\n- [Audit Framework](../../security/audit-framework.md)\n",
+  "references": []
+}

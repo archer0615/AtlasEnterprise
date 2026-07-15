@@ -1,4 +1,12 @@
 # Loan Entity Specification
+
+## Split Navigation
+
+- [Loan identity and repayment](loan/identity-and-repayment.md)
+- [Loan risk and refinancing](loan/risk-and-refinancing.md)
+- [Loan API and audit](loan/api-and-audit.md)
+- [Loan scenario integration](loan/scenario-integration.md)
+
 # Document Control
 | Field | Value |
 |---|---|

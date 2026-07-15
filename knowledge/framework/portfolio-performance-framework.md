@@ -1,5 +1,10 @@
 # Portfolio Performance Framework
 
+## Split Navigation
+
+- [Portfolio performance returns and benchmarks](portfolio-performance/returns-and-benchmarks.md)
+- [Portfolio performance attribution and reporting](portfolio-performance/attribution-and-reporting.md)
+
 Version: 1.0
 
 ## Purpose

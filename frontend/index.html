@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="search-box">
-          <input id="searchInput" type="search" placeholder="搜尋規格與知識文件" autocomplete="off" />
+          <input id="searchInput" type="search" placeholder="搜尋文件、決策、情境" autocomplete="off" />
         </div>
         <nav id="categoryNav" class="category-nav" aria-label="Knowledge categories"></nav>
       </aside>
@@ -31,6 +31,27 @@
           </div>
           <div class="status" id="statusText">Loading</div>
         </header>
+        <section class="dashboard-prototype" aria-label="Decision dashboard prototype">
+          <div class="dashboard-header">
+            <div>
+              <p class="eyebrow">Decision Dashboard</p>
+              <h3>家庭決策儀表板</h3>
+            </div>
+            <span id="dashboardDate">Fixture</span>
+          </div>
+          <div class="dashboard-switcher" id="dashboardSwitcher" aria-label="Dashboard scenario switcher"></div>
+          <div class="metric-grid" id="metricGrid"></div>
+          <div class="decision-panels">
+            <div>
+              <h4>情境比較</h4>
+              <div id="scenarioList" class="scenario-list"></div>
+            </div>
+            <div>
+              <h4>下一步</h4>
+              <div id="actionList" class="action-list"></div>
+            </div>
+          </div>
+        </section>
         <section class="content-grid">
           <div>
             <div class="list-tools">
@@ -40,7 +61,7 @@
             <div class="document-list" id="documentList"></div>
           </div>
           <article class="document-viewer" id="documentViewer">
-            <p class="empty-state">目前這裡是 LifeOS 決策支援系統的規格與知識入口。正式決策儀表板、情境模擬與財務輸入會在後續階段加入。</p>
+            <p class="empty-state">選擇文件以檢視 LifeOS 決策、情境、規則與知識內容。</p>
           </article>
         </section>
       </main>

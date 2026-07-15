@@ -1,0 +1,35 @@
+{
+  "id": "d4b8fb445f74bd19",
+  "title": "Goal Funding Prioritization and Reallocation",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/goal-funding/prioritization-and-reallocation.md",
+  "sourceHash": "682f08d4981e1c5ca06cd6f75148e4b264988333d01db1b32fba2da183ae9bca",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Funding Prioritization and Reallocation"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Prioritization Rules"
+    },
+    {
+      "level": 2,
+      "text": "Reallocation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Goal Funding Prioritization and Reallocation\n\n## Purpose\n\nThis split document isolates goal funding prioritization and reallocation behavior.\n\n## Source\n\n- Parent specification: [Goal Funding Framework](../goal-funding-framework.md)\n\n## Prioritization Rules\n\n- Goal priority must preserve existing goal governance and conflict rules.\n- Funding priority should account for urgency, feasibility, and risk.\n- Priority changes must be explainable when surfaced as recommendations.\n\n## Reallocation Rules\n\n- Reallocation must preserve cashflow and reserve constraints.\n- Reallocation scenarios must compare baseline and alternative outcomes.\n- Reallocation recommendations must include warning references.\n\n## Related References\n\n- [Goal Prioritization](../../supporting/goal-prioritization.md)\n- [Goal Conflict Resolution](../../supporting/goal-conflict-resolution.md)\n- [Capital Allocation Framework](../../api/capital-allocation-framework.md)\n",
+  "references": []
+}

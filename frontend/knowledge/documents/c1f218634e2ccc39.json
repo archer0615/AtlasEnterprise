@@ -1,0 +1,35 @@
+{
+  "id": "c1f218634e2ccc39",
+  "title": "Market Assumptions Returns and Inflation",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/market-assumptions/returns-and-inflation.md",
+  "sourceHash": "6cce2d09a05c1f1be14f1a768d1893080f8dde26e3e9e63ce33e96eeca1ec8d4",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Market Assumptions Returns and Inflation"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Return Rules"
+    },
+    {
+      "level": 2,
+      "text": "Inflation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Market Assumptions Returns and Inflation\n\n## Purpose\n\nThis split document isolates return and inflation assumptions from the larger Market Assumptions document.\n\n## Source\n\n- Parent specification: [Market Assumptions](../market-assumptions.md)\n\n## Return Rules\n\n- Return assumptions must be versioned.\n- Baseline and stress return assumptions must remain explicit.\n- Simulator fixtures must identify the assumption version they use.\n\n## Inflation Rules\n\n- Inflation assumptions must identify currency and planning period.\n- Inflation should remain separate from nominal return and cashflow assumptions.\n- Long-term goal readiness should preserve inflation assumption traceability.\n\n## Related References\n\n- [Retirement Supporting Document](../retirement.md)\n- [Portfolio Performance Framework](../../framework/portfolio-performance-framework.md)\n- [Investment Drawdown Fixture](../../../simulator/fixtures/investment-drawdown-stress.json)\n",
+  "references": []
+}

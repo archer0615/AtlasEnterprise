@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T14:45:08.632Z",
-  "buildId": "79cc9618b94d",
+  "generatedAt": "2026-07-15T15:40:37.121Z",
+  "buildId": "4fceca1d8cf4",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -622,8 +622,40 @@
       "title": "Asset Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Asset.md",
-      "sourceHash": "de0c540e8c25fdeb9b0b2f6bef408336ab2cd40125e3b503818eac9639d5ccd4",
-      "summary": "# Asset Entity Specification # Document Control - Document Name: Asset Entity Specification - Document Path: knowledge/entity/Asset.md - Document Type: Atlas Enterprise Specification - Version: 1.0 - Status: Canonical Specificatio"
+      "sourceHash": "4b3a55e7d2ad9cb288ed9fa738cd5b0143bef2608bb1aa22be039925dc97e43c",
+      "summary": "# Asset Entity Specification ## Split Navigation - [Asset identity and ownership](asset/identity-and-ownership.md) - [Asset valuation and reporting](asset/valuation-and-reporting.md) - [Asset classification and risk](asset/classification-"
+    },
+    {
+      "id": "58676d3f460531ff",
+      "title": "Asset API and Audit",
+      "category": "entity",
+      "path": "knowledge/entity/asset/api-and-audit.md",
+      "sourceHash": "570d492c862b2eeb8f6457b2f1a6f160fe6339eb0db9fe7c52067bb4ea302566",
+      "summary": "# Asset API and Audit ## Purpose This split document isolates Asset API, permission, cache, and audit boundaries from the larger Asset entity specification. ## Source - Parent specification: [Asset Entity Specification](../Asset.md) ##"
+    },
+    {
+      "id": "fea50cd620ec3d62",
+      "title": "Asset Classification and Risk",
+      "category": "entity",
+      "path": "knowledge/entity/asset/classification-and-risk.md",
+      "sourceHash": "6a65ce8d7e7c7b2e1e36d14930aeb61337961031dabd3c05d0725fe61c2e925e",
+      "summary": "# Asset Classification and Risk ## Purpose This split document isolates Asset classification and risk rules from the larger Asset entity specification. ## Source - Parent specification: [Asset Entity Specification](../Asset.md) ## Clas"
+    },
+    {
+      "id": "c59bf1338da8cddd",
+      "title": "Asset Identity and Ownership",
+      "category": "entity",
+      "path": "knowledge/entity/asset/identity-and-ownership.md",
+      "sourceHash": "e4cb516e7a052c1e50470492d880b3505e56bb9a859ae8669f7e39ff3a77112d",
+      "summary": "# Asset Identity and Ownership ## Purpose This split document isolates Asset identity and ownership rules from the larger Asset entity specification. ## Source - Parent specification: [Asset Entity Specification](../Asset.md) ## Identi"
+    },
+    {
+      "id": "0c3ced33912c37e4",
+      "title": "Asset Valuation and Reporting",
+      "category": "entity",
+      "path": "knowledge/entity/asset/valuation-and-reporting.md",
+      "sourceHash": "f34704c05af87416aad952462e44f459d28f127f594d490e76c5983ca0b1e9c8",
+      "summary": "# Asset Valuation and Reporting ## Purpose This split document isolates Asset valuation, liquidity, projection, and reporting boundaries from the larger Asset entity specification. ## Source - Parent specification: [Asset Entity Specifi"
     },
     {
       "id": "c22351aebbd7ba2d",
@@ -670,8 +702,40 @@
       "title": "Loan Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Loan.md",
-      "sourceHash": "9cae6d31312a63d207a9f444841437d70ba64fc1358231a0102e96fa21765cdd",
-      "summary": "# Loan Entity Specification # Document Control | Field | Value | |---|---| | Document Name | Loan Entity Specification | | Document Path | knowledge/entity/Loan.md | | Document Type | Enterprise Entity Specification | | Version | 1.0"
+      "sourceHash": "e1cc7b080e1de3786d002aa4c35ea0febdfb3e838de4fec96f85531d3e5708bb",
+      "summary": "# Loan Entity Specification ## Split Navigation - [Loan identity and repayment](loan/identity-and-repayment.md) - [Loan risk and refinancing](loan/risk-and-refinancing.md) - [Loan API and audit](loan/api-and-audit.md) - [Loan scenario int"
+    },
+    {
+      "id": "b6b3005a77846717",
+      "title": "Loan API and Audit",
+      "category": "entity",
+      "path": "knowledge/entity/loan/api-and-audit.md",
+      "sourceHash": "cf3a922c6ad4ca07c2c4dacee96cb8be24f3a7c5d716d3577b58c7a2e75e32c9",
+      "summary": "# Loan API and Audit ## Purpose This split document isolates Loan API, permission, and audit concerns from the larger Loan entity specification. ## Source - Parent specification: [Loan Entity Specification](../Loan.md) ## API Rules -"
+    },
+    {
+      "id": "7b7d48dccdc9dfb7",
+      "title": "Loan Identity and Repayment",
+      "category": "entity",
+      "path": "knowledge/entity/loan/identity-and-repayment.md",
+      "sourceHash": "3589dc62ec51973e4ef4538ac7fed70d9b627f8159c7cd3fc48c2984b569f56d",
+      "summary": "# Loan Identity and Repayment ## Purpose This split document prepares the Loan entity for focused review by isolating identity and repayment behavior. ## Source - Parent specification: [Loan Entity Specification](../Loan.md) ## Identit"
+    },
+    {
+      "id": "b5cc0a896449b2b5",
+      "title": "Loan Risk and Refinancing",
+      "category": "entity",
+      "path": "knowledge/entity/loan/risk-and-refinancing.md",
+      "sourceHash": "f16bf43b95fbb725be5e913d9d2128e8847d7ff3c3ab15e7b776909d4b037cdf",
+      "summary": "# Loan Risk and Refinancing ## Purpose This split document isolates Loan risk, refinancing, and scenario integration concerns. ## Source - Parent specification: [Loan Entity Specification](../Loan.md) ## Risk Rules - Debt pressure sho"
+    },
+    {
+      "id": "6667b931a8945d24",
+      "title": "Loan Scenario Integration",
+      "category": "entity",
+      "path": "knowledge/entity/loan/scenario-integration.md",
+      "sourceHash": "3e1fa687c85ab2c740e146cdedd165ffebccddcf79a123223eba18986e8bbd84",
+      "summary": "# Loan Scenario Integration ## Purpose This split document isolates Loan scenario and simulator integration behavior from the larger Loan entity specification. ## Source - Parent specification: [Loan Entity Specification](../Loan.md) #"
     },
     {
       "id": "4f6d966f7bf27498",
@@ -742,8 +806,24 @@
       "title": "Asset Allocation Framework",
       "category": "framework",
       "path": "knowledge/framework/asset-allocation-framework.md",
-      "sourceHash": "95a481530838d646f3c2c95ef109abb9425081b7043b788c5725f4d39e91694a",
-      "summary": "# Asset Allocation Framework Version: 1.0 ## Purpose Defines the strategic and tactical asset allocation framework for Project Atlas. ## Objectives - Maximize long-term risk-adjusted returns. - Maintain alignment with the Invest"
+      "sourceHash": "756602b982f6b328628754faf43f489c89e56504d65ac14ca3211b29630f4104",
+      "summary": "# Asset Allocation Framework ## Split Navigation - [Asset allocation targets and constraints](asset-allocation/targets-and-constraints.md) - [Asset allocation drift and scenarios](asset-allocation/drift-and-scenarios.md) Version: 1.0 #"
+    },
+    {
+      "id": "d22922b44c851515",
+      "title": "Asset Allocation Drift and Scenarios",
+      "category": "framework",
+      "path": "knowledge/framework/asset-allocation/drift-and-scenarios.md",
+      "sourceHash": "cdc692467e61fa3ba47a79a14b0f115cd90b33c6b549fb736c090f5ac1186737",
+      "summary": "# Asset Allocation Drift and Scenarios ## Purpose This split document isolates drift and scenario behavior from the larger Asset Allocation Framework. ## Source - Parent specification: [Asset Allocation Framework](../asset-allocation-fr"
+    },
+    {
+      "id": "74c352d9596a5d51",
+      "title": "Asset Allocation Targets and Constraints",
+      "category": "framework",
+      "path": "knowledge/framework/asset-allocation/targets-and-constraints.md",
+      "sourceHash": "8b7da4cefd5fe116205ab8e33ff94971d5a9e0a7fc5ddaba1b3ef1b5314a75b0",
+      "summary": "# Asset Allocation Targets and Constraints ## Purpose This split document isolates target and constraint rules from the larger Asset Allocation Framework. ## Source - Parent specification: [Asset Allocation Framework](../asset-allocatio"
     },
     {
       "id": "3b3c1e7f1f3b092e",
@@ -1030,8 +1110,24 @@
       "title": "Goal Funding Framework",
       "category": "framework",
       "path": "knowledge/framework/goal-funding-framework.md",
-      "sourceHash": "bb3086279416e285be038d4a94ec3c924ce020b3db98b93ccdbabd4a2c080eb6",
-      "summary": "# Goal Funding Framework Version: 1.0 ## Purpose Defines the enterprise framework used by Project Atlas to calculate, monitor, prioritize, and optimize funding for financial goals throughout a user's lifetime. ## Objectives - Sta"
+      "sourceHash": "197b2790323a94bdd13dd1355ee660843f330551d72ab07ba37c539b44115573",
+      "summary": "# Goal Funding Framework ## Split Navigation - [Goal funding targets and contributions](goal-funding/targets-and-contributions.md) - [Goal funding prioritization and reallocation](goal-funding/prioritization-and-reallocation.md) Version:"
+    },
+    {
+      "id": "d4b8fb445f74bd19",
+      "title": "Goal Funding Prioritization and Reallocation",
+      "category": "framework",
+      "path": "knowledge/framework/goal-funding/prioritization-and-reallocation.md",
+      "sourceHash": "682f08d4981e1c5ca06cd6f75148e4b264988333d01db1b32fba2da183ae9bca",
+      "summary": "# Goal Funding Prioritization and Reallocation ## Purpose This split document isolates goal funding prioritization and reallocation behavior. ## Source - Parent specification: [Goal Funding Framework](../goal-funding-framework.md) ## P"
+    },
+    {
+      "id": "b7913037d0f100ef",
+      "title": "Goal Funding Targets and Contributions",
+      "category": "framework",
+      "path": "knowledge/framework/goal-funding/targets-and-contributions.md",
+      "sourceHash": "e086a4b79a295fe19cce1d5fef0aa0f4178d1ccc3ee737028cf7b5bed7dc2a7d",
+      "summary": "# Goal Funding Targets and Contributions ## Purpose This split document isolates target and contribution behavior from the larger Goal Funding Framework. ## Source - Parent specification: [Goal Funding Framework](../goal-funding-framewo"
     },
     {
       "id": "84903f8786631707",
@@ -1094,16 +1190,48 @@
       "title": "Portfolio Performance Framework",
       "category": "framework",
       "path": "knowledge/framework/portfolio-performance-framework.md",
-      "sourceHash": "d9cc9af6f7515fd44b44239cb0929c584b4f74573193e3e8b95177ec89873fb2",
-      "summary": "# Portfolio Performance Framework Version: 1.0 ## Purpose Defines the enterprise standard for measuring, comparing and explaining portfolio performance across Project Atlas. ## Objectives - Standardize performance calculations."
+      "sourceHash": "2f54b97659566a951691b3f0aa659734da660a3aa1bbef7329ff3644830bef6e",
+      "summary": "# Portfolio Performance Framework ## Split Navigation - [Portfolio performance returns and benchmarks](portfolio-performance/returns-and-benchmarks.md) - [Portfolio performance attribution and reporting](portfolio-performance/attribution-"
+    },
+    {
+      "id": "723c26727b090a42",
+      "title": "Portfolio Performance Attribution and Reporting",
+      "category": "framework",
+      "path": "knowledge/framework/portfolio-performance/attribution-and-reporting.md",
+      "sourceHash": "af3d814eaa695b5e61bbf5baf124c490a60eb468fc98893e4c0716371d3e9390",
+      "summary": "# Portfolio Performance Attribution and Reporting ## Purpose This split document isolates attribution and reporting behavior from the larger Portfolio Performance Framework. ## Source - Parent specification: [Portfolio Performance Frame"
+    },
+    {
+      "id": "0782e17108d9364e",
+      "title": "Portfolio Performance Returns and Benchmarks",
+      "category": "framework",
+      "path": "knowledge/framework/portfolio-performance/returns-and-benchmarks.md",
+      "sourceHash": "f26b75e4252c9bce97b12e8557c44509218e4cf3e7e191775fb9652b54a806ae",
+      "summary": "# Portfolio Performance Returns and Benchmarks ## Purpose This split document isolates return and benchmark rules from the larger Portfolio Performance Framework. ## Source - Parent specification: [Portfolio Performance Framework](../po"
     },
     {
       "id": "b58e52782c01459b",
       "title": "Rebalancing Framework",
       "category": "framework",
       "path": "knowledge/framework/rebalancing-framework.md",
-      "sourceHash": "3e347f5f75a5eb913e7925d1ef3b7ee08a18d9ff6809c588b8c2d6fccae55035",
-      "summary": "# Rebalancing Framework Version: 1.0 ## Purpose Defines the portfolio rebalancing policy used by Project Atlas. ## Objectives - Maintain target asset allocation. - Control portfolio risk. - Minimize unnecessary trading. - Impr"
+      "sourceHash": "7678c683a2f20fecf6a16b880d676c991f610c6a2dbd087c20aa98c5f0e899be",
+      "summary": "# Rebalancing Framework ## Split Navigation - [Rebalancing drift and thresholds](rebalancing/drift-and-thresholds.md) - [Rebalancing execution and validation](rebalancing/execution-and-validation.md) Version: 1.0 ## Purpose Defines th"
+    },
+    {
+      "id": "efebb147aa17d051",
+      "title": "Rebalancing Drift and Thresholds",
+      "category": "framework",
+      "path": "knowledge/framework/rebalancing/drift-and-thresholds.md",
+      "sourceHash": "581d33fe24401923036ed51f4dbf88f38528f02985fb640cf66c08b47bfc6472",
+      "summary": "# Rebalancing Drift and Thresholds ## Purpose This split document isolates drift detection and threshold rules from the larger Rebalancing Framework. ## Source - Parent specification: [Rebalancing Framework](../rebalancing-framework.md)"
+    },
+    {
+      "id": "2565a51cb3a09ed5",
+      "title": "Rebalancing Execution and Validation",
+      "category": "framework",
+      "path": "knowledge/framework/rebalancing/execution-and-validation.md",
+      "sourceHash": "f2ec3aef7a983af60b3ef00fefc58eecc62f0cfdc431f22bc965f19044545c35",
+      "summary": "# Rebalancing Execution and Validation ## Purpose This split document isolates rebalancing execution and validation behavior from the larger Rebalancing Framework. ## Source - Parent specification: [Rebalancing Framework](../rebalancing"
     },
     {
       "id": "32f55e282ae127e4",
@@ -1118,8 +1246,24 @@
       "title": "Risk Budget Framework",
       "category": "framework",
       "path": "knowledge/framework/risk-budget-framework.md",
-      "sourceHash": "dd6b338ff44f2bf9652d666ee47e6283c95c03510f1174a2292b792c66b2caf6",
-      "summary": "# Risk Budget Framework Version: 1.0 ## Purpose Defines how Project Atlas allocates and manages financial risk across goals, portfolios, and life stages. A risk budget represents the maximum acceptable level of risk that may be consu"
+      "sourceHash": "c5ccbd0ff0c4a94048dca285a17dc68aabd387191beaab7bedff69a3e5a349bb",
+      "summary": "# Risk Budget Framework ## Split Navigation - [Risk budget allocation and limits](risk-budget/allocation-and-limits.md) - [Risk budget breach and reporting](risk-budget/breach-and-reporting.md) Version: 1.0 ## Purpose Defines how Proj"
+    },
+    {
+      "id": "63e690e6f6e8b9a8",
+      "title": "Risk Budget Allocation and Limits",
+      "category": "framework",
+      "path": "knowledge/framework/risk-budget/allocation-and-limits.md",
+      "sourceHash": "d7ef72564171b60eeaf4c8c7c17c325680f730be7458182948ce307ef2ef8b19",
+      "summary": "# Risk Budget Allocation and Limits ## Purpose This split document isolates risk budget allocation and limit rules from the larger Risk Budget Framework. ## Source - Parent specification: [Risk Budget Framework](../risk-budget-framework"
+    },
+    {
+      "id": "b09e5b1f155233b9",
+      "title": "Risk Budget Breach and Reporting",
+      "category": "framework",
+      "path": "knowledge/framework/risk-budget/breach-and-reporting.md",
+      "sourceHash": "0e919360cfb1511dfd5d4da8dbd70e3cf2e08b107e08d91634ff5c57ffce6b75",
+      "summary": "# Risk Budget Breach and Reporting ## Purpose This split document isolates breach handling and reporting behavior from the larger Risk Budget Framework. ## Source - Parent specification: [Risk Budget Framework](../risk-budget-framework."
     },
     {
       "id": "c6789d2bf6aaf715",
@@ -1482,6 +1626,22 @@
       "summary": "# Decision Insights Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Decision Domain Source of Truth: Decision Catalog Last Updated: 2026-07-13 ## Purpose Decision Insights defines how Atlas detects, explains, rank"
     },
     {
+      "id": "5ed6ed12228ed171",
+      "title": "Decision Insight Generation",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-insights/insight-generation.md",
+      "sourceHash": "e82d5f4b379ec8fb4b71b01c26a324d46fc5e94be2abd2f164c6fc0e08281105",
+      "summary": "# Decision Insight Generation ## Purpose This split document isolates insight generation rules from the larger Decision Insights overview. ## Source - Parent specification: [Decision Insights Overview](../decision-insights.md) ## Gener"
+    },
+    {
+      "id": "d467f25ba375c6aa",
+      "title": "Decision Insight Warnings and Dashboard Use",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-insights/warnings-and-dashboard.md",
+      "sourceHash": "6082a2c98a7debbc8be1f58cb19609da8760a52f25ae46d5c37f3cef4627a5d6",
+      "summary": "# Decision Insight Warnings and Dashboard Use ## Purpose This split document isolates warning and dashboard display behavior from the larger Decision Insights overview. ## Source - Parent specification: [Decision Insights Overview](../d"
+    },
+    {
       "id": "72acabd93b0e78d3",
       "title": "Decision Lifecycle Overview",
       "category": "supporting",
@@ -1550,8 +1710,24 @@
       "title": "Financial Health Score",
       "category": "supporting",
       "path": "knowledge/supporting/financial-health-score.md",
-      "sourceHash": "54eb0b4f5c998018da95c0bb07adc517a42bc41d86a85f8e545e0c682cfde34e",
-      "summary": "# Financial Health Score > **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v"
+      "sourceHash": "39713bfb62285f3d1778f2a1d17178b419bc5f54a24837e242dcb67f99df7dda",
+      "summary": "# Financial Health Score ## Split Navigation - [Liquidity and cashflow scoring](financial-health-score/liquidity-and-cashflow.md) - [Debt and goal readiness scoring](financial-health-score/debt-and-goal-readiness.md) > **PWA v1 Architect"
+    },
+    {
+      "id": "d79ab6bd51e6aa57",
+      "title": "Financial Health Score Debt and Goal Readiness",
+      "category": "supporting",
+      "path": "knowledge/supporting/financial-health-score/debt-and-goal-readiness.md",
+      "sourceHash": "725831caf7043db2f4a11be1b92ea5e3b2d5a8e4e02d005fb75dca2ea3188e97",
+      "summary": "# Financial Health Score Debt and Goal Readiness ## Purpose This split document isolates debt pressure and goal readiness scoring inputs from the larger Financial Health Score specification. ## Source - Parent specification: [Financial"
+    },
+    {
+      "id": "21e7c43dd31364dc",
+      "title": "Financial Health Score Liquidity and Cashflow",
+      "category": "supporting",
+      "path": "knowledge/supporting/financial-health-score/liquidity-and-cashflow.md",
+      "sourceHash": "b3eb59f3e992adc5f199783dffff33fd76f53fea73dd356a2d2177fc42934ccb",
+      "summary": "# Financial Health Score Liquidity and Cashflow ## Purpose This split document isolates liquidity and cashflow scoring inputs from the larger Financial Health Score specification. ## Source - Parent specification: [Financial Health Scor"
     },
     {
       "id": "0e83dc79d191c611",
@@ -1658,6 +1834,22 @@
       "summary": "# Goal Progress Tracking Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Progress Tracking Specification Last Updated: 2026-07-13 # Goal Progress Overview ## Purpose Goal Progress Tracking"
     },
     {
+      "id": "8a037b03b77e5046",
+      "title": "Goal Progress Dashboard and Reporting",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-progress-tracking/dashboard-and-reporting.md",
+      "sourceHash": "15a9082b60318f550d90d250a197c5feb3dc43d8bf9fc23489d2288dd313739d",
+      "summary": "# Goal Progress Dashboard and Reporting ## Purpose This split document isolates dashboard and reporting behavior from the larger Goal Progress Tracking specification. ## Source - Parent specification: [Goal Progress Tracking](../goal-pr"
+    },
+    {
+      "id": "e9cb6a31729be95e",
+      "title": "Goal Progress Milestones and Variance",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-progress-tracking/milestones-and-variance.md",
+      "sourceHash": "c2c1d8130e7aa44f7d937e3a24a541bc17b35718ba1e075f2ae7725ff47276c5",
+      "summary": "# Goal Progress Milestones and Variance ## Purpose This split document isolates milestone and variance tracking from the larger Goal Progress Tracking specification. ## Source - Parent specification: [Goal Progress Tracking](../goal-pro"
+    },
+    {
       "id": "16e2bfc73d06ad6d",
       "title": "Goal Review Overview",
       "category": "supporting",
@@ -1706,6 +1898,22 @@
       "summary": "# knowledge/market-assumptions.md # Project Atlas — Market Assumptions ## 1. 文件目的 本文件定義 Project Atlas 在進行長期財務決策模擬時所使用的市場假設，包括長期名目報酬率、實質報酬率、波動率、資產類別相關係數、匯率假設、再平衡假設、極端情境假設與 Codex 實作規則。 Project Atlas 的市場假設不是用來預測短期行情，也不是用來產生投資建議，而是用"
     },
     {
+      "id": "c1f218634e2ccc39",
+      "title": "Market Assumptions Returns and Inflation",
+      "category": "supporting",
+      "path": "knowledge/supporting/market-assumptions/returns-and-inflation.md",
+      "sourceHash": "6cce2d09a05c1f1be14f1a768d1893080f8dde26e3e9e63ce33e96eeca1ec8d4",
+      "summary": "# Market Assumptions Returns and Inflation ## Purpose This split document isolates return and inflation assumptions from the larger Market Assumptions document. ## Source - Parent specification: [Market Assumptions](../market-assumption"
+    },
+    {
+      "id": "e201cc414eb36b86",
+      "title": "Market Assumptions Stress Scenarios",
+      "category": "supporting",
+      "path": "knowledge/supporting/market-assumptions/stress-scenarios.md",
+      "sourceHash": "c096cc1332c6eb1981bb69286e1c40266572a5593342b77f3d82c4291acfd5b7",
+      "summary": "# Market Assumptions Stress Scenarios ## Purpose This split document isolates market stress assumptions from the larger Market Assumptions document. ## Source - Parent specification: [Market Assumptions](../market-assumptions.md) ## St"
+    },
+    {
       "id": "44f86eeca7946983",
       "title": "Portfolio Lifecycle",
       "category": "supporting",
@@ -1720,6 +1928,22 @@
       "path": "knowledge/supporting/portfolio.md",
       "sourceHash": "8667298f2fc1a57c88530958ccdf157b5324cf34b81faffed4a6c96670388775",
       "summary": "# Portfolio Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose Portfolio 在 Atlas 中代表整體資產配置，而非單一投資帳戶。 Decis"
+    },
+    {
+      "id": "4dc25f8114695ce2",
+      "title": "Portfolio Holdings and Allocation",
+      "category": "supporting",
+      "path": "knowledge/supporting/portfolio/holdings-and-allocation.md",
+      "sourceHash": "a0b4021b52e52272f5a3a047f9b7667bf421f6321a1b190be1214d7752742a78",
+      "summary": "# Portfolio Holdings and Allocation ## Purpose This split document isolates holdings and allocation concepts from the larger Portfolio knowledge base. ## Source - Parent specification: [Portfolio Knowledge Base](../portfolio.md) ## Hol"
+    },
+    {
+      "id": "068db3168e1157ff",
+      "title": "Portfolio Stress and Dashboard",
+      "category": "supporting",
+      "path": "knowledge/supporting/portfolio/stress-and-dashboard.md",
+      "sourceHash": "b2cdb8f2895ddab8486912b48da64488fb49788920cd0026cd1f2b53b37612d0",
+      "summary": "# Portfolio Stress and Dashboard ## Purpose This split document isolates portfolio stress and dashboard behavior from the larger Portfolio knowledge base. ## Source - Parent specification: [Portfolio Knowledge Base](../portfolio.md) ##"
     },
     {
       "id": "d065ea0f074ad5ec",
@@ -1738,12 +1962,44 @@
       "summary": "# Recommendation Evaluation Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Recommendation Domain Source of Truth: Recommendation Catalog Last Updated: 2026-07-13 ## Purpose Recommendation Evaluation defines"
     },
     {
+      "id": "e4fd30468c9152a3",
+      "title": "Recommendation Evaluation Feedback and Learning",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-evaluation/feedback-and-learning.md",
+      "sourceHash": "8761276e81d7ecda3d3eb70f66feae859541309042bd51288c29908a019d4ffe",
+      "summary": "# Recommendation Evaluation Feedback and Learning ## Purpose This split document isolates feedback and learning loop behavior from the larger Recommendation Evaluation overview. ## Source - Parent specification: [Recommendation Evaluati"
+    },
+    {
+      "id": "48415fa1b780eabd",
+      "title": "Recommendation Evaluation Scoring and Ranking",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-evaluation/scoring-and-ranking.md",
+      "sourceHash": "880a7f0cb128a846e396cf3ed7e670e9a1fd4ff80c92cb8cb0ed6cc21d1ffa87",
+      "summary": "# Recommendation Evaluation Scoring and Ranking ## Purpose This split document isolates scoring and ranking behavior from the larger Recommendation Evaluation overview. ## Source - Parent specification: [Recommendation Evaluation Overvi"
+    },
+    {
       "id": "9f08e8d8e210bc49",
       "title": "Execution Architecture",
       "category": "supporting",
       "path": "knowledge/supporting/recommendation-execution.md",
       "sourceHash": "692050a6245961c748134068296029e6240f931f5984ef9638db557a7310834b",
       "summary": "# Recommendation Execution Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Recommendation Domain Source of Truth: Recommendation Catalog Last Updated: 2026-07-13 ## Purpose Recommendation Execution defines go"
+    },
+    {
+      "id": "7699c9be2a7020f5",
+      "title": "Recommendation Execution Planning",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-execution/execution-planning.md",
+      "sourceHash": "19bcf2c953022f067ec1ce28b1cb162334e3b281583e65261787f10fa3689db8",
+      "summary": "# Recommendation Execution Planning ## Purpose This split document isolates execution planning rules from the larger Recommendation Execution overview. ## Source - Parent specification: [Recommendation Execution Overview](../recommendat"
+    },
+    {
+      "id": "4beaf638651dfdfc",
+      "title": "Recommendation Execution Rollback and Validation",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-execution/rollback-and-validation.md",
+      "sourceHash": "40db452987007735e452dfeff3f35957f0a9d301fd97cf33cb79866e6dd6c776",
+      "summary": "# Recommendation Execution Rollback and Validation ## Purpose This split document isolates rollback and validation behavior from the larger Recommendation Execution overview. ## Source - Parent specification: [Recommendation Execution O"
     },
     {
       "id": "c24b7c9933385692",

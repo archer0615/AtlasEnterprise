@@ -25,3 +25,9 @@ Start with `system-module-catalog.md` because it is the largest catalog and like
 - Rebuild `frontend/knowledge/` after the split.
 - Verify `index.json`, `search-index.json`, and generated document count.
 - Avoid renaming unrelated files in the same batch.
+
+## Related Documents
+
+- [Document Governance Report](document-governance-report-2026-07-15.md)
+- [Document Link Enrichment Plan](document-link-enrichment-plan.md)
+- [Batch 5 Split Plan](large-document-split-plan-batch-5.md)

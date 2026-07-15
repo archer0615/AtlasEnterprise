@@ -1,0 +1,35 @@
+{
+  "id": "0782e17108d9364e",
+  "title": "Portfolio Performance Returns and Benchmarks",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/portfolio-performance/returns-and-benchmarks.md",
+  "sourceHash": "f26b75e4252c9bce97b12e8557c44509218e4cf3e7e191775fb9652b54a806ae",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Performance Returns and Benchmarks"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Return Rules"
+    },
+    {
+      "level": 2,
+      "text": "Benchmark Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Performance Returns and Benchmarks\n\n## Purpose\n\nThis split document isolates return and benchmark rules from the larger Portfolio Performance Framework.\n\n## Source\n\n- Parent specification: [Portfolio Performance Framework](../portfolio-performance-framework.md)\n\n## Return Rules\n\n- Time-weighted return is the default performance method.\n- Money-weighted return may be used when investor cash flows matter.\n- Return calculations must preserve formula version and input period.\n- Performance outputs must remain explainable for dashboard and decision use.\n\n## Benchmark Rules\n\n- Benchmarks must be explicit and versioned.\n- Benchmark comparison must separate investment skill from market movement.\n- Benchmark outputs should preserve assumptions and reporting period.\n\n## Related References\n\n- [Portfolio Supporting Document](../../supporting/portfolio.md)\n- [Portfolio Lifecycle](../../supporting/portfolio-lifecycle.md)\n- [Investment Drawdown Fixture Report](../../../docs/roadmap/investment-drawdown-fixture-report.md)\n",
+  "references": []
+}

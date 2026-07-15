@@ -1,0 +1,35 @@
+{
+  "id": "8a037b03b77e5046",
+  "title": "Goal Progress Dashboard and Reporting",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-progress-tracking/dashboard-and-reporting.md",
+  "sourceHash": "15a9082b60318f550d90d250a197c5feb3dc43d8bf9fc23489d2288dd313739d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Progress Dashboard and Reporting"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard Rules"
+    },
+    {
+      "level": 2,
+      "text": "Reporting Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Goal Progress Dashboard and Reporting\n\n## Purpose\n\nThis split document isolates dashboard and reporting behavior from the larger Goal Progress Tracking specification.\n\n## Source\n\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\n\n## Dashboard Rules\n\n- Dashboard progress summaries must not replace GoalPlan state.\n- Dashboard readiness should include completion, schedule position, dependency readiness, and forecast confidence.\n- Dashboard warnings should identify the constraint driving progress risk.\n- Scenario comparison may show forecast progress without mutating committed progress.\n\n## Reporting Rules\n\n- Progress reports must include version, source snapshot, and history.\n- Audit and replay must preserve progress source data.\n- Reporting must remain permission-aware and household-scoped.\n\n## Related References\n\n- [Goal Dashboard](../../reporting/goal-dashboard.md)\n- [Goal Reporting](../../reporting/goal-reporting.md)\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\n",
+  "references": []
+}

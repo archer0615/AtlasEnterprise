@@ -1,0 +1,35 @@
+{
+  "id": "5ed6ed12228ed171",
+  "title": "Decision Insight Generation",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-insights/insight-generation.md",
+  "sourceHash": "e82d5f4b379ec8fb4b71b01c26a324d46fc5e94be2abd2f164c6fc0e08281105",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Insight Generation"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Generation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Evidence Sources"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Decision Insight Generation\n\n## Purpose\n\nThis split document isolates insight generation rules from the larger Decision Insights overview.\n\n## Source\n\n- Parent specification: [Decision Insights Overview](../decision-insights.md)\n\n## Generation Rules\n\n- Insights must derive from existing Atlas records.\n- Insights must preserve evidence, confidence, severity, priority, and lifecycle state.\n- Insight generation must be reproducible for the same input data and assumption versions.\n- Insights must not introduce new financial products, goal types, or decision categories.\n\n## Evidence Sources\n\n- Decision records\n- Recommendation records\n- Goal and Scenario outputs\n- Portfolio and CashFlow signals\n- Risk, Simulation, Workflow, Automation, and Notification signals\n\n## Related References\n\n- [Decision Entity](../../entity/Decision.md)\n- [Recommendation Entity](../../entity/Recommendation.md)\n- [Scenario Entity](../../entity/Scenario.md)\n- [Decision Dashboard](../../reporting/decision-dashboard.md)\n",
+  "references": []
+}

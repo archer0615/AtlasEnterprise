@@ -1,3 +1,5 @@
+import { dashboardStorage, fallbackDashboardSnapshot, normalizeDashboardCollection } from "./dashboard-model.js";
+
 const state = {
   documents: [],
   searchDocuments: new Map(),
@@ -5,6 +7,10 @@ const state = {
   selectedCategory: "all",
   selectedDocumentId: "",
   query: "",
+};
+
+const storageKeys = {
+  dashboardSnapshotId: dashboardStorage.snapshotIdKey,
 };
 
 const categoryNav = document.querySelector("#categoryNav");
@@ -15,6 +21,14 @@ const statusText = document.querySelector("#statusText");
 const pageTitle = document.querySelector("#pageTitle");
 const resultCount = document.querySelector("#resultCount");
 const clearFiltersButton = document.querySelector("#clearFiltersButton");
+const dashboardDate = document.querySelector("#dashboardDate");
+const dashboardSwitcher = document.querySelector("#dashboardSwitcher");
+const metricGrid = document.querySelector("#metricGrid");
+const scenarioList = document.querySelector("#scenarioList");
+const actionList = document.querySelector("#actionList");
+
+let dashboardSnapshots = [fallbackDashboardSnapshot];
+let selectedDashboardSnapshotId = fallbackDashboardSnapshot.snapshotId;
 
 async function loadIndex() {
   const response = await fetch("/knowledge/index.json", { cache: "no-cache" });
@@ -31,6 +45,21 @@ async function loadIndex() {
   renderCategories();
   renderList();
   openDocumentFromHash();
+}
+
+async function loadDashboard() {
+  try {
+    const response = await fetch("/fixtures/dashboard-snapshots.json", { cache: "no-cache" });
+    if (!response.ok) throw new Error(`Failed to load dashboard fixtures: ${response.status}`);
+    const collection = normalizeDashboardCollection(await response.json());
+    dashboardSnapshots = collection.snapshots;
+    selectedDashboardSnapshotId = readStoredDashboardSnapshotId() || collection.defaultSnapshotId;
+    renderDashboardById(selectedDashboardSnapshotId);
+  } catch {
+    dashboardSnapshots = [fallbackDashboardSnapshot];
+    selectedDashboardSnapshotId = fallbackDashboardSnapshot.snapshotId;
+    renderDashboard(fallbackDashboardSnapshot);
+  }
 }
 
 function renderCategories() {
@@ -77,7 +106,7 @@ function renderList() {
       <span class="doc-path">${escapeHtml(doc.path)}</span>
       ${tokens.length ? `<span class="doc-score">match ${doc.score}</span>` : ""}
     </button>
-  `).join("") || `<p class="empty-state">沒有符合條件的文件。</p>`;
+  `).join("") || `<p class="empty-state">找不到符合條件的文件。</p>`;
 }
 
 function normalizeQuery(value) {
@@ -148,12 +177,74 @@ function renderHeadingLinks(headings) {
   `;
 }
 
+function renderDashboardById(snapshotId) {
+  const snapshot = dashboardSnapshots.find((item) => item.snapshotId === snapshotId) || dashboardSnapshots[0];
+  selectedDashboardSnapshotId = snapshot.snapshotId;
+  writeStoredValue(storageKeys.dashboardSnapshotId, selectedDashboardSnapshotId);
+  renderDashboard(snapshot);
+}
+
+function renderDashboard(snapshot) {
+  dashboardDate.textContent = snapshot.asOfDate;
+  dashboardSwitcher.innerHTML = dashboardSnapshots.map((item) => `
+    <button class="${item.snapshotId === selectedDashboardSnapshotId ? "active" : ""}" type="button" data-snapshot-id="${escapeAttribute(item.snapshotId)}">
+      ${escapeHtml(item.label || item.snapshotId)}
+    </button>
+  `).join("");
+  metricGrid.innerHTML = snapshot.metrics.map((metric) => `
+    <div class="metric-card">
+      <span>${escapeHtml(metric.label)}</span>
+      <strong>${escapeHtml(metric.value)}</strong>
+      <small>${escapeHtml(metric.detail)}</small>
+    </div>
+  `).join("");
+  scenarioList.innerHTML = snapshot.scenarios.map((scenario) => `
+    <div class="scenario-row">
+      <span>${escapeHtml(scenario.name)}</span>
+      <strong>${scenario.score}</strong>
+      <small>${escapeHtml(scenario.status)}</small>
+    </div>
+  `).join("");
+  actionList.innerHTML = snapshot.actions.map((action) => `
+    <div class="action-row">${escapeHtml(action)}</div>
+  `).join("");
+}
+
 function openDocumentFromHash() {
   const params = new URLSearchParams(window.location.hash.replace(/^#/, ""));
   const id = params.get("doc");
   if (id) {
     openDocument(id);
   }
+}
+
+function readStoredValue(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return "";
+  }
+}
+
+function readStoredDashboardSnapshotId() {
+  const current = readStoredValue(storageKeys.dashboardSnapshotId);
+  if (current) return current;
+
+  for (const legacyKey of dashboardStorage.legacySnapshotIdKeys) {
+    const legacy = readStoredValue(legacyKey);
+    if (legacy) {
+      writeStoredValue(storageKeys.dashboardSnapshotId, legacy);
+      return legacy;
+    }
+  }
+
+  return "";
+}
+
+function writeStoredValue(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {}
 }
 
 function escapeHtml(value) {
@@ -181,6 +272,12 @@ documentList.addEventListener("click", (event) => {
   openDocument(button.dataset.id);
 });
 
+dashboardSwitcher.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-snapshot-id]");
+  if (!button) return;
+  renderDashboardById(button.dataset.snapshotId);
+});
+
 searchInput.addEventListener("input", (event) => {
   state.query = event.target.value;
   renderList();
@@ -201,6 +298,8 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js").catch(() => {});
   });
 }
+
+loadDashboard();
 
 loadIndex().catch((error) => {
   statusText.textContent = "Index missing";

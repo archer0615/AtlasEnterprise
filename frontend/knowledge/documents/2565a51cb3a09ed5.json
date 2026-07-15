@@ -1,0 +1,35 @@
+{
+  "id": "2565a51cb3a09ed5",
+  "title": "Rebalancing Execution and Validation",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/rebalancing/execution-and-validation.md",
+  "sourceHash": "f2ec3aef7a983af60b3ef00fefc58eecc62f0cfdc431f22bc965f19044545c35",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Rebalancing Execution and Validation"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution Rules"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Rebalancing Execution and Validation\n\n## Purpose\n\nThis split document isolates rebalancing execution and validation behavior from the larger Rebalancing Framework.\n\n## Source\n\n- Parent specification: [Rebalancing Framework](../rebalancing-framework.md)\n\n## Execution Rules\n\n- Rebalancing proposals must be explainable before execution.\n- Execution must consider transaction costs, tax impact, liquidity, and risk budget.\n- Rebalancing must not bypass portfolio permissions or audit requirements.\n\n## Validation Rules\n\n- Validate target allocation and current holdings before proposal generation.\n- Validate drift thresholds before recommending trades.\n- Validate post-trade allocation after execution.\n\n## Related References\n\n- [Execution Plan Framework](../execution-plan-framework.md)\n- [Recommendation Execution Planning](../../supporting/recommendation-execution/execution-planning.md)\n- [Audit Framework](../../security/audit-framework.md)\n",
+  "references": []
+}
