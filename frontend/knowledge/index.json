@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T14:43:40.000Z",
-  "buildId": "0eeec960bcec",
+  "generatedAt": "2026-07-15T14:45:08.632Z",
+  "buildId": "79cc9618b94d",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -1150,8 +1150,104 @@
       "title": "Scheduler Framework",
       "category": "framework",
       "path": "knowledge/framework/scheduler-framework.md",
-      "sourceHash": "36934a0ab63e3fd84da3e135464d51b9e20af71e56f6077daaa9c151081904ba",
+      "sourceHash": "9cf5952f0339f4a0eebac2845d80c659e9ae2b127de0184e881262b80762196b",
       "summary": "# Scheduler Framework # Document Control Document Name: Scheduler Framework Document Path: knowledge/scheduler-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Doma"
+    },
+    {
+      "id": "ad89f85d16bac309",
+      "title": "Scheduler - BackupScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/backup-scheduler.md",
+      "sourceHash": "961f5493d09d159461a9cb30bae472916d988b9da1804aaf0ae4adc0b079ca45",
+      "summary": "# Scheduler - BackupScheduler # Document Control Document Name: Scheduler - BackupScheduler Document Path: knowledge/framework/schedulers/backup-scheduler.md Document Type: Atlas Enterprise Scheduler Specification Parent Specification: kn"
+    },
+    {
+      "id": "95cf5c907c6dfeb2",
+      "title": "Scheduler - BankingImportScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/banking-import-scheduler.md",
+      "sourceHash": "b949f763905719940e1aeedf0705d2c89b2658daa403cc9359981c1c31e0b37f",
+      "summary": "# Scheduler - BankingImportScheduler # Document Control Document Name: Scheduler - BankingImportScheduler Document Path: knowledge/framework/schedulers/banking-import-scheduler.md Document Type: Atlas Enterprise Scheduler Specification Pa"
+    },
+    {
+      "id": "ef95dd8ebc99e195",
+      "title": "Scheduler - BrokerageImportScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/brokerage-import-scheduler.md",
+      "sourceHash": "412c906d3192af8780cca0e4abbf5070bbcd24b2e970a16a5a185441f2b9e549",
+      "summary": "# Scheduler - BrokerageImportScheduler # Document Control Document Name: Scheduler - BrokerageImportScheduler Document Path: knowledge/framework/schedulers/brokerage-import-scheduler.md Document Type: Atlas Enterprise Scheduler Specificat"
+    },
+    {
+      "id": "83e4391c82c7e529",
+      "title": "Scheduler - CacheRefreshScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/cache-refresh-scheduler.md",
+      "sourceHash": "1fb994efb275a25bd2224814ba82c72dc04c1fdc1c28b148a513fb0035fea3bf",
+      "summary": "# Scheduler - CacheRefreshScheduler # Document Control Document Name: Scheduler - CacheRefreshScheduler Document Path: knowledge/framework/schedulers/cache-refresh-scheduler.md Document Type: Atlas Enterprise Scheduler Specification Paren"
+    },
+    {
+      "id": "24d0bfb6fd57fa92",
+      "title": "Scheduler - CleanupScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/cleanup-scheduler.md",
+      "sourceHash": "46d750c4bd822d8a0651b6d055124e501cbbb9679aeaa22986f142bfa08c35ce",
+      "summary": "# Scheduler - CleanupScheduler # Document Control Document Name: Scheduler - CleanupScheduler Document Path: knowledge/framework/schedulers/cleanup-scheduler.md Document Type: Atlas Enterprise Scheduler Specification Parent Specification:"
+    },
+    {
+      "id": "5194c78753d07202",
+      "title": "Scheduler - InboxProcessScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/inbox-process-scheduler.md",
+      "sourceHash": "9ffd2e9c6b28bc85d263dabfeeeee0b3e888da0d50a4939e1fa1f5a894b30936",
+      "summary": "# Scheduler - InboxProcessScheduler # Document Control Document Name: Scheduler - InboxProcessScheduler Document Path: knowledge/framework/schedulers/inbox-process-scheduler.md Document Type: Atlas Enterprise Scheduler Specification Paren"
+    },
+    {
+      "id": "4e3a29399bb0e510",
+      "title": "Scheduler - NotificationDispatchScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/notification-dispatch-scheduler.md",
+      "sourceHash": "d604967adff1080c22aab473cdfe9d9830b9680d775e6703ccff037167dda10c",
+      "summary": "# Scheduler - NotificationDispatchScheduler # Document Control Document Name: Scheduler - NotificationDispatchScheduler Document Path: knowledge/framework/schedulers/notification-dispatch-scheduler.md Document Type: Atlas Enterprise Sched"
+    },
+    {
+      "id": "4b3b25024c60409f",
+      "title": "Scheduler - OutboxPublishScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/outbox-publish-scheduler.md",
+      "sourceHash": "98e587584d6d18ea692c20894652129ca9af6c3bec3afe86de33406fcbce097a",
+      "summary": "# Scheduler - OutboxPublishScheduler # Document Control Document Name: Scheduler - OutboxPublishScheduler Document Path: knowledge/framework/schedulers/outbox-publish-scheduler.md Document Type: Atlas Enterprise Scheduler Specification Pa"
+    },
+    {
+      "id": "0cc3b865c8509534",
+      "title": "Scheduler - ProjectionRefreshScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/projection-refresh-scheduler.md",
+      "sourceHash": "e89110742162ccaf8c4ae8aa2e0dbf3d67c1b4daf29d356e5d444337bac5a3d0",
+      "summary": "# Scheduler - ProjectionRefreshScheduler # Document Control Document Name: Scheduler - ProjectionRefreshScheduler Document Path: knowledge/framework/schedulers/projection-refresh-scheduler.md Document Type: Atlas Enterprise Scheduler Spec"
+    },
+    {
+      "id": "55e4321a470e0fb5",
+      "title": "Scheduler - ReportGenerationScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/report-generation-scheduler.md",
+      "sourceHash": "856d7323789f98d4deccc783b8c446d5804ccd707825f71c947f92a57cd23cef",
+      "summary": "# Scheduler - ReportGenerationScheduler # Document Control Document Name: Scheduler - ReportGenerationScheduler Document Path: knowledge/framework/schedulers/report-generation-scheduler.md Document Type: Atlas Enterprise Scheduler Specifi"
+    },
+    {
+      "id": "a12cf586edf3b651",
+      "title": "Scheduler - ScenarioEvaluationScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/scenario-evaluation-scheduler.md",
+      "sourceHash": "7b6fdb5e1c4762f23d5f205d93f858a5249da4dac5d18a952039424f003e4522",
+      "summary": "# Scheduler - ScenarioEvaluationScheduler # Document Control Document Name: Scheduler - ScenarioEvaluationScheduler Document Path: knowledge/framework/schedulers/scenario-evaluation-scheduler.md Document Type: Atlas Enterprise Scheduler S"
+    },
+    {
+      "id": "a3b0ac02e862a768",
+      "title": "Scheduler - ScenarioReplayScheduler",
+      "category": "framework",
+      "path": "knowledge/framework/schedulers/scenario-replay-scheduler.md",
+      "sourceHash": "5c732e3ff69d2a2fc9dc6bacce6a5ad5373cac0640648d9c80d6d9f767f9d3de",
+      "summary": "# Scheduler - ScenarioReplayScheduler # Document Control Document Name: Scheduler - ScenarioReplayScheduler Document Path: knowledge/framework/schedulers/scenario-replay-scheduler.md Document Type: Atlas Enterprise Scheduler Specification"
     },
     {
       "id": "29af037c7e75fa79",
