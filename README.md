@@ -15,10 +15,20 @@ The system should support long-term decisions:
 The repository is being organized as a static-first PWA knowledge application.
 
 - Source knowledge lives in `knowledge/**/*.md`.
-- Runtime knowledge data is generated into `frontend/public/knowledge/`.
+- Runtime knowledge data is generated into `frontend/knowledge/`.
 - The frontend reads static JSON files and does not require a backend database.
 - The PWA shell lives in `frontend/`.
 
-## Suggested first Codex command
+## Repository navigation
 
-Run `npm run build:knowledge`, then validate the static PWA shell from `frontend/`.
+- `knowledge/` contains canonical domain, rule, engine, framework, and supporting Markdown knowledge.
+- `docs/` contains product specifications, PWA implementation notes, database design, API notes, roadmap, and governance reports.
+- `frontend/` contains the static PWA shell and generated knowledge JSON consumed at runtime.
+- `frontend/knowledge/` is generated output; update `knowledge/**/*.md` first, then rebuild.
+- `backend/`, `database/`, `ai/`, and `simulator/` are reserved implementation areas documented by their local README files.
+
+## Validation commands
+
+- `npm run build:knowledge`
+- `npm run validate:pwa`
+- `npm run build`
