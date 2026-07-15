@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T14:32:03.303Z",
-  "buildId": "4ee83cadd0f6",
+  "generatedAt": "2026-07-15T14:34:52.267Z",
+  "buildId": "2631d0e48850",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -510,8 +510,104 @@
       "title": "Automation Framework",
       "category": "framework",
       "path": "knowledge/framework/automation-framework.md",
-      "sourceHash": "f9958c732fe1c9f40d0f9f04389947c3f65535b74f4b87cc898d399c9bf06cc1",
+      "sourceHash": "a997b0b91ba8c6adcd5069c66d78cec54fb522a5a380e910885e5d28494cd5ec",
       "summary": "# Automation Framework # Document Control Document Name: Automation Framework Document Path: knowledge/automation-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification D"
+    },
+    {
+      "id": "f218ebbbec51ce5f",
+      "title": "Automation - BackupAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/backup-automation.md",
+      "sourceHash": "01fd6a3b9252d0f19a89594069ddaac15faea9905b526684a43aea86bd27b8a3",
+      "summary": "# Automation - BackupAutomation # Document Control Document Name: Automation - BackupAutomation Document Path: knowledge/framework/automations/backup-automation.md Document Type: Atlas Enterprise Automation Specification Parent Specificat"
+    },
+    {
+      "id": "26e41db2789c9d0d",
+      "title": "Automation - BankingImportAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/banking-import-automation.md",
+      "sourceHash": "e8bac90f1ffdc2e4565ad9204197ffb36c404033349bdab102b22c1e40a36eb9",
+      "summary": "# Automation - BankingImportAutomation # Document Control Document Name: Automation - BankingImportAutomation Document Path: knowledge/framework/automations/banking-import-automation.md Document Type: Atlas Enterprise Automation Specifica"
+    },
+    {
+      "id": "a1812d87ae17fe3a",
+      "title": "Automation - BrokerageImportAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/brokerage-import-automation.md",
+      "sourceHash": "0bb1d155d8f8ac3d930937dea569e451633b83eb4ea127961e1ac640f1105900",
+      "summary": "# Automation - BrokerageImportAutomation # Document Control Document Name: Automation - BrokerageImportAutomation Document Path: knowledge/framework/automations/brokerage-import-automation.md Document Type: Atlas Enterprise Automation Spe"
+    },
+    {
+      "id": "9a3dda77521d8186",
+      "title": "Automation - CacheRefreshAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/cache-refresh-automation.md",
+      "sourceHash": "9706689353b609182b3e9170497c5a0a2799ed8357923ce8673ff1686e24a916",
+      "summary": "# Automation - CacheRefreshAutomation # Document Control Document Name: Automation - CacheRefreshAutomation Document Path: knowledge/framework/automations/cache-refresh-automation.md Document Type: Atlas Enterprise Automation Specificatio"
+    },
+    {
+      "id": "31649bd373718d12",
+      "title": "Automation - CleanupAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/cleanup-automation.md",
+      "sourceHash": "4dd088d7b66a008e679660bdd28d29bf77c9617d6bbccb7c5e9892d8259f6864",
+      "summary": "# Automation - CleanupAutomation # Document Control Document Name: Automation - CleanupAutomation Document Path: knowledge/framework/automations/cleanup-automation.md Document Type: Atlas Enterprise Automation Specification Parent Specifi"
+    },
+    {
+      "id": "85c5ec265f3c4b4a",
+      "title": "Automation - DecisionReviewAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/decision-review-automation.md",
+      "sourceHash": "c21dbb18ac2c303c86b6e521fcefc60b186fb85cdb45ffb63103c9f6ba5c0b28",
+      "summary": "# Automation - DecisionReviewAutomation # Document Control Document Name: Automation - DecisionReviewAutomation Document Path: knowledge/framework/automations/decision-review-automation.md Document Type: Atlas Enterprise Automation Specif"
+    },
+    {
+      "id": "36178682fbe40cd7",
+      "title": "Automation - InboxProcessAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/inbox-process-automation.md",
+      "sourceHash": "2f88320c246c1727cd4c056d74b5b4c2671fc2a837df44580749ea02fd67864a",
+      "summary": "# Automation - InboxProcessAutomation # Document Control Document Name: Automation - InboxProcessAutomation Document Path: knowledge/framework/automations/inbox-process-automation.md Document Type: Atlas Enterprise Automation Specificatio"
+    },
+    {
+      "id": "177b5bff839aa38e",
+      "title": "Automation - NotificationDispatchAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/notification-dispatch-automation.md",
+      "sourceHash": "bbf8779e84d0b767381ad995a5c5c6b9bcf52589c72aefc26b6a28b14397f24a",
+      "summary": "# Automation - NotificationDispatchAutomation # Document Control Document Name: Automation - NotificationDispatchAutomation Document Path: knowledge/framework/automations/notification-dispatch-automation.md Document Type: Atlas Enterprise"
+    },
+    {
+      "id": "9d3940745f73120f",
+      "title": "Automation - OutboxPublishAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/outbox-publish-automation.md",
+      "sourceHash": "bef55b41256b183a114bd1f5b368b1f09f17d061db96045b8162a02ea5480f64",
+      "summary": "# Automation - OutboxPublishAutomation # Document Control Document Name: Automation - OutboxPublishAutomation Document Path: knowledge/framework/automations/outbox-publish-automation.md Document Type: Atlas Enterprise Automation Specifica"
+    },
+    {
+      "id": "db80aed4b3ca8f92",
+      "title": "Automation - RecommendationRefreshAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/recommendation-refresh-automation.md",
+      "sourceHash": "feb936ba78c2da053641fd9d4f5970aaca13a964ff23a2311e64a9f29bdd896e",
+      "summary": "# Automation - RecommendationRefreshAutomation # Document Control Document Name: Automation - RecommendationRefreshAutomation Document Path: knowledge/framework/automations/recommendation-refresh-automation.md Document Type: Atlas Enterpr"
+    },
+    {
+      "id": "0470c1fcfb806a49",
+      "title": "Automation - ReportGenerationAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/report-generation-automation.md",
+      "sourceHash": "4f4692e12813b0d60df3b822b05a48fd357d9e111395364aee7c2d90eb0151c9",
+      "summary": "# Automation - ReportGenerationAutomation # Document Control Document Name: Automation - ReportGenerationAutomation Document Path: knowledge/framework/automations/report-generation-automation.md Document Type: Atlas Enterprise Automation"
+    },
+    {
+      "id": "9c53a7567796da0b",
+      "title": "Automation - ScenarioRefreshAutomation",
+      "category": "framework",
+      "path": "knowledge/framework/automations/scenario-refresh-automation.md",
+      "sourceHash": "4b550c8067dcddec1bc3acd60f7a83fc35400fa31a0cb09cc8a5d047399735c4",
+      "summary": "# Automation - ScenarioRefreshAutomation # Document Control Document Name: Automation - ScenarioRefreshAutomation Document Path: knowledge/framework/automations/scenario-refresh-automation.md Document Type: Atlas Enterprise Automation Spe"
     },
     {
       "id": "2785e5e879a3a1c8",
