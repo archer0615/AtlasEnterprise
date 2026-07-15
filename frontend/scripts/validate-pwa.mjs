@@ -1,4 +1,4 @@
-import { readFile, stat } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
@@ -48,6 +48,20 @@ for (const file of requiredFiles.filter((item) => item !== "sw.js")) {
 const knowledgeIndex = JSON.parse(await readFile(path.join(frontendRoot, "knowledge", "index.json"), "utf8"));
 if (!Array.isArray(knowledgeIndex.documents) || knowledgeIndex.documents.length === 0) {
   throw new Error("knowledge index has no documents");
+}
+
+const searchIndex = JSON.parse(await readFile(path.join(frontendRoot, "knowledge", "search-index.json"), "utf8"));
+const documentFiles = (await readdir(path.join(frontendRoot, "knowledge", "documents"))).filter((file) => file.endsWith(".json"));
+if (!Array.isArray(searchIndex.documents) || searchIndex.documents.length !== knowledgeIndex.documents.length) {
+  throw new Error("search index document count must match knowledge index");
+}
+if (documentFiles.length !== knowledgeIndex.documents.length) {
+  throw new Error("generated document file count must match knowledge index");
+}
+for (const doc of knowledgeIndex.documents) {
+  if (!documentFiles.includes(`${doc.id}.json`)) {
+    throw new Error(`generated document is missing ${doc.id}.json`);
+  }
 }
 
 console.log(`PWA validation passed with ${knowledgeIndex.documents.length} knowledge documents.`);

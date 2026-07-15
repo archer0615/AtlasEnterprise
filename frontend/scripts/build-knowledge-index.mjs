@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
 
@@ -55,6 +55,7 @@ function keywordsFromMarkdown(markdown, title, headings, canonicalPath) {
   return [...new Set(words)].slice(0, 800);
 }
 
+await rm(documentsRoot, { recursive: true, force: true });
 await mkdir(documentsRoot, { recursive: true });
 
 const files = await listMarkdownFiles(knowledgeRoot);

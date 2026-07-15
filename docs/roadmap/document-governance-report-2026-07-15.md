@@ -7,11 +7,22 @@ This report summarizes the current project documentation state after Markdown in
 ## Current State
 
 - Markdown inventory is aligned with actual project Markdown files.
-- Knowledge build generates 156 runtime documents from `knowledge/**/*.md`.
+- Knowledge build generates 153 runtime documents from `knowledge/**/*.md`.
 - PWA validation passes with the generated knowledge index.
-- Search index contains 156 documents, matching the generated document count.
+- Search index contains 153 documents, matching the generated document count.
 - Knowledge hash validation passes with 0 mismatches.
 - Static artifact readability validation passes with 0 malformed generated documents.
+
+## Generated Artifact Governance
+
+- Canonical source files remain under `knowledge/**/*.md`.
+- Generated runtime artifacts live under `frontend/knowledge/`.
+- `frontend/knowledge/index.json` is the generated document catalog.
+- `frontend/knowledge/search-index.json` is the generated search catalog.
+- `frontend/knowledge/documents/*.json` contains one generated JSON payload per canonical knowledge Markdown file.
+- Generated artifacts are committed because the static PWA reads them directly at runtime.
+- The build script clears stale generated document JSON before writing current artifacts.
+- PWA validation fails if generated document count, search index count, and index count diverge.
 
 ## Category Coverage
 
