@@ -1,0 +1,119 @@
+{
+  "id": "f5ea2f98023352c8",
+  "title": "Portfolio Performance Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/portfolio-performance-framework.md",
+  "sourceHash": "ebaae35c713df7848244135b4695f6abdb1ad66a1c04c1bc1a392f5364bbd198",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Performance Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Performance Principles"
+    },
+    {
+      "level": 2,
+      "text": "Supported Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Return Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Risk Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Risk-Adjusted Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Benchmark Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Income Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Required Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Calculation Frequency"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Portfolio Performance Calculation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Performance Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise standard for measuring, comparing and explaining portfolio performance across Project Atlas.\n\n## Objectives\n- Standardize performance calculations.\n- Separate investment skill from market movement.\n- Enable benchmarking.\n- Support Decision Engine and Dashboard.\n\n## Performance Principles\n- Time-weighted by default.\n- Money-weighted when investor cash flows matter.\n- Fully auditable.\n- Versioned assumptions.\n\n## Supported Metrics\n\n### Return Metrics\n- Time-Weighted Return (TWR)\n- Money-Weighted Return (MWR)\n- IRR\n- XIRR\n- CAGR\n- Annualized Return\n\n### Risk Metrics\n- Volatility\n- Downside Volatility\n- Maximum Drawdown\n- Recovery Time\n\n### Risk-Adjusted Metrics\n- Sharpe Ratio\n- Sortino Ratio\n- Information Ratio\n- Treynor Ratio\n- Alpha\n- Beta\n\n### Benchmark Metrics\n- Active Return\n- Tracking Error\n- Benchmark Relative Return\n\n### Income Metrics\n- Dividend Yield\n- Income Growth\n- Yield on Cost\n\n## Required Inputs\n- Portfolio valuation history\n- Transactions\n- Cash flows\n- Benchmark data\n- Risk-free rate\n- Market assumptions\n\n## Calculation Frequency\n- Daily\n- Monthly\n- Quarterly\n- Annual\n- Since Inception\n\n## Business Rules\n- TWR ignores external cash flows.\n- XIRR is used for irregular cash flows.\n- Benchmark must match portfolio policy.\n- Historical performance is immutable.\n\n## Outputs\n- Performance summary\n- Benchmark comparison\n- Risk-adjusted metrics\n- Attribution summary\n- Performance trend\n\n## Explainability\nInclude:\n- Formula version\n- Input period\n- Cash-flow adjustments\n- Benchmark used\n- Key contributors\n\n## Integration\nConsumes:\n- Asset Allocation Framework\n- Rebalancing Framework\n- Financial Ratio Framework\n- Market Assumptions\n\nProduces:\n- Dashboard\n- Investment Engine\n- Decision Engine\n- Financial Reporting Framework\n\n## KPIs\n- Annualized Return\n- Sharpe Ratio\n- Maximum Drawdown\n- Alpha\n- Beta\n- Benchmark Outperformance\n\n## Testing\n- Buy-and-hold\n- Monthly contributions\n- Dividend portfolio\n- Multi-currency portfolio\n- Severe market downturn\n- Benchmark changes\n\n## Future Enhancements\n- Brinson attribution\n- Factor exposure analysis\n- ESG performance\n- AI performance diagnostics\n\n## Phase 2 Executable Specification\n\n### Portfolio Performance Calculation Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | PortfolioPerformanceRun |\n| Identity | performanceRunId |\n| Scope | tenantId, householdId, portfolioId, period |\n| Inputs | valuationHistory, transactions, cashFlows, benchmarkData, riskFreeRate, formulaVersion |\n| Outputs | returnMetrics, riskMetrics, benchmarkMetrics, attributionSummary, explainabilityReport |\n| Determinism | Same inputs and formula versions must produce identical metrics. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| CalculatePortfolioPerformance | Calculate performance metrics for a portfolio and period. |\n| ComparePortfolioBenchmark | Compare portfolio result against benchmark. |\n| PublishPerformanceSnapshot | Freeze calculated result for reporting. |\n| RecalculatePerformanceSnapshot | Recalculate after approved correction. |\n| ReplayPerformanceCalculation | Rebuild historical performance result from stored inputs and formula versions. |\n\n### Domain Events\n\n| Event | Trigger |\n|---|---|\n| PortfolioPerformanceCalculated | Metrics are calculated. |\n| PortfolioBenchmarkCompared | Benchmark comparison completes. |\n| PortfolioPerformanceSnapshotPublished | Snapshot is frozen for reporting. |\n| PortfolioPerformanceRecalculated | Corrected calculation is completed. |\n| PortfolioPerformanceCalculationReplayed | Historical result is reproduced. |\n\n### Validation Rules\n\n1. Calculation period must have start date and end date.\n2. Benchmark must match portfolio policy and base currency.\n3. TWR, MWR, IRR, and XIRR must reference formulaVersion.\n4. Published snapshots cannot be overwritten.\n5. Replay must fail when valuation history, benchmark data, or formula version is missing.\n\n### API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/portfolios/{portfolioId}/performance/calculate | POST | Calculate performance. |\n| /api/portfolios/{portfolioId}/performance/{performanceRunId} | GET | Retrieve performance result. |\n| /api/portfolios/{portfolioId}/performance/{performanceRunId}/publish | POST | Publish snapshot. |\n| /api/portfolios/{portfolioId}/performance/{performanceRunId}/benchmark | POST | Compare benchmark. |\n| /api/portfolios/{portfolioId}/performance/{performanceRunId}/replay | POST | Replay calculation. |\n\n### Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Buy-and-hold portfolio | TWR matches valuation path. |\n| Irregular contributions | XIRR is calculated with dated cash flows. |\n| Benchmark mismatch | Validation fails. |\n| Published snapshot correction | Recalculation creates auditable corrected result. |\n| Replay performance | Metrics match original output. |\n\n### Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

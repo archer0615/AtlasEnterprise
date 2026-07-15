@@ -1,0 +1,143 @@
+{
+  "id": "1eb8b3751cc149ff",
+  "title": "Portfolio Knowledge Base",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/portfolio.md",
+  "sourceHash": "35feca56181775e02e1fb91dc714b05b685e41dbbfd2dee6f2e3b4352c60daf5",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Knowledge Base"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Objectives"
+    },
+    {
+      "level": 1,
+      "text": "Portfolio Philosophy"
+    },
+    {
+      "level": 1,
+      "text": "Asset Classes"
+    },
+    {
+      "level": 2,
+      "text": "Cash"
+    },
+    {
+      "level": 2,
+      "text": "Fixed Income"
+    },
+    {
+      "level": 2,
+      "text": "Equity"
+    },
+    {
+      "level": 2,
+      "text": "Alternative"
+    },
+    {
+      "level": 1,
+      "text": "Portfolio Structure"
+    },
+    {
+      "level": 1,
+      "text": "Allocation Rules"
+    },
+    {
+      "level": 1,
+      "text": "Rebalancing"
+    },
+    {
+      "level": 1,
+      "text": "Performance Metrics"
+    },
+    {
+      "level": 1,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 1,
+      "text": "Risk Levels"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "PF-001"
+    },
+    {
+      "level": 2,
+      "text": "PF-002"
+    },
+    {
+      "level": 2,
+      "text": "PF-003"
+    },
+    {
+      "level": 2,
+      "text": "PF-004"
+    },
+    {
+      "level": 2,
+      "text": "PF-005"
+    },
+    {
+      "level": 1,
+      "text": "KPIs"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 1,
+      "text": "Related Engines"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Knowledge Base\n\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\n\n------------------------------------------------------------------------\n\n# Purpose\n\nPortfolio 在 Atlas 中代表整體資產配置，而非單一投資帳戶。\n\nDecision Engine、Investment Engine、Retirement Engine 與 Cash Flow\nEngine 皆以 Portfolio 作為共同資料來源。\n\n------------------------------------------------------------------------\n\n# Objectives\n\n-   長期資產增值\n-   穩定現金流\n-   控制風險\n-   支援人生重大事件\n-   提高財務自主性\n\n------------------------------------------------------------------------\n\n# Portfolio Philosophy\n\n投資組合應服務人生，而不是追求最高報酬。\n\n投資決策必須符合 Blueprint、IPS 與 Life Goals。\n\n------------------------------------------------------------------------\n\n# Asset Classes\n\n## Cash\n\n-   Cash\n-   Savings\n-   Money Market\n\n## Fixed Income\n\n-   Government Bond\n-   Corporate Bond\n-   Bond ETF\n-   FCN\n\n## Equity\n\n-   Domestic ETF\n-   International ETF\n-   Individual Stocks\n-   REIT\n\n## Alternative\n\n-   Gold\n-   Commodity\n-   Cryptocurrency\n-   Private Assets\n\n------------------------------------------------------------------------\n\n# Portfolio Structure\n\n每個 Portfolio 至少包含：\n\n-   Portfolio Id\n-   Name\n-   Owner\n-   Base Currency\n-   Target Allocation\n-   Current Allocation\n-   Holdings\n-   Cost Basis\n-   Market Value\n-   Unrealized Gain/Loss\n-   Annual Income\n-   Risk Level\n\n------------------------------------------------------------------------\n\n# Allocation Rules\n\n每個 Asset Class 必須定義：\n\n-   Target Weight\n-   Minimum Weight\n-   Maximum Weight\n-   Rebalance Threshold\n\n------------------------------------------------------------------------\n\n# Rebalancing\n\n觸發條件：\n\n-   Allocation Drift\n-   定期再平衡\n-   人生重大事件\n-   市場重大變化\n\n方式：\n\n-   Buy\n-   Sell\n-   Cash Flow Reallocation\n\n------------------------------------------------------------------------\n\n# Performance Metrics\n\n-   Total Return\n-   Annual Return\n-   CAGR\n-   Dividend Yield\n-   Coupon Yield\n-   Cash Yield\n-   Max Drawdown\n-   Volatility\n\n------------------------------------------------------------------------\n\n# Cash Flow\n\nPortfolio 必須提供：\n\n-   Dividend\n-   Coupon\n-   Rental Income\n-   Withdrawal\n-   Asset Sale\n\n供 Cash Flow Engine 使用。\n\n------------------------------------------------------------------------\n\n# Risk Levels\n\n-   Conservative\n-   Moderate\n-   Growth\n-   Aggressive\n\n------------------------------------------------------------------------\n\n# Business Rules\n\n## PF-001\n\n所有投資均需符合 IPS。\n\n## PF-002\n\n不得因短期市場波動偏離人生目標。\n\n## PF-003\n\n再平衡優先使用新增資金。\n\n## PF-004\n\n退休後應優先使用投資現金流，再考慮出售資產。\n\n## PF-005\n\n重大人生事件後必須重新檢視 Asset Allocation。\n\n------------------------------------------------------------------------\n\n# KPIs\n\n-   Portfolio Value\n-   Net Investment Value\n-   Annual Income\n-   Passive Income Ratio\n-   Asset Allocation Accuracy\n-   Portfolio Return\n-   Drawdown\n-   Risk Score\n\n------------------------------------------------------------------------\n\n# Domain Events\n\n-   PortfolioCreated\n-   PortfolioUpdated\n-   HoldingAdded\n-   HoldingRemoved\n-   AllocationChanged\n-   Rebalanced\n-   DividendReceived\n-   CouponReceived\n\n------------------------------------------------------------------------\n\n# Related Engines\n\n-   Investment Engine\n-   Cash Flow Engine\n-   Decision Engine\n-   Retirement Engine\n-   Dashboard Engine\n\n------------------------------------------------------------------------\n\n# Related Documents\n\n-   docs/09-InvestmentEngine.md\n-   docs/13-DecisionEngine.md\n-   knowledge/investment-policy.md\n-   knowledge/cashflow.md\n-   knowledge/retirement.md\n\n------------------------------------------------------------------------\n\n# Phase 2 Executable Specification\n\n## Portfolio Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | Portfolio |\n| Identity | portfolioId |\n| Scope | tenantId, householdId |\n| Required State | name, owner, baseCurrency, targetAllocation, currentAllocation, holdings, riskLevel |\n| Derived State | marketValue, costBasis, unrealizedGainLoss, annualIncome, allocationDrift |\n| Invariant | Portfolio holdings must reconcile to current allocation and market value. |\n\n## Required Commands\n\n| Command | Purpose |\n|---|---|\n| CreatePortfolio | Create portfolio with policy-aligned target allocation. |\n| UpdatePortfolioProfile | Update metadata, owner, or base configuration. |\n| AddPortfolioHolding | Add an approved holding. |\n| RemovePortfolioHolding | Remove or close a holding. |\n| UpdatePortfolioValuation | Refresh holding and portfolio market values. |\n| ChangePortfolioAllocation | Change target allocation under IPS validation. |\n| ArchivePortfolio | Close portfolio for future activity. |\n| ReplayPortfolioState | Rebuild portfolio state from events. |\n\n## Domain Events\n\n| Event | Trigger |\n|---|---|\n| PortfolioCreated | Portfolio is created. |\n| PortfolioProfileUpdated | Metadata or configuration changes. |\n| PortfolioHoldingAdded | Holding is added. |\n| PortfolioHoldingRemoved | Holding is removed. |\n| PortfolioValuationUpdated | Market value is refreshed. |\n| PortfolioAllocationChanged | Target allocation changes. |\n| PortfolioArchived | Portfolio is closed. |\n| PortfolioStateReplayed | Portfolio state is rebuilt. |\n\n## Validation Rules\n\n1. Target allocation weights must total 100%.\n2. Each asset class must define target, minimum, maximum, and rebalance threshold.\n3. Holdings must reference approved asset class and currency.\n4. Allocation changes must pass IPS and risk capacity validation.\n5. Archived portfolios cannot accept new holdings or allocation changes.\n\n## API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/portfolios | POST | Create portfolio. |\n| /api/portfolios/{portfolioId} | GET | Retrieve portfolio state. |\n| /api/portfolios/{portfolioId}/holdings | POST | Add holding. |\n| /api/portfolios/{portfolioId}/holdings/{holdingId} | DELETE | Remove holding. |\n| /api/portfolios/{portfolioId}/valuation | POST | Update valuation. |\n| /api/portfolios/{portfolioId}/allocation | PUT | Change target allocation. |\n| /api/portfolios/{portfolioId}/archive | POST | Archive portfolio. |\n\n## Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Create valid portfolio | PortfolioCreated is emitted. |\n| Allocation weights total 95% | Validation fails. |\n| Add unsupported asset class | Command is rejected. |\n| Change allocation outside IPS limits | Validation fails. |\n| Replay portfolio state | Holdings, value, and allocation match event history. |\n\n## Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

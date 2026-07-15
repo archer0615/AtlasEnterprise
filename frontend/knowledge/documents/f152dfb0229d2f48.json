@@ -1,0 +1,159 @@
+{
+  "id": "f152dfb0229d2f48",
+  "title": "Financial Dependency Model",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/financial-dependency-model.md",
+  "sourceHash": "54c7693a5bf9650706b46cb5db1cd44431e700110b5317b7b0e033b7c549b75f",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Financial Dependency Model"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Types"
+    },
+    {
+      "level": 3,
+      "text": "Person Dependency"
+    },
+    {
+      "level": 3,
+      "text": "Income Dependency"
+    },
+    {
+      "level": 3,
+      "text": "Asset Dependency"
+    },
+    {
+      "level": 3,
+      "text": "Liability Dependency"
+    },
+    {
+      "level": 3,
+      "text": "Goal Dependency"
+    },
+    {
+      "level": 2,
+      "text": "Relationship Types"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Levels"
+    },
+    {
+      "level": 2,
+      "text": "Core Entities"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Graph Rules"
+    },
+    {
+      "level": 2,
+      "text": "Decision Process"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Dependency Edge Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Dependency Edge Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Financial Dependency Model\n\nVersion: 1.0\n\n## Purpose\nDefines how Project Atlas models financial dependencies between people, assets, liabilities, goals and income sources. The model enables the Decision Engine to evaluate cascading impacts before recommending actions.\n\n## Objectives\n- Represent financial dependency relationships.\n- Prevent recommendations that break critical dependencies.\n- Support explainable scenario analysis.\n- Enable deterministic impact propagation.\n\n## Dependency Types\n\n### Person Dependency\nExamples:\n- Spouse\n- Children\n- Parents\n- Other dependents\n\n### Income Dependency\nExamples:\n- Salary\n- Business income\n- Rental income\n- Dividend income\n- Pension\n\n### Asset Dependency\nExamples:\n- Primary residence\n- Investment portfolio\n- Emergency fund\n- Retirement account\n\n### Liability Dependency\nExamples:\n- Mortgage\n- Personal loan\n- Margin loan\n\n### Goal Dependency\nExamples:\n- Retirement depends on investment funding.\n- Home upgrade depends on equity and liquidity.\n- Education funding depends on long-term savings.\n\n## Relationship Types\n- Requires\n- Supports\n- Blocks\n- Reduces\n- Enhances\n- Replaces\n\n## Dependency Levels\n- Critical\n- High\n- Medium\n- Low\n\n## Core Entities\n- Person\n- Household\n- Income Source\n- Asset\n- Liability\n- Goal\n- Portfolio\n- Cash Flow\n- Insurance Policy\n\n## Dependency Graph Rules\n- Directed graph.\n- No circular mandatory dependencies.\n- Critical dependencies must be validated before decisions.\n- Historical dependency changes are auditable.\n\n## Decision Process\n1. Build dependency graph.\n2. Validate required dependencies.\n3. Detect conflicts.\n4. Simulate proposed action.\n5. Measure downstream impacts.\n6. Generate recommendation.\n\n## Business Rules\n- Mandatory goals cannot lose required funding.\n- Emergency Fund always has critical priority.\n- Removing an income source recalculates dependent goals.\n- Selling an asset updates all linked scenarios.\n\n## Outputs\n- Dependency graph\n- Dependency health score\n- Blocking dependencies\n- Impact summary\n- Recommended mitigation actions\n\n## Explainability\nEvery recommendation reports:\n- Affected entities\n- Dependency chain\n- Critical blockers\n- Assumptions\n- Expected downstream effects\n\n## KPIs\n- Dependency Health Score\n- Critical Dependency Count\n- Goal Dependency Coverage\n- Funding Dependency Ratio\n- Household Dependency Index\n\n## Integration\nConsumes:\n- Goal Prioritization\n- Capital Allocation Framework\n- Liquidity Framework\n- Financial Health Score\n- Life Stage Model\n\nProduces:\n- Decision Engine\n- Scenario Engine\n- Recommendation Engine\n- Dashboard\n\n## Testing\n- Single-income household\n- Dual-income household\n- Income loss\n- Home purchase\n- Retirement transition\n- Multiple dependent goals\n\n## Future Enhancements\n- Household dependency optimization\n- AI dependency analysis\n- Predictive dependency mapping\n- Multi-generational financial planning\n\n## Phase 2 Executable Specification\n\n### Dependency Edge Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| DependencyId | Yes | Stable dependency identifier |\n| SourceEntityId | Yes | Entity that creates the dependency |\n| SourceEntityType | Yes | Person, IncomeSource, Asset, Liability, Goal, Portfolio, CashFlow, InsurancePolicy |\n| TargetEntityId | Yes | Entity affected by the dependency |\n| TargetEntityType | Yes | Dependent entity type |\n| RelationshipType | Yes | Requires, Supports, Blocks, Reduces, Enhances, Replaces |\n| DependencyLevel | Yes | Critical, High, Medium, Low |\n| EffectiveFrom | Yes | Start date |\n| EffectiveTo | No | End date when dependency expires |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CreateDependencyEdge | DependencyApplicationService | DependencyEdgeCreated |\n| UpdateDependencyLevel | DependencyApplicationService | DependencyLevelUpdated |\n| RemoveDependencyEdge | DependencyApplicationService | DependencyEdgeRemoved |\n| ValidateDependencyGraph | DependencyApplicationService | DependencyGraphValidated |\n| SimulateDependencyImpact | ScenarioApplicationService | DependencyImpactSimulated |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| DependencyEdgeCreated | New relationship registered | Decision Engine, Scenario Engine |\n| DependencyGraphValidated | Graph validation completed | Decision Engine, Audit |\n| DependencyConflictDetected | Blocking or circular dependency found | Alert, Recommendation Engine |\n| DependencyImpactSimulated | Proposed action impact calculated | Explainability, Dashboard |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FDM-VR-001 | Critical dependencies must have active source and target entities. | Reject graph |\n| FDM-VR-002 | Mandatory dependency cycles are not allowed. | Reject graph |\n| FDM-VR-003 | A blocked target cannot be recommended until blocker is resolved. | Block recommendation |\n| FDM-VR-004 | Historical dependency changes must be retained. | Reject overwrite |\n| FDM-VR-005 | Dependency level changes require audit reason. | Reject command |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/dependencies | POST | Create dependency edge | Dependency:Write |\n| /api/v1/dependencies/graph | GET | Retrieve dependency graph | Dependency:Read |\n| /api/v1/dependencies/validate | POST | Validate dependency graph | Dependency:Evaluate |\n| /api/v1/dependencies/impact | POST | Simulate downstream impact | Scenario:Evaluate |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Circular mandatory dependency | Graph validation fails |\n| Income source removed | Dependent goals recalculate |\n| Emergency fund dependency breached | Recommendation is blocked |\n| Asset sale simulation | Linked scenarios update impact summary |\n| Dependency level change | Audit reason is required |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Dependency Edge Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| DependencyId | Yes | Stable dependency identifier |\n| SourceEntityId | Yes | Entity that creates the dependency |\n| SourceEntityType | Yes | Person, IncomeSource, Asset, Liability, Goal, Portfolio, CashFlow, InsurancePolicy |\n| TargetEntityId | Yes | Entity affected by the dependency |\n| TargetEntityType | Yes | Dependent entity type |\n| RelationshipType | Yes | Requires, Supports, Blocks, Reduces, Enhances, Replaces |\n| DependencyLevel | Yes | Critical, High, Medium, Low |\n| EffectiveFrom | Yes | Start date |\n| EffectiveTo | No | End date when dependency expires |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CreateDependencyEdge | DependencyApplicationService | DependencyEdgeCreated |\n| UpdateDependencyLevel | DependencyApplicationService | DependencyLevelUpdated |\n| RemoveDependencyEdge | DependencyApplicationService | DependencyEdgeRemoved |\n| ValidateDependencyGraph | DependencyApplicationService | DependencyGraphValidated |\n| SimulateDependencyImpact | ScenarioApplicationService | DependencyImpactSimulated |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| DependencyEdgeCreated | New relationship registered | Decision Engine, Scenario Engine |\n| DependencyGraphValidated | Graph validation completed | Decision Engine, Audit |\n| DependencyConflictDetected | Blocking or circular dependency found | Alert, Recommendation Engine |\n| DependencyImpactSimulated | Proposed action impact calculated | Explainability, Dashboard |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FDM-VR-001 | Critical dependencies must have active source and target entities. | Reject graph |\n| FDM-VR-002 | Mandatory dependency cycles are not allowed. | Reject graph |\n| FDM-VR-003 | A blocked target cannot be recommended until blocker is resolved. | Block recommendation |\n| FDM-VR-004 | Historical dependency changes must be retained. | Reject overwrite |\n| FDM-VR-005 | Dependency level changes require audit reason. | Reject command |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/dependencies | POST | Create dependency edge | Dependency:Write |\n| /api/v1/dependencies/graph | GET | Retrieve dependency graph | Dependency:Read |\n| /api/v1/dependencies/validate | POST | Validate dependency graph | Dependency:Evaluate |\n| /api/v1/dependencies/impact | POST | Simulate downstream impact | Scenario:Evaluate |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Circular mandatory dependency | Graph validation fails |\n| Income source removed | Dependent goals recalculate |\n| Emergency fund dependency breached | Recommendation is blocked |\n| Asset sale simulation | Linked scenarios update impact summary |\n| Dependency level change | Audit reason is required |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

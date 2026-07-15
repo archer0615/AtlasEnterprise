@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Atlas">
+  <rect width="512" height="512" rx="96" fill="#1f6f78"/>
+  <path d="M128 368 256 88l128 280h-68l-24-58h-72l-24 58h-68Zm116-116h24l-12-32-12 32Z" fill="#f5f2ed"/>
+  <path d="M160 408h192" stroke="#f5f2ed" stroke-width="32" stroke-linecap="round"/>
+</svg>

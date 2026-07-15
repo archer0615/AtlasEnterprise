@@ -1,0 +1,15 @@
+{
+  "id": "81bb1629a1c9fc75",
+  "title": "Workflow Engine Framework",
+  "category": "engine",
+  "canonicalPath": "knowledge/engine/workflow-engine-framework.md",
+  "sourceHash": "07caf15499083d17a0875e111b3ea185c2541cdab783c48d2609535516ad196f",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Workflow Engine Framework"
+    }
+  ],
+  "bodyMarkdown": "# Workflow Engine Framework\n\nWorkflow States:\nDraft\n→ Pending\n→ Running\n→ Waiting\n→ Completed\n→ Failed\n→ Cancelled\n\nFeatures:\n- State machine\n- Retry\n- Compensation\n- Timeout\n- Manual approval\n- Audit trail\n",
+  "references": []
+}

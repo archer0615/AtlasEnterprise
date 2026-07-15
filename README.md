@@ -10,6 +10,15 @@ The system should support long-term decisions:
 - Retirement readiness
 - Investment and cash-flow stress testing
 
+## Current implementation direction
+
+The repository is being organized as a static-first PWA knowledge application.
+
+- Source knowledge lives in `knowledge/**/*.md`.
+- Runtime knowledge data is generated into `frontend/public/knowledge/`.
+- The frontend reads static JSON files and does not require a backend database.
+- The PWA shell lives in `frontend/`.
+
 ## Suggested first Codex command
 
-Read all `.codex/*.md` and `docs/**/*.md`, then create the .NET 8 backend solution skeleton, domain models, calculators, and tests. Do not build complex UI yet.
+Run `npm run build:knowledge`, then validate the static PWA shell from `frontend/`.

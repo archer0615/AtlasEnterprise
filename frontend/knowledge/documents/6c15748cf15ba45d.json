@@ -1,0 +1,139 @@
+{
+  "id": "6c15748cf15ba45d",
+  "title": "Life Stage Model",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/life-stage-model.md",
+  "sourceHash": "7468e77c20fb80c6742834685ed884265742e18dede903ee6f4e28de5d6033d0",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Life Stage Model"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Core Principles"
+    },
+    {
+      "level": 2,
+      "text": "Standard Life Stages"
+    },
+    {
+      "level": 3,
+      "text": "Stage 1 – Foundation"
+    },
+    {
+      "level": 3,
+      "text": "Stage 2 – Growth"
+    },
+    {
+      "level": 3,
+      "text": "Stage 3 – Expansion"
+    },
+    {
+      "level": 3,
+      "text": "Stage 4 – Consolidation"
+    },
+    {
+      "level": 3,
+      "text": "Stage 5 – Retirement Transition"
+    },
+    {
+      "level": 3,
+      "text": "Stage 6 – Retirement"
+    },
+    {
+      "level": 2,
+      "text": "Transition Events"
+    },
+    {
+      "level": 2,
+      "text": "Stage Attributes"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine Integration"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Life Stage Model Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Life Stage Model Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Life Stage Model\n\nVersion: 1.0\n\n## Purpose\nDefines the standard life-stage framework used by Project Atlas to adapt financial recommendations throughout a user's lifetime.\n\n## Objectives\n- Align decisions with changing life priorities.\n- Drive scenario assumptions by life stage.\n- Adjust risk tolerance, cash flow, and goal weighting automatically.\n\n## Core Principles\n- Life stage is determined by financial characteristics rather than age alone.\n- Multiple transition events may move a user between stages.\n- Recommendations remain explainable and deterministic.\n\n## Standard Life Stages\n\n### Stage 1 – Foundation\nTypical focus:\n- Career establishment\n- Emergency fund\n- Insurance\n- Debt control\n\n### Stage 2 – Growth\nTypical focus:\n- Income growth\n- Home purchase\n- Family planning\n- Investment accumulation\n\n### Stage 3 – Expansion\nTypical focus:\n- Children\n- Education funding\n- Home upgrade\n- Asset diversification\n\n### Stage 4 – Consolidation\nTypical focus:\n- Mortgage reduction\n- Retirement acceleration\n- Portfolio optimization\n- Risk reduction\n\n### Stage 5 – Retirement Transition\nTypical focus:\n- Income replacement\n- Withdrawal planning\n- Healthcare planning\n- Estate preparation\n\n### Stage 6 – Retirement\nTypical focus:\n- Sustainable withdrawals\n- Capital preservation\n- Legacy planning\n\n## Transition Events\nExamples:\n- First full-time job\n- Marriage\n- Child birth\n- Home purchase\n- Home upgrade\n- Business ownership\n- Early retirement\n- Retirement\n- Major inheritance\n\n## Stage Attributes\nEach stage defines:\n- Primary objectives\n- Default risk profile\n- Cash reserve target\n- Debt strategy\n- Investment priority\n- Withdrawal policy\n- Insurance emphasis\n\n## Decision Engine Integration\nLife stage influences:\n- Goal Prioritization\n- Financial Health Score\n- Asset Allocation\n- Rebalancing\n- Retirement Strategy\n- Scenario Analysis\n\n## Business Rules\n- Life stage may change after validated life events.\n- Users may override recommended stage with justification.\n- Historical stages are retained for audit purposes.\n\n## Explainability\nRecommendations must include:\n- Current life stage\n- Triggering transition events\n- Stage-specific assumptions\n- Impact on recommendations\n\n## Testing\n- Single-stage users\n- Multiple transition events\n- Delayed retirement\n- Early retirement\n- Family expansion\n- Home upgrade scenarios\n\n## Future Enhancements\n- AI-assisted stage detection\n- Regional customization\n- Household-level life stage\n- Predictive transition modeling\n\n## Phase 2 Executable Specification\n\n### Life Stage Model Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| LifeStageModelId | Yes | Stable model identifier |\n| StageCode | Yes | Foundation, Growth, Expansion, Consolidation, RetirementTransition, Retirement |\n| ModelVersion | Yes | Immutable model version |\n| ClassificationCriteria | Yes | Financial and life event criteria |\n| DefaultRiskProfile | Yes | Stage risk profile default |\n| CashReserveTarget | Yes | Stage liquidity target |\n| InvestmentPriority | Yes | Stage investment priority |\n| WithdrawalPolicy | No | Required for retirement stages |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| PublishLifeStageModel | GovernanceApplicationService | LifeStageModelPublished |\n| ClassifyLifeStage | LifeStageApplicationService | LifeStageClassified |\n| ValidateLifeStageModel | GovernanceApplicationService | LifeStageModelValidated |\n| ReplayLifeStageClassification | AdministrationApplicationService | LifeStageClassificationReplayed |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| LSM-VR-001 | Every stage model must define classification criteria and defaults. | Reject model |\n| LSM-VR-002 | Retirement stages must define withdrawal policy. | Reject model |\n| LSM-VR-003 | Model versions are immutable after activation. | Reject update |\n| LSM-VR-004 | Classification must reference model version and source snapshot. | Reject classification |\n| LSM-VR-005 | Replay must use original model version. | Reject replay |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/life-stage-models | GET | List active stage models | LifeStage:Read |\n| /api/v1/life-stage-models | POST | Publish stage model | LifeStage:Admin |\n| /api/v1/life-stage-models/classify | POST | Classify life stage | LifeStage:Evaluate |\n| /api/v1/life-stage-models/validate | POST | Validate stage model | LifeStage:Admin |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing classification criteria | Model publish fails |\n| Retirement stage missing withdrawal policy | Model validation fails |\n| Same source and model version | Same classification returned |\n| Model version update | New immutable version required |\n| Historical replay | Original classification reproduces |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Life Stage Model Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| LifeStageModelId | Yes | Stable model identifier |\n| StageCode | Yes | Foundation, Growth, Expansion, Consolidation, RetirementTransition, Retirement |\n| ModelVersion | Yes | Immutable model version |\n| ClassificationCriteria | Yes | Financial and life event criteria |\n| DefaultRiskProfile | Yes | Stage risk profile default |\n| CashReserveTarget | Yes | Stage liquidity target |\n| InvestmentPriority | Yes | Stage investment priority |\n| WithdrawalPolicy | No | Required for retirement stages |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| PublishLifeStageModel | GovernanceApplicationService | LifeStageModelPublished |\n| ClassifyLifeStage | LifeStageApplicationService | LifeStageClassified |\n| ValidateLifeStageModel | GovernanceApplicationService | LifeStageModelValidated |\n| ReplayLifeStageClassification | AdministrationApplicationService | LifeStageClassificationReplayed |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| LSM-VR-001 | Every stage model must define classification criteria and defaults. | Reject model |\n| LSM-VR-002 | Retirement stages must define withdrawal policy. | Reject model |\n| LSM-VR-003 | Model versions are immutable after activation. | Reject update |\n| LSM-VR-004 | Classification must reference model version and source snapshot. | Reject classification |\n| LSM-VR-005 | Replay must use original model version. | Reject replay |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/life-stage-models | GET | List active stage models | LifeStage:Read |\n| /api/v1/life-stage-models | POST | Publish stage model | LifeStage:Admin |\n| /api/v1/life-stage-models/classify | POST | Classify life stage | LifeStage:Evaluate |\n| /api/v1/life-stage-models/validate | POST | Validate stage model | LifeStage:Admin |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing classification criteria | Model publish fails |\n| Retirement stage missing withdrawal policy | Model validation fails |\n| Same source and model version | Same classification returned |\n| Model version update | New immutable version required |\n| Historical replay | Original classification reproduces |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

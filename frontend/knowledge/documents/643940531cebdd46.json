@@ -1,0 +1,103 @@
+{
+  "id": "643940531cebdd46",
+  "title": "User Entity Specification (Part 1)",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/User_p1.md",
+  "sourceHash": "46f7d5a3bde8c13059028802b3400ef23448c45f09247e6f9570497389b24549",
+  "headings": [
+    {
+      "level": 1,
+      "text": "User Entity Specification (Part 1)"
+    },
+    {
+      "level": 1,
+      "text": "Entity Overview"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Responsibilities"
+    },
+    {
+      "level": 2,
+      "text": "Business Meaning"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate Root"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Ownership"
+    },
+    {
+      "level": 2,
+      "text": "Relationships"
+    },
+    {
+      "level": 2,
+      "text": "Navigation"
+    },
+    {
+      "level": 1,
+      "text": "Complete Properties"
+    },
+    {
+      "level": 2,
+      "text": "Property Details"
+    },
+    {
+      "level": 3,
+      "text": "Id"
+    },
+    {
+      "level": 3,
+      "text": "Email"
+    },
+    {
+      "level": 3,
+      "text": "DisplayName"
+    },
+    {
+      "level": 3,
+      "text": "Currency"
+    },
+    {
+      "level": 3,
+      "text": "TimeZone"
+    },
+    {
+      "level": 3,
+      "text": "Status"
+    },
+    {
+      "level": 1,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 1,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "Invariants"
+    },
+    {
+      "level": 2,
+      "text": "Illegal Transitions"
+    }
+  ],
+  "bodyMarkdown": "# User Entity Specification (Part 1)\n\n# Entity Overview\n\n## Purpose\nThe User entity represents an individual who owns financial data, goals, assets, liabilities, scenarios, and decisions within Atlas.\n\n## Responsibilities\n- Identity management\n- Profile ownership\n- Financial preference ownership\n- Security boundary\n- Aggregate root coordination\n\n## Business Meaning\nA User is the primary owner of all personal financial information.\n\n## Aggregate Root\nYes.\n\n## Lifecycle\nDraft → PendingVerification → Active → Suspended → Archived\n\n## Ownership\nOwned by Identity Domain.\n\n## Relationships\n- Household (0..1)\n- Goal (0..*)\n- Asset (0..*)\n- Liability (0..*)\n- Loan (0..*)\n- Portfolio (0..*)\n- Decision (0..*)\n- Notification (0..*)\n\n## Navigation\nUser\n ├── Household\n ├── Goals\n ├── Assets\n ├── Liabilities\n ├── Portfolios\n ├── CashFlows\n └── Decisions\n\n---\n\n# Complete Properties\n\n|Name|Type|Nullable|Default|Description|Validation|\n|---|---|---|---|---|---|\n|Id|UUID|No|Generated|Primary key|Required|\n|ExternalId|string|Yes|null|Identity provider id|Max128|\n|Email|string|No|-|Login email|Email|\n|DisplayName|string|No|-|Display name|1-100 chars|\n|FirstName|string|Yes|null|Given name|Max50|\n|LastName|string|Yes|null|Family name|Max50|\n|Phone|string|Yes|null|Phone number|Pattern|\n|Locale|string|No|zh-TW|Culture|ISO|\n|Currency|string|No|TWD|Default currency|ISO4217|\n|TimeZone|string|No|Asia/Taipei|Timezone|IANA|\n|Status|enum|No|Draft|Entity state|Enum|\n|CreatedAt|datetime|No|now|Create time|Required|\n|UpdatedAt|datetime|No|now|Update time|Required|\n\n## Property Details\n\n### Id\n- Business Meaning: Immutable identity.\n- Database: uuid\n- JSON: id\n- Searchable: Yes\n- Sortable: Yes\n- Indexed: PK\n- Encrypted: No\n- Auditable: Yes\n\n### Email\n- Business Meaning: Login identity.\n- Database: varchar(320)\n- JSON: email\n- Searchable: Yes\n- Sortable: Yes\n- Indexed: Unique\n- Encrypted: Optional\n- Auditable: Yes\n\n### DisplayName\n- Business Meaning: Preferred name shown by Atlas.\n- Database: varchar(100)\n- JSON: displayName\n- Searchable: Yes\n- Sortable: Yes\n- Indexed: Yes\n- Auditable: Yes\n\n### Currency\n- Business Meaning: Default planning currency.\n- Database: char(3)\n- JSON: currency\n\n### TimeZone\n- Business Meaning: Calendar calculations.\n- Database: varchar(50)\n- JSON: timeZone\n\n### Status\nAllowed:\n- Draft\n- PendingVerification\n- Active\n- Suspended\n- Archived\n\n---\n\n# Validation Rules\n\n1. Id required.\n2. Email required.\n3. Email unique.\n4. Email RFC compliant.\n5. DisplayName required.\n6. DisplayName <=100 chars.\n7. Currency ISO4217.\n8. Locale supported.\n9. TimeZone valid IANA.\n10. Status enum only.\n11. CreatedAt immutable.\n12. UpdatedAt >= CreatedAt.\n13. ExternalId immutable after activation.\n14. Phone format valid.\n15. Deleted users cannot reactivate directly.\n\n---\n\n# Business Rules\n\n1. One email belongs to one User.\n2. User owns all financial aggregates.\n3. Archived users are read-only.\n4. Suspended users cannot execute decisions.\n5. Only Active users receive recommendations.\n6. Currency change triggers recalculation.\n7. Timezone affects schedules.\n8. Household ownership cannot cross tenants.\n9. Goal ownership always references User.\n10. User deletion is soft delete.\n\n---\n\n# State Machine\n\n|State|Trigger|Next|\n|---|---|---|\n|Draft|Create|PendingVerification|\n|PendingVerification|Verify Email|Active|\n|Active|Suspend|Suspended|\n|Suspended|Resume|Active|\n|Active|Archive|Archived|\n\n## Invariants\n- Archived is terminal.\n- Active requires verified email.\n- Draft cannot own financial records.\n\n## Illegal Transitions\n- Draft → Archived\n- Archived → Active\n- Suspended → Draft\n- Active → Draft\n\n- Additional enterprise rule placeholder 1: User invariant remains consistent.\n- Additional enterprise rule placeholder 2: User invariant remains consistent.\n- Additional enterprise rule placeholder 3: User invariant remains consistent.\n- Additional enterprise rule placeholder 4: User invariant remains consistent.\n- Additional enterprise rule placeholder 5: User invariant remains consistent.\n- Additional enterprise rule placeholder 6: User invariant remains consistent.\n- Additional enterprise rule placeholder 7: User invariant remains consistent.\n- Additional enterprise rule placeholder 8: User invariant remains consistent.\n- Additional enterprise rule placeholder 9: User invariant remains consistent.\n- Additional enterprise rule placeholder 10: User invariant remains consistent.\n- Additional enterprise rule placeholder 11: User invariant remains consistent.\n- Additional enterprise rule placeholder 12: User invariant remains consistent.\n- Additional enterprise rule placeholder 13: User invariant remains consistent.\n- Additional enterprise rule placeholder 14: User invariant remains consistent.\n- Additional enterprise rule placeholder 15: User invariant remains consistent.\n- Additional enterprise rule placeholder 16: User invariant remains consistent.\n- Additional enterprise rule placeholder 17: User invariant remains consistent.\n- Additional enterprise rule placeholder 18: User invariant remains consistent.\n- Additional enterprise rule placeholder 19: User invariant remains consistent.\n- Additional enterprise rule placeholder 20: User invariant remains consistent.\n- Additional enterprise rule placeholder 21: User invariant remains consistent.\n- Additional enterprise rule placeholder 22: User invariant remains consistent.\n- Additional enterprise rule placeholder 23: User invariant remains consistent.\n- Additional enterprise rule placeholder 24: User invariant remains consistent.\n- Additional enterprise rule placeholder 25: User invariant remains consistent.\n- Additional enterprise rule placeholder 26: User invariant remains consistent.\n- Additional enterprise rule placeholder 27: User invariant remains consistent.\n- Additional enterprise rule placeholder 28: User invariant remains consistent.\n- Additional enterprise rule placeholder 29: User invariant remains consistent.\n- Additional enterprise rule placeholder 30: User invariant remains consistent.\n- Additional enterprise rule placeholder 31: User invariant remains consistent.\n- Additional enterprise rule placeholder 32: User invariant remains consistent.\n- Additional enterprise rule placeholder 33: User invariant remains consistent.\n- Additional enterprise rule placeholder 34: User invariant remains consistent.\n- Additional enterprise rule placeholder 35: User invariant remains consistent.\n- Additional enterprise rule placeholder 36: User invariant remains consistent.\n- Additional enterprise rule placeholder 37: User invariant remains consistent.\n- Additional enterprise rule placeholder 38: User invariant remains consistent.\n- Additional enterprise rule placeholder 39: User invariant remains consistent.\n- Additional enterprise rule placeholder 40: User invariant remains consistent.\n- Additional enterprise rule placeholder 41: User invariant remains consistent.\n- Additional enterprise rule placeholder 42: User invariant remains consistent.\n- Additional enterprise rule placeholder 43: User invariant remains consistent.\n- Additional enterprise rule placeholder 44: User invariant remains consistent.\n- Additional enterprise rule placeholder 45: User invariant remains consistent.\n- Additional enterprise rule placeholder 46: User invariant remains consistent.\n- Additional enterprise rule placeholder 47: User invariant remains consistent.\n- Additional enterprise rule placeholder 48: User invariant remains consistent.\n- Additional enterprise rule placeholder 49: User invariant remains consistent.\n- Additional enterprise rule placeholder 50: User invariant remains consistent.\n- Additional enterprise rule placeholder 51: User invariant remains consistent.\n- Additional enterprise rule placeholder 52: User invariant remains consistent.\n- Additional enterprise rule placeholder 53: User invariant remains consistent.\n- Additional enterprise rule placeholder 54: User invariant remains consistent.\n- Additional enterprise rule placeholder 55: User invariant remains consistent.\n- Additional enterprise rule placeholder 56: User invariant remains consistent.\n- Additional enterprise rule placeholder 57: User invariant remains consistent.\n- Additional enterprise rule placeholder 58: User invariant remains consistent.\n- Additional enterprise rule placeholder 59: User invariant remains consistent.\n- Additional enterprise rule placeholder 60: User invariant remains consistent.\n- Additional enterprise rule placeholder 61: User invariant remains consistent.\n- Additional enterprise rule placeholder 62: User invariant remains consistent.",
+  "references": []
+}

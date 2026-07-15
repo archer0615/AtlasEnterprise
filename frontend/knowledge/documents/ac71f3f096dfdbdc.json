@@ -1,0 +1,119 @@
+{
+  "id": "ac71f3f096dfdbdc",
+  "title": "policy-management-framework.md",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/policy-management-framework.md",
+  "sourceHash": "e850917e05001297c02dd4135a076f9bfb646a93f64da14941859ea60b9815dc",
+  "headings": [
+    {
+      "level": 1,
+      "text": "policy-management-framework.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Enterprise Specification"
+    },
+    {
+      "level": 2,
+      "text": "Policy Management Framework"
+    },
+    {
+      "level": 2,
+      "text": "1. Purpose"
+    },
+    {
+      "level": 1,
+      "text": "2. Objectives"
+    },
+    {
+      "level": 1,
+      "text": "3. Policy Domains"
+    },
+    {
+      "level": 1,
+      "text": "4. Policy Structure"
+    },
+    {
+      "level": 1,
+      "text": "5. Lifecycle"
+    },
+    {
+      "level": 1,
+      "text": "6. Scope"
+    },
+    {
+      "level": 1,
+      "text": "7. Version Management"
+    },
+    {
+      "level": 1,
+      "text": "8. Rule Representation"
+    },
+    {
+      "level": 1,
+      "text": "9. Approval Workflow"
+    },
+    {
+      "level": 1,
+      "text": "10. Runtime Evaluation"
+    },
+    {
+      "level": 1,
+      "text": "11. Conflict Resolution"
+    },
+    {
+      "level": 1,
+      "text": "12. Audit Requirements"
+    },
+    {
+      "level": 1,
+      "text": "13. Security"
+    },
+    {
+      "level": 1,
+      "text": "14. Integration"
+    },
+    {
+      "level": 1,
+      "text": "15. KPIs"
+    },
+    {
+      "level": 1,
+      "text": "16. Future Enhancements"
+    },
+    {
+      "level": 1,
+      "text": "17. Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Policy Lifecycle Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# policy-management-framework.md\n\n# Atlas Enterprise Specification\n## Policy Management Framework\n\nVersion: 1.0\n\n## 1. Purpose\n\nThis specification defines how business policies are modeled, governed, versioned, approved, executed, and audited across Project Atlas. Policies provide configurable business behavior without requiring code changes.\n\n---\n\n# 2. Objectives\n\n- Centralize business policies.\n- Separate policy from application logic.\n- Support versioning and approvals.\n- Enable policy explainability.\n- Maintain complete audit history.\n\n---\n\n# 3. Policy Domains\n\n| Domain | Examples |\n|---------|----------|\n| Investment | IPS, allocation limits, rebalancing |\n| Cash Flow | Emergency fund, savings rate |\n| Loan | LTV, DTI, refinance rules |\n| Retirement | Withdrawal policy, retirement age |\n| Risk | Risk score thresholds |\n| Recommendation | Priority and ranking |\n| Notification | Alert triggers |\n| Automation | Scheduled actions |\n\n---\n\n# 4. Policy Structure\n\nEvery policy contains:\n\n- Policy ID\n- Name\n- Domain\n- Description\n- Scope\n- Version\n- Status\n- Effective Date\n- Expiration Date\n- Owner\n- Approver\n- Rule Definitions\n- Exceptions\n- Dependencies\n- Audit Metadata\n\n---\n\n# 5. Lifecycle\n\nDraft\n→ Review\n→ Approved\n→ Scheduled\n→ Active\n→ Deprecated\n→ Archived\n\nOnly one active version is allowed for the same policy scope.\n\n---\n\n# 6. Scope\n\nPolicies may apply to:\n\n- Entire system\n- Tenant\n- User group\n- Individual user\n- Financial plan\n- Scenario\n- Decision session\n\nPriority:\n\nUser\n→ Group\n→ Tenant\n→ Global\n\n---\n\n# 7. Version Management\n\nEach revision records:\n\n- Semantic version\n- Change summary\n- Business reason\n- Risk assessment\n- Approval record\n- Rollback reference\n\nOlder versions remain immutable.\n\n---\n\n# 8. Rule Representation\n\nPolicies should reference:\n\n- AREL expressions\n- Decision rules\n- Constraint rules\n- Scoring models\n- Formula catalog\n\n---\n\n# 9. Approval Workflow\n\nAuthor\n→ Reviewer\n→ Business Owner\n→ Technical Validation\n→ Approval\n→ Publish\n\nEmergency changes require post-deployment review.\n\n---\n\n# 10. Runtime Evaluation\n\nExecution order:\n\n1. Load applicable policies\n2. Resolve scope\n3. Resolve conflicts\n4. Validate constraints\n5. Execute rules\n6. Produce explanation\n7. Record audit\n\n---\n\n# 11. Conflict Resolution\n\nPriority:\n\n1. Regulatory policy\n2. Hard constraints\n3. User-specific policy\n4. Tenant policy\n5. Global defaults\n\n---\n\n# 12. Audit Requirements\n\nCapture:\n\n- Policy version\n- Evaluation timestamp\n- Decision session\n- Inputs\n- Outputs\n- User\n- Execution duration\n\n---\n\n# 13. Security\n\n- RBAC-controlled editing\n- Immutable approval history\n- Environment isolation\n- Digital audit trail\n\n---\n\n# 14. Integration\n\nIntegrated with:\n\n- Decision Engine\n- Rule Engine\n- Explainability Framework\n- Notification Framework\n- Automation Framework\n- Execution Plan Framework\n\n---\n\n# 15. KPIs\n\n- Active policy count\n- Approval lead time\n- Policy evaluation latency\n- Policy conflict rate\n- Rollback frequency\n- Policy compliance rate\n\n---\n\n# 16. Future Enhancements\n\n- Policy simulation\n- AI-assisted policy drafting\n- Dependency graph visualization\n- Automatic impact analysis\n- Regulatory policy packages\n\n---\n\n# 17. Phase 2 Executable Specification\n\n## Policy Lifecycle Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | PolicyVersion |\n| Identity | policyId + version |\n| Scope | global, tenant, group, user, scenario, decisionSession |\n| Required State | domain, status, effectiveDate, owner, approver, rules, dependencies |\n| Immutable State | Approved, active, deprecated, and archived versions are immutable. |\n| Invariant | Only one active version is allowed per policy scope. |\n\n## Required Commands\n\n| Command | Purpose |\n|---|---|\n| CreatePolicyDraft | Create draft policy version. |\n| SubmitPolicyForReview | Move draft into review. |\n| ApprovePolicyVersion | Approve policy after validation. |\n| SchedulePolicyActivation | Set activation date for approved policy. |\n| ActivatePolicyVersion | Make policy version active for scope. |\n| DeprecatePolicyVersion | Retire active policy version. |\n| RollBackPolicyVersion | Restore approved prior version. |\n| EvaluatePolicy | Execute applicable policy rules for a context. |\n\n## Domain Events\n\n| Event | Trigger |\n|---|---|\n| PolicyDraftCreated | Draft version is created. |\n| PolicySubmittedForReview | Review workflow starts. |\n| PolicyVersionApproved | Version is approved. |\n| PolicyActivationScheduled | Activation date is set. |\n| PolicyVersionActivated | Version becomes active. |\n| PolicyVersionDeprecated | Version is retired. |\n| PolicyEvaluationCompleted | Runtime evaluation completes. |\n\n## Validation Rules\n\n1. Policy version must include change summary, business reason, owner, and approver.\n2. Active policy conflicts must be resolved before activation.\n3. Emergency changes require post-deployment review record.\n4. Policy evaluation must record policy version and input hash.\n5. Rollback must reference an approved immutable prior version.\n\n## API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/policies | POST | Create policy draft. |\n| /api/policies/{policyId}/versions/{version}/submit | POST | Submit for review. |\n| /api/policies/{policyId}/versions/{version}/approve | POST | Approve policy version. |\n| /api/policies/{policyId}/versions/{version}/activate | POST | Activate policy version. |\n| /api/policies/{policyId}/versions/{version}/deprecate | POST | Deprecate policy version. |\n| /api/policies/evaluate | POST | Evaluate applicable policies. |\n\n## Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Activate second policy in same scope | Prior active policy is deprecated or activation is rejected by rule. |\n| Approve without approver | Validation fails. |\n| Evaluate policy context | PolicyEvaluationCompleted records version and outputs. |\n| Rollback to unapproved version | Command is rejected. |\n| Emergency activation | Post-deployment review requirement is recorded. |\n\n## Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

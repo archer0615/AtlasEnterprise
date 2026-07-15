@@ -1,0 +1,859 @@
+{
+  "id": "bba599aae3261ff7",
+  "title": "Decision Evaluation Overview",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-evaluation.md",
+  "sourceHash": "6fbdc451ce1eb5078ecf21609e9f0940a631b6381141f156d0432a1fcbab44de",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Evaluation Overview"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Business Meaning"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Scope"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Ownership"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate Root"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Rule"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision History"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Audit"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Goal"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Scenario"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Portfolio"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with CashFlow"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Risk"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Constraint"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Optimization"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Simulation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Automation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Business Calendar"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Notification"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with User"
+    },
+    {
+      "level": 1,
+      "text": "Evaluation Architecture"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Rule Evaluation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Financial Evaluation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Risk Evaluation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Goal Alignment Engine"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Evaluation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Simulation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Optimization Engine"
+    },
+    {
+      "level": 2,
+      "text": "Constraint Engine"
+    },
+    {
+      "level": 2,
+      "text": "Scoring Engine"
+    },
+    {
+      "level": 2,
+      "text": "Explainability Engine"
+    },
+    {
+      "level": 2,
+      "text": "Audit Engine"
+    },
+    {
+      "level": 1,
+      "text": "Evaluation Pipeline"
+    },
+    {
+      "level": 2,
+      "text": "Input Collection"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    },
+    {
+      "level": 2,
+      "text": "Normalization"
+    },
+    {
+      "level": 2,
+      "text": "Rule Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Financial Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Risk Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Goal Alignment"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Analysis"
+    },
+    {
+      "level": 2,
+      "text": "Simulation"
+    },
+    {
+      "level": 2,
+      "text": "Optimization"
+    },
+    {
+      "level": 2,
+      "text": "Scoring"
+    },
+    {
+      "level": 2,
+      "text": "Ranking"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Approval Preparation"
+    },
+    {
+      "level": 2,
+      "text": "Audit Logging"
+    },
+    {
+      "level": 1,
+      "text": "Evaluation Dimensions"
+    },
+    {
+      "level": 2,
+      "text": "Financial Impact"
+    },
+    {
+      "level": 2,
+      "text": "Cash Flow Impact"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Impact"
+    },
+    {
+      "level": 2,
+      "text": "Goal Alignment"
+    },
+    {
+      "level": 2,
+      "text": "Risk Level"
+    },
+    {
+      "level": 2,
+      "text": "Liquidity"
+    },
+    {
+      "level": 2,
+      "text": "Time Horizon"
+    },
+    {
+      "level": 2,
+      "text": "Priority"
+    },
+    {
+      "level": 2,
+      "text": "Dependency"
+    },
+    {
+      "level": 2,
+      "text": "Tax Impact"
+    },
+    {
+      "level": 2,
+      "text": "Loan Impact"
+    },
+    {
+      "level": 2,
+      "text": "Insurance Impact"
+    },
+    {
+      "level": 2,
+      "text": "Investment Impact"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Compatibility"
+    },
+    {
+      "level": 2,
+      "text": "Execution Complexity"
+    },
+    {
+      "level": 2,
+      "text": "Operational Cost"
+    },
+    {
+      "level": 2,
+      "text": "Business Value"
+    },
+    {
+      "level": 2,
+      "text": "User Preference Alignment"
+    },
+    {
+      "level": 2,
+      "text": "Confidence Score"
+    },
+    {
+      "level": 2,
+      "text": "Explainability Score"
+    },
+    {
+      "level": 1,
+      "text": "Evaluation Scoring"
+    },
+    {
+      "level": 2,
+      "text": "Weighted Score"
+    },
+    {
+      "level": 2,
+      "text": "Composite Score"
+    },
+    {
+      "level": 2,
+      "text": "Normalized Score"
+    },
+    {
+      "level": 2,
+      "text": "Confidence Score"
+    },
+    {
+      "level": 2,
+      "text": "Penalty Rules"
+    },
+    {
+      "level": 2,
+      "text": "Bonus Rules"
+    },
+    {
+      "level": 2,
+      "text": "Ranking Rules"
+    },
+    {
+      "level": 2,
+      "text": "Tie-breaking Rules"
+    },
+    {
+      "level": 1,
+      "text": "Constraint Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Hard Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Soft Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Financial Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Risk Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Goal Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Cash Flow Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Regulatory Constraints"
+    },
+    {
+      "level": 2,
+      "text": "User Preference Constraints"
+    },
+    {
+      "level": 1,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 1,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "States"
+    },
+    {
+      "level": 2,
+      "text": "Transitions"
+    },
+    {
+      "level": 2,
+      "text": "Triggers"
+    },
+    {
+      "level": 2,
+      "text": "Invariant"
+    },
+    {
+      "level": 2,
+      "text": "Illegal Transition"
+    },
+    {
+      "level": 1,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "CreateEvaluation"
+    },
+    {
+      "level": 2,
+      "text": "UpdateEvaluation"
+    },
+    {
+      "level": 2,
+      "text": "EvaluateDecision"
+    },
+    {
+      "level": 2,
+      "text": "ReEvaluateDecision"
+    },
+    {
+      "level": 2,
+      "text": "ApproveEvaluation"
+    },
+    {
+      "level": 2,
+      "text": "RejectEvaluation"
+    },
+    {
+      "level": 2,
+      "text": "ArchiveEvaluation"
+    },
+    {
+      "level": 2,
+      "text": "RestoreEvaluation"
+    },
+    {
+      "level": 2,
+      "text": "DeleteEvaluation"
+    },
+    {
+      "level": 2,
+      "text": "GenerateEvaluationReport"
+    },
+    {
+      "level": 2,
+      "text": "RefreshEvaluation"
+    },
+    {
+      "level": 2,
+      "text": "MapEvaluationRecommendation"
+    },
+    {
+      "level": 2,
+      "text": "ExportEvaluation"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationCreated"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationUpdated"
+    },
+    {
+      "level": 2,
+      "text": "DecisionEvaluated"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationApproved"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationRejected"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationArchived"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationRestored"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationDeleted"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationReportGenerated"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationRecalculated"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationConstraintFailed"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationScoreChanged"
+    },
+    {
+      "level": 2,
+      "text": "EvaluationStale"
+    },
+    {
+      "level": 1,
+      "text": "Repository"
+    },
+    {
+      "level": 2,
+      "text": "Interface"
+    },
+    {
+      "level": 2,
+      "text": "Methods"
+    },
+    {
+      "level": 2,
+      "text": "Queries"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Aggregation"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 2,
+      "text": "Specification"
+    },
+    {
+      "level": 1,
+      "text": "Domain Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "Application Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "REST Endpoints"
+    },
+    {
+      "level": 2,
+      "text": "HTTP Methods"
+    },
+    {
+      "level": 2,
+      "text": "Request"
+    },
+    {
+      "level": 2,
+      "text": "Response"
+    },
+    {
+      "level": 2,
+      "text": "Errors"
+    },
+    {
+      "level": 2,
+      "text": "Pagination"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 2,
+      "text": "Bulk API"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation API"
+    },
+    {
+      "level": 1,
+      "text": "DTO"
+    },
+    {
+      "level": 2,
+      "text": "Create DTO"
+    },
+    {
+      "level": 2,
+      "text": "Update DTO"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation DTO"
+    },
+    {
+      "level": 2,
+      "text": "Score DTO"
+    },
+    {
+      "level": 2,
+      "text": "Constraint DTO"
+    },
+    {
+      "level": 2,
+      "text": "Risk DTO"
+    },
+    {
+      "level": 2,
+      "text": "Summary DTO"
+    },
+    {
+      "level": 2,
+      "text": "Detail DTO"
+    },
+    {
+      "level": 2,
+      "text": "Search DTO"
+    },
+    {
+      "level": 2,
+      "text": "Report DTO"
+    },
+    {
+      "level": 1,
+      "text": "Database Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Table"
+    },
+    {
+      "level": 2,
+      "text": "Columns"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Constraints"
+    },
+    {
+      "level": 2,
+      "text": "FK"
+    },
+    {
+      "level": 2,
+      "text": "Unique"
+    },
+    {
+      "level": 2,
+      "text": "Check Constraint"
+    },
+    {
+      "level": 2,
+      "text": "Partition Strategy"
+    },
+    {
+      "level": 1,
+      "text": "PostgreSQL Schema"
+    },
+    {
+      "level": 1,
+      "text": "EF Core Mapping"
+    },
+    {
+      "level": 1,
+      "text": "Cache Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Security"
+    },
+    {
+      "level": 1,
+      "text": "Audit"
+    },
+    {
+      "level": 1,
+      "text": "Performance"
+    },
+    {
+      "level": 1,
+      "text": "Example JSON"
+    },
+    {
+      "level": 2,
+      "text": "Create"
+    },
+    {
+      "level": 2,
+      "text": "Update"
+    },
+    {
+      "level": 2,
+      "text": "Evaluate"
+    },
+    {
+      "level": 2,
+      "text": "Approve"
+    },
+    {
+      "level": 2,
+      "text": "Reject"
+    },
+    {
+      "level": 2,
+      "text": "Detail"
+    },
+    {
+      "level": 2,
+      "text": "Summary"
+    },
+    {
+      "level": 2,
+      "text": "Search"
+    },
+    {
+      "level": 2,
+      "text": "Report"
+    },
+    {
+      "level": 1,
+      "text": "Mermaid"
+    },
+    {
+      "level": 2,
+      "text": "Class Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Sequence Diagram"
+    },
+    {
+      "level": 2,
+      "text": "ER Diagram"
+    },
+    {
+      "level": 2,
+      "text": "State Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Pipeline"
+    },
+    {
+      "level": 2,
+      "text": "Scoring Flow"
+    },
+    {
+      "level": 2,
+      "text": "Constraint Flow"
+    },
+    {
+      "level": 1,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Unit Test"
+    },
+    {
+      "level": 2,
+      "text": "Integration Test"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Test"
+    },
+    {
+      "level": 2,
+      "text": "Constraint Test"
+    },
+    {
+      "level": 2,
+      "text": "Scoring Test"
+    },
+    {
+      "level": 2,
+      "text": "Performance Test"
+    },
+    {
+      "level": 2,
+      "text": "Concurrency Test"
+    },
+    {
+      "level": 2,
+      "text": "Stress Test"
+    },
+    {
+      "level": 1,
+      "text": "Edge Cases"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "﻿# Decision Evaluation\r\nVersion: 1.0\r\nStatus: Enterprise Specification\r\nOwner: Project Atlas\r\nSource of Truth: Atlas Decision Evaluation Specification\r\nLast Updated: 2026-07-13\r\n# Decision Evaluation Overview\r\n## Purpose\r\nDecision Evaluation defines how Atlas evaluates DecisionSession options with governed scoring, rule checks, financial impact, risk impact, goal alignment, scenario evidence, simulation evidence, optimization output, constraints, explainability, approval readiness, audit, and reporting.\r\nIt coordinates evaluation with Decision Lifecycle, Decision Rule, Decision Explainability, Decision History, Decision Audit, Recommendation, GoalPlan, Scenario, Portfolio, CashFlow, Risk, Constraint, Optimization, Simulation, Workflow, Automation, Business Calendar, Notification, and User.\r\nIt preserves existing Atlas domain ownership and existing catalog naming.\r\n## Business Meaning\r\nDecision Evaluation converts decision evidence into comparable, explainable, auditable, and permission-safe evaluation results.\r\nEvaluation output helps decide whether an option should be recommended, approved, rejected, simulated, optimized, executed, or archived.\r\nEvaluation does not directly mutate Recommendation, GoalPlan, Scenario, Portfolio, CashFlow, Workflow, Automation, or Notification.\r\n## Evaluation Scope\r\nEvaluation scope includes option scoring, constraint evaluation, rule evaluation, financial evaluation, risk evaluation, goal alignment, scenario analysis, simulation result, optimization result, ranking, recommendation mapping, approval preparation, report generation, cache, security, and audit.\r\nScope must preserve HouseholdId.\r\nScope must preserve TenantId when tenant scope exists.\r\nScope must not include unauthorized source data.\r\n## Evaluation Lifecycle\r\nEvaluation lifecycle starts when CreateEvaluation or EvaluateDecision creates an evaluation record for a DecisionSession.\r\nEvaluation can be updated, recalculated, approved, rejected, archived, restored, deleted, or reported according to lifecycle rules.\r\nEvaluation result must record source version, rule version, scoring version, constraint version, evaluated time, and actor or system actor.\r\n## Evaluation Objectives\r\nEvaluation objectives are decision quality, financial clarity, risk awareness, goal alignment, scenario compatibility, constraint compliance, explainability, approval readiness, recommendation mapping, and auditability.\r\nObjectives are measured through composite score, confidence score, explainability score, constraint pass rate, rule pass rate, approval readiness, and ranking stability.\r\n## Ownership\r\nDecisionSession owns decision intent, options, selected option, and decision outcome.\r\nDecision Evaluation owns evaluation record, scores, dimension results, constraint results, ranking, evaluation report, and evaluation projections.\r\nDecision Rule owns rule definitions and rule versions.\r\nDecision Explainability owns explanation artifacts.\r\nDecision History owns historical projections.\r\nDecision Audit owns immutable audit evidence.\r\nRepository owns persistence and query.\r\nApplication Service owns orchestration.\r\nSecurity owns authorization and masking.\r\n## Aggregate Root\r\nDecisionSession is the aggregate root.\r\nDecision Evaluation is scoped to DecisionSession and references related aggregates by identifier and source version.\r\n## Relationship with Decision\r\nDecisionSession supplies options, intent, status, owner, rationale, lifecycle state, and selected option.\r\nEvaluation records DecisionSessionId and does not change decision lifecycle without explicit Decision command.\r\n## Relationship with Decision Lifecycle\r\nDecision Lifecycle supplies current state, legal command context, approval readiness, execution readiness, archive state, restore state, and delete eligibility.\r\nEvaluation is allowed only in lifecycle states that permit evaluation.\r\n## Relationship with Decision Rule\r\nDecision Rule supplies rule code, rule category, severity, threshold, priority, and version.\r\nEvaluation records rule result and rule version.\r\n## Relationship with Decision Explainability\r\nDecision Explainability supplies rationale, supporting evidence, formula explanation, constraint explanation, score explanation, and option comparison.\r\nExplainability output must be permission-filtered.\r\n## Relationship with Decision History\r\nDecision History stores evaluation versions, score changes, constraint results, approval changes, and report generation.\r\nHistory is append-only.\r\n## Relationship with Decision Audit\r\nDecision Audit records command, score changes, rule evaluation, constraint evaluation, access, approval, rejection, archive, restore, delete, and report generation.\r\nAudit is immutable under retention policy.\r\n## Relationship with Recommendation\r\nRecommendation may consume evaluation ranking and approved evaluation result.\r\nEvaluation can map to Recommendation but does not own Recommendation lifecycle.\r\n## Relationship with Goal\r\nGoalPlan supplies goal alignment, priority, target date, target amount, progress, and health evidence.\r\nEvaluation must not mutate GoalPlan.\r\n## Relationship with Scenario\r\nScenario supplies assumptions, baseline, comparison, and ScenarioVersion.\r\nScenario evidence must record ScenarioId and ScenarioVersion.\r\n## Relationship with Portfolio\r\nPortfolio supplies allocation, liquidity, risk, performance, and valuation evidence where authorized.\r\nPortfolio evidence must record valuation time and masking state.\r\n## Relationship with CashFlow\r\nCashFlow supplies surplus, deficit, funding gap, contribution capacity, and period evidence where authorized.\r\nCashFlow evidence must record period and currency.\r\n## Relationship with Risk\r\nRisk evidence supplies risk score, risk trend, risk severity, and risk threshold state.\r\nRisk evaluation can reduce composite score or block approval.\r\n## Relationship with Constraint\r\nConstraint evidence supplies hard constraints, soft constraints, penalties, and violation reasons.\r\nHard constraint failure makes an option infeasible.\r\n## Relationship with Optimization\r\nOptimization supplies candidate ranking, objective score, constraint score, and optimized option evidence.\r\nOptimization output is referenced by version.\r\n## Relationship with Simulation\r\nSimulation supplies scenario result, forecast result, confidence interval, and sensitivity evidence.\r\nSimulation output is referenced by version.\r\n## Relationship with Workflow\r\nWorkflow supplies approval route, evaluation task, review state, and escalation step.\r\nWorkflow cannot bypass evaluation validation.\r\n## Relationship with Automation\r\nAutomation may trigger evaluation, recalculation, reporting, archive, reminder, and cleanup.\r\nAutomationRunId must be recorded.\r\n## Relationship with Business Calendar\r\nBusiness Calendar supplies evaluation windows, approval deadlines, expiration windows, and escalation timing.\r\nEvaluation deadlines must respect Business Calendar when configured.\r\n## Relationship with Notification\r\nNotification may be triggered by completed evaluation, failed evaluation, approval needed, rejected evaluation, report generated, or constraint failure.\r\nNotification suppression does not remove evaluation history.\r\n## Relationship with User\r\nUser supplies actor, owner, approver, reviewer, permission, preference, locale, and masking context.\r\nUser permission is evaluated before command and projection.\r\n# Evaluation Architecture\r\n## Evaluation Engine\r\nEvaluation Engine coordinates evidence collection, validation, normalization, dimension evaluation, scoring, ranking, recommendation mapping, approval preparation, and audit.\r\nIt produces deterministic results for the same input versions.\r\n## Rule Evaluation Engine\r\nRule Evaluation Engine evaluates Decision Rule sets and returns pass, fail, warning, severity, score, and explanation.\r\nRule version is mandatory.\r\n## Financial Evaluation Engine\r\nFinancial Evaluation Engine evaluates financial impact, budget variance, funding gap, cost, contribution impact, currency, and period.\r\nFinancial fields are masked when required.\r\n## Risk Evaluation Engine\r\nRisk Evaluation Engine evaluates risk score, risk trend, risk severity, downside exposure, and risk-adjusted score.\r\nCritical risk can block approval.\r\n## Goal Alignment Engine\r\nGoal Alignment Engine evaluates relationship between decision option and GoalPlan priority, progress, target, health, milestone, and strategy.\r\nAlignment evidence records GoalPlanId.\r\n## Scenario Evaluation Engine\r\nScenario Evaluation Engine evaluates scenario compatibility, baseline difference, assumption validity, and scenario confidence.\r\nScenarioVersion is required.\r\n## Simulation Engine\r\nSimulation Engine provides non-mutating simulation outputs for decision options.\r\nSimulation outputs are evidence only.\r\n## Optimization Engine\r\nOptimization Engine provides option ranking and optimized candidates.\r\nOptimization output is advisory until approved.\r\n## Constraint Engine\r\nConstraint Engine validates hard constraints and computes soft constraint penalties.\r\nViolation detail is recorded per option.\r\n## Scoring Engine\r\nScoring Engine computes normalized score, weighted score, composite score, confidence score, penalty, bonus, ranking, and tie-breaker.\r\nScoring version is mandatory.\r\n## Explainability Engine\r\nExplainability Engine generates human-readable rationale, formula trace, evidence trace, and ranking explanation.\r\nExplainability projection must honor masking.\r\n## Audit Engine\r\nAudit Engine records evaluation command, inputs, outputs, score changes, constraint results, rule results, approval, rejection, report, and access.\r\n# Evaluation Pipeline\r\n## Input Collection\r\nInput Collection reads DecisionSession, options, rule set, goal evidence, scenario evidence, portfolio evidence, cashflow evidence, risk evidence, constraints, simulation output, optimization output, workflow state, automation context, calendar window, and user context.\r\n## Validation\r\nValidation checks required identifiers, source versions, permissions, state eligibility, option completeness, and required evidence.\r\n## Normalization\r\nNormalization converts all dimension values into comparable 0 to 100 normalized values while preserving source unit and precision.\r\n## Rule Evaluation\r\nRule Evaluation applies Decision Rule definitions and records pass, fail, warning, severity, and explanation.\r\n## Financial Evaluation\r\nFinancial Evaluation computes cost, funding gap, budget variance, cash requirement, and financial feasibility.\r\n## Risk Evaluation\r\nRisk Evaluation computes risk score, risk penalty, risk trend, and risk-adjusted score.\r\n## Goal Alignment\r\nGoal Alignment computes alignment with goal priority, target, time horizon, progress, and health.\r\n## Scenario Analysis\r\nScenario Analysis compares baseline, selected scenario, assumption changes, and compatibility.\r\n## Simulation\r\nSimulation imports simulation result and confidence interval for each decision option.\r\n## Optimization\r\nOptimization imports optimized ranking, objective score, and constraint score.\r\n## Scoring\r\nScoring applies weights, penalties, bonuses, confidence, and normalization.\r\n## Ranking\r\nRanking sorts options by feasibility, composite score, confidence score, hard constraint result, risk, and tie-breaker.\r\n## Recommendation Mapping\r\nRecommendation Mapping links evaluation result to Recommendation when policy and permission allow.\r\n## Approval Preparation\r\nApproval Preparation identifies required approver, approval reason, blocking constraints, and Decision Lifecycle readiness.\r\n## Audit Logging\r\nAudit Logging records command, source versions, calculated scores, actor, permission context, and correlation id.\r\n# Evaluation Dimensions\r\n## Financial Impact\r\nDefinition: Measures option effect on cost, target amount, budget variance, and funding gap.\r\nBusiness Meaning: Shows whether a decision is financially feasible.\r\nCalculation Formula: FinancialImpactScore = 100 - abs(BudgetVariancePercent) - FundingGapPenalty - CostPenalty.\r\nInputs: BudgetVariancePercent, FundingGap, CostAmount, Currency.\r\nOutputs: FinancialImpactScore, BudgetVariance, FundingGap.\r\nThreshold: Score below 60 creates warning.\r\nWeight: 0.10.\r\nValidation: Currency and period are required.\r\nExample: Option reduces funding gap by 1200.\r\n## Cash Flow Impact\r\nDefinition: Measures option effect on CashFlow capacity and period fit.\r\nBusiness Meaning: Shows whether the option can be funded in the required period.\r\nCalculation Formula: CashFlowScore = min(100, ContributionCapacity / RequiredContribution * 100) - DeficitPenalty.\r\nInputs: ContributionCapacity, RequiredContribution, Surplus, Deficit, Period.\r\nOutputs: CashFlowScore, CapacityRatio, DeficitAmount.\r\nThreshold: CapacityRatio below 1 creates warning.\r\nWeight: 0.09.\r\nValidation: CashFlow period must align with decision period.\r\nExample: Option uses 82 percent of available capacity.\r\n## Portfolio Impact\r\nDefinition: Measures option effect on allocation, liquidity, risk, and valuation.\r\nBusiness Meaning: Shows whether Portfolio evidence supports the option.\r\nCalculation Formula: PortfolioScore = LiquidityScore + AllocationFitScore - PortfolioRiskPenalty.\r\nInputs: Liquidity, Allocation, PortfolioRisk, ValuationTime.\r\nOutputs: PortfolioScore, LiquidityGap, AllocationFit.\r\nThreshold: Stale valuation blocks high confidence score.\r\nWeight: 0.08.\r\nValidation: Portfolio permission and valuation time are required.\r\nExample: Option uses available liquidity without breaching allocation limit.\r\n## Goal Alignment\r\nDefinition: Measures option alignment with GoalPlan priority, target, progress, and health.\r\nBusiness Meaning: Shows whether the decision helps the goal.\r\nCalculation Formula: GoalAlignmentScore = PriorityFit * 0.4 + TargetFit * 0.3 + HealthImpact * 0.3.\r\nInputs: PriorityScore, TargetDate, TargetAmount, HealthScore.\r\nOutputs: GoalAlignmentScore, AlignmentReason.\r\nThreshold: Score below 50 requires review.\r\nWeight: 0.10.\r\nValidation: GoalPlanId is required when goal alignment applies.\r\nExample: Option improves high-priority goal completion probability.\r\n## Risk Level\r\nDefinition: Measures risk exposure and downside.\r\nBusiness Meaning: Shows whether the option is acceptable under risk policy.\r\nCalculation Formula: RiskScoreNormalized = 100 - RiskScore - RiskTrendPenalty.\r\nInputs: RiskScore, RiskTrend, RiskSeverity.\r\nOutputs: RiskScoreNormalized, RiskPenalty.\r\nThreshold: RiskScore above 80 blocks approval unless exception applies.\r\nWeight: 0.09.\r\nValidation: RiskScore must be between 0 and 100.\r\nExample: Option lowers risk score from 70 to 55.\r\n## Liquidity\r\nDefinition: Measures available liquid capacity after decision.\r\nBusiness Meaning: Shows whether the option preserves liquidity.\r\nCalculation Formula: LiquidityScore = min(100, AvailableLiquidity / RequiredLiquidity * 100).\r\nInputs: AvailableLiquidity, RequiredLiquidity.\r\nOutputs: LiquidityScore, LiquidityGap.\r\nThreshold: LiquidityScore below 70 creates warning.\r\nWeight: 0.05.\r\nValidation: Amount and currency are required.\r\nExample: Option keeps liquidity above minimum.\r\n## Time Horizon\r\nDefinition: Measures timing fit with decision window and goal horizon.\r\nBusiness Meaning: Shows whether the option fits schedule.\r\nCalculation Formula: TimeHorizonScore = 100 - abs(TargetDateDeltaDays) * TimePenaltyRate.\r\nInputs: TargetDate, ExpectedDate, CalendarWindow.\r\nOutputs: TimeHorizonScore, DateDeltaDays.\r\nThreshold: Negative schedule variance creates warning.\r\nWeight: 0.06.\r\nValidation: Business Calendar window must be valid.\r\nExample: Option completes 10 days earlier.\r\n## Priority\r\nDefinition: Measures option fit with priority strategy.\r\nBusiness Meaning: Shows whether the option supports high-priority work.\r\nCalculation Formula: PriorityScoreResult = PriorityScore + DeadlineBonus - ConflictPenalty.\r\nInputs: PriorityScore, DeadlineProximity, ConflictCount.\r\nOutputs: PriorityScoreResult.\r\nThreshold: Score below 50 requires review.\r\nWeight: 0.05.\r\nValidation: PriorityScore must be between 0 and 100.\r\nExample: Option supports urgent GoalPlan.\r\n## Dependency\r\nDefinition: Measures blocker and dependency effect.\r\nBusiness Meaning: Shows whether the option is blocked.\r\nCalculation Formula: DependencyScore = 100 - CriticalBlockers * 30 - Blockers * 10.\r\nInputs: CriticalBlockers, Blockers, DependencyAgeDays.\r\nOutputs: DependencyScore, BlockerReason.\r\nThreshold: Critical blocker makes option infeasible.\r\nWeight: 0.05.\r\nValidation: Dependency graph must be acyclic.\r\nExample: Option clears two blockers.\r\n## Tax Impact\r\nDefinition: Measures tax-related impact when tax evidence exists.\r\nBusiness Meaning: Shows whether tax effect changes option value.\r\nCalculation Formula: TaxImpactScore = 100 - TaxCostPenalty + TaxBenefitBonus.\r\nInputs: TaxCost, TaxBenefit, Period.\r\nOutputs: TaxImpactScore, NetTaxEffect.\r\nThreshold: Material tax cost requires explanation.\r\nWeight: 0.04.\r\nValidation: Tax evidence must be authorized.\r\nExample: Option has tax benefit in current period.\r\n## Loan Impact\r\nDefinition: Measures loan-related payment, rate, debt, and amortization effect.\r\nBusiness Meaning: Shows whether debt impact is acceptable.\r\nCalculation Formula: LoanImpactScore = 100 - PaymentIncreasePenalty - DebtRiskPenalty.\r\nInputs: PaymentChange, RateChange, DebtBalance.\r\nOutputs: LoanImpactScore.\r\nThreshold: Payment increase above threshold requires review.\r\nWeight: 0.04.\r\nValidation: Loan evidence must be authorized.\r\nExample: Option lowers monthly payment.\r\n## Insurance Impact\r\nDefinition: Measures insurance coverage, premium, and protection effect.\r\nBusiness Meaning: Shows whether protection level remains acceptable.\r\nCalculation Formula: InsuranceImpactScore = CoverageFitScore - PremiumPenalty.\r\nInputs: CoverageAmount, PremiumAmount, ProtectionGap.\r\nOutputs: InsuranceImpactScore, ProtectionGap.\r\nThreshold: Protection gap creates warning.\r\nWeight: 0.03.\r\nValidation: Policy evidence must be authorized.\r\nExample: Option preserves required coverage.\r\n## Investment Impact\r\nDefinition: Measures investment return, volatility, allocation, and risk effect.\r\nBusiness Meaning: Shows whether investment effect supports the decision.\r\nCalculation Formula: InvestmentImpactScore = ExpectedReturnScore - VolatilityPenalty - AllocationPenalty.\r\nInputs: ExpectedReturn, Volatility, AllocationDelta.\r\nOutputs: InvestmentImpactScore.\r\nThreshold: Allocation breach blocks approval.\r\nWeight: 0.06.\r\nValidation: Portfolio permission is required.\r\nExample: Option improves allocation fit.\r\n## Scenario Compatibility\r\nDefinition: Measures fit with selected scenario assumptions.\r\nBusiness Meaning: Shows whether option remains viable under scenario.\r\nCalculation Formula: ScenarioCompatibilityScore = BaselineFit + ScenarioDeltaScore + ConfidenceBonus.\r\nInputs: ScenarioOutcome, BaselineOutcome, ScenarioConfidence.\r\nOutputs: ScenarioCompatibilityScore, ScenarioDelta.\r\nThreshold: Incompatible scenario blocks automatic approval.\r\nWeight: 0.06.\r\nValidation: ScenarioId and ScenarioVersion are required.\r\nExample: Option remains feasible under stress scenario.\r\n## Execution Complexity\r\nDefinition: Measures operational difficulty, steps, dependencies, and retry risk.\r\nBusiness Meaning: Shows how hard the option is to execute.\r\nCalculation Formula: ExecutionComplexityScore = 100 - StepCountPenalty - DependencyPenalty - RetryRiskPenalty.\r\nInputs: StepCount, DependencyCount, RetryRisk.\r\nOutputs: ExecutionComplexityScore.\r\nThreshold: Score below 50 requires execution review.\r\nWeight: 0.04.\r\nValidation: Execution plan evidence must be valid when present.\r\nExample: Option has fewer execution steps.\r\n## Operational Cost\r\nDefinition: Measures operating effort, time, and recurring burden.\r\nBusiness Meaning: Shows cost of maintaining the option.\r\nCalculation Formula: OperationalCostScore = 100 - OperatingCostPenalty - EffortPenalty.\r\nInputs: OperatingCost, EffortHours, Recurrence.\r\nOutputs: OperationalCostScore.\r\nThreshold: High recurring cost creates warning.\r\nWeight: 0.03.\r\nValidation: Cost unit and period are required.\r\nExample: Option lowers monthly operating cost.\r\n## Business Value\r\nDefinition: Measures strategic value and outcome value.\r\nBusiness Meaning: Shows whether option creates meaningful value.\r\nCalculation Formula: BusinessValueScore = OutcomeValue * 0.6 + StrategicFit * 0.4.\r\nInputs: OutcomeValue, StrategicFit.\r\nOutputs: BusinessValueScore.\r\nThreshold: Score below 40 deprioritizes option.\r\nWeight: 0.08.\r\nValidation: Value score must be between 0 and 100.\r\nExample: Option improves long-term goal outcome.\r\n## User Preference Alignment\r\nDefinition: Measures fit with user preference and constraints.\r\nBusiness Meaning: Shows whether option respects user preferences.\r\nCalculation Formula: PreferenceScore = 100 - PreferenceConflictPenalty + PreferenceMatchBonus.\r\nInputs: PreferenceMatches, PreferenceConflicts.\r\nOutputs: PreferenceScore.\r\nThreshold: Hard preference conflict blocks option.\r\nWeight: 0.05.\r\nValidation: Preference must be authorized and current.\r\nExample: Option matches preferred contribution limit.\r\n## Confidence Score\r\nDefinition: Measures reliability of evaluation result.\r\nBusiness Meaning: Shows trust level of scoring and ranking.\r\nCalculation Formula: ConfidenceScore = SourceFreshness * 0.4 + EvidenceCompleteness * 0.4 + ModelReliability * 0.2.\r\nInputs: SourceFreshness, EvidenceCompleteness, ModelReliability.\r\nOutputs: ConfidenceScore.\r\nThreshold: Score below 60 requires review.\r\nWeight: 0.08.\r\nValidation: Evidence completeness is required.\r\nExample: Evaluation has current source data and complete evidence.\r\n## Explainability Score\r\nDefinition: Measures how well the evaluation can be explained.\r\nBusiness Meaning: Shows whether approval has understandable rationale.\r\nCalculation Formula: ExplainabilityScore = EvidenceTraceability * 0.4 + FormulaTraceability * 0.3 + RationaleCompleteness * 0.3.\r\nInputs: EvidenceTraceability, FormulaTraceability, RationaleCompleteness.\r\nOutputs: ExplainabilityScore.\r\nThreshold: Score below 70 blocks automatic approval.\r\nWeight: 0.07.\r\nValidation: Explanation artifacts must be present.\r\nExample: Every score traces to source evidence.\r\n# Evaluation Scoring\r\n## Weighted Score\r\nWeighted Score = sum(NormalizedDimensionScore_i * Weight_i) / sum(Weight_i).\r\nWeights must be non-negative.\r\n## Composite Score\r\nComposite Score = WeightedScore + BonusScore - PenaltyScore.\r\nComposite Score is clamped between 0 and 100.\r\n## Normalized Score\r\nNormalized Score converts raw dimension values to a 0 to 100 scale.\r\nNormalization formula and version must be recorded.\r\n## Confidence Score\r\nConfidence Score = SourceFreshness * 0.4 + EvidenceCompleteness * 0.4 + CalculationReliability * 0.2.\r\nConfidence below threshold requires approval review.\r\n## Penalty Rules\r\nHard constraint failure sets option feasibility to false.\r\nSoft constraint failure adds penalty to composite score.\r\nStale evidence adds confidence penalty.\r\nMissing explainability adds approval penalty.\r\n## Bonus Rules\r\nGoal alignment bonus applies when option improves high-priority GoalPlan.\r\nScenario bonus applies when option performs better than baseline.\r\nRisk reduction bonus applies when option lowers risk.\r\nCashFlow bonus applies when option improves capacity ratio.\r\n## Ranking Rules\r\nFeasible options rank above infeasible options.\r\nHigher composite score ranks above lower composite score.\r\nHigher confidence ranks above lower confidence when composite score ties.\r\nLower risk ranks above higher risk when confidence ties.\r\n## Tie-breaking Rules\r\nTie-breaking order is feasibility, composite score, confidence score, risk score, financial impact, goal alignment, created time, and option id.\r\n# Constraint Evaluation\r\n## Hard Constraints\r\nHard constraints cannot be violated.\r\nViolation makes the option infeasible and blocks approval unless explicit exception policy allows.\r\n## Soft Constraints\r\nSoft constraints create score penalties and warnings.\r\nSoft constraint violations must remain visible in detail projection.\r\n## Financial Constraints\r\nFinancial constraints include budget cap, funding gap, currency, period, and approved amount.\r\n## Risk Constraints\r\nRisk constraints include maximum risk score, critical risk, risk trend, and risk exception.\r\n## Goal Constraints\r\nGoal constraints include GoalPlan lifecycle state, dependency, target date, target amount, and priority.\r\n## Scenario Constraints\r\nScenario constraints include ScenarioId, ScenarioVersion, assumption validity, and baseline compatibility.\r\n## Portfolio Constraints\r\nPortfolio constraints include portfolio permission, valuation freshness, liquidity, allocation, and risk limit.\r\n## Cash Flow Constraints\r\nCash Flow constraints include period alignment, contribution capacity, deficit, surplus, and funding gap.\r\n## Regulatory Constraints\r\nRegulatory constraints use existing Atlas governance and compliance rules.\r\n## User Preference Constraints\r\nUser Preference constraints include preference limits, excluded options, required review, and notification preference.\r\n# Validation Rules\r\n1. EvaluationId must be globally unique. 2. DecisionSessionId is required. 3. HouseholdId is required. 4. TenantId is required when tenant scope exists. 5. Evaluation state is required. 6. Evaluation source version hash is required. 7. Rule version is required. 8. Scoring version is required. 9. Constraint version is required. 10. Evaluation must include at least one decision option. 11. Option ids must be unique. 12. Dimension result must reference a known dimension. 13. Dimension score must be between 0 and 100. 14. Dimension weight must be greater than or equal to 0. 15. Total active weight must be greater than 0. 16. Composite score must be between 0 and 100. 17. Confidence score must be between 0 and 100. 18. Explainability score must be between 0 and 100. 19. Hard constraint violation must mark option infeasible. 20. Soft constraint violation must include penalty. 21. Financial evidence must include currency and period. 22. CashFlow evidence must include period. 23. Portfolio evidence must include valuation time. 24. Scenario evidence must include ScenarioId and ScenarioVersion. 25. Risk score must be between 0 and 100. 26. Recommendation mapping must reference existing Recommendation when present. 27. GoalPlan reference must exist when present. 28. Approval requires approver id. 29. Rejection requires rejection reason. 30. Archive requires terminal or policy-approved state. 31. Restore requires archived evaluation. 32. Delete requires retention validation. 33. Report generation requires report permission. 34. Search date range must be valid. 35. Sorting field must be allowed. 36. Projection field must be allowed. 37. Pagination limit must be within API maximum. 38. Masked fields must not appear in unauthorized projection. 39. Audit metadata is required for every command. 40. EvaluatedAt cannot be before createdAt.\r\n# Business Rules\r\n1. Decision Evaluation must preserve Atlas domain ownership. 2. Decision Evaluation must not redesign Atlas. 3. Decision Evaluation must not create unrelated business concepts. 4. Evaluation naming must follow existing catalog. 5. DecisionSession owns decision intent and outcome. 6. Evaluation cannot approve DecisionSession directly without ApproveDecision. 7. Evaluation cannot execute DecisionSession directly without ExecuteDecision. 8. Evaluation cannot mutate Recommendation directly. 9. Evaluation cannot mutate GoalPlan directly. 10. Evaluation cannot mutate Scenario directly. 11. Evaluation cannot mutate Portfolio directly. 12. Evaluation cannot mutate CashFlow directly. 13. Every evaluation must reference DecisionSessionId. 14. Every evaluation must record source version. 15. Every evaluation must record scoring version. 16. Every evaluation must record rule version. 17. Every evaluation must record constraint version. 18. Every option must receive a composite score. 19. Every option must receive a confidence score. 20. Every option must receive explainability evidence. 21. Hard constraint failure makes option infeasible. 22. Infeasible option cannot be approved. 23. Soft constraint failure reduces score. 24. Soft constraint failure must remain visible. 25. Rule failure must remain visible. 26. Critical rule failure blocks approval. 27. Financial impact must preserve currency. 28. CashFlow impact must preserve period. 29. Portfolio impact requires portfolio permission. 30. Portfolio valuation time must be recorded. 31. Scenario compatibility requires ScenarioVersion. 32. Simulation result must be non-mutating. 33. Optimization result is advisory before approval. 34. Ranking must be deterministic for identical inputs. 35. Feasible option ranks above infeasible option. 36. Composite score determines primary ranking. 37. Confidence score determines tie-breaker after composite score. 38. Risk level determines tie-breaker after confidence. 39. Goal alignment determines tie-breaker after risk. 40. Evaluation report must preserve evaluated time. 41. Evaluation report must preserve source versions. 42. Recommendation mapping requires recommendation permission. 43. Approval preparation must identify blockers. 44. Approval preparation must identify required approver. 45. Approval preparation must include explanation. 46. Evaluation approval requires evaluation permission. 47. Evaluation rejection requires rejection reason. 48. Archived evaluation is read-only. 49. Restored evaluation must revalidate source version. 50. Deleted evaluation cannot be restored. 51. Evaluation history is append-only. 52. Score history is append-only. 53. Constraint history is append-only. 54. Decision history is append-only. 55. Approval history is append-only. 56. Audit trail is required for commands. 57. Cache failure must not roll back persisted evaluation. 58. Notification failure must not roll back persisted evaluation. 59. Report generation failure must not delete evaluation. 60. Permission change invalidates evaluation cache. 61. Masking change invalidates evaluation cache. 62. Rule change marks evaluation stale. 63. Scoring change marks evaluation stale. 64. Constraint change marks evaluation stale. 65. Source version change marks evaluation stale. 66. Stale evaluation cannot be approved without refresh. 67. Stale evaluation can be archived. 68. Batch evaluation must isolate item failures. 69. Parallel evaluation must preserve deterministic results. 70. Incremental evaluation must process changed evidence only. 71. Business Calendar can constrain approval preparation. 72. Workflow can require review before approval. 73. Automation can trigger recalculation. 74. Automation cannot bypass permission. 75. User preference can add constraints. 76. User preference cannot hide audit evidence. 77. Field-level security applies before cache. 78. Field-level security applies before report. 79. Field-level security applies before API response. 80. Aggregation must not leak unauthorized data. 81. Search must enforce HouseholdId scope. 82. Tenant-aware search must enforce TenantId. 83. Export must use masked projection when required. 84. Evaluation report must be reproducible. 85. Explainability score below threshold blocks automatic approval. 86. Confidence score below threshold requires review. 87. Financial warning must be visible in detail. 88. Risk warning must be visible in detail. 89. Constraint warning must be visible in detail. 90. Rule warning must be visible in detail. 91. Decision Lifecycle state must allow evaluation. 92. Evaluation cannot run on deleted decision. 93. Evaluation cannot update archived decision state. 94. Approved evaluation cannot change scores. 95. Rejected evaluation cannot be approved without restore. 96. Archived evaluation cannot be updated. 97. Reported evaluation must preserve snapshot values. 98. Materialized views must use committed data. 99. Optimistic concurrency is required for updates. 100. Duplicate command must be idempotent by command id. 101. Domain event must be emitted after persistence. 102. Domain event must include evaluation id. 103. Domain event must include DecisionSessionId. 104. Domain event must include prior state and current state when applicable. 105. Audit record must include actor and correlation id.\r\n# State Machine\r\n## States\r\n- Created\r\n- CollectingInputs\r\n- Validating\r\n- Evaluating\r\n- Scoring\r\n- Ranked\r\n- ApprovalReady\r\n- Approved\r\n- Rejected\r\n- Archived\r\n- Restored\r\n- Deleted\r\n## Transitions\r\n- Created -> CollectingInputs by CreateEvaluation.\r\n- CollectingInputs -> Validating by UpdateEvaluation.\r\n- Validating -> Evaluating by EvaluateDecision when validation passes.\r\n- Validating -> Rejected by RejectEvaluation when validation fails and rejection is requested.\r\n- Evaluating -> Scoring by EvaluateDecision after dimension evaluation.\r\n- Scoring -> Ranked by scoring completion.\r\n- Ranked -> ApprovalReady by approval preparation.\r\n- ApprovalReady -> Approved by ApproveEvaluation.\r\n- ApprovalReady -> Rejected by RejectEvaluation.\r\n- Approved -> Archived by ArchiveEvaluation.\r\n- Rejected -> Archived by ArchiveEvaluation.\r\n- Archived -> Restored by RestoreEvaluation.\r\n- Restored -> Validating by ReEvaluateDecision.\r\n- Archived -> Deleted by DeleteEvaluation.\r\n## Triggers\r\n- CreateEvaluation\r\n- UpdateEvaluation\r\n- EvaluateDecision\r\n- ReEvaluateDecision\r\n- ApproveEvaluation\r\n- RejectEvaluation\r\n- ArchiveEvaluation\r\n- RestoreEvaluation\r\n- DeleteEvaluation\r\n- GenerateEvaluationReport\r\n- SourceChanged\r\n- RuleChanged\r\n- ScoreChanged\r\n- ConstraintChanged\r\n## Invariant\r\nEvaluationId, DecisionSessionId, HouseholdId, created time, source version hash, and initial scope are immutable.\r\nApproved evaluation scores are immutable.\r\nArchived evaluation is read-only.\r\nDeleted evaluation is terminal.\r\n## Illegal Transition\r\n- Deleted -> Approved.\r\n- Deleted -> Evaluating.\r\n- Archived -> Approved without RestoreEvaluation.\r\n- Approved -> Evaluating.\r\n- Rejected -> Approved without RestoreEvaluation.\r\n- Created -> Approved.\r\n- CollectingInputs -> Approved.\r\n- Validating -> Approved.\r\n- Scoring -> Approved.\r\n# Commands\r\n## CreateEvaluation\r\nCreates evaluation record for DecisionSession.\r\n## UpdateEvaluation\r\nUpdates editable evaluation inputs before approval.\r\n## EvaluateDecision\r\nRuns evaluation pipeline and produces scores.\r\n## ReEvaluateDecision\r\nRecalculates evaluation after source, rule, score, or constraint change.\r\n## ApproveEvaluation\r\nApproves evaluation result for approval preparation or recommendation mapping.\r\n## RejectEvaluation\r\nRejects evaluation with reason.\r\n## ArchiveEvaluation\r\nArchives evaluation and makes it read-only.\r\n## RestoreEvaluation\r\nRestores archived evaluation after validation.\r\n## DeleteEvaluation\r\nDeletes eligible evaluation after retention validation.\r\n## GenerateEvaluationReport\r\nGenerates evaluation report projection.\r\n## RefreshEvaluation\r\nRefreshes source versions and stale indicators.\r\n## MapEvaluationRecommendation\r\nMaps evaluation result to Recommendation.\r\n## ExportEvaluation\r\nExports masked evaluation projection.\r\n# Domain Events\r\n## EvaluationCreated\r\nEmitted after CreateEvaluation succeeds.\r\n## EvaluationUpdated\r\nEmitted after UpdateEvaluation succeeds.\r\n## DecisionEvaluated\r\nEmitted after EvaluateDecision succeeds.\r\n## EvaluationApproved\r\nEmitted after ApproveEvaluation succeeds.\r\n## EvaluationRejected\r\nEmitted after RejectEvaluation succeeds.\r\n## EvaluationArchived\r\nEmitted after ArchiveEvaluation succeeds.\r\n## EvaluationRestored\r\nEmitted after RestoreEvaluation succeeds.\r\n## EvaluationDeleted\r\nEmitted after DeleteEvaluation succeeds.\r\n## EvaluationReportGenerated\r\nEmitted after report generation succeeds.\r\n## EvaluationRecalculated\r\nEmitted after ReEvaluateDecision succeeds.\r\n## EvaluationConstraintFailed\r\nEmitted after hard constraint failure is recorded.\r\n## EvaluationScoreChanged\r\nEmitted after score materially changes.\r\n## EvaluationStale\r\nEmitted after source, rule, scoring, or constraint version changes.\r\n# Repository\r\n## Interface\r\nIDecisionEvaluationRepository persists evaluation aggregate, dimension results, score results, constraint results, risk results, report history, approval history, and projections.\r\n## Methods\r\n- Add\r\n- Update\r\n- GetById\r\n- GetByDecisionSessionId\r\n- GetLatestByDecisionSessionId\r\n- Search\r\n- SaveDimensionResult\r\n- SaveScoreResult\r\n- SaveConstraintResult\r\n- SaveRiskResult\r\n- SaveReport\r\n- SaveApprovalHistory\r\n- Archive\r\n- Restore\r\n- Delete\r\n- GetSummaryProjection\r\n- GetDetailProjection\r\n- GetScoreProjection\r\n## Queries\r\n- EvaluationsByDecision\r\n- EvaluationsByStatus\r\n- EvaluationsByScoreRange\r\n- EvaluationsByConstraintResult\r\n- EvaluationsByRiskLevel\r\n- EvaluationsByGoalPlan\r\n- EvaluationsByScenario\r\n- StaleEvaluations\r\n- ApprovalReadyEvaluations\r\n- ArchivedEvaluations\r\n## Filtering\r\n- EvaluationId\r\n- DecisionSessionId\r\n- HouseholdId\r\n- TenantId\r\n- Status\r\n- ScoreRange\r\n- ConfidenceRange\r\n- RiskLevel\r\n- ConstraintResult\r\n- RecommendationId\r\n- GoalPlanId\r\n- ScenarioId\r\n- CreatedDateRange\r\n- EvaluatedDateRange\r\n## Sorting\r\n- createdAt desc\r\n- evaluatedAt desc\r\n- compositeScore desc\r\n- confidenceScore desc\r\n- explainabilityScore desc\r\n- riskScore asc\r\n- status asc\r\n## Aggregation\r\n- CountByStatus\r\n- CountByRiskLevel\r\n- CountByConstraintResult\r\n- AverageCompositeScore\r\n- AverageConfidenceScore\r\n- AverageExplainabilityScore\r\n- ApprovalReadyCount\r\n- StaleCount\r\n## Projection\r\n- EvaluationSummaryProjection\r\n- EvaluationDetailProjection\r\n- ScoreProjection\r\n- ConstraintProjection\r\n- RiskProjection\r\n- ReportProjection\r\n- DashboardProjection\r\n## Specification\r\n- ActiveEvaluationSpecification\r\n- VisibleEvaluationSpecification\r\n- ApprovalReadyEvaluationSpecification\r\n- StaleEvaluationSpecification\r\n- HighRiskEvaluationSpecification\r\n- ConstraintFailedEvaluationSpecification\r\n- AuditEvaluationSpecification\r\n# Domain Service Interaction\r\n- DecisionEvaluationDomainService validates evaluation lifecycle, scoring, constraints, and business rules.\r\n- DecisionLifecycleDomainService supplies decision state eligibility.\r\n- DecisionRuleDomainService supplies decision rules and versions.\r\n- DecisionExplainabilityDomainService creates explanation artifacts.\r\n- DecisionHistoryDomainService records evaluation history.\r\n- DecisionAuditDomainService records audit evidence.\r\n- RecommendationDomainService consumes approved evaluation mapping.\r\n- GoalLifecycleDomainService supplies GoalPlan state and lifecycle constraints.\r\n- GoalProgressDomainService supplies goal progress evidence.\r\n- ScenarioDomainService supplies scenario evidence and version.\r\n- PortfolioDomainService supplies authorized portfolio evidence.\r\n- CashFlowDomainService supplies authorized cashflow evidence.\r\n- RiskDomainService supplies risk evidence where present.\r\n- ConstraintDomainService supplies constraint definitions where present.\r\n- SimulationDomainService supplies simulation result evidence.\r\n- OptimizationDomainService supplies optimization result evidence.\r\n- WorkflowDomainService supplies approval readiness and workflow state.\r\n- AutomationDomainService supplies automation trigger context.\r\n- BusinessCalendarDomainService validates evaluation and approval windows.\r\n- NotificationDomainService receives evaluation triggers.\r\n- SecurityDomainService evaluates authorization and masking.\r\n- CacheDomainService invalidates evaluation projections.\r\n# Application Service Interaction\r\n- DecisionEvaluationApplicationService coordinates commands, queries, unit of work, event publication, and cache invalidation.\r\n- CreateEvaluationHandler creates evaluation record.\r\n- UpdateEvaluationHandler updates editable evaluation inputs.\r\n- EvaluateDecisionHandler executes evaluation pipeline.\r\n- ReEvaluateDecisionHandler refreshes source versions and recalculates scores.\r\n- ApproveEvaluationHandler validates approval permission and locks scores.\r\n- RejectEvaluationHandler records rejection reason.\r\n- ArchiveEvaluationHandler validates archive policy.\r\n- RestoreEvaluationHandler validates source and permission.\r\n- DeleteEvaluationHandler validates retention.\r\n- GenerateEvaluationReportHandler creates report projection.\r\n- SearchEvaluationQueryHandler applies filters, sorting, pagination, and projection.\r\n- BulkEvaluationHandler performs batch evaluation with per-item result.\r\n# API\r\n## REST Endpoints\r\n- GET /api/decision-evaluations\r\n- POST /api/decision-evaluations\r\n- GET /api/decision-evaluations/{evaluationId}\r\n- PUT /api/decision-evaluations/{evaluationId}\r\n- POST /api/decision-evaluations/{evaluationId}/evaluate\r\n- POST /api/decision-evaluations/{evaluationId}/reevaluate\r\n- POST /api/decision-evaluations/{evaluationId}/approve\r\n- POST /api/decision-evaluations/{evaluationId}/reject\r\n- POST /api/decision-evaluations/{evaluationId}/archive\r\n- POST /api/decision-evaluations/{evaluationId}/restore\r\n- DELETE /api/decision-evaluations/{evaluationId}\r\n- POST /api/decision-evaluations/{evaluationId}/report\r\n- POST /api/decision-evaluations/bulk/evaluate\r\n- GET /api/decisions/{decisionSessionId}/evaluations\r\n## HTTP Methods\r\nGET reads evaluation projections.\r\nPOST creates, evaluates, recalculates, approves, rejects, archives, restores, reports, or batches evaluation.\r\nPUT updates editable fields.\r\nDELETE deletes eligible evaluation after retention validation.\r\n## Request\r\nCreate request includes DecisionSessionId, options, scope, evaluation dimensions, scoring version, constraint version, and source version mode.\r\nUpdate request includes version, inputs, dimension settings, and update reason.\r\nEvaluate request includes source version mode, included dimensions, force refresh flag, and report option.\r\nApprove request includes reason, approver, expected version, and optional Recommendation mapping.\r\nReject request includes reason and expected version.\r\nSearch request includes filters, sorting, pagination, and projection.\r\n## Response\r\nDetail response returns evaluation, dimension results, score results, constraint results, risk results, ranking, explainability, permissions, and audit metadata.\r\nSummary response returns status, composite score, confidence score, explainability score, top option, and stale flag.\r\nReport response returns report id, score summary, constraint summary, ranking, and generated time.\r\nBulk response returns processed, succeeded, failed, skipped, and per-item errors.\r\n## Errors\r\n- 400 invalid request\r\n- 401 unauthenticated\r\n- 403 forbidden\r\n- 404 evaluation not found\r\n- 409 concurrency conflict\r\n- 410 stale source\r\n- 422 validation failed\r\n- 423 evaluation locked\r\n- 424 dependency blocked\r\n- 429 rate limited\r\n- 500 internal error\r\n## Pagination\r\nPagination uses pageNumber, pageSize, totalCount, totalPages, hasNextPage, and hasPreviousPage.\r\n## Filtering\r\nFiltering supports status, score range, confidence range, explainability range, risk level, constraint result, DecisionSessionId, GoalPlanId, ScenarioId, RecommendationId, date range, and stale flag.\r\n## Sorting\r\nSorting supports createdAt, evaluatedAt, compositeScore, confidenceScore, explainabilityScore, riskScore, and status.\r\n## Projection\r\nProjection supports summary, detail, score, constraint, risk, report, dashboard, and audit-safe views.\r\n## Bulk API\r\nBulk API supports evaluate, recalculate, archive, restore, report, and export with per-item result and correlation id.\r\n## Evaluation API\r\nEvaluation API provides create, update, evaluate, recalculate, approve, reject, archive, restore, delete, report, and query operations.\r\n# DTO\r\n## Create DTO\r\nIncludes DecisionSessionId, options, dimensions, constraints, scoring version, rule version, source version mode, and scope.\r\n## Update DTO\r\nIncludes EvaluationId, version, editable inputs, dimension settings, constraint settings, and update reason.\r\n## Evaluation DTO\r\nIncludes EvaluationId, DecisionSessionId, status, source version, rule version, scoring version, constraint version, and timestamps.\r\n## Score DTO\r\nIncludes option id, dimension scores, weighted score, composite score, normalized score, confidence score, explainability score, penalties, and bonuses.\r\n## Constraint DTO\r\nIncludes constraint id, type, hard flag, violation flag, penalty score, reason, and evidence.\r\n## Risk DTO\r\nIncludes risk level, risk score, risk trend, risk penalty, and mitigation evidence.\r\n## Summary DTO\r\nIncludes EvaluationId, status, top option, composite score, confidence score, explainability score, stale flag, and evaluatedAt.\r\n## Detail DTO\r\nIncludes all dimensions, scores, constraints, risks, ranking, explanation, approvals, reports, permissions, and audit metadata.\r\n## Search DTO\r\nIncludes filters, sorting, pagination, projection, and masking mode.\r\n## Report DTO\r\nIncludes report id, evaluation id, score summary, constraint summary, ranking, generatedAt, and generatedBy.\r\n# Database Mapping\r\n## Table\r\n- decision_evaluations\r\n- decision_evaluation_dimensions\r\n- decision_evaluation_scores\r\n- decision_evaluation_constraints\r\n- decision_evaluation_risks\r\n- decision_evaluation_reports\r\n- decision_evaluation_approval_history\r\n- decision_evaluation_audit\r\n## Columns\r\n- evaluation_id uuid primary key\r\n- tenant_id uuid null\r\n- household_id uuid not null\r\n- decision_session_id uuid not null\r\n- status varchar(40) not null\r\n- source_version_hash varchar(128) not null\r\n- rule_version varchar(40) not null\r\n- scoring_version varchar(40) not null\r\n- constraint_version varchar(40) not null\r\n- top_option_id uuid null\r\n- composite_score numeric(6,2) null\r\n- confidence_score numeric(5,2) null\r\n- explainability_score numeric(5,2) null\r\n- risk_score numeric(5,2) null\r\n- is_stale boolean not null\r\n- evaluated_at timestamptz null\r\n- archived_at timestamptz null\r\n- deleted_at timestamptz null\r\n- created_at timestamptz not null\r\n- updated_at timestamptz not null\r\n- version int not null\r\n## Indexes\r\n- ix_decision_evaluations_decision_status\r\n- ix_decision_evaluations_household_status\r\n- ix_decision_evaluations_score\r\n- ix_decision_evaluations_confidence\r\n- ix_decision_evaluations_risk\r\n- ix_decision_evaluations_stale\r\n- ix_decision_evaluations_evaluated_at\r\n- ux_decision_evaluations_latest_active\r\n## Constraints\r\n- composite_score between 0 and 100 when present\r\n- confidence_score between 0 and 100 when present\r\n- explainability_score between 0 and 100 when present\r\n- risk_score between 0 and 100 when present\r\n- status in supported states\r\n- version greater than zero\r\n## FK\r\n- decision_session_id references decision_sessions.\r\n- household_id references households.\r\n- evaluation_id references decision_evaluations for child tables.\r\n- top_option_id references decision options when present.\r\n## Unique\r\n- Unique latest active evaluation per DecisionSession and scoring version.\r\n- Unique option score per evaluation and option.\r\n- Unique dimension result per evaluation, option, and dimension.\r\n## Check Constraint\r\n- Deleted status requires deleted_at.\r\n- Approved status requires approval history.\r\n## Partition Strategy\r\n- Partition dimensions, scores, constraints, risks, reports, approval history, and audit by created_at month.\r\n# PostgreSQL Schema\r\n```sql\r\nCREATE TABLE decision_evaluations (\r\n  evaluation_id uuid PRIMARY KEY,\r\n  tenant_id uuid NULL,\r\n  household_id uuid NOT NULL,\r\n  decision_session_id uuid NOT NULL,\r\n  status varchar(40) NOT NULL,\r\n  source_version_hash varchar(128) NOT NULL,\r\n  rule_version varchar(40) NOT NULL,\r\n  scoring_version varchar(40) NOT NULL,\r\n  constraint_version varchar(40) NOT NULL,\r\n  top_option_id uuid NULL,\r\n  composite_score numeric(6,2) NULL,\r\n  confidence_score numeric(5,2) NULL,\r\n  explainability_score numeric(5,2) NULL,\r\n  risk_score numeric(5,2) NULL,\r\n  is_stale boolean NOT NULL DEFAULT false,\r\n  evaluated_at timestamptz NULL,\r\n  archived_at timestamptz NULL,\r\n  deleted_at timestamptz NULL,\r\n  created_by uuid NULL,\r\n  updated_by uuid NULL,\r\n  created_at timestamptz NOT NULL DEFAULT now(),\r\n  updated_at timestamptz NOT NULL DEFAULT now(),\r\n  version int NOT NULL DEFAULT 1,\r\n  CONSTRAINT ck_decision_evaluations_status CHECK (status IN ('Created','CollectingInputs','Validating','Evaluating','Scoring','Ranked','ApprovalReady','Approved','Rejected','Archived','Restored','Deleted')),\r\n  CONSTRAINT ck_decision_evaluations_composite CHECK (composite_score IS NULL OR (composite_score >= 0 AND composite_score <= 100)),\r\n  CONSTRAINT ck_decision_evaluations_confidence CHECK (confidence_score IS NULL OR (confidence_score >= 0 AND confidence_score <= 100)),\r\n  CONSTRAINT ck_decision_evaluations_explainability CHECK (explainability_score IS NULL OR (explainability_score >= 0 AND explainability_score <= 100)),\r\n  CONSTRAINT ck_decision_evaluations_risk CHECK (risk_score IS NULL OR (risk_score >= 0 AND risk_score <= 100)),\r\n  CONSTRAINT ck_decision_evaluations_version CHECK (version > 0)\r\n);\r\nCREATE TABLE decision_evaluation_dimensions (\r\n  dimension_id uuid PRIMARY KEY,\r\n  evaluation_id uuid NOT NULL REFERENCES decision_evaluations(evaluation_id),\r\n  option_id uuid NOT NULL,\r\n  dimension_name varchar(120) NOT NULL,\r\n  raw_value numeric(18,4) NULL,\r\n  normalized_score numeric(5,2) NOT NULL,\r\n  weight numeric(8,4) NOT NULL,\r\n  evidence_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  created_at timestamptz NOT NULL DEFAULT now(),\r\n  CONSTRAINT ck_decision_evaluation_dimension_score CHECK (normalized_score >= 0 AND normalized_score <= 100),\r\n  CONSTRAINT ck_decision_evaluation_dimension_weight CHECK (weight >= 0)\r\n);\r\nCREATE TABLE decision_evaluation_scores (\r\n  score_id uuid PRIMARY KEY,\r\n  evaluation_id uuid NOT NULL REFERENCES decision_evaluations(evaluation_id),\r\n  option_id uuid NOT NULL,\r\n  weighted_score numeric(6,2) NOT NULL,\r\n  composite_score numeric(6,2) NOT NULL,\r\n  confidence_score numeric(5,2) NOT NULL,\r\n  explainability_score numeric(5,2) NOT NULL,\r\n  rank int NOT NULL,\r\n  score_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  created_at timestamptz NOT NULL DEFAULT now(),\r\n  CONSTRAINT ck_decision_evaluation_scores_range CHECK (weighted_score >= 0 AND weighted_score <= 100 AND composite_score >= 0 AND composite_score <= 100),\r\n  CONSTRAINT ck_decision_evaluation_scores_rank CHECK (rank > 0)\r\n);\r\nCREATE TABLE decision_evaluation_constraints (\r\n  constraint_result_id uuid PRIMARY KEY,\r\n  evaluation_id uuid NOT NULL REFERENCES decision_evaluations(evaluation_id),\r\n  option_id uuid NOT NULL,\r\n  constraint_type varchar(120) NOT NULL,\r\n  is_hard boolean NOT NULL,\r\n  is_violated boolean NOT NULL,\r\n  penalty_score numeric(6,2) NOT NULL DEFAULT 0,\r\n  reason varchar(800) NULL,\r\n  evidence_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  created_at timestamptz NOT NULL DEFAULT now()\r\n);\r\nCREATE TABLE decision_evaluation_risks (\r\n  risk_result_id uuid PRIMARY KEY,\r\n  evaluation_id uuid NOT NULL REFERENCES decision_evaluations(evaluation_id),\r\n  option_id uuid NOT NULL,\r\n  risk_level varchar(40) NOT NULL,\r\n  risk_score numeric(5,2) NOT NULL,\r\n  risk_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  created_at timestamptz NOT NULL DEFAULT now(),\r\n  CONSTRAINT ck_decision_evaluation_risk_score CHECK (risk_score >= 0 AND risk_score <= 100)\r\n);\r\nCREATE TABLE decision_evaluation_reports (\r\n  report_id uuid PRIMARY KEY,\r\n  evaluation_id uuid NOT NULL REFERENCES decision_evaluations(evaluation_id),\r\n  report_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  generated_by uuid NULL,\r\n  generated_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL\r\n);\r\nCREATE TABLE decision_evaluation_approval_history (\r\n  approval_history_id uuid PRIMARY KEY,\r\n  evaluation_id uuid NOT NULL REFERENCES decision_evaluations(evaluation_id),\r\n  approval_state varchar(40) NOT NULL,\r\n  reason varchar(800) NOT NULL,\r\n  actor_id uuid NULL,\r\n  occurred_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL\r\n);\r\nCREATE TABLE decision_evaluation_audit (\r\n  audit_id uuid PRIMARY KEY,\r\n  evaluation_id uuid NULL,\r\n  action varchar(120) NOT NULL,\r\n  actor_id uuid NULL,\r\n  payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  occurred_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL\r\n);\r\nCREATE INDEX ix_decision_evaluations_decision_status ON decision_evaluations(decision_session_id, status);\r\nCREATE INDEX ix_decision_evaluations_household_status ON decision_evaluations(household_id, status);\r\nCREATE INDEX ix_decision_evaluations_score ON decision_evaluations(composite_score DESC);\r\nCREATE INDEX ix_decision_evaluations_confidence ON decision_evaluations(confidence_score DESC);\r\nCREATE INDEX ix_decision_evaluations_risk ON decision_evaluations(risk_score);\r\nCREATE INDEX ix_decision_evaluations_stale ON decision_evaluations(is_stale);\r\nCREATE INDEX ix_decision_evaluations_evaluated_at ON decision_evaluations(evaluated_at);\r\nCREATE UNIQUE INDEX ux_decision_evaluations_latest_active ON decision_evaluations(decision_session_id, scoring_version) WHERE status <> 'Deleted';\r\nCREATE VIEW v_decision_evaluation_summary AS\r\nSELECT evaluation_id, household_id, decision_session_id, status, top_option_id, composite_score, confidence_score, explainability_score, risk_score, is_stale, evaluated_at\r\nFROM decision_evaluations\r\nWHERE status <> 'Deleted';\r\nCREATE MATERIALIZED VIEW mv_decision_evaluation_dashboard AS\r\nSELECT household_id, status, count(*) AS evaluation_count, avg(composite_score) AS average_score, avg(confidence_score) AS average_confidence\r\nFROM decision_evaluations\r\nWHERE status <> 'Deleted'\r\nGROUP BY household_id, status;\r\n```\r\n# EF Core Mapping\r\n- Fluent API maps DecisionEvaluation to decision_evaluations with evaluation_id primary key.\r\n- Owned Types map evidence payload, score payload, risk payload, report payload, and audit payload as JSON.\r\n- Indexes map decision status, household status, score, confidence, risk, stale flag, evaluated time, and latest active evaluation.\r\n- Value Conversion stores EvaluationStatus, DimensionName, ConstraintType, RiskLevel, ApprovalState, and report type as strings.\r\n- Query Filters exclude Deleted by default and enforce tenant scope when tenant scope exists.\r\n- Concurrency token uses version column.\r\n- Navigation maps dimensions, scores, constraints, risks, reports, approval history, and audit.\r\n# Cache Strategy\r\n- Redis Key: atlas:decision-evaluation:{tenantId}:{householdId}:summary\r\n- Redis Key: atlas:decision-evaluation:{tenantId}:{householdId}:decision:{decisionSessionId}\r\n- Redis Key: atlas:decision-evaluation:{tenantId}:{householdId}:detail:{evaluationId}\r\n- Redis Key: atlas:decision-evaluation:{tenantId}:{householdId}:score:{evaluationId}\r\n- Redis Key: atlas:decision-evaluation:{tenantId}:{householdId}:dashboard\r\n- Evaluation Cache stores summary and detail projection.\r\n- Score Cache stores score projection and ranking projection.\r\n- TTL: summary 180 seconds.\r\n- TTL: detail 300 seconds.\r\n- TTL: score 600 seconds.\r\n- TTL: dashboard 120 seconds.\r\n- Refresh Strategy: refresh after evaluation, recalculation, approval, rejection, archive, restore, report generation, and materialized view refresh.\r\n- Invalidation: invalidate by evaluation id, decision id, household id, tenant id, source version change, rule change, scoring change, constraint change, permission change, and masking change.\r\n# Security\r\n- Authorization requires authenticated user and household access.\r\n- Permissions include DecisionEvaluation.Read.\r\n- Permissions include DecisionEvaluation.Create.\r\n- Permissions include DecisionEvaluation.Update.\r\n- Permissions include DecisionEvaluation.Evaluate.\r\n- Permissions include DecisionEvaluation.Approve.\r\n- Permissions include DecisionEvaluation.Reject.\r\n- Permissions include DecisionEvaluation.Archive.\r\n- Permissions include DecisionEvaluation.Restore.\r\n- Permissions include DecisionEvaluation.Delete.\r\n- Permissions include DecisionEvaluation.Report.\r\n- Evaluation Permissions evaluate decision access, evidence access, scoring access, approval access, and report access.\r\n- Field Level Security masks financial, portfolio, cashflow, tax, loan, insurance, investment, audit, and explainability-sensitive evidence.\r\n- Data Masking applies before cache, dashboard, report, export, notification, and API projection.\r\n# Audit\r\n- Evaluation History records created, updated, evaluated, recalculated, approved, rejected, archived, restored, deleted, and reported.\r\n- Score History records dimension score, weighted score, composite score, confidence score, explainability score, penalty, bonus, and ranking.\r\n- Constraint History records hard constraint, soft constraint, violation, penalty, and reason.\r\n- Decision History records linked DecisionSession state and selected option evidence.\r\n- Approval History records approval state, actor, reason, and occurred time.\r\n# Performance\r\n- Parallel Evaluation evaluates independent decision options and dimensions with bounded concurrency.\r\n- Batch Evaluation partitions work by household, decision, status, source version, and scoring version.\r\n- Incremental Evaluation recalculates changed evidence, changed rules, changed constraints, and stale scores only.\r\n- Caching stores summary, detail, score, dashboard, and search projections.\r\n- Materialized Views aggregate counts, average scores, average confidence, and stale counts.\r\n- Read Optimization uses covering indexes, summary projections, and keyset pagination.\r\n# Example JSON\r\n## Create\r\n```json\r\n{\"decisionSessionId\":\"33b7ef1f-0000-4000-9000-000000000001\",\"dimensions\":[\"Financial Impact\",\"Risk Level\",\"Goal Alignment\"],\"scoringVersion\":\"1.0\",\"constraintVersion\":\"1.0\"}\r\n```\r\n## Update\r\n```json\r\n{\"evaluationId\":\"44b7ef1f-0000-4000-9000-000000000001\",\"version\":2,\"dimensionWeights\":{\"Financial Impact\":0.12},\"reason\":\"Weight adjusted\"}\r\n```\r\n## Evaluate\r\n```json\r\n{\"evaluationId\":\"44b7ef1f-0000-4000-9000-000000000001\",\"sourceVersionMode\":\"Current\",\"forceRefresh\":true}\r\n```\r\n## Approve\r\n```json\r\n{\"evaluationId\":\"44b7ef1f-0000-4000-9000-000000000001\",\"reason\":\"Top option is feasible and explainable\"}\r\n```\r\n## Reject\r\n```json\r\n{\"evaluationId\":\"44b7ef1f-0000-4000-9000-000000000001\",\"reason\":\"Hard constraint failed\"}\r\n```\r\n## Detail\r\n```json\r\n{\"evaluationId\":\"44b7ef1f-0000-4000-9000-000000000001\",\"status\":\"Ranked\",\"topOptionId\":\"55b7ef1f-0000-4000-9000-000000000002\",\"compositeScore\":86.25,\"confidenceScore\":82.4}\r\n```\r\n## Summary\r\n```json\r\n{\"evaluationId\":\"44b7ef1f-0000-4000-9000-000000000001\",\"status\":\"ApprovalReady\",\"compositeScore\":86.25,\"explainabilityScore\":91.0}\r\n```\r\n## Search\r\n```json\r\n{\"filters\":{\"status\":[\"Ranked\",\"ApprovalReady\"],\"isStale\":false},\"sorting\":[{\"field\":\"compositeScore\",\"direction\":\"desc\"}],\"pagination\":{\"pageNumber\":1,\"pageSize\":20}}\r\n```\r\n## Report\r\n```json\r\n{\"evaluationId\":\"44b7ef1f-0000-4000-9000-000000000001\",\"projection\":\"Detail\",\"includeConstraints\":true,\"includeExplainability\":true}\r\n```\r\n# Mermaid\r\n## Class Diagram\r\n```mermaid\r\nclassDiagram\r\nclass DecisionEvaluation { EvaluationId Status CompositeScore ConfidenceScore }\r\nclass EvaluationScore { ScoreId OptionId CompositeScore Rank }\r\nclass EvaluationConstraint { ConstraintId IsHard IsViolated PenaltyScore }\r\nclass DecisionSession { DecisionSessionId State SelectedOptionId }\r\nDecisionSession --> DecisionEvaluation\r\nDecisionEvaluation --> EvaluationScore\r\nDecisionEvaluation --> EvaluationConstraint\r\n```\r\n## Sequence Diagram\r\n```mermaid\r\nsequenceDiagram\r\nparticipant App as DecisionEvaluationApplicationService\r\nparticipant Domain as DecisionEvaluationDomainService\r\nparticipant Repo as IDecisionEvaluationRepository\r\nparticipant Event as DomainEventBus\r\nApp->>Domain: EvaluateDecision(command)\r\nDomain->>Domain: Validate inputs\r\nDomain->>Domain: Score options\r\nDomain->>Repo: Save evaluation\r\nRepo-->>Domain: Persisted\r\nDomain->>Event: DecisionEvaluated\r\n```\r\n## ER Diagram\r\n```mermaid\r\nerDiagram\r\ndecision_evaluations ||--o{ decision_evaluation_dimensions : measures\r\ndecision_evaluations ||--o{ decision_evaluation_scores : scores\r\ndecision_evaluations ||--o{ decision_evaluation_constraints : constrains\r\ndecision_evaluations ||--o{ decision_evaluation_risks : risks\r\ndecision_evaluations ||--o{ decision_evaluation_reports : reports\r\n```\r\n## State Diagram\r\n```mermaid\r\nstateDiagram-v2\r\n[*] --> Created\r\nCreated --> CollectingInputs\r\nCollectingInputs --> Validating\r\nValidating --> Evaluating\r\nEvaluating --> Scoring\r\nScoring --> Ranked\r\nRanked --> ApprovalReady\r\nApprovalReady --> Approved\r\nApprovalReady --> Rejected\r\nApproved --> Archived\r\nRejected --> Archived\r\nArchived --> Restored\r\nRestored --> Validating\r\nArchived --> Deleted\r\n```\r\n## Evaluation Pipeline\r\n```mermaid\r\nflowchart TD\r\nA[Input Collection] --> B[Validation]\r\nB --> C[Normalization]\r\nC --> D[Rule Evaluation]\r\nD --> E[Dimension Evaluation]\r\nE --> F[Scoring]\r\nF --> G[Ranking]\r\nG --> H[Approval Preparation]\r\nH --> I[Audit Logging]\r\n```\r\n## Scoring Flow\r\n```mermaid\r\nflowchart TD\r\nA[Dimension Scores] --> B[Normalize]\r\nB --> C[Apply Weights]\r\nC --> D[Apply Penalties]\r\nD --> E[Apply Bonuses]\r\nE --> F[Composite Score]\r\nF --> G[Rank Options]\r\n```\r\n## Constraint Flow\r\n```mermaid\r\nflowchart TD\r\nA[Option] --> B[Hard Constraints]\r\nB --> C{Violation}\r\nC -->|Yes| D[Mark Infeasible]\r\nC -->|No| E[Soft Constraints]\r\nE --> F[Penalty Score]\r\nF --> G[Final Score]\r\n```\r\n# Testing\r\n## Unit Test\r\nUnit tests validate dimension formulas, score formulas, constraints, penalties, bonuses, ranking, validation rules, and masking.\r\n## Integration Test\r\nIntegration tests validate repository, API, domain events, cache invalidation, security, reports, and audit.\r\n## Evaluation Test\r\nEvaluation tests validate input collection, normalization, rule evaluation, dimension evaluation, scoring, ranking, and approval preparation.\r\n## Constraint Test\r\nConstraint tests validate hard constraints, soft constraints, financial constraints, risk constraints, scenario constraints, portfolio constraints, cashflow constraints, and user preference constraints.\r\n## Scoring Test\r\nScoring tests validate weighted score, composite score, normalized score, confidence score, penalty rules, bonus rules, ranking rules, and tie-breaking rules.\r\n## Performance Test\r\nPerformance tests validate evaluation latency, batch throughput, dashboard query latency, materialized view refresh, and cache hit rate.\r\n## Concurrency Test\r\nConcurrency tests validate optimistic version, duplicate command, concurrent evaluation, concurrent approval, archive race, and restore race.\r\n## Stress Test\r\nStress tests validate large option count, many dimensions, high batch volume, high report volume, and cache pressure.\r\n# Edge Cases\r\n1. DecisionSession is deleted during evaluation. 2. Decision Lifecycle state changes during evaluation. 3. Rule version changes during scoring. 4. Scoring version changes during approval. 5. Constraint version changes during ranking. 6. Source version becomes stale. 7. Option is removed during evaluation. 8. Selected option has hard constraint violation. 9. All options are infeasible. 10. Two options have identical scores. 11. Confidence score is below threshold. 12. Explainability score is below threshold. 13. Financial evidence is missing currency. 14. CashFlow period is closed. 15. Portfolio valuation is stale. 16. Portfolio permission is revoked. 17. ScenarioVersion changes during simulation. 18. Simulation result is missing. 19. Optimization result is stale. 20. Recommendation is archived before mapping. 21. GoalPlan is completed during evaluation. 22. Risk score is unavailable. 23. Constraint result conflicts with rule result. 24. Tax evidence is unauthorized. 25. Loan evidence is unavailable. 26. Insurance evidence is masked. 27. Investment evidence is stale. 28. User preference changes during evaluation. 29. Workflow approval step changes. 30. Automation trigger is duplicated. 31. Business Calendar blocks approval window. 32. Notification delivery fails. 33. Cache invalidation fails. 34. Report generation fails. 35. Materialized view refresh fails. 36. Audit write fails before event publication. 37. Event publication fails after persistence. 38. Search requests unauthorized projection. 39. Sorting field is unsupported. 40. Pagination token references deleted evaluation. 41. Tenant scope is missing in tenant-aware environment. 42. Aggregation could reveal restricted evaluation count. 43. Batch evaluation partially fails. 44. Parallel evaluation returns out-of-order completion. 45. Restore is requested after delete.\r\n# Version History\r\n| Version | Date | Change | Owner |\r\n|---|---|---|---|\r\n| 1.0 | 2026-07-13 | Enterprise Specification for Decision Evaluation. | Project Atlas |\r\n",
+  "references": []
+}

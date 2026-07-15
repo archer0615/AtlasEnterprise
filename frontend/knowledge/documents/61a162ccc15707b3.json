@@ -1,0 +1,83 @@
+{
+  "id": "61a162ccc15707b3",
+  "title": "Execution Plan Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/execution-plan-framework.md",
+  "sourceHash": "3ad13f0e6f975eefa95c5d181a5fb17693d3a26aec636ee811851c8ccd9e696d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Execution Plan Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Execution Principles"
+    },
+    {
+      "level": 2,
+      "text": "Execution Sources"
+    },
+    {
+      "level": 2,
+      "text": "Execution Plan Structure"
+    },
+    {
+      "level": 2,
+      "text": "Execution Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Action Model"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Types"
+    },
+    {
+      "level": 2,
+      "text": "Execution Categories"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Monitoring"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Execution Plan Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise framework used by Project Atlas to transform approved financial recommendations into executable action plans.\n\n## Objectives\n- Convert decisions into actionable steps.\n- Coordinate execution across financial domains.\n- Track execution progress.\n- Enable monitoring, rollback and continuous review.\n\n## Execution Principles\n- Every plan originates from an approved recommendation.\n- Execution never bypasses hard business rules.\n- Plans are versioned and auditable.\n- Progress is measurable.\n\n## Execution Sources\n- Decision Engine\n- Recommendation Engine\n- Scenario Engine\n- User-created plans\n\n## Execution Plan Structure\nEach plan contains:\n- Execution Plan ID\n- Decision ID\n- Recommendation ID\n- Version\n- Status\n- Priority\n- Owner\n- Target Completion Date\n\n## Execution Lifecycle\nDraft\n→ Generated\n→ Approved\n→ Scheduled\n→ In Progress\n→ Blocked\n→ Completed\n→ Cancelled\n→ Archived\n\n## Action Model\nEach action defines:\n- Action ID\n- Title\n- Description\n- Sequence\n- Dependency\n- Estimated effort\n- Due date\n- Completion criteria\n- Rollback strategy\n\n## Dependency Types\n- Finish-to-Start\n- Start-to-Start\n- Finish-to-Finish\n- Independent\n\n## Execution Categories\n- Cash Flow\n- Investment\n- Loan\n- Housing\n- Retirement\n- Insurance\n- Goal Funding\n\n## Business Rules\n- Critical actions execute before optimization actions.\n- Blocked dependencies prevent downstream execution.\n- Completed actions are immutable.\n- Major financial changes trigger plan re-evaluation.\n\n## Monitoring\nTrack:\n- Completion %\n- Remaining actions\n- Overdue actions\n- Risk level\n- Blockers\n- Expected financial impact\n\n## Outputs\n- Execution timeline\n- Task list\n- Dependency graph\n- Progress summary\n- Completion forecast\n\n## Explainability\nEvery plan records:\n- Source recommendation\n- Triggering rules\n- Expected benefits\n- Risks\n- Success criteria\n\n## Integration\nConsumes:\n- Recommendation Priority Framework\n- Decision History Framework\n- Notification Framework\n- Goal Funding Framework\n- Financial Projection Framework\n\nProduces:\n- Dashboard\n- Notification Engine\n- Progress Reports\n- Decision Review\n\n## KPIs\n- Plan Completion Rate\n- On-time Completion\n- Blocked Task Ratio\n- Recommendation Execution Rate\n- Financial Outcome Achievement\n\n## Testing\n- Multi-step plans\n- Dependency failures\n- Plan revision\n- Cancellation\n- Partial completion\n- Concurrent plans\n\n## Future Enhancements\n- AI execution assistant\n- Calendar integration\n- Banking task automation\n- Collaborative household execution\n",
+  "references": []
+}

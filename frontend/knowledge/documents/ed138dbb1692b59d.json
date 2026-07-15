@@ -1,0 +1,95 @@
+{
+  "id": "ed138dbb1692b59d",
+  "title": "knowledge/decision-rule-catalog.md",
+  "category": "rule",
+  "canonicalPath": "knowledge/rule/decision-rule-catalog.md",
+  "sourceHash": "1a5fb044e6c1b450908467a75d2a1614c9c72108fe0d4f355224a712ff07f9ec",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/decision-rule-catalog.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Decision Rule Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Rule Metadata"
+    },
+    {
+      "level": 1,
+      "text": "Rule Categories"
+    },
+    {
+      "level": 1,
+      "text": "Rule Priority"
+    },
+    {
+      "level": 1,
+      "text": "Sample Rules"
+    },
+    {
+      "level": 2,
+      "text": "DR-CF-001 Positive Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "DR-LQ-001 Emergency Fund"
+    },
+    {
+      "level": 2,
+      "text": "DR-DT-001 Debt Burden"
+    },
+    {
+      "level": 2,
+      "text": "DR-IV-001 Allocation Drift"
+    },
+    {
+      "level": 2,
+      "text": "DR-HM-001 Housing Affordability"
+    },
+    {
+      "level": 2,
+      "text": "DR-RT-001 Retirement Sustainability"
+    },
+    {
+      "level": 2,
+      "text": "DR-RK-001 Overall Risk"
+    },
+    {
+      "level": 2,
+      "text": "DR-GL-001 Goal Alignment"
+    },
+    {
+      "level": 1,
+      "text": "Evaluation Lifecycle"
+    },
+    {
+      "level": 1,
+      "text": "Rule Outcomes"
+    },
+    {
+      "level": 1,
+      "text": "Rule Dependencies"
+    },
+    {
+      "level": 1,
+      "text": "Versioning"
+    },
+    {
+      "level": 1,
+      "text": "Testing Requirements"
+    },
+    {
+      "level": 1,
+      "text": "Governance"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/decision-rule-catalog.md\n\n# Atlas Decision Rule Catalog\nVersion: 1.0\nStatus: Canonical Specification\n\n## Purpose\n\nThis catalog defines every business rule executed by the Atlas Decision Engine.\nEach rule is uniquely identified, versioned, testable, and independently governed.\n\n---\n\n# Rule Metadata\n\nEvery rule shall include:\n\n- Rule ID\n- Rule Name\n- Business Purpose\n- Category\n- Priority\n- Inputs\n- Preconditions\n- Evaluation Logic\n- Outputs\n- Dependencies\n- Related KPIs\n- Related Financial Ratios\n- Related Constraints\n- Recommendation Impact\n- Version\n- Effective Date\n- Owner\n\n---\n\n# Rule Categories\n\n| Prefix | Category |\n|---------|----------|\n| DR-CF | Cash Flow |\n| DR-LQ | Liquidity |\n| DR-DT | Debt |\n| DR-IV | Investment |\n| DR-HM | Housing |\n| DR-RT | Retirement |\n| DR-RK | Risk |\n| DR-GL | Goal Alignment |\n| DR-SC | Scenario |\n| DR-SY | System |\n\n---\n\n# Rule Priority\n\n1. Regulatory\n2. Data Integrity\n3. Hard Constraints\n4. Financial Rules\n5. Optimization Rules\n6. Advisory Rules\n\n---\n\n# Sample Rules\n\n## DR-CF-001 Positive Cash Flow\n\nPurpose:\nEnsure sustainable monthly cash flow.\n\nInputs:\n- Monthly Income\n- Monthly Expenses\n\nCondition:\nIncome > Expenses\n\nResult:\nIncrease Cash Flow category score.\n\n---\n\n## DR-LQ-001 Emergency Fund\n\nPurpose:\nMaintain sufficient liquidity.\n\nCondition:\nEmergency Fund Ratio >= Policy Target\n\nFailure:\nPenalty applied.\n\n---\n\n## DR-DT-001 Debt Burden\n\nPurpose:\nPrevent excessive leverage.\n\nCondition:\nDTI <= Configured Threshold\n\nFailure:\nPenalty or Hard Constraint depending on policy.\n\n---\n\n## DR-IV-001 Allocation Drift\n\nPurpose:\nEnsure IPS compliance.\n\nCondition:\nAllocation Drift <= Allowed Tolerance\n\nResult:\nNo penalty.\n\n---\n\n## DR-HM-001 Housing Affordability\n\nCondition:\nHousing Cost Ratio <= Policy Target\n\nRecommendation:\nSuitable for home purchase.\n\n---\n\n## DR-RT-001 Retirement Sustainability\n\nCondition:\nRetirement Funding Ratio >= Target\n\nRecommendation:\nSupports long-term retirement objectives.\n\n---\n\n## DR-RK-001 Overall Risk\n\nCondition:\nOverall Risk Score below configured limit.\n\nFailure:\nRecommendation downgraded.\n\n---\n\n## DR-GL-001 Goal Alignment\n\nPurpose:\nMeasure consistency with Blueprint and IPS.\n\nCondition:\nScenario supports declared life goals.\n\n---\n\n# Evaluation Lifecycle\n\nInput\n→ Preconditions\n→ Rule Evaluation\n→ Rule Result\n→ Score Adjustment\n→ Recommendation Update\n→ Explanation Generation\n→ Audit Record\n\n---\n\n# Rule Outcomes\n\nPossible outcomes:\n\n- Pass\n- Fail\n- Warning\n- Skip\n- Not Applicable\n\n---\n\n# Rule Dependencies\n\nRules may depend on:\n\n- KPI Definitions\n- Financial Ratios\n- Risk Framework\n- Constraint Rules\n- Financial Assumptions\n- Formula Library\n\nCircular dependencies are prohibited.\n\n---\n\n# Versioning\n\nEach execution records:\n\n- Rule Version\n- Assumption Version\n- Formula Version\n- Decision Workflow Version\n- Scoring Model Version\n\n---\n\n# Testing Requirements\n\nEvery rule shall have:\n\n- Positive test\n- Negative test\n- Boundary test\n- Regression test\n- Version compatibility test\n\n---\n\n# Governance\n\n- Rule IDs are immutable.\n- Rules are additive where possible.\n- Deprecated rules remain available for historical replay.\n- Every rule change requires documentation, approval and regression validation.\n",
+  "references": []
+}

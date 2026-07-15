@@ -1,0 +1,71 @@
+{
+  "id": "98192808b56f4c89",
+  "title": "configuration-management-framework.md",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/configuration-management-framework.md",
+  "sourceHash": "51c55e9817deef150e95975708137ce4f6053b8f03e8a7bb324f378083d9aea5",
+  "headings": [
+    {
+      "level": 1,
+      "text": "configuration-management-framework.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Enterprise Specification"
+    },
+    {
+      "level": 2,
+      "text": "Configuration Management Framework"
+    },
+    {
+      "level": 2,
+      "text": "1. Purpose"
+    },
+    {
+      "level": 2,
+      "text": "2. Objectives"
+    },
+    {
+      "level": 2,
+      "text": "3. Configuration Categories"
+    },
+    {
+      "level": 2,
+      "text": "4. Hierarchy"
+    },
+    {
+      "level": 2,
+      "text": "5. Metadata"
+    },
+    {
+      "level": 2,
+      "text": "6. Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "7. Change Process"
+    },
+    {
+      "level": 2,
+      "text": "8. Runtime Requirements"
+    },
+    {
+      "level": 2,
+      "text": "9. Security"
+    },
+    {
+      "level": 2,
+      "text": "10. Monitoring"
+    },
+    {
+      "level": 2,
+      "text": "11. Integration"
+    },
+    {
+      "level": 2,
+      "text": "12. Future"
+    }
+  ],
+  "bodyMarkdown": "# configuration-management-framework.md\n\n# Atlas Enterprise Specification\n## Configuration Management Framework\n\nVersion: 1.0\n\n## 1. Purpose\nStandardize creation, storage, deployment, governance and auditing of all runtime configuration.\n\n## 2. Objectives\n- Centralized configuration\n- Environment isolation\n- Version control\n- Safe rollout\n- Auditability\n\n## 3. Configuration Categories\n| Category | Examples |\n|---|---|\n| System | Timezone, localization |\n| Financial | Assumptions, inflation |\n| Engine | Thresholds, weights |\n| Integration | API endpoints |\n| Security | Token lifetime |\n| UI | Dashboard defaults |\n\n## 4. Hierarchy\nGlobal\n→ Environment\n→ Tenant\n→ User\n\nHigher priority overrides lower.\n\n## 5. Metadata\n- Key\n- Value\n- Category\n- Scope\n- Version\n- Owner\n- Created Date\n- Updated Date\n- Effective Date\n\n## 6. Lifecycle\nDraft\n→ Review\n→ Approved\n→ Active\n→ Deprecated\n→ Archived\n\n## 7. Change Process\nRequest\n→ Review\n→ Approval\n→ Deploy\n→ Verify\n→ Audit\n\n## 8. Runtime Requirements\n- Cache configuration\n- Dynamic refresh\n- Fallback defaults\n- Validation before activation\n\n## 9. Security\n- RBAC\n- Encryption for secrets\n- Immutable audit history\n- Environment separation\n\n## 10. Monitoring\n- Configuration changes\n- Failed validation\n- Refresh latency\n- Drift detection\n\n## 11. Integration\n- Feature Flag Framework\n- Policy Management Framework\n- Permission Framework\n- Automation Framework\n\n## 12. Future\n- GitOps synchronization\n- Configuration templates\n- Dependency visualization\n- AI impact analysis\n",
+  "references": []
+}

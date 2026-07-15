@@ -1,0 +1,299 @@
+{
+  "id": "429628b212c33446",
+  "title": "Glossary",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/glossary.md",
+  "sourceHash": "1ee107f719315a6c6c3440c619429d66f903da38ded555f26901f3b175e0bf9d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Glossary"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "A"
+    },
+    {
+      "level": 2,
+      "text": "Asset"
+    },
+    {
+      "level": 2,
+      "text": "Asset Allocation"
+    },
+    {
+      "level": 1,
+      "text": "B"
+    },
+    {
+      "level": 2,
+      "text": "Blueprint"
+    },
+    {
+      "level": 2,
+      "text": "Burn Rate"
+    },
+    {
+      "level": 1,
+      "text": "C"
+    },
+    {
+      "level": 2,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "Cash Flow Engine"
+    },
+    {
+      "level": 2,
+      "text": "CAGR"
+    },
+    {
+      "level": 1,
+      "text": "D"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine"
+    },
+    {
+      "level": 2,
+      "text": "Debt Service Ratio (DSR)"
+    },
+    {
+      "level": 1,
+      "text": "E"
+    },
+    {
+      "level": 2,
+      "text": "Emergency Fund"
+    },
+    {
+      "level": 2,
+      "text": "Expense"
+    },
+    {
+      "level": 1,
+      "text": "F"
+    },
+    {
+      "level": 2,
+      "text": "FCN"
+    },
+    {
+      "level": 2,
+      "text": "Financial Independence"
+    },
+    {
+      "level": 2,
+      "text": "Free Cash Flow"
+    },
+    {
+      "level": 1,
+      "text": "H"
+    },
+    {
+      "level": 2,
+      "text": "Holding"
+    },
+    {
+      "level": 1,
+      "text": "I"
+    },
+    {
+      "level": 2,
+      "text": "Income"
+    },
+    {
+      "level": 2,
+      "text": "IPS"
+    },
+    {
+      "level": 1,
+      "text": "K"
+    },
+    {
+      "level": 2,
+      "text": "KPI"
+    },
+    {
+      "level": 1,
+      "text": "L"
+    },
+    {
+      "level": 2,
+      "text": "Life Goal"
+    },
+    {
+      "level": 2,
+      "text": "Life Event"
+    },
+    {
+      "level": 2,
+      "text": "Liquidity"
+    },
+    {
+      "level": 2,
+      "text": "LTV"
+    },
+    {
+      "level": 1,
+      "text": "M"
+    },
+    {
+      "level": 2,
+      "text": "Mortgage"
+    },
+    {
+      "level": 1,
+      "text": "N"
+    },
+    {
+      "level": 2,
+      "text": "Net Worth"
+    },
+    {
+      "level": 1,
+      "text": "P"
+    },
+    {
+      "level": 2,
+      "text": "Passive Income"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio"
+    },
+    {
+      "level": 2,
+      "text": "Property"
+    },
+    {
+      "level": 1,
+      "text": "R"
+    },
+    {
+      "level": 2,
+      "text": "Rebalance"
+    },
+    {
+      "level": 2,
+      "text": "Retirement"
+    },
+    {
+      "level": 2,
+      "text": "Risk Score"
+    },
+    {
+      "level": 1,
+      "text": "S"
+    },
+    {
+      "level": 2,
+      "text": "Safe Withdrawal Rate"
+    },
+    {
+      "level": 2,
+      "text": "Scenario"
+    },
+    {
+      "level": 1,
+      "text": "T"
+    },
+    {
+      "level": 2,
+      "text": "Tax"
+    },
+    {
+      "level": 2,
+      "text": "Timeline"
+    },
+    {
+      "level": 1,
+      "text": "W"
+    },
+    {
+      "level": 2,
+      "text": "Withdrawal"
+    },
+    {
+      "level": 1,
+      "text": "Abbreviations"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Glossary Entry Contract"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Glossary Entry Contract"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Glossary\r\n\r\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Purpose\r\n\r\n本文件提供 Project Atlas 的名詞索引（Glossary）。\r\n\r\n與 terminology.md 不同：\r\n\r\n-   terminology：定義正式 Domain Language。\r\n-   glossary：提供快速查閱與一致理解。\r\n\r\n所有文件、API、資料庫、程式碼、測試案例及 AI Agent 均應參考本文件。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# A\r\n\r\n## Asset\r\n\r\n可帶來經濟價值的資產。\r\n\r\n## Asset Allocation\r\n\r\n投資組合於各資產類別的配置比例。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# B\r\n\r\n## Blueprint\r\n\r\n人生財務藍圖，為所有決策的最高層策略。\r\n\r\n## Burn Rate\r\n\r\n每月淨現金流消耗速度。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# C\r\n\r\n## Cash Flow\r\n\r\n一定期間內所有收入與支出的流動。\r\n\r\n## Cash Flow Engine\r\n\r\n負責模擬、分析及預測現金流。\r\n\r\n## CAGR\r\n\r\nCompound Annual Growth Rate，年化複合成長率。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# D\r\n\r\n## Decision Engine\r\n\r\n根據規則、公式及 Scenario 產生決策建議。\r\n\r\n## Debt Service Ratio (DSR)\r\n\r\n每月債務支出占每月收入比例。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# E\r\n\r\n## Emergency Fund\r\n\r\n緊急預備金。\r\n\r\n## Expense\r\n\r\n支出。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# F\r\n\r\n## FCN\r\n\r\nFixed Coupon Note，固定配息結構型商品。\r\n\r\n## Financial Independence\r\n\r\n被動收入足以支應生活支出。\r\n\r\n## Free Cash Flow\r\n\r\nIncome - Expense。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# H\r\n\r\n## Holding\r\n\r\n投資組合中的單一持有資產。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# I\r\n\r\n## Income\r\n\r\n收入。\r\n\r\n## IPS\r\n\r\nInvestment Policy Statement，投資政策聲明。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# K\r\n\r\n## KPI\r\n\r\nKey Performance Indicator，關鍵績效指標。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# L\r\n\r\n## Life Goal\r\n\r\n人生目標。\r\n\r\n## Life Event\r\n\r\n人生重大事件。\r\n\r\n## Liquidity\r\n\r\n流動性。\r\n\r\n## LTV\r\n\r\nLoan To Value，貸款成數。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# M\r\n\r\n## Mortgage\r\n\r\n房屋貸款。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# N\r\n\r\n## Net Worth\r\n\r\nAssets - Liabilities。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# P\r\n\r\n## Passive Income\r\n\r\n非勞務型且可持續取得的收入。\r\n\r\n## Portfolio\r\n\r\n完整投資組合。\r\n\r\n## Property\r\n\r\n不動產資產。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# R\r\n\r\n## Rebalance\r\n\r\n調整資產配置至目標比例。\r\n\r\n## Retirement\r\n\r\n退休階段。\r\n\r\n## Risk Score\r\n\r\nAtlas 用於量化整體風險的評分。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# S\r\n\r\n## Safe Withdrawal Rate\r\n\r\n退休資產可持續提領率。\r\n\r\n## Scenario\r\n\r\n在指定假設下的完整財務模擬。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# T\r\n\r\n## Tax\r\n\r\n稅務。\r\n\r\n## Timeline\r\n\r\n人生事件時間軸。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# W\r\n\r\n## Withdrawal\r\n\r\n由投資資產提領現金。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Abbreviations\r\n\r\n  Abbreviation   Meaning\r\n  -------------- -----------------------------\r\n  IPS            Investment Policy Statement\r\n  KPI            Key Performance Indicator\r\n  DSR            Debt Service Ratio\r\n  LTV            Loan To Value\r\n  ROI            Return on Investment\r\n  CAGR           Compound Annual Growth Rate\r\n  FCN            Fixed Coupon Note\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Related Documents\r\n\r\n-   knowledge/terminology.md\r\n-   docs/specification/04-DomainModel.md\r\n-   docs/api/07-API.md\r\n-   docs/13-DecisionEngine.md\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Phase 2 Executable Specification\r\n\r\n## Glossary Entry Contract\r\n\r\n| Field | Required | Description |\r\n|-------|----------|-------------|\r\n| TermId | Yes | Stable term identifier |\r\n| Term | Yes | Display term |\r\n| Definition | Yes | Canonical quick definition |\r\n| Language | Yes | Locale or language code |\r\n| Domain | No | Related business domain |\r\n| RelatedTerminologyId | No | Link to formal domain language definition |\r\n| Status | Yes | Draft, Active, Deprecated, Archived |\r\n| Version | Yes | Immutable entry version |\r\n\r\n## Commands\r\n\r\n| Command | Actor | Output |\r\n|---------|-------|--------|\r\n| PublishGlossaryEntry | KnowledgeApplicationService | GlossaryEntryPublished |\r\n| UpdateGlossaryEntry | KnowledgeApplicationService | GlossaryEntryUpdated |\r\n| DeprecateGlossaryEntry | KnowledgeApplicationService | GlossaryEntryDeprecated |\r\n| ValidateGlossaryConsistency | KnowledgeApplicationService | GlossaryConsistencyValidated |\r\n\r\n## Domain Events\r\n\r\n| Event | Trigger | Consumers |\r\n|-------|---------|-----------|\r\n| GlossaryEntryPublished | New term available | Documentation, AI Agent |\r\n| GlossaryEntryUpdated | Term definition version updated | Documentation, Search |\r\n| GlossaryEntryDeprecated | Term no longer preferred | Documentation, Governance |\r\n| GlossaryConsistencyViolationDetected | Glossary conflicts with terminology | Governance |\r\n\r\n## Validation Rules\r\n\r\n| Rule ID | Rule | Failure |\r\n|---------|------|---------|\r\n| GLS-VR-001 | Active glossary entry must have term and definition. | Reject publish |\r\n| GLS-VR-002 | Glossary must not contradict terminology.md. | Reject publish |\r\n| GLS-VR-003 | Abbreviation entries must define full expansion. | Reject publish |\r\n| GLS-VR-004 | Deprecated terms must retain historical definition. | Reject deletion |\r\n| GLS-VR-005 | Duplicate active term in same language is not allowed. | Reject publish |\r\n\r\n## API Contract\r\n\r\n| Endpoint | Method | Purpose | Permission |\r\n|----------|--------|---------|------------|\r\n| /api/v1/knowledge/glossary | GET | Search glossary entries | Knowledge:Read |\r\n| /api/v1/knowledge/glossary | POST | Publish glossary entry | Knowledge:Write |\r\n| /api/v1/knowledge/glossary/{termId} | GET | Retrieve glossary entry | Knowledge:Read |\r\n| /api/v1/knowledge/glossary/validate | POST | Validate glossary consistency | Knowledge:Admin |\r\n\r\n## Testing Matrix\r\n\r\n| Test | Expected Result |\r\n|------|-----------------|\r\n| Duplicate active term | Publish fails |\r\n| Missing abbreviation expansion | Publish fails |\r\n| Terminology conflict | Consistency violation emitted |\r\n| Deprecated term read | Historical definition remains available |\r\n| Glossary search | Matching active entries are returned |\r\n\r\n# Version History\r\n\r\n| Version | Date | Change |\r\n|---------|------|--------|\r\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Phase 2 Executable Specification\r\n\r\n## Glossary Entry Contract\r\n\r\n| Field | Required | Description |\r\n|-------|----------|-------------|\r\n| TermId | Yes | Stable term identifier |\r\n| Term | Yes | Display term |\r\n| Definition | Yes | Canonical quick definition |\r\n| Language | Yes | Locale or language code |\r\n| Domain | No | Related business domain |\r\n| RelatedTerminologyId | No | Link to formal domain language definition |\r\n| Status | Yes | Draft, Active, Deprecated, Archived |\r\n| Version | Yes | Immutable entry version |\r\n\r\n## Commands\r\n\r\n| Command | Actor | Output |\r\n|---------|-------|--------|\r\n| PublishGlossaryEntry | KnowledgeApplicationService | GlossaryEntryPublished |\r\n| UpdateGlossaryEntry | KnowledgeApplicationService | GlossaryEntryUpdated |\r\n| DeprecateGlossaryEntry | KnowledgeApplicationService | GlossaryEntryDeprecated |\r\n| ValidateGlossaryConsistency | KnowledgeApplicationService | GlossaryConsistencyValidated |\r\n\r\n## Domain Events\r\n\r\n| Event | Trigger | Consumers |\r\n|-------|---------|-----------|\r\n| GlossaryEntryPublished | New term available | Documentation, AI Agent |\r\n| GlossaryEntryUpdated | Term definition version updated | Documentation, Search |\r\n| GlossaryEntryDeprecated | Term no longer preferred | Documentation, Governance |\r\n| GlossaryConsistencyViolationDetected | Glossary conflicts with terminology | Governance |\r\n\r\n## Validation Rules\r\n\r\n| Rule ID | Rule | Failure |\r\n|---------|------|---------|\r\n| GLS-VR-001 | Active glossary entry must have term and definition. | Reject publish |\r\n| GLS-VR-002 | Glossary must not contradict terminology.md. | Reject publish |\r\n| GLS-VR-003 | Abbreviation entries must define full expansion. | Reject publish |\r\n| GLS-VR-004 | Deprecated terms must retain historical definition. | Reject deletion |\r\n| GLS-VR-005 | Duplicate active term in same language is not allowed. | Reject publish |\r\n\r\n## API Contract\r\n\r\n| Endpoint | Method | Purpose | Permission |\r\n|----------|--------|---------|------------|\r\n| /api/v1/knowledge/glossary | GET | Search glossary entries | Knowledge:Read |\r\n| /api/v1/knowledge/glossary | POST | Publish glossary entry | Knowledge:Write |\r\n| /api/v1/knowledge/glossary/{termId} | GET | Retrieve glossary entry | Knowledge:Read |\r\n| /api/v1/knowledge/glossary/validate | POST | Validate glossary consistency | Knowledge:Admin |\r\n\r\n## Testing Matrix\r\n\r\n| Test | Expected Result |\r\n|------|-----------------|\r\n| Duplicate active term | Publish fails |\r\n| Missing abbreviation expansion | Publish fails |\r\n| Terminology conflict | Consistency violation emitted |\r\n| Deprecated term read | Historical definition remains available |\r\n| Glossary search | Matching active entries are returned |\r\n\r\n# Version History\r\n\r\n| Version | Date | Change |\r\n|---------|------|--------|\r\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\r\n",
+  "references": []
+}

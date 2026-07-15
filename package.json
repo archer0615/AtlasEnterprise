@@ -1,0 +1,14 @@
+{
+  "name": "atlas-enterprise",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:knowledge": "node frontend/scripts/build-knowledge-index.mjs",
+    "validate:pwa": "node frontend/scripts/validate-pwa.mjs",
+    "build": "npm run build:knowledge",
+    "dev": "npm run build:knowledge"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

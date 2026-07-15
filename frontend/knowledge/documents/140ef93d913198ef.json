@@ -1,0 +1,87 @@
+{
+  "id": "140ef93d913198ef",
+  "title": "data-retention-framework.md",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/data-retention-framework.md",
+  "sourceHash": "95bb737d40e306cb97122d9936086b8959ece1c436a81f0c7c036cadb6cd2e76",
+  "headings": [
+    {
+      "level": 1,
+      "text": "data-retention-framework.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Enterprise Specification"
+    },
+    {
+      "level": 2,
+      "text": "Data Retention Framework"
+    },
+    {
+      "level": 2,
+      "text": "1. Purpose"
+    },
+    {
+      "level": 1,
+      "text": "2. Objectives"
+    },
+    {
+      "level": 1,
+      "text": "3. Data Lifecycle"
+    },
+    {
+      "level": 1,
+      "text": "4. Data Classification"
+    },
+    {
+      "level": 1,
+      "text": "5. Retention Policy"
+    },
+    {
+      "level": 1,
+      "text": "6. Archival Policy"
+    },
+    {
+      "level": 1,
+      "text": "7. Restoration"
+    },
+    {
+      "level": 1,
+      "text": "8. Secure Deletion"
+    },
+    {
+      "level": 1,
+      "text": "9. Backup Relationship"
+    },
+    {
+      "level": 1,
+      "text": "10. Compliance Principles"
+    },
+    {
+      "level": 1,
+      "text": "11. Monitoring"
+    },
+    {
+      "level": 1,
+      "text": "12. Automation"
+    },
+    {
+      "level": 1,
+      "text": "13. Security"
+    },
+    {
+      "level": 1,
+      "text": "14. Integration"
+    },
+    {
+      "level": 1,
+      "text": "15. KPIs"
+    },
+    {
+      "level": 1,
+      "text": "16. Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# data-retention-framework.md\n\n# Atlas Enterprise Specification\n## Data Retention Framework\n\nVersion: 1.0\n\n## 1. Purpose\n\nThis document defines the lifecycle, retention, archival, restoration, and deletion policies for all data managed by Project Atlas. The objective is to balance regulatory compliance, auditability, operational efficiency, privacy, and storage costs.\n\n---\n\n# 2. Objectives\n\n- Standardize retention periods.\n- Support audit and compliance requirements.\n- Protect historical financial decisions.\n- Minimize unnecessary data storage.\n- Define secure deletion procedures.\n\n---\n\n# 3. Data Lifecycle\n\nCreate\n→ Validate\n→ Active\n→ Historical\n→ Archive\n→ Restore (optional)\n→ Secure Deletion\n\n---\n\n# 4. Data Classification\n\n| Classification | Description |\n|---------------|-------------|\n| Operational | Daily application data |\n| Financial | Assets, liabilities, transactions |\n| Decision | Decision sessions and recommendations |\n| Audit | Immutable audit logs |\n| Configuration | System configuration and metadata |\n| Temporary | Cache, import files, staging data |\n\n---\n\n# 5. Retention Policy\n\n| Data Type | Retention |\n|----------|-----------|\n| User Profile | Lifetime of account |\n| Financial Records | 10 years |\n| Decision History | Permanent by default |\n| Audit Logs | 10 years |\n| Notifications | 2 years |\n| Import Files | 90 days |\n| Temporary Files | 30 days |\n| System Logs | 180 days |\n| Backups | Defined by backup policy |\n\n---\n\n# 6. Archival Policy\n\nArchive when:\n\n- No longer operationally active.\n- Retention period has not expired.\n- Required for audit or historical analysis.\n\nArchived data must remain searchable.\n\n---\n\n# 7. Restoration\n\nRestoration must support:\n\n- Individual records\n- User-level datasets\n- Scenario history\n- Decision sessions\n- Complete backup recovery\n\nEvery restore operation must be audited.\n\n---\n\n# 8. Secure Deletion\n\nDeletion requirements:\n\n- Authorization required\n- Audit record retained\n- Irreversible removal\n- Cascade validation\n- Dependency verification\n\n---\n\n# 9. Backup Relationship\n\nRetention policy works with:\n\n- Daily backups\n- Weekly backups\n- Monthly snapshots\n- Disaster recovery replicas\n\nRetention does not replace backup strategy.\n\n---\n\n# 10. Compliance Principles\n\n- Least retention necessary\n- Immutable audit history\n- Privacy protection\n- Traceable deletion requests\n- Consistent retention across environments\n\n---\n\n# 11. Monitoring\n\nTrack:\n\n- Archive volume\n- Storage growth\n- Expired records\n- Deletion jobs\n- Restore frequency\n- Retention violations\n\n---\n\n# 12. Automation\n\nScheduled jobs should:\n\n- Detect expired records\n- Move archive candidates\n- Execute deletion workflow\n- Generate retention reports\n- Alert on failures\n\n---\n\n# 13. Security\n\n- RBAC-controlled access\n- Encryption at rest\n- Encryption in transit\n- Archive integrity verification\n- Backup validation\n\n---\n\n# 14. Integration\n\nIntegrates with:\n\n- Audit Framework\n- Backup Framework\n- Policy Management Framework\n- Notification Framework\n- Automation Framework\n- Compliance Reporting\n\n---\n\n# 15. KPIs\n\n- Archive success rate\n- Restore success rate\n- Deletion success rate\n- Storage utilization\n- Retention compliance rate\n- Recovery time objective (RTO)\n\n---\n\n# 16. Future Enhancements\n\n- Tiered storage management\n- Intelligent archive recommendations\n- Automatic storage optimization\n- Regulatory retention templates\n- AI-assisted retention impact analysis\n",
+  "references": []
+}

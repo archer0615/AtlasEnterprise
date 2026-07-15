@@ -1,0 +1,15 @@
+{
+  "id": "55c6a80c9acc32a9",
+  "title": "Capability Matrix",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/capability-matrix.md",
+  "sourceHash": "a088d3cea1f8b3ac9178158469d7a6ab9962f7b3762f3ec6e71f6499ec83979b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Capability Matrix"
+    }
+  ],
+  "bodyMarkdown": "# Capability Matrix\n\n| Capability | User | Advisor | Admin |\n|---|:--:|:--:|:--:|\n| Financial Profile | ✓ | ✓ | ✓ |\n| Goal Planning | ✓ | ✓ | |\n| Scenario Simulation | ✓ | ✓ | |\n| Portfolio Analysis | ✓ | ✓ | |\n| Loan Analysis | ✓ | ✓ | |\n| Retirement Planning | ✓ | ✓ | |\n| Decision Recommendation | ✓ | ✓ | |\n| Reports | ✓ | ✓ | ✓ |\n| Policy Management | | | ✓ |\n| Configuration | | | ✓ |\n| Feature Flags | | | ✓ |\n| Tenant Management | | | ✓ |\n| Audit Review | | ✓ | ✓ |\n",
+  "references": []
+}

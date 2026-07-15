@@ -1,0 +1,107 @@
+{
+  "id": "0ebec91eacd74287",
+  "title": "knowledge/rule-engine-architecture.md",
+  "category": "engine",
+  "canonicalPath": "knowledge/engine/rule-engine-architecture.md",
+  "sourceHash": "088d304c4614cab210840e22b835191b35aca6c023f979508203d74d264d5312",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/rule-engine-architecture.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Rule Engine Architecture"
+    },
+    {
+      "level": 2,
+      "text": "1. Purpose"
+    },
+    {
+      "level": 2,
+      "text": "2. Design Goals"
+    },
+    {
+      "level": 2,
+      "text": "3. High-Level Architecture"
+    },
+    {
+      "level": 2,
+      "text": "4. Components"
+    },
+    {
+      "level": 3,
+      "text": "Rule Repository"
+    },
+    {
+      "level": 3,
+      "text": "Rule Loader"
+    },
+    {
+      "level": 3,
+      "text": "Rule Parser"
+    },
+    {
+      "level": 3,
+      "text": "AST Builder"
+    },
+    {
+      "level": 3,
+      "text": "Rule Validator"
+    },
+    {
+      "level": 3,
+      "text": "Dependency Resolver"
+    },
+    {
+      "level": 3,
+      "text": "Rule Compiler"
+    },
+    {
+      "level": 3,
+      "text": "Runtime Cache"
+    },
+    {
+      "level": 3,
+      "text": "Rule Runtime"
+    },
+    {
+      "level": 3,
+      "text": "Execution Trace"
+    },
+    {
+      "level": 2,
+      "text": "5. Execution Context"
+    },
+    {
+      "level": 2,
+      "text": "6. Execution Pipeline"
+    },
+    {
+      "level": 2,
+      "text": "7. Rule Actions"
+    },
+    {
+      "level": 2,
+      "text": "8. Rule Ordering"
+    },
+    {
+      "level": 2,
+      "text": "9. Caching Strategy"
+    },
+    {
+      "level": 2,
+      "text": "10. Error Handling"
+    },
+    {
+      "level": 2,
+      "text": "11. Explainability Integration"
+    },
+    {
+      "level": 2,
+      "text": "12. Governance"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/rule-engine-architecture.md\n\n# Atlas Rule Engine Architecture\nVersion: 1.0\nStatus: Canonical Specification\n\n## 1. Purpose\n\nThis document specifies the execution architecture for the Atlas Rule Engine. The engine executes AREL rules deterministically, supports versioned rule sets, and integrates with the Decision Engine without embedding business logic in application code.\n\n---\n\n## 2. Design Goals\n\n- Deterministic execution\n- High performance\n- Explainable outcomes\n- Hot-swappable rule sets\n- Version isolation\n- Testability\n- Horizontal scalability\n\n---\n\n## 3. High-Level Architecture\n\n```\nRule Repository\n      │\n      ▼\n Rule Loader\n      │\n      ▼\n Rule Parser\n      │\n      ▼\n AST Builder\n      │\n      ▼\n Rule Validator\n      │\n      ▼\n Dependency Resolver\n      │\n      ▼\n Rule Compiler\n      │\n      ▼\n Runtime Cache\n      │\n      ▼\n Rule Runtime\n      │\n      ▼\n Execution Trace\n      │\n      ▼\n Explainability Layer\n```\n\n---\n\n## 4. Components\n\n### Rule Repository\nStores immutable AREL rule definitions grouped by version.\n\n### Rule Loader\nLoads the requested rule package by version.\n\n### Rule Parser\nConverts AREL text into tokens.\n\n### AST Builder\nBuilds an abstract syntax tree (AST) from parsed rules.\n\n### Rule Validator\nValidates:\n- Syntax\n- Types\n- References\n- Duplicate IDs\n- Circular dependencies\n\n### Dependency Resolver\nResolves references to:\n- KPIs\n- Financial Ratios\n- Risk Metrics\n- Assumptions\n- Formula Library\n\n### Rule Compiler\nProduces optimized executable rule plans.\n\n### Runtime Cache\nCaches compiled rule plans by version.\n\n### Rule Runtime\nExecutes compiled rules against a scenario context.\n\n### Execution Trace\nCaptures every evaluation step for audit and explainability.\n\n---\n\n## 5. Execution Context\n\nEach execution context contains:\n\n- DecisionId\n- ScenarioId\n- Household Snapshot\n- KPI Values\n- Ratio Values\n- Risk Scores\n- Assumption Version\n- Formula Version\n- Rule Version\n\nThe context is immutable during execution.\n\n---\n\n## 6. Execution Pipeline\n\n1. Load rule package\n2. Validate package\n3. Compile if needed\n4. Resolve execution context\n5. Evaluate rules\n6. Collect actions\n7. Apply score changes\n8. Persist trace\n9. Publish explainability artifacts\n\n---\n\n## 7. Rule Actions\n\nSupported runtime actions:\n\n- Add Score\n- Apply Penalty\n- Reject Scenario\n- Raise Warning\n- Emit Reason Code\n- Emit Audit Event\n- Emit Explainability Evidence\n\n---\n\n## 8. Rule Ordering\n\nExecution order:\n\n1. Regulatory\n2. Data Integrity\n3. Hard Constraints\n4. Financial Rules\n5. Optimization Rules\n6. Advisory Rules\n\nRules of equal priority may execute in parallel when no dependencies exist.\n\n---\n\n## 9. Caching Strategy\n\nCache Keys:\n\n- Rule Version\n- AREL Version\n- Compiler Version\n\nCompiled artifacts are invalidated only when version identifiers change.\n\n---\n\n## 10. Error Handling\n\nCompile Errors:\n- Invalid syntax\n- Unknown identifiers\n- Type mismatch\n\nRuntime Errors:\n- Missing context value\n- Invalid assumption package\n- Unsupported function\n\nAll errors generate structured diagnostics.\n\n---\n\n## 11. Explainability Integration\n\nEvery executed rule emits:\n\n- RuleId\n- Evaluation Result\n- Inputs Used\n- Output Produced\n- Reason Codes\n- Timestamp\n\nThese records feed the Explainability Framework.\n\n---\n\n## 12. Governance\n\n- Rule packages are immutable.\n- Runtime behavior is deterministic.\n- Every release requires regression testing.\n- Historical executions must be replayable using archived rule versions.\n",
+  "references": []
+}

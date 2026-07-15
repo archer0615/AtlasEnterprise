@@ -1,0 +1,163 @@
+{
+  "id": "270df04971ba5ccf",
+  "title": "Terminology",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/terminology.md",
+  "sourceHash": "c4eb78561480f3f724786911e375388943ffc77ce69916053451d34d4c657112",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Terminology"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Core Concepts"
+    },
+    {
+      "level": 2,
+      "text": "Blueprint"
+    },
+    {
+      "level": 2,
+      "text": "IPS"
+    },
+    {
+      "level": 2,
+      "text": "Life Goal"
+    },
+    {
+      "level": 2,
+      "text": "Scenario"
+    },
+    {
+      "level": 2,
+      "text": "Decision"
+    },
+    {
+      "level": 1,
+      "text": "Financial Terms"
+    },
+    {
+      "level": 2,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "Free Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "Disposable Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "Passive Income"
+    },
+    {
+      "level": 2,
+      "text": "Emergency Fund"
+    },
+    {
+      "level": 2,
+      "text": "Net Worth"
+    },
+    {
+      "level": 2,
+      "text": "Liquidity"
+    },
+    {
+      "level": 1,
+      "text": "Investment"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio"
+    },
+    {
+      "level": 2,
+      "text": "Holding"
+    },
+    {
+      "level": 2,
+      "text": "Asset Allocation"
+    },
+    {
+      "level": 2,
+      "text": "Rebalance"
+    },
+    {
+      "level": 1,
+      "text": "Property"
+    },
+    {
+      "level": 2,
+      "text": "Primary Residence"
+    },
+    {
+      "level": 2,
+      "text": "Rental Property"
+    },
+    {
+      "level": 2,
+      "text": "LTV"
+    },
+    {
+      "level": 1,
+      "text": "Loan"
+    },
+    {
+      "level": 2,
+      "text": "Mortgage"
+    },
+    {
+      "level": 2,
+      "text": "Refinance"
+    },
+    {
+      "level": 2,
+      "text": "Debt Service Ratio"
+    },
+    {
+      "level": 1,
+      "text": "Retirement"
+    },
+    {
+      "level": 2,
+      "text": "Retirement Age"
+    },
+    {
+      "level": 2,
+      "text": "Financial Independence"
+    },
+    {
+      "level": 2,
+      "text": "Safe Withdrawal Rate"
+    },
+    {
+      "level": 1,
+      "text": "Decision Levels"
+    },
+    {
+      "level": 1,
+      "text": "Risk Levels"
+    },
+    {
+      "level": 1,
+      "text": "Naming Rules"
+    },
+    {
+      "level": 1,
+      "text": "Reserved Domain Names"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    }
+  ],
+  "bodyMarkdown": "# Terminology\r\n\r\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Purpose\r\n\r\n本文件定義 Project Atlas 的統一領域語言（Ubiquitous Language）。\r\n\r\n所有文件、API、資料庫、程式碼與 AI Agent 必須使用本文件術語。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Core Concepts\r\n\r\n## Blueprint\r\n\r\n人生總體財務藍圖。\r\n\r\n## IPS\r\n\r\nInvestment Policy Statement，投資政策聲明。\r\n\r\n## Life Goal\r\n\r\n使用者希望達成的人生目標。\r\n\r\n## Scenario\r\n\r\n特定假設下的完整財務模擬。\r\n\r\n## Decision\r\n\r\nDecision Engine 對特定情境產生的分析結果。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Financial Terms\r\n\r\n## Cash Flow\r\n\r\n收入與支出的持續流動。\r\n\r\n## Free Cash Flow\r\n\r\nIncome - Expense。\r\n\r\n## Disposable Cash Flow\r\n\r\n扣除必要支出後可自由運用的現金。\r\n\r\n## Passive Income\r\n\r\n非主要工作所得且可持續取得的收入。\r\n\r\n## Emergency Fund\r\n\r\n緊急預備金。\r\n\r\n## Net Worth\r\n\r\nAssets - Liabilities。\r\n\r\n## Liquidity\r\n\r\n資產轉換為現金的能力。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Investment\r\n\r\n## Portfolio\r\n\r\n完整投資組合。\r\n\r\n## Holding\r\n\r\n投資組合中的單一資產。\r\n\r\n## Asset Allocation\r\n\r\n各資產類別配置比例。\r\n\r\n## Rebalance\r\n\r\n使配置恢復至目標比例。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Property\r\n\r\n## Primary Residence\r\n\r\n主要自住房。\r\n\r\n## Rental Property\r\n\r\n出租房產。\r\n\r\n## LTV\r\n\r\nLoan To Value。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Loan\r\n\r\n## Mortgage\r\n\r\n房屋貸款。\r\n\r\n## Refinance\r\n\r\n重新貸款或轉貸。\r\n\r\n## Debt Service Ratio\r\n\r\n每月債務支出占收入比例。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Retirement\r\n\r\n## Retirement Age\r\n\r\n退休年齡。\r\n\r\n## Financial Independence\r\n\r\n被動收入足以支應生活支出。\r\n\r\n## Safe Withdrawal Rate\r\n\r\n可持續提領率。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Decision Levels\r\n\r\n-   Recommended\r\n-   Acceptable\r\n-   Neutral\r\n-   Caution\r\n-   Not Recommended\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Risk Levels\r\n\r\n-   Low\r\n-   Medium\r\n-   High\r\n-   Critical\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Naming Rules\r\n\r\n-   使用完整英文名稱。\r\n-   避免縮寫，除非為業界通用（IPS、LTV、ROI）。\r\n-   Domain 名稱與 API、Database、Code 保持一致。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Reserved Domain Names\r\n\r\n-   Blueprint\r\n-   IPS\r\n-   CashFlow\r\n-   Portfolio\r\n-   Property\r\n-   Loan\r\n-   Retirement\r\n-   Scenario\r\n-   Decision\r\n-   Dashboard\r\n-   KPI\r\n-   LifeEvent\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Related Documents\r\n\r\n-   docs/specification/04-DomainModel.md\r\n-   docs/database/05-DatabaseDesign.md\r\n-   docs/api/07-API.md\r\n-   knowledge/glossary.md\r\n",
+  "references": []
+}

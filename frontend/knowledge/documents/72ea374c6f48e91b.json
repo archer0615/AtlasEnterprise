@@ -1,0 +1,83 @@
+{
+  "id": "72ea374c6f48e91b",
+  "title": "Action Planning Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/action-planning-framework.md",
+  "sourceHash": "b8ab10c2b80a76935c0568471eefd0d0c13c30cb920ef45cd9ffe77395ad5d6d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Action Planning Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Design Principles"
+    },
+    {
+      "level": 2,
+      "text": "Action Categories"
+    },
+    {
+      "level": 2,
+      "text": "Action Template"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Dependencies"
+    },
+    {
+      "level": 2,
+      "text": "Completion Criteria"
+    },
+    {
+      "level": 2,
+      "text": "Automation Levels"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Monitoring"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Action Planning Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise framework for modeling executable financial actions within Project Atlas. It standardizes how recommendations become actionable tasks with dependencies, evidence, ownership, and measurable outcomes.\n\n## Objectives\n- Standardize action definitions.\n- Support repeatable execution.\n- Track completion objectively.\n- Enable automation where possible.\n\n## Design Principles\n- Every action belongs to an Execution Plan.\n- Actions are atomic whenever practical.\n- Actions are measurable.\n- Actions are auditable.\n- Automation is preferred but optional.\n\n## Action Categories\n- Cash Flow\n- Investment\n- Housing\n- Loan\n- Retirement\n- Insurance\n- Goal Funding\n- Administrative\n- Review\n\n## Action Template\nEach action defines:\n- Action ID\n- Title\n- Description\n- Category\n- Owner\n- Priority\n- Estimated Duration\n- Due Date\n- Status\n- Automation Capability\n\n## Lifecycle\nDraft\n→ Planned\n→ Ready\n→ In Progress\n→ Waiting\n→ Completed\n→ Cancelled\n→ Archived\n\n## Dependencies\nSupported dependency types:\n- Finish-to-Start\n- Start-to-Start\n- Finish-to-Finish\n- Independent\n\n## Completion Criteria\nEvery action specifies:\n- Required evidence\n- Validation rule\n- Completion condition\n- Expected financial outcome\n\n## Automation Levels\n- Manual\n- Assisted\n- Semi-Automated\n- Fully Automated\n\n## Business Rules\n- Completed actions are immutable.\n- Critical actions execute before optimization actions.\n- Blocked dependencies prevent execution.\n- Action revisions create new versions.\n\n## Monitoring\nTrack:\n- Completion %\n- Remaining effort\n- Overdue status\n- Dependency blockers\n- Expected benefit\n\n## Outputs\n- Action checklist\n- Timeline\n- Dependency graph\n- Progress report\n- Execution status\n\n## Explainability\nEvery action includes:\n- Source recommendation\n- Triggering decision\n- Related rules\n- Expected benefit\n- Success criteria\n\n## Integration\nConsumes:\n- Execution Plan Framework\n- Recommendation Priority Framework\n- Decision History Framework\n- Notification Framework\n\nProduces:\n- Dashboard\n- Progress Tracking\n- Execution Reports\n- Decision Review\n\n## KPIs\n- Action Completion Rate\n- On-Time Completion\n- Automation Rate\n- Blocked Action Ratio\n- Financial Benefit Realization\n\n## Testing\n- Single action\n- Multi-step workflow\n- Dependency failure\n- Automation success\n- Cancellation\n- Re-planning\n\n## Future Enhancements\n- AI task generation\n- Calendar synchronization\n- Banking workflow automation\n- Household collaboration\n",
+  "references": []
+}

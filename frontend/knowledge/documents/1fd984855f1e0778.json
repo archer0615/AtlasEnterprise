@@ -1,0 +1,139 @@
+{
+  "id": "1fd984855f1e0778",
+  "title": "Financial Alert Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/financial-alert-framework.md",
+  "sourceHash": "196982d1353df1785c07db1eb7223b1b818d96b2ec745db568835734847d8ce8",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Financial Alert Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Alert Sources"
+    },
+    {
+      "level": 2,
+      "text": "Alert Categories"
+    },
+    {
+      "level": 3,
+      "text": "Liquidity"
+    },
+    {
+      "level": 3,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 3,
+      "text": "Debt"
+    },
+    {
+      "level": 3,
+      "text": "Investment"
+    },
+    {
+      "level": 3,
+      "text": "Goals"
+    },
+    {
+      "level": 3,
+      "text": "Housing"
+    },
+    {
+      "level": 3,
+      "text": "Retirement"
+    },
+    {
+      "level": 2,
+      "text": "Severity"
+    },
+    {
+      "level": 2,
+      "text": "Alert Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Model"
+    },
+    {
+      "level": 2,
+      "text": "Suppression Rules"
+    },
+    {
+      "level": 2,
+      "text": "Escalation"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Alert Object Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Financial Alert Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise framework for generating, prioritizing, delivering, tracking and auditing financial alerts across Project Atlas.\n\n## Objectives\n- Detect meaningful financial events.\n- Notify users before risks become problems.\n- Reduce alert fatigue.\n- Ensure explainable, actionable alerts.\n\n## Alert Sources\n- Cash Flow Engine\n- Investment Engine\n- Loan Engine\n- Retirement Engine\n- Decision Engine\n- Scenario Engine\n- Rule Engine\n\n## Alert Categories\n### Liquidity\n- Low cash\n- Emergency fund below target\n- Liquidity ratio deterioration\n\n### Cash Flow\n- Negative free cash flow\n- Savings rate decline\n- Expense spike\n\n### Debt\n- High DTI\n- Loan payment risk\n- Refinancing opportunity\n\n### Investment\n- Allocation drift\n- Risk budget exceeded\n- Portfolio drawdown\n- Rebalancing required\n\n### Goals\n- Funding behind schedule\n- Milestone reached\n- Goal at risk\n\n### Housing\n- Mortgage stress\n- Upgrade opportunity\n- Property concentration risk\n\n### Retirement\n- Readiness decline\n- Withdrawal risk\n- Funding shortfall\n\n## Severity\n- Info\n- Low\n- Medium\n- High\n- Critical\n\n## Alert Lifecycle\nDetected\n→ Validated\n→ Prioritized\n→ Delivered\n→ Acknowledged\n→ Resolved\n→ Archived\n\n## Trigger Model\nEach alert defines:\n- Alert ID\n- Trigger condition\n- Threshold\n- Evaluation frequency\n- Severity\n- Expiration rule\n- Suppression rule\n\n## Suppression Rules\n- Merge duplicate alerts.\n- Suppress lower-severity duplicates.\n- Snooze acknowledged alerts.\n- Reopen only when state materially changes.\n\n## Escalation\nCritical alerts may escalate when:\n- User takes no action.\n- Financial impact increases.\n- Additional rules are triggered.\n\n## Outputs\n- Alert ID\n- Severity\n- Category\n- Trigger reason\n- Recommended action\n- Related recommendation\n- Supporting KPIs\n\n## Business Rules\n- Alerts never modify financial data.\n- Every alert is traceable.\n- Historical alerts are immutable.\n- Hard-rule violations always generate alerts.\n\n## Explainability\nEach alert includes:\n- Triggering rule\n- Threshold value\n- Current value\n- Financial impact\n- Recommended resolution\n\n## Integration\nConsumes:\n- Financial Ratio Framework\n- Decision Metrics Framework\n- Recommendation Priority Framework\n- Financial Health Score\n- Liquidity Framework\n- Goal Funding Framework\n\nProduces:\n- Notification Engine\n- Dashboard\n- Recommendation Feed\n- Audit Log\n\n## KPIs\n- Alert precision\n- Alert recall\n- False positive rate\n- Time to acknowledge\n- Time to resolve\n\n## Testing\n- Duplicate alerts\n- Threshold crossings\n- Escalation\n- Suppression\n- Market crash\n- Income interruption\n\n## Future Enhancements\n- AI anomaly detection\n- Predictive alerts\n- Personalized thresholds\n- Multi-channel notification policies\n\n## Phase 2 Executable Specification\n\n### Alert Object Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| AlertId | Yes | Stable alert identifier |\n| HouseholdId | Yes | Owning household |\n| Category | Yes | Liquidity, Cash Flow, Debt, Investment, Goals, Housing, Retirement |\n| Severity | Yes | Info, Low, Medium, High, Critical |\n| TriggerRuleId | Yes | Rule that created the alert |\n| CurrentValue | Yes | Observed value |\n| ThresholdValue | Yes | Trigger threshold |\n| RecommendedActionId | No | Linked recommendation |\n| Status | Yes | Detected, Validated, Prioritized, Delivered, Acknowledged, Resolved, Archived |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| EvaluateFinancialAlerts | AlertApplicationService | AlertsEvaluated |\n| CreateFinancialAlert | AlertApplicationService | FinancialAlertCreated |\n| AcknowledgeFinancialAlert | User | FinancialAlertAcknowledged |\n| ResolveFinancialAlert | User or System | FinancialAlertResolved |\n| SuppressFinancialAlert | AlertApplicationService | FinancialAlertSuppressed |\n| EscalateFinancialAlert | AlertApplicationService | FinancialAlertEscalated |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| FinancialAlertCreated | Valid alert detected | Notification, Dashboard |\n| FinancialAlertEscalated | Severity or impact increased | Notification, Audit |\n| FinancialAlertAcknowledged | User acknowledges alert | Dashboard, Audit |\n| FinancialAlertResolved | Alert condition no longer applies | Dashboard, Reporting |\n| FinancialAlertSuppressed | Duplicate or lower-priority alert suppressed | Audit |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| ALT-VR-001 | Every alert must reference a trigger rule. | Reject creation |\n| ALT-VR-002 | Critical alerts cannot be suppressed by low-severity alerts. | Reject suppression |\n| ALT-VR-003 | Resolved alerts cannot be modified. | Reject command |\n| ALT-VR-004 | Delivered alerts must have at least one notification channel. | Reject delivery |\n| ALT-VR-005 | Reopened alerts must show material state change. | Reject reopen |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/alerts | GET | List alerts | Alert:Read |\n| /api/v1/alerts/evaluate | POST | Run alert evaluation | Alert:Evaluate |\n| /api/v1/alerts/{alertId}/acknowledge | POST | Acknowledge alert | Alert:Write |\n| /api/v1/alerts/{alertId}/resolve | POST | Resolve alert | Alert:Write |\n| /api/v1/alerts/{alertId}/evidence | GET | Retrieve alert evidence | Audit:Read |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Emergency fund below threshold | High or Critical liquidity alert is created |\n| Duplicate threshold breach | Existing alert is updated or suppressed |\n| User acknowledges alert | Status becomes Acknowledged |\n| Condition returns to normal | Alert becomes Resolved |\n| Critical alert not acknowledged | Escalation event is emitted |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

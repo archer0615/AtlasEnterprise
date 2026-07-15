@@ -1,0 +1,75 @@
+{
+  "id": "e1c48cffc836a460",
+  "title": "Scenario Comparison Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/scenario-comparison-framework.md",
+  "sourceHash": "4a4bb836904595ad424926a5b279cee6519ccd8db58654e31a6c2fdbf4e93db6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scenario Comparison Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Supported Scenario Types"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Components"
+    },
+    {
+      "level": 2,
+      "text": "Standard Evaluation Dimensions"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Composite Scenario Score"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Levels"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Scenario Comparison Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise framework for comparing financial scenarios within Project Atlas. The framework provides a consistent, explainable method for evaluating alternative decisions and ranking them using standardized metrics.\n\n## Objectives\n- Compare multiple financial strategies consistently.\n- Quantify trade-offs between alternatives.\n- Produce deterministic rankings.\n- Support explainable recommendations.\n\n## Supported Scenario Types\n- Keep Home vs Sell Home\n- Buy Before Sell vs Sell Before Buy\n- Invest vs Early Loan Repayment\n- Retirement Age Comparison\n- Asset Allocation Comparison\n- Loan Structure Comparison\n- Goal Funding Strategies\n- Major Life Event Planning\n\n## Scenario Components\nEach scenario contains:\n- Scenario ID\n- Name\n- Description\n- Assumption Version\n- Time Horizon\n- Trigger Events\n- Decision Context\n\n## Standard Evaluation Dimensions\n1. Net Worth Growth\n2. Free Cash Flow\n3. Liquidity Impact\n4. Goal Funding Success\n5. Risk Budget Utilization\n6. Retirement Readiness\n7. Housing Affordability\n8. Tax Efficiency\n9. Financial Health Score\n10. Decision Confidence\n\n## Scenario Workflow\n1. Load baseline.\n2. Apply scenario assumptions.\n3. Execute all engines.\n4. Calculate KPIs.\n5. Score scenario.\n6. Rank alternatives.\n7. Generate explainability report.\n\n## Composite Scenario Score\nWeighted combination of:\n- Financial Impact\n- Goal Alignment\n- Liquidity\n- Risk\n- Cash Flow\n- Long-term Sustainability\n\nNormalized to 0–100.\n\n## Recommendation Levels\n- Strongly Recommended\n- Recommended\n- Neutral\n- Caution\n- Not Recommended\n\n## Business Rules\n- All scenarios use identical baseline data.\n- Assumption versions are immutable.\n- Hard constraints override scores.\n- Historical comparisons remain reproducible.\n\n## Outputs\n- Scenario ranking\n- Composite score\n- KPI comparison\n- Financial projections\n- Constraint summary\n- Recommendation\n\n## Explainability\nEvery comparison includes:\n- Assumptions changed\n- KPI deltas\n- Rule evaluation\n- Benefits\n- Risks\n- Trade-offs\n\n## Integration\nConsumes:\n- Financial Projection Framework\n- Decision Metrics Framework\n- Net Worth Framework\n- Goal Funding Framework\n- Liquidity Framework\n- Market Assumptions\n- Scenario Framework\n\nProduces:\n- Decision Engine\n- Dashboard\n- Executive Reports\n- Recommendation Engine\n\n## KPIs\n- Scenario Score\n- Net Worth Difference\n- Cash Flow Difference\n- Goal Success Probability\n- Risk Difference\n- Liquidity Difference\n\n## Testing\n- Two-scenario comparison\n- Five-scenario ranking\n- Market crash\n- High inflation\n- Home upgrade\n- Early retirement\n\n## Future Enhancements\n- Monte Carlo scenario ranking\n- AI scenario generation\n- Household scenario comparison\n- Real-time sensitivity analysis\n",
+  "references": []
+}

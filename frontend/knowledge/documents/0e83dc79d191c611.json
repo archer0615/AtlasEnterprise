@@ -1,0 +1,175 @@
+{
+  "id": "0e83dc79d191c611",
+  "title": "Financial Philosophy Knowledge Base",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/financial-philosophy.md",
+  "sourceHash": "3203ab1546767498c6571fcdf0b2348571d87d8e8b2f4b4d1662dc0c2da5c369",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Financial Philosophy Knowledge Base"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Vision"
+    },
+    {
+      "level": 1,
+      "text": "Mission"
+    },
+    {
+      "level": 1,
+      "text": "Core Values"
+    },
+    {
+      "level": 2,
+      "text": "FP-001 Life First"
+    },
+    {
+      "level": 2,
+      "text": "FP-002 Cash Flow First"
+    },
+    {
+      "level": 2,
+      "text": "FP-003 Risk Before Return"
+    },
+    {
+      "level": 2,
+      "text": "FP-004 Optionality"
+    },
+    {
+      "level": 2,
+      "text": "FP-005 Long-term Thinking"
+    },
+    {
+      "level": 2,
+      "text": "FP-006 Discipline"
+    },
+    {
+      "level": 2,
+      "text": "FP-007 Evidence Based"
+    },
+    {
+      "level": 1,
+      "text": "Financial Hierarchy"
+    },
+    {
+      "level": 1,
+      "text": "Wealth Definition"
+    },
+    {
+      "level": 1,
+      "text": "Decision Principles"
+    },
+    {
+      "level": 1,
+      "text": "Investment Philosophy"
+    },
+    {
+      "level": 1,
+      "text": "Debt Philosophy"
+    },
+    {
+      "level": 1,
+      "text": "Retirement Philosophy"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "FP-BR-001"
+    },
+    {
+      "level": 2,
+      "text": "FP-BR-002"
+    },
+    {
+      "level": 2,
+      "text": "FP-BR-003"
+    },
+    {
+      "level": 2,
+      "text": "FP-BR-004"
+    },
+    {
+      "level": 2,
+      "text": "FP-BR-005"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Philosophy Rule Contract"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Philosophy Rule Contract"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Financial Philosophy Knowledge Base\r\n\r\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Purpose\r\n\r\n本文件定義 Project Atlas 的核心財務哲學。\r\n\r\n所有 Blueprint、IPS、Decision Engine、Scenario Engine 與各 Financial\r\nEngine 的商業規則，皆不得違反本文件。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Vision\r\n\r\n建立一套以人生為中心，而非以投資報酬為中心的財務決策系統。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Mission\r\n\r\n-   協助重大人生財務決策\r\n-   提高財務安全性\r\n-   建立可持續現金流\r\n-   達成長期人生目標\r\n-   降低不可逆決策風險\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Core Values\r\n\r\n## FP-001 Life First\r\n\r\n人生目標高於財富累積。\r\n\r\n## FP-002 Cash Flow First\r\n\r\n穩定現金流優先於帳面資產成長。\r\n\r\n## FP-003 Risk Before Return\r\n\r\n先控制風險，再追求報酬。\r\n\r\n## FP-004 Optionality\r\n\r\n保留未來選擇權，避免降低人生彈性。\r\n\r\n## FP-005 Long-term Thinking\r\n\r\n以 20～40 年視角規劃重大決策。\r\n\r\n## FP-006 Discipline\r\n\r\n遵循 Blueprint 與 IPS，而非情緒決策。\r\n\r\n## FP-007 Evidence Based\r\n\r\n所有建議均應具備資料、公式、假設與規則支持。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Financial Hierarchy\r\n\r\n1.  Health\r\n2.  Family\r\n3.  Emergency Fund\r\n4.  Cash Flow\r\n5.  Insurance\r\n6.  Debt Management\r\n7.  Investment\r\n8.  Wealth Growth\r\n9.  Legacy\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Wealth Definition\r\n\r\nAtlas 將財富定義為：\r\n\r\n-   可持續現金流\r\n-   可自由支配時間\r\n-   財務安全\r\n-   人生選擇權\r\n-   長期目標達成能力\r\n\r\n而非僅是資產淨值。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Decision Principles\r\n\r\n所有重大決策應：\r\n\r\n-   比較多個方案\r\n-   評估最壞情境\r\n-   揭露主要假設\r\n-   評估對人生目標影響\r\n-   評估長期現金流\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Investment Philosophy\r\n\r\n-   長期投資\r\n-   分散配置\r\n-   紀律再平衡\r\n-   避免市場預測\r\n-   投資服務現金流\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Debt Philosophy\r\n\r\n-   負債是工具，不是目的。\r\n-   合理負債可提升資本效率。\r\n-   不以零負債作為唯一目標。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Retirement Philosophy\r\n\r\n退休代表財務自由，而非停止工作。\r\n\r\n核心指標為：\r\n\r\n-   可持續現金流\r\n-   提領可持續性\r\n-   人生目標完成度\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Business Rules\r\n\r\n## FP-BR-001\r\n\r\n所有 Engine 必須遵循本文件。\r\n\r\n## FP-BR-002\r\n\r\n不得為追求高報酬而破壞財務安全。\r\n\r\n## FP-BR-003\r\n\r\n重大決策至少模擬 30 年。\r\n\r\n## FP-BR-004\r\n\r\nDecision Engine 必須提供可解釋原因。\r\n\r\n## FP-BR-005\r\n\r\n任何建議均需符合 Blueprint 與 IPS。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Related Documents\r\n\r\n-   docs/specification/00-Vision.md\r\n-   docs/specification/01-Blueprint.md\r\n-   docs/specification/02-IPS.md\r\n-   docs/13-DecisionEngine.md\r\n-   knowledge/life-goals.md\r\n-   knowledge/investment-policy.md\r\n-   knowledge/decision-principles.md\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Phase 2 Executable Specification\r\n\r\n## Philosophy Rule Contract\r\n\r\n| Field | Required | Description |\r\n|-------|----------|-------------|\r\n| PhilosophyRuleId | Yes | Stable rule identifier |\r\n| ValueCode | Yes | FP-001 through FP-007 |\r\n| RuleStatement | Yes | Canonical rule text |\r\n| EnforcementLevel | Yes | Guideline, Warning, HardConstraint |\r\n| AppliesTo | Yes | Engines or workflows governed by the rule |\r\n| EvidenceRequired | Yes | Required evidence for compliance |\r\n| Status | Yes | Active, Deprecated, Retired |\r\n\r\n## Commands\r\n\r\n| Command | Actor | Output |\r\n|---------|-------|--------|\r\n| PublishPhilosophyRule | GovernanceApplicationService | PhilosophyRulePublished |\r\n| ValidateDecisionAgainstPhilosophy | DecisionApplicationService | PhilosophyComplianceValidated |\r\n| ValidateRecommendationAgainstPhilosophy | RecommendationApplicationService | RecommendationComplianceValidated |\r\n| DeprecatePhilosophyRule | GovernanceApplicationService | PhilosophyRuleDeprecated |\r\n\r\n## Domain Events\r\n\r\n| Event | Trigger | Consumers |\r\n|-------|---------|-----------|\r\n| PhilosophyRulePublished | Rule activated | Decision Engine, Rule Engine |\r\n| PhilosophyComplianceValidated | Decision passes validation | Audit, Explainability |\r\n| PhilosophyViolationDetected | Decision violates philosophy | Alert, Decision Review |\r\n| PhilosophyRuleDeprecated | Rule version deprecated | Governance, Audit |\r\n\r\n## Validation Rules\r\n\r\n| Rule ID | Rule | Failure |\r\n|---------|------|---------|\r\n| FP-VR-001 | Any recommendation that reduces emergency fund below minimum violates Cash Flow First. | Hard block |\r\n| FP-VR-002 | Any recommendation pursuing return while breaching risk constraints violates Risk Before Return. | Hard block |\r\n| FP-VR-003 | Major decisions must include long-term scenario evidence. | Reject recommendation |\r\n| FP-VR-004 | Recommendation must reference Blueprint or IPS alignment. | Reject recommendation |\r\n| FP-VR-005 | Philosophy rules are versioned and historical versions remain replayable. | Reject overwrite |\r\n\r\n## API Contract\r\n\r\n| Endpoint | Method | Purpose | Permission |\r\n|----------|--------|---------|------------|\r\n| /api/v1/philosophy/rules | GET | Retrieve active philosophy rules | Governance:Read |\r\n| /api/v1/philosophy/validate-decision | POST | Validate decision compliance | Decision:Evaluate |\r\n| /api/v1/philosophy/validate-recommendation | POST | Validate recommendation compliance | Recommendation:Evaluate |\r\n| /api/v1/philosophy/rules/{ruleId}/deprecate | POST | Deprecate rule | Governance:Admin |\r\n\r\n## Testing Matrix\r\n\r\n| Test | Expected Result |\r\n|------|-----------------|\r\n| Recommendation breaches emergency fund | Hard block returned |\r\n| High-return recommendation exceeds risk budget | Philosophy violation emitted |\r\n| Missing Blueprint alignment | Recommendation validation fails |\r\n| Historical decision replay | Original philosophy rule version is used |\r\n| Long-term scenario missing | Major decision is rejected |\r\n\r\n# Version History\r\n\r\n| Version | Date | Change |\r\n|---------|------|--------|\r\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Phase 2 Executable Specification\r\n\r\n## Philosophy Rule Contract\r\n\r\n| Field | Required | Description |\r\n|-------|----------|-------------|\r\n| PhilosophyRuleId | Yes | Stable rule identifier |\r\n| ValueCode | Yes | FP-001 through FP-007 |\r\n| RuleStatement | Yes | Canonical rule text |\r\n| EnforcementLevel | Yes | Guideline, Warning, HardConstraint |\r\n| AppliesTo | Yes | Engines or workflows governed by the rule |\r\n| EvidenceRequired | Yes | Required evidence for compliance |\r\n| Status | Yes | Active, Deprecated, Retired |\r\n\r\n## Commands\r\n\r\n| Command | Actor | Output |\r\n|---------|-------|--------|\r\n| PublishPhilosophyRule | GovernanceApplicationService | PhilosophyRulePublished |\r\n| ValidateDecisionAgainstPhilosophy | DecisionApplicationService | PhilosophyComplianceValidated |\r\n| ValidateRecommendationAgainstPhilosophy | RecommendationApplicationService | RecommendationComplianceValidated |\r\n| DeprecatePhilosophyRule | GovernanceApplicationService | PhilosophyRuleDeprecated |\r\n\r\n## Domain Events\r\n\r\n| Event | Trigger | Consumers |\r\n|-------|---------|-----------|\r\n| PhilosophyRulePublished | Rule activated | Decision Engine, Rule Engine |\r\n| PhilosophyComplianceValidated | Decision passes validation | Audit, Explainability |\r\n| PhilosophyViolationDetected | Decision violates philosophy | Alert, Decision Review |\r\n| PhilosophyRuleDeprecated | Rule version deprecated | Governance, Audit |\r\n\r\n## Validation Rules\r\n\r\n| Rule ID | Rule | Failure |\r\n|---------|------|---------|\r\n| FP-VR-001 | Any recommendation that reduces emergency fund below minimum violates Cash Flow First. | Hard block |\r\n| FP-VR-002 | Any recommendation pursuing return while breaching risk constraints violates Risk Before Return. | Hard block |\r\n| FP-VR-003 | Major decisions must include long-term scenario evidence. | Reject recommendation |\r\n| FP-VR-004 | Recommendation must reference Blueprint or IPS alignment. | Reject recommendation |\r\n| FP-VR-005 | Philosophy rules are versioned and historical versions remain replayable. | Reject overwrite |\r\n\r\n## API Contract\r\n\r\n| Endpoint | Method | Purpose | Permission |\r\n|----------|--------|---------|------------|\r\n| /api/v1/philosophy/rules | GET | Retrieve active philosophy rules | Governance:Read |\r\n| /api/v1/philosophy/validate-decision | POST | Validate decision compliance | Decision:Evaluate |\r\n| /api/v1/philosophy/validate-recommendation | POST | Validate recommendation compliance | Recommendation:Evaluate |\r\n| /api/v1/philosophy/rules/{ruleId}/deprecate | POST | Deprecate rule | Governance:Admin |\r\n\r\n## Testing Matrix\r\n\r\n| Test | Expected Result |\r\n|------|-----------------|\r\n| Recommendation breaches emergency fund | Hard block returned |\r\n| High-return recommendation exceeds risk budget | Philosophy violation emitted |\r\n| Missing Blueprint alignment | Recommendation validation fails |\r\n| Historical decision replay | Original philosophy rule version is used |\r\n| Long-term scenario missing | Major decision is rejected |\r\n\r\n# Version History\r\n\r\n| Version | Date | Change |\r\n|---------|------|--------|\r\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\r\n",
+  "references": []
+}

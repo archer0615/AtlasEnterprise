@@ -1,0 +1,135 @@
+{
+  "id": "d3ec8a154db13f58",
+  "title": "Loan Knowledge Base",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/loan.md",
+  "sourceHash": "f2f40f3a036f5e90dcb2ccd8ecf9411ab605a0e71e1644c95c7fea6d5247e852",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Loan Knowledge Base"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Core Principles"
+    },
+    {
+      "level": 1,
+      "text": "Loan Types"
+    },
+    {
+      "level": 2,
+      "text": "Mortgage"
+    },
+    {
+      "level": 2,
+      "text": "Personal Loan"
+    },
+    {
+      "level": 2,
+      "text": "Auto Loan"
+    },
+    {
+      "level": 2,
+      "text": "Investment Loan"
+    },
+    {
+      "level": 1,
+      "text": "Loan Attributes"
+    },
+    {
+      "level": 1,
+      "text": "Interest Types"
+    },
+    {
+      "level": 1,
+      "text": "Repayment Methods"
+    },
+    {
+      "level": 1,
+      "text": "Loan Status"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "LN-001"
+    },
+    {
+      "level": 2,
+      "text": "LN-002"
+    },
+    {
+      "level": 2,
+      "text": "LN-003"
+    },
+    {
+      "level": 2,
+      "text": "LN-004"
+    },
+    {
+      "level": 2,
+      "text": "LN-005"
+    },
+    {
+      "level": 1,
+      "text": "Risk Levels"
+    },
+    {
+      "level": 1,
+      "text": "KPIs"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 1,
+      "text": "Related Engines"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Loan Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Loan Knowledge Base\n\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\n\n------------------------------------------------------------------------\n\n# Purpose\n\nLoan 是 Project Atlas 中的重要現金流工具，而非單純負債。\n\n貸款的存在應提升人生決策彈性，而非增加財務風險。\n\n------------------------------------------------------------------------\n\n# Core Principles\n\n-   不以「零負債」為目標。\n-   以最佳化 Cash Flow 為優先。\n-   保留流動性優先於過度提前還款。\n-   貸款必須服務人生目標。\n\n------------------------------------------------------------------------\n\n# Loan Types\n\n## Mortgage\n\n-   First Mortgage\n-   Second Mortgage\n-   Home Equity Loan\n-   Home Equity Line of Credit\n\n## Personal Loan\n\n-   Unsecured Loan\n-   Salary Loan\n\n## Auto Loan\n\n-   Vehicle Financing\n\n## Investment Loan\n\n-   Margin Loan\n-   Securities Financing\n\n------------------------------------------------------------------------\n\n# Loan Attributes\n\n每筆 Loan 至少包含：\n\n-   Principal\n-   Outstanding Balance\n-   Interest Rate\n-   Interest Type\n-   Loan Term\n-   Payment Frequency\n-   Payment Method\n-   Start Date\n-   End Date\n-   Currency\n-   Collateral\n-   Scenario\n\n------------------------------------------------------------------------\n\n# Interest Types\n\n-   Fixed Rate\n-   Floating Rate\n-   Mixed Rate\n\n------------------------------------------------------------------------\n\n# Repayment Methods\n\n-   Equal Principal and Interest\n-   Equal Principal\n-   Interest Only\n-   Balloon Payment\n-   Bullet Payment\n\n------------------------------------------------------------------------\n\n# Loan Status\n\n-   Planned\n-   Active\n-   PaidOff\n-   Default\n-   Closed\n\n------------------------------------------------------------------------\n\n# Business Rules\n\n## LN-001\n\n貸款不得使 Monthly Free Cash Flow 低於安全門檻。\n\n## LN-002\n\n提前還款前，必須比較：\n\n-   投資報酬率\n-   貸款利率\n-   流動性影響\n-   稅務影響\n\n## LN-003\n\n房貸優先視為長期策略工具。\n\n## LN-004\n\n信貸不得作為長期生活費來源。\n\n## LN-005\n\n任何增貸皆需重新模擬未來 30 年 Cash Flow。\n\n------------------------------------------------------------------------\n\n# Risk Levels\n\n-   Low\n-   Medium\n-   High\n-   Critical\n\n依據：\n\n-   Debt Service Ratio\n-   Loan To Value\n-   Cash Flow\n-   Emergency Fund\n-   Income Stability\n\n------------------------------------------------------------------------\n\n# KPIs\n\n-   Total Outstanding\n-   Monthly Payment\n-   Interest Cost\n-   Remaining Term\n-   Debt Service Ratio\n-   Loan To Value\n-   Average Interest Rate\n\n------------------------------------------------------------------------\n\n# Domain Events\n\n-   LoanCreated\n-   LoanActivated\n-   LoanRefinanced\n-   LoanPaymentMade\n-   LoanPartiallyPaid\n-   LoanPaidOff\n-   InterestRateChanged\n\n------------------------------------------------------------------------\n\n# Related Engines\n\n-   Loan Engine\n-   Cash Flow Engine\n-   Decision Engine\n-   Home Upgrade Engine\n-   Retirement Engine\n\n------------------------------------------------------------------------\n\n# Related Documents\n\n-   docs/10-LoanEngine.md\n-   docs/08-CashFlowEngine.md\n-   docs/11-HomeUpgradeEngine.md\n-   knowledge/cashflow.md\n-   knowledge/property.md\n\n------------------------------------------------------------------------\n\n# Phase 2 Executable Specification\n\n## Loan Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | Loan |\n| Identity | loanId |\n| Scope | tenantId, householdId, scenarioId |\n| Required State | type, principal, outstandingBalance, interestRate, term, paymentMethod, status |\n| Derived State | monthlyPayment, remainingTerm, interestCost, riskLevel, debtServiceRatio |\n| Invariant | A loan cannot be active without repayment schedule and affordability validation. |\n\n## Required Commands\n\n| Command | Purpose |\n|---|---|\n| CreateLoan | Register a planned or active loan. |\n| ActivateLoan | Move a validated loan into active status. |\n| RecordLoanPayment | Apply scheduled or unscheduled repayment. |\n| UpdateLoanInterestRate | Change floating or mixed interest rate assumptions. |\n| RefinanceLoan | Replace terms with a validated refinancing structure. |\n| PayOffLoan | Close the loan after full repayment. |\n| ReplayLoanLifecycle | Rebuild lifecycle state from events. |\n\n## Domain Events\n\n| Event | Trigger |\n|---|---|\n| LoanCreated | Loan record is created. |\n| LoanActivated | Loan becomes active. |\n| LoanPaymentMade | Scheduled payment is recorded. |\n| LoanPartiallyPaid | Extra principal payment is recorded. |\n| InterestRateChanged | Rate changes for floating or mixed loan. |\n| LoanRefinanced | Refinancing terms are accepted. |\n| LoanPaidOff | Outstanding balance reaches zero. |\n\n## Validation Rules\n\n1. Principal and outstanding balance must be non-negative.\n2. Active loans must have start date, term, interest rate, currency, and repayment method.\n3. Loan status transitions must follow Planned -> Active -> PaidOff or Closed.\n4. Refinancing must pass loan decision rules before terms are replaced.\n5. Payment application must not create negative outstanding balance.\n\n## API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/loans | POST | Create a loan. |\n| /api/loans/{loanId} | GET | Retrieve loan state. |\n| /api/loans/{loanId}/activate | POST | Activate a validated loan. |\n| /api/loans/{loanId}/payments | POST | Record a payment. |\n| /api/loans/{loanId}/interest-rate | PUT | Update loan interest rate. |\n| /api/loans/{loanId}/refinance | POST | Execute refinancing. |\n| /api/loans/{loanId}/payoff | POST | Pay off and close the loan. |\n\n## Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Create valid mortgage | LoanCreated is emitted. |\n| Activate without repayment schedule | Validation fails. |\n| Extra payment below outstanding balance | LoanPartiallyPaid is emitted. |\n| Full payoff | LoanPaidOff is emitted and status becomes PaidOff. |\n| Replay lifecycle | Rebuilt outstanding balance matches event history. |\n\n## Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

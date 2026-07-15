@@ -1,0 +1,79 @@
+{
+  "id": "951806951ad88da9",
+  "title": "Cash Reserve Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/cash-reserve-framework.md",
+  "sourceHash": "5ef1bda6f68cf1063b5aa1ada9fe48931a9befd2fa64bcd5583c608db8bc24ab",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Cash Reserve Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Reserve Layers"
+    },
+    {
+      "level": 3,
+      "text": "Layer 1 – Operating Cash"
+    },
+    {
+      "level": 3,
+      "text": "Layer 2 – Emergency Reserve"
+    },
+    {
+      "level": 3,
+      "text": "Layer 3 – Strategic Opportunity Reserve"
+    },
+    {
+      "level": 2,
+      "text": "Reserve Categories"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Calculation Model"
+    },
+    {
+      "level": 2,
+      "text": "Reserve Health Bands"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine Integration"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Cash Reserve Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the cash reserve policy used by Project Atlas to ensure liquidity, financial resilience, and support for long-term decision making.\n\n## Objectives\n- Maintain adequate liquidity.\n- Prevent forced liquidation of investments.\n- Support planned and unexpected expenses.\n- Integrate with Financial Health Score, Cash Flow Engine, and Decision Engine.\n\n## Reserve Layers\n\n### Layer 1 – Operating Cash\nPurpose:\n- Daily spending\n- Monthly bills\n- Automatic payments\n\nTarget:\n- 1–2 months of recurring expenses.\n\n### Layer 2 – Emergency Reserve\nPurpose:\n- Job loss\n- Medical emergencies\n- Unexpected repairs\n\nTarget:\n- 3–12 months of essential expenses.\n- Default recommendation determined by Risk Capacity.\n\n### Layer 3 – Strategic Opportunity Reserve\nPurpose:\n- Market opportunities\n- Planned investments\n- Large discretionary purchases\n\nTarget:\n- User-defined based on IPS.\n\n## Reserve Categories\n- Essential Cash\n- Emergency Cash\n- Opportunity Cash\n- Restricted Cash\n\n## Inputs\n- Monthly essential expenses\n- Monthly discretionary expenses\n- Income stability\n- Emergency fund balance\n- Debt obligations\n- Insurance coverage\n- Life stage\n- Risk Capacity\n\n## Calculation Model\nEmergency Reserve Target =\nEssential Monthly Expenses × Recommended Reserve Months\n\nRecommended months vary by:\n- Employment stability\n- Income diversity\n- Dependents\n- Debt burden\n- Health risk\n\n## Reserve Health Bands\n- Critical: <25%\n- Weak: 25–59%\n- Adequate: 60–99%\n- Healthy: 100–149%\n- Strong: ≥150%\n\n## Business Rules\n- Emergency reserve is funded before discretionary investing.\n- Essential cash is excluded from investment allocation.\n- Opportunity reserve may be invested only if liquidity constraints remain satisfied.\n- Major life events trigger reserve recalculation.\n\n## Decision Engine Integration\nUsed by:\n- Financial Health Score\n- Goal Prioritization\n- Asset Allocation Framework\n- Withdrawal Strategy\n- Scenario Engine\n\n## Explainability\nEvery recommendation includes:\n- Current reserve\n- Target reserve\n- Coverage ratio\n- Shortfall or surplus\n- Contributing factors\n\n## KPIs\n- Reserve Coverage Ratio\n- Months of Essential Expenses\n- Liquidity Ratio\n- Cash Utilization Rate\n- Emergency Readiness Score\n\n## Testing\n- Stable employment\n- Variable income\n- High debt\n- New homeowner\n- Retirement\n- Major medical expense\n\n## Future Enhancements\n- Household reserve optimization\n- Inflation-adjusted targets\n- AI reserve forecasting\n- Country-specific reserve guidance\n",
+  "references": []
+}

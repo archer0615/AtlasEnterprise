@@ -1,0 +1,147 @@
+{
+  "id": "ec32934c9dec3585",
+  "title": "House Decision Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/house-decision-framework.md",
+  "sourceHash": "294aed92de35f217dcddbb0f7c8d3794fcdb7caec6a2fb01d715127d0819d734",
+  "headings": [
+    {
+      "level": 1,
+      "text": "House Decision Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Supported Decision Types"
+    },
+    {
+      "level": 2,
+      "text": "Decision Inputs"
+    },
+    {
+      "level": 3,
+      "text": "Financial"
+    },
+    {
+      "level": 3,
+      "text": "Property"
+    },
+    {
+      "level": 3,
+      "text": "Personal"
+    },
+    {
+      "level": 3,
+      "text": "Market"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Dimensions"
+    },
+    {
+      "level": 2,
+      "text": "Decision Process"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Types"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Housing Decision Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Housing Decision Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# House Decision Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the decision framework used by Project Atlas to evaluate housing-related decisions, including purchasing, upgrading, retaining, or selling residential property.\n\n## Objectives\n- Support objective housing decisions.\n- Balance lifestyle, cash flow, and long-term wealth.\n- Produce explainable recommendations.\n- Integrate housing decisions with the overall financial plan.\n\n## Supported Decision Types\n- First Home Purchase\n- Home Upgrade\n- Retain Existing Home\n- Sell Existing Home\n- Buy Before Selling\n- Sell Before Buying\n- Investment Property Purchase\n- Mortgage Refinancing\n\n## Decision Inputs\n\n### Financial\n- Household income\n- Free cash flow\n- Existing mortgage\n- Down payment\n- Emergency reserve\n- Debt-to-income ratio\n- Financial Health Score\n\n### Property\n- Current market value\n- Purchase price\n- Estimated appreciation\n- Transaction costs\n- Maintenance costs\n- Rental potential\n\n### Personal\n- Family size\n- Commute requirements\n- Life Stage\n- Future housing plans\n- Target retirement age\n\n### Market\n- Mortgage rates\n- Housing price trends\n- Inflation assumptions\n- Market liquidity\n\n## Evaluation Dimensions\n1. Affordability\n2. Cash Flow Impact\n3. Net Worth Impact\n4. Liquidity Impact\n5. Risk Exposure\n6. Goal Alignment\n7. Lifestyle Benefit\n\nEach dimension is normalized to a 0–100 score.\n\n## Decision Process\n1. Validate financial constraints.\n2. Evaluate affordability.\n3. Simulate cash flow.\n4. Estimate long-term net worth.\n5. Compare scenarios.\n6. Rank alternatives.\n7. Generate explainable recommendation.\n\n## Recommendation Types\n- Strongly Recommended\n- Recommended\n- Neutral\n- Caution\n- Not Recommended\n\n## Business Rules\n- Emergency reserve cannot be compromised.\n- Housing costs must remain within IPS limits.\n- Mandatory goals take precedence over discretionary upgrades.\n- Mortgage sustainability must pass stress testing.\n- Large housing decisions trigger scenario analysis.\n\n## Outputs\n- Recommended option\n- Financial impact summary\n- Cash flow projection\n- Net worth projection\n- Mortgage analysis\n- Risk summary\n- Explanation report\n\n## Integration\nConsumes:\n- Cash Flow Engine\n- Loan Engine\n- Financial Health Score\n- Goal Prioritization\n- Life Stage Model\n- Scenario Framework\n\nProduces:\n- Home Upgrade Engine\n- Decision Engine\n- Dashboard Insights\n\n## KPIs\n- Housing Cost Ratio\n- Mortgage Burden Ratio\n- Net Worth Growth\n- Liquidity Coverage\n- Goal Achievement Impact\n- Housing Affordability Score\n\n## Testing\n- First-time buyer\n- Home upgrade\n- Buy vs. rent\n- Keep vs. sell existing home\n- High interest rate environment\n- Income reduction scenario\n\n## Future Enhancements\n- Regional housing models\n- AI-assisted recommendation\n- Property valuation integration\n- Tax-aware housing optimization\n\n## Phase 2 Executable Specification\n\n### Housing Decision Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| HousingDecisionId | Yes | Stable decision identifier |\n| HouseholdId | Yes | Household scope |\n| DecisionType | Yes | Purchase, Upgrade, Retain, Sell, Refinance, Investment |\n| ScenarioSetId | Yes | Compared scenario set |\n| InputSnapshotId | Yes | Source data snapshot |\n| AssumptionVersionSet | Yes | Assumptions used |\n| ScoreBreakdown | Yes | Evaluation dimensions |\n| RecommendationType | Yes | Strongly Recommended, Recommended, Neutral, Caution, Not Recommended |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| EvaluateHousingDecision | HousingDecisionApplicationService | HousingDecisionEvaluated |\n| CompareHousingScenarios | HousingDecisionApplicationService | HousingScenariosCompared |\n| PublishHousingRecommendation | HousingDecisionApplicationService | HousingRecommendationPublished |\n| ReplayHousingDecision | AdministrationApplicationService | HousingDecisionReplayed |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| HousingDecisionEvaluated | Housing decision scored | Decision Engine, Dashboard |\n| HousingScenariosCompared | Scenario comparison completed | Scenario Engine |\n| HousingRecommendationPublished | Recommendation produced | Recommendation Engine |\n| HousingDecisionRejected | Hard constraint failed | Alert, Audit |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| HDF-VR-001 | Large housing decisions require scenario comparison. | Reject decision |\n| HDF-VR-002 | Emergency reserve and affordability rules must pass before recommendation. | Reject recommendation |\n| HDF-VR-003 | Every score must include dimension-level breakdown. | Reject score |\n| HDF-VR-004 | Replay must use original scenario, assumption, and source versions. | Reject replay |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/housing/decisions/evaluate | POST | Evaluate housing decision | HousingDecision:Evaluate |\n| /api/v1/housing/scenarios/compare | POST | Compare housing scenarios | Scenario:Evaluate |\n| /api/v1/housing/decisions/{decisionId} | GET | Retrieve housing decision | HousingDecision:Read |\n| /api/v1/housing/decisions/{decisionId}/replay | POST | Replay housing decision | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| First home purchase | Score breakdown and recommendation returned |\n| Home upgrade with negative cashflow | Recommendation is rejected |\n| Keep vs sell existing home | Scenario comparison is produced |\n| Missing scenario set | Large decision is rejected |\n| Historical replay | Original recommendation reproduces |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Housing Decision Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| HousingDecisionId | Yes | Stable decision identifier |\n| HouseholdId | Yes | Household scope |\n| DecisionType | Yes | Purchase, Upgrade, Retain, Sell, Refinance, Investment |\n| ScenarioSetId | Yes | Compared scenario set |\n| InputSnapshotId | Yes | Source data snapshot |\n| AssumptionVersionSet | Yes | Assumptions used |\n| ScoreBreakdown | Yes | Evaluation dimensions |\n| RecommendationType | Yes | Strongly Recommended, Recommended, Neutral, Caution, Not Recommended |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| EvaluateHousingDecision | HousingDecisionApplicationService | HousingDecisionEvaluated |\n| CompareHousingScenarios | HousingDecisionApplicationService | HousingScenariosCompared |\n| PublishHousingRecommendation | HousingDecisionApplicationService | HousingRecommendationPublished |\n| ReplayHousingDecision | AdministrationApplicationService | HousingDecisionReplayed |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| HousingDecisionEvaluated | Housing decision scored | Decision Engine, Dashboard |\n| HousingScenariosCompared | Scenario comparison completed | Scenario Engine |\n| HousingRecommendationPublished | Recommendation produced | Recommendation Engine |\n| HousingDecisionRejected | Hard constraint failed | Alert, Audit |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| HDF-VR-001 | Large housing decisions require scenario comparison. | Reject decision |\n| HDF-VR-002 | Emergency reserve and affordability rules must pass before recommendation. | Reject recommendation |\n| HDF-VR-003 | Every score must include dimension-level breakdown. | Reject score |\n| HDF-VR-004 | Replay must use original scenario, assumption, and source versions. | Reject replay |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/housing/decisions/evaluate | POST | Evaluate housing decision | HousingDecision:Evaluate |\n| /api/v1/housing/scenarios/compare | POST | Compare housing scenarios | Scenario:Evaluate |\n| /api/v1/housing/decisions/{decisionId} | GET | Retrieve housing decision | HousingDecision:Read |\n| /api/v1/housing/decisions/{decisionId}/replay | POST | Replay housing decision | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| First home purchase | Score breakdown and recommendation returned |\n| Home upgrade with negative cashflow | Recommendation is rejected |\n| Keep vs sell existing home | Scenario comparison is produced |\n| Missing scenario set | Large decision is rejected |\n| Historical replay | Original recommendation reproduces |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

@@ -1,0 +1,119 @@
+{
+  "id": "29a7d5978d237fc1",
+  "title": "feature-flag-framework.md",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/feature-flag-framework.md",
+  "sourceHash": "b1d2d9fa0bda3fe6a766a94db5aa84afa5b7713304600725788c16771f93c0aa",
+  "headings": [
+    {
+      "level": 1,
+      "text": "feature-flag-framework.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Enterprise Specification"
+    },
+    {
+      "level": 2,
+      "text": "Feature Flag Framework"
+    },
+    {
+      "level": 2,
+      "text": "1. Purpose"
+    },
+    {
+      "level": 1,
+      "text": "2. Objectives"
+    },
+    {
+      "level": 1,
+      "text": "3. Flag Categories"
+    },
+    {
+      "level": 1,
+      "text": "4. Flag Lifecycle"
+    },
+    {
+      "level": 1,
+      "text": "5. Naming Convention"
+    },
+    {
+      "level": 1,
+      "text": "6. Evaluation Priority"
+    },
+    {
+      "level": 1,
+      "text": "7. Targeting Rules"
+    },
+    {
+      "level": 1,
+      "text": "8. Rollout Strategies"
+    },
+    {
+      "level": 1,
+      "text": "9. Feature Metadata"
+    },
+    {
+      "level": 1,
+      "text": "10. Runtime Behavior"
+    },
+    {
+      "level": 1,
+      "text": "11. Audit Requirements"
+    },
+    {
+      "level": 1,
+      "text": "12. Security"
+    },
+    {
+      "level": 1,
+      "text": "13. Integration"
+    },
+    {
+      "level": 1,
+      "text": "14. Governance"
+    },
+    {
+      "level": 1,
+      "text": "15. Future Enhancements"
+    },
+    {
+      "level": 1,
+      "text": "16. Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Flag Evaluation Contract"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Runtime Failure Policy"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "17. Version History"
+    }
+  ],
+  "bodyMarkdown": "# feature-flag-framework.md\n\n# Atlas Enterprise Specification\n## Feature Flag Framework\n\nVersion: 1.0\n\n## 1. Purpose\n\nThis document defines the Feature Flag architecture for Project Atlas. Feature Flags enable controlled rollout, experimentation, environment isolation, and safe deployment without requiring application redeployment.\n\n---\n\n# 2. Objectives\n\n- Decouple deployment from release.\n- Support gradual feature rollout.\n- Enable A/B testing.\n- Allow emergency feature disablement.\n- Support tenant, user, and environment targeting.\n\n---\n\n# 3. Flag Categories\n\n| Category | Description |\n|----------|-------------|\n| Release | Gradual rollout of completed features |\n| Experimental | Validate new capabilities |\n| Operational | Toggle integrations or services |\n| Permission | Enable by user role or subscription |\n| Kill Switch | Immediate emergency shutdown |\n| Migration | Support data/schema transitions |\n\n---\n\n# 4. Flag Lifecycle\n\nDraft\n→ Development\n→ Internal Testing\n→ Beta\n→ Production Rollout\n→ Fully Enabled\n→ Deprecated\n→ Removed\n\n---\n\n# 5. Naming Convention\n\nFormat:\n\n<Domain>.<Feature>.<Behavior>\n\nExamples:\n\nCashFlow.NewProjection\n\nDecisionEngine.V2\n\nDashboard.AdvancedWidgets\n\nScenario.MultiCompare\n\nNotification.Push\n\n---\n\n# 6. Evaluation Priority\n\n1. Kill Switch\n2. Environment\n3. Tenant\n4. User\n5. Role\n6. Percentage Rollout\n7. Default Value\n\n---\n\n# 7. Targeting Rules\n\nSupported targets:\n\n- Environment\n- Tenant\n- Organization\n- User\n- User Group\n- Role\n- Subscription Tier\n- Geographic Region\n- Application Version\n\n---\n\n# 8. Rollout Strategies\n\n- 0%\n- Internal Only\n- Beta Users\n- 5%\n- 25%\n- 50%\n- 75%\n- 100%\n\nRollback must be supported at every stage.\n\n---\n\n# 9. Feature Metadata\n\nEach flag should include:\n\n- Identifier\n- Name\n- Description\n- Domain\n- Owner\n- Status\n- Default Value\n- Created Date\n- Expiration Date\n- Dependencies\n- Audit Information\n\n---\n\n# 10. Runtime Behavior\n\nApplications must:\n\n- Cache flags\n- Refresh periodically\n- Fail safely\n- Log evaluations\n- Support offline defaults\n\n---\n\n# 11. Audit Requirements\n\nRecord:\n\n- Evaluation time\n- User\n- Flag\n- Result\n- Source\n- Version\n\n---\n\n# 12. Security\n\n- Administrative permissions required for modification.\n- Immutable audit history.\n- Environment isolation.\n- Production approval workflow.\n\n---\n\n# 13. Integration\n\nFeature Flags integrate with:\n\n- Decision Engine\n- Dashboard\n- Recommendation Engine\n- Notification Engine\n- Automation Framework\n- API Gateway\n\n---\n\n# 14. Governance\n\nEvery flag must have:\n\n- Business owner\n- Technical owner\n- Planned removal date\n- Documentation reference\n\nFlags older than one release cycle without justification should be reviewed for removal.\n\n---\n\n# 15. Future Enhancements\n\n- Dynamic rule expressions (AREL)\n- ML-driven rollout recommendations\n- Automatic stale flag detection\n- Usage analytics\n- Dependency visualization\n\n---\n\n# 16. Phase 2 Executable Specification\n\n## Flag Evaluation Contract\n\n| Input | Required | Description |\n|-------|----------|-------------|\n| FlagKey | Yes | Canonical flag identifier |\n| Environment | Yes | Runtime environment |\n| TenantId | No | Tenant-scoped targeting |\n| UserId | No | User-scoped targeting |\n| Role | No | Permission or role targeting |\n| AppVersion | No | Version-specific targeting |\n| DefaultValue | Yes | Fail-safe fallback |\n\n## Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CreateFeatureFlag | PlatformApplicationService | FeatureFlagCreated |\n| UpdateFeatureFlagRule | PlatformApplicationService | FeatureFlagRuleUpdated |\n| ActivateFeatureFlag | PlatformApplicationService | FeatureFlagActivated |\n| RollbackFeatureFlag | PlatformApplicationService | FeatureFlagRolledBack |\n| RetireFeatureFlag | PlatformApplicationService | FeatureFlagRetired |\n\n## Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| FeatureFlagCreated | New flag registered | Audit, Configuration Cache |\n| FeatureFlagEvaluated | Runtime evaluation completed | Observability, Analytics |\n| FeatureFlagRolledBack | Rollout reverted | Notification, Audit |\n| FeatureFlagRetired | Flag removed from active use | Governance, Technical Debt Report |\n\n## Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FF-VR-001 | Flag key must follow Domain.Feature.Behavior format. | Reject command |\n| FF-VR-002 | Kill switch rules must take precedence over rollout rules. | Reject configuration |\n| FF-VR-003 | Production changes require approval metadata. | Reject activation |\n| FF-VR-004 | Expired flags must be reviewed before modification. | Require review |\n| FF-VR-005 | Default value must be defined for offline evaluation. | Reject command |\n\n## Runtime Failure Policy\n\n| Failure | Required Behavior |\n|---------|-------------------|\n| Flag service unavailable | Use cached value if fresh, otherwise default value |\n| Malformed rule | Ignore rule and log evaluation error |\n| Missing target attribute | Fall through to next lower-priority rule |\n| Cache expired | Refresh asynchronously and use last known safe value |\n\n## API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/feature-flags | POST | Create flag | Platform:Write |\n| /api/v1/feature-flags/{flagKey} | GET | Retrieve flag | Platform:Read |\n| /api/v1/feature-flags/{flagKey}/rules | PUT | Update targeting rules | Platform:Write |\n| /api/v1/feature-flags/evaluate | POST | Evaluate flag | Internal |\n| /api/v1/feature-flags/{flagKey}/retire | POST | Retire flag | Platform:Admin |\n\n## Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Kill switch enabled | Flag evaluates to disabled for all targets |\n| Tenant override | Tenant rule overrides percentage rollout |\n| Offline evaluation | Default or cached safe value is returned |\n| Expired flag | Governance review is required |\n| Rollback | Previous production rule set is restored |\n\n# 17. Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

@@ -1,0 +1,167 @@
+{
+  "id": "3501cdc355724434",
+  "title": "Life Goals Knowledge Base",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/life-goals.md",
+  "sourceHash": "1335eaf4788f1849ca12019135fb2e7ff2f0d254bbe2072b9245cf1f10248f75",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Life Goals Knowledge Base"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Core Philosophy"
+    },
+    {
+      "level": 1,
+      "text": "Goal Categories"
+    },
+    {
+      "level": 2,
+      "text": "Family"
+    },
+    {
+      "level": 2,
+      "text": "Housing"
+    },
+    {
+      "level": 2,
+      "text": "Career"
+    },
+    {
+      "level": 2,
+      "text": "Financial"
+    },
+    {
+      "level": 2,
+      "text": "Retirement"
+    },
+    {
+      "level": 2,
+      "text": "Lifestyle"
+    },
+    {
+      "level": 1,
+      "text": "Goal Attributes"
+    },
+    {
+      "level": 1,
+      "text": "Goal Status"
+    },
+    {
+      "level": 1,
+      "text": "Priority Levels"
+    },
+    {
+      "level": 1,
+      "text": "Success Metrics"
+    },
+    {
+      "level": 1,
+      "text": "Dependencies"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "LG-001"
+    },
+    {
+      "level": 2,
+      "text": "LG-002"
+    },
+    {
+      "level": 2,
+      "text": "LG-003"
+    },
+    {
+      "level": 2,
+      "text": "LG-004"
+    },
+    {
+      "level": 2,
+      "text": "LG-005"
+    },
+    {
+      "level": 1,
+      "text": "KPIs"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 1,
+      "text": "Related Engines"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Life Goal Contract"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Life Goal Contract"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Life Goals Knowledge Base\r\n\r\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Purpose\r\n\r\n本文件定義 Project Atlas 對人生目標（Life\r\nGoals）的領域模型、商業規則與共同語言。\r\n\r\n所有 Decision Engine、Scenario Engine、Cash Flow Engine、Retirement\r\nEngine 皆以 Life Goals 作為決策依據。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Core Philosophy\r\n\r\n財務只是工具。\r\n\r\n所有資產、現金流、投資、保險、貸款與退休策略，皆應服務人生目標，而非成為最終目的。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Goal Categories\r\n\r\n## Family\r\n\r\n-   Marriage\r\n-   Children\r\n-   Education\r\n-   Parent Support\r\n\r\n## Housing\r\n\r\n-   First Home\r\n-   Home Upgrade\r\n-   Renovation\r\n-   Rental Strategy\r\n\r\n## Career\r\n\r\n-   Career Development\r\n-   Entrepreneurship\r\n-   Sabbatical\r\n\r\n## Financial\r\n\r\n-   Financial Independence\r\n-   Passive Income Target\r\n-   Net Worth Target\r\n\r\n## Retirement\r\n\r\n-   Retirement Age\r\n-   Retirement Lifestyle\r\n-   Legacy Planning\r\n\r\n## Lifestyle\r\n\r\n-   Travel\r\n-   Hobbies\r\n-   Health\r\n-   Charity\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Goal Attributes\r\n\r\n每個 Goal 至少包含：\r\n\r\n-   Goal Id\r\n-   Name\r\n-   Category\r\n-   Description\r\n-   Priority\r\n-   Target Date\r\n-   Target Amount\r\n-   Current Progress\r\n-   Owner\r\n-   Status\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Goal Status\r\n\r\n-   Planned\r\n-   Active\r\n-   On Hold\r\n-   Completed\r\n-   Cancelled\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Priority Levels\r\n\r\n-   Critical\r\n-   High\r\n-   Medium\r\n-   Low\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Success Metrics\r\n\r\n-   Progress %\r\n-   Funding Ratio\r\n-   Expected Completion Date\r\n-   Cash Flow Impact\r\n-   Probability of Success\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Dependencies\r\n\r\nGoal 可依賴：\r\n\r\n-   Other Goals\r\n-   Cash Flow\r\n-   Investment Portfolio\r\n-   Property\r\n-   Loan\r\n-   Retirement Plan\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Business Rules\r\n\r\n## LG-001\r\n\r\n所有重大財務決策必須標示受影響的人生目標。\r\n\r\n## LG-002\r\n\r\nGoal Priority 高於投資報酬最佳化。\r\n\r\n## LG-003\r\n\r\n每個 Goal 必須具備可量化完成條件。\r\n\r\n## LG-004\r\n\r\nScenario 必須重新評估 Goal Success Probability。\r\n\r\n## LG-005\r\n\r\nDecision Engine 必須揭露各方案對 Goal 的影響。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# KPIs\r\n\r\n-   Goal Completion Rate\r\n-   Goal Funding Ratio\r\n-   Goal Achievement Probability\r\n-   Goal Delay\r\n-   Goal Risk Score\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Domain Events\r\n\r\n-   GoalCreated\r\n-   GoalUpdated\r\n-   GoalCompleted\r\n-   GoalCancelled\r\n-   GoalFundingChanged\r\n-   GoalPriorityChanged\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Related Engines\r\n\r\n-   Decision Engine\r\n-   Scenario Engine\r\n-   Cash Flow Engine\r\n-   Retirement Engine\r\n-   Dashboard Engine\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Related Documents\r\n\r\n-   docs/specification/01-Blueprint.md\r\n-   docs/13-DecisionEngine.md\r\n-   docs/14-Scenario.md\r\n-   docs/16-LifeTimeline.md\r\n-   docs/17-LifeEvents.md\r\n-   knowledge/financial-philosophy.md\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Phase 2 Executable Specification\r\n\r\n## Life Goal Contract\r\n\r\n| Field | Required | Description |\r\n|-------|----------|-------------|\r\n| GoalId | Yes | Stable goal identifier |\r\n| HouseholdId | Yes | Household scope |\r\n| Category | Yes | Family, Housing, Career, Financial, Retirement, Lifestyle |\r\n| Priority | Yes | Critical, High, Medium, Low |\r\n| TargetDate | Yes | Expected completion date |\r\n| TargetAmount | No | Financial target when applicable |\r\n| CompletionCriteria | Yes | Quantifiable success criteria |\r\n| Owner | Yes | Responsible owner |\r\n| Status | Yes | Planned, Active, On Hold, Completed, Cancelled |\r\n| TraceId | Yes | Audit trace |\r\n\r\n## Commands\r\n\r\n| Command | Actor | Output |\r\n|---------|-------|--------|\r\n| CreateLifeGoal | GoalApplicationService | GoalCreated |\r\n| UpdateLifeGoal | GoalApplicationService | GoalUpdated |\r\n| CompleteLifeGoal | GoalApplicationService | GoalCompleted |\r\n| CancelLifeGoal | GoalApplicationService | GoalCancelled |\r\n| ReplayLifeGoalHistory | AdministrationApplicationService | LifeGoalHistoryReplayed |\r\n\r\n## Validation Rules\r\n\r\n| Rule ID | Rule | Failure |\r\n|---------|------|---------|\r\n| LG-VR-001 | Every goal must have measurable completion criteria. | Reject goal |\r\n| LG-VR-002 | Major decisions must reference affected goals. | Reject decision |\r\n| LG-VR-003 | Goal priority must outrank pure return optimization. | Reject recommendation |\r\n| LG-VR-004 | Scenario evaluation must recalculate success probability. | Reject scenario |\r\n| LG-VR-005 | Historical goal events are append-only. | Reject overwrite |\r\n\r\n## API Contract\r\n\r\n| Endpoint | Method | Purpose | Permission |\r\n|----------|--------|---------|------------|\r\n| /api/v1/life-goals | POST | Create life goal | Goal:Write |\r\n| /api/v1/life-goals | GET | List life goals | Goal:Read |\r\n| /api/v1/life-goals/{goalId} | GET | Retrieve life goal | Goal:Read |\r\n| /api/v1/life-goals/{goalId}/complete | POST | Complete life goal | Goal:Write |\r\n\r\n## Testing Matrix\r\n\r\n| Test | Expected Result |\r\n|------|-----------------|\r\n| Missing completion criteria | Goal creation fails |\r\n| Scenario changes funding | Success probability recalculates |\r\n| Completed goal update | Mutation is rejected |\r\n| Decision without affected goal | Decision is rejected |\r\n| Historical replay | Original goal state reproduces |\r\n\r\n# Version History\r\n\r\n| Version | Date | Change |\r\n|---------|------|--------|\r\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Phase 2 Executable Specification\r\n\r\n## Life Goal Contract\r\n\r\n| Field | Required | Description |\r\n|-------|----------|-------------|\r\n| GoalId | Yes | Stable goal identifier |\r\n| HouseholdId | Yes | Household scope |\r\n| Category | Yes | Family, Housing, Career, Financial, Retirement, Lifestyle |\r\n| Priority | Yes | Critical, High, Medium, Low |\r\n| TargetDate | Yes | Expected completion date |\r\n| TargetAmount | No | Financial target when applicable |\r\n| CompletionCriteria | Yes | Quantifiable success criteria |\r\n| Owner | Yes | Responsible owner |\r\n| Status | Yes | Planned, Active, On Hold, Completed, Cancelled |\r\n| TraceId | Yes | Audit trace |\r\n\r\n## Commands\r\n\r\n| Command | Actor | Output |\r\n|---------|-------|--------|\r\n| CreateLifeGoal | GoalApplicationService | GoalCreated |\r\n| UpdateLifeGoal | GoalApplicationService | GoalUpdated |\r\n| CompleteLifeGoal | GoalApplicationService | GoalCompleted |\r\n| CancelLifeGoal | GoalApplicationService | GoalCancelled |\r\n| ReplayLifeGoalHistory | AdministrationApplicationService | LifeGoalHistoryReplayed |\r\n\r\n## Validation Rules\r\n\r\n| Rule ID | Rule | Failure |\r\n|---------|------|---------|\r\n| LG-VR-001 | Every goal must have measurable completion criteria. | Reject goal |\r\n| LG-VR-002 | Major decisions must reference affected goals. | Reject decision |\r\n| LG-VR-003 | Goal priority must outrank pure return optimization. | Reject recommendation |\r\n| LG-VR-004 | Scenario evaluation must recalculate success probability. | Reject scenario |\r\n| LG-VR-005 | Historical goal events are append-only. | Reject overwrite |\r\n\r\n## API Contract\r\n\r\n| Endpoint | Method | Purpose | Permission |\r\n|----------|--------|---------|------------|\r\n| /api/v1/life-goals | POST | Create life goal | Goal:Write |\r\n| /api/v1/life-goals | GET | List life goals | Goal:Read |\r\n| /api/v1/life-goals/{goalId} | GET | Retrieve life goal | Goal:Read |\r\n| /api/v1/life-goals/{goalId}/complete | POST | Complete life goal | Goal:Write |\r\n\r\n## Testing Matrix\r\n\r\n| Test | Expected Result |\r\n|------|-----------------|\r\n| Missing completion criteria | Goal creation fails |\r\n| Scenario changes funding | Success probability recalculates |\r\n| Completed goal update | Mutation is rejected |\r\n| Decision without affected goal | Decision is rejected |\r\n| Historical replay | Original goal state reproduces |\r\n\r\n# Version History\r\n\r\n| Version | Date | Change |\r\n|---------|------|--------|\r\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\r\n",
+  "references": []
+}

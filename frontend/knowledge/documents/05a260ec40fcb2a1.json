@@ -1,0 +1,79 @@
+{
+  "id": "05a260ec40fcb2a1",
+  "title": "Decision History Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/decision-history-framework.md",
+  "sourceHash": "3dddab62c05fef57790c13e6624c1ffde1b29b55b8c5a3a91583d633843e8578",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision History Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    },
+    {
+      "level": 2,
+      "text": "Core Principles"
+    },
+    {
+      "level": 2,
+      "text": "Decision Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "History Record"
+    },
+    {
+      "level": 2,
+      "text": "Versioning"
+    },
+    {
+      "level": 2,
+      "text": "User Actions"
+    },
+    {
+      "level": 2,
+      "text": "Outcome Tracking"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Analytics"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Decision History Framework\n\nVersion: 1.0\n\n## Purpose\nDefines how Project Atlas records, versions, and analyzes the complete lifecycle of financial decisions after they have been generated. Unlike the Decision Audit Framework, which focuses on reproducibility and traceability, this framework focuses on decision evolution and outcome tracking.\n\n## Objectives\n- Preserve historical decisions.\n- Track recommendation evolution.\n- Measure decision effectiveness.\n- Support continuous improvement.\n\n## Scope\nApplies to:\n- Decision Engine\n- Recommendation Engine\n- Scenario Engine\n- House Decision Engine\n- Loan Engine\n- Investment Engine\n- Retirement Engine\n\n## Core Principles\n- History is immutable.\n- Every decision has a persistent Decision ID.\n- Every revision creates a new Decision Version.\n- User actions are recorded independently.\n\n## Decision Lifecycle\nDraft\n→ Generated\n→ Presented\n→ User Reviewed\n→ Accepted / Rejected / Deferred\n→ Executed\n→ Outcome Measured\n→ Archived\n\n## History Record\nEach record contains:\n- Decision ID\n- Version\n- Parent Version\n- Timestamp\n- User / Household\n- Decision Type\n- Scenario ID\n- Recommendation ID\n- Status\n\n## Versioning\nEach version stores:\n- Changed assumptions\n- Changed inputs\n- Rule differences\n- Metric differences\n- Recommendation changes\n\n## User Actions\nSupported actions:\n- View\n- Accept\n- Reject\n- Dismiss\n- Snooze\n- Execute\n- Undo\n- Add Notes\n\n## Outcome Tracking\nTrack:\n- Expected outcome\n- Actual outcome\n- Variance\n- Completion date\n- Success status\n\n## Business Rules\n- Historical versions are immutable.\n- Accepted decisions remain linked to execution records.\n- Deleted decisions are never physically removed.\n- Major financial events create new decision versions.\n\n## Explainability\nEvery history entry provides:\n- Previous recommendation\n- New recommendation\n- Reason for change\n- Triggering events\n- KPI deltas\n\n## Integration\nConsumes:\n- Decision Audit Framework\n- Recommendation Priority Framework\n- Decision Metrics Framework\n- Financial Projection Framework\n\nProduces:\n- Decision Timeline\n- Dashboard\n- Executive Reports\n- Analytics\n\n## KPIs\n- Decision Acceptance Rate\n- Decision Execution Rate\n- Recommendation Stability\n- Decision Accuracy\n- Average Time to Decision\n- Outcome Success Rate\n\n## Analytics\n- Recommendation evolution\n- User behavior trends\n- Rule effectiveness\n- Decision reversal frequency\n- Scenario adoption\n\n## Testing\n- Multiple revisions\n- User rejection\n- Accepted then executed\n- Outcome mismatch\n- Historical replay\n- Concurrent updates\n\n## Future Enhancements\n- AI recommendation learning\n- Household decision timelines\n- Decision knowledge graph\n- Cross-device synchronization\n",
+  "references": []
+}

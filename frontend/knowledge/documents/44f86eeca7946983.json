@@ -1,0 +1,115 @@
+{
+  "id": "44f86eeca7946983",
+  "title": "Portfolio Lifecycle",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/portfolio-lifecycle.md",
+  "sourceHash": "f1daae3bca451a340f130be17e7ef5273f011bfcb00b134f2c15e461006c52c2",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Phases"
+    },
+    {
+      "level": 3,
+      "text": "1. Portfolio Creation"
+    },
+    {
+      "level": 3,
+      "text": "2. Accumulation"
+    },
+    {
+      "level": 3,
+      "text": "3. Expansion"
+    },
+    {
+      "level": 3,
+      "text": "4. Consolidation"
+    },
+    {
+      "level": 3,
+      "text": "5. Distribution"
+    },
+    {
+      "level": 3,
+      "text": "6. Legacy / Closure"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Events"
+    },
+    {
+      "level": 2,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Portfolio Lifecycle Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Lifecycle\n\nVersion: 1.0\n\n## Purpose\nDefines the complete lifecycle of an investment portfolio within Project Atlas, from creation through retirement and closure.\n\n## Objectives\n- Standardize portfolio state transitions.\n- Align portfolio behavior with life stages and financial goals.\n- Ensure deterministic, auditable investment decisions.\n\n## Lifecycle Phases\n\n### 1. Portfolio Creation\nEntry criteria:\n- IPS completed\n- Risk Capacity evaluated\n- Initial funding confirmed\n\nOutputs:\n- Strategic Asset Allocation\n- Benchmark\n- Rebalancing policy\n\n### 2. Accumulation\nPrimary focus:\n- Regular contributions\n- Goal funding\n- Long-term growth\n\nKey actions:\n- Dollar-cost averaging\n- Periodic rebalancing\n- Performance monitoring\n\n### 3. Expansion\nPrimary focus:\n- Multi-goal investing\n- Asset diversification\n- Tax efficiency\n\nTriggers:\n- Income growth\n- Home purchase\n- Family expansion\n\n### 4. Consolidation\nPrimary focus:\n- Reduce portfolio risk\n- Increase income stability\n- Protect accumulated wealth\n\nTriggers:\n- Retirement approaching\n- Debt reduction\n- Lower risk capacity\n\n### 5. Distribution\nPrimary focus:\n- Sustainable withdrawals\n- Cash-flow management\n- Sequence-of-return risk mitigation\n\nIntegrated with:\n- Withdrawal Strategy\n- Cash Reserve Framework\n- Rebalancing Framework\n\n### 6. Legacy / Closure\nPrimary focus:\n- Estate transfer\n- Beneficiary planning\n- Portfolio termination\n\n## Lifecycle Events\n- Portfolio Created\n- Contribution\n- Withdrawal\n- Rebalance\n- Asset Added\n- Asset Removed\n- Goal Linked\n- Goal Completed\n- Portfolio Archived\n\n## State Machine\nDraft\n→ Active\n→ Accumulation\n→ Expansion\n→ Consolidation\n→ Distribution\n→ Closed\n\nEmergency state transitions are allowed after major financial events.\n\n## Decision Engine Integration\nLifecycle affects:\n- Asset Allocation\n- Goal Prioritization\n- Financial Health Score\n- Scenario Engine\n- Retirement Engine\n\n## KPIs\n- Net Asset Value\n- Goal Funding Ratio\n- Annualized Return\n- Allocation Drift\n- Withdrawal Sustainability\n- Portfolio Longevity\n\n## Business Rules\n- Every portfolio has exactly one active lifecycle state.\n- Historical transitions are immutable.\n- Lifecycle changes require validation events.\n- Major transitions generate domain events.\n\n## Explainability\nEvery transition records:\n- Previous state\n- New state\n- Trigger event\n- Supporting rules\n- Expected financial impact\n\n## Testing\n- New portfolio onboarding\n- Multiple goal transitions\n- Retirement transition\n- Market crash during distribution\n- Portfolio closure\n\n## Future Enhancements\n- Household portfolio lifecycle\n- Multi-currency lifecycle\n- AI lifecycle prediction\n- Automatic transition recommendations\n\n## Phase 2 Executable Specification\n\n### Portfolio Lifecycle Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | PortfolioLifecycle |\n| Identity | portfolioId |\n| Scope | tenantId, householdId |\n| Required State | currentState, previousState, transitionReason, validationResult, effectiveAt |\n| Outputs | transitionDecision, supportingRules, expectedFinancialImpact, auditReference |\n| Invariant | A portfolio has exactly one active lifecycle state. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| InitializePortfolioLifecycle | Create lifecycle state for a portfolio. |\n| EvaluatePortfolioLifecycleTransition | Validate if transition is allowed. |\n| TransitionPortfolioLifecycle | Move portfolio to a new lifecycle state. |\n| EmergencyTransitionPortfolioLifecycle | Execute approved emergency transition. |\n| ArchivePortfolioLifecycle | Close lifecycle tracking for archived portfolio. |\n| ReplayPortfolioLifecycle | Rebuild lifecycle state from transition history. |\n\n### Domain Events\n\n| Event | Trigger |\n|---|---|\n| PortfolioLifecycleInitialized | Lifecycle tracking starts. |\n| PortfolioLifecycleTransitionEvaluated | Transition validation completes. |\n| PortfolioLifecycleTransitioned | State changes. |\n| PortfolioLifecycleEmergencyTransitioned | Emergency state change is approved. |\n| PortfolioLifecycleArchived | Portfolio lifecycle is closed. |\n| PortfolioLifecycleReplayed | Historical lifecycle state is reproduced. |\n\n### Validation Rules\n\n1. Transition must include previous state, new state, trigger event, and validation result.\n2. Closed portfolios cannot transition except through approved restore workflow.\n3. Distribution transition must validate withdrawal and cash reserve dependencies.\n4. Emergency transition must record major financial event and approval reference.\n5. Replay must produce exactly one active lifecycle state.\n\n### API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/portfolios/{portfolioId}/lifecycle | POST | Initialize lifecycle. |\n| /api/portfolios/{portfolioId}/lifecycle/evaluate-transition | POST | Evaluate transition. |\n| /api/portfolios/{portfolioId}/lifecycle/transition | POST | Execute transition. |\n| /api/portfolios/{portfolioId}/lifecycle/emergency-transition | POST | Execute emergency transition. |\n| /api/portfolios/{portfolioId}/lifecycle/replay | POST | Replay lifecycle history. |\n\n### Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| New portfolio onboarding | PortfolioLifecycleInitialized is emitted. |\n| Accumulation to distribution without retirement validation | Transition is rejected. |\n| Emergency transition with approval | Emergency transition event is emitted. |\n| Closed portfolio transition | Command is rejected. |\n| Replay lifecycle | Current state matches transition history. |\n\n### Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

@@ -1,0 +1,87 @@
+{
+  "id": "91d00d86d4056534",
+  "title": "Decision Metrics Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/decision-metrics-framework.md",
+  "sourceHash": "0260dadd565b8c3afde17e2765240a7c7f3c3820a7aaee5dca0fb54898ba3bf1",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Metrics Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Metric Categories"
+    },
+    {
+      "level": 3,
+      "text": "Financial Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Investment Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Housing Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Retirement Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Decision Quality Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Composite Decision Score"
+    },
+    {
+      "level": 2,
+      "text": "Decision Bands"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Decision Metrics Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the standard metrics used by Project Atlas to evaluate, compare, rank, and explain financial decisions across all engines.\n\n## Objectives\n- Establish a common decision measurement standard.\n- Ensure deterministic and explainable recommendations.\n- Enable consistent comparison across scenarios.\n- Supply metrics to Dashboard, Scenario Engine, and Decision Engine.\n\n## Metric Categories\n\n### Financial Metrics\n- Net Worth\n- Net Worth Growth\n- Free Cash Flow\n- Savings Rate\n- Debt-to-Income Ratio\n- Liquidity Coverage Ratio\n- Emergency Fund Coverage\n- Goal Funding Ratio\n\n### Investment Metrics\n- Expected Return\n- Portfolio Volatility\n- Sharpe Ratio\n- Allocation Drift\n- Diversification Score\n- Risk Budget Utilization\n\n### Housing Metrics\n- Housing Affordability Score\n- Mortgage Burden Ratio\n- Home Equity Ratio\n- Upgrade Feasibility Score\n\n### Retirement Metrics\n- Retirement Readiness\n- Sustainable Withdrawal Rate\n- Portfolio Longevity\n- Income Replacement Ratio\n\n### Decision Quality Metrics\n- Financial Health Score\n- Decision Confidence\n- Goal Alignment Score\n- Scenario Robustness\n- Constraint Compliance\n- Explainability Completeness\n\n## Composite Decision Score\n\nDecision Score =\nWeighted combination of:\n- Financial Impact\n- Goal Alignment\n- Risk Impact\n- Liquidity Impact\n- Cash Flow Impact\n- Long-term Sustainability\n\nNormalized to 0–100.\n\n## Decision Bands\n- 90–100 Excellent\n- 75–89 Strong\n- 60–74 Acceptable\n- 40–59 Weak\n- 0–39 Reject\n\n## Inputs\n- Financial Health Score\n- Goal Prioritization\n- Net Worth Framework\n- Liquidity Framework\n- Risk Budget Framework\n- Scenario Framework\n- Market Assumptions\n\n## Outputs\n- Decision Score\n- Metric breakdown\n- Ranking\n- Recommendation\n- Confidence\n- Constraint summary\n\n## Business Rules\n- Hard constraints override scores.\n- Mandatory goals receive higher weighting.\n- Scores are reproducible from identical inputs.\n- Every score must include explainability metadata.\n\n## Explainability\nEach evaluation includes:\n- Metric values\n- Weighting\n- Triggered rules\n- Assumptions\n- Sensitivity summary\n\n## Integration\nConsumes:\n- All core frameworks\nProduces:\n- Decision Engine\n- Dashboard\n- Recommendation Engine\n- Scenario Engine\n\n## KPIs\n- Decision Score\n- Recommendation Accuracy\n- Constraint Pass Rate\n- Goal Success Probability\n- User Acceptance Rate\n\n## Testing\n- Competing financial goals\n- Multiple scenarios\n- Market stress\n- Housing decisions\n- Retirement planning\n- Low liquidity\n\n## Future Enhancements\n- AI confidence calibration\n- Personalized weighting\n- Adaptive scoring\n- Multi-household comparison\n",
+  "references": []
+}

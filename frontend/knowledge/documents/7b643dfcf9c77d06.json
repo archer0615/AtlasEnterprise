@@ -1,0 +1,99 @@
+{
+  "id": "7b643dfcf9c77d06",
+  "title": "Assumptions Knowledge Base",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/assumptions.md",
+  "sourceHash": "49ab356950ae757ace8829d0ec21cdebc73b5b877f851afa64cc9d4e671dc9ab",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Assumptions Knowledge Base"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "General Principles"
+    },
+    {
+      "level": 1,
+      "text": "Economic Assumptions"
+    },
+    {
+      "level": 2,
+      "text": "Inflation"
+    },
+    {
+      "level": 2,
+      "text": "Interest Rate"
+    },
+    {
+      "level": 2,
+      "text": "Investment Return"
+    },
+    {
+      "level": 1,
+      "text": "Tax Assumptions"
+    },
+    {
+      "level": 1,
+      "text": "Property Assumptions"
+    },
+    {
+      "level": 1,
+      "text": "Loan Assumptions"
+    },
+    {
+      "level": 1,
+      "text": "Cash Flow Assumptions"
+    },
+    {
+      "level": 1,
+      "text": "Retirement Assumptions"
+    },
+    {
+      "level": 1,
+      "text": "Scenario Assumptions"
+    },
+    {
+      "level": 1,
+      "text": "Data Quality Rules"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "AS-001"
+    },
+    {
+      "level": 2,
+      "text": "AS-002"
+    },
+    {
+      "level": 2,
+      "text": "AS-003"
+    },
+    {
+      "level": 2,
+      "text": "AS-004"
+    },
+    {
+      "level": 2,
+      "text": "AS-005"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    }
+  ],
+  "bodyMarkdown": "# Assumptions Knowledge Base\r\n\r\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Purpose\r\n\r\n本文件定義 Project Atlas 所有財務模型、模擬、公式與 Decision Engine\r\n共用的基本假設。\r\n\r\n所有 Engine 均應引用本文件，而非於各模組重複定義。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# General Principles\r\n\r\n-   所有假設皆可版本化。\r\n-   所有假設皆可由使用者覆寫。\r\n-   未提供值時使用系統預設值。\r\n-   Scenario 可建立獨立假設集合。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Economic Assumptions\r\n\r\n## Inflation\r\n\r\n-   General Inflation\r\n-   Housing Inflation\r\n-   Medical Inflation\r\n-   Education Inflation\r\n\r\n預設以年化百分比表示。\r\n\r\n------------------------------------------------------------------------\r\n\r\n## Interest Rate\r\n\r\n包含：\r\n\r\n-   Mortgage Rate\r\n-   Personal Loan Rate\r\n-   Deposit Rate\r\n-   Bond Yield\r\n-   Risk Free Rate\r\n\r\n------------------------------------------------------------------------\r\n\r\n## Investment Return\r\n\r\n依資產類別設定：\r\n\r\n-   Cash\r\n-   Bond\r\n-   Bond ETF\r\n-   Equity ETF\r\n-   Stock\r\n-   REIT\r\n-   Gold\r\n-   Alternative Assets\r\n\r\n所有報酬率均為年化假設。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Tax Assumptions\r\n\r\n-   Income Tax\r\n-   Capital Gain Tax\r\n-   Dividend Tax\r\n-   Property Tax\r\n-   Transaction Tax\r\n\r\n依國家/地區可替換。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Property Assumptions\r\n\r\n-   Annual Appreciation\r\n-   Rental Yield\r\n-   Vacancy Rate\r\n-   Maintenance Cost\r\n-   Transaction Cost\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Loan Assumptions\r\n\r\n-   Maximum LTV\r\n-   Default Mortgage Term\r\n-   Early Repayment Cost\r\n-   Refinancing Cost\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Cash Flow Assumptions\r\n\r\n-   Salary Growth\r\n-   Bonus Growth\r\n-   Living Expense Growth\r\n-   Passive Income Growth\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Retirement Assumptions\r\n\r\n-   Retirement Age\r\n-   Life Expectancy\r\n-   Safe Withdrawal Rate\r\n-   Pension Income\r\n-   Healthcare Cost Growth\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Scenario Assumptions\r\n\r\n每個 Scenario 可覆寫：\r\n\r\n-   Inflation\r\n-   Return\r\n-   Interest Rate\r\n-   Salary\r\n-   Expense\r\n-   Property Price\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Data Quality Rules\r\n\r\n假設值需具備：\r\n\r\n-   Source\r\n-   Effective Date\r\n-   Version\r\n-   Owner\r\n-   Last Review Date\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Business Rules\r\n\r\n## AS-001\r\n\r\n所有模擬均需記錄所使用的假設版本。\r\n\r\n## AS-002\r\n\r\n不同 Scenario 不得共用可變假設物件。\r\n\r\n## AS-003\r\n\r\n任何重大假設變更皆需重新計算 KPI。\r\n\r\n## AS-004\r\n\r\n所有公式不得直接寫死數值。\r\n\r\n## AS-005\r\n\r\n預設值僅供初始化，不代表最佳建議。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Domain Events\r\n\r\n-   AssumptionCreated\r\n-   AssumptionUpdated\r\n-   AssumptionVersionPublished\r\n-   ScenarioAssumptionChanged\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Related Documents\r\n\r\n-   docs/specification/03-Formula.md\r\n-   docs/08-CashFlowEngine.md\r\n-   docs/09-InvestmentEngine.md\r\n-   docs/10-LoanEngine.md\r\n-   docs/12-RetirementEngine.md\r\n-   docs/13-DecisionEngine.md\r\n",
+  "references": []
+}

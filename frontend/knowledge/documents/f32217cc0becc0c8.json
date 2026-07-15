@@ -1,0 +1,67 @@
+{
+  "id": "f32217cc0becc0c8",
+  "title": "knowledge/rule-expression-language.md",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/rule-expression-language.md",
+  "sourceHash": "2899abef9bceaf854e8928865f57b1f6503186f608bc19998835e96a71280530",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/rule-expression-language.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Rule Expression Language (AREL)"
+    },
+    {
+      "level": 2,
+      "text": "1. Purpose"
+    },
+    {
+      "level": 2,
+      "text": "2. Design Principles"
+    },
+    {
+      "level": 2,
+      "text": "3. Rule Structure"
+    },
+    {
+      "level": 2,
+      "text": "4. Supported Data Sources"
+    },
+    {
+      "level": 2,
+      "text": "5. Operators"
+    },
+    {
+      "level": 2,
+      "text": "6. Functions"
+    },
+    {
+      "level": 2,
+      "text": "7. Actions"
+    },
+    {
+      "level": 2,
+      "text": "8. Rule Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "9. Example Rules"
+    },
+    {
+      "level": 2,
+      "text": "10. Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "11. Versioning"
+    },
+    {
+      "level": 2,
+      "text": "12. Governance"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/rule-expression-language.md\n\n# Atlas Rule Expression Language (AREL)\nVersion: 1.0\nStatus: Canonical Specification\n\n## 1. Purpose\n\nAREL (Atlas Rule Expression Language) is the domain-specific language used to define Decision Engine rules without embedding business logic in application code.\n\nGoals:\n- Human-readable\n- Machine-readable\n- Deterministic\n- Versioned\n- Testable\n\n---\n\n## 2. Design Principles\n\n- Declarative over imperative\n- Immutable rule definitions\n- No side effects\n- Strong typing\n- Explainable evaluation\n\n---\n\n## 3. Rule Structure\n\nEvery rule contains:\n\n- RuleId\n- Name\n- Category\n- Priority\n- Condition\n- Action\n- Message\n- Version\n\nExample:\n\nRULE DR-CF-001\nWHEN KPI.MonthlyCashFlow > 0\nTHEN SCORE +5\nMESSAGE \"Positive monthly cash flow.\"\n\n---\n\n## 4. Supported Data Sources\n\n- KPI.*\n- Ratio.*\n- Risk.*\n- Goal.*\n- Portfolio.*\n- Loan.*\n- CashFlow.*\n- Assumption.*\n- Scenario.*\n\n---\n\n## 5. Operators\n\nComparison:\n- ==\n- !=\n- >\n- >=\n- <\n- <=\n\nLogical:\n- AND\n- OR\n- NOT\n\nMembership:\n- IN\n- NOT IN\n\nRange:\n- BETWEEN\n\nNull:\n- IS NULL\n- IS NOT NULL\n\n---\n\n## 6. Functions\n\nNumeric:\n- MIN()\n- MAX()\n- ABS()\n- ROUND()\n\nCollection:\n- COUNT()\n- SUM()\n- AVG()\n\nUtility:\n- EXISTS()\n- ANY()\n- ALL()\n\nDomain:\n- IPS_COMPLIANT()\n- GOAL_COMPLETED()\n- WITHIN_TOLERANCE()\n\n---\n\n## 7. Actions\n\nSupported actions:\n\n- SCORE +n\n- SCORE -n\n- REJECT\n- WARNING\n- ADVISORY\n- ADD_REASON(code)\n- ADD_TAG(tag)\n\nMultiple actions may be executed.\n\n---\n\n## 8. Rule Evaluation\n\nOrder:\n\n1. Validate syntax\n2. Resolve references\n3. Evaluate condition\n4. Execute actions\n5. Record evidence\n6. Persist audit trail\n\n---\n\n## 9. Example Rules\n\nRULE DR-DT-001\nWHEN Ratio.DTI > Assumption.MaxDTI\nTHEN SCORE -5\nADD_REASON(\"DEBT001\")\n\nRULE DR-LQ-001\nWHEN Ratio.EmergencyFundMonths < 6\nTHEN WARNING\nADD_REASON(\"LIQ001\")\n\nRULE DR-RK-001\nWHEN Risk.OverallScore >= 80\nTHEN REJECT\nADD_REASON(\"RISK001\")\n\n---\n\n## 10. Validation Rules\n\n- Unknown identifiers are invalid.\n- Circular references prohibited.\n- Every rule requires a unique RuleId.\n- Type mismatches are compile-time errors.\n\n---\n\n## 11. Versioning\n\nEach execution records:\n\n- AREL Version\n- Rule Version\n- Formula Version\n- Assumption Version\n\n---\n\n## 12. Governance\n\n- Rules are stored outside application code.\n- Changes require regression testing.\n- Deprecated rules remain available for historical replay.\n",
+  "references": []
+}

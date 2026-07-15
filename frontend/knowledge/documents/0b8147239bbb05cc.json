@@ -1,0 +1,135 @@
+{
+  "id": "0b8147239bbb05cc",
+  "title": "Loan Decision Rule Catalog",
+  "category": "rule",
+  "canonicalPath": "knowledge/rule/loan-decision-rule-catalog.md",
+  "sourceHash": "dd47253e52b72a2d194027a90ef7068ac0136e30205897e596f6f2d6b44ace73",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Loan Decision Rule Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    },
+    {
+      "level": 2,
+      "text": "Rule Categories"
+    },
+    {
+      "level": 3,
+      "text": "LDR-001 Liquidity Protection (Critical)"
+    },
+    {
+      "level": 3,
+      "text": "LDR-002 Emergency Fund Preservation (Critical)"
+    },
+    {
+      "level": 3,
+      "text": "LDR-003 Affordability Validation (Critical)"
+    },
+    {
+      "level": 3,
+      "text": "LDR-004 Debt Capacity"
+    },
+    {
+      "level": 3,
+      "text": "LDR-005 Cash Flow Sustainability"
+    },
+    {
+      "level": 3,
+      "text": "LDR-006 Interest Rate Stress Test"
+    },
+    {
+      "level": 3,
+      "text": "LDR-007 Income Shock Test"
+    },
+    {
+      "level": 3,
+      "text": "LDR-008 Goal Protection"
+    },
+    {
+      "level": 3,
+      "text": "LDR-009 Early Repayment Optimization"
+    },
+    {
+      "level": 3,
+      "text": "LDR-010 Refinancing Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Decision Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Decision Sequence"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Loan Decision Rule Evaluation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Loan Decision Rule Catalog\n\nVersion: 1.0\n\n## Purpose\nDefines the canonical business rules used by Project Atlas to evaluate borrowing decisions, refinancing, early repayment, and debt restructuring.\n\n## Scope\nSupported decisions:\n- New mortgage\n- Home upgrade loan\n- Personal loan\n- Mortgage refinancing\n- Equity release\n- Early repayment\n- Debt consolidation\n\n## Rule Categories\n\n### LDR-001 Liquidity Protection (Critical)\nPost-loan liquidity must remain above the minimum threshold defined by the Liquidity Framework.\n\n### LDR-002 Emergency Fund Preservation (Critical)\nEmergency fund coverage must remain compliant after loan funding.\n\n### LDR-003 Affordability Validation (Critical)\nMonthly debt obligations must satisfy affordability limits defined in the IPS.\n\n### LDR-004 Debt Capacity\nTotal borrowing must not exceed approved Risk Capacity and debt policies.\n\n### LDR-005 Cash Flow Sustainability\nProjected free cash flow must remain positive under baseline assumptions.\n\n### LDR-006 Interest Rate Stress Test\nValidate repayment ability under configurable interest-rate increase scenarios.\n\n### LDR-007 Income Shock Test\nEvaluate repayment ability under temporary income reduction scenarios.\n\n### LDR-008 Goal Protection\nLoan decisions must not compromise mandatory financial goals.\n\n### LDR-009 Early Repayment Optimization\nRecommend early repayment only when the financial benefit exceeds alternative capital allocation opportunities.\n\n### LDR-010 Refinancing Evaluation\nRecommend refinancing when lifetime borrowing cost is reduced after fees and constraints.\n\n## Decision Inputs\n- Loan amount\n- Interest rate\n- Loan term\n- Monthly payment\n- Household income\n- Free cash flow\n- Existing liabilities\n- Net Worth\n- Financial Health Score\n- Liquidity Score\n- Risk Capacity\n- Market assumptions\n\n## Outputs\n- Recommended action\n- Loan affordability result\n- Stress-test result\n- Monthly cash-flow impact\n- Net-worth impact\n- Risk summary\n- Explainability report\n\n## Decision Sequence\n1. Validate hard constraints.\n2. Verify affordability.\n3. Validate liquidity.\n4. Execute stress tests.\n5. Compare alternatives.\n6. Rank recommendations.\n7. Produce explainable output.\n\n## Business Rules\n- Hard constraints override optimization.\n- Mandatory goals have priority over discretionary borrowing.\n- Refinancing requires positive lifetime benefit.\n- All recommendations are reproducible from identical inputs.\n\n## Explainability\nEach decision records:\n- Triggered rules\n- Failed rules\n- Input assumptions\n- Constraint evaluation\n- Alternative options\n- Expected financial impact\n\n## KPIs\n- Debt-to-Income Ratio\n- Debt Service Coverage Ratio\n- Loan-to-Value Ratio\n- Monthly Debt Burden\n- Interest Cost Savings\n- Loan Sustainability Score\n\n## Integration\nConsumes:\n- Loan Engine\n- Cash Flow Engine\n- Liquidity Framework\n- Net Worth Framework\n- Financial Ratio Framework\n- Risk Budget Framework\n- Financial Projection Framework\n\nProduces:\n- Decision Engine\n- House Decision Framework\n- Dashboard\n- Scenario Engine\n\n## Testing\n- First mortgage\n- Mortgage refinance\n- Personal loan\n- Early repayment\n- Debt consolidation\n- High interest-rate environment\n- Income reduction\n\n## Future Enhancements\n- Tax-aware loan optimization\n- AI borrowing recommendations\n- Multi-loan optimization\n- Country-specific lending rules\n\n## Phase 2 Executable Specification\n\n### Loan Decision Rule Evaluation Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | LoanDecisionEvaluation |\n| Identity | evaluationId |\n| Scope | tenantId, householdId, scenarioId |\n| Inputs | loanRequest, borrowerProfile, liquiditySnapshot, cashFlowProjection, marketAssumptionSet, policyVersion |\n| Outputs | decision, failedRules, triggeredRules, rankedAlternatives, explainabilityReport |\n| Determinism | Same inputs and rule versions must produce the same decision result. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| EvaluateLoanDecisionRules | Evaluate all catalog rules for a loan request. |\n| RejectLoanDecision | Persist hard-constraint rejection and failed rules. |\n| EscalateLoanDecisionReview | Route borderline results to manual review. |\n| RankLoanAlternatives | Rank repayment, refinance, and restructuring alternatives. |\n| ReplayLoanDecisionEvaluation | Rebuild the decision result from stored inputs and rule versions. |\n\n### Domain Events\n\n| Event | Trigger |\n|---|---|\n| LoanDecisionRulesEvaluated | Rule execution completes. |\n| LoanDecisionRejected | Critical rule failure blocks the decision. |\n| LoanDecisionReviewEscalated | Result requires manual review. |\n| LoanAlternativeRanked | Alternatives are scored and ordered. |\n| LoanDecisionEvaluationReplayed | Historical decision is reproduced. |\n\n### Validation Rules\n\n1. Every evaluation must reference a policyVersion, marketAssumptionSet, and scenarioId.\n2. Critical rules must short-circuit approval but still record all evaluated rule outcomes.\n3. Refinancing recommendations must include lifetime cost delta after fees.\n4. Early repayment recommendations must compare liquidity impact and opportunity cost.\n5. Replay must fail if any referenced rule version or assumption set is missing.\n\n### API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/loan-decisions/evaluations | POST | Execute loan decision rule evaluation. |\n| /api/loan-decisions/evaluations/{evaluationId} | GET | Retrieve decision result and explainability output. |\n| /api/loan-decisions/evaluations/{evaluationId}/replay | POST | Replay a historical evaluation. |\n| /api/loan-decisions/evaluations/{evaluationId}/alternatives | GET | Retrieve ranked alternatives. |\n\n### Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Liquidity below threshold | Decision rejected with LDR-001 failure. |\n| Refinance benefit after fees is positive | Refinance alternative is eligible. |\n| Income shock fails affordability | Stress-test failure is recorded. |\n| Mandatory goal is compromised | Decision rejected or escalated. |\n| Replay with identical inputs | Same decision, scores, and failed rules are produced. |\n\n### Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

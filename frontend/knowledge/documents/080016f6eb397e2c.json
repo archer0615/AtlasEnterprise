@@ -1,0 +1,159 @@
+{
+  "id": "080016f6eb397e2c",
+  "title": "Financial Projection Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/financial-projection-framework.md",
+  "sourceHash": "3b406a40aeceb5ce4210f6c2913803ad791bc0bc9073cbd0c7247a42fe9c98a9",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Financial Projection Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Projection Principles"
+    },
+    {
+      "level": 2,
+      "text": "Projection Scope"
+    },
+    {
+      "level": 3,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 3,
+      "text": "Assets"
+    },
+    {
+      "level": 3,
+      "text": "Liabilities"
+    },
+    {
+      "level": 3,
+      "text": "Investment"
+    },
+    {
+      "level": 3,
+      "text": "Retirement"
+    },
+    {
+      "level": 3,
+      "text": "Housing"
+    },
+    {
+      "level": 2,
+      "text": "Projection Horizon"
+    },
+    {
+      "level": 2,
+      "text": "Required Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Projection Engine Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Projection Snapshot Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Projection Snapshot Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Financial Projection Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise standard for projecting future financial outcomes across all Project Atlas engines. This framework provides deterministic, explainable projections for cash flow, assets, liabilities, investments, retirement, and major life decisions.\n\n## Objectives\n- Standardize projection methodologies.\n- Ensure consistency across all engines.\n- Support scenario comparison.\n- Produce auditable and explainable forecasts.\n\n## Projection Principles\n- Deterministic by default.\n- Scenario-driven when assumptions differ.\n- Time-series based.\n- Assumption-version controlled.\n- Fully reproducible.\n\n## Projection Scope\n### Cash Flow\n- Income\n- Expenses\n- Savings\n- Free Cash Flow\n\n### Assets\n- Cash\n- Investment Portfolio\n- Property\n- Retirement Assets\n\n### Liabilities\n- Mortgage\n- Personal Loans\n- Consumer Debt\n\n### Investment\n- Portfolio Growth\n- Expected Return\n- Dividend Income\n- Rebalancing Effects\n\n### Retirement\n- Retirement Assets\n- Withdrawal Schedule\n- Portfolio Longevity\n\n### Housing\n- Property Appreciation\n- Mortgage Amortization\n- Upgrade Scenarios\n\n## Projection Horizon\nSupported periods:\n- Monthly\n- Quarterly\n- Yearly\n\nSupported durations:\n- 1 year\n- 5 years\n- 10 years\n- 20 years\n- Lifetime\n\n## Required Inputs\n- Market Assumptions\n- Inflation Assumptions\n- Salary Growth\n- Investment Returns\n- Interest Rates\n- Tax Rules\n- Life Stage\n- Goal Funding\n- Cash Flow\n\n## Projection Engine Workflow\n1. Load assumptions.\n2. Validate inputs.\n3. Generate baseline forecast.\n4. Apply scenario adjustments.\n5. Execute business rules.\n6. Calculate KPIs.\n7. Produce explainability report.\n\n## Outputs\n- Projected Net Worth\n- Cash Flow Forecast\n- Asset Growth\n- Debt Reduction\n- Retirement Readiness\n- Goal Funding Forecast\n- Liquidity Forecast\n\n## Business Rules\n- All projections reference an assumption version.\n- Historical projections remain immutable.\n- Scenario projections never overwrite baseline projections.\n- Projection timestamps are recorded.\n\n## Explainability\nEvery projection includes:\n- Assumptions used\n- Formula references\n- Triggered business rules\n- Confidence level\n- Scenario differences\n\n## Integration\nConsumes:\n- Scenario Framework\n- Net Worth Framework\n- Goal Funding Framework\n- Liquidity Framework\n- Market Assumptions\n- Financial Ratio Framework\n\nProduces:\n- Decision Engine\n- Dashboard\n- Retirement Engine\n- House Decision Framework\n- Scenario Engine\n\n## KPIs\n- Forecast Accuracy\n- Projection Coverage\n- Scenario Variance\n- Goal Success Probability\n- Forecast Confidence\n\n## Testing\n- Stable economy\n- High inflation\n- Market crash\n- Salary increase\n- Early retirement\n- Home upgrade\n\n## Future Enhancements\n- Monte Carlo simulation\n- AI-assisted forecasting\n- Real-time market integration\n- Household projection models\n\n## Phase 2 Executable Specification\n\n### Projection Snapshot Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| ProjectionId | Yes | Stable projection identifier |\n| HouseholdId | Yes | Owning household |\n| ScenarioId | No | Scenario reference when applicable |\n| ProjectionType | Yes | Baseline, Alternative, Stress, Retirement, Housing, Goal |\n| Horizon | Yes | Monthly, Quarterly, Yearly, Lifetime |\n| StartDate | Yes | Projection start date |\n| EndDate | Yes | Projection end date |\n| AssumptionVersionSet | Yes | Assumptions used |\n| FormulaVersionSet | Yes | Formulas used |\n| SourceSnapshotId | Yes | Source data snapshot |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| GenerateFinancialProjection | ProjectionApplicationService | FinancialProjectionGenerated |\n| GenerateScenarioProjection | ScenarioApplicationService | ScenarioProjectionGenerated |\n| ReplayFinancialProjection | AdministrationApplicationService | FinancialProjectionReplayed |\n| ArchiveFinancialProjection | ProjectionApplicationService | FinancialProjectionArchived |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| FinancialProjectionGenerated | Baseline projection created | Dashboard, Decision Engine |\n| ScenarioProjectionGenerated | Scenario projection created | Scenario Engine, Recommendation Engine |\n| ProjectionVarianceDetected | Projection differs materially from baseline | Alert, Decision Review |\n| FinancialProjectionReplayed | Historical projection reproduced | Audit, Compliance |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FPF-VR-001 | Every projection must reference assumption and formula versions. | Reject generation |\n| FPF-VR-002 | Scenario projection must not overwrite baseline projection. | Reject write |\n| FPF-VR-003 | Projection horizon must be supported by requested projection type. | Reject command |\n| FPF-VR-004 | Historical projection snapshots are immutable. | Reject update |\n| FPF-VR-005 | Currency conversion must be explicit when mixed currencies exist. | Reject generation |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/projections | POST | Generate financial projection | Projection:Evaluate |\n| /api/v1/projections/{projectionId} | GET | Retrieve projection | Projection:Read |\n| /api/v1/projections/{projectionId}/replay | POST | Replay historical projection | Audit:Replay |\n| /api/v1/scenarios/{scenarioId}/projection | POST | Generate scenario projection | Scenario:Evaluate |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing assumption version | Projection is rejected |\n| Scenario projection | Baseline remains unchanged |\n| High inflation scenario | Projection variance is emitted |\n| Historical replay | Original projection values reproduce |\n| Mixed currency inputs | Explicit conversion rule is required |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Projection Snapshot Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| ProjectionId | Yes | Stable projection identifier |\n| HouseholdId | Yes | Owning household |\n| ScenarioId | No | Scenario reference when applicable |\n| ProjectionType | Yes | Baseline, Alternative, Stress, Retirement, Housing, Goal |\n| Horizon | Yes | Monthly, Quarterly, Yearly, Lifetime |\n| StartDate | Yes | Projection start date |\n| EndDate | Yes | Projection end date |\n| AssumptionVersionSet | Yes | Assumptions used |\n| FormulaVersionSet | Yes | Formulas used |\n| SourceSnapshotId | Yes | Source data snapshot |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| GenerateFinancialProjection | ProjectionApplicationService | FinancialProjectionGenerated |\n| GenerateScenarioProjection | ScenarioApplicationService | ScenarioProjectionGenerated |\n| ReplayFinancialProjection | AdministrationApplicationService | FinancialProjectionReplayed |\n| ArchiveFinancialProjection | ProjectionApplicationService | FinancialProjectionArchived |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| FinancialProjectionGenerated | Baseline projection created | Dashboard, Decision Engine |\n| ScenarioProjectionGenerated | Scenario projection created | Scenario Engine, Recommendation Engine |\n| ProjectionVarianceDetected | Projection differs materially from baseline | Alert, Decision Review |\n| FinancialProjectionReplayed | Historical projection reproduced | Audit, Compliance |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FPF-VR-001 | Every projection must reference assumption and formula versions. | Reject generation |\n| FPF-VR-002 | Scenario projection must not overwrite baseline projection. | Reject write |\n| FPF-VR-003 | Projection horizon must be supported by requested projection type. | Reject command |\n| FPF-VR-004 | Historical projection snapshots are immutable. | Reject update |\n| FPF-VR-005 | Currency conversion must be explicit when mixed currencies exist. | Reject generation |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/projections | POST | Generate financial projection | Projection:Evaluate |\n| /api/v1/projections/{projectionId} | GET | Retrieve projection | Projection:Read |\n| /api/v1/projections/{projectionId}/replay | POST | Replay historical projection | Audit:Replay |\n| /api/v1/scenarios/{scenarioId}/projection | POST | Generate scenario projection | Scenario:Evaluate |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing assumption version | Projection is rejected |\n| Scenario projection | Baseline remains unchanged |\n| High inflation scenario | Projection variance is emitted |\n| Historical replay | Original projection values reproduce |\n| Mixed currency inputs | Explicit conversion rule is required |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

@@ -1,0 +1,67 @@
+{
+  "id": "c00f1d156c60923e",
+  "title": "Asset Allocation Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/asset-allocation-framework.md",
+  "sourceHash": "821ecba0aa87ae48cc845efad450b55500c875c769cb54c372ddeeccecbc72ce",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Asset Allocation Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Layers"
+    },
+    {
+      "level": 2,
+      "text": "Supported Asset Classes"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Process"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Decision Outputs"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Asset Allocation Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the strategic and tactical asset allocation framework for Project Atlas.\n\n## Objectives\n- Maximize long-term risk-adjusted returns.\n- Maintain alignment with the Investment Policy Statement (IPS).\n- Support explainable and repeatable allocation decisions.\n- Integrate with Goal Prioritization, Financial Health Score, and Decision Engine.\n\n## Allocation Layers\n1. Strategic Asset Allocation (SAA)\n2. Tactical Asset Allocation (TAA)\n3. Cash Management Layer\n4. Liquidity Reserve Layer\n\n## Supported Asset Classes\n- Cash & Cash Equivalents\n- Domestic Equities\n- International Equities\n- Investment Grade Bonds\n- Government Bonds\n- REITs\n- Alternative Assets\n- Structured Products\n- Other IPS-approved assets\n\n## Allocation Inputs\n- Life Stage\n- Financial Health Score\n- Risk Capacity\n- Risk Tolerance\n- Goal Timeline\n- Liquidity Requirement\n- Existing Portfolio\n- Market Assumptions\n\n## Allocation Constraints\n- IPS minimum/maximum ranges\n- Required emergency reserve\n- Regulatory restrictions\n- User-defined exclusions\n- Concentration limits\n- Currency exposure limits\n\n## Allocation Process\n1. Determine investor profile.\n2. Estimate risk capacity.\n3. Determine target allocation.\n4. Validate constraints.\n5. Compare current allocation.\n6. Generate rebalance recommendation.\n7. Produce explainable decision output.\n\n## Business Rules\n- Strategic allocation changes infrequently.\n- Tactical adjustments must remain within IPS limits.\n- Cash required within 12 months is excluded from growth allocation.\n- High-priority goals may reserve assets before portfolio optimization.\n\n## Decision Outputs\n- Target allocation\n- Current allocation\n- Allocation drift\n- Recommended actions\n- Expected risk profile\n- Supporting business rules\n\n## KPIs\n- Allocation Drift\n- Portfolio Volatility\n- Expected Return\n- Diversification Score\n- Liquidity Coverage\n- Goal Funding Ratio\n\n## Integration\nConsumes:\n- Life Stage Model\n- Market Assumptions\n- Risk Capacity Model\n\nProduces:\n- Rebalancing Framework\n- Withdrawal Strategy\n- Scenario Engine\n- Decision Engine\n\n## Testing\n- New investor\n- Near retirement\n- Large cash inflow\n- Market crash\n- Multiple competing goals\n- Constraint violations\n\n## Future Enhancements\n- Black-Litterman optimization\n- Risk parity portfolios\n- Tax-aware allocation\n- Household optimization\n- AI-assisted allocation recommendations\n",
+  "references": []
+}

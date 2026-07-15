@@ -1,0 +1,87 @@
+{
+  "id": "bae76cb48a31a65c",
+  "title": "Decision Audit Framework",
+  "category": "security",
+  "canonicalPath": "knowledge/security/decision-audit-framework.md",
+  "sourceHash": "7302442ff0c398411c7cb8c9f2d4dc80febe6098a899db613c1e255f3fda2a40",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Audit Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Audit Principles"
+    },
+    {
+      "level": 2,
+      "text": "Audit Scope"
+    },
+    {
+      "level": 2,
+      "text": "Audit Record Structure"
+    },
+    {
+      "level": 2,
+      "text": "Trace Components"
+    },
+    {
+      "level": 3,
+      "text": "Input Trace"
+    },
+    {
+      "level": 3,
+      "text": "Rule Trace"
+    },
+    {
+      "level": 3,
+      "text": "Formula Trace"
+    },
+    {
+      "level": 3,
+      "text": "Scenario Trace"
+    },
+    {
+      "level": 3,
+      "text": "Recommendation Trace"
+    },
+    {
+      "level": 2,
+      "text": "Audit Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Decision Audit Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise audit model for every decision produced by Project Atlas. The framework guarantees complete traceability from input data through rules, calculations, scenarios, and final recommendations.\n\n## Objectives\n- Provide financial-grade auditability.\n- Enable deterministic replay of decisions.\n- Support regulatory and governance requirements.\n- Improve explainability and troubleshooting.\n\n## Audit Principles\n- Immutable audit records.\n- Every decision has a unique Audit ID.\n- Every recommendation is reproducible.\n- All rule evaluations are recorded.\n- Historical audit records are never modified.\n\n## Audit Scope\nApplies to:\n- Decision Engine\n- Scenario Engine\n- Investment Engine\n- Loan Engine\n- Retirement Engine\n- House Decision Engine\n- Recommendation Engine\n\n## Audit Record Structure\nEach audit record contains:\n- Audit ID\n- Decision ID\n- Timestamp\n- User / Household ID\n- Engine\n- Decision Type\n- Scenario ID\n- Assumption Version\n- Rule Version\n- Formula Version\n\n## Trace Components\n\n### Input Trace\n- Input entities\n- Source systems\n- Snapshot identifiers\n\n### Rule Trace\n- Rules evaluated\n- Rules passed\n- Rules failed\n- Rule priority\n\n### Formula Trace\n- Formula IDs\n- Inputs\n- Outputs\n- Intermediate values\n\n### Scenario Trace\n- Baseline scenario\n- Compared scenarios\n- Ranking results\n\n### Recommendation Trace\n- Final recommendation\n- Alternatives considered\n- Priority score\n- Confidence score\n\n## Audit Lifecycle\nCreated\n→ Validated\n→ Stored\n→ Queried\n→ Archived\n\n## Business Rules\n- Audit records are append-only.\n- Every engine must emit audit events.\n- Audit timestamps use UTC.\n- Formula and assumption versions are mandatory.\n- Audit replay must reproduce identical outcomes.\n\n## Explainability\nEvery audit provides:\n- Decision rationale\n- Supporting KPIs\n- Triggered constraints\n- Business rule chain\n- Formula references\n- Scenario differences\n\n## Integration\nConsumes:\n- Decision Metrics Framework\n- Rule Engine\n- Explainability Framework\n- Scenario Comparison Framework\n- Financial Projection Framework\n\nProduces:\n- Audit Repository\n- Compliance Reports\n- Decision History\n- Executive Reporting\n\n## KPIs\n- Audit completeness\n- Replay success rate\n- Missing trace count\n- Average audit generation time\n- Decision reproducibility rate\n\n## Testing\n- Replay historical decisions\n- Rule version changes\n- Formula version changes\n- Scenario comparison\n- Concurrent decision generation\n- Large audit volumes\n\n## Future Enhancements\n- Cryptographic audit signatures\n- Tamper detection\n- Distributed audit storage\n- Regulatory export formats\n",
+  "references": []
+}

@@ -1,0 +1,95 @@
+{
+  "id": "d78c68e7b334ad33",
+  "title": "Business Calendar Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/business-calendar-framework.md",
+  "sourceHash": "77afeea837c405188b4f5e9cfbf946ad86459449e71bcb2d2684364d410a1644",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Business Calendar Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Calendar Principles"
+    },
+    {
+      "level": 2,
+      "text": "Calendar Domains"
+    },
+    {
+      "level": 3,
+      "text": "Civil Calendar"
+    },
+    {
+      "level": 3,
+      "text": "Business Calendar"
+    },
+    {
+      "level": 3,
+      "text": "Banking Calendar"
+    },
+    {
+      "level": 3,
+      "text": "Investment Calendar"
+    },
+    {
+      "level": 3,
+      "text": "Tax Calendar"
+    },
+    {
+      "level": 3,
+      "text": "Financial Planning Calendar"
+    },
+    {
+      "level": 2,
+      "text": "Event Types"
+    },
+    {
+      "level": 2,
+      "text": "Scheduling Rules"
+    },
+    {
+      "level": 2,
+      "text": "Date Adjustment Rules"
+    },
+    {
+      "level": 2,
+      "text": "Metadata"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Business Calendar Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise business calendar used by Project Atlas. It provides a single source of truth for all date, time, scheduling and business-day calculations across every engine.\n\n## Objectives\n- Standardize business-day calculations.\n- Support recurring financial events.\n- Enable deterministic scheduling.\n- Ensure regional calendar extensibility.\n\n## Calendar Principles\n- Calendar rules are versioned.\n- Historical calendars are immutable.\n- Regional calendars are supported.\n- Time-zone aware processing is mandatory.\n\n## Calendar Domains\n\n### Civil Calendar\n- Calendar date\n- Time zone\n- Leap year\n- Daylight saving support\n\n### Business Calendar\n- Working days\n- Weekends\n- Public holidays\n- Company holidays\n\n### Banking Calendar\n- Bank business days\n- Settlement days\n- Loan payment dates\n- Deposit maturity dates\n\n### Investment Calendar\n- Trading days\n- Market holidays\n- Dividend dates\n- Distribution dates\n- Rebalancing schedule\n\n### Tax Calendar\n- Filing periods\n- Tax payment deadlines\n- Estimated tax events\n\n### Financial Planning Calendar\n- Monthly review\n- Quarterly review\n- Annual review\n- IPS review\n- Retirement review\n\n## Event Types\n- Salary\n- Bonus\n- Mortgage payment\n- Insurance premium\n- Investment contribution\n- Dividend\n- Tax payment\n- Goal review\n- Execution milestone\n- Notification\n\n## Scheduling Rules\n- One-time\n- Daily\n- Weekly\n- Monthly\n- Quarterly\n- Semi-Annual\n- Annual\n- Event-driven\n\n## Date Adjustment Rules\n- Previous business day\n- Next business day\n- Nearest business day\n- End of month\n- Beginning of month\n\n## Metadata\nEach calendar event includes:\n- Event ID\n- Event Type\n- Time Zone\n- Schedule\n- Business-day rule\n- Region\n- Effective period\n\n## Business Rules\n- Business-day adjustments are deterministic.\n- Holiday calendars are region-specific.\n- Recurring events retain original recurrence definitions.\n- Historical schedules never change after execution.\n\n## Explainability\nEach scheduled event records:\n- Calendar version\n- Adjustment rule\n- Trigger reason\n- Final execution date\n\n## Integration\nConsumes:\n- System Configuration Framework\n- User Preference Framework\n\nProduces:\n- Cash Flow Engine\n- Investment Engine\n- Loan Engine\n- Goal Review Framework\n- Execution Plan Framework\n- Notification Framework\n\n## KPIs\n- Schedule accuracy\n- Missed event rate\n- Calendar coverage\n- Holiday adjustment count\n\n## Testing\n- Leap years\n- Month-end handling\n- Consecutive holidays\n- Regional calendars\n- Time-zone changes\n- Business-day adjustments\n\n## Future Enhancements\n- Exchange-specific calendars\n- Multi-country support\n- Calendar synchronization\n- AI scheduling optimization\n",
+  "references": []
+}

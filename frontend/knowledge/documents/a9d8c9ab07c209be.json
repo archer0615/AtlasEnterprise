@@ -1,0 +1,743 @@
+{
+  "id": "a9d8c9ab07c209be",
+  "title": "Goal Metrics Overview",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-metrics.md",
+  "sourceHash": "2149e2a42c05fe30132d3fd1eb247254437645e1ef74a164284519abe015c53a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Metrics Overview"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Business Meaning"
+    },
+    {
+      "level": 2,
+      "text": "Metric Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Metric Ownership"
+    },
+    {
+      "level": 2,
+      "text": "Metric Categories"
+    },
+    {
+      "level": 2,
+      "text": "Metric Collection Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Metric Calculation Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Metric Refresh Policy"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Goal"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Milestone"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Task"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Scenario"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Portfolio"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with CashFlow"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Notification"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Dashboard"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with User"
+    },
+    {
+      "level": 1,
+      "text": "Metric Categories"
+    },
+    {
+      "level": 2,
+      "text": "Progress Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Financial Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Performance Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Risk Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Schedule Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Completion Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Forecast Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Health Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Priority Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Quality Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Business Value Metrics"
+    },
+    {
+      "level": 1,
+      "text": "Metric Definitions"
+    },
+    {
+      "level": 2,
+      "text": "OverallProgress"
+    },
+    {
+      "level": 2,
+      "text": "FinancialProgress"
+    },
+    {
+      "level": 2,
+      "text": "BudgetVariance"
+    },
+    {
+      "level": 2,
+      "text": "ScheduleVariance"
+    },
+    {
+      "level": 2,
+      "text": "ForecastCompletion"
+    },
+    {
+      "level": 2,
+      "text": "HealthScore"
+    },
+    {
+      "level": 2,
+      "text": "RiskScore"
+    },
+    {
+      "level": 2,
+      "text": "ConfidenceScore"
+    },
+    {
+      "level": 2,
+      "text": "CompletionProbability"
+    },
+    {
+      "level": 2,
+      "text": "PriorityScore"
+    },
+    {
+      "level": 2,
+      "text": "BusinessImpact"
+    },
+    {
+      "level": 2,
+      "text": "ROI"
+    },
+    {
+      "level": 1,
+      "text": "Calculation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Formula Engine"
+    },
+    {
+      "level": 2,
+      "text": "Aggregation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Weighted Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Rolling Window"
+    },
+    {
+      "level": 2,
+      "text": "Historical Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Trend Analysis"
+    },
+    {
+      "level": 2,
+      "text": "Forecast Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Benchmark Comparison"
+    },
+    {
+      "level": 2,
+      "text": "Normalization"
+    },
+    {
+      "level": 2,
+      "text": "Composite Score"
+    },
+    {
+      "level": 1,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 1,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "States"
+    },
+    {
+      "level": 2,
+      "text": "Transitions"
+    },
+    {
+      "level": 2,
+      "text": "Triggers"
+    },
+    {
+      "level": 2,
+      "text": "Invariant"
+    },
+    {
+      "level": 2,
+      "text": "Illegal Transition"
+    },
+    {
+      "level": 1,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "CreateMetric"
+    },
+    {
+      "level": 2,
+      "text": "UpdateMetric"
+    },
+    {
+      "level": 2,
+      "text": "RefreshMetric"
+    },
+    {
+      "level": 2,
+      "text": "RecalculateMetric"
+    },
+    {
+      "level": 2,
+      "text": "ArchiveMetric"
+    },
+    {
+      "level": 2,
+      "text": "RestoreMetric"
+    },
+    {
+      "level": 2,
+      "text": "DeleteMetric"
+    },
+    {
+      "level": 2,
+      "text": "All related Domain Commands"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "MetricCreated"
+    },
+    {
+      "level": 2,
+      "text": "MetricUpdated"
+    },
+    {
+      "level": 2,
+      "text": "MetricCalculated"
+    },
+    {
+      "level": 2,
+      "text": "MetricRefreshed"
+    },
+    {
+      "level": 2,
+      "text": "MetricArchived"
+    },
+    {
+      "level": 2,
+      "text": "MetricRestored"
+    },
+    {
+      "level": 2,
+      "text": "ThresholdExceeded"
+    },
+    {
+      "level": 2,
+      "text": "All related Events"
+    },
+    {
+      "level": 1,
+      "text": "Repository"
+    },
+    {
+      "level": 2,
+      "text": "Interface"
+    },
+    {
+      "level": 2,
+      "text": "Methods"
+    },
+    {
+      "level": 2,
+      "text": "Queries"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Aggregation"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 2,
+      "text": "Specification"
+    },
+    {
+      "level": 1,
+      "text": "Domain Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "Application Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "REST Endpoints"
+    },
+    {
+      "level": 2,
+      "text": "HTTP Methods"
+    },
+    {
+      "level": 2,
+      "text": "Request"
+    },
+    {
+      "level": 2,
+      "text": "Response"
+    },
+    {
+      "level": 2,
+      "text": "Errors"
+    },
+    {
+      "level": 2,
+      "text": "Pagination"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 1,
+      "text": "DTO"
+    },
+    {
+      "level": 2,
+      "text": "Create DTO"
+    },
+    {
+      "level": 2,
+      "text": "Update DTO"
+    },
+    {
+      "level": 2,
+      "text": "Detail DTO"
+    },
+    {
+      "level": 2,
+      "text": "Summary DTO"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard DTO"
+    },
+    {
+      "level": 2,
+      "text": "Search DTO"
+    },
+    {
+      "level": 2,
+      "text": "Metric Result DTO"
+    },
+    {
+      "level": 2,
+      "text": "Trend DTO"
+    },
+    {
+      "level": 2,
+      "text": "Forecast DTO"
+    },
+    {
+      "level": 1,
+      "text": "Database Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Table"
+    },
+    {
+      "level": 2,
+      "text": "Columns"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Constraints"
+    },
+    {
+      "level": 2,
+      "text": "FK"
+    },
+    {
+      "level": 2,
+      "text": "Unique"
+    },
+    {
+      "level": 2,
+      "text": "Check Constraint"
+    },
+    {
+      "level": 1,
+      "text": "PostgreSQL Schema"
+    },
+    {
+      "level": 1,
+      "text": "EF Core Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Fluent API"
+    },
+    {
+      "level": 2,
+      "text": "Owned Types"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Query Filters"
+    },
+    {
+      "level": 2,
+      "text": "Value Conversion"
+    },
+    {
+      "level": 1,
+      "text": "Cache Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Redis Key"
+    },
+    {
+      "level": 2,
+      "text": "Refresh Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Invalidation"
+    },
+    {
+      "level": 2,
+      "text": "TTL"
+    },
+    {
+      "level": 1,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Authorization"
+    },
+    {
+      "level": 2,
+      "text": "Permissions"
+    },
+    {
+      "level": 2,
+      "text": "Field Level Security"
+    },
+    {
+      "level": 2,
+      "text": "Masking"
+    },
+    {
+      "level": 1,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Metric History"
+    },
+    {
+      "level": 2,
+      "text": "Calculation History"
+    },
+    {
+      "level": 2,
+      "text": "Versioning"
+    },
+    {
+      "level": 2,
+      "text": "Audit Trail"
+    },
+    {
+      "level": 1,
+      "text": "Performance"
+    },
+    {
+      "level": 2,
+      "text": "Bulk Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Parallel Processing"
+    },
+    {
+      "level": 2,
+      "text": "Incremental Refresh"
+    },
+    {
+      "level": 2,
+      "text": "Read Optimization"
+    },
+    {
+      "level": 2,
+      "text": "Caching Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Example JSON"
+    },
+    {
+      "level": 2,
+      "text": "Create"
+    },
+    {
+      "level": 2,
+      "text": "Update"
+    },
+    {
+      "level": 2,
+      "text": "Metric Result"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard"
+    },
+    {
+      "level": 2,
+      "text": "Trend"
+    },
+    {
+      "level": 2,
+      "text": "Forecast"
+    },
+    {
+      "level": 2,
+      "text": "Search"
+    },
+    {
+      "level": 1,
+      "text": "Mermaid"
+    },
+    {
+      "level": 2,
+      "text": "Class Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Sequence Diagram"
+    },
+    {
+      "level": 2,
+      "text": "ER Diagram"
+    },
+    {
+      "level": 2,
+      "text": "State Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Metric Calculation Flow"
+    },
+    {
+      "level": 1,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Unit Test"
+    },
+    {
+      "level": 2,
+      "text": "Integration Test"
+    },
+    {
+      "level": 2,
+      "text": "Calculation Test"
+    },
+    {
+      "level": 2,
+      "text": "Validation Test"
+    },
+    {
+      "level": 2,
+      "text": "Performance Test"
+    },
+    {
+      "level": 2,
+      "text": "Concurrency Test"
+    },
+    {
+      "level": 1,
+      "text": "Edge Cases"
+    },
+    {
+      "level": 1,
+      "text": "Version History | Version | Date | Description |"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification Addendum"
+    },
+    {
+      "level": 3,
+      "text": "Metric Calculation Execution Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification Addendum"
+    },
+    {
+      "level": 3,
+      "text": "Metric Calculation Execution Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Testing Matrix"
+    }
+  ],
+  "bodyMarkdown": "﻿# Goal Metrics\r\nVersion: 1.0\r\nStatus: Enterprise Specification\r\nOwner: Project Atlas\r\nSource of Truth: Atlas Goal Metrics Specification\r\nLast Updated: 2026-07-13\r\n# Goal Metrics Overview\r\n## Purpose\r\nGoal Metrics defines how Atlas names, calculates, validates, stores, refreshes, exposes, audits, and reports metrics for GoalPlan.\r\nIt coordinates GoalPlan metrics with Goal Progress Tracking, Goal Review, Goal Lifecycle, Goal Dependency, Goal Prioritization, Goal Funding, DecisionSession, Recommendation, Scenario, Portfolio, CashFlow, Notification, Dashboard, User, Repository, API, Cache, Security, Permission, and Audit.\r\nIt does not redesign Atlas.\r\nIt does not modify existing Domain ownership.\r\nIt does not create a new Business Concept.\r\nIt does not replace GoalPlan, Goal Progress Tracking, Goal Review, DecisionSession, Recommendation, Scenario, Portfolio, CashFlow, Notification, or Dashboard.\r\n## Business Meaning\r\nGoal Metrics are governed numeric and categorical measurements used to understand GoalPlan progress, financial state, performance, risk, schedule, completion, forecast, health, priority, dependency readiness, quality, and business value.\r\nGoal Metrics support user decision-making, household planning, recommendation ranking, decision quality, scenario comparison, notification triggering, dashboard reporting, audit, and replay.\r\n## Metric Lifecycle\r\nMetric lifecycle starts when a metric definition is created for an approved GoalPlan measurement.\r\nMetric lifecycle continues through creation, update, calculation, refresh, recalculation, threshold evaluation, archival, restoration, and deletion when policy permits.\r\nMetric lifecycle ends when metric is archived, deleted, or superseded by a versioned metric definition.\r\nMetric values are calculated results.\r\nMetric definitions are governed specifications.\r\nHistorical metric values are append-only evidence unless correction policy applies.\r\n## Metric Ownership\r\nGoalPlan owns the metric target.\r\nGoal Metrics owns metric definitions, calculation contract, thresholds, precision, unit, refresh policy, and result storage.\r\nApplication Service owns orchestration.\r\nDomain Service owns domain validation and calculation rule enforcement.\r\nRepository owns persistence and query behavior.\r\nDashboard consumes projected metrics.\r\nAudit owns history and calculation evidence.\r\n## Metric Categories\r\nMetric categories include Progress Metrics, Financial Metrics, Performance Metrics, Risk Metrics, Schedule Metrics, Completion Metrics, Forecast Metrics, Health Metrics, Priority Metrics, Dependency Metrics, Quality Metrics, and Business Value Metrics.\r\n## Metric Collection Strategy\r\nMetrics collect source data from GoalPlan, progress records, milestones, tasks when tracked, dependencies, DecisionSession, Recommendation, Scenario, Portfolio, CashFlow, Notification, dashboard projections, and historical metric records.\r\nEvery collected input must include source name, source id, source timestamp, version, HouseholdId, TenantId when applicable, and classification.\r\n## Metric Calculation Strategy\r\nMetric calculation is deterministic for the same inputs, formula version, assumption version, source snapshot, precision, rounding, and calculation date.\r\nMetric formulas use decimal precision.\r\nMetric formulas must specify unit and scale.\r\nMetric formulas must record calculation version.\r\nComposite metrics must declare weights.\r\nWeighted calculations must use weights that sum to 1.\r\n## Metric Refresh Policy\r\nMetrics refresh on source event, manual command, scheduled run, batch calculation, dashboard refresh, scenario run, recommendation change, decision change, or Goal review completion.\r\nCritical metrics refresh synchronously when required by API or decision behavior.\r\nDashboard metrics may refresh asynchronously when staleness is visible.\r\nHistorical metrics are not overwritten by refresh.\r\n## Relationship with Goal\r\nGoalPlan is the metric target and consistency boundary.\r\nGoal Metrics references GoalPlanId, HouseholdId, TenantId when applicable, and Goal lifecycle state.\r\nGoal status controls whether metrics can be refreshed, recalculated, archived, restored, or deleted.\r\n## Relationship with Milestone\r\nMilestones supply completion, delay, readiness, blocker, and quality inputs.\r\nMilestone metrics must preserve MilestoneId when available.\r\nMilestone changes trigger metric refresh.\r\n## Relationship with Task\r\nTasks supply physical progress and execution quality inputs when existing Goal planning data tracks task state.\r\nTask metrics remain subordinate to GoalPlan and milestone consistency.\r\nTask changes can refresh progress and quality metrics.\r\n## Relationship with Decision\r\nDecisionSession supplies decision quality, accepted decision count, rejected decision count, decision staleness, and decision impact metrics.\r\nDecision changes can refresh priority, health, forecast, and business value metrics.\r\n## Relationship with Recommendation\r\nRecommendation supplies adoption, completion, suppression, dismissal, and recommendation impact metrics.\r\nRecommendation changes can refresh forecast, health, priority, completion, and business value metrics.\r\n## Relationship with Scenario\r\nScenario supplies forecast, comparison, stress, and what-if metric inputs.\r\nScenario metrics must record ScenarioId, ScenarioVersion, assumptions, generated time, and staleness.\r\nScenario metrics are forecast values until accepted through DecisionSession.\r\n## Relationship with Portfolio\r\nPortfolio supplies asset allocation, return, risk, liquidity, concentration, and investment readiness metrics when relevant to GoalPlan.\r\nPortfolio metrics must preserve valuation time and market assumption version.\r\n## Relationship with CashFlow\r\nCashFlow supplies contribution capacity, recurring surplus, recurring deficit, runway, budget variance, and funding gap metrics.\r\nCashFlow metrics must preserve period and currency.\r\n## Relationship with Notification\r\nNotification consumes threshold and critical range metric events.\r\nNotification can provide delivery and suppression metrics.\r\nNotification does not own metric values.\r\n## Relationship with Dashboard\r\nDashboard consumes summary, trend, forecast, health, and business value metrics.\r\nDashboard must display generated time and staleness when metrics are asynchronous.\r\n## Relationship with User\r\nUser reads or changes metrics only through authenticated and authorized paths.\r\nUser-visible metrics must apply Household isolation, Tenant isolation, field-level security, masking, and permission.\r\n# Metric Categories\r\n## Progress Metrics\r\nProgress Metrics measure completion and progress movement for GoalPlan.\r\nIncluded metrics: OverallProgress, PhysicalProgress, MilestoneProgress, DependencyProgress, ProgressDelta, ProgressVelocity.\r\n## Financial Metrics\r\nFinancial Metrics measure target amount, current funded amount, contribution rate, funding gap, budget variance, contribution capacity, and ROI.\r\n## Performance Metrics\r\nPerformance Metrics measure actual progress against planned progress, actual funding against expected funding, and recommendation effect against expected effect.\r\n## Risk Metrics\r\nRisk Metrics measure current risk, risk trend, risk-adjusted progress, downside exposure, portfolio risk, and dependency risk.\r\n## Schedule Metrics\r\nSchedule Metrics measure elapsed time, remaining time, schedule variance, delay days, ahead days, and expected completion date.\r\n## Completion Metrics\r\nCompletion Metrics measure completion score, completion probability, completed milestone count, completion candidate status, and completion confidence.\r\n## Forecast Metrics\r\nForecast Metrics measure forecast completion, forecast accuracy, expected completion date, scenario delta, and forecast confidence.\r\n## Health Metrics\r\nHealth Metrics measure health score, health band, health trend, warning state, and critical state.\r\n## Priority Metrics\r\nPriority Metrics measure priority score, priority rank, priority alignment, business priority, and recommendation priority impact.\r\n## Dependency Metrics\r\nDependency Metrics measure ready dependency count, blocked dependency count, dependency progress, dependency risk, and blocker age.\r\n## Quality Metrics\r\nQuality Metrics measure data completeness, source freshness, traceability, review consistency, calculation quality, and metric confidence.\r\n## Business Value Metrics\r\nBusiness Value Metrics measure business impact, ROI, risk reduction value, time value, decision value, and recommendation value.\r\n# Metric Definitions\r\n## OverallProgress\r\nName: OverallProgress.\r\nBusiness Meaning: User-facing GoalPlan progress.\r\nFormula: `0.30 * MilestoneProgress + 0.25 * FinancialProgressOrNeutral + 0.15 * PhysicalProgress + 0.10 * DependencyProgress + 0.10 * RiskProgress + 0.10 * ConfidenceScore`.\r\nInputs: MilestoneProgress, FinancialProgress, PhysicalProgress, DependencyProgress, RiskProgress, ConfidenceScore.\r\nOutputs: Decimal from 0 to 1.\r\nPrecision: numeric(7,6).\r\nUnit: ratio.\r\nRefresh Frequency: event-driven and scheduled.\r\nValidation: value must be 0 through 1.\r\nExample: 0.720000.\r\nThreshold: 0.800000 healthy.\r\nWarning Range: 0.500000 to 0.799999.\r\nCritical Range: 0.000000 to 0.499999.\r\n## FinancialProgress\r\nName: FinancialProgress.\r\nBusiness Meaning: Funding completion against Goal target.\r\nFormula: `clamp(CurrentFundedAmount / TargetAmount, 0, 1)`.\r\nInputs: CurrentFundedAmount, TargetAmount, CurrencyCode.\r\nOutputs: Decimal from 0 to 1 or null.\r\nPrecision: numeric(7,6).\r\nUnit: ratio.\r\nRefresh Frequency: on financial source change.\r\nValidation: TargetAmount greater than 0 when calculated.\r\nExample: 0.680000.\r\nThreshold: 0.900000.\r\nWarning Range: 0.600000 to 0.899999.\r\nCritical Range: 0.000000 to 0.599999.\r\n## BudgetVariance\r\nName: BudgetVariance.\r\nBusiness Meaning: Funding position compared with expected funding.\r\nFormula: `ActualFunding - ExpectedFundingAtDate`.\r\nInputs: ActualFunding, ExpectedFundingAtDate, CurrencyCode.\r\nOutputs: Decimal money value.\r\nPrecision: numeric(18,2).\r\nUnit: currency.\r\nRefresh Frequency: on funding or cashflow change.\r\nValidation: currency must match GoalPlan currency.\r\nExample: -15000.00.\r\nThreshold: 0.00.\r\nWarning Range: -0.05 * TargetAmount to 0.\r\nCritical Range: less than -0.05 * TargetAmount.\r\n## ScheduleVariance\r\nName: ScheduleVariance.\r\nBusiness Meaning: Progress difference against elapsed time.\r\nFormula: `OverallProgress - ElapsedTimePercent`.\r\nInputs: OverallProgress, StartDate, TargetDate, AsOfDate.\r\nOutputs: Decimal from -1 to 1.\r\nPrecision: numeric(7,6).\r\nUnit: ratio delta.\r\nRefresh Frequency: daily scheduled and event-driven.\r\nValidation: TargetDate after StartDate when present.\r\nExample: 0.120000.\r\nThreshold: 0.000000.\r\nWarning Range: -0.100000 to -0.000001.\r\nCritical Range: less than -0.100000.\r\n## ForecastCompletion\r\nName: ForecastCompletion.\r\nBusiness Meaning: Expected completion ratio under current forecast.\r\nFormula: `clamp(CurrentProgress + ForecastProgressDelta, 0, 1)`.\r\nInputs: CurrentProgress, ForecastProgressDelta, ScenarioId, ScenarioVersion.\r\nOutputs: Decimal from 0 to 1.\r\nPrecision: numeric(7,6).\r\nUnit: ratio.\r\nRefresh Frequency: on Scenario simulation and scheduled forecast refresh.\r\nValidation: forecast must include ScenarioVersion.\r\nExample: 0.910000.\r\nThreshold: 0.850000.\r\nWarning Range: 0.650000 to 0.849999.\r\nCritical Range: 0.000000 to 0.649999.\r\n## HealthScore\r\nName: HealthScore.\r\nBusiness Meaning: Combined health of GoalPlan.\r\nFormula: `0.30 * CompletionScore + 0.20 * ScheduleHealth + 0.20 * BudgetHealth + 0.15 * RiskProgress + 0.15 * ConfidenceScore`.\r\nInputs: CompletionScore, ScheduleHealth, BudgetHealth, RiskProgress, ConfidenceScore.\r\nOutputs: Decimal from 0 to 1.\r\nPrecision: numeric(7,6).\r\nUnit: score.\r\nRefresh Frequency: event-driven and scheduled.\r\nValidation: all component values must be 0 through 1.\r\nExample: 0.820000.\r\nThreshold: 0.800000.\r\nWarning Range: 0.600000 to 0.799999.\r\nCritical Range: 0.000000 to 0.599999.\r\n## RiskScore\r\nName: RiskScore.\r\nBusiness Meaning: Current risk exposure of GoalPlan.\r\nFormula: `clamp(WeightedRiskExposure, 0, 1)`.\r\nInputs: portfolio risk, dependency risk, schedule risk, financial risk, scenario risk.\r\nOutputs: Decimal from 0 to 1.\r\nPrecision: numeric(7,6).\r\nUnit: score.\r\nRefresh Frequency: risk source change and scheduled.\r\nValidation: value must be 0 through 1.\r\nExample: 0.220000.\r\nThreshold: 0.300000.\r\nWarning Range: 0.300001 to 0.599999.\r\nCritical Range: 0.600000 to 1.000000.\r\n## ConfidenceScore\r\nName: ConfidenceScore.\r\nBusiness Meaning: Reliability of metric output.\r\nFormula: `0.40 * DataCompleteness + 0.20 * SourceFreshness + 0.20 * Traceability + 0.20 * ReviewConsistency`.\r\nInputs: completeness, freshness, traceability, review consistency.\r\nOutputs: Decimal from 0 to 1.\r\nPrecision: numeric(7,6).\r\nUnit: score.\r\nRefresh Frequency: calculation and review completion.\r\nValidation: components must be 0 through 1.\r\nExample: 0.900000.\r\nThreshold: 0.800000.\r\nWarning Range: 0.600000 to 0.799999.\r\nCritical Range: 0.000000 to 0.599999.\r\n## CompletionProbability\r\nName: CompletionProbability.\r\nBusiness Meaning: Probability-like score that GoalPlan will complete as expected.\r\nFormula: `clamp(0.45 * OverallProgress + 0.25 * ForecastCompletion + 0.15 * ConfidenceScore + 0.15 * RiskScoreInverse, 0, 1)`.\r\nInputs: OverallProgress, ForecastCompletion, ConfidenceScore, RiskScore.\r\nOutputs: Decimal from 0 to 1.\r\nPrecision: numeric(7,6).\r\nUnit: score.\r\nRefresh Frequency: forecast and review.\r\nValidation: components must be present or neutralized by rule.\r\nExample: 0.840000.\r\nThreshold: 0.800000.\r\nWarning Range: 0.600000 to 0.799999.\r\nCritical Range: 0.000000 to 0.599999.\r\n## PriorityScore\r\nName: PriorityScore.\r\nBusiness Meaning: GoalPlan priority alignment score.\r\nFormula: `GoalPriorityScore`.\r\nInputs: Goal priority calculation output.\r\nOutputs: Decimal score.\r\nPrecision: numeric(10,4).\r\nUnit: score.\r\nRefresh Frequency: priority source change.\r\nValidation: source priority score must be versioned.\r\nExample: 72.5000.\r\nThreshold: configured by Goal Prioritization.\r\nWarning Range: configured by Goal Prioritization.\r\nCritical Range: configured by Goal Prioritization.\r\n## BusinessImpact\r\nName: BusinessImpact.\r\nBusiness Meaning: Combined value of GoalPlan outcome.\r\nFormula: `FinancialImpactScore + RiskReductionScore + GoalReadinessScore + RecommendationValueScore`.\r\nInputs: financial impact, risk reduction, readiness, recommendation value.\r\nOutputs: Decimal score.\r\nPrecision: numeric(10,4).\r\nUnit: score.\r\nRefresh Frequency: review and recommendation change.\r\nValidation: each component must be versioned.\r\nExample: 81.2500.\r\nThreshold: 75.0000.\r\nWarning Range: 50.0000 to 74.9999.\r\nCritical Range: 0.0000 to 49.9999.\r\n## ROI\r\nName: ROI.\r\nBusiness Meaning: Estimated return on investment for GoalPlan action.\r\nFormula: `(EstimatedBenefit - EstimatedCost) / EstimatedCost`.\r\nInputs: EstimatedBenefit, EstimatedCost, CurrencyCode.\r\nOutputs: Decimal ratio.\r\nPrecision: numeric(18,6).\r\nUnit: ratio.\r\nRefresh Frequency: review and financial source change.\r\nValidation: EstimatedCost must not be zero.\r\nExample: 0.180000.\r\nThreshold: greater than 0.\r\nWarning Range: -0.050000 to 0.\r\nCritical Range: less than -0.050000.\r\n# Calculation Engine\r\n## Formula Engine\r\nMetric formulas execute through Calculation Engine using versioned formula contracts.\r\nFormula execution records formula id, formula version, calculation version, source snapshot, precision, and rounding.\r\n## Aggregation Rules\r\nAggregations must preserve Household scope and Tenant scope.\r\nAggregations must not mix currencies without conversion rule.\r\nAggregations must record generated time.\r\n## Weighted Calculation\r\nWeighted calculation uses `sum(weight_i * value_i)`.\r\nWeights must be non-negative.\r\nWeights must sum to 1.\r\n## Rolling Window\r\nRolling window metrics use start date, end date, period, and data completeness.\r\nRolling window output must record window boundary.\r\n## Historical Calculation\r\nHistorical calculation reads metric history and source snapshots.\r\nHistorical calculation must not rewrite historical metric values.\r\n## Trend Analysis\r\nTrend uses current value, prior value, and time delta.\r\nFormula: `Trend = (CurrentValue - PriorValue) / PeriodCount`.\r\n## Forecast Calculation\r\nForecast calculation uses Scenario result, current metric, forecast delta, and assumption version.\r\n## Benchmark Comparison\r\nBenchmark comparison compares GoalPlan metric against household average, goal category average, scenario benchmark, or configured target.\r\n## Normalization\r\nNormalization maps values to 0 through 1.\r\nFormula: `NormalizedValue = clamp((Value - MinValue) / (MaxValue - MinValue), 0, 1)`.\r\n## Composite Score\r\nComposite score combines normalized values through approved weights.\r\nFormula: `CompositeScore = sum(ComponentWeight_i * NormalizedMetric_i)`.\r\n# Validation Rules\r\n1. MetricId is required for persisted metric. 2. MetricName is required. 3. MetricCategory is required. 4. GoalPlanId is required. 5. HouseholdId is required. 6. TenantId is required when tenant scope exists. 7. MetricState is required. 8. MetricDefinitionVersion is required. 9. CalculationVersion is required for calculated metrics. 10. Formula is required for calculated metrics. 11. Inputs are required. 12. Outputs are required. 13. Precision is required. 14. Unit is required. 15. RefreshFrequency is required. 16. Threshold is required when alerting is enabled. 17. Warning range must not overlap critical range. 18. Critical range must be valid. 19. Metric value must fit precision. 20. Ratio metric must be between 0 and 1 unless definition permits otherwise. 21. Percent metric must be between 0 and 100. 22. Currency metric must include CurrencyCode. 23. TargetAmount must be greater than 0 for funding ratios. 24. EstimatedCost must not be zero for ROI. 25. StartDate must be before EndDate. 26. Rolling window period must be positive. 27. Historical calculation requires history source. 28. Forecast calculation requires ScenarioVersion. 29. Benchmark comparison requires benchmark source. 30. Composite score weights must sum to 1. 31. Weighted calculation weights must be non-negative. 32. Aggregation must preserve Household scope. 33. Aggregation must preserve Tenant scope when applicable. 34. Manual update requires reason. 35. Refresh requires source snapshot. 36. Recalculation requires calculation version. 37. Archive requires permission. 38. Restore requires archived metric. 39. Delete requires permission. 40. Deleted metric cannot be refreshed. 41. Archived metric cannot be updated. 42. ThresholdExceeded event requires prior threshold state. 43. MetricCalculated event requires result value. 44. MetricRefreshed event requires refresh source. 45. API request requires RequestId. 46. Event-driven refresh requires CausationId. 47. Audit requires CorrelationId. 48. RowVersion is required for update. 49. Filter field must be allowlisted. 50. Sort field must be allowlisted. 51. Projection name must be allowlisted. 52. Cache key must include HouseholdId. 53. Cache key must include GoalPlanId where goal-scoped. 54. Cache key must include MetricName. 55. Masking must be applied before export. 56. Field-level security must be evaluated before response. 57. Dashboard metric must include generated time. 58. Trend metric must include prior value. 59. Forecast metric must include forecast date. 60. Materialized view refresh must be auditable when used.\r\n# Business Rules\r\n1. Goal Metrics belongs to GoalPlan. 2. Goal Metrics is derived or governed measurement data. 3. Goal Metrics must not redefine GoalPlan. 4. Goal Metrics must not redefine Goal Progress. 5. Goal Metrics must not redefine Goal Review. 6. Goal Metrics must not redefine DecisionSession. 7. Goal Metrics must not redefine Recommendation. 8. Goal Metrics must not redefine Scenario. 9. Metric definitions must be versioned. 10. Metric calculations must be deterministic. 11. Metric results must record calculation version. 12. Metric results must record source snapshot when calculated from source data. 13. Metric values must preserve unit. 14. Currency metrics must preserve CurrencyCode. 15. Ratio metrics must preserve decimal scale. 16. Percent metrics must preserve percent scale. 17. Composite metrics must declare weights. 18. Composite weights must sum to 1. 19. Threshold evaluation must be deterministic. 20. ThresholdExceeded must emit only when crossing occurs. 21. Duplicate ThresholdExceeded emission is prohibited for same threshold state. 22. Archived metric cannot update. 23. Deleted metric cannot refresh. 24. Restored metric must preserve history. 25. Metric history is append-only. 26. Calculation history is append-only. 27. Manual update requires permission. 28. Manual update requires reason. 29. Manual update requires audit. 30. Automatic refresh must be idempotent. 31. Scheduled refresh must be retryable. 32. Batch calculation must use bounded pages. 33. Batch calculation must checkpoint. 34. Parallel processing is allowed across GoalPlan records. 35. Parallel processing of same MetricId must use concurrency control. 36. Incremental refresh must recalculate only affected metrics. 37. Full recalculation is required when formula version changes. 38. Dashboard metrics must expose generated time. 39. Forecast metrics must expose scenario version. 40. Trend metrics must expose comparison period. 41. Historical metrics must not be overwritten by current refresh. 42. Benchmark metrics must record benchmark source. 43. Aggregations must preserve Household isolation. 44. Aggregations must preserve Tenant isolation when applicable. 45. Metrics must not expose another Household. 46. Metrics must not expose another Tenant. 47. Field-level security applies to financial metrics. 48. Field-level security applies to portfolio metrics. 49. Field-level security applies to decision metrics. 50. Field-level security applies to recommendation metrics. 51. Masking must apply before export. 52. Cache invalidates after metric update. 53. Cache invalidates after recalculation. 54. Cache invalidates after archive. 55. Cache invalidates after restore. 56. Metric dashboard refreshes after calculation. 57. Metric search projection refreshes after calculation. 58. Notification can consume threshold events. 59. Notification suppression must not suppress audit. 60. Metric refresh cannot mutate GoalPlan directly. 61. Metric result can inform DecisionSession. 62. Metric result can inform Recommendation ranking. 63. Metric result can inform Scenario comparison. 64. Metric result can inform Goal Review. 65. Metric result can inform Dashboard. 66. Metric value decrease must be explainable by source change. 67. Metric quality below warning range must be visible. 68. Critical metric range must trigger review or notification when configured. 69. Metric deletion must be soft delete when history is retained. 70. Metric audit must include changed fields.\r\n# State Machine\r\n## States\r\n| State | Meaning |\r\n|---|---|\r\n| Created | Metric definition or result exists. |\r\n| Active | Metric is available for calculation and read. |\r\n| Calculating | Metric calculation is running. |\r\n| Calculated | Metric has a current calculated value. |\r\n| Refreshed | Metric was refreshed from source. |\r\n| Warning | Metric is in warning range. |\r\n| Critical | Metric is in critical range. |\r\n| Archived | Metric is read-only history. |\r\n| Deleted | Metric is soft deleted when policy permits. |\r\n| Restored | Metric was restored from archive. |\r\n## Transitions\r\n| From | To | Trigger |\r\n|---|---|---|\r\n| None | Created | CreateMetric |\r\n| Created | Active | UpdateMetric |\r\n| Active | Calculating | RecalculateMetric |\r\n| Calculating | Calculated | MetricCalculated |\r\n| Active | Refreshed | RefreshMetric |\r\n| Calculated | Warning | Threshold evaluation |\r\n| Calculated | Critical | Threshold evaluation |\r\n| Warning | Calculated | Threshold recovery |\r\n| Critical | Calculated | Threshold recovery |\r\n| Active | Archived | ArchiveMetric |\r\n| Calculated | Archived | ArchiveMetric |\r\n| Archived | Restored | RestoreMetric |\r\n| Restored | Active | UpdateMetric |\r\n| Created | Deleted | DeleteMetric |\r\n## Triggers\r\nTriggers include CreateMetric, UpdateMetric, RefreshMetric, RecalculateMetric, ArchiveMetric, RestoreMetric, DeleteMetric, source event, scheduler run, background job, threshold crossing, Goal review completion, Goal progress update, Recommendation change, Decision change, Scenario simulation, Portfolio change, and CashFlow change.\r\n## Invariant\r\nMetric must reference GoalPlan when goal-scoped.\r\nMetric must preserve HouseholdId.\r\nMetric must preserve TenantId when applicable.\r\nArchived metric is read-only.\r\nDeleted metric is excluded from normal queries.\r\nCalculated metric must have value, unit, precision, and calculation version.\r\n## Illegal Transition\r\n| From | To | Reason |\r\n|---|---|---|\r\n| Archived | Calculating | RestoreMetric is required first. |\r\n| Deleted | Active | Restore policy is required first. |\r\n| Created | Critical | Calculation is required first. |\r\n| Calculating | Archived | Calculation must complete or be cancelled first. |\r\n| Deleted | Calculating | Deleted metric cannot calculate. |\r\n# Commands\r\n## CreateMetric\r\nCreates a metric definition or goal-scoped metric record.\r\nInput: GoalPlanId, MetricName, MetricCategory, Unit, Precision, RefreshFrequency, Threshold, RequestedBy, CorrelationId.\r\nOutput: MetricId, MetricState.\r\n## UpdateMetric\r\nUpdates editable metric configuration.\r\nInput: MetricId, Threshold, WarningRange, CriticalRange, RefreshFrequency, RowVersion, CorrelationId.\r\nOutput: MetricId, Version, ChangedFields.\r\n## RefreshMetric\r\nRefreshes metric from current source.\r\nInput: MetricId, SourceSnapshotId, RefreshReason, CorrelationId.\r\nOutput: MetricId, MetricValue, RefreshedAt.\r\n## RecalculateMetric\r\nRecalculates metric using calculation version.\r\nInput: MetricId, CalculationVersion, SourceSnapshotId, CorrelationId.\r\nOutput: MetricId, MetricValue, CalculationHistoryId.\r\n## ArchiveMetric\r\nArchives metric as read-only history.\r\nInput: MetricId, ArchiveReason, RowVersion, CorrelationId.\r\nOutput: MetricState = Archived.\r\n## RestoreMetric\r\nRestores archived metric.\r\nInput: MetricId, RestoreReason, RowVersion, CorrelationId.\r\nOutput: MetricState = Restored.\r\n## DeleteMetric\r\nSoft deletes metric when policy permits.\r\nInput: MetricId, DeleteReason, RowVersion, CorrelationId.\r\nOutput: MetricState = Deleted.\r\n## All related Domain Commands\r\n| Command | Metric Relationship |\r\n|---|---|\r\n| RefreshGoalProgress | Refreshes progress metrics. |\r\n| RecalculateGoalProgress | Recalculates progress metrics. |\r\n| CreateReview | Consumes current metrics. |\r\n| CompleteReview | Produces review metrics. |\r\n| AcceptDecision | Refreshes decision metrics. |\r\n| RejectDecision | Refreshes decision quality metrics. |\r\n| AcceptRecommendation | Refreshes adoption metrics. |\r\n| CompleteRecommendation | Refreshes recommendation value metrics. |\r\n| RunScenario | Produces forecast metrics. |\r\n| TriggerNotification | Consumes threshold metrics. |\r\n# Domain Events\r\n## MetricCreated\r\nPayload: MetricId, GoalPlanId, HouseholdId, MetricName, MetricCategory, CorrelationId.\r\n## MetricUpdated\r\nPayload: MetricId, ChangedFields, Version, CorrelationId.\r\n## MetricCalculated\r\nPayload: MetricId, MetricName, MetricValue, Unit, CalculationVersion, CorrelationId.\r\n## MetricRefreshed\r\nPayload: MetricId, SourceSnapshotId, MetricValue, RefreshedAt, CorrelationId.\r\n## MetricArchived\r\nPayload: MetricId, ArchiveReason, ArchivedAt, CorrelationId.\r\n## MetricRestored\r\nPayload: MetricId, RestoreReason, RestoredAt, CorrelationId.\r\n## ThresholdExceeded\r\nPayload: MetricId, MetricName, MetricValue, Threshold, Severity, GoalPlanId, HouseholdId, CorrelationId.\r\n## All related Events\r\n| Event | Metric Impact |\r\n|---|---|\r\n| GoalProgressUpdated | Refreshes progress and health metrics. |\r\n| GoalHealthChanged | Refreshes health metrics. |\r\n| GoalForecastChanged | Refreshes forecast metrics. |\r\n| GoalDelayed | Refreshes schedule metrics. |\r\n| ReviewCompleted | Refreshes review and quality metrics. |\r\n| RecommendationAccepted | Refreshes adoption metrics. |\r\n| RecommendationCompleted | Refreshes adoption and value metrics. |\r\n| DecisionAccepted | Refreshes decision quality metrics. |\r\n| DecisionRejected | Refreshes decision quality metrics. |\r\n| ScenarioSimulated | Refreshes forecast metrics. |\r\n| NotificationTriggered | Refreshes notification metrics. |\r\n# Repository\r\n## Interface\r\n```csharp\r\npublic interface IGoalMetricRepository\r\n{\r\n    Task<GoalMetric?> GetByIdAsync(Guid householdId, Guid metricId, CancellationToken cancellationToken);\r\n    Task<IReadOnlyList<GoalMetric>> SearchAsync(GoalMetricSearchSpecification specification, CancellationToken cancellationToken);\r\n    Task<GoalMetricDashboard> GetDashboardAsync(Guid householdId, GoalMetricDashboardSpecification specification, CancellationToken cancellationToken);\r\n    Task AddAsync(GoalMetric metric, CancellationToken cancellationToken);\r\n    Task UpdateAsync(GoalMetric metric, CancellationToken cancellationToken);\r\n    Task ArchiveAsync(Guid householdId, Guid metricId, string reason, CancellationToken cancellationToken);\r\n}\r\n```\r\n## Methods\r\nMethods include GetByIdAsync, GetByGoalPlanIdAsync, GetByMetricNameAsync, SearchAsync, GetDashboardAsync, GetTrendAsync, GetForecastAsync, GetHistoryAsync, AddAsync, UpdateAsync, ArchiveAsync, RestoreAsync, DeleteAsync, and SaveCalculationHistoryAsync.\r\n## Queries\r\nQueries include metric by id, metric by GoalPlan, metric by name, metric by category, metric by state, metric by threshold state, metric by updated time, trend metrics, forecast metrics, dashboard metrics, and historical metrics.\r\n## Filtering\r\nAllowed filters: goalPlanId, householdId, metricName, metricCategory, metricState, thresholdState, unit, updatedAt, calculatedAt, archivedAt.\r\n## Sorting\r\nAllowed sorting: metricName, metricCategory, metricValue, updatedAt, calculatedAt, thresholdState, trendValue, forecastValue.\r\n## Aggregation\r\nAggregations include average metric value, min value, max value, count by category, count by threshold state, trend average, forecast average, and dashboard summary.\r\n## Projection\r\nSupported projections: summary, detail, dashboard, search, result, trend, forecast, history.\r\n## Specification\r\nGoalMetricSearchSpecification fields: HouseholdId, TenantId, GoalPlanIds, MetricNames, MetricCategories, MetricStates, ThresholdStates, DateFrom, DateTo, Sort, PageSize, Cursor.\r\n# Domain Service Interaction\r\nGoalMetricDomainService validates metric definition, validates source inputs, calculates metric value, evaluates thresholds, determines warning or critical state, validates state transitions, and emits Domain Events.\r\n| Service | Interaction |\r\n|---|---|\r\n| GoalProgressDomainService | Supplies progress and health inputs. |\r\n| GoalReviewDomainService | Consumes metrics and supplies review quality inputs. |\r\n| GoalDependencyDomainService | Supplies dependency metrics. |\r\n| GoalPrioritizationDomainService | Supplies priority score. |\r\n| GoalFundingDomainService | Supplies financial metrics. |\r\n| DecisionDomainService | Supplies decision quality metrics. |\r\n| RecommendationDomainService | Supplies adoption and value metrics. |\r\n| ScenarioDomainService | Supplies forecast metrics. |\r\n| NotificationDomainService | Consumes threshold events. |\r\n# Application Service Interaction\r\nGoalMetricApplicationService authorizes request, resolves Household scope, loads metric, loads GoalPlan, loads source data, invokes Domain Service, persists metric, saves calculation history, publishes events, invalidates cache, updates projection, records audit, and returns DTO.\r\n```csharp\r\nTask<GoalMetricDetailDto> CreateMetricAsync(CreateMetricRequest request);\r\nTask<GoalMetricDetailDto> UpdateMetricAsync(UpdateMetricRequest request);\r\nTask<GoalMetricResultDto> RefreshMetricAsync(RefreshMetricRequest request);\r\nTask<GoalMetricResultDto> RecalculateMetricAsync(RecalculateMetricRequest request);\r\nTask<GoalMetricDetailDto> ArchiveMetricAsync(ArchiveMetricRequest request);\r\nTask<GoalMetricDetailDto> RestoreMetricAsync(RestoreMetricRequest request);\r\nTask<GoalMetricSearchResultDto> SearchMetricsAsync(GoalMetricSearchRequest request);\r\nTask<GoalMetricTrendDto> GetMetricTrendAsync(GetMetricTrendRequest request);\r\nTask<GoalMetricForecastDto> GetMetricForecastAsync(GetMetricForecastRequest request);\r\n```\r\n# API\r\n## REST Endpoints\r\n| Method | Endpoint | Purpose |\r\n|---|---|---|\r\n| GET | /api/goal-metrics | Search metrics. |\r\n| GET | /api/goal-metrics/{metricId} | Get detail. |\r\n| POST | /api/goal-metrics | Create metric. |\r\n| PATCH | /api/goal-metrics/{metricId} | Update metric. |\r\n| POST | /api/goal-metrics/{metricId}/refresh | Refresh metric. |\r\n| POST | /api/goal-metrics/{metricId}/recalculate | Recalculate metric. |\r\n| POST | /api/goal-metrics/{metricId}/archive | Archive metric. |\r\n| POST | /api/goal-metrics/{metricId}/restore | Restore metric. |\r\n| DELETE | /api/goal-metrics/{metricId} | Soft delete metric. |\r\n| GET | /api/goal-metrics/dashboard | Get dashboard metrics. |\r\n| GET | /api/goal-metrics/{metricId}/trend | Get trend. |\r\n| GET | /api/goal-metrics/{metricId}/forecast | Get forecast. |\r\n## HTTP Methods\r\nGET reads metrics.\r\nPOST executes commands.\r\nPATCH updates editable fields.\r\nDELETE soft deletes when policy permits.\r\n## Request\r\n```json\r\n{ \"goalPlanId\": \"uuid\", \"metricName\": \"OverallProgress\", \"metricCategory\": \"Progress\", \"unit\": \"ratio\", \"refreshFrequency\": \"EventDriven\" }\r\n```\r\n## Response\r\n```json\r\n{ \"metricId\": \"uuid\", \"goalPlanId\": \"uuid\", \"metricName\": \"OverallProgress\", \"metricState\": \"Created\", \"unit\": \"ratio\" }\r\n```\r\n## Errors\r\n| Status | Error |\r\n|---|---|\r\n| 400 | InvalidMetricRequest |\r\n| 401 | Unauthenticated |\r\n| 403 | GoalMetricPermissionDenied |\r\n| 404 | GoalMetricNotFound |\r\n| 409 | GoalMetricConcurrencyConflict |\r\n| 422 | GoalMetricStateViolation |\r\n## Pagination\r\nCursor pagination is required.\r\nDefault page size is 50.\r\nMaximum page size is 200.\r\n## Filtering\r\nAPI supports allowlisted filters only.\r\n## Sorting\r\nDefault sorting is updatedAt desc.\r\nAPI supports allowlisted sorting only.\r\n## Projection\r\nProjection supports summary, detail, dashboard, result, trend, forecast, search, and history.\r\n# DTO\r\n## Create DTO\r\n```json\r\n{ \"goalPlanId\": \"uuid\", \"metricName\": \"OverallProgress\", \"metricCategory\": \"Progress\", \"unit\": \"ratio\", \"precision\": \"numeric(7,6)\", \"refreshFrequency\": \"EventDriven\" }\r\n```\r\n## Update DTO\r\n```json\r\n{ \"warningRange\": \"0.500000..0.799999\", \"criticalRange\": \"0.000000..0.499999\", \"refreshFrequency\": \"Scheduled\", \"rowVersion\": \"base64\" }\r\n```\r\n## Detail DTO\r\n```json\r\n{ \"metricId\": \"uuid\", \"goalPlanId\": \"uuid\", \"metricName\": \"OverallProgress\", \"metricValue\": 0.72, \"unit\": \"ratio\", \"metricState\": \"Calculated\", \"thresholdState\": \"Healthy\", \"calculatedAt\": \"2026-07-13T00:00:00Z\" }\r\n```\r\n## Summary DTO\r\n```json\r\n{ \"metricId\": \"uuid\", \"metricName\": \"HealthScore\", \"metricValue\": 0.82, \"thresholdState\": \"Healthy\" }\r\n```\r\n## Dashboard DTO\r\n```json\r\n{ \"householdId\": \"uuid\", \"metricCount\": 24, \"criticalCount\": 1, \"warningCount\": 3, \"averageHealthScore\": 0.78, \"generatedAt\": \"2026-07-13T00:00:00Z\" }\r\n```\r\n## Search DTO\r\n```json\r\n{ \"filters\": { \"metricCategory\": \"Health\", \"thresholdState\": \"Critical\" }, \"sort\": \"updatedAt:desc\", \"pageSize\": 50, \"cursor\": null }\r\n```\r\n## Metric Result DTO\r\n```json\r\n{ \"metricName\": \"BudgetVariance\", \"metricValue\": -15000.00, \"unit\": \"TWD\", \"thresholdState\": \"Warning\", \"calculationVersion\": \"1.0\" }\r\n```\r\n## Trend DTO\r\n```json\r\n{ \"metricName\": \"OverallProgress\", \"currentValue\": 0.72, \"priorValue\": 0.66, \"trendValue\": 0.06, \"window\": \"P30D\" }\r\n```\r\n## Forecast DTO\r\n```json\r\n{ \"metricName\": \"ForecastCompletion\", \"forecastValue\": 0.91, \"forecastDate\": \"2027-04-30\", \"scenarioId\": \"uuid\", \"scenarioVersion\": \"1.0\" }\r\n```\r\n# Database Mapping\r\n## Table\r\nPrimary table: goal_metric.\r\nHistory table: goal_metric_history.\r\nCalculation table: goal_metric_calculation_history.\r\n## Columns\r\nColumns: metric_id, tenant_id, household_id, goal_plan_id, metric_name, metric_category, metric_state, threshold_state, metric_value, metric_unit, precision_name, refresh_frequency, warning_min, warning_max, critical_min, critical_max, calculation_version, definition_version, source_snapshot_id, calculated_at, refreshed_at, row_version, created_at, updated_at, archived_at, deleted_at.\r\n## Indexes\r\nIndexes: ix_goal_metric_household_goal, ix_goal_metric_household_name, ix_goal_metric_household_category, ix_goal_metric_threshold, ix_goal_metric_updated_at.\r\n## Constraints\r\nConstraints: primary key on metric_id, FK to GoalPlan, unique active metric key, metric value range checks by unit policy, score checks, threshold checks.\r\n## FK\r\nfk_goal_metric_goal_plan.\r\n## Unique\r\nuq_goal_metric_household_goal_name.\r\n## Check Constraint\r\nscore metric values must be between 0 and 1 when unit is score or ratio.\r\n# PostgreSQL Schema\r\n```sql\r\nCREATE TABLE goal_metric (\r\n    metric_id uuid PRIMARY KEY,\r\n    tenant_id uuid NULL,\r\n    household_id uuid NOT NULL,\r\n    goal_plan_id uuid NOT NULL,\r\n    metric_name varchar(128) NOT NULL,\r\n    metric_category varchar(64) NOT NULL,\r\n    metric_state varchar(32) NOT NULL,\r\n    threshold_state varchar(32) NULL,\r\n    metric_value numeric(18,6) NULL,\r\n    metric_unit varchar(32) NOT NULL,\r\n    precision_name varchar(32) NOT NULL,\r\n    refresh_frequency varchar(64) NOT NULL,\r\n    warning_min numeric(18,6) NULL,\r\n    warning_max numeric(18,6) NULL,\r\n    critical_min numeric(18,6) NULL,\r\n    critical_max numeric(18,6) NULL,\r\n    calculation_version varchar(32) NULL,\r\n    definition_version varchar(32) NOT NULL,\r\n    source_snapshot_id uuid NULL,\r\n    calculated_at timestamptz NULL,\r\n    refreshed_at timestamptz NULL,\r\n    row_version bigint NOT NULL DEFAULT 1,\r\n    created_at timestamptz NOT NULL,\r\n    updated_at timestamptz NOT NULL,\r\n    archived_at timestamptz NULL,\r\n    deleted_at timestamptz NULL,\r\n    CONSTRAINT uq_goal_metric_household_goal_name UNIQUE (household_id, goal_plan_id, metric_name),\r\n    CONSTRAINT ck_goal_metric_score_value CHECK (\r\n        metric_value IS NULL OR metric_unit NOT IN ('score','ratio') OR (metric_value >= 0 AND metric_value <= 1)\r\n    ),\r\n    CONSTRAINT ck_goal_metric_threshold_warning CHECK (\r\n        warning_min IS NULL OR warning_max IS NULL OR warning_min <= warning_max\r\n    ),\r\n    CONSTRAINT ck_goal_metric_threshold_critical CHECK (\r\n        critical_min IS NULL OR critical_max IS NULL OR critical_min <= critical_max\r\n    )\r\n);\r\nCREATE INDEX ix_goal_metric_household_goal ON goal_metric (household_id, goal_plan_id);\r\nCREATE INDEX ix_goal_metric_household_name ON goal_metric (household_id, metric_name);\r\nCREATE INDEX ix_goal_metric_household_category ON goal_metric (household_id, metric_category);\r\nCREATE INDEX ix_goal_metric_threshold ON goal_metric (household_id, threshold_state);\r\nCREATE INDEX ix_goal_metric_updated_at ON goal_metric (updated_at DESC);\r\nCREATE TABLE goal_metric_history (\r\n    history_id uuid PRIMARY KEY,\r\n    metric_id uuid NOT NULL,\r\n    household_id uuid NOT NULL,\r\n    goal_plan_id uuid NOT NULL,\r\n    version bigint NOT NULL,\r\n    change_reason varchar(256) NOT NULL,\r\n    changed_by uuid NULL,\r\n    previous_values jsonb NOT NULL,\r\n    new_values jsonb NOT NULL,\r\n    correlation_id uuid NOT NULL,\r\n    created_at timestamptz NOT NULL\r\n);\r\nCREATE TABLE goal_metric_calculation_history (\r\n    calculation_history_id uuid PRIMARY KEY,\r\n    metric_id uuid NOT NULL,\r\n    household_id uuid NOT NULL,\r\n    goal_plan_id uuid NOT NULL,\r\n    metric_name varchar(128) NOT NULL,\r\n    metric_value numeric(18,6) NULL,\r\n    metric_unit varchar(32) NOT NULL,\r\n    calculation_version varchar(32) NOT NULL,\r\n    source_snapshot_id uuid NULL,\r\n    inputs jsonb NOT NULL,\r\n    outputs jsonb NOT NULL,\r\n    correlation_id uuid NOT NULL,\r\n    calculated_at timestamptz NOT NULL\r\n);\r\nCREATE INDEX ix_goal_metric_history_metric ON goal_metric_history (metric_id, version DESC);\r\nCREATE INDEX ix_goal_metric_calculation_metric ON goal_metric_calculation_history (metric_id, calculated_at DESC);\r\nCREATE VIEW goal_metric_dashboard_view AS\r\nSELECT household_id,\r\n       count(*) AS metric_count,\r\n       count(*) FILTER (WHERE threshold_state = 'Critical') AS critical_count,\r\n       count(*) FILTER (WHERE threshold_state = 'Warning') AS warning_count,\r\n       avg(metric_value) FILTER (WHERE metric_name = 'HealthScore') AS average_health_score,\r\n       max(updated_at) AS generated_at\r\nFROM goal_metric\r\nWHERE archived_at IS NULL AND deleted_at IS NULL\r\nGROUP BY household_id;\r\nCREATE MATERIALIZED VIEW goal_metric_daily_summary_mv AS\r\nSELECT household_id,\r\n       goal_plan_id,\r\n       metric_name,\r\n       date_trunc('day', calculated_at) AS metric_day,\r\n       avg(metric_value) AS average_value,\r\n       min(metric_value) AS min_value,\r\n       max(metric_value) AS max_value\r\nFROM goal_metric_calculation_history\r\nGROUP BY household_id, goal_plan_id, metric_name, date_trunc('day', calculated_at);\r\n```\r\n# EF Core Mapping\r\n## Fluent API\r\n```csharp\r\nbuilder.ToTable(\"goal_metric\");\r\nbuilder.HasKey(x => x.MetricId);\r\nbuilder.Property(x => x.MetricId).HasColumnName(\"metric_id\");\r\nbuilder.Property(x => x.TenantId).HasColumnName(\"tenant_id\");\r\nbuilder.Property(x => x.HouseholdId).HasColumnName(\"household_id\").IsRequired();\r\nbuilder.Property(x => x.GoalPlanId).HasColumnName(\"goal_plan_id\").IsRequired();\r\nbuilder.Property(x => x.MetricName).HasColumnName(\"metric_name\").HasMaxLength(128).IsRequired();\r\nbuilder.Property(x => x.MetricCategory).HasColumnName(\"metric_category\").HasMaxLength(64).IsRequired();\r\nbuilder.Property(x => x.MetricState).HasColumnName(\"metric_state\").HasMaxLength(32).IsRequired();\r\nbuilder.Property(x => x.ThresholdState).HasColumnName(\"threshold_state\").HasMaxLength(32);\r\nbuilder.Property(x => x.MetricValue).HasColumnName(\"metric_value\").HasPrecision(18, 6);\r\nbuilder.Property(x => x.MetricUnit).HasColumnName(\"metric_unit\").HasMaxLength(32).IsRequired();\r\nbuilder.Property(x => x.CalculationVersion).HasColumnName(\"calculation_version\").HasMaxLength(32);\r\nbuilder.Property(x => x.DefinitionVersion).HasColumnName(\"definition_version\").HasMaxLength(32).IsRequired();\r\nbuilder.Property(x => x.RowVersion).HasColumnName(\"row_version\").IsConcurrencyToken();\r\nbuilder.HasIndex(x => new { x.HouseholdId, x.GoalPlanId, x.MetricName }).IsUnique();\r\nbuilder.HasIndex(x => new { x.HouseholdId, x.MetricCategory });\r\nbuilder.HasIndex(x => new { x.HouseholdId, x.ThresholdState });\r\nbuilder.HasQueryFilter(x => x.DeletedAt == null);\r\n```\r\n## Owned Types\r\nMetricThreshold can be owned with warning and critical ranges.\r\nMetricPrecision can be owned with precision name, scale, and unit.\r\n## Indexes\r\nIndexes match PostgreSQL schema.\r\n## Query Filters\r\nDefault query filter excludes deleted metrics.\r\nRepository specification applies Household and Tenant filters.\r\n## Value Conversion\r\nMetricState, MetricCategory, ThresholdState, RefreshFrequency, and MetricUnit use string conversion.\r\n# Cache Strategy\r\n## Redis Key\r\nDetail key: `atlas:{tenantId}:household:{householdId}:goal:{goalPlanId}:metric:{metricName}:v1`.\r\nDashboard key: `atlas:{tenantId}:household:{householdId}:goal-metrics:dashboard:v1`.\r\nSearch key: `atlas:{tenantId}:household:{householdId}:goal-metrics:search:{hash}:v1`.\r\nTrend key: `atlas:{tenantId}:household:{householdId}:goal:{goalPlanId}:metric:{metricName}:trend:{window}:v1`.\r\nForecast key: `atlas:{tenantId}:household:{householdId}:goal:{goalPlanId}:metric:{metricName}:forecast:v1`.\r\n## Refresh Strategy\r\nRefresh detail after calculation.\r\nRefresh dashboard asynchronously after calculation.\r\nRefresh trend after calculation history insert.\r\nRefresh forecast after Scenario simulation.\r\n## Invalidation\r\nInvalidate on MetricCreated, MetricUpdated, MetricCalculated, MetricRefreshed, MetricArchived, MetricRestored, ThresholdExceeded, GoalProgressUpdated, ReviewCompleted, Recommendation change, Decision change, Scenario simulation, Portfolio change, and CashFlow change.\r\n## TTL\r\nDetail TTL is 5 minutes.\r\nDashboard TTL is 2 minutes.\r\nSearch TTL is 1 minute.\r\nTrend TTL is 10 minutes.\r\nForecast TTL is 10 minutes.\r\n# Security\r\n## Authorization\r\nMetric access requires authenticated Principal and Household permission.\r\nProtected metric categories require source permission.\r\n## Permissions\r\nPermissions: GoalMetric.Read, GoalMetric.Create, GoalMetric.Update, GoalMetric.Refresh, GoalMetric.Recalculate, GoalMetric.Archive, GoalMetric.Restore, GoalMetric.Delete, GoalMetric.Export.\r\n## Field Level Security\r\nFinancial metrics require financial read permission.\r\nPortfolio metrics require portfolio read permission.\r\nDecision metrics require decision read permission.\r\nRecommendation metrics require recommendation read permission.\r\n## Masking\r\nMask currency values when user lacks financial read permission.\r\nMask portfolio source details when user lacks portfolio permission.\r\nMask decision and recommendation references when user lacks source permission.\r\n# Audit\r\n## Metric History\r\nMetric history records definition changes, threshold changes, state changes, archive, restore, and delete.\r\n## Calculation History\r\nCalculation history records formula, inputs, outputs, source snapshot, calculation version, and result.\r\n## Versioning\r\nDefinitionVersion changes when metric definition changes.\r\nCalculationVersion changes when formula or calculation policy changes.\r\nRowVersion supports concurrency.\r\n## Audit Trail\r\nAudit records create, update, refresh, recalculate, archive, restore, delete, threshold exceeded, dashboard export, and manual correction.\r\n# Performance\r\n## Bulk Calculation\r\nBulk calculation uses bounded batches and checkpoint.\r\nDefault batch size is 500.\r\nMaximum batch size is 5000.\r\n## Parallel Processing\r\nParallel calculation is allowed across GoalPlan records and MetricName groups.\r\nParallel calculation of same MetricId requires RowVersion.\r\n## Incremental Refresh\r\nSource event scope determines affected metric categories.\r\nFormula version change triggers full recalculation.\r\n## Read Optimization\r\nSummary projection supports list view.\r\nDashboard view supports household dashboard.\r\nDaily summary materialized view supports trend analytics.\r\n## Caching Strategy\r\nRedis caches detail, dashboard, search, trend, and forecast metrics.\r\nCache values include MetricId, MetricName, MetricValue, updatedAt, calculationVersion, and definitionVersion.\r\n# Example JSON\r\n## Create\r\n```json\r\n{ \"goalPlanId\": \"5e4b510a-6f80-43c7-9978-89f2b9f89a11\", \"metricName\": \"OverallProgress\", \"metricCategory\": \"Progress\", \"unit\": \"ratio\", \"precision\": \"numeric(7,6)\", \"refreshFrequency\": \"EventDriven\" }\r\n```\r\n## Update\r\n```json\r\n{ \"warningRange\": \"0.500000..0.799999\", \"criticalRange\": \"0.000000..0.499999\", \"refreshFrequency\": \"Scheduled\", \"rowVersion\": \"AAAAAAAAB9E=\" }\r\n```\r\n## Metric Result\r\n```json\r\n{ \"metricName\": \"BudgetVariance\", \"metricValue\": -15000.00, \"unit\": \"TWD\", \"thresholdState\": \"Warning\", \"calculationVersion\": \"1.0\" }\r\n```\r\n## Dashboard\r\n```json\r\n{ \"householdId\": \"afc64d0c-cc24-48bb-a2e9-7bb8736fbdf4\", \"metricCount\": 24, \"criticalCount\": 1, \"warningCount\": 3, \"averageHealthScore\": 0.78, \"generatedAt\": \"2026-07-13T00:00:00Z\" }\r\n```\r\n## Trend\r\n```json\r\n{ \"metricName\": \"OverallProgress\", \"currentValue\": 0.72, \"priorValue\": 0.66, \"trendValue\": 0.06, \"window\": \"P30D\" }\r\n```\r\n## Forecast\r\n```json\r\n{ \"metricName\": \"ForecastCompletion\", \"forecastValue\": 0.91, \"forecastDate\": \"2027-04-30\", \"scenarioId\": \"393b984d-bdf4-4f2c-a2ef-a64793adf78a\", \"scenarioVersion\": \"1.0\" }\r\n```\r\n## Search\r\n```json\r\n{ \"items\": [{ \"metricId\": \"uuid\", \"goalPlanId\": \"uuid\", \"metricName\": \"HealthScore\", \"metricValue\": 0.82, \"thresholdState\": \"Healthy\" }], \"nextCursor\": null }\r\n```\r\n# Mermaid\r\n## Class Diagram\r\n```mermaid\r\nclassDiagram\r\n  class GoalPlan { GoalPlanId HouseholdId GoalStatus }\r\n  class GoalMetric { MetricId GoalPlanId MetricName MetricValue MetricState }\r\n  class GoalMetricHistory { HistoryId MetricId Version ChangedAt }\r\n  class GoalMetricCalculationHistory { CalculationHistoryId MetricId CalculationVersion CalculatedAt }\r\n  GoalPlan \"1\" --> \"*\" GoalMetric\r\n  GoalMetric \"1\" --> \"*\" GoalMetricHistory\r\n  GoalMetric \"1\" --> \"*\" GoalMetricCalculationHistory\r\n```\r\n## Sequence Diagram\r\n```mermaid\r\nsequenceDiagram\r\n  participant API as API\r\n  participant APP as Application Service\r\n  participant DOM as Domain Service\r\n  participant REPO as Repository\r\n  participant AUD as Audit\r\n  API->>APP: RecalculateMetric\r\n  APP->>REPO: Load Metric\r\n  APP->>DOM: Calculate Metric\r\n  DOM-->>APP: Metric Result\r\n  APP->>REPO: Save Metric\r\n  APP->>AUD: Record Audit\r\n  APP-->>API: Metric Result DTO\r\n```\r\n## ER Diagram\r\n```mermaid\r\nerDiagram\r\n  GOAL_PLAN ||--o{ GOAL_METRIC : has\r\n  GOAL_METRIC ||--o{ GOAL_METRIC_HISTORY : records\r\n  GOAL_METRIC ||--o{ GOAL_METRIC_CALCULATION_HISTORY : calculates\r\n  GOAL_METRIC {\r\n    uuid metric_id PK\r\n    uuid household_id\r\n    uuid goal_plan_id\r\n    varchar metric_name\r\n    numeric metric_value\r\n  }\r\n```\r\n## State Diagram\r\n```mermaid\r\nstateDiagram-v2\r\n  [*] --> Created\r\n  Created --> Active: UpdateMetric\r\n  Active --> Calculating: RecalculateMetric\r\n  Calculating --> Calculated: MetricCalculated\r\n  Active --> Refreshed: RefreshMetric\r\n  Calculated --> Warning: Threshold evaluation\r\n  Calculated --> Critical: Threshold evaluation\r\n  Active --> Archived: ArchiveMetric\r\n  Archived --> Restored: RestoreMetric\r\n  Created --> Deleted: DeleteMetric\r\n```\r\n## Metric Calculation Flow\r\n```mermaid\r\nflowchart TD\r\n  Source[Source Data] --> Validate[Validate Inputs]\r\n  Validate --> Formula[Formula Engine]\r\n  Formula --> Normalize[Normalize]\r\n  Normalize --> Composite[Composite Score]\r\n  Composite --> Threshold[Evaluate Threshold]\r\n  Threshold --> Persist[Persist Metric]\r\n  Persist --> Events[Emit Events]\r\n  Events --> Cache[Invalidate Cache]\r\n```\r\n# Testing\r\n## Unit Test\r\nUnit tests cover formula calculation, aggregation, weighted calculation, rolling window, trend, forecast, benchmark, normalization, composite score, threshold evaluation, and state transitions.\r\n## Integration Test\r\nIntegration tests cover create, update, refresh, recalculate, archive, restore, delete, dashboard query, trend query, forecast query, search query, event emission, cache invalidation, and audit trail.\r\n## Calculation Test\r\nCalculation tests cover deterministic result, formula version, source snapshot, precision, unit, rounding, composite weight sum, and threshold crossing.\r\n## Validation Test\r\nValidation tests cover required fields, invalid ranges, missing currency, zero ROI denominator, invalid filter, invalid sort, stale RowVersion, missing source snapshot, and invalid state transition.\r\n## Performance Test\r\nPerformance tests cover bulk calculation, parallel processing, dashboard query latency, search query latency, materialized view refresh, trend query latency, and cache hit ratio.\r\n## Concurrency Test\r\nConcurrency tests cover RowVersion conflict, duplicate event idempotency, same MetricId parallel calculation, batch retry, cache invalidation race, and materialized view refresh overlap.\r\n# Edge Cases\r\n1. GoalPlan missing. 2. GoalPlan archived. 3. GoalPlan cancelled. 4. Metric definition missing. 5. Metric already exists for GoalPlan and name. 6. Metric value is null. 7. Metric unit is missing. 8. Metric precision is invalid. 9. Currency mismatch occurs. 10. TargetAmount is zero. 11. EstimatedCost is zero. 12. Formula version is missing. 13. Calculation input is missing. 14. Source snapshot is missing. 15. Scenario version is stale. 16. Benchmark source is missing. 17. Composite weights do not sum to 1. 18. Warning range overlaps critical range. 19. Threshold crossing event is duplicated. 20. Archived metric is refreshed. 21. Deleted metric is recalculated. 22. Restore requested for active metric. 23. Delete requested without permission. 24. User lacks financial read permission. 25. HouseholdId mismatch. 26. TenantId mismatch. 27. Cache key omits MetricName. 28. Cache returns stale definition version. 29. Trend cannot find prior value. 30. Forecast cannot calculate expected value. 31. Materialized view refresh fails. 32. Dashboard projection fails. 33. Audit write fails. 34. Calculation history write fails. 35. Batch calculation stops mid-page. 36. Scheduler overlaps previous run. 37. Event arrives out of order. 38. Event is delivered twice. 39. RowVersion conflict occurs. 40. Export attempts unmasked protected metric.\r\n# Version History | Version | Date | Description |\n|---|---|---|\n| 1.0 | 2026-07-13 | Enterprise Specification for Goal Metrics. |\n\n## Phase 2 Executable Specification Addendum\n\n### Metric Calculation Execution Contract\n\n| Field | Required | Description |\n|---|---|---|\n| MetricCalculationExecutionId | Yes | Stable calculation run identifier |\n| MetricId | Yes | Metric definition identifier |\n| HouseholdId | Yes | Household scope |\n| GoalPlanId | Yes | Goal scope |\n| MetricName | Yes | Metric being calculated |\n| DefinitionVersion | Yes | Metric definition version |\n| CalculationVersion | Yes | Calculation implementation version |\n| SourceSnapshotId | Yes | Source data snapshot |\n| ThresholdState | Yes | Evaluated threshold state |\n| CorrelationId | Yes | Audit correlation |\n\n### Required Commands\n\n| Command | Actor | Output |\n|---|---|---|\n| ExecuteGoalMetricCalculation | GoalMetricApplicationService | GoalMetricCalculated |\n| ExecuteGoalMetricThresholdEvaluation | GoalMetricApplicationService | GoalMetricThresholdEvaluated |\n| ExecuteGoalMetricRefresh | GoalMetricApplicationService | GoalMetricRefreshed |\n| ReplayGoalMetricCalculation | AdministrationApplicationService | GoalMetricCalculationReplayed |\n\n### Addendum Validation Rules\n\n| Rule ID | Rule | Failure |\n|---|---|---|\n| GMT-P2-VR-001 | Calculation must include definition version, calculation version, and source snapshot. | Reject calculation |\n| GMT-P2-VR-002 | Threshold evaluation requires prior threshold state for event emission. | Reject threshold event |\n| GMT-P2-VR-003 | Historical metric values are append-only. | Reject overwrite |\n| GMT-P2-VR-004 | Replay must use original definition, calculation version, and source snapshot. | Reject replay |\n\n### Addendum Testing Matrix\n\n| Test | Expected Result |\n|---|---|\n| Missing source snapshot | Calculation fails |\n| Threshold changes without prior state | Event is rejected |\n| Historical recalculation | New calculation history is appended |\n| Definition version mismatch | Calculation is rejected |\n| Replay calculation | Original metric value reproduces |\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable addendum added. |\n\n## Phase 2 Executable Specification Addendum\n\n### Metric Calculation Execution Contract\n\n| Field | Required | Description |\n|---|---|---|\n| MetricCalculationExecutionId | Yes | Stable calculation run identifier |\n| MetricId | Yes | Metric definition identifier |\n| HouseholdId | Yes | Household scope |\n| GoalPlanId | Yes | Goal scope |\n| MetricName | Yes | Metric being calculated |\n| DefinitionVersion | Yes | Metric definition version |\n| CalculationVersion | Yes | Calculation implementation version |\n| SourceSnapshotId | Yes | Source data snapshot |\n| ThresholdState | Yes | Evaluated threshold state |\n| CorrelationId | Yes | Audit correlation |\n\n### Required Commands\n\n| Command | Actor | Output |\n|---|---|---|\n| ExecuteGoalMetricCalculation | GoalMetricApplicationService | GoalMetricCalculated |\n| ExecuteGoalMetricThresholdEvaluation | GoalMetricApplicationService | GoalMetricThresholdEvaluated |\n| ExecuteGoalMetricRefresh | GoalMetricApplicationService | GoalMetricRefreshed |\n| ReplayGoalMetricCalculation | AdministrationApplicationService | GoalMetricCalculationReplayed |\n\n### Addendum Validation Rules\n\n| Rule ID | Rule | Failure |\n|---|---|---|\n| GMT-P2-VR-001 | Calculation must include definition version, calculation version, and source snapshot. | Reject calculation |\n| GMT-P2-VR-002 | Threshold evaluation requires prior threshold state for event emission. | Reject threshold event |\n| GMT-P2-VR-003 | Historical metric values are append-only. | Reject overwrite |\n| GMT-P2-VR-004 | Replay must use original definition, calculation version, and source snapshot. | Reject replay |\n\n### Addendum Testing Matrix\n\n| Test | Expected Result |\n|---|---|\n| Missing source snapshot | Calculation fails |\n| Threshold changes without prior state | Event is rejected |\n| Historical recalculation | New calculation history is appended |\n| Definition version mismatch | Calculation is rejected |\n| Replay calculation | Original metric value reproduces |\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable addendum added. |\n",
+  "references": []
+}

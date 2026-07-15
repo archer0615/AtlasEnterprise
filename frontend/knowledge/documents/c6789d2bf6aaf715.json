@@ -1,0 +1,59 @@
+{
+  "id": "c6789d2bf6aaf715",
+  "title": "knowledge/risk-framework.md",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/risk-framework.md",
+  "sourceHash": "4f3f2a6618eb9fa3d43f1dcf59395e7c1742fbfbed3891f374a8778b4cd58c46",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/risk-framework.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Unified Risk Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Objectives"
+    },
+    {
+      "level": 1,
+      "text": "Core Risk Dimensions"
+    },
+    {
+      "level": 1,
+      "text": "Risk Levels"
+    },
+    {
+      "level": 1,
+      "text": "Risk Scoring Principles"
+    },
+    {
+      "level": 1,
+      "text": "Mitigation Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Engine Responsibilities"
+    },
+    {
+      "level": 1,
+      "text": "Output Model"
+    },
+    {
+      "level": 1,
+      "text": "Governance"
+    },
+    {
+      "level": 1,
+      "text": "Future Extensions"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/risk-framework.md\n\n# Atlas Unified Risk Framework\nVersion: 1.0\n\n## Purpose\nThis document defines the unified risk framework used throughout Project Atlas. Every engine (Cash Flow, Loan, Investment, Home Upgrade, Retirement and Decision Engine) evaluates risk using the same vocabulary, scoring model and governance rules.\n\n---\n\n# Objectives\n\n- Standardize risk evaluation.\n- Compare scenarios using a common risk model.\n- Support explainable financial decisions.\n- Separate risk measurement from decision rules.\n\n---\n\n# Core Risk Dimensions\n\n1. Liquidity Risk\n2. Cash Flow Risk\n3. Leverage Risk\n4. Investment Risk\n5. Interest Rate Risk\n6. Inflation Risk\n7. Employment / Income Risk\n8. Concentration Risk\n9. Longevity Risk\n10. Insurance Protection Risk\n11. Sequence of Return Risk\n12. Behavioral Risk\n\n---\n\n# Risk Levels\n\n| Score | Level | Interpretation |\n|------:|-------|----------------|\n| 0-20 | Very Low | Comfortable margin |\n| 21-40 | Low | Acceptable |\n| 41-60 | Moderate | Monitor closely |\n| 61-80 | High | Action recommended |\n| 81-100 | Critical | Immediate mitigation |\n\n---\n\n# Risk Scoring Principles\n\nOverall Risk Score is a weighted aggregation of individual dimensions.\n\nExample default weights:\n\n| Dimension | Weight |\n|-----------|-------:|\n| Liquidity | 20% |\n| Cash Flow | 20% |\n| Leverage | 15% |\n| Investment | 15% |\n| Interest Rate | 10% |\n| Inflation | 5% |\n| Employment | 5% |\n| Concentration | 5% |\n| Longevity | 3% |\n| Insurance | 2% |\n\nWeights are configurable through assumptions.\n\n---\n\n# Mitigation Strategy\n\nFor every detected risk the system should provide:\n\n- Cause\n- Impact\n- Severity\n- Recommended actions\n- Expected improvement\n- Assumptions used\n\n---\n\n# Engine Responsibilities\n\nCash Flow Engine\n- Liquidity\n- Monthly surplus\n- Emergency reserve\n\nLoan Engine\n- Debt ratio\n- Refinance sensitivity\n- Rate shock\n\nInvestment Engine\n- Allocation\n- Volatility\n- Diversification\n\nRetirement Engine\n- Sustainability\n- Withdrawal risk\n- Longevity\n\nDecision Engine\n- Aggregate all engine outputs\n- Produce overall household risk profile\n\n---\n\n# Output Model\n\nEach assessment returns:\n\n- RiskId\n- Category\n- Score\n- Level\n- Explanation\n- Recommendation\n- CalculatedAt\n- AssumptionVersion\n\n---\n\n# Governance\n\n- Risk formulas are version controlled.\n- Historical scores are immutable.\n- Business rules and assumptions evolve independently.\n- Decisions must reference the assumption version used.\n\n---\n\n# Future Extensions\n\n- Monte Carlo integration\n- Stress testing\n- AI explanation layer\n- Country-specific calibration\n- User-defined risk tolerance profiles\n",
+  "references": []
+}

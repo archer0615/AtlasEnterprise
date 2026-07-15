@@ -1,0 +1,151 @@
+{
+  "id": "84903f8786631707",
+  "title": "Goal Review Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/goal-review-framework.md",
+  "sourceHash": "83c924e9318e7d0d10fa1c95281882235bb4c1822de04b1abe0339d1b3479271",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Review Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Review Principles"
+    },
+    {
+      "level": 2,
+      "text": "Review Scope"
+    },
+    {
+      "level": 2,
+      "text": "Review Triggers"
+    },
+    {
+      "level": 3,
+      "text": "Scheduled"
+    },
+    {
+      "level": 3,
+      "text": "Event Driven"
+    },
+    {
+      "level": 2,
+      "text": "Review Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Review Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Review Outcomes"
+    },
+    {
+      "level": 2,
+      "text": "Replanning Rules"
+    },
+    {
+      "level": 2,
+      "text": "Review Record"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Review Execution Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Review Execution Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Goal Review Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise framework for periodically reviewing financial goals, measuring progress, identifying deviations, and triggering replanning within Project Atlas.\n\n## Objectives\n- Continuously evaluate goal progress.\n- Detect meaningful deviations early.\n- Trigger recommendations and replanning.\n- Maintain a complete review history.\n\n## Review Principles\n- Reviews are data-driven.\n- Every review is traceable.\n- Reviews never modify historical data.\n- Material deviations require explanation.\n\n## Review Scope\nApplies to:\n- Retirement Goals\n- Home Purchase\n- Home Upgrade\n- Education\n- Emergency Fund\n- Investment Goals\n- Debt Reduction\n- Custom Goals\n\n## Review Triggers\n### Scheduled\n- Monthly\n- Quarterly\n- Semi-Annual\n- Annual\n\n### Event Driven\n- Income change\n- Market shock\n- Major purchase\n- Goal completion\n- Life-stage transition\n- Financial Health Score deterioration\n\n## Review Workflow\n1. Load current goal state.\n2. Compare against baseline.\n3. Calculate progress metrics.\n4. Detect deviations.\n5. Evaluate business rules.\n6. Generate recommendations.\n7. Create review record.\n\n## Review Metrics\n- Goal Funding Ratio\n- Funding Gap\n- Progress %\n- Time Remaining\n- Expected Completion Date\n- Goal Success Probability\n- Risk Level\n\n## Review Outcomes\n- On Track\n- Minor Adjustment\n- Replan Recommended\n- Critical Intervention Required\n- Goal Completed\n\n## Replanning Rules\n- Preserve mandatory goals.\n- Recalculate funding priorities.\n- Re-evaluate liquidity.\n- Refresh projections.\n- Re-score recommendations.\n\n## Review Record\nEach review stores:\n- Review ID\n- Goal ID\n- Review Date\n- Reviewer\n- Trigger\n- Outcome\n- Recommendation IDs\n- Next Review Date\n\n## Business Rules\n- Completed goals remain immutable.\n- Every review references an assumption version.\n- Historical reviews are append-only.\n- Critical reviews generate alerts.\n\n## Explainability\nEach review includes:\n- Progress summary\n- KPI changes\n- Triggered rules\n- Assumptions\n- Recommended actions\n\n## Integration\nConsumes:\n- Goal Funding Framework\n- Financial Projection Framework\n- Decision Metrics Framework\n- Recommendation Priority Framework\n- Financial Alert Framework\n\nProduces:\n- Dashboard\n- Decision Engine\n- Execution Plan Framework\n- Decision History Framework\n\n## KPIs\n- Goal Review Completion Rate\n- On-Time Review Rate\n- Goal Success Rate\n- Replan Frequency\n- Funding Improvement Rate\n\n## Testing\n- Scheduled review\n- Event-driven review\n- Goal completed\n- Goal behind schedule\n- Multiple simultaneous goals\n- Retirement review\n\n## Future Enhancements\n- AI-assisted goal reviews\n- Predictive deviation detection\n- Household goal reviews\n- Automatic replanning\n\n## Phase 2 Executable Specification\n\n### Review Execution Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| ReviewExecutionId | Yes | Stable review run identifier |\n| ReviewId | Yes | Review record identifier |\n| HouseholdId | Yes | Household scope |\n| GoalId | Yes | Goal being reviewed |\n| ReviewTrigger | Yes | Scheduled, EventDriven, Manual, Critical |\n| AssumptionVersionSet | Yes | Assumptions used |\n| SourceSnapshotId | Yes | Source data snapshot |\n| Outcome | Yes | Review outcome |\n| NextReviewDate | Yes | Next review date |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| ExecuteGoalReview | GoalReviewApplicationService | GoalReviewCompleted |\n| ScheduleGoalReview | GoalReviewApplicationService | GoalReviewScheduled |\n| ApplyGoalReviewOutcome | GoalReviewApplicationService | GoalReviewOutcomeApplied |\n| ReplayGoalReview | AdministrationApplicationService | GoalReviewReplayed |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| GoalReviewScheduled | Review scheduled | Notification, Calendar |\n| GoalReviewCompleted | Review finished | Dashboard, Decision Engine |\n| GoalReviewCriticalInterventionRequired | Critical outcome detected | Alert, Execution Plan |\n| GoalReviewReplanRecommended | Replanning required | Recommendation Engine, Scenario Engine |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| GRF-VR-001 | Every review must reference assumption version and source snapshot. | Reject review |\n| GRF-VR-002 | Completed goals are immutable except append-only review history. | Reject mutation |\n| GRF-VR-003 | Critical review outcomes must emit alert event. | Reject completion |\n| GRF-VR-004 | Next review date must be after review date. | Reject schedule |\n| GRF-VR-005 | Historical reviews are append-only. | Reject overwrite |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/goals/{goalId}/reviews | POST | Execute goal review | GoalReview:Write |\n| /api/v1/goals/{goalId}/reviews | GET | List goal reviews | GoalReview:Read |\n| /api/v1/goals/{goalId}/reviews/schedule | POST | Schedule next review | GoalReview:Write |\n| /api/v1/goal-reviews/{reviewId}/replay | POST | Replay historical review | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing assumption version | Review is rejected |\n| Critical intervention outcome | Alert event is emitted |\n| Next review before review date | Schedule is rejected |\n| Completed goal review | Review history appended without mutating goal |\n| Historical replay | Original review outcome reproduces |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Review Execution Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| ReviewExecutionId | Yes | Stable review run identifier |\n| ReviewId | Yes | Review record identifier |\n| HouseholdId | Yes | Household scope |\n| GoalId | Yes | Goal being reviewed |\n| ReviewTrigger | Yes | Scheduled, EventDriven, Manual, Critical |\n| AssumptionVersionSet | Yes | Assumptions used |\n| SourceSnapshotId | Yes | Source data snapshot |\n| Outcome | Yes | Review outcome |\n| NextReviewDate | Yes | Next review date |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| ExecuteGoalReview | GoalReviewApplicationService | GoalReviewCompleted |\n| ScheduleGoalReview | GoalReviewApplicationService | GoalReviewScheduled |\n| ApplyGoalReviewOutcome | GoalReviewApplicationService | GoalReviewOutcomeApplied |\n| ReplayGoalReview | AdministrationApplicationService | GoalReviewReplayed |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| GoalReviewScheduled | Review scheduled | Notification, Calendar |\n| GoalReviewCompleted | Review finished | Dashboard, Decision Engine |\n| GoalReviewCriticalInterventionRequired | Critical outcome detected | Alert, Execution Plan |\n| GoalReviewReplanRecommended | Replanning required | Recommendation Engine, Scenario Engine |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| GRF-VR-001 | Every review must reference assumption version and source snapshot. | Reject review |\n| GRF-VR-002 | Completed goals are immutable except append-only review history. | Reject mutation |\n| GRF-VR-003 | Critical review outcomes must emit alert event. | Reject completion |\n| GRF-VR-004 | Next review date must be after review date. | Reject schedule |\n| GRF-VR-005 | Historical reviews are append-only. | Reject overwrite |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/goals/{goalId}/reviews | POST | Execute goal review | GoalReview:Write |\n| /api/v1/goals/{goalId}/reviews | GET | List goal reviews | GoalReview:Read |\n| /api/v1/goals/{goalId}/reviews/schedule | POST | Schedule next review | GoalReview:Write |\n| /api/v1/goal-reviews/{reviewId}/replay | POST | Replay historical review | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing assumption version | Review is rejected |\n| Critical intervention outcome | Alert event is emitted |\n| Next review before review date | Schedule is rejected |\n| Completed goal review | Review history appended without mutating goal |\n| Historical replay | Original review outcome reproduces |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

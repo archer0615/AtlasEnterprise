@@ -1,0 +1,391 @@
+{
+  "id": "0f07283ee57d650e",
+  "title": "knowledge/market-assumptions.md",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/market-assumptions.md",
+  "sourceHash": "72a3beef964cccda86e2de380fc3e922c40c3fcbcfcfe29367165414cdef5b1a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/market-assumptions.md"
+    },
+    {
+      "level": 1,
+      "text": "Project Atlas — Market Assumptions"
+    },
+    {
+      "level": 2,
+      "text": "1. 文件目的"
+    },
+    {
+      "level": 2,
+      "text": "2. 核心定位"
+    },
+    {
+      "level": 2,
+      "text": "3. 名詞定義"
+    },
+    {
+      "level": 3,
+      "text": "3.1 名目報酬率 Nominal Return"
+    },
+    {
+      "level": 3,
+      "text": "3.2 實質報酬率 Real Return"
+    },
+    {
+      "level": 3,
+      "text": "3.3 波動率 Volatility"
+    },
+    {
+      "level": 3,
+      "text": "3.4 Correlation"
+    },
+    {
+      "level": 3,
+      "text": "3.5 Expected Return"
+    },
+    {
+      "level": 3,
+      "text": "3.6 Conservative Return"
+    },
+    {
+      "level": 3,
+      "text": "3.7 Planning Return"
+    },
+    {
+      "level": 3,
+      "text": "3.8 Optimistic Return"
+    },
+    {
+      "level": 2,
+      "text": "4. 市場假設分層"
+    },
+    {
+      "level": 2,
+      "text": "5. 資產類別分類"
+    },
+    {
+      "level": 2,
+      "text": "6. 長期通膨假設"
+    },
+    {
+      "level": 2,
+      "text": "7. 長期報酬率假設"
+    },
+    {
+      "level": 3,
+      "text": "7.1 預設名目報酬率"
+    },
+    {
+      "level": 3,
+      "text": "7.2 實質報酬率計算規則"
+    },
+    {
+      "level": 2,
+      "text": "8. 波動率假設"
+    },
+    {
+      "level": 2,
+      "text": "9. 資產相關係數假設"
+    },
+    {
+      "level": 3,
+      "text": "9.1 核心相關係數矩陣"
+    },
+    {
+      "level": 3,
+      "text": "9.2 相關係數使用規則"
+    },
+    {
+      "level": 2,
+      "text": "10. 投資組合報酬率公式"
+    },
+    {
+      "level": 3,
+      "text": "10.1 Portfolio Expected Return"
+    },
+    {
+      "level": 3,
+      "text": "10.2 Portfolio Variance"
+    },
+    {
+      "level": 3,
+      "text": "10.3 Portfolio Volatility"
+    },
+    {
+      "level": 3,
+      "text": "10.4 Real Portfolio Return"
+    },
+    {
+      "level": 2,
+      "text": "11. 匯率假設"
+    },
+    {
+      "level": 3,
+      "text": "11.1 預設匯率假設"
+    },
+    {
+      "level": 3,
+      "text": "11.2 匯率波動率"
+    },
+    {
+      "level": 3,
+      "text": "11.3 外幣資產 TWD 報酬率公式"
+    },
+    {
+      "level": 2,
+      "text": "12. 再平衡假設"
+    },
+    {
+      "level": 3,
+      "text": "12.1 預設再平衡頻率"
+    },
+    {
+      "level": 3,
+      "text": "12.2 再平衡規則"
+    },
+    {
+      "level": 2,
+      "text": "13. Sequence of Returns Risk"
+    },
+    {
+      "level": 3,
+      "text": "13.1 不可接受的簡化"
+    },
+    {
+      "level": 3,
+      "text": "13.2 必須支援的模擬方式"
+    },
+    {
+      "level": 3,
+      "text": "13.3 First-5-Year Bear Market 預設"
+    },
+    {
+      "level": 2,
+      "text": "14. Monte Carlo 假設"
+    },
+    {
+      "level": 3,
+      "text": "14.1 預設參數"
+    },
+    {
+      "level": 3,
+      "text": "14.2 成功率定義"
+    },
+    {
+      "level": 3,
+      "text": "14.3 決策門檻"
+    },
+    {
+      "level": 2,
+      "text": "15. 壓力測試假設"
+    },
+    {
+      "level": 3,
+      "text": "15.1 Equity Bear Market"
+    },
+    {
+      "level": 3,
+      "text": "15.2 Bond Rate Shock"
+    },
+    {
+      "level": 3,
+      "text": "15.3 Inflation Shock"
+    },
+    {
+      "level": 3,
+      "text": "15.4 FX Shock"
+    },
+    {
+      "level": 3,
+      "text": "15.5 Liquidity Shock"
+    },
+    {
+      "level": 3,
+      "text": "15.6 Combined Family Stress Scenario"
+    },
+    {
+      "level": 2,
+      "text": "16. FCN 市場假設"
+    },
+    {
+      "level": 3,
+      "text": "16.1 FCN 預設假設"
+    },
+    {
+      "level": 3,
+      "text": "16.2 FCN 禁止規則"
+    },
+    {
+      "level": 2,
+      "text": "17. 不動產市場假設"
+    },
+    {
+      "level": 3,
+      "text": "17.1 自住房"
+    },
+    {
+      "level": 3,
+      "text": "17.2 投資型不動產"
+    },
+    {
+      "level": 2,
+      "text": "18. 現金與緊急預備金假設"
+    },
+    {
+      "level": 3,
+      "text": "18.1 現金預備金最低標準"
+    },
+    {
+      "level": 3,
+      "text": "18.2 現金不得被高估"
+    },
+    {
+      "level": 2,
+      "text": "19. 使用者風險屬性與市場假設連動"
+    },
+    {
+      "level": 3,
+      "text": "19.1 風險屬性對配置限制"
+    },
+    {
+      "level": 2,
+      "text": "20. 情境覆寫規則"
+    },
+    {
+      "level": 2,
+      "text": "21. 資料庫設計需求"
+    },
+    {
+      "level": 3,
+      "text": "21.1 MarketAssumptionSet"
+    },
+    {
+      "level": 3,
+      "text": "21.2 AssetClassAssumption"
+    },
+    {
+      "level": 3,
+      "text": "21.3 AssetCorrelation"
+    },
+    {
+      "level": 3,
+      "text": "21.4 InflationAssumption"
+    },
+    {
+      "level": 3,
+      "text": "21.5 FxAssumption"
+    },
+    {
+      "level": 2,
+      "text": "22. API 需求"
+    },
+    {
+      "level": 2,
+      "text": "23. 驗證規則"
+    },
+    {
+      "level": 3,
+      "text": "23.1 Return Validation"
+    },
+    {
+      "level": 3,
+      "text": "23.2 Volatility Validation"
+    },
+    {
+      "level": 3,
+      "text": "23.3 Correlation Validation"
+    },
+    {
+      "level": 2,
+      "text": "24. Dashboard 呈現需求"
+    },
+    {
+      "level": 2,
+      "text": "25. 決策引擎使用規則"
+    },
+    {
+      "level": 3,
+      "text": "25.1 決策不得只看平均報酬"
+    },
+    {
+      "level": 2,
+      "text": "26. 測試案例"
+    },
+    {
+      "level": 3,
+      "text": "26.1 Portfolio Return Test"
+    },
+    {
+      "level": 3,
+      "text": "26.2 Real Return Test"
+    },
+    {
+      "level": 3,
+      "text": "26.3 Correlation Symmetry Test"
+    },
+    {
+      "level": 3,
+      "text": "26.4 FCN Classification Test"
+    },
+    {
+      "level": 2,
+      "text": "27. Codex 實作指令"
+    },
+    {
+      "level": 2,
+      "text": "28. 尚未定義或待補文件"
+    },
+    {
+      "level": 2,
+      "text": "29. 尚未定義的 Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "30. 尚未定義的 Formula"
+    },
+    {
+      "level": 2,
+      "text": "31. 尚未定義的 Decision Rules"
+    },
+    {
+      "level": 2,
+      "text": "32. 文件狀態"
+    },
+    {
+      "level": 2,
+      "text": "33. Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "33.1 Market Assumption Version Contract"
+    },
+    {
+      "level": 3,
+      "text": "33.2 Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "33.3 Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "33.4 Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "33.5 API Contract"
+    },
+    {
+      "level": 3,
+      "text": "33.6 Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "33.7 Version History"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/market-assumptions.md\n\n# Project Atlas — Market Assumptions\n\n## 1. 文件目的\n\n本文件定義 Project Atlas 在進行長期財務決策模擬時所使用的市場假設，包括長期名目報酬率、實質報酬率、波動率、資產類別相關係數、匯率假設、再平衡假設、極端情境假設與 Codex 實作規則。\n\nProject Atlas 的市場假設不是用來預測短期行情，也不是用來產生投資建議，而是用來建立一套穩定、一致、可被測試、可被版本控管的長期情境模擬基準。\n\n本文件供以下模組使用：\n\n- InvestmentEngine\n- RetirementEngine\n- CashFlowEngine\n- DecisionEngine\n- ScenarioEngine\n- HomeUpgradeEngine\n- LoanEngine\n- Dashboard KPI\n- Monte Carlo Simulation\n- Stress Test\n\n---\n\n## 2. 核心定位\n\nProject Atlas 的市場假設必須符合以下原則：\n\n1. 偏長期，不服務短線預測。\n2. 偏保守，不使用過度樂觀的資本市場假設。\n3. 可覆寫，所有假設都應允許 Scenario 層或 User Assumption 層調整。\n4. 可版本控管，假設變更必須留下版本與生效日期。\n5. 可解釋，每一個報酬率、波動率與相關係數都必須可被呈現在 Dashboard 或 Scenario Report。\n6. 不使用單年度預測做為核心決策依據。\n7. 不因近期市場強弱而自動修改長期假設。\n\n---\n\n## 3. 名詞定義\n\n### 3.1 名目報酬率 Nominal Return\n\n尚未扣除通貨膨脹的年化報酬率。\n\n公式：\n\n```text\nNominal Return = Asset Growth Rate Before Inflation\n```\n\n### 3.2 實質報酬率 Real Return\n\n扣除通貨膨脹後的年化報酬率。\n\n公式：\n\n```text\nReal Return = ((1 + Nominal Return) / (1 + Inflation Rate)) - 1\n```\n\n### 3.3 波動率 Volatility\n\n資產年化報酬率的標準差，用於 Monte Carlo、壓力測試與風險顯示。\n\n### 3.4 Correlation\n\n不同資產類別報酬率之間的相關係數，用於投資組合波動率計算。\n\n### 3.5 Expected Return\n\nProject Atlas 使用的長期預期報酬率，並非短期預測值。\n\n### 3.6 Conservative Return\n\n保守情境下使用的長期報酬率，常用於退休、換屋與重大負債決策。\n\n### 3.7 Planning Return\n\n主要規劃情境使用的預設報酬率。\n\n### 3.8 Optimistic Return\n\n樂觀情境使用的報酬率，只能作為壓力比較，不得作為唯一決策依據。\n\n---\n\n## 4. 市場假設分層\n\nProject Atlas 應將市場假設分為四層：\n\n```text\nSystem Default Assumptions\n        ↓\nTaiwan Financial Assumptions\n        ↓\nUser Profile Assumptions\n        ↓\nScenario Override Assumptions\n```\n\n優先順序如下：\n\n```text\nScenario Override > User Profile > Taiwan Financial Assumptions > System Default\n```\n\n任何模組不得直接硬編碼報酬率、波動率、通膨率、匯率或相關係數。\n\n---\n\n## 5. 資產類別分類\n\nProject Atlas 預設支援以下資產類別：\n\n| Asset Class Code | 中文名稱 | 說明 |\n|---|---|---|\n| TWD_CASH | 台幣現金 | 活存、薪轉戶、短期備用金 |\n| USD_CASH | 美元現金 | 美元活存、短期美元部位 |\n| TWD_DEPOSIT | 台幣定存 | 台幣定期存款 |\n| USD_DEPOSIT | 美元定存 | 美元定期存款 |\n| TWD_MONEY_MARKET | 台幣貨幣市場 | 貨幣市場基金、短天期固定收益工具 |\n| TW_EQUITY | 台股 | 台灣股票或台股 ETF |\n| US_EQUITY | 美股 | 美國股票或美股 ETF |\n| GLOBAL_EQUITY | 全球股票 | 全球股票型 ETF 或基金 |\n| EM_EQUITY | 新興市場股票 | 新興市場 ETF 或基金 |\n| TW_BOND | 台灣債券 | 台灣公債、投資級債 |\n| US_BOND | 美國債券 | 美國公債、投資級債 |\n| GLOBAL_BOND | 全球債券 | 全球投資級債券 |\n| HIGH_YIELD_BOND | 高收益債 | 非投資等級債 |\n| REIT | REITs | 不動產投資信託 |\n| GOLD | 黃金 | 黃金 ETF、實體黃金估值 |\n| REAL_ESTATE_SELF_USE | 自住房 | 自用住宅估值 |\n| REAL_ESTATE_INVESTMENT | 投資型不動產 | 出租房、保留房產 |\n| FCN | FCN 結構型商品 | 固定配息但具股權風險商品 |\n| OTHER_STRUCTURED_PRODUCT | 其他結構型商品 | 非 FCN 的結構型金融商品 |\n| OTHER | 其他資產 | 暫未分類資產 |\n\n---\n\n## 6. 長期通膨假設\n\nProject Atlas 應將通膨拆為生活通膨、教育通膨、醫療通膨、房價通膨與一般 CPI。\n\n| Inflation Type | Base | Conservative | Stress | 說明 |\n|---|---:|---:|---:|---|\n| CPI_GENERAL | 2.0% | 2.5% | 4.0% | 一般生活物價 |\n| LIVING_COST | 2.5% | 3.0% | 4.5% | 家庭生活費 |\n| MEDICAL_COST | 3.5% | 4.5% | 6.0% | 醫療與照護成本 |\n| EDUCATION_COST | 3.0% | 4.0% | 5.5% | 教育支出 |\n| HOUSING_PRICE | 2.0% | 3.0% | 5.0% | 房價長期成長 |\n| RENT | 2.0% | 2.5% | 4.0% | 租金成長 |\n| SALARY | 2.5% | 1.5% | 0.0% | 薪資成長 |\n| INSURANCE_PREMIUM | 2.0% | 3.0% | 5.0% | 保費調整與保障成本 |\n\n注意：\n\n1. 退休模擬不得只使用 CPI_GENERAL，應優先使用 LIVING_COST。\n2. 醫療照護模擬應使用 MEDICAL_COST。\n3. 子女教育模擬應使用 EDUCATION_COST。\n4. 換屋模擬應同時使用 HOUSING_PRICE 與 SALARY。\n5. 現金流壓力測試應至少包含 LIVING_COST stress 情境。\n\n---\n\n## 7. 長期報酬率假設\n\n### 7.1 預設名目報酬率\n\n| Asset Class | Conservative | Base | Optimistic | 說明 |\n|---|---:|---:|---:|---|\n| TWD_CASH | 0.5% | 1.0% | 1.5% | 現金不應被視為投資資產 |\n| USD_CASH | 1.0% | 2.0% | 3.0% | 受美元利率循環影響 |\n| TWD_DEPOSIT | 1.0% | 1.5% | 2.0% | 長期台幣定存假設 |\n| USD_DEPOSIT | 2.0% | 3.0% | 4.0% | 長期美元定存假設 |\n| TWD_MONEY_MARKET | 1.0% | 1.5% | 2.2% | 低波動短期資金工具 |\n| TW_EQUITY | 4.0% | 6.0% | 8.0% | 台股長期股票風險溢酬 |\n| US_EQUITY | 4.5% | 6.5% | 8.5% | 美股長期股票風險溢酬 |\n| GLOBAL_EQUITY | 4.5% | 6.0% | 8.0% | 全球分散股票部位 |\n| EM_EQUITY | 4.0% | 7.0% | 10.0% | 新興市場高波動高不確定性 |\n| TW_BOND | 1.5% | 2.5% | 3.5% | 台灣債券長期假設 |\n| US_BOND | 2.0% | 3.5% | 4.5% | 美債長期假設 |\n| GLOBAL_BOND | 2.0% | 3.0% | 4.0% | 全球投資級債券 |\n| HIGH_YIELD_BOND | 3.0% | 5.0% | 7.0% | 須反映信用風險與景氣循環 |\n| REIT | 3.5% | 5.5% | 7.5% | 不動產證券化資產 |\n| GOLD | 0.0% | 2.0% | 5.0% | 非生息資產，主要作為避險 |\n| REAL_ESTATE_SELF_USE | 1.0% | 2.0% | 4.0% | 自住房估值，不應作為可動用投資資產 |\n| REAL_ESTATE_INVESTMENT | 2.0% | 4.0% | 6.0% | 包含資本利得，不含租金淨收益時需註明 |\n| FCN | -5.0% | 3.0% | 8.0% | 不得只使用票息率，必須反映下檔風險 |\n| OTHER_STRUCTURED_PRODUCT | -5.0% | 2.0% | 6.0% | 預設保守處理 |\n| OTHER | 0.0% | 2.0% | 4.0% | 未分類資產不得給予高報酬假設 |\n\n### 7.2 實質報酬率計算規則\n\n所有長期財務決策報告都必須同時支援名目與實質呈現。\n\n公式：\n\n```text\nRealReturn(asset) = ((1 + NominalReturn(asset)) / (1 + InflationRate)) - 1\n```\n\n若模擬退休後購買力，預設使用 LIVING_COST inflation，而非 CPI_GENERAL。\n\n---\n\n## 8. 波動率假設\n\n| Asset Class | Annual Volatility | 說明 |\n|---|---:|---|\n| TWD_CASH | 0.5% | 幾乎無市場價格波動 |\n| USD_CASH | 6.0% | 對台幣使用者包含匯率波動 |\n| TWD_DEPOSIT | 0.5% | 定存本金穩定 |\n| USD_DEPOSIT | 6.0% | 對台幣使用者主要來自匯率 |\n| TWD_MONEY_MARKET | 1.0% | 低波動工具 |\n| TW_EQUITY | 20.0% | 台股集中度與景氣循環較高 |\n| US_EQUITY | 18.0% | 股票市場波動 |\n| GLOBAL_EQUITY | 16.0% | 全球分散後波動較低 |\n| EM_EQUITY | 24.0% | 新興市場波動較高 |\n| TW_BOND | 5.0% | 利率敏感度較低到中等 |\n| US_BOND | 8.0% | 美元利率與匯率影響 |\n| GLOBAL_BOND | 7.0% | 利率與匯率風險 |\n| HIGH_YIELD_BOND | 12.0% | 信用風險顯著 |\n| REIT | 18.0% | 股債與不動產風險混合 |\n| GOLD | 16.0% | 避險資產但價格波動高 |\n| REAL_ESTATE_SELF_USE | 8.0% | 估值波動低於股票，但流動性差 |\n| REAL_ESTATE_INVESTMENT | 10.0% | 地區、槓桿與出租風險 |\n| FCN | 25.0% | 連結標的股票風險，需保守估計 |\n| OTHER_STRUCTURED_PRODUCT | 20.0% | 預設高不確定性 |\n| OTHER | 10.0% | 未分類資產保守估算 |\n\n---\n\n## 9. 資產相關係數假設\n\n### 9.1 核心相關係數矩陣\n\n以下為主要資產類別的預設 correlation。完整資料庫可依此展開。\n\n| Asset A / Asset B | TWD_CASH | TW_EQUITY | US_EQUITY | GLOBAL_EQUITY | TW_BOND | US_BOND | REIT | GOLD | REAL_ESTATE | FCN |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| TWD_CASH | 1.00 | 0.00 | 0.00 | 0.00 | 0.10 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |\n| TW_EQUITY | 0.00 | 1.00 | 0.65 | 0.75 | -0.10 | 0.10 | 0.55 | 0.05 | 0.35 | 0.70 |\n| US_EQUITY | 0.00 | 0.65 | 1.00 | 0.90 | -0.10 | 0.20 | 0.60 | 0.00 | 0.25 | 0.80 |\n| GLOBAL_EQUITY | 0.00 | 0.75 | 0.90 | 1.00 | -0.10 | 0.20 | 0.60 | 0.00 | 0.30 | 0.75 |\n| TW_BOND | 0.10 | -0.10 | -0.10 | -0.10 | 1.00 | 0.35 | 0.10 | 0.15 | 0.20 | -0.05 |\n| US_BOND | 0.00 | 0.10 | 0.20 | 0.20 | 0.35 | 1.00 | 0.20 | 0.20 | 0.10 | 0.10 |\n| REIT | 0.00 | 0.55 | 0.60 | 0.60 | 0.10 | 0.20 | 1.00 | 0.10 | 0.55 | 0.50 |\n| GOLD | 0.00 | 0.05 | 0.00 | 0.00 | 0.15 | 0.20 | 0.10 | 1.00 | 0.10 | 0.00 |\n| REAL_ESTATE | 0.00 | 0.35 | 0.25 | 0.30 | 0.20 | 0.10 | 0.55 | 0.10 | 1.00 | 0.30 |\n| FCN | 0.00 | 0.70 | 0.80 | 0.75 | -0.05 | 0.10 | 0.50 | 0.00 | 0.30 | 1.00 |\n\n### 9.2 相關係數使用規則\n\n1. Correlation matrix 必須為對稱矩陣。\n2. Diagonal 必須為 1.00。\n3. Correlation 不得小於 -1 或大於 1。\n4. 若資產類別未定義 correlation，預設使用 0.50，不得使用 0。\n5. 若資產屬於同一高風險類別，預設 correlation 不得低於 0.60。\n6. FCN 與其連結標的之 correlation 應接近股票，而非債券。\n7. 自住房不得與可動用投資資產混為同一組合風險計算，除非 Scenario 明確指定出售或增貸。\n\n---\n\n## 10. 投資組合報酬率公式\n\n### 10.1 Portfolio Expected Return\n\n```text\nPortfolioExpectedReturn = Σ(Weight_i × ExpectedReturn_i)\n```\n\n限制：\n\n```text\nΣ Weight_i = 1\n```\n\n### 10.2 Portfolio Variance\n\n```text\nPortfolioVariance = ΣΣ(Weight_i × Weight_j × Volatility_i × Volatility_j × Correlation_ij)\n```\n\n### 10.3 Portfolio Volatility\n\n```text\nPortfolioVolatility = sqrt(PortfolioVariance)\n```\n\n### 10.4 Real Portfolio Return\n\n```text\nRealPortfolioReturn = ((1 + PortfolioNominalReturn) / (1 + InflationRate)) - 1\n```\n\n---\n\n## 11. 匯率假設\n\nProject Atlas 的基準貨幣為 TWD。\n\n所有外幣資產必須同時儲存：\n\n1. 原幣金額。\n2. 原幣報酬率。\n3. TWD 換算金額。\n4. 匯率假設。\n5. 匯率波動率。\n6. 匯率情境。\n\n### 11.1 預設匯率假設\n\n| Currency Pair | Base FX | Conservative | Stress | 說明 |\n|---|---:|---:|---:|---|\n| USD/TWD | 32.0 | 34.0 | 36.0 | 台幣貶值情境 |\n| USD/TWD Strong TWD | 30.0 | 29.0 | 28.0 | 台幣升值情境 |\n| JPY/TWD | 0.22 | 0.24 | 0.26 | 旅遊與日圓支出參考 |\n| EUR/TWD | 35.0 | 37.0 | 40.0 | 歐元資產參考 |\n\n### 11.2 匯率波動率\n\n| Currency Pair | Annual Volatility |\n|---|---:|\n| USD/TWD | 6.0% |\n| JPY/TWD | 10.0% |\n| EUR/TWD | 8.0% |\n\n### 11.3 外幣資產 TWD 報酬率公式\n\n```text\nTwdReturn = ((1 + ForeignAssetReturn) × (1 + FxReturn)) - 1\n```\n\n---\n\n## 12. 再平衡假設\n\n### 12.1 預設再平衡頻率\n\n| Portfolio Type | Default Rebalance Frequency |\n|---|---|\n| Retirement Portfolio | Annually |\n| Long-Term Investment Portfolio | Annually |\n| Cash Reserve Portfolio | No Rebalance |\n| House Upgrade Reserve | Quarterly Review, No Automatic Rebalance |\n| FCN Income Portfolio | No Automatic Rebalance |\n| Tactical Portfolio | Manual Only |\n\n### 12.2 再平衡規則\n\n1. 預設使用年度再平衡。\n2. 若任一資產類別偏離目標權重超過 5 個百分點，可觸發再平衡建議。\n3. 若使用者有重大現金流事件，應優先透過新增資金或提領資金調整權重，而不是賣出資產。\n4. 若資產為 FCN、保單、不動產，不應自動再平衡。\n5. 稅務成本、交易成本、流動性限制必須先估算後才可產生再平衡建議。\n\n---\n\n## 13. Sequence of Returns Risk\n\n退休與提前退休模擬必須考慮報酬率順序風險。\n\n### 13.1 不可接受的簡化\n\n以下做法禁止作為退休決策唯一依據：\n\n```text\n每年固定使用 6% 報酬率\n```\n\n原因：退休提領階段，前期遇到市場下跌會顯著降低資產存活率。\n\n### 13.2 必須支援的模擬方式\n\nRetirementEngine 至少應支援：\n\n1. Fixed Return Simulation。\n2. Historical-like Sequence Simulation。\n3. Monte Carlo Simulation。\n4. Stress Sequence Simulation。\n5. First-5-Year Bear Market Simulation。\n\n### 13.3 First-5-Year Bear Market 預設\n\n```text\nYear 1: -20%\nYear 2: -10%\nYear 3: 0%\nYear 4: +5%\nYear 5: +8%\nYear 6+: Base Expected Return\n```\n\n---\n\n## 14. Monte Carlo 假設\n\n### 14.1 預設參數\n\n| Parameter | Default |\n|---|---:|\n| Simulation Runs | 10,000 |\n| Minimum Runs | 1,000 |\n| Time Step | Annual |\n| Distribution | Lognormal preferred |\n| Random Seed | Required for reproducible tests |\n| Output Percentiles | P5, P10, P25, P50, P75, P90, P95 |\n\n### 14.2 成功率定義\n\n退休資產成功率：\n\n```text\nSuccessRate = SuccessfulSimulationCount / TotalSimulationCount\n```\n\n成功條件：\n\n```text\nFinalNetWorth >= MinimumRequiredTerminalWealth\nAND NoYearWithNegativeLiquidAssets\n```\n\n### 14.3 決策門檻\n\n| Success Rate | Interpretation | Decision Meaning |\n|---|---|---|\n| >= 90% | Strong | 可視為穩健，但仍需壓力測試 |\n| 80% - 89% | Acceptable | 可接受，但需保留調整空間 |\n| 70% - 79% | Weak | 應調整提領率、退休年齡或資產配置 |\n| < 70% | Unsafe | 不建議執行該決策 |\n\n---\n\n## 15. 壓力測試假設\n\nProject Atlas 預設支援以下市場壓力情境。\n\n### 15.1 Equity Bear Market\n\n```text\nTW_EQUITY: -35%\nUS_EQUITY: -30%\nGLOBAL_EQUITY: -30%\nEM_EQUITY: -40%\nREIT: -25%\nFCN: -40%\n```\n\n### 15.2 Bond Rate Shock\n\n```text\nTW_BOND: -8%\nUS_BOND: -15%\nGLOBAL_BOND: -12%\nHIGH_YIELD_BOND: -20%\n```\n\n### 15.3 Inflation Shock\n\n```text\nCPI_GENERAL: 4.0%\nLIVING_COST: 4.5%\nMEDICAL_COST: 6.0%\nHOUSING_PRICE: 5.0%\nSALARY: 0.0%\n```\n\n### 15.4 FX Shock\n\n```text\nUSD/TWD +12%\nJPY/TWD +15%\nEUR/TWD +10%\n```\n\n### 15.5 Liquidity Shock\n\n```text\nDividendIncome: -50%\nFCNIncome: -100%\nBonusIncome: -100%\nRentalIncome: -30%\nEmergencyExpense: 6 months living expense\n```\n\n### 15.6 Combined Family Stress Scenario\n\n此情境用於家庭重大決策，如換屋、保留第一間房、買車、提前退休。\n\n```text\nEquity Portfolio: -30%\nFCN Market Value: -40%\nFCN Income: -100%\nBonus Income: -100%\nLiving Cost Inflation: 4.5%\nMortgage Rate: +1.5%\nEmergency Expense: 6 months living expense\n```\n\n---\n\n## 16. FCN 市場假設\n\nFCN 不得被視為債券或固定收益。\n\n### 16.1 FCN 預設假設\n\n| Item | Conservative | Base | Optimistic |\n|---|---:|---:|---:|\n| Coupon Income | 0% | 8% | 12% |\n| Total Return | -5% | 3% | 8% |\n| Volatility | 30% | 25% | 20% |\n| Income Continuity | Low | Medium | Medium |\n| Principal Protection | No | No | No |\n\n### 16.2 FCN 禁止規則\n\nCodex 不得實作以下邏輯：\n\n1. 不得把 FCN coupon 當作無風險收入。\n2. 不得把 FCN 視為債券資產。\n3. 不得假設 FCN 每月收入永久存在。\n4. 不得忽略 knock-in、接股、提前出場與標的集中風險。\n5. 不得用票息率直接作為總報酬率。\n6. 不得將 FCN 收入納入必要生活費覆蓋率，除非同時通過 FCN income loss stress test。\n\n---\n\n## 17. 不動產市場假設\n\n### 17.1 自住房\n\n自住房的主要功能是居住，不是投資資產。\n\n預設規則：\n\n1. 自住房增值可計入 Net Worth。\n2. 自住房不得計入 Liquid Net Worth。\n3. 自住房不得計入退休可提領資產，除非 Scenario 明確設定出售、出租或增貸。\n4. 自住房成長率預設低於股票。\n5. 自住房需扣除交易成本、稅費、裝修成本與搬遷成本後才可計算可用資金。\n\n### 17.2 投資型不動產\n\n投資型不動產需拆分：\n\n```text\nTotalReturn = CapitalAppreciation + NetRentalYield - MaintenanceCost - VacancyCost - TaxCost\n```\n\n預設參數：\n\n| Item | Default |\n|---|---:|\n| Capital Appreciation | 2.0% |\n| Gross Rental Yield | 2.0% |\n| Vacancy Rate | 5.0% |\n| Maintenance Cost | 0.5% of property value per year |\n| Net Rental Yield | 1.0% |\n| Transaction Cost When Selling | 4.0% |\n\n---\n\n## 18. 現金與緊急預備金假設\n\n現金的角色是保護決策彈性，不是追求報酬。\n\n### 18.1 現金預備金最低標準\n\n| Household Risk Level | Minimum Emergency Fund |\n|---|---:|\n| Low | 6 months living expense |\n| Medium | 9 months living expense |\n| High | 12 months living expense |\n| High Debt + Dependents | 12-18 months living expense |\n\n### 18.2 現金不得被高估\n\n在 DecisionEngine 中，現金應以以下方式處理：\n\n```text\nCashReturnContribution = CashAmount × CashReturn\nProtectionValue = LiquidityCoverageMonths\n```\n\n現金的價值主要體現在流動性覆蓋月數，而不是投資報酬。\n\n---\n\n## 19. 使用者風險屬性與市場假設連動\n\n不同風險屬性應影響可使用的資產配置，不應直接修改資產本身的長期報酬假設。\n\n錯誤做法：\n\n```text\nAggressive user => US_EQUITY return = 10%\n```\n\n正確做法：\n\n```text\nAggressive user => Higher equity allocation allowed\nUS_EQUITY return remains unchanged\n```\n\n### 19.1 風險屬性對配置限制\n\n| Risk Profile | Max Equity | Max FCN | Min Cash Reserve |\n|---|---:|---:|---:|\n| Conservative | 40% | 0% | 12 months |\n| Balanced | 60% | 10% | 9 months |\n| Growth | 80% | 15% | 6 months |\n| Aggressive | 90% | 20% | 6 months |\n\n---\n\n## 20. 情境覆寫規則\n\nScenario 可以覆寫以下參數：\n\n1. Asset expected return。\n2. Asset volatility。\n3. Correlation matrix。\n4. Inflation rate。\n5. FX rate。\n6. Salary growth。\n7. Housing price growth。\n8. Interest rate。\n9. Dividend income haircut。\n10. FCN income continuity。\n\nScenario Override 必須記錄：\n\n```text\nAssumptionKey\nOriginalValue\nOverrideValue\nOverrideReason\nScenarioId\nCreatedAt\nCreatedBy\n```\n\n---\n\n## 21. 資料庫設計需求\n\nCodex 應建立以下概念資料表或等價結構。\n\n### 21.1 MarketAssumptionSet\n\n| Column | Type | Required | Description |\n|---|---|---:|---|\n| Id | Guid | Yes | 假設集合 ID |\n| Name | string | Yes | 假設名稱 |\n| Version | string | Yes | 版本 |\n| BaseCurrency | string | Yes | 預設 TWD |\n| EffectiveFrom | date | Yes | 生效日 |\n| EffectiveTo | date | No | 失效日 |\n| IsDefault | bool | Yes | 是否為系統預設 |\n| Description | string | No | 說明 |\n| CreatedAt | datetime | Yes | 建立時間 |\n| UpdatedAt | datetime | Yes | 更新時間 |\n\n### 21.2 AssetClassAssumption\n\n| Column | Type | Required | Description |\n|---|---|---:|---|\n| Id | Guid | Yes | ID |\n| AssumptionSetId | Guid | Yes | MarketAssumptionSet ID |\n| AssetClassCode | string | Yes | 資產類別 |\n| ConservativeReturn | decimal | Yes | 保守報酬率 |\n| BaseReturn | decimal | Yes | 基準報酬率 |\n| OptimisticReturn | decimal | Yes | 樂觀報酬率 |\n| Volatility | decimal | Yes | 年化波動率 |\n| LiquidityLevel | string | Yes | High / Medium / Low |\n| RiskLevel | string | Yes | Low / Medium / High / VeryHigh |\n| Notes | string | No | 說明 |\n\n### 21.3 AssetCorrelation\n\n| Column | Type | Required | Description |\n|---|---|---:|---|\n| Id | Guid | Yes | ID |\n| AssumptionSetId | Guid | Yes | 假設集合 ID |\n| AssetClassA | string | Yes | 資產 A |\n| AssetClassB | string | Yes | 資產 B |\n| Correlation | decimal | Yes | 相關係數 |\n\n### 21.4 InflationAssumption\n\n| Column | Type | Required | Description |\n|---|---|---:|---|\n| Id | Guid | Yes | ID |\n| AssumptionSetId | Guid | Yes | 假設集合 ID |\n| InflationType | string | Yes | 通膨類型 |\n| BaseRate | decimal | Yes | 基準 |\n| ConservativeRate | decimal | Yes | 保守 |\n| StressRate | decimal | Yes | 壓力 |\n\n### 21.5 FxAssumption\n\n| Column | Type | Required | Description |\n|---|---|---:|---|\n| Id | Guid | Yes | ID |\n| AssumptionSetId | Guid | Yes | 假設集合 ID |\n| CurrencyPair | string | Yes | 幣別對 |\n| BaseRate | decimal | Yes | 基準匯率 |\n| ConservativeRate | decimal | Yes | 保守匯率 |\n| StressRate | decimal | Yes | 壓力匯率 |\n| Volatility | decimal | Yes | 年化匯率波動 |\n\n---\n\n## 22. API 需求\n\nMarket Assumptions API 應支援：\n\n```text\nGET    /api/market-assumptions/current\nGET    /api/market-assumptions/{id}\nGET    /api/market-assumptions/{id}/asset-classes\nGET    /api/market-assumptions/{id}/correlations\nGET    /api/market-assumptions/{id}/inflation\nGET    /api/market-assumptions/{id}/fx\nPOST   /api/market-assumptions\nPUT    /api/market-assumptions/{id}\nPOST   /api/market-assumptions/{id}/activate\nPOST   /api/market-assumptions/{id}/clone\n```\n\n管理類 API 應保留權限控管。\n\n---\n\n## 23. 驗證規則\n\n### 23.1 Return Validation\n\n1. ConservativeReturn <= BaseReturn <= OptimisticReturn。\n2. 報酬率不得小於 -100%。\n3. 未分類資產 BaseReturn 不得高於 4%。\n4. Cash 類資產 BaseReturn 不得高於 3%，除非 Scenario Override。\n5. FCN 不得只有 coupon return，必須有 total return。\n\n### 23.2 Volatility Validation\n\n1. Volatility 必須大於等於 0。\n2. Equity 類資產 volatility 不得小於 10%。\n3. FCN volatility 不得小於其連結股票資產 volatility 的 80%。\n4. Cash 類資產 volatility 不得高於 10%，除非包含外幣風險。\n\n### 23.3 Correlation Validation\n\n1. Correlation 必須介於 -1 到 1。\n2. Matrix 必須對稱。\n3. Diagonal 必須為 1。\n4. Same asset category correlation 不得低於 0.60。\n\n---\n\n## 24. Dashboard 呈現需求\n\nDashboard 不應只顯示單一預期報酬率，至少應顯示：\n\n1. Portfolio nominal expected return。\n2. Portfolio real expected return。\n3. Portfolio volatility。\n4. Worst case stress loss。\n5. Liquidity coverage months。\n6. Retirement success rate。\n7. Downside percentile。\n8. Market assumption version。\n9. Scenario overrides used。\n\nDashboard 文案應避免使用「保證」、「必然」、「穩賺」、「安全獲利」等字眼。\n\n---\n\n## 25. 決策引擎使用規則\n\nDecisionEngine 應使用市場假設產生以下判斷：\n\n1. 是否可承擔換屋後的投資資產下降。\n2. 是否可在熊市下維持現金流。\n3. 是否可承擔 FCN 收入中斷。\n4. 是否可提前退休。\n5. 是否應提前還貸。\n6. 是否應降低股票曝險。\n7. 是否應增加現金預備金。\n8. 是否應延後買車或換屋。\n\n### 25.1 決策不得只看平均報酬\n\n錯誤做法：\n\n```text\nExpectedReturn > MortgageRate => 不提前還貸\n```\n\n正確做法：\n\n```text\nCompare:\n- Expected return\n- Volatility\n- Liquidity reserve\n- Debt service ratio\n- Stress test result\n- Family safety margin\n- Opportunity cost\n```\n\n---\n\n## 26. 測試案例\n\n### 26.1 Portfolio Return Test\n\nGiven:\n\n```text\n60% GLOBAL_EQUITY, return 6%\n40% US_BOND, return 3.5%\n```\n\nExpected:\n\n```text\nPortfolioReturn = 0.6 × 6% + 0.4 × 3.5% = 5.0%\n```\n\n### 26.2 Real Return Test\n\nGiven:\n\n```text\nNominalReturn = 5.0%\nInflation = 2.5%\n```\n\nExpected:\n\n```text\nRealReturn = ((1.05 / 1.025) - 1) = 2.439%\n```\n\n### 26.3 Correlation Symmetry Test\n\nGiven:\n\n```text\nCorrelation(TW_EQUITY, US_EQUITY) = 0.65\n```\n\nExpected:\n\n```text\nCorrelation(US_EQUITY, TW_EQUITY) = 0.65\n```\n\n### 26.4 FCN Classification Test\n\nGiven:\n\n```text\nAssetClass = FCN\n```\n\nExpected:\n\n```text\nIsFixedIncome = false\nRiskLevel = VeryHigh\nCanCountAsStableIncome = false unless stress test passed\n```\n\n---\n\n## 27. Codex 實作指令\n\nCodex 在實作 market assumptions 時必須遵守：\n\n1. 所有假設必須存放於資料庫或設定檔，不得散落於程式碼。\n2. 所有計算必須可追溯使用哪一版 MarketAssumptionSet。\n3. 所有 Scenario 必須記錄 override 過的假設值。\n4. 所有 API 回傳結果必須包含 assumptionSetId 與 version。\n5. 所有測試必須固定 random seed。\n6. Monte Carlo 不得在單元測試中依賴不穩定隨機結果。\n7. Decimal 用於金額與比例設定，double 可用於模擬運算但結果須轉回 decimal 顯示。\n8. 不得把短期市場資料直接更新為長期假設。\n9. 不得將 FCN、保單、不動產直接併入可自由再平衡投資組合。\n10. 不得用單一平均值取代風險分析。\n\n---\n\n## 28. 尚未定義或待補文件\n\n本文件完成後，仍建議補齊以下文件：\n\n1. `knowledge/taiwan-financial-assumptions.md`：台灣預設通膨、房貸、ETF、退休、薪資等假設。\n2. `knowledge/taiwan-etf-assumptions.md`：台股 ETF、債券 ETF、配息型 ETF 假設。\n3. `knowledge/monte-carlo-assumptions.md`：Monte Carlo 分布、抽樣、seed、percentile 設計。\n4. `docs/09A-InvestmentEngine-Formula.md`：投資引擎公式細節。\n5. `docs/09B-InvestmentEngine-RiskModel.md`：投資風險模型。\n6. `docs/13A-DecisionEngine-MarketRules.md`：市場假設如何影響重大決策。\n7. `docs/18A-KPI-MarketRisk.md`：Dashboard 市場風險 KPI。\n\n---\n\n## 29. 尚未定義的 Business Rules\n\n待後續文件補齊：\n\n1. 使用者是否可自訂所有 asset class 的報酬率。\n2. 是否允許針對單一股票設定獨立報酬率與波動率。\n3. ETF 配息是否視為總報酬的一部分或現金流的一部分。\n4. FCN 收入在何種條件下可列入 household recurring income。\n5. 自住房是否可在退休計畫中啟用 reverse mortgage scenario。\n6. 外幣資產是否依不同目的分為 investment FX exposure 與 travel FX reserve。\n7. 是否允許不同人生目標使用不同 MarketAssumptionSet。\n\n---\n\n## 30. 尚未定義的 Formula\n\n待後續文件補齊：\n\n1. Monte Carlo lognormal return generation。\n2. Rebalancing tax-aware formula。\n3. FX-adjusted portfolio volatility。\n4. Dividend haircut formula。\n5. FCN knock-in stress formula。\n6. Real estate net return formula。\n7. Retirement glide path formula。\n8. Portfolio drawdown formula。\n9. Conditional value at risk formula。\n10. Liquidity-adjusted net worth formula。\n\n---\n\n## 31. 尚未定義的 Decision Rules\n\n待後續文件補齊：\n\n1. 何時應降低股票比例。\n2. 何時應停止增加 FCN 部位。\n3. 何時應優先還貸而不是投資。\n4. 何時應保留現金而不是投入市場。\n5. 何時可將股息納入退休現金流。\n6. 何時應延後換屋。\n7. 何時應降低美元資產曝險。\n8. 何時應將自住房納入退休變現策略。\n9. 何時市場假設需要版本更新。\n10. 何時 Scenario 應強制執行 stress test。\n\n---\n\n## 32. 文件狀態\n\n| Item | Status |\n|---|---|\n| Document | knowledge/market-assumptions.md |\n| Project | Project Atlas |\n| Layer | Knowledge Base |\n| Version | v1.0 |\n| Purpose | 長期市場報酬率、波動率、Correlation 與情境假設 |\n| Ready for Codex | Yes |\n| Requires Review | Yes |\n\n---\n\n## 33. Phase 2 Executable Specification\n\n### 33.1 Market Assumption Version Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | MarketAssumptionSet |\n| Identity | assumptionSetId |\n| Scope | tenantId optional, system default allowed |\n| Required State | version, baseCurrency, effectiveFrom, status, assetClassAssumptions, inflationAssumptions, fxAssumptions |\n| Versioning | Published versions are immutable. |\n| Determinism | Scenario simulation must record the exact assumptionSetId and override set used. |\n\n### 33.2 Required Commands\n\n| Command | Purpose |\n|---|---|\n| CreateMarketAssumptionSet | Create draft assumptions. |\n| ValidateMarketAssumptionSet | Validate returns, volatility, correlation, inflation, and FX rules. |\n| PublishMarketAssumptionSet | Freeze a validated version. |\n| ActivateMarketAssumptionSet | Set the default active version. |\n| CloneMarketAssumptionSet | Create a new draft from an existing version. |\n| ApplyScenarioAssumptionOverride | Attach overrides to a scenario. |\n| ReplayAssumptionDrivenProjection | Rebuild projections using recorded assumptions. |\n\n### 33.3 Domain Events\n\n| Event | Trigger |\n|---|---|\n| MarketAssumptionSetCreated | Draft set is created. |\n| MarketAssumptionSetValidated | Validation succeeds. |\n| MarketAssumptionSetPublished | Version becomes immutable. |\n| MarketAssumptionSetActivated | Version becomes default for new simulations. |\n| ScenarioAssumptionOverrideApplied | Scenario-specific override is saved. |\n| AssumptionDrivenProjectionReplayed | Historical projection is reproduced. |\n\n### 33.4 Validation Rules\n\n1. Published versions cannot be edited; changes require clone and publish.\n2. Only one active default assumption set is allowed per base currency and tenant scope.\n3. Correlation matrix must be symmetric before publish.\n4. Scenario overrides must store originalValue, overrideValue, reason, scenarioId, and createdBy.\n5. Projections must reject missing assumptionSetId or unversioned market input.\n\n### 33.5 API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/market-assumptions | POST | Create draft assumption set. |\n| /api/market-assumptions/{id}/validate | POST | Validate assumption set. |\n| /api/market-assumptions/{id}/publish | POST | Publish immutable version. |\n| /api/market-assumptions/{id}/activate | POST | Activate default version. |\n| /api/scenarios/{scenarioId}/assumption-overrides | POST | Apply scenario overrides. |\n| /api/projections/{projectionId}/assumption-replay | POST | Replay assumption-driven projection. |\n\n### 33.6 Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Publish invalid correlation matrix | Validation fails. |\n| Activate second default version | Previous default is deactivated or command is rejected by policy. |\n| Edit published assumption | Mutation is rejected. |\n| Scenario override without reason | Validation fails. |\n| Replay with recorded assumptions | Projection output matches historical result. |\n\n### 33.7 Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

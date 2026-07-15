@@ -1,0 +1,1268 @@
+{
+  "generatedAt": "2026-07-15T09:21:29.306Z",
+  "source": "knowledge/",
+  "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
+  "categories": [
+    "api",
+    "catalog",
+    "engine",
+    "entity",
+    "framework",
+    "integration",
+    "reporting",
+    "rule",
+    "security",
+    "supporting",
+    "workflow"
+  ],
+  "documents": [
+    {
+      "id": "76d8ea4fa681c5a8",
+      "title": "API Governance Framework",
+      "category": "api",
+      "path": "knowledge/api/api-governance-framework.md",
+      "sourceHash": "7d8eb7ab1031c66490ca7ff238a4cf067a50b8fe7b820d8c647e74abc4783255",
+      "summary": "# API Governance Framework # Document Control Document Name: API Governance Framework Document Path: knowledge/api-governance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Spec"
+    },
+    {
+      "id": "a42a65f302cab3b6",
+      "title": "Capital Allocation Framework",
+      "category": "api",
+      "path": "knowledge/api/capital-allocation-framework.md",
+      "sourceHash": "e6ecc8e7dcb386316a786ed9bbe5bdce6e6d405e61d4cc5aeb8e354d94fb7ae9",
+      "summary": "# Capital Allocation Framework Version: 1.0 ## Purpose Defines how Project Atlas allocates available capital across competing financial objectives while respecting constraints, liquidity requirements, and long-term strategy. ## Objective"
+    },
+    {
+      "id": "3d2054372d95ebf7",
+      "title": "Aggregate Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/aggregate-catalog.md",
+      "sourceHash": "51a36ae5130dd08638f5c1d4ca912762706d6427401170033a6ce30d2b7b4076",
+      "summary": "# Aggregate Catalog # Document Control Document Name: Aggregate Catalog Document Path: knowledge/aggregate-catalog.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specification Domain: Platform"
+    },
+    {
+      "id": "9624f4ba01322a64",
+      "title": "Application Service Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/application-service-catalog.md",
+      "sourceHash": "250c3b1a2c818024fd0088c9350748ebae12bace6fa15655b93b3aaa9df6b735",
+      "summary": "# Application Service Catalog # Document Control Document Name: Application Service Catalog Document Path: knowledge/application-service-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canon"
+    },
+    {
+      "id": "64e0dd1e15409ed1",
+      "title": "Bounded Context Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/bounded-context-catalog.md",
+      "sourceHash": "9e45fac3d2cd2813e46d6966b50d6f1cd9796beddcb0ece0da0afd87d50328ff",
+      "summary": "# Bounded Context Catalog # Document Control Document Name: Bounded Context Catalog Document Path: knowledge/bounded-context-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specifi"
+    },
+    {
+      "id": "3d088fa9be53db88",
+      "title": "Command Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/command-catalog.md",
+      "sourceHash": "eb138c51f27abbfe90a23990de22404f1b817972fd4d25d921fc4fa1bdf868c9",
+      "summary": "# Command Catalog # Document Control Document Name: Command Catalog Document Path: knowledge/command-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Platform"
+    },
+    {
+      "id": "908828f33d30c8f2",
+      "title": "Dashboard Widget Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/dashboard-widget-catalog.md",
+      "sourceHash": "a106579820798458712908ef8e7bc1dd52cc24b3ae752b6ac7dc96df136295d3",
+      "summary": "# Dashboard Widget Catalog Version: 1.0 ## Purpose Defines the standard catalog of dashboard widgets used throughout Project Atlas. This catalog provides a reusable specification for all UI dashboard components and ensures consistency acr"
+    },
+    {
+      "id": "6a265b5ccf0d6f87",
+      "title": "Domain Event Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-event-catalog.md",
+      "sourceHash": "88dd71b1181385bc7a049a262f9cc1d287758e41ffed48e833a850d88e470ee2",
+      "summary": "# Domain Event Catalog # Document Control Document Name: Domain Event Catalog Document Path: knowledge/domain-event-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification D"
+    },
+    {
+      "id": "4642ddd37cc96182",
+      "title": "Domain Model Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-model-catalog.md",
+      "sourceHash": "53ab33b2c9951c023fb6e16f29c178e6581d5796904f2683b76b1def6277c266",
+      "summary": "# Domain Model Catalog # Document Control Document Name: Domain Model Catalog Document Path: knowledge/domain-model-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification D"
+    },
+    {
+      "id": "c6d00a1ec1efc501",
+      "title": "Domain Service Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-service-catalog.md",
+      "sourceHash": "5f103bb6cd7d140a3cb26a58c9e0f1537ffd0983024ce9e491805270941d1184",
+      "summary": "# Domain Service Catalog # Document Control Document Name: Domain Service Catalog Document Path: knowledge/domain-service-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specificat"
+    },
+    {
+      "id": "be2e3e9228afe64c",
+      "title": "Entity Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/entity-catalog.md",
+      "sourceHash": "d0f22bc337ca0045fbc65764855f7076e1a58fc64a27162591b5e03213e69acc",
+      "summary": "# Entity Catalog # Document Control Document Name: Entity Catalog Document Path: knowledge/entity-catalog.md Document Type: Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Platfor"
+    },
+    {
+      "id": "8adc68c015c0c85b",
+      "title": "Enumeration Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/enumeration-catalog.md",
+      "sourceHash": "1dd0d73c7c698e8dfb7d2a5175d83bd41c22c1f10d26b26141a805af542d9746",
+      "summary": "# Enumeration Catalog # Document Control Document Name: Enumeration Catalog Document Path: knowledge/enumeration-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Doma"
+    },
+    {
+      "id": "daa8c104d9d83abc",
+      "title": "Financial Formula Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/financial-formula-catalog.md",
+      "sourceHash": "61fc7532d41786223b8a36ed2a1b65d55a6b005c026175cc9a7251830dcf19aa",
+      "summary": "# Financial Formula Catalog ## Formula Groups - NPV - IRR - CAGR - XIRR - PMT - FV - PV - Loan Amortization - DTI - LTV - Savings Rate - Safe Withdrawal Rate - Net Worth - Cash Flow Coverage All formulas include version, assumptions and r"
+    },
+    {
+      "id": "36608ef601be93ca",
+      "title": "Message Contract Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/message-contract-catalog.md",
+      "sourceHash": "c83e8f2851a7df1e0c8c6aafb70596ae48314c49e1c172c7e02bf1dc9fb57e62",
+      "summary": "# Message Contract Catalog # Document Control Document Name: Message Contract Catalog Document Path: knowledge/message-contract-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Spec"
+    },
+    {
+      "id": "8866c9a7f3e1f7b4",
+      "title": "Repository Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/repository-catalog.md",
+      "sourceHash": "59b7e5592ecb9372e704c9156fc40292088a067eab0e0354e79aa828c5356d74",
+      "summary": "# Repository Catalog # Document Control Document Name: Repository Catalog Document Path: knowledge/repository-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain:"
+    },
+    {
+      "id": "61bdd535f02a5191",
+      "title": "Service Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/service-catalog.md",
+      "sourceHash": "571f014b3cee8370c68f4a813f1451c43ab659fe3f80019fa89630ed1e3a5013",
+      "summary": "# Service Catalog # Document Control Document Name: Service Catalog Document Path: knowledge/service-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Platform"
+    },
+    {
+      "id": "6bbb72e5b5127cc5",
+      "title": "System Module Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-module-catalog.md",
+      "sourceHash": "8d7e5de2162aa3c5dbc56aebc8221e13062f72ff11d2db977c15a8f07cad4148",
+      "summary": "# System Module Catalog # Document Control Document Name: System Module Catalog Document Path: knowledge/system-module-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification"
+    },
+    {
+      "id": "c9039782df1e8ca8",
+      "title": "Value Object Catalog",
+      "category": "catalog",
+      "path": "knowledge/catalog/value-object-catalog.md",
+      "sourceHash": "c65b9f4207122b693d4ba0bf3596df036d7ea5375f2df86ea7dd779e25330dd2",
+      "summary": "# Value Object Catalog # Document Control Document Name: Value Object Catalog Document Path: knowledge/value-object-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification D"
+    },
+    {
+      "id": "141ace4c91d82c69",
+      "title": "Calculation Engine Framework",
+      "category": "engine",
+      "path": "knowledge/engine/calculation-engine-framework.md",
+      "sourceHash": "58e379572c2f01efa7339188a0372cf1f5bff0778e8b45085eb7550da32407c5",
+      "summary": "# Calculation Engine Framework # Document Control Document Name: Calculation Engine Framework Document Path: knowledge/calculation-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Ca"
+    },
+    {
+      "id": "7385b529abe7d054",
+      "title": "Optimization Engine Framework",
+      "category": "engine",
+      "path": "knowledge/engine/optimization-engine-framework.md",
+      "sourceHash": "411a25773d93cc9ce70d885be888ede88810333e655ea9ea75467c87f55262a6",
+      "summary": "# Optimization Engine Framework # Document Control Document Name: Optimization Engine Framework Document Path: knowledge/optimization-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status:"
+    },
+    {
+      "id": "2549a9b1f35dfdbe",
+      "title": "Projection Engine Framework",
+      "category": "engine",
+      "path": "knowledge/engine/projection-engine-framework.md",
+      "sourceHash": "a163f6208baccc2c18e4ea0a0dab1ebccc268a983787c513cdf34d8979388a8c",
+      "summary": "# Projection Engine Framework # Document Control Document Name: Projection Engine Framework Document Path: knowledge/projection-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canon"
+    },
+    {
+      "id": "0ebec91eacd74287",
+      "title": "knowledge/rule-engine-architecture.md",
+      "category": "engine",
+      "path": "knowledge/engine/rule-engine-architecture.md",
+      "sourceHash": "088d304c4614cab210840e22b835191b35aca6c023f979508203d74d264d5312",
+      "summary": "# knowledge/rule-engine-architecture.md # Atlas Rule Engine Architecture Version: 1.0 Status: Canonical Specification ## 1. Purpose This document specifies the execution architecture for the Atlas Rule Engine. The engine executes AREL ru"
+    },
+    {
+      "id": "bbb6ac9b1b3eb1d8",
+      "title": "Simulation Engine Framework",
+      "category": "engine",
+      "path": "knowledge/engine/simulation-engine-framework.md",
+      "sourceHash": "62280a71b9eb8045a63faf7dfc385805702d8b2fa7adbe685b51b52cbcd9b9bc",
+      "summary": "# Simulation Engine Framework # Document Control Document Name: Simulation Engine Framework Document Path: knowledge/simulation-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canon"
+    },
+    {
+      "id": "81bb1629a1c9fc75",
+      "title": "Workflow Engine Framework",
+      "category": "engine",
+      "path": "knowledge/engine/workflow-engine-framework.md",
+      "sourceHash": "07caf15499083d17a0875e111b3ea185c2541cdab783c48d2609535516ad196f",
+      "summary": "# Workflow Engine Framework Workflow States: Draft → Pending → Running → Waiting → Completed → Failed → Cancelled Features: - State machine - Retry - Compensation - Timeout - Manual approval - Audit trail"
+    },
+    {
+      "id": "115b66a0372150de",
+      "title": "ActionPlan Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/ActionPlan.md",
+      "sourceHash": "be0b9ce79142b4fe45a7f32025099443d1ea8f6b78d178082605deb967f3f532",
+      "summary": "# ActionPlan Entity Specification # Document Control Document Name: ActionPlan Entity Specification Document Path: knowledge/entity/ActionPlan.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specification Do"
+    },
+    {
+      "id": "54b0387840385a9b",
+      "title": "Asset Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Asset.md",
+      "sourceHash": "de0c540e8c25fdeb9b0b2f6bef408336ab2cd40125e3b503818eac9639d5ccd4",
+      "summary": "# Asset Entity Specification # Document Control - Document Name: Asset Entity Specification - Document Path: knowledge/entity/Asset.md - Document Type: Atlas Enterprise Specification - Version: 1.0 - Status: Canonical Specificatio"
+    },
+    {
+      "id": "c22351aebbd7ba2d",
+      "title": "Decision Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Decision.md",
+      "sourceHash": "3774f99551a88efbd2f81fc2c0ed006cc45722d5e1316697e0d2c2d30fba1a84",
+      "summary": "# Decision Entity Specification # Document Control Document Name: Decision Entity Specification Document Path: knowledge/entity/Decision.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specification Domain:"
+    },
+    {
+      "id": "9463ee9d88d75de1",
+      "title": "ExecutionPlan Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/ExecutionPlan.md",
+      "sourceHash": "bdaea71ee24228a25a314757614c10a5f302cbfa9c1ce2aafc74b0391ace5404",
+      "summary": "# ExecutionPlan Entity Specification # Document Control Document Name: ExecutionPlan Entity Specification Document Path: knowledge/entity/ExecutionPlan.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specific"
+    },
+    {
+      "id": "6f3bcf4cac8d9110",
+      "title": "Goal Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Goal.md",
+      "sourceHash": "abd1b342eb6364edd20cea409e5875949f23af604b7bbf21e787c03eaa0ed96b",
+      "summary": "# Goal Entity Specification # Document Control Document Name: Goal Entity Specification Document Path: knowledge/entity/Goal.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specification Domain: Goals Bound"
+    },
+    {
+      "id": "b9afa184db126197",
+      "title": "Household Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Household.md",
+      "sourceHash": "9b38eedb91ada203ad0bf70542cdb5b02d290789f2a55f0b99b209fd32d54e9f",
+      "summary": "# Household Entity Specification # Document Control | Field | Value | |---|---| | Document Name | Household Entity Specification | | Document Path | knowledge/entity/Household.md | | Document Type | Enterprise Entity Specification |"
+    },
+    {
+      "id": "aa80b88b0c46fc83",
+      "title": "Liability Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Liability.md",
+      "sourceHash": "4754eea7118000383dc0fce68c94f94eaaf52112cab99e6c12715daa6990e967",
+      "summary": "# Liability Entity Specification # Document Control | Field | Value | |---|---| | Document Name | Liability Entity Specification | | Document Path | knowledge/entity/Liability.md | | Document Type | Enterprise Entity Specification |"
+    },
+    {
+      "id": "67b0cd26d836388a",
+      "title": "Loan Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Loan.md",
+      "sourceHash": "9cae6d31312a63d207a9f444841437d70ba64fc1358231a0102e96fa21765cdd",
+      "summary": "# Loan Entity Specification # Document Control | Field | Value | |---|---| | Document Name | Loan Entity Specification | | Document Path | knowledge/entity/Loan.md | | Document Type | Enterprise Entity Specification | | Version | 1.0"
+    },
+    {
+      "id": "4f6d966f7bf27498",
+      "title": "Mortgage Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Mortgage.md",
+      "sourceHash": "e4d3b4eebba4a86e3d9a6ac579c6ff17472bf6dbcf7bb1c7a204ccbc3aeb61d5",
+      "summary": "# Mortgage Entity Specification # Document Control | Field | Value | |---|---| | Document Name | Mortgage Entity Specification | | Document Path | knowledge/entity/Mortgage.md | | Document Type | Enterprise Entity Specification | | V"
+    },
+    {
+      "id": "87021bfea90ada02",
+      "title": "Notification Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Notification.md",
+      "sourceHash": "0d0498f9e4d41cf210c41c5bb5176e6db1b1b4ea680eb897d3e48d069739bac3",
+      "summary": "# Notification Entity Specification # Document Control Document Name: Notification Entity Specification Document Path: knowledge/entity/Notification.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specificati"
+    },
+    {
+      "id": "cb7961c60679be71",
+      "title": "Portfolio Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Portfolio.md",
+      "sourceHash": "fee164a26685bae1662b7f06f56a18497a31ecb4266b38aca41e25fd64ba69d3",
+      "summary": "# Portfolio Entity Specification # Document Control | Field | Value | |---|---| | Document Name | Portfolio Entity Specification | | Document Path | knowledge/entity/Portfolio.md | | Document Type | Enterprise Entity Specification |"
+    },
+    {
+      "id": "9a77b0968e39e8d3",
+      "title": "Position Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Position.md",
+      "sourceHash": "e26fef6ee002d2eb18f618579ed7ec643caea92913c90b839e72fcaa038297d4",
+      "summary": "# Position Entity Specification # Document Control | Field | Value | |---|---| | Document Name | Position Entity Specification | | Document Path | knowledge/entity/Position.md | | Document Type | Enterprise Entity Specification | | V"
+    },
+    {
+      "id": "eb0e81fa13800bfd",
+      "title": "Recommendation Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Recommendation.md",
+      "sourceHash": "5b2311ed66322a65dde2ba5add23274b184f2a157d95b5b908eac9561c32de1b",
+      "summary": "# Recommendation Entity Specification # Document Control Document Name: Recommendation Entity Specification Document Path: knowledge/entity/Recommendation.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Speci"
+    },
+    {
+      "id": "64f447e8dbeb0663",
+      "title": "Scenario Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/Scenario.md",
+      "sourceHash": "3c4fca84378be142dd17a3ad0b9a850e651835db79c903938f5bc178945e993b",
+      "summary": "# Scenario Entity Specification # Document Control Document Name: Scenario Entity Specification Document Path: knowledge/entity/Scenario.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specification Domain:"
+    },
+    {
+      "id": "643940531cebdd46",
+      "title": "User Entity Specification (Part 1)",
+      "category": "entity",
+      "path": "knowledge/entity/User_p1.md",
+      "sourceHash": "46f7d5a3bde8c13059028802b3400ef23448c45f09247e6f9570497389b24549",
+      "summary": "# User Entity Specification (Part 1) # Entity Overview ## Purpose The User entity represents an individual who owns financial data, goals, assets, liabilities, scenarios, and decisions within Atlas. ## Responsibilities - Identity managem"
+    },
+    {
+      "id": "b6395022cc837121",
+      "title": "User Entity Specification (Part 2)",
+      "category": "entity",
+      "path": "knowledge/entity/User_p2.md",
+      "sourceHash": "b5f0af2c578b489fb33232b0596bd6a43be1489b4e3cbc70085de4bb11056cf3",
+      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+    },
+    {
+      "id": "60e94ebf27fc0bd2",
+      "title": "User Entity Specification (Part 3)",
+      "category": "entity",
+      "path": "knowledge/entity/User_p3.md",
+      "sourceHash": "b5255d0902bdde61b0ae54dcba0b474b38b7e405679a29143bdfbbfde66bc89a",
+      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+    },
+    {
+      "id": "97487245259fae2f",
+      "title": "User Entity Specification",
+      "category": "entity",
+      "path": "knowledge/entity/User.md",
+      "sourceHash": "d7f54c20b2b58278e0048745a07f65c200a4aa4d76249d3fdcdb2e63414b9227",
+      "summary": "# User Entity Specification # Entity Overview ## Purpose - User represents an Atlas account participant and the identity boundary for personal finance, planning, decision, notification, and audit access. - User provides the stable owner i"
+    },
+    {
+      "id": "72ea374c6f48e91b",
+      "title": "Action Planning Framework",
+      "category": "framework",
+      "path": "knowledge/framework/action-planning-framework.md",
+      "sourceHash": "b8ab10c2b80a76935c0568471eefd0d0c13c30cb920ef45cd9ffe77395ad5d6d",
+      "summary": "# Action Planning Framework Version: 1.0 ## Purpose Defines the enterprise framework for modeling executable financial actions within Project Atlas. It standardizes how recommendations become actionable tasks with dependencies, evidence,"
+    },
+    {
+      "id": "c00f1d156c60923e",
+      "title": "Asset Allocation Framework",
+      "category": "framework",
+      "path": "knowledge/framework/asset-allocation-framework.md",
+      "sourceHash": "821ecba0aa87ae48cc845efad450b55500c875c769cb54c372ddeeccecbc72ce",
+      "summary": "# Asset Allocation Framework Version: 1.0 ## Purpose Defines the strategic and tactical asset allocation framework for Project Atlas. ## Objectives - Maximize long-term risk-adjusted returns. - Maintain alignment with the Investment Poli"
+    },
+    {
+      "id": "3b3c1e7f1f3b092e",
+      "title": "Automation Framework",
+      "category": "framework",
+      "path": "knowledge/framework/automation-framework.md",
+      "sourceHash": "f9958c732fe1c9f40d0f9f04389947c3f65535b74f4b87cc898d399c9bf06cc1",
+      "summary": "# Automation Framework # Document Control Document Name: Automation Framework Document Path: knowledge/automation-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification D"
+    },
+    {
+      "id": "2785e5e879a3a1c8",
+      "title": "Background Job Framework",
+      "category": "framework",
+      "path": "knowledge/framework/background-job-framework.md",
+      "sourceHash": "4f6703eca02dcab0f0f930ca7ed488ce2c9148cff3be3d9b92f5ef196c0c4439",
+      "summary": "# Background Job Framework # Document Control Document Name: Background Job Framework Document Path: knowledge/background-job-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Spec"
+    },
+    {
+      "id": "10bc6c6a93e4be0a",
+      "title": "backup-recovery-framework.md",
+      "category": "framework",
+      "path": "knowledge/framework/backup-recovery-framework.md",
+      "sourceHash": "c8af770bcc7b04dcd995c592fb99bf9797384fef48670442a075a8fa1ce75cb0",
+      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+    },
+    {
+      "id": "d78c68e7b334ad33",
+      "title": "Business Calendar Framework",
+      "category": "framework",
+      "path": "knowledge/framework/business-calendar-framework.md",
+      "sourceHash": "77afeea837c405188b4f5e9cfbf946ad86459449e71bcb2d2684364d410a1644",
+      "summary": "# Business Calendar Framework Version: 1.0 ## Purpose Defines the enterprise business calendar used by Project Atlas. It provides a single source of truth for all date, time, scheduling and business-day calculations across every engine."
+    },
+    {
+      "id": "e04cfb6f99f6f4eb",
+      "title": "Cache Strategy Framework",
+      "category": "framework",
+      "path": "knowledge/framework/cache-strategy-framework.md",
+      "sourceHash": "578131ea1ce4c98b85225788de396cc2ed9b12df51c945cf9fc9c215a20835a8",
+      "summary": "# Cache Strategy Framework # Document Control Document Name: Cache Strategy Framework Document Path: knowledge/cache-strategy-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Spec"
+    },
+    {
+      "id": "951806951ad88da9",
+      "title": "Cash Reserve Framework",
+      "category": "framework",
+      "path": "knowledge/framework/cash-reserve-framework.md",
+      "sourceHash": "5ef1bda6f68cf1063b5aa1ada9fe48931a9befd2fa64bcd5583c608db8bc24ab",
+      "summary": "# Cash Reserve Framework Version: 1.0 ## Purpose Defines the cash reserve policy used by Project Atlas to ensure liquidity, financial resilience, and support for long-term decision making. ## Objectives - Maintain adequate liquidity. - P"
+    },
+    {
+      "id": "00839929425e7774",
+      "title": "Compliance Framework",
+      "category": "framework",
+      "path": "knowledge/framework/compliance-framework.md",
+      "sourceHash": "602dacfcd9efeec00f13be3f8f3dcf4194b275cfb6749851df9bafd5ed1c53db",
+      "summary": "# Compliance Framework # Document Control Document Name: Compliance Framework Document Path: knowledge/compliance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification D"
+    },
+    {
+      "id": "98192808b56f4c89",
+      "title": "configuration-management-framework.md",
+      "category": "framework",
+      "path": "knowledge/framework/configuration-management-framework.md",
+      "sourceHash": "51c55e9817deef150e95975708137ce4f6053b8f03e8a7bb324f378083d9aea5",
+      "summary": "# configuration-management-framework.md # Atlas Enterprise Specification ## Configuration Management Framework Version: 1.0 ## 1. Purpose Standardize creation, storage, deployment, governance and auditing of all runtime configuration. #"
+    },
+    {
+      "id": "f39d41dac6001576",
+      "title": "Data Governance Framework",
+      "category": "framework",
+      "path": "knowledge/framework/data-governance-framework.md",
+      "sourceHash": "5e9d300ca272a52076ab3d99ed9c00766f042e5bfdebf7c26b75dbc503fe9ac4",
+      "summary": "# Data Governance Framework # Document Control Document Name: Data Governance Framework Document Path: knowledge/data-governance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical S"
+    },
+    {
+      "id": "140ef93d913198ef",
+      "title": "data-retention-framework.md",
+      "category": "framework",
+      "path": "knowledge/framework/data-retention-framework.md",
+      "sourceHash": "95bb737d40e306cb97122d9936086b8959ece1c436a81f0c7c036cadb6cd2e76",
+      "summary": "# data-retention-framework.md # Atlas Enterprise Specification ## Data Retention Framework Version: 1.0 ## 1. Purpose This document defines the lifecycle, retention, archival, restoration, and deletion policies for all data managed by P"
+    },
+    {
+      "id": "e876ad89d58a6dd1",
+      "title": "Database Governance Framework",
+      "category": "framework",
+      "path": "knowledge/framework/database-governance-framework.md",
+      "sourceHash": "5caceca3d61a1dd16eacd454d369b97837e551fbf7254515ca029b44a646f6a1",
+      "summary": "# Database Governance Framework # Document Control Document Name: Database Governance Framework Document Path: knowledge/database-governance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status:"
+    },
+    {
+      "id": "05a260ec40fcb2a1",
+      "title": "Decision History Framework",
+      "category": "framework",
+      "path": "knowledge/framework/decision-history-framework.md",
+      "sourceHash": "3dddab62c05fef57790c13e6624c1ffde1b29b55b8c5a3a91583d633843e8578",
+      "summary": "# Decision History Framework Version: 1.0 ## Purpose Defines how Project Atlas records, versions, and analyzes the complete lifecycle of financial decisions after they have been generated. Unlike the Decision Audit Framework, which focuse"
+    },
+    {
+      "id": "11e53a8f17cd61ef",
+      "title": "Decision Learning Framework",
+      "category": "framework",
+      "path": "knowledge/framework/decision-learning-framework.md",
+      "sourceHash": "e2583423447d3d4198d5185350153c8c9e9e920aa449beb0bd192ad05d341dad",
+      "summary": "# Decision Learning Framework Version: 1.0 ## Purpose Defines how Project Atlas continuously improves recommendations by learning from historical decisions and their outcomes while preserving deterministic business rules and explainabilit"
+    },
+    {
+      "id": "91d00d86d4056534",
+      "title": "Decision Metrics Framework",
+      "category": "framework",
+      "path": "knowledge/framework/decision-metrics-framework.md",
+      "sourceHash": "0260dadd565b8c3afde17e2765240a7c7f3c3820a7aaee5dca0fb54898ba3bf1",
+      "summary": "# Decision Metrics Framework Version: 1.0 ## Purpose Defines the standard metrics used by Project Atlas to evaluate, compare, rank, and explain financial decisions across all engines. ## Objectives - Establish a common decision measureme"
+    },
+    {
+      "id": "a8e0b18764263f69",
+      "title": "Emergency Fund Framework",
+      "category": "framework",
+      "path": "knowledge/framework/emergency-fund-framework.md",
+      "sourceHash": "944678b0ecfd8dfaf556501323fe7d050cb16a439603da0396d5cea310b4e8d0",
+      "summary": "# Emergency Fund Framework Version: 1.0 ## Purpose Defines the emergency fund policy for Project Atlas. The framework ensures sufficient liquid assets are maintained to absorb unexpected financial shocks without disrupting long-term goals"
+    },
+    {
+      "id": "61a162ccc15707b3",
+      "title": "Execution Plan Framework",
+      "category": "framework",
+      "path": "knowledge/framework/execution-plan-framework.md",
+      "sourceHash": "3ad13f0e6f975eefa95c5d181a5fb17693d3a26aec636ee811851c8ccd9e696d",
+      "summary": "# Execution Plan Framework Version: 1.0 ## Purpose Defines the enterprise framework used by Project Atlas to transform approved financial recommendations into executable action plans. ## Objectives - Convert decisions into actionable ste"
+    },
+    {
+      "id": "7d03bbc759df7b0d",
+      "title": "knowledge/explainability-framework.md",
+      "category": "framework",
+      "path": "knowledge/framework/explainability-framework.md",
+      "sourceHash": "27ea1b7e0706e29cc367dc68a31af32905aa9d2e0ebff0f6dea17d6a7288d742",
+      "summary": "# knowledge/explainability-framework.md # Atlas Decision Explainability Framework Version: 1.0 Status: Product Specification ## 1. Purpose The Explainability Framework defines how every recommendation produced by the Atlas Decision Engin"
+    },
+    {
+      "id": "29a7d5978d237fc1",
+      "title": "feature-flag-framework.md",
+      "category": "framework",
+      "path": "knowledge/framework/feature-flag-framework.md",
+      "sourceHash": "b1d2d9fa0bda3fe6a766a94db5aa84afa5b7713304600725788c16771f93c0aa",
+      "summary": "# feature-flag-framework.md # Atlas Enterprise Specification ## Feature Flag Framework Version: 1.0 ## 1. Purpose This document defines the Feature Flag architecture for Project Atlas. Feature Flags enable controlled rollout, experiment"
+    },
+    {
+      "id": "1fd984855f1e0778",
+      "title": "Financial Alert Framework",
+      "category": "framework",
+      "path": "knowledge/framework/financial-alert-framework.md",
+      "sourceHash": "196982d1353df1785c07db1eb7223b1b818d96b2ec745db568835734847d8ce8",
+      "summary": "# Financial Alert Framework Version: 1.0 ## Purpose Defines the enterprise framework for generating, prioritizing, delivering, tracking and auditing financial alerts across Project Atlas. ## Objectives - Detect meaningful financial event"
+    },
+    {
+      "id": "7553cab69c129787",
+      "title": "Financial Milestone Framework",
+      "category": "framework",
+      "path": "knowledge/framework/financial-milestone-framework.md",
+      "sourceHash": "6da81a4bad22700b20580f311805c1d670241c9274356a1bddfc795602014718",
+      "summary": "# Financial Milestone Framework Version: 1.0 ## Purpose Defines the standard financial milestone model for Project Atlas. Milestones represent measurable achievements used by the Decision Engine to evaluate progress toward long-term finan"
+    },
+    {
+      "id": "080016f6eb397e2c",
+      "title": "Financial Projection Framework",
+      "category": "framework",
+      "path": "knowledge/framework/financial-projection-framework.md",
+      "sourceHash": "3b406a40aeceb5ce4210f6c2913803ad791bc0bc9073cbd0c7247a42fe9c98a9",
+      "summary": "# Financial Projection Framework Version: 1.0 ## Purpose Defines the enterprise standard for projecting future financial outcomes across all Project Atlas engines. This framework provides deterministic, explainable projections for cash fl"
+    },
+    {
+      "id": "c1eb3d084150093b",
+      "title": "Financial Ratio Framework",
+      "category": "framework",
+      "path": "knowledge/framework/financial-ratio-framework.md",
+      "sourceHash": "58f8f33edfbfbe4563b790b55ea201dd4843e70392c984496dbc0379de5c28e8",
+      "summary": "# Financial Ratio Framework Version: 2.0 ## Purpose Defines the enterprise framework governing all financial ratios used by Project Atlas. Unlike `financial-ratios.md`, which is the canonical ratio catalog, this framework specifies lifecy"
+    },
+    {
+      "id": "c0b035e21eb5d275",
+      "title": "Goal Execution Overview",
+      "category": "framework",
+      "path": "knowledge/framework/goal-execution-framework.md",
+      "sourceHash": "73d114a0bbcee9794f01b267f2b9aa7dc4ba0f1442c0e575c68fde354557db75",
+      "summary": "# Goal Execution Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Execution Specification Last Updated: 2026-07-13 # Goal Execution Overview ## Purpose Goal Execution defines how Atlas"
+    },
+    {
+      "id": "e339e06047f4bbc5",
+      "title": "Goal Funding Framework",
+      "category": "framework",
+      "path": "knowledge/framework/goal-funding-framework.md",
+      "sourceHash": "16be73f647f88a9cde9e6a7888689e9bedd28273e8cc60172f15f53eb6b9efa5",
+      "summary": "# Goal Funding Framework Version: 1.0 ## Purpose Defines the enterprise framework used by Project Atlas to calculate, monitor, prioritize, and optimize funding for financial goals throughout a user's lifetime. ## Objectives - Standardize"
+    },
+    {
+      "id": "84903f8786631707",
+      "title": "Goal Review Framework",
+      "category": "framework",
+      "path": "knowledge/framework/goal-review-framework.md",
+      "sourceHash": "83c924e9318e7d0d10fa1c95281882235bb4c1822de04b1abe0339d1b3479271",
+      "summary": "# Goal Review Framework Version: 1.0 ## Purpose Defines the enterprise framework for periodically reviewing financial goals, measuring progress, identifying deviations, and triggering replanning within Project Atlas. ## Objectives - Cont"
+    },
+    {
+      "id": "ec32934c9dec3585",
+      "title": "House Decision Framework",
+      "category": "framework",
+      "path": "knowledge/framework/house-decision-framework.md",
+      "sourceHash": "294aed92de35f217dcddbb0f7c8d3794fcdb7caec6a2fb01d715127d0819d734",
+      "summary": "# House Decision Framework Version: 1.0 ## Purpose Defines the decision framework used by Project Atlas to evaluate housing-related decisions, including purchasing, upgrading, retaining, or selling residential property. ## Objectives - S"
+    },
+    {
+      "id": "b17299d9f2ea4b42",
+      "title": "Life Stage Framework",
+      "category": "framework",
+      "path": "knowledge/framework/life-stage-framework.md",
+      "sourceHash": "338420c7e9dcf4b4cfb1795f6eac1f6cdbe98ac101ec975d474e768ae11b2f64",
+      "summary": "# Life Stage Framework Version: 1.0 ## Purpose Defines the lifecycle framework that Project Atlas uses to tailor financial strategies, recommendations, and decision rules throughout a person's lifetime. ## Objectives - Standardize life-s"
+    },
+    {
+      "id": "624dcc3447f561f8",
+      "title": "Liquidity Framework",
+      "category": "framework",
+      "path": "knowledge/framework/liquidity-framework.md",
+      "sourceHash": "00059e993368c43f3bb90faece5c57c62c156a94a552c2bcf3206ae92407c071",
+      "summary": "# Liquidity Framework Version: 1.0 ## Purpose Defines the liquidity management framework for Project Atlas. The framework standardizes how assets, liabilities, and cash flows are evaluated to ensure sufficient liquidity for both expected"
+    },
+    {
+      "id": "58c18508e223d806",
+      "title": "Net Worth Framework",
+      "category": "framework",
+      "path": "knowledge/framework/net-worth-framework.md",
+      "sourceHash": "1d5b0cf28f9042d284453ae1b1c906049a63384745ff275515f471102b048feb",
+      "summary": "# Net Worth Framework Version: 1.0 ## Purpose Defines the enterprise standard for calculating, tracking and analyzing net worth within Project Atlas. This framework is the single source of truth for all asset, liability and equity calcula"
+    },
+    {
+      "id": "8c824360a8879333",
+      "title": "Notification Framework",
+      "category": "framework",
+      "path": "knowledge/framework/notification-framework.md",
+      "sourceHash": "c340799a7b29208d460f074fbf32a610d2222f40deaeccc453d763e34ddd92f7",
+      "summary": "# Notification Framework Version: 1.0 ## Purpose Defines the enterprise notification framework for Project Atlas, governing how alerts, recommendations and system events are delivered, tracked and managed. ## Objectives - Deliver timely"
+    },
+    {
+      "id": "ac71f3f096dfdbdc",
+      "title": "policy-management-framework.md",
+      "category": "framework",
+      "path": "knowledge/framework/policy-management-framework.md",
+      "sourceHash": "e850917e05001297c02dd4135a076f9bfb646a93f64da14941859ea60b9815dc",
+      "summary": "# policy-management-framework.md # Atlas Enterprise Specification ## Policy Management Framework Version: 1.0 ## 1. Purpose This specification defines how business policies are modeled, governed, versioned, approved, executed, and audit"
+    },
+    {
+      "id": "f5ea2f98023352c8",
+      "title": "Portfolio Performance Framework",
+      "category": "framework",
+      "path": "knowledge/framework/portfolio-performance-framework.md",
+      "sourceHash": "ebaae35c713df7848244135b4695f6abdb1ad66a1c04c1bc1a392f5364bbd198",
+      "summary": "# Portfolio Performance Framework Version: 1.0 ## Purpose Defines the enterprise standard for measuring, comparing and explaining portfolio performance across Project Atlas. ## Objectives - Standardize performance calculations. - Separat"
+    },
+    {
+      "id": "b58e52782c01459b",
+      "title": "Rebalancing Framework",
+      "category": "framework",
+      "path": "knowledge/framework/rebalancing-framework.md",
+      "sourceHash": "f38e2c759098dbcba479e3b561e2ff9d48bca3d6c0825e1db67e11e1c272a6b6",
+      "summary": "# Rebalancing Framework Version: 1.0 ## Purpose Defines the portfolio rebalancing policy used by Project Atlas. ## Objectives - Maintain target asset allocation. - Control portfolio risk. - Minimize unnecessary trading. - Improve tax and"
+    },
+    {
+      "id": "32f55e282ae127e4",
+      "title": "Recommendation Priority Framework",
+      "category": "framework",
+      "path": "knowledge/framework/recommendation-priority-framework.md",
+      "sourceHash": "2e0c44280a279f66791f89cda15cf39b0100b750be4a60de52e46bbde4abe2c2",
+      "summary": "# Recommendation Priority Framework Version: 1.0 ## Purpose Defines the enterprise framework used by Project Atlas to prioritize, rank, merge, suppress, and explain financial recommendations generated by all engines. ## Objectives - Pres"
+    },
+    {
+      "id": "ac7392470e8283e7",
+      "title": "Risk Budget Framework",
+      "category": "framework",
+      "path": "knowledge/framework/risk-budget-framework.md",
+      "sourceHash": "3eceef97421fadfa124dd32a8ba1b964e6422a93c9595bfc422451b665075d0b",
+      "summary": "# Risk Budget Framework Version: 1.0 ## Purpose Defines how Project Atlas allocates and manages financial risk across goals, portfolios, and life stages. A risk budget represents the maximum acceptable level of risk that may be consumed w"
+    },
+    {
+      "id": "c6789d2bf6aaf715",
+      "title": "knowledge/risk-framework.md",
+      "category": "framework",
+      "path": "knowledge/framework/risk-framework.md",
+      "sourceHash": "4f3f2a6618eb9fa3d43f1dcf59395e7c1742fbfbed3891f374a8778b4cd58c46",
+      "summary": "# knowledge/risk-framework.md # Atlas Unified Risk Framework Version: 1.0 ## Purpose This document defines the unified risk framework used throughout Project Atlas. Every engine (Cash Flow, Loan, Investment, Home Upgrade, Retirement and D"
+    },
+    {
+      "id": "e1c48cffc836a460",
+      "title": "Scenario Comparison Framework",
+      "category": "framework",
+      "path": "knowledge/framework/scenario-comparison-framework.md",
+      "sourceHash": "4a4bb836904595ad424926a5b279cee6519ccd8db58654e31a6c2fdbf4e93db6",
+      "summary": "# Scenario Comparison Framework Version: 1.0 ## Purpose Defines the enterprise framework for comparing financial scenarios within Project Atlas. The framework provides a consistent, explainable method for evaluating alternative decisions"
+    },
+    {
+      "id": "3f8c51f02351390b",
+      "title": "Project Atlas — Scenario Framework",
+      "category": "framework",
+      "path": "knowledge/framework/scenario-framework.md",
+      "sourceHash": "7af33e715d5b2ed20d81cb2e4a4d897adad61852aa852c384e9894592a463c71",
+      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+    },
+    {
+      "id": "fc274e6a6d1e5768",
+      "title": "Scheduler Framework",
+      "category": "framework",
+      "path": "knowledge/framework/scheduler-framework.md",
+      "sourceHash": "36934a0ab63e3fd84da3e135464d51b9e20af71e56f6077daaa9c151081904ba",
+      "summary": "# Scheduler Framework # Document Control Document Name: Scheduler Framework Document Path: knowledge/scheduler-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Doma"
+    },
+    {
+      "id": "29af037c7e75fa79",
+      "title": "System Configuration Framework",
+      "category": "framework",
+      "path": "knowledge/framework/system-configuration-framework.md",
+      "sourceHash": "91843bddcbb7f4be14106816cda49446d21aa26e83c1961aa4bce1964605e449",
+      "summary": "# System Configuration Framework Version: 1.0 ## Purpose Defines the enterprise-wide configuration model for Project Atlas. It standardizes configurable behavior across all engines while preserving deterministic execution and auditability"
+    },
+    {
+      "id": "75229b0dc81a9693",
+      "title": "user-journey-framework.md",
+      "category": "framework",
+      "path": "knowledge/framework/user-journey-framework.md",
+      "sourceHash": "b366f7534ac17a5318a237762d0b6c2a60ee29bf6ea9776290f06985489d6ba5",
+      "summary": "# user-journey-framework.md # Atlas Enterprise Specification ## User Journey Framework Version: 1.0 ## 1. Purpose This document defines the end-to-end user journey for Project Atlas (Life Financial Decision Operating System). It standar"
+    },
+    {
+      "id": "44f8eff120df2e5e",
+      "title": "Integration Framework",
+      "category": "integration",
+      "path": "knowledge/integration/integration-framework.md",
+      "sourceHash": "13091c7fef0805d7f009f18cf6ec8c7e9afbe03087b6d6b404095c5c943bf175",
+      "summary": "# Integration Framework # Document Control Document Name: Integration Framework Document Path: knowledge/integration-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification"
+    },
+    {
+      "id": "d9b537ddc3ef0ac7",
+      "title": "Dashboard Architecture",
+      "category": "reporting",
+      "path": "knowledge/reporting/decision-dashboard.md",
+      "sourceHash": "7309d3ca2f8cdd86cc58da9eef3be252fdda96a64d9e484b130d461224fe29be",
+      "summary": "# Decision Dashboard Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Decision Domain Source of Truth: Decision Catalog Last Updated: 2026-07-13 ## Purpose Decision Dashboard defines how Atlas presents Decisio"
+    },
+    {
+      "id": "88b669833ff93c8a",
+      "title": "Decision Reporting",
+      "category": "reporting",
+      "path": "knowledge/reporting/decision-reporting.md",
+      "sourceHash": "7bb598ec6f68967f6bf4efad5c84c06c5a8344e9d2b98071272964f48388aeff",
+      "summary": "# Decision Reporting Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Decision Reporting Specification Last Updated: 2026-07-13 # Decision Reporting Overview ## Purpose Decision Reporting def"
+    },
+    {
+      "id": "e98eb486f3cc1231",
+      "title": "Financial Dashboard Metrics",
+      "category": "reporting",
+      "path": "knowledge/reporting/financial-dashboard-metrics.md",
+      "sourceHash": "4dba09f96a9ed322b897e4e4e100932aff4596398632cabb78bee25fdbf96303",
+      "summary": "# Financial Dashboard Metrics Version: 1.0 ## Purpose Defines the canonical metrics displayed on the Project Atlas dashboard. This framework standardizes KPI presentation across all user interfaces and ensures every visual metric is trace"
+    },
+    {
+      "id": "70ea8a63e0a1432f",
+      "title": "Goal Dashboard Overview",
+      "category": "reporting",
+      "path": "knowledge/reporting/goal-dashboard.md",
+      "sourceHash": "bccb926081835eeae9bf0103daf3b4df94f12b526edd01f79f246167944329ff",
+      "summary": "# Goal Dashboard Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Dashboard Specification Last Updated: 2026-07-13 # Goal Dashboard Overview ## Purpose Goal Dashboard defines how Atlas"
+    },
+    {
+      "id": "a9d8c9ab07c209be",
+      "title": "Goal Metrics Overview",
+      "category": "reporting",
+      "path": "knowledge/reporting/goal-metrics.md",
+      "sourceHash": "2149e2a42c05fe30132d3fd1eb247254437645e1ef74a164284519abe015c53a",
+      "summary": "# Goal Metrics Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Metrics Specification Last Updated: 2026-07-13 # Goal Metrics Overview ## Purpose Goal Metrics defines how Atlas names, c"
+    },
+    {
+      "id": "57c24fcc339e0a71",
+      "title": "Goal Reporting Overview",
+      "category": "reporting",
+      "path": "knowledge/reporting/goal-reporting.md",
+      "sourceHash": "72869ebf4ed1848563520d22984022749ec3edd4458a544e2de95f13d6364fd3",
+      "summary": "# Goal Reporting Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Reporting Specification Last Updated: 2026-07-13 # Goal Reporting Overview ## Purpose Goal Reporting defines how Atlas"
+    },
+    {
+      "id": "5f885260ca2187d3",
+      "title": "knowledge/kpi-definitions.md",
+      "category": "reporting",
+      "path": "knowledge/reporting/kpi-definitions.md",
+      "sourceHash": "e505acfa136905457920d59d2f6bd08c95ee3bc0f7d8af39db183cd16064f172",
+      "summary": "# knowledge/kpi-definitions.md # Atlas KPI Definitions Version: 1.0 ## Purpose This document defines every Key Performance Indicator (KPI) used by Project Atlas. Each KPI has a unique identifier, formal definition, calculation method, uni"
+    },
+    {
+      "id": "ed138dbb1692b59d",
+      "title": "knowledge/decision-rule-catalog.md",
+      "category": "rule",
+      "path": "knowledge/rule/decision-rule-catalog.md",
+      "sourceHash": "1a5fb044e6c1b450908467a75d2a1614c9c72108fe0d4f355224a712ff07f9ec",
+      "summary": "# knowledge/decision-rule-catalog.md # Atlas Decision Rule Catalog Version: 1.0 Status: Canonical Specification ## Purpose This catalog defines every business rule executed by the Atlas Decision Engine. Each rule is uniquely identified,"
+    },
+    {
+      "id": "9e09586620dd282a",
+      "title": "Domain Rule Catalog",
+      "category": "rule",
+      "path": "knowledge/rule/domain-rule-catalog.md",
+      "sourceHash": "745dab0e023c0c136a9c588042bb8cc10a151ca5d16b70bb2d3ffc84d1503e59",
+      "summary": "# Domain Rule Catalog ## Categories - Validation Rules - Constraint Rules - Decision Rules - Scoring Rules - Eligibility Rules - Financial Rules Rules are deterministic, versioned, explainable, auditable and executable through AREL."
+    },
+    {
+      "id": "131675a03b0d0f25",
+      "title": "Home Upgrade Rule Catalog",
+      "category": "rule",
+      "path": "knowledge/rule/home-upgrade-rule-catalog.md",
+      "sourceHash": "bbcad2c512c6ec45aabbd74540aa4918cfa3e9c7ad606487d22f9b6ea053a2ea",
+      "summary": "# Home Upgrade Rule Catalog Version: 1.0 ## Purpose Defines the business rules governing home upgrade decisions within Project Atlas. ## Scope Supported scenarios: - Keep existing home and buy another - Sell then buy - Buy then sell - Mo"
+    },
+    {
+      "id": "0b8147239bbb05cc",
+      "title": "Loan Decision Rule Catalog",
+      "category": "rule",
+      "path": "knowledge/rule/loan-decision-rule-catalog.md",
+      "sourceHash": "dd47253e52b72a2d194027a90ef7068ac0136e30205897e596f6f2d6b44ace73",
+      "summary": "# Loan Decision Rule Catalog Version: 1.0 ## Purpose Defines the canonical business rules used by Project Atlas to evaluate borrowing decisions, refinancing, early repayment, and debt restructuring. ## Scope Supported decisions: - New mo"
+    },
+    {
+      "id": "8f9db58d80c27379",
+      "title": "Withdrawal Rule Catalog",
+      "category": "rule",
+      "path": "knowledge/rule/withdrawal-rule-catalog.md",
+      "sourceHash": "26f03fda8bab81dd53ad1b161ae92e8238056e2d51487b3402e27fef8cca8cae",
+      "summary": "# Withdrawal Rule Catalog Version: 1.0 ## Purpose Defines the canonical withdrawal rules used by Project Atlas. These rules are consumed by the Decision Engine, Retirement Engine, and Cash Flow Engine to generate explainable withdrawal re"
+    },
+    {
+      "id": "878c224230fbe8d8",
+      "title": "Audit Framework",
+      "category": "security",
+      "path": "knowledge/security/audit-framework.md",
+      "sourceHash": "1d61a821bc546fcd176108be712bc10766ba8f77af60dacd50ffcb10927bad3f",
+      "summary": "# Audit Framework # Document Control Document Name: Audit Framework Document Path: knowledge/audit-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Platform"
+    },
+    {
+      "id": "bae76cb48a31a65c",
+      "title": "Decision Audit Framework",
+      "category": "security",
+      "path": "knowledge/security/decision-audit-framework.md",
+      "sourceHash": "7302442ff0c398411c7cb8c9f2d4dc80febe6098a899db613c1e255f3fda2a40",
+      "summary": "# Decision Audit Framework Version: 1.0 ## Purpose Defines the enterprise audit model for every decision produced by Project Atlas. The framework guarantees complete traceability from input data through rules, calculations, scenarios, and"
+    },
+    {
+      "id": "6d3d8c9d98a96ef1",
+      "title": "permission-framework",
+      "category": "security",
+      "path": "knowledge/security/permission-framework.md",
+      "sourceHash": "1797bc28992f110f392b0069857946c71366c4a0a9f10aea023bb0f795882667",
+      "summary": "# Permission Framework ## Document Control | Field | Value | | --- | --- | | Document | Permission Framework | | Classification | Atlas Enterprise Canonical Specification | | Source of Truth | Permission, Role, Policy, Claim, Pri"
+    },
+    {
+      "id": "0937717fd5ec86c4",
+      "title": "security-framework",
+      "category": "security",
+      "path": "knowledge/security/security-framework.md",
+      "sourceHash": "77417f32f466dfce105c2840b415a07606fe51b2c3c2e7ea4949efa16375286a",
+      "summary": "# Security Framework ## Document Control | Field | Value | | --- | --- | | Document | Security Framework | | Classification | Atlas Enterprise Canonical Specification | | Source of Truth | Security controls for Authentication, Au"
+    },
+    {
+      "id": "a4132866965d02b3",
+      "title": "Tenant Framework",
+      "category": "security",
+      "path": "knowledge/security/tenant-framework.md",
+      "sourceHash": "81ba575668956c458cc061ed79f04a681067c2020ca6f8cf4fde4e30bb872d21",
+      "summary": "# Tenant Framework # Document Control Document Name: Tenant Framework Document Path: knowledge/tenant-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Platf"
+    },
+    {
+      "id": "7b643dfcf9c77d06",
+      "title": "Assumptions Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/assumptions.md",
+      "sourceHash": "49ab356950ae757ace8829d0ec21cdebc73b5b877f851afa64cc9d4e671dc9ab",
+      "summary": "# Assumptions Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Project Atlas 所有財務模型、模擬、公式與 Decision E"
+    },
+    {
+      "id": "55c6a80c9acc32a9",
+      "title": "Capability Matrix",
+      "category": "supporting",
+      "path": "knowledge/supporting/capability-matrix.md",
+      "sourceHash": "a088d3cea1f8b3ac9178158469d7a6ab9962f7b3762f3ec6e71f6499ec83979b",
+      "summary": "# Capability Matrix | Capability | User | Advisor | Admin | |---|:--:|:--:|:--:| | Financial Profile | ✓ | ✓ | ✓ | | Goal Planning | ✓ | ✓ | | | Scenario Simulation | ✓ | ✓ | | | Portfolio Analysis | ✓ | ✓ | | | Loan Analysis | ✓ | ✓ | | |"
+    },
+    {
+      "id": "fbc2a9087d9dc9a9",
+      "title": "Cash Flow Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/cashflow.md",
+      "sourceHash": "9e0dc54c3ce8cf067d378fb625642b90d2f65b01ec5dcc13197bb092e77c5d91",
+      "summary": "# Cash Flow Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose Cash Flow 是 Project Atlas 最重要的核心。 Project A"
+    },
+    {
+      "id": "4f9fe0b8fc5fd46f",
+      "title": "knowledge/constraint-rules.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/constraint-rules.md",
+      "sourceHash": "05ad85ffe21436a4563a0993854820f20fbf6e28310eb976cc54c8574085535a",
+      "summary": "# knowledge/constraint-rules.md # Atlas Constraint Rules Version: 1.0 ## Purpose Defines mandatory constraints enforced by the Decision Engine. Constraint rules are evaluated independently from scoring rules. A scenario may receive a high"
+    },
+    {
+      "id": "27623d1901c62828",
+      "title": "Decision Analytics Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-analytics.md",
+      "sourceHash": "4b2cdb50500159f015dc136ad8ea9ba68692a033dafcbc186fb8004e4461fd2e",
+      "summary": "# Decision Analytics Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Decision Analytics Specification Last Updated: 2026-07-13 # Decision Analytics Overview ## Purpose Decision Analytics de"
+    },
+    {
+      "id": "bba599aae3261ff7",
+      "title": "Decision Evaluation Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-evaluation.md",
+      "sourceHash": "6fbdc451ce1eb5078ecf21609e9f0940a631b6381141f156d0432a1fcbab44de",
+      "summary": "# Decision Evaluation Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Decision Evaluation Specification Last Updated: 2026-07-13 # Decision Evaluation Overview ## Purpose Decision Evaluatio"
+    },
+    {
+      "id": "ab71499a2b2c01c7",
+      "title": "Decision Execution Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-execution.md",
+      "sourceHash": "443dd17d8eec450946a3a39379aa12dd19d7bb18f424974bf09fac067cb53ee6",
+      "summary": "# Decision Execution Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Decision Execution Specification Last Updated: 2026-07-13 # Decision Execution Overview ## Purpose Decision Execution de"
+    },
+    {
+      "id": "86e658cebc4c0efe",
+      "title": "Decision Governance Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-governance.md",
+      "sourceHash": "c313f5d179c58c13923e7614240034c00c2d4d9f3ccf9a2a066a8665e09f6ca5",
+      "summary": "# Decision Governance Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Decision Governance Specification Last Updated: 2026-07-13 # Decision Governance Overview ## Purpose Decision Governanc"
+    },
+    {
+      "id": "de7bdaa84da07728",
+      "title": "Insight Architecture",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-insights.md",
+      "sourceHash": "ee1f5b8dd461e58423f6cffd1793e2b251f529495051895b16732b08ca7c56b1",
+      "summary": "# Decision Insights Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Decision Domain Source of Truth: Decision Catalog Last Updated: 2026-07-13 ## Purpose Decision Insights defines how Atlas detects, explains, rank"
+    },
+    {
+      "id": "72acabd93b0e78d3",
+      "title": "Decision Lifecycle Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-lifecycle.md",
+      "sourceHash": "f2d777699988c15e271a8f30f6a68fe7d5f462b6dc5dd0369658ff23db70f0f1",
+      "summary": "# Decision Lifecycle Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Decision Lifecycle Specification Last Updated: 2026-07-13 # Decision Lifecycle Overview ## Purpose Decision Lifecycle de"
+    },
+    {
+      "id": "91edb29ea327799c",
+      "title": "knowledge/decision-matrix.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-matrix.md",
+      "sourceHash": "4e1c93742ed388e84bb179b63cf05bec107209fcb34cdead759b8e1ec98c0928",
+      "summary": "# knowledge/decision-matrix.md # Atlas Decision Matrix Version: 1.0 ## Purpose The Decision Matrix standardizes how the Decision Engine evaluates competing financial scenarios. It converts outputs from domain engines into comparable score"
+    },
+    {
+      "id": "afb63fae29376b40",
+      "title": "Decision Optimization Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-optimization.md",
+      "sourceHash": "d4c60a238799d884a94a0e6442d667045991b7ebc0c04077e3227e2140bfd601",
+      "summary": "# Decision Optimization Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Decision Optimization Specification Last Updated: 2026-07-13 # Decision Optimization Overview ## Purpose Decision Opt"
+    },
+    {
+      "id": "a00e88dbc8c3d841",
+      "title": "Decision Principles Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-principles.md",
+      "sourceHash": "4792e1f0038274fd9efc377f9a262db2843eedd910c16cc84100ca70040ab935",
+      "summary": "# Decision Principles Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose Decision Principles 定義 Atlas 所有 Decision Eng"
+    },
+    {
+      "id": "f41ab03e313c15c1",
+      "title": "Event Driven Architecture",
+      "category": "supporting",
+      "path": "knowledge/supporting/event-driven-architecture.md",
+      "sourceHash": "78d32dd06ab4ea3b9b60873faae53785a2ab570f802b9161b58a7eec69d9aee7",
+      "summary": "# Event Driven Architecture # Document Control Document Name: Event Driven Architecture Document Path: knowledge/event-driven-architecture.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical S"
+    },
+    {
+      "id": "823cbb10f10abf66",
+      "title": "knowledge/event-taxonomy.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/event-taxonomy.md",
+      "sourceHash": "44f786672dbaedaf3d3af1c98b170643b9be505adc2dd45e4278b05601d769bf",
+      "summary": "# knowledge/event-taxonomy.md # Atlas Financial Event Taxonomy Version: 1.0 Status: Canonical Specification ## 1. Purpose This document defines the canonical event taxonomy used throughout Project Atlas. Every business event emitted by t"
+    },
+    {
+      "id": "b9c764307ec0a90e",
+      "title": "FCN Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/fcn.md",
+      "sourceHash": "7b83c7a5561245007450e631743d5418765191145147168ef096eb42255c8c1b",
+      "summary": "# FCN Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Fixed Coupon Note（FCN）於 Project Atlas 中的領域知識、商業規則、風險模型"
+    },
+    {
+      "id": "f152dfb0229d2f48",
+      "title": "Financial Dependency Model",
+      "category": "supporting",
+      "path": "knowledge/supporting/financial-dependency-model.md",
+      "sourceHash": "54c7693a5bf9650706b46cb5db1cd44431e700110b5317b7b0e033b7c549b75f",
+      "summary": "# Financial Dependency Model Version: 1.0 ## Purpose Defines how Project Atlas models financial dependencies between people, assets, liabilities, goals and income sources. The model enables the Decision Engine to evaluate cascading impact"
+    },
+    {
+      "id": "59c5a7fd55bbb374",
+      "title": "knowledge/financial-health-score.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/financial-health-score.md",
+      "sourceHash": "985852ada3342a0575d20a222703a30ef02e62250694ead2221cc8d49c55d9ba",
+      "summary": "> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScri"
+    },
+    {
+      "id": "0e83dc79d191c611",
+      "title": "Financial Philosophy Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/financial-philosophy.md",
+      "sourceHash": "3203ab1546767498c6571fcdf0b2348571d87d8e8b2f4b4d1662dc0c2da5c369",
+      "summary": "# Financial Philosophy Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Project Atlas 的核心財務哲學。 所有"
+    },
+    {
+      "id": "ccfeeb9d595464e1",
+      "title": "knowledge/financial-ratios.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/financial-ratios.md",
+      "sourceHash": "9d0439c744f03f6969bcda9ef3e386bd09064836a5b881073b606f3821fd37de",
+      "summary": "# knowledge/financial-ratios.md # Atlas Financial Ratios Version: 1.0 ## Purpose Defines the canonical financial ratios used across all Atlas engines. Every ratio has a stable identifier, business definition, formula, unit, interpretation"
+    },
+    {
+      "id": "429628b212c33446",
+      "title": "Glossary",
+      "category": "supporting",
+      "path": "knowledge/supporting/glossary.md",
+      "sourceHash": "1ee107f719315a6c6c3440c619429d66f903da38ded555f26901f3b175e0bf9d",
+      "summary": "# Glossary Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件提供 Project Atlas 的名詞索引（Glossary）。 與 terminology.md 不同："
+    },
+    {
+      "id": "0f43ac3a03b10137",
+      "title": "Goal Analytics Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-analytics.md",
+      "sourceHash": "edcfde1a30c58c7d11bbc48bebf84820fd43636650da599497cbb52432271e14",
+      "summary": "# Goal Analytics Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Analytics Specification Last Updated: 2026-07-13 # Goal Analytics Overview ## Purpose Goal Analytics defines how Atlas"
+    },
+    {
+      "id": "acf323c2a51ae571",
+      "title": "Goal Conflict Resolution",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-conflict-resolution.md",
+      "sourceHash": "802a021ea16ed94f743333608e1ed0617034fb560fe4819394a5aa6e8b2d86a2",
+      "summary": "# Goal Conflict Resolution ## Document Control Document Name: Goal Conflict Resolution Document Path: knowledge/goal-conflict-resolution.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specificati"
+    },
+    {
+      "id": "a50239096a245e43",
+      "title": "Goal Dependency",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-dependency.md",
+      "sourceHash": "8d3a2a1e50acc5e3cc27afe60f72bf9601de19abcf085e1ae97ac3d19c2f2882",
+      "summary": "# Goal Dependency Version: 1.0 Status: Enterprise Specification Owner: Project Atlas # Purpose Goal Dependency defines the canonical domain specification for relationships between Goals in Atlas Goal Engine. It is not a Goal b"
+    },
+    {
+      "id": "840a59015876b930",
+      "title": "Goal Governance Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-governance.md",
+      "sourceHash": "a0b93e1ff1c9a2496f4b5fed2e314cdb934ff0d854c37d49574ca48ced33d7d5",
+      "summary": "# Goal Governance Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Governance Specification Last Updated: 2026-07-13 # Goal Governance Overview ## Purpose Goal Governance defines how At"
+    },
+    {
+      "id": "ab5ef2ac755519f9",
+      "title": "Goal Insights Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-insights.md",
+      "sourceHash": "c8d983a1436defbd6b8f48aad374c2cc82ba5b115cd988723544c1bd8da71aff",
+      "summary": "# Goal Insights Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Insights Specification Last Updated: 2026-07-13 # Goal Insights Overview ## Purpose Goal Insights defines how Atlas dete"
+    },
+    {
+      "id": "8ea27fbb1eb63203",
+      "title": "Goal Lifecycle Management Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-lifecycle-management.md",
+      "sourceHash": "3b54ee0bb18d283342549dd8602fcf26688b9282fa89b511947c823e65ef0a86",
+      "summary": "# Goal Lifecycle Management Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Lifecycle Management Specification Last Updated: 2026-07-13 # Goal Lifecycle Management Overview ## Purpose"
+    },
+    {
+      "id": "cab14337b52b48bf",
+      "title": "Goal Lifecycle",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-lifecycle.md",
+      "sourceHash": "9fe9fc67d502f6406db44c40af7a1c69ffa564f3abeb5cc11b9e870c08d61650",
+      "summary": "# Goal Lifecycle Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Domain Positioning: Goal Lifecycle Domain Specification # Purpose Goal Lifecycle defines the authoritative state model for Goal state changes in"
+    },
+    {
+      "id": "bd1b39eb848e371b",
+      "title": "Goal Optimization Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-optimization.md",
+      "sourceHash": "d19184a16a5ee6bbd1cf407af6139fb477bb10831375022cbac643922a6d5a9c",
+      "summary": "# Goal Optimization Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Optimization Specification Last Updated: 2026-07-13 # Goal Optimization Overview ## Purpose Goal Optimization define"
+    },
+    {
+      "id": "e255b6e20215aced",
+      "title": "Goal Prioritization",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-prioritization.md",
+      "sourceHash": "0eab72c72e2bc227f6c657c08f96a48274d7f2d383fc2ba31bd1109876bec3b1",
+      "summary": "# Goal Prioritization Version: 1.0 Status: Enterprise Specification Owner: Project Atlas # Purpose Goal Prioritization defines the canonical decision layer that ranks all Goals in Atlas Goal Engine. It is not a Goal because it"
+    },
+    {
+      "id": "9f9e6315a6161340",
+      "title": "Goal Progress Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-progress-tracking.md",
+      "sourceHash": "f66c74e09b8c8902ca4a5c0c82046fcd5fe683856a502dfd1156a818b56ae29d",
+      "summary": "# Goal Progress Tracking Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Progress Tracking Specification Last Updated: 2026-07-13 # Goal Progress Overview ## Purpose Goal Progress Tracking"
+    },
+    {
+      "id": "16e2bfc73d06ad6d",
+      "title": "Goal Review Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-review.md",
+      "sourceHash": "913e7ba56c6960efd97b4262af5c34614fbaf26584a8b433cd2b3fca02d2a0f4",
+      "summary": "# Goal Review Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Review Specification Last Updated: 2026-07-13 # Goal Review Overview ## Purpose Goal Review defines how Atlas evaluates a"
+    },
+    {
+      "id": "971dcdd40701204a",
+      "title": "Investment Policy Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/investment-policy.md",
+      "sourceHash": "936ce5253c6d50936e49a0808515bd170b4c44e17f1ca9e35e1f39475c2ebeda",
+      "summary": "# Investment Policy Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Project Atlas 的 Investment Polic"
+    },
+    {
+      "id": "3501cdc355724434",
+      "title": "Life Goals Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/life-goals.md",
+      "sourceHash": "1335eaf4788f1849ca12019135fb2e7ff2f0d254bbe2072b9245cf1f10248f75",
+      "summary": "# Life Goals Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Project Atlas 對人生目標（Life Goals）的領域模型、商"
+    },
+    {
+      "id": "6c15748cf15ba45d",
+      "title": "Life Stage Model",
+      "category": "supporting",
+      "path": "knowledge/supporting/life-stage-model.md",
+      "sourceHash": "7468e77c20fb80c6742834685ed884265742e18dede903ee6f4e28de5d6033d0",
+      "summary": "# Life Stage Model Version: 1.0 ## Purpose Defines the standard life-stage framework used by Project Atlas to adapt financial recommendations throughout a user's lifetime. ## Objectives - Align decisions with changing life priorities. -"
+    },
+    {
+      "id": "d3ec8a154db13f58",
+      "title": "Loan Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/loan.md",
+      "sourceHash": "f2f40f3a036f5e90dcb2ccd8ecf9411ab605a0e71e1644c95c7fea6d5247e852",
+      "summary": "# Loan Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose Loan 是 Project Atlas 中的重要現金流工具，而非單純負債。 貸款的存在應提升人生決策彈性，而非增加"
+    },
+    {
+      "id": "0f07283ee57d650e",
+      "title": "knowledge/market-assumptions.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/market-assumptions.md",
+      "sourceHash": "72a3beef964cccda86e2de380fc3e922c40c3fcbcfcfe29367165414cdef5b1a",
+      "summary": "# knowledge/market-assumptions.md # Project Atlas — Market Assumptions ## 1. 文件目的 本文件定義 Project Atlas 在進行長期財務決策模擬時所使用的市場假設，包括長期名目報酬率、實質報酬率、波動率、資產類別相關係數、匯率假設、再平衡假設、極端情境假設與 Codex 實作規則。 Project Atlas 的市場假設不是用來預測短期行情，也不是用來產生投資建議，而是用來建立一套穩定、"
+    },
+    {
+      "id": "44f86eeca7946983",
+      "title": "Portfolio Lifecycle",
+      "category": "supporting",
+      "path": "knowledge/supporting/portfolio-lifecycle.md",
+      "sourceHash": "f1daae3bca451a340f130be17e7ef5273f011bfcb00b134f2c15e461006c52c2",
+      "summary": "# Portfolio Lifecycle Version: 1.0 ## Purpose Defines the complete lifecycle of an investment portfolio within Project Atlas, from creation through retirement and closure. ## Objectives - Standardize portfolio state transitions. - Align"
+    },
+    {
+      "id": "1eb8b3751cc149ff",
+      "title": "Portfolio Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/portfolio.md",
+      "sourceHash": "35feca56181775e02e1fb91dc714b05b685e41dbbfd2dee6f2e3b4352c60daf5",
+      "summary": "# Portfolio Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose Portfolio 在 Atlas 中代表整體資產配置，而非單一投資帳戶。 Decision Engine"
+    },
+    {
+      "id": "d065ea0f074ad5ec",
+      "title": "Property Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/property.md",
+      "sourceHash": "f3cf691f6d1ef40e263001bd1963844c2e0cf3085a6eb869426146c1a0d5533f",
+      "summary": "# Property Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose Property 定義 Project Atlas 對不動產的領域知識、商業規則與共同語言。 所有房屋相關模"
+    },
+    {
+      "id": "388b851ff6e851b2",
+      "title": "Evaluation Architecture",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-evaluation.md",
+      "sourceHash": "52b84ecb0395287bbe99dcb8b6c3eb59dbffd926ddbdc2c9f0db7735d91a71db",
+      "summary": "# Recommendation Evaluation Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Recommendation Domain Source of Truth: Recommendation Catalog Last Updated: 2026-07-13 ## Purpose Recommendation Evaluation defines"
+    },
+    {
+      "id": "9f08e8d8e210bc49",
+      "title": "Execution Architecture",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-execution.md",
+      "sourceHash": "37121703bdbf62951f9dfe86633bc4113e7b89e2f8f8421f717241d2624367bb",
+      "summary": "# Recommendation Execution Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Recommendation Domain Source of Truth: Recommendation Catalog Last Updated: 2026-07-13 ## Purpose Recommendation Execution defines go"
+    },
+    {
+      "id": "c24b7c9933385692",
+      "title": "Lifecycle Architecture",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-lifecycle.md",
+      "sourceHash": "d50896200188c3afbc6ae54dba64dd21ca2d2d192a84d315f2a49094c3429653",
+      "summary": "# Recommendation Lifecycle Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Recommendation Domain Source of Truth: Recommendation Catalog Last Updated: 2026-07-13 ## Purpose Recommendation Lifecycle defines ho"
+    },
+    {
+      "id": "497ec8b237c03d97",
+      "title": "Retirement Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/retirement.md",
+      "sourceHash": "fcf1dfbabbb76eb488874137ffcf8313182032cd16da2ef9d91f4fde787b65ec",
+      "summary": "# Retirement Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose Retirement 定義 Project Atlas 對退休規劃的核心知識、商業規則、共同語言與基本假設"
+    },
+    {
+      "id": "52e1c2665e6fbb57",
+      "title": "Risk Capacity Model",
+      "category": "supporting",
+      "path": "knowledge/supporting/risk-capacity-model.md",
+      "sourceHash": "975115835c777c390d5b3c9864b6f36a595e301b2f77e12e2914a6e5d055d89d",
+      "summary": "# Risk Capacity Model Version: 1.0 ## Purpose Defines how Project Atlas measures a user's objective ability to take financial risk. Unlike Risk Tolerance (behavioral preference), Risk Capacity is derived from measurable financial facts."
+    },
+    {
+      "id": "f32217cc0becc0c8",
+      "title": "knowledge/rule-expression-language.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/rule-expression-language.md",
+      "sourceHash": "2899abef9bceaf854e8928865f57b1f6503186f608bc19998835e96a71280530",
+      "summary": "# knowledge/rule-expression-language.md # Atlas Rule Expression Language (AREL) Version: 1.0 Status: Canonical Specification ## 1. Purpose AREL (Atlas Rule Expression Language) is the domain-specific language used to define Decision Engi"
+    },
+    {
+      "id": "98bce9b06e5efe7b",
+      "title": "knowledge/scoring-model.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/scoring-model.md",
+      "sourceHash": "3ede4b3cf7a4cff27c8b86b8d2d6e2f60920d338fc38dc1fedcde1295769fb86",
+      "summary": "# knowledge/scoring-model.md # Atlas Decision Scoring Model Version: 1.0 ## Purpose Defines the canonical 0–100 scoring methodology used by the Decision Engine. The model is deterministic, explainable, versioned, and independent from UI p"
+    },
+    {
+      "id": "a5c46e18dc3d2166",
+      "title": "knowledge/taiwan-financial-assumptions.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/taiwan-financial-assumptions.md",
+      "sourceHash": "739a9fd29b8a13303ebe7c6e52b9643df4cef7ec277eccfaaf5d8dfd6d1f4fb1",
+      "summary": "# knowledge/taiwan-financial-assumptions.md # Project Atlas 台灣財務預設假設 > 文件狀態：Specification Draft > 適用範圍：Project Atlas / Life Financial Decision Operating System > 目錄位置：knowledge/taiwan-financial-assumptions.md > 最後更新基準日：2026-0"
+    },
+    {
+      "id": "6fe03dc380a9b756",
+      "title": "knowledge/taiwan-market-data-sources.md",
+      "category": "supporting",
+      "path": "knowledge/supporting/taiwan-market-data-sources.md",
+      "sourceHash": "c868eb1d7ab17a1d58866e3d57e419e097074271a20a256f5c66876e2d79e8d1",
+      "summary": "# knowledge/taiwan-market-data-sources.md ## Purpose Defines authoritative Taiwan financial market data sources used by Project Atlas. ### Primary Sources - TWSE - TPEx - Central Bank of Taiwan - DGBAS - Ministry of the Interior - ETF iss"
+    },
+    {
+      "id": "dfde3e977a81eeab",
+      "title": "Taiwan Mortgage Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/taiwan-mortgage.md",
+      "sourceHash": "801bff25c7817c5ce76076bd31ff405af6beef0c0ec2089509220f7b15a749d5",
+      "summary": "# Taiwan Mortgage Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Project Atlas 在台灣房屋貸款（Mortgage）領域的知識模型、商業規"
+    },
+    {
+      "id": "3b3b3db3f6818cdf",
+      "title": "Taiwan Tax Knowledge Base",
+      "category": "supporting",
+      "path": "knowledge/supporting/taiwan-tax.md",
+      "sourceHash": "a2ae75e637a16266ed86d2bfdf61178a5791701c7d9e0392872d6e471aecd044",
+      "summary": "# Taiwan Tax Knowledge Base Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Project Atlas 在台灣稅務領域的知識模型、商業規則與共同假設。"
+    },
+    {
+      "id": "270df04971ba5ccf",
+      "title": "Terminology",
+      "category": "supporting",
+      "path": "knowledge/supporting/terminology.md",
+      "sourceHash": "c4eb78561480f3f724786911e375388943ffc77ce69916053451d34d4c657112",
+      "summary": "# Terminology Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Project Atlas 的統一領域語言（Ubiquitous Language）。 所有文件、A"
+    },
+    {
+      "id": "070a9062234f1eaa",
+      "title": "knowledge/decision-workflow.md",
+      "category": "workflow",
+      "path": "knowledge/workflow/decision-workflow.md",
+      "sourceHash": "7e150b1321c99648a4fbddf5e57a1e2f6423ff366cbcdfa26830c88e1748bece",
+      "summary": "# knowledge/decision-workflow.md # Atlas Decision Workflow Version: 1.0 ## Purpose Defines the end-to-end workflow executed by the Atlas Decision Engine. The workflow is deterministic, versioned and auditable, ensuring identical inputs al"
+    }
+  ]
+}

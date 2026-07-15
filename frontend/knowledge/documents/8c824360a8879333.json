@@ -1,0 +1,115 @@
+{
+  "id": "8c824360a8879333",
+  "title": "Notification Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/notification-framework.md",
+  "sourceHash": "c340799a7b29208d460f074fbf32a610d2222f40deaeccc453d763e34ddd92f7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Notification Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Notification Sources"
+    },
+    {
+      "level": 2,
+      "text": "Notification Categories"
+    },
+    {
+      "level": 2,
+      "text": "Severity Levels"
+    },
+    {
+      "level": 2,
+      "text": "Delivery Channels"
+    },
+    {
+      "level": 2,
+      "text": "Delivery Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Notification Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "User Preferences"
+    },
+    {
+      "level": 2,
+      "text": "Suppression & Throttling"
+    },
+    {
+      "level": 2,
+      "text": "Notification Payload"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Notification Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Notification Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise notification framework for Project Atlas, governing how alerts, recommendations and system events are delivered, tracked and managed.\n\n## Objectives\n- Deliver timely and actionable notifications.\n- Reduce notification fatigue.\n- Support personalized delivery preferences.\n- Ensure end-to-end traceability.\n\n## Notification Sources\n- Financial Alert Framework\n- Recommendation Engine\n- Decision Engine\n- Scenario Engine\n- Cash Flow Engine\n- Investment Engine\n- Loan Engine\n- Retirement Engine\n- System Events\n\n## Notification Categories\n- Critical Financial Risk\n- Recommendation\n- Goal Progress\n- Milestone Achievement\n- Investment Update\n- Loan Update\n- Cash Flow Alert\n- Reminder\n- System Notification\n\n## Severity Levels\n- Info\n- Low\n- Medium\n- High\n- Critical\n\n## Delivery Channels\n- In-App\n- Email\n- Push Notification\n- SMS\n- Webhook\n- Future Integrations\n\n## Delivery Strategy\n- Immediate\n- Scheduled\n- Batched\n- Digest (Daily / Weekly / Monthly)\n- Event Driven\n\n## Notification Lifecycle\nGenerated\n→ Prioritized\n→ Queued\n→ Delivered\n→ Viewed\n→ Acknowledged\n→ Acted Upon\n→ Expired\n→ Archived\n\n## User Preferences\nUsers may configure:\n- Preferred channels\n- Quiet hours\n- Frequency limits\n- Category subscriptions\n- Critical alert overrides\n\n## Suppression & Throttling\n- Merge duplicate notifications.\n- Suppress repeated notifications within cooldown windows.\n- Escalate unresolved critical notifications.\n- Respect user preference rules unless overridden by critical events.\n\n## Notification Payload\nEach notification contains:\n- Notification ID\n- Category\n- Severity\n- Title\n- Summary\n- Recommendation Link\n- Related Decision ID\n- Related Alert ID\n- Timestamp\n- Expiration\n\n## Business Rules\n- Critical notifications bypass digest mode.\n- Every notification references a source event.\n- Delivery status is auditable.\n- Notification content is immutable after delivery.\n\n## Explainability\nEvery notification includes:\n- Trigger event\n- Supporting metrics\n- Related rules\n- Expected impact\n- Suggested action\n\n## Integration\nConsumes:\n- Financial Alert Framework\n- Recommendation Priority Framework\n- Decision History Framework\n- Decision Audit Framework\n\nProduces:\n- Dashboard Notification Center\n- Mobile Push\n- Email Service\n- User Activity Timeline\n\n## KPIs\n- Delivery Success Rate\n- Open Rate\n- Action Rate\n- Average Response Time\n- Notification Suppression Rate\n- Critical Alert Acknowledgement Time\n\n## Testing\n- Duplicate suppression\n- Multi-channel delivery\n- Quiet hours\n- Escalation\n- Digest generation\n- Delivery retry\n\n## Future Enhancements\n- AI notification prioritization\n- Smart delivery timing\n- Cross-device synchronization\n- Personalized notification summaries\n\n## Phase 2 Executable Specification\n\n### Notification Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | Notification |\n| Identity | notificationId |\n| Scope | tenantId, householdId, userId |\n| Inputs | sourceEvent, category, severity, payload, deliveryPreferences, suppressionPolicy |\n| Outputs | deliveryPlan, deliveryAttempts, deliveryStatus, acknowledgementState |\n| Immutability | Delivered notification content is immutable. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| CreateNotification | Create a notification from an approved source event. |\n| PrioritizeNotification | Calculate severity, priority, and delivery strategy. |\n| QueueNotificationDelivery | Queue channel-specific delivery attempts. |\n| RecordNotificationDeliveryResult | Persist success or failure for each channel. |\n| AcknowledgeNotification | Record user acknowledgement. |\n| SuppressNotification | Suppress duplicate or throttled notification. |\n| ReplayNotificationDelivery | Rebuild delivery behavior from stored source event and policies. |\n\n### Domain Events\n\n| Event | Trigger |\n|---|---|\n| NotificationCreated | Notification is generated from source event. |\n| NotificationPrioritized | Priority and delivery strategy are resolved. |\n| NotificationDeliveryQueued | Delivery attempt is queued. |\n| NotificationDelivered | Delivery succeeds for a channel. |\n| NotificationDeliveryFailed | Delivery fails for a channel. |\n| NotificationAcknowledged | User acknowledges notification. |\n| NotificationSuppressed | Notification is suppressed by policy. |\n\n### Validation Rules\n\n1. Every notification must reference a source event and schema version.\n2. Critical severity may bypass digest mode but must still record preference override reason.\n3. Suppression requires category, source event, cooldown window, and deduplication key.\n4. Delivery retry must use idempotency key per channel and notificationId.\n5. Replay must not create duplicate user-visible notifications unless explicitly approved.\n\n### API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/notifications | POST | Create notification. |\n| /api/notifications/{notificationId} | GET | Retrieve notification state. |\n| /api/notifications/{notificationId}/acknowledge | POST | Acknowledge notification. |\n| /api/notifications/{notificationId}/delivery-results | POST | Record delivery result. |\n| /api/notifications/{notificationId}/suppress | POST | Suppress notification. |\n| /api/notifications/{notificationId}/replay | POST | Replay delivery behavior. |\n\n### Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Duplicate within cooldown | NotificationSuppressed is emitted. |\n| Critical alert during quiet hours | Delivery proceeds with override reason. |\n| Channel delivery failure | Retry or failure event is recorded. |\n| User acknowledgement | NotificationAcknowledged is emitted. |\n| Replay delivery | Delivery plan matches original without duplicate send by default. |\n\n### Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

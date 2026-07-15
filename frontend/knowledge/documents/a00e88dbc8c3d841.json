@@ -1,0 +1,115 @@
+{
+  "id": "a00e88dbc8c3d841",
+  "title": "Decision Principles Knowledge Base",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-principles.md",
+  "sourceHash": "4792e1f0038274fd9efc377f9a262db2843eedd910c16cc84100ca70040ab935",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Principles Knowledge Base"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Decision Hierarchy"
+    },
+    {
+      "level": 1,
+      "text": "Core Principles"
+    },
+    {
+      "level": 2,
+      "text": "DP-001 Life First"
+    },
+    {
+      "level": 2,
+      "text": "DP-002 Cash Flow First"
+    },
+    {
+      "level": 2,
+      "text": "DP-003 Preserve Optionality"
+    },
+    {
+      "level": 2,
+      "text": "DP-004 Risk Before Return"
+    },
+    {
+      "level": 2,
+      "text": "DP-005 Long-term Thinking"
+    },
+    {
+      "level": 2,
+      "text": "DP-006 Evidence Based"
+    },
+    {
+      "level": 2,
+      "text": "DP-007 Consistency"
+    },
+    {
+      "level": 1,
+      "text": "Decision Dimensions"
+    },
+    {
+      "level": 1,
+      "text": "Mandatory Simulation"
+    },
+    {
+      "level": 1,
+      "text": "Decision Outputs"
+    },
+    {
+      "level": 1,
+      "text": "Decision Levels"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "DR-001"
+    },
+    {
+      "level": 2,
+      "text": "DR-002"
+    },
+    {
+      "level": 2,
+      "text": "DR-003"
+    },
+    {
+      "level": 2,
+      "text": "DR-004"
+    },
+    {
+      "level": 2,
+      "text": "DR-005"
+    },
+    {
+      "level": 2,
+      "text": "DR-006"
+    },
+    {
+      "level": 1,
+      "text": "Decision Factors"
+    },
+    {
+      "level": 1,
+      "text": "Explainability"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    }
+  ],
+  "bodyMarkdown": "# Decision Principles Knowledge Base\n\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\n\n------------------------------------------------------------------------\n\n# Purpose\n\nDecision Principles 定義 Atlas 所有 Decision Engine\n必須遵循的最高層商業原則。\n\n任何演算法、公式或 AI 建議均不得違反本文件。\n\n------------------------------------------------------------------------\n\n# Decision Hierarchy\n\n決策優先順序：\n\n1.  Health\n2.  Family\n3.  Safety\n4.  Cash Flow\n5.  Risk Control\n6.  Life Goals\n7.  Investment Return\n8.  Tax Efficiency\n9.  Wealth Growth\n\n------------------------------------------------------------------------\n\n# Core Principles\n\n## DP-001 Life First\n\n所有財務決策必須服務人生目標，而非最大化報酬。\n\n## DP-002 Cash Flow First\n\n優先維持正向且可持續的 Free Cash Flow。\n\n## DP-003 Preserve Optionality\n\n保留未來選擇權，不因單一決策降低人生彈性。\n\n## DP-004 Risk Before Return\n\n先控制風險，再追求收益。\n\n## DP-005 Long-term Thinking\n\n所有重大決策至少模擬 30 年。\n\n## DP-006 Evidence Based\n\n所有建議必須基於可驗證資料與模型。\n\n## DP-007 Consistency\n\n相同輸入必須產生一致決策。\n\n------------------------------------------------------------------------\n\n# Decision Dimensions\n\n每項重大決策至少評估：\n\n-   Cash Flow\n-   Liquidity\n-   Net Worth\n-   Debt\n-   Investment\n-   Retirement\n-   Tax\n-   Insurance\n-   Family Impact\n-   Goal Progress\n\n------------------------------------------------------------------------\n\n# Mandatory Simulation\n\nDecision Engine 必須支援：\n\n-   Base Case\n-   Optimistic\n-   Conservative\n-   Stress Test\n\n------------------------------------------------------------------------\n\n# Decision Outputs\n\n每次評估至少輸出：\n\n-   Recommendation\n-   Score\n-   Risk Level\n-   Advantages\n-   Disadvantages\n-   Assumptions\n-   Alternative Options\n-   KPI Impact\n\n------------------------------------------------------------------------\n\n# Decision Levels\n\n-   Recommended\n-   Acceptable\n-   Neutral\n-   Caution\n-   Not Recommended\n\n------------------------------------------------------------------------\n\n# Business Rules\n\n## DR-001\n\n若任何月份 Free Cash Flow 為負，需提出警示。\n\n## DR-002\n\n若退休現金流不足，不得建議提前退休。\n\n## DR-003\n\n若緊急預備金不足，不得建議提高風險配置。\n\n## DR-004\n\n重大決策必須重新計算所有 KPI。\n\n## DR-005\n\n任何建議均需列出主要假設。\n\n## DR-006\n\n不得僅依單一 KPI 做出決策。\n\n------------------------------------------------------------------------\n\n# Decision Factors\n\n-   Cash Flow Stability\n-   Income Stability\n-   Debt Service Ratio\n-   Passive Income Ratio\n-   Asset Allocation\n-   Goal Achievement\n-   Liquidity\n-   Inflation\n-   Interest Rate\n-   Market Risk\n\n------------------------------------------------------------------------\n\n# Explainability\n\nDecision Engine 必須提供：\n\n-   Why\n-   Why Not\n-   Assumptions\n-   Calculation Summary\n-   Rule References\n\n------------------------------------------------------------------------\n\n# Domain Events\n\n-   DecisionRequested\n-   DecisionCalculated\n-   DecisionApproved\n-   DecisionRejected\n-   ScenarioCompared\n-   RecommendationGenerated\n\n------------------------------------------------------------------------\n\n# Related Documents\n\n-   docs/13-DecisionEngine.md\n-   docs/14-Scenario.md\n-   docs/18-KPI.md\n-   knowledge/cashflow.md\n-   knowledge/investment-policy.md\n-   knowledge/portfolio.md\n-   knowledge/retirement.md\n",
+  "references": []
+}

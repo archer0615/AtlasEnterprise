@@ -1,0 +1,75 @@
+{
+  "id": "a42a65f302cab3b6",
+  "title": "Capital Allocation Framework",
+  "category": "api",
+  "canonicalPath": "knowledge/api/capital-allocation-framework.md",
+  "sourceHash": "e6ecc8e7dcb386316a786ed9bbe5bdce6e6d405e61d4cc5aeb8e354d94fb7ae9",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Capital Allocation Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Capital Sources"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Priorities"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Buckets"
+    },
+    {
+      "level": 2,
+      "text": "Decision Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Allocation Process"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Capital Allocation Framework\n\nVersion: 1.0\n\n## Purpose\nDefines how Project Atlas allocates available capital across competing financial objectives while respecting constraints, liquidity requirements, and long-term strategy.\n\n## Objectives\n- Maximize long-term financial outcomes.\n- Allocate capital consistently and transparently.\n- Balance growth, protection, and liquidity.\n- Produce explainable allocation decisions.\n\n## Capital Sources\n- Salary\n- Bonus\n- Investment income\n- Rental income\n- Business income\n- Windfalls\n- Asset sales\n- Financing (where permitted)\n\n## Allocation Priorities\n1. Taxes and mandatory obligations\n2. Essential living expenses\n3. Emergency Fund\n4. Insurance protection\n5. High-interest debt repayment\n6. Goal funding\n7. Retirement investing\n8. Long-term investment\n9. Lifestyle spending\n\n## Allocation Buckets\n- Operating Cash\n- Liquidity Reserve\n- Debt Reduction\n- Goal Funding\n- Investment Portfolio\n- Opportunity Capital\n\n## Decision Inputs\n- Monthly cash flow\n- Available capital\n- Financial Health Score\n- Goal Prioritization\n- Risk Capacity\n- Life Stage\n- Liquidity Score\n- IPS constraints\n\n## Allocation Constraints\n- Preserve minimum liquidity.\n- Preserve emergency reserve.\n- Respect IPS allocation ranges.\n- Mandatory goals override discretionary goals.\n- Hard constraints cannot be violated.\n\n## Allocation Process\n1. Determine available capital.\n2. Reserve mandatory allocations.\n3. Evaluate competing goals.\n4. Score candidate allocations.\n5. Optimize remaining capital.\n6. Validate constraints.\n7. Generate explainable recommendation.\n\n## Outputs\n- Allocation by bucket\n- Goal funding amounts\n- Investment allocation\n- Debt repayment recommendation\n- Unallocated surplus\n- Rule evaluation summary\n\n## Business Rules\n- Capital is allocated only once.\n- Reserved capital cannot be double-counted.\n- Windfall income follows the same framework unless explicitly overridden.\n- Large allocation changes trigger scenario analysis.\n\n## Explainability\nEach recommendation includes:\n- Available capital\n- Allocation order\n- Triggered rules\n- Constraints applied\n- Expected financial impact\n\n## KPIs\n- Capital Allocation Efficiency\n- Goal Funding Ratio\n- Liquidity Coverage Ratio\n- Debt Reduction Rate\n- Investment Allocation Ratio\n- Capital Utilization Rate\n\n## Integration\nConsumes:\n- Cash Flow Engine\n- Goal Prioritization\n- Financial Health Score\n- Liquidity Framework\n- Risk Capacity Model\n\nProduces:\n- Asset Allocation Framework\n- Withdrawal Strategy\n- Decision Engine\n- Dashboard\n\n## Testing\n- Monthly salary allocation\n- Annual bonus allocation\n- Windfall allocation\n- Cash deficit scenario\n- Multiple competing goals\n- High debt household\n\n## Future Enhancements\n- AI allocation optimization\n- Household capital pooling\n- Tax-aware allocation\n- Multi-currency capital allocation\n",
+  "references": []
+}

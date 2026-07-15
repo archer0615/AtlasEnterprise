@@ -1,0 +1,131 @@
+{
+  "id": "c1eb3d084150093b",
+  "title": "Financial Ratio Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/financial-ratio-framework.md",
+  "sourceHash": "58f8f33edfbfbe4563b790b55ea201dd4843e70392c984496dbc0379de5c28e8",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Financial Ratio Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Relationship to financial-ratios.md"
+    },
+    {
+      "level": 2,
+      "text": "Framework Scope"
+    },
+    {
+      "level": 2,
+      "text": "Ratio Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Naming Standard"
+    },
+    {
+      "level": 2,
+      "text": "Formula Governance"
+    },
+    {
+      "level": 2,
+      "text": "Calculation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Data Validation"
+    },
+    {
+      "level": 2,
+      "text": "Engine Consumers"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Ratio Definition Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Ratio Definition Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Financial Ratio Framework\n\nVersion: 2.0\n\n## Purpose\nDefines the enterprise framework governing all financial ratios used by Project Atlas. Unlike `financial-ratios.md`, which is the canonical ratio catalog, this framework specifies lifecycle, governance, calculation standards, ownership, validation, versioning, and engine integration.\n\n## Relationship to financial-ratios.md\n- financial-ratios.md = Ratio Catalog (what ratios exist)\n- financial-ratio-framework.md = Governance Framework (how ratios are defined, maintained, calculated, versioned, validated, and consumed)\n\n## Framework Scope\n- Ratio taxonomy\n- Naming standards\n- Formula governance\n- Version control\n- Calculation timing\n- Data quality\n- Validation\n- Engine ownership\n- Explainability\n- API exposure\n\n## Ratio Lifecycle\nDraft\n→ Review\n→ Approved\n→ Active\n→ Deprecated\n→ Archived\n\n## Naming Standard\nFR-{DOMAIN}-{NUMBER}\n\nExamples:\n- FR-LIQ-001\n- FR-DEBT-002\n- FR-RET-001\n\n## Formula Governance\nEvery ratio must define:\n- Stable ID\n- Business definition\n- Formula\n- Inputs\n- Units\n- Assumptions\n- Thresholds\n- Version\n- Owner Engine\n\n## Calculation Rules\n- Deterministic\n- Reproducible\n- Time-stamped\n- Assumption-version aware\n- Currency normalized\n\n## Data Validation\nValidate:\n- Missing inputs\n- Negative values\n- Currency consistency\n- Date alignment\n- Duplicate records\n\n## Engine Consumers\n- Financial Health Score\n- Decision Engine\n- Dashboard\n- Scenario Engine\n- Cash Flow Engine\n- Investment Engine\n- Loan Engine\n- Retirement Engine\n\n## Explainability\nEach calculated ratio records:\n- Formula version\n- Input values\n- Output value\n- Threshold evaluation\n- Source entities\n\n## Business Rules\n- Ratio IDs are immutable.\n- Formula changes require version increments.\n- Historical values are never recalculated using newer formulas.\n- All engines consume canonical ratio definitions.\n\n## KPIs\n- Ratio calculation success rate\n- Validation error rate\n- Formula version coverage\n- Data completeness\n\n## Future Enhancements\n- Custom user ratios\n- AI anomaly detection\n- Country-specific ratio packs\n\n## Phase 2 Executable Specification\n\n### Ratio Definition Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| RatioId | Yes | Stable ratio identifier |\n| RatioName | Yes | Canonical name |\n| Domain | Yes | Liquidity, CashFlow, Debt, Investment, Housing, Retirement, Insurance, Wealth |\n| FormulaId | Yes | Formula catalog reference |\n| RatioVersion | Yes | Immutable ratio version |\n| Inputs | Yes | Required source fields |\n| Unit | Yes | Ratio, Percent, Months, Score |\n| ThresholdSet | Yes | Target, warning, critical |\n| OwnerEngine | Yes | Engine responsible for calculation |\n| Status | Yes | Draft, Review, Approved, Active, Deprecated, Archived |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| PublishRatioDefinition | GovernanceApplicationService | RatioDefinitionPublished |\n| CalculateFinancialRatio | RatioApplicationService | FinancialRatioCalculated |\n| DeprecateRatioVersion | GovernanceApplicationService | RatioVersionDeprecated |\n| ValidateRatioInputs | RatioApplicationService | RatioInputsValidated |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| RatioDefinitionPublished | Ratio becomes active | Dashboard, Decision Engine |\n| FinancialRatioCalculated | Ratio value calculated | Financial Health Score, Dashboard |\n| RatioThresholdBreached | Ratio crosses threshold | Alert, Recommendation Engine |\n| RatioVersionDeprecated | Version deprecated | Audit, Governance |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FRF-VR-001 | Ratio ID is immutable after approval. | Reject update |\n| FRF-VR-002 | Formula changes require a new ratio version. | Reject update |\n| FRF-VR-003 | Historical ratio values must reference original version. | Reject replay |\n| FRF-VR-004 | Ratio inputs must be normalized before calculation. | Reject calculation |\n| FRF-VR-005 | Threshold ranges must not overlap. | Reject publish |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/ratios/definitions | GET | List ratio definitions | Ratio:Read |\n| /api/v1/ratios/calculate | POST | Calculate ratio values | Ratio:Evaluate |\n| /api/v1/ratios/{ratioId}/history | GET | Retrieve ratio history | Ratio:Read |\n| /api/v1/ratios/{ratioId}/deprecate | POST | Deprecate ratio version | Ratio:Admin |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Overlapping thresholds | Definition publish fails |\n| Formula version change | New ratio version is required |\n| Missing normalized input | Calculation fails |\n| Historical ratio read | Original version and value are returned |\n| Threshold breach | RatioThresholdBreached event is emitted |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 2.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Ratio Definition Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| RatioId | Yes | Stable ratio identifier |\n| RatioName | Yes | Canonical name |\n| Domain | Yes | Liquidity, CashFlow, Debt, Investment, Housing, Retirement, Insurance, Wealth |\n| FormulaId | Yes | Formula catalog reference |\n| RatioVersion | Yes | Immutable ratio version |\n| Inputs | Yes | Required source fields |\n| Unit | Yes | Ratio, Percent, Months, Score |\n| ThresholdSet | Yes | Target, warning, critical |\n| OwnerEngine | Yes | Engine responsible for calculation |\n| Status | Yes | Draft, Review, Approved, Active, Deprecated, Archived |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| PublishRatioDefinition | GovernanceApplicationService | RatioDefinitionPublished |\n| CalculateFinancialRatio | RatioApplicationService | FinancialRatioCalculated |\n| DeprecateRatioVersion | GovernanceApplicationService | RatioVersionDeprecated |\n| ValidateRatioInputs | RatioApplicationService | RatioInputsValidated |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| RatioDefinitionPublished | Ratio becomes active | Dashboard, Decision Engine |\n| FinancialRatioCalculated | Ratio value calculated | Financial Health Score, Dashboard |\n| RatioThresholdBreached | Ratio crosses threshold | Alert, Recommendation Engine |\n| RatioVersionDeprecated | Version deprecated | Audit, Governance |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FRF-VR-001 | Ratio ID is immutable after approval. | Reject update |\n| FRF-VR-002 | Formula changes require a new ratio version. | Reject update |\n| FRF-VR-003 | Historical ratio values must reference original version. | Reject replay |\n| FRF-VR-004 | Ratio inputs must be normalized before calculation. | Reject calculation |\n| FRF-VR-005 | Threshold ranges must not overlap. | Reject publish |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/ratios/definitions | GET | List ratio definitions | Ratio:Read |\n| /api/v1/ratios/calculate | POST | Calculate ratio values | Ratio:Evaluate |\n| /api/v1/ratios/{ratioId}/history | GET | Retrieve ratio history | Ratio:Read |\n| /api/v1/ratios/{ratioId}/deprecate | POST | Deprecate ratio version | Ratio:Admin |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Overlapping thresholds | Definition publish fails |\n| Formula version change | New ratio version is required |\n| Missing normalized input | Calculation fails |\n| Historical ratio read | Original version and value are returned |\n| Threshold breach | RatioThresholdBreached event is emitted |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 2.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

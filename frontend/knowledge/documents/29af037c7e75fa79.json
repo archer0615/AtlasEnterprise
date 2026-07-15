@@ -1,0 +1,99 @@
+{
+  "id": "29af037c7e75fa79",
+  "title": "System Configuration Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/system-configuration-framework.md",
+  "sourceHash": "91843bddcbb7f4be14106816cda49446d21aa26e83c1961aa4bce1964605e449",
+  "headings": [
+    {
+      "level": 1,
+      "text": "System Configuration Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Design Principles"
+    },
+    {
+      "level": 2,
+      "text": "Configuration Domains"
+    },
+    {
+      "level": 3,
+      "text": "Global"
+    },
+    {
+      "level": 3,
+      "text": "Financial"
+    },
+    {
+      "level": 3,
+      "text": "Decision Engine"
+    },
+    {
+      "level": 3,
+      "text": "Scenario Engine"
+    },
+    {
+      "level": 3,
+      "text": "Dashboard"
+    },
+    {
+      "level": 3,
+      "text": "Notification"
+    },
+    {
+      "level": 3,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Configuration Metadata"
+    },
+    {
+      "level": 2,
+      "text": "Configuration Hierarchy"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# System Configuration Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise-wide configuration model for Project Atlas. It standardizes configurable behavior across all engines while preserving deterministic execution and auditability.\n\n## Objectives\n- Centralize configuration.\n- Separate configuration from business logic.\n- Support versioned deployments.\n- Enable environment-specific settings.\n- Preserve reproducibility.\n\n## Design Principles\n- Configuration is data, not code.\n- Every change is versioned.\n- Changes are auditable.\n- Defaults are deterministic.\n- Runtime validation is mandatory.\n\n## Configuration Domains\n\n### Global\n- System language\n- Currency\n- Time zone\n- Locale\n- Measurement units\n\n### Financial\n- Inflation assumptions\n- Market assumption version\n- Tax profile\n- Mortgage rules\n- Retirement defaults\n\n### Decision Engine\n- Rule set version\n- Explainability level\n- Score thresholds\n- Recommendation limits\n\n### Scenario Engine\n- Projection horizon\n- Monte Carlo iterations\n- Stress-test profiles\n- Baseline scenario\n\n### Dashboard\n- Refresh interval\n- Widget defaults\n- KPI thresholds\n\n### Notification\n- Retry policy\n- Digest schedule\n- Escalation policy\n- Delivery channels\n\n### Security\n- Session timeout\n- Audit retention\n- Encryption policy\n- Access control profile\n\n## Configuration Metadata\nEach configuration item contains:\n- Config ID\n- Key\n- Category\n- Value\n- Default Value\n- Environment\n- Version\n- Effective Date\n- Last Modified\n- Owner\n\n## Configuration Hierarchy\n1. System Default\n2. Regional Default\n3. Environment\n4. Organization\n5. Household\n6. User\n7. Session Override\n\n## Lifecycle\nDraft\n→ Review\n→ Approved\n→ Active\n→ Deprecated\n→ Archived\n\n## Validation\n- Type validation\n- Range validation\n- Dependency validation\n- Reference validation\n- Version compatibility\n\n## Business Rules\n- Runtime changes require validation.\n- Historical decisions reference configuration versions.\n- Critical configuration changes generate audit events.\n- Invalid configuration cannot be activated.\n\n## Explainability\nEach decision records:\n- Configuration version\n- Applied overrides\n- Ignored settings\n- Effective values\n\n## Integration\nConsumes:\n- User Preference Framework\n- Market Assumptions\n- Financial Ratio Framework\n\nProduces:\n- All Engines\n- Dashboard\n- Reporting\n- Audit Framework\n\n## KPIs\n- Configuration coverage\n- Validation success rate\n- Configuration drift\n- Change frequency\n- Rollback success rate\n\n## Testing\n- Environment overrides\n- Version rollback\n- Invalid configuration\n- Multi-region deployment\n- Upgrade compatibility\n\n## Future Enhancements\n- Feature flag integration\n- Dynamic configuration\n- Remote configuration service\n- Policy-as-code support\n",
+  "references": []
+}

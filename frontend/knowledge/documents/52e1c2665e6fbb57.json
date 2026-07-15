@@ -1,0 +1,115 @@
+{
+  "id": "52e1c2665e6fbb57",
+  "title": "Risk Capacity Model",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/risk-capacity-model.md",
+  "sourceHash": "975115835c777c390d5b3c9864b6f36a595e301b2f77e12e2914a6e5d055d89d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Risk Capacity Model"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Principles"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 3,
+      "text": "Income"
+    },
+    {
+      "level": 3,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 3,
+      "text": "Assets"
+    },
+    {
+      "level": 3,
+      "text": "Liabilities"
+    },
+    {
+      "level": 3,
+      "text": "Time Horizon"
+    },
+    {
+      "level": 3,
+      "text": "Emergency Preparedness"
+    },
+    {
+      "level": 2,
+      "text": "Capacity Dimensions"
+    },
+    {
+      "level": 2,
+      "text": "Overall Score"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine Usage"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Risk Capacity Assessment Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Risk Capacity Model\n\nVersion: 1.0\n\n## Purpose\nDefines how Project Atlas measures a user's objective ability to take financial risk. Unlike Risk Tolerance (behavioral preference), Risk Capacity is derived from measurable financial facts.\n\n## Principles\n- Objective and data-driven.\n- Independent from market sentiment.\n- Recalculated whenever material financial data changes.\n- Used by the Decision Engine, Asset Allocation Framework, and Financial Health Score.\n\n## Inputs\n### Income\n- Stable monthly income\n- Income diversification\n- Employment stability\n\n### Cash Flow\n- Savings rate\n- Free cash flow\n- Cash flow volatility\n\n### Assets\n- Liquid assets\n- Investment assets\n- Real estate equity\n\n### Liabilities\n- Mortgage balance\n- Consumer debt\n- Debt-to-income ratio\n\n### Time Horizon\n- Goal horizon\n- Retirement horizon\n- Expected investment duration\n\n### Emergency Preparedness\n- Emergency reserve months\n- Insurance coverage\n- Contingency planning\n\n## Capacity Dimensions\n1. Liquidity Capacity\n2. Income Capacity\n3. Debt Capacity\n4. Investment Capacity\n5. Time Capacity\n6. Recovery Capacity\n\nEach dimension is scored from 0–100.\n\n## Overall Score\nWeighted aggregate of all dimensions.\n\nSuggested bands:\n- 0–20 Very Low\n- 21–40 Low\n- 41–60 Moderate\n- 61–80 High\n- 81–100 Very High\n\n## Business Rules\n- Risk Capacity cannot exceed hard financial constraints.\n- Low liquidity caps portfolio risk regardless of tolerance.\n- High leverage reduces capacity.\n- Longer investment horizons increase capacity.\n- Capacity changes only after validated financial events.\n\n## Decision Engine Usage\nRisk Capacity influences:\n- Asset Allocation\n- Rebalancing\n- Goal Prioritization\n- Withdrawal Strategy\n- Scenario Analysis\n\n## Explainability\nRecommendations must report:\n- Overall score\n- Dimension scores\n- Key positive factors\n- Limiting factors\n- Resulting portfolio constraints\n\n## KPIs\n- Risk Capacity Score\n- Liquidity Ratio\n- Debt Burden\n- Savings Rate\n- Recovery Time Estimate\n\n## Testing\n- Young investor\n- High-income / high-debt\n- Low-income / high-assets\n- Early retirement\n- Market downturn\n- Income interruption\n\n## Future Enhancements\n- Household risk capacity\n- Bayesian score updates\n- AI-assisted capacity estimation\n- Country-specific calibration\n\n## Phase 2 Executable Specification\n\n### Risk Capacity Assessment Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | RiskCapacityAssessment |\n| Identity | assessmentId |\n| Scope | tenantId, householdId, asOfDate |\n| Inputs | income, cashFlow, assets, liabilities, timeHorizon, emergencyPreparedness, policyVersion |\n| Outputs | overallScore, dimensionScores, capacityBand, limitingFactors, portfolioConstraints |\n| Determinism | Same validated financial facts and scoring model version must produce the same score. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| AssessRiskCapacity | Calculate objective risk capacity score. |\n| ValidateRiskCapacityInputs | Validate source financial facts. |\n| PublishRiskCapacityAssessment | Freeze assessment for decision use. |\n| RecalculateRiskCapacity | Recalculate after material financial event. |\n| OverrideRiskCapacityAssessment | Apply approved manual override with reason. |\n| ReplayRiskCapacityAssessment | Rebuild assessment from stored inputs and score model version. |\n\n### Domain Events\n\n| Event | Trigger |\n|---|---|\n| RiskCapacityAssessed | Score calculation completes. |\n| RiskCapacityInputsValidated | Input validation completes. |\n| RiskCapacityAssessmentPublished | Assessment is frozen for downstream use. |\n| RiskCapacityRecalculated | Material event triggers recalculation. |\n| RiskCapacityAssessmentOverridden | Approved override is recorded. |\n| RiskCapacityAssessmentReplayed | Historical assessment is reproduced. |\n\n### Validation Rules\n\n1. Dimension scores must remain within 0 through 100.\n2. Overall score must not exceed hard constraints from liquidity, leverage, or negative cash flow.\n3. Published assessments cannot be overwritten.\n4. Override requires approver, reason, expiration, and audit reference.\n5. Replay must use original source facts, weights, policy version, and score model version.\n\n### API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/risk-capacity/assessments | POST | Assess risk capacity. |\n| /api/risk-capacity/assessments/{assessmentId} | GET | Retrieve assessment. |\n| /api/risk-capacity/assessments/{assessmentId}/publish | POST | Publish assessment. |\n| /api/risk-capacity/assessments/{assessmentId}/recalculate | POST | Recalculate assessment. |\n| /api/risk-capacity/assessments/{assessmentId}/override | POST | Apply approved override. |\n| /api/risk-capacity/assessments/{assessmentId}/replay | POST | Replay assessment. |\n\n### Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Low liquidity with high income | Liquidity cap limits overall score. |\n| High leverage | Debt capacity lowers capacity band. |\n| Published assessment mutation | Mutation is rejected. |\n| Manual override without reason | Validation fails. |\n| Replay assessment | Overall and dimension scores match original result. |\n\n### Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

@@ -1,0 +1,91 @@
+{
+  "id": "8f9db58d80c27379",
+  "title": "Withdrawal Rule Catalog",
+  "category": "rule",
+  "canonicalPath": "knowledge/rule/withdrawal-rule-catalog.md",
+  "sourceHash": "26f03fda8bab81dd53ad1b161ae92e8238056e2d51487b3402e27fef8cca8cae",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Withdrawal Rule Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Rule Categories"
+    },
+    {
+      "level": 3,
+      "text": "WR-001 Cash Before Assets"
+    },
+    {
+      "level": 3,
+      "text": "WR-002 Preserve Emergency Reserve"
+    },
+    {
+      "level": 3,
+      "text": "WR-003 Income First"
+    },
+    {
+      "level": 3,
+      "text": "WR-004 Tax Efficient Order"
+    },
+    {
+      "level": 3,
+      "text": "WR-005 Rebalancing Driven Withdrawal"
+    },
+    {
+      "level": 3,
+      "text": "WR-006 Avoid Selling Depressed Assets"
+    },
+    {
+      "level": 3,
+      "text": "WR-007 Goal Protection"
+    },
+    {
+      "level": 3,
+      "text": "WR-008 Liquidity Protection"
+    },
+    {
+      "level": 3,
+      "text": "WR-009 Withdrawal Rate Guardrail"
+    },
+    {
+      "level": 3,
+      "text": "WR-010 Market Stress Adjustment"
+    },
+    {
+      "level": 2,
+      "text": "Decision Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Rule Evaluation Order"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Withdrawal Rule Catalog\n\nVersion: 1.0\n\n## Purpose\nDefines the canonical withdrawal rules used by Project Atlas. These rules are consumed by the Decision Engine, Retirement Engine, and Cash Flow Engine to generate explainable withdrawal recommendations.\n\n## Rule Categories\n\n### WR-001 Cash Before Assets\nPriority: Critical\n\nUse available operating cash before liquidating investment assets.\n\n### WR-002 Preserve Emergency Reserve\nPriority: Critical\n\nEmergency reserve must never be reduced below the minimum required threshold unless an emergency event is explicitly identified.\n\n### WR-003 Income First\nPriority: High\n\nUse recurring income sources (salary, pension, dividends, coupons, rental income) before selling growth assets.\n\n### WR-004 Tax Efficient Order\nPriority: High\n\nWhen multiple withdrawal sources exist, prefer the sequence with the lowest estimated tax impact.\n\n### WR-005 Rebalancing Driven Withdrawal\nPriority: High\n\nWhen withdrawals are required, preferentially sell overweight asset classes to improve allocation.\n\n### WR-006 Avoid Selling Depressed Assets\nPriority: High\n\nAvoid selling materially undervalued or heavily declined growth assets if alternative funding sources are available.\n\n### WR-007 Goal Protection\nPriority: Critical\n\nAssets reserved for higher-priority financial goals cannot be withdrawn for discretionary spending.\n\n### WR-008 Liquidity Protection\nPriority: Critical\n\nMaintain minimum liquidity coverage after every withdrawal.\n\n### WR-009 Withdrawal Rate Guardrail\nPriority: High\n\nRecommended withdrawals must remain within the sustainable withdrawal policy defined by the Investment Policy Statement.\n\n### WR-010 Market Stress Adjustment\nPriority: High\n\nReduce discretionary withdrawals during severe market declines according to Scenario Engine guidance.\n\n## Decision Inputs\n- Cash balance\n- Cash Reserve Framework\n- Liquidity Framework\n- Asset Allocation\n- Risk Capacity\n- Life Stage\n- Financial Health Score\n- Goal Prioritization\n- Market Scenario\n\n## Outputs\n- Recommended withdrawal amount\n- Funding sources\n- Asset sales (if any)\n- Expected allocation after withdrawal\n- Rule evaluation results\n\n## Rule Evaluation Order\n1. Validate hard constraints.\n2. Verify liquidity.\n3. Preserve emergency reserve.\n4. Protect mandatory goals.\n5. Select optimal funding source.\n6. Validate sustainable withdrawal rate.\n7. Produce explainability report.\n\n## Explainability\nEach recommendation includes:\n- Triggered rules\n- Skipped rules\n- Constraint violations\n- Funding order\n- Sustainability assessment\n\n## KPIs\n- Sustainable Withdrawal Rate\n- Liquidity Coverage Ratio\n- Emergency Reserve Coverage\n- Portfolio Longevity\n- Goal Funding Impact\n\n## Testing\n- Monthly retirement withdrawals\n- Major medical expense\n- Market crash\n- High inflation\n- Large discretionary purchase\n- Multiple simultaneous goals\n\n## Future Enhancements\n- Dynamic tax optimization\n- Household withdrawal coordination\n- AI-assisted withdrawal sequencing\n- Jurisdiction-specific withdrawal rules\n",
+  "references": []
+}

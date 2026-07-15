@@ -1,0 +1,195 @@
+{
+  "id": "5f885260ca2187d3",
+  "title": "knowledge/kpi-definitions.md",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/kpi-definitions.md",
+  "sourceHash": "e505acfa136905457920d59d2f6bd08c95ee3bc0f7d8af39db183cd16064f172",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/kpi-definitions.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas KPI Definitions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "KPI Metadata Standard"
+    },
+    {
+      "level": 2,
+      "text": "Cash Flow KPIs"
+    },
+    {
+      "level": 3,
+      "text": "KPI-CF-001 Monthly Cash Flow"
+    },
+    {
+      "level": 3,
+      "text": "KPI-CF-002 Savings Rate"
+    },
+    {
+      "level": 3,
+      "text": "KPI-CF-003 Emergency Fund"
+    },
+    {
+      "level": 2,
+      "text": "Loan KPIs"
+    },
+    {
+      "level": 3,
+      "text": "KPI-LN-001 Debt-to-Income Ratio"
+    },
+    {
+      "level": 3,
+      "text": "KPI-LN-002 Loan-to-Value (LTV)"
+    },
+    {
+      "level": 3,
+      "text": "KPI-LN-003 Interest Coverage"
+    },
+    {
+      "level": 2,
+      "text": "Investment KPIs"
+    },
+    {
+      "level": 3,
+      "text": "KPI-IV-001 Portfolio Return"
+    },
+    {
+      "level": 3,
+      "text": "KPI-IV-002 Portfolio Volatility"
+    },
+    {
+      "level": 3,
+      "text": "KPI-IV-003 Asset Allocation Drift"
+    },
+    {
+      "level": 3,
+      "text": "KPI-IV-004 Dividend Yield"
+    },
+    {
+      "level": 2,
+      "text": "Retirement KPIs"
+    },
+    {
+      "level": 3,
+      "text": "KPI-RT-001 Retirement Funding Ratio"
+    },
+    {
+      "level": 3,
+      "text": "KPI-RT-002 Safe Withdrawal Rate"
+    },
+    {
+      "level": 3,
+      "text": "KPI-RT-003 Retirement Success Probability"
+    },
+    {
+      "level": 2,
+      "text": "Housing KPIs"
+    },
+    {
+      "level": 3,
+      "text": "KPI-HM-001 Housing Affordability"
+    },
+    {
+      "level": 3,
+      "text": "KPI-HM-002 Home Equity Ratio"
+    },
+    {
+      "level": 2,
+      "text": "Risk KPIs"
+    },
+    {
+      "level": 3,
+      "text": "KPI-RK-001 Overall Risk Score"
+    },
+    {
+      "level": 3,
+      "text": "KPI-RK-002 Liquidity Risk"
+    },
+    {
+      "level": 3,
+      "text": "KPI-RK-003 Leverage Risk"
+    },
+    {
+      "level": 2,
+      "text": "Decision KPIs"
+    },
+    {
+      "level": 3,
+      "text": "KPI-DC-001 Financial Health Score"
+    },
+    {
+      "level": 3,
+      "text": "KPI-DC-002 Goal Achievement Score"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "KPI Calculation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "KPI Calculation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/kpi-definitions.md\n\n# Atlas KPI Definitions\nVersion: 1.0\n\n## Purpose\nThis document defines every Key Performance Indicator (KPI) used by Project Atlas. Each KPI has a unique identifier, formal definition, calculation method, unit, target, update frequency and owning engine.\n\n---\n\n## KPI Metadata Standard\n\nEach KPI includes:\n- KPI ID\n- Name\n- Business Purpose\n- Formula\n- Inputs\n- Unit\n- Frequency\n- Target\n- Warning Threshold\n- Critical Threshold\n- Source Engine\n\n---\n\n## Cash Flow KPIs\n\n### KPI-CF-001 Monthly Cash Flow\nFormula:\nIncome - Expenses\n\nUnit:\nCurrency / Month\n\nTarget:\nPositive\n\nOwner:\nCash Flow Engine\n\n---\n\n### KPI-CF-002 Savings Rate\n\nFormula:\nSavings ÷ Income\n\nUnit:\n%\n\nTarget:\n>=20%\n\n---\n\n### KPI-CF-003 Emergency Fund\n\nFormula:\nLiquid Assets ÷ Monthly Expenses\n\nUnit:\nMonths\n\nTarget:\n6–12 months\n\n---\n\n## Loan KPIs\n\n### KPI-LN-001 Debt-to-Income Ratio\n\nFormula:\nMonthly Debt Payments ÷ Monthly Income\n\nTarget:\n<40%\n\n---\n\n### KPI-LN-002 Loan-to-Value (LTV)\n\nFormula:\nOutstanding Loan ÷ Property Value\n\nTarget:\nScenario dependent\n\n---\n\n### KPI-LN-003 Interest Coverage\n\nFormula:\nDisposable Income ÷ Loan Payment\n\nHigher values indicate stronger repayment capacity.\n\n---\n\n## Investment KPIs\n\n### KPI-IV-001 Portfolio Return\n\nFormula:\n(Current Value - Invested Capital) ÷ Invested Capital\n\n---\n\n### KPI-IV-002 Portfolio Volatility\n\nAnnualized standard deviation of returns.\n\n---\n\n### KPI-IV-003 Asset Allocation Drift\n\nFormula:\nCurrent Allocation - Target Allocation\n\nTarget:\nWithin policy tolerance.\n\n---\n\n### KPI-IV-004 Dividend Yield\n\nAnnual Dividend ÷ Portfolio Value\n\n---\n\n## Retirement KPIs\n\n### KPI-RT-001 Retirement Funding Ratio\n\nFormula:\nCurrent Retirement Assets ÷ Required Retirement Assets\n\nTarget:\n>=100%\n\n---\n\n### KPI-RT-002 Safe Withdrawal Rate\n\nFormula:\nAnnual Withdrawal ÷ Retirement Assets\n\n---\n\n### KPI-RT-003 Retirement Success Probability\n\nDerived from simulation.\n\nTarget:\n>=90%\n\n---\n\n## Housing KPIs\n\n### KPI-HM-001 Housing Affordability\n\nFormula:\nHousing Cost ÷ Household Income\n\n---\n\n### KPI-HM-002 Home Equity Ratio\n\nFormula:\nEquity ÷ Property Value\n\n---\n\n## Risk KPIs\n\n### KPI-RK-001 Overall Risk Score\n\nWeighted aggregation of all risk dimensions.\n\nRange:\n0-100\n\n---\n\n### KPI-RK-002 Liquidity Risk\n\nBased on emergency fund and cash flow.\n\n---\n\n### KPI-RK-003 Leverage Risk\n\nBased on debt metrics.\n\n---\n\n## Decision KPIs\n\n### KPI-DC-001 Financial Health Score\n\nComposite score generated by Decision Engine.\n\nRange:\n0-100\n\n---\n\n### KPI-DC-002 Goal Achievement Score\n\nCompleted Goals ÷ Planned Goals\n\n---\n\n## Governance\n\n- KPI IDs are immutable.\n- Formula revisions require version updates.\n- KPI calculations always reference the financial assumption version.\n- Historical KPI values are never overwritten.\n- KPI formulas are shared across all engines to ensure consistency.\n\n---\n\n## Phase 2 Executable Specification\n\n### KPI Calculation Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| KPICalculationId | Yes | Stable calculation identifier |\n| KPIId | Yes | Canonical KPI identifier |\n| HouseholdId | Yes | Household scope |\n| Domain | Yes | Cash Flow, Loan, Investment, Retirement, Housing, Risk, Decision |\n| FormulaVersion | Yes | Formula version used |\n| AssumptionVersionSet | Yes | Assumptions used |\n| SourceSnapshotId | Yes | Source data snapshot |\n| KPIValue | Yes | Calculated value |\n| ThresholdState | Yes | Normal, Watch, Warning, Critical |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CalculateKPI | KPIApplicationService | KPICalculated |\n| PublishKPIDefinition | GovernanceApplicationService | KPIDefinitionPublished |\n| EvaluateKPIThreshold | KPIApplicationService | KPIThresholdEvaluated |\n| ReplayKPICalculation | AdministrationApplicationService | KPICalculationReplayed |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| KPI-VR-001 | Every KPI must have immutable ID, formula, unit, owner, and thresholds. | Reject definition |\n| KPI-VR-002 | KPI calculation must reference formula version and source snapshot. | Reject calculation |\n| KPI-VR-003 | Historical KPI values are append-only. | Reject overwrite |\n| KPI-VR-004 | Threshold ranges must not overlap. | Reject definition |\n| KPI-VR-005 | Replay must use original formula, assumption, and source versions. | Reject replay |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/kpis | GET | List KPI definitions | KPI:Read |\n| /api/v1/kpis/calculate | POST | Calculate KPI values | KPI:Evaluate |\n| /api/v1/kpis/{kpiId}/history | GET | Retrieve KPI history | KPI:Read |\n| /api/v1/kpis/{kpiId}/replay | POST | Replay KPI calculation | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing formula version | Calculation is rejected |\n| Overlapping thresholds | Definition publish fails |\n| Historical replay | Original KPI value reproduces |\n| Threshold breach | Threshold event is emitted |\n| Missing owner engine | Definition publish fails |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n---\n\n## Phase 2 Executable Specification\n\n### KPI Calculation Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| KPICalculationId | Yes | Stable calculation identifier |\n| KPIId | Yes | Canonical KPI identifier |\n| HouseholdId | Yes | Household scope |\n| Domain | Yes | Cash Flow, Loan, Investment, Retirement, Housing, Risk, Decision |\n| FormulaVersion | Yes | Formula version used |\n| AssumptionVersionSet | Yes | Assumptions used |\n| SourceSnapshotId | Yes | Source data snapshot |\n| KPIValue | Yes | Calculated value |\n| ThresholdState | Yes | Normal, Watch, Warning, Critical |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CalculateKPI | KPIApplicationService | KPICalculated |\n| PublishKPIDefinition | GovernanceApplicationService | KPIDefinitionPublished |\n| EvaluateKPIThreshold | KPIApplicationService | KPIThresholdEvaluated |\n| ReplayKPICalculation | AdministrationApplicationService | KPICalculationReplayed |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| KPI-VR-001 | Every KPI must have immutable ID, formula, unit, owner, and thresholds. | Reject definition |\n| KPI-VR-002 | KPI calculation must reference formula version and source snapshot. | Reject calculation |\n| KPI-VR-003 | Historical KPI values are append-only. | Reject overwrite |\n| KPI-VR-004 | Threshold ranges must not overlap. | Reject definition |\n| KPI-VR-005 | Replay must use original formula, assumption, and source versions. | Reject replay |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/kpis | GET | List KPI definitions | KPI:Read |\n| /api/v1/kpis/calculate | POST | Calculate KPI values | KPI:Evaluate |\n| /api/v1/kpis/{kpiId}/history | GET | Retrieve KPI history | KPI:Read |\n| /api/v1/kpis/{kpiId}/replay | POST | Replay KPI calculation | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing formula version | Calculation is rejected |\n| Overlapping thresholds | Definition publish fails |\n| Historical replay | Original KPI value reproduces |\n| Threshold breach | Threshold event is emitted |\n| Missing owner engine | Definition publish fails |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

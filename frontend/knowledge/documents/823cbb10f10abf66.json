@@ -1,0 +1,95 @@
+{
+  "id": "823cbb10f10abf66",
+  "title": "knowledge/event-taxonomy.md",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/event-taxonomy.md",
+  "sourceHash": "44f786672dbaedaf3d3af1c98b170643b9be505adc2dd45e4278b05601d769bf",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/event-taxonomy.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Financial Event Taxonomy"
+    },
+    {
+      "level": 2,
+      "text": "1. Purpose"
+    },
+    {
+      "level": 2,
+      "text": "2. Design Principles"
+    },
+    {
+      "level": 2,
+      "text": "3. Event Categories"
+    },
+    {
+      "level": 2,
+      "text": "4. Event Metadata"
+    },
+    {
+      "level": 2,
+      "text": "5. Core Financial Events"
+    },
+    {
+      "level": 3,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 3,
+      "text": "Assets"
+    },
+    {
+      "level": 3,
+      "text": "Loans"
+    },
+    {
+      "level": 3,
+      "text": "Investments"
+    },
+    {
+      "level": 3,
+      "text": "Housing"
+    },
+    {
+      "level": 3,
+      "text": "Insurance"
+    },
+    {
+      "level": 3,
+      "text": "Retirement"
+    },
+    {
+      "level": 3,
+      "text": "Tax"
+    },
+    {
+      "level": 3,
+      "text": "Decision"
+    },
+    {
+      "level": 2,
+      "text": "6. Event Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "7. Correlation"
+    },
+    {
+      "level": 2,
+      "text": "8. Event Replay"
+    },
+    {
+      "level": 2,
+      "text": "9. Naming Convention"
+    },
+    {
+      "level": 2,
+      "text": "10. Governance"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/event-taxonomy.md\n\n# Atlas Financial Event Taxonomy\nVersion: 1.0\nStatus: Canonical Specification\n\n## 1. Purpose\n\nThis document defines the canonical event taxonomy used throughout Project Atlas.\nEvery business event emitted by the platform shall conform to this taxonomy to\nensure consistency across Timeline, Scenario, Decision Engine, Audit Trail,\nDashboard and future Event Sourcing capabilities.\n\n---\n\n## 2. Design Principles\n\n- Events represent facts that have occurred.\n- Events are immutable.\n- Every event has a globally unique identifier.\n- Events are timestamped.\n- Events are versioned independently from business rules.\n- Historical events are never modified.\n\n---\n\n## 3. Event Categories\n\n| Prefix | Category | Description |\n|---------|----------|-------------|\n| LIFE | Life Event | Personal or family milestones |\n| CF | Cash Flow | Income and expense changes |\n| ASSET | Asset | Asset acquisition, disposal, valuation |\n| LOAN | Loan | Mortgage and personal loan changes |\n| INV | Investment | Portfolio transactions and valuation |\n| INS | Insurance | Policy lifecycle |\n| TAX | Tax | Tax obligations and refunds |\n| HOME | Housing | Property purchase, sale, upgrade |\n| RET | Retirement | Retirement planning milestones |\n| DEC | Decision | Decision Engine outputs |\n| RULE | Rule | Rule execution events |\n| SYS | System | Internal platform events |\n\n---\n\n## 4. Event Metadata\n\nEvery event shall include:\n\n- EventId\n- EventType\n- EventCategory\n- AggregateId\n- AggregateType\n- OccurredAt\n- RecordedAt\n- EventVersion\n- SourceEngine\n- CorrelationId\n- CausationId\n- UserId (if applicable)\n\n---\n\n## 5. Core Financial Events\n\n### Cash Flow\n- SalaryReceived\n- BonusReceived\n- DividendReceived\n- InterestReceived\n- ExpenseRecorded\n- PassiveIncomeReceived\n\n### Assets\n- AssetPurchased\n- AssetDisposed\n- AssetRevalued\n\n### Loans\n- LoanCreated\n- LoanRefinanced\n- LoanPaymentMade\n- LoanClosed\n\n### Investments\n- PortfolioCreated\n- SecurityPurchased\n- SecuritySold\n- DividendDistributed\n- PortfolioRebalanced\n\n### Housing\n- HomePurchased\n- HomeSold\n- HomeValueUpdated\n- HomeUpgradeStarted\n- HomeUpgradeCompleted\n\n### Insurance\n- PolicyIssued\n- PremiumPaid\n- CoverageUpdated\n- ClaimSubmitted\n- ClaimPaid\n- PolicyExpired\n\n### Retirement\n- RetirementPlanUpdated\n- RetirementGoalReached\n- WithdrawalStarted\n\n### Tax\n- TaxEstimated\n- TaxFiled\n- TaxRefundReceived\n\n### Decision\n- ScenarioEvaluated\n- RecommendationGenerated\n- DecisionAccepted\n- DecisionRejected\n\n---\n\n## 6. Event Lifecycle\n\nBusiness Action\n→ Domain Event\n→ Validation\n→ Persistence\n→ Timeline\n→ Decision Engine\n→ Explainability\n→ Dashboard\n\n---\n\n## 7. Correlation\n\nRelated events shall share a CorrelationId.\n\nExample:\n- HomePurchased\n- LoanCreated\n- InsuranceIssued\n\nThese belong to one purchasing journey.\n\n---\n\n## 8. Event Replay\n\nReplay must reconstruct historical state using:\n\n- Event sequence\n- Event version\n- Assumption version\n- Formula version\n\nReplay must never mutate original events.\n\n---\n\n## 9. Naming Convention\n\n<EventCategory><PastTenseVerb>\n\nExamples:\n- SalaryReceived\n- PortfolioRebalanced\n- RecommendationGenerated\n\nAvoid ambiguous names.\n\n---\n\n## 10. Governance\n\n- Event names are immutable.\n- Breaking changes require a new event version.\n- Deprecated events remain replayable.\n- Consumers should tolerate unknown future event types.\n",
+  "references": []
+}

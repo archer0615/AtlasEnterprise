@@ -1,0 +1,123 @@
+{
+  "id": "e98eb486f3cc1231",
+  "title": "Financial Dashboard Metrics",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/financial-dashboard-metrics.md",
+  "sourceHash": "4dba09f96a9ed322b897e4e4e100932aff4596398632cabb78bee25fdbf96303",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Financial Dashboard Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard Principles"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard Sections"
+    },
+    {
+      "level": 3,
+      "text": "Financial Health"
+    },
+    {
+      "level": 3,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 3,
+      "text": "Liquidity"
+    },
+    {
+      "level": 3,
+      "text": "Assets & Liabilities"
+    },
+    {
+      "level": 3,
+      "text": "Investment"
+    },
+    {
+      "level": 3,
+      "text": "Goals"
+    },
+    {
+      "level": 3,
+      "text": "Housing"
+    },
+    {
+      "level": 3,
+      "text": "Retirement"
+    },
+    {
+      "level": 2,
+      "text": "Metric Metadata"
+    },
+    {
+      "level": 2,
+      "text": "Alert Levels"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Metric Object Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Financial Dashboard Metrics\n\nVersion: 1.0\n\n## Purpose\nDefines the canonical metrics displayed on the Project Atlas dashboard. This framework standardizes KPI presentation across all user interfaces and ensures every visual metric is traceable to a business definition.\n\n## Objectives\n- Present financial status at a glance.\n- Surface actionable insights.\n- Maintain consistency across Dashboard, Decision Engine and Reports.\n- Provide explainable KPIs.\n\n## Dashboard Principles\n- Show only actionable metrics.\n- Prefer trends over point-in-time values.\n- Every metric links to its source framework.\n- Support drill-down and historical analysis.\n\n## Dashboard Sections\n\n### Financial Health\n- Financial Health Score\n- Net Worth\n- Net Worth Growth\n- Financial Independence Ratio\n\n### Cash Flow\n- Monthly Income\n- Monthly Expenses\n- Free Cash Flow\n- Savings Rate\n- Passive Income Coverage\n\n### Liquidity\n- Liquidity Score\n- Liquidity Coverage Ratio (LCR)\n- Emergency Fund Coverage\n- Months of Liquidity\n\n### Assets & Liabilities\n- Total Assets\n- Total Liabilities\n- Investable Assets\n- Housing Equity\n- Debt-to-Income Ratio\n\n### Investment\n- Portfolio Value\n- Portfolio Return\n- Allocation Drift\n- Diversification Score\n- Risk Budget Utilization\n\n### Goals\n- Goal Completion Rate\n- Goal Funding Ratio\n- Funding Gap\n- Upcoming Milestones\n\n### Housing\n- Housing Affordability Score\n- Mortgage Burden Ratio\n- Home Equity Ratio\n- Upgrade Readiness\n\n### Retirement\n- Retirement Readiness\n- Sustainable Withdrawal Rate\n- Income Replacement Ratio\n- Portfolio Longevity\n\n## Metric Metadata\nEach metric includes:\n- Metric ID\n- Name\n- Business definition\n- Formula reference\n- Unit\n- Display format\n- Refresh frequency\n- Source framework\n- Owner engine\n\n## Alert Levels\n- Normal\n- Watch\n- Warning\n- Critical\n\nEach level is driven by configurable thresholds.\n\n## Business Rules\n- Metrics are read-only.\n- Historical values are immutable.\n- Calculations use canonical ratio definitions.\n- Dashboard never recalculates business logic independently.\n\n## Explainability\nEvery metric supports:\n- Formula reference\n- Input values\n- Historical trend\n- Threshold evaluation\n- Recommendation link\n\n## Integration\nConsumes:\n- Financial Ratio Framework\n- Net Worth Framework\n- Financial Health Score\n- Goal Funding Framework\n- Liquidity Framework\n- Risk Budget Framework\n\nProduces:\n- Dashboard UI\n- Executive Reports\n- Decision Engine insights\n\n## KPIs\n- Dashboard freshness\n- Metric completeness\n- Alert accuracy\n- User interaction rate\n\n## Future Enhancements\n- Personalized dashboards\n- AI-generated insights\n- Benchmark comparison\n- Household dashboards\n\n## Phase 2 Executable Specification\n\n### Metric Object Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| MetricId | Yes | Canonical metric identifier |\n| HouseholdId | Yes | Owning household |\n| MetricCategory | Yes | Financial Health, Cash Flow, Liquidity, Assets, Investment, Goals, Housing, Retirement |\n| Value | Yes | Calculated metric value |\n| Unit | Yes | Currency, Ratio, Percentage, Count, Score |\n| AsOfDate | Yes | Effective date |\n| FormulaVersion | Yes | Formula version used |\n| SourceSnapshotId | Yes | Source data snapshot |\n| AlertLevel | Yes | Normal, Watch, Warning, Critical |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| GenerateDashboardMetrics | DashboardApplicationService | DashboardMetricsGenerated |\n| RefreshMetricSnapshot | DashboardApplicationService | MetricSnapshotRefreshed |\n| PublishMetricDefinition | GovernanceApplicationService | MetricDefinitionPublished |\n| ValidateMetricCompleteness | DashboardApplicationService | MetricCompletenessValidated |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| DashboardMetricsGenerated | Metric set created | Dashboard, Reporting |\n| MetricSnapshotRefreshed | New snapshot available | Dashboard, Alert Engine |\n| MetricThresholdBreached | Metric alert level changes | Alert, Notification |\n| MetricDefinitionPublished | New or updated metric definition | Formula Engine, Dashboard |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FDM-VR-001 | Every metric must reference a canonical formula or source framework. | Reject metric |\n| FDM-VR-002 | Dashboard must not calculate business logic independently. | Reject implementation |\n| FDM-VR-003 | Historical metric snapshots are immutable. | Reject update |\n| FDM-VR-004 | Alert level must be derived from configured thresholds. | Reject metric |\n| FDM-VR-005 | Metric refresh must record source snapshot and formula version. | Reject publish |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/dashboard/metrics | GET | Retrieve dashboard metrics | Dashboard:Read |\n| /api/v1/dashboard/metrics/refresh | POST | Refresh metric snapshot | Dashboard:Refresh |\n| /api/v1/dashboard/metrics/{metricId}/history | GET | Retrieve metric history | Dashboard:Read |\n| /api/v1/dashboard/metrics/{metricId}/explanation | GET | Retrieve metric explanation | Dashboard:Read |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing formula reference | Metric is rejected |\n| Stale source snapshot | Dashboard freshness KPI is degraded |\n| Threshold breach | MetricThresholdBreached event is emitted |\n| Historical metric read | Original value and version metadata are returned |\n| Drill-down request | Formula, inputs, trend, and threshold are returned |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

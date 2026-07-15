@@ -1,0 +1,83 @@
+{
+  "id": "daa8c104d9d83abc",
+  "title": "Financial Formula Catalog",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/financial-formula-catalog.md",
+  "sourceHash": "61fc7532d41786223b8a36ed2a1b65d55a6b005c026175cc9a7251830dcf19aa",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Financial Formula Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Formula Groups"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Formula Definition Contract"
+    },
+    {
+      "level": 3,
+      "text": "Formula Catalog"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Formula Definition Contract"
+    },
+    {
+      "level": 3,
+      "text": "Formula Catalog"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Financial Formula Catalog\n\n## Formula Groups\n- NPV\n- IRR\n- CAGR\n- XIRR\n- PMT\n- FV\n- PV\n- Loan Amortization\n- DTI\n- LTV\n- Savings Rate\n- Safe Withdrawal Rate\n- Net Worth\n- Cash Flow Coverage\n\nAll formulas include version, assumptions and references.\n\n## Phase 2 Executable Specification\n\n### Formula Definition Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| FormulaId | Yes | Stable formula identifier |\n| FormulaName | Yes | Human-readable name |\n| FormulaGroup | Yes | NPV, IRR, CAGR, XIRR, PMT, FV, PV, Loan, Ratio, Cash Flow |\n| FormulaVersion | Yes | Immutable version |\n| Expression | Yes | Canonical expression or implementation reference |\n| Inputs | Yes | Required inputs with type and unit |\n| OutputUnit | Yes | Money, Ratio, Percentage, Count, Score |\n| AssumptionRefs | Yes | Assumptions used by formula |\n| SourceRefs | Yes | Knowledge or specification references |\n| Status | Yes | Draft, Active, Deprecated, Retired |\n\n### Formula Catalog\n\n| Formula ID | Group | Purpose | Primary Consumers |\n|------------|-------|---------|-------------------|\n| FORM-NPV | NPV | Discount future cash flows | Scenario Engine, Decision Engine |\n| FORM-IRR | IRR | Calculate internal return rate | Investment Engine |\n| FORM-XIRR | XIRR | Calculate irregular cashflow return | Portfolio Engine |\n| FORM-PMT | PMT | Calculate loan payment | Loan Engine |\n| FORM-DTI | DTI | Measure debt burden | Loan Engine, Financial Health Score |\n| FORM-LTV | LTV | Measure collateral leverage | Housing, Loan Engine |\n| FORM-SAVINGS-RATE | Savings Rate | Measure income retained | Cash Flow Engine |\n| FORM-SWR | Safe Withdrawal Rate | Estimate retirement withdrawals | Retirement Engine |\n| FORM-NET-WORTH | Net Worth | Calculate assets minus liabilities | Dashboard |\n| FORM-CF-COVERAGE | Cash Flow Coverage | Measure expense coverage | Liquidity, Dashboard |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| PublishFormulaDefinition | GovernanceApplicationService | FormulaDefinitionPublished |\n| DeprecateFormulaVersion | GovernanceApplicationService | FormulaVersionDeprecated |\n| EvaluateFormula | CalculationApplicationService | FormulaEvaluated |\n| ValidateFormulaInputs | CalculationApplicationService | FormulaInputsValidated |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FFC-VR-001 | Active formula must include version, inputs, units, and assumptions. | Reject publish |\n| FFC-VR-002 | Formula versions are immutable after activation. | Reject update |\n| FFC-VR-003 | Money formulas must preserve currency metadata. | Reject evaluation |\n| FFC-VR-004 | Ratio formulas must define numerator and denominator units. | Reject publish |\n| FFC-VR-005 | Deprecated formulas remain replayable for historical snapshots. | Reject retirement |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/formulas | GET | List formula definitions | Formula:Read |\n| /api/v1/formulas/{formulaId}/versions/{version} | GET | Retrieve formula version | Formula:Read |\n| /api/v1/formulas/evaluate | POST | Evaluate formula | Formula:Evaluate |\n| /api/v1/formulas/{formulaId}/deprecate | POST | Deprecate formula version | Formula:Admin |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing assumption reference | Formula publish fails |\n| Historical formula version read | Original expression is returned |\n| Currency mismatch | Evaluation fails |\n| Zero denominator ratio | Deterministic validation error returned |\n| Deprecated formula replay | Historical snapshot remains reproducible |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Formula Definition Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| FormulaId | Yes | Stable formula identifier |\n| FormulaName | Yes | Human-readable name |\n| FormulaGroup | Yes | NPV, IRR, CAGR, XIRR, PMT, FV, PV, Loan, Ratio, Cash Flow |\n| FormulaVersion | Yes | Immutable version |\n| Expression | Yes | Canonical expression or implementation reference |\n| Inputs | Yes | Required inputs with type and unit |\n| OutputUnit | Yes | Money, Ratio, Percentage, Count, Score |\n| AssumptionRefs | Yes | Assumptions used by formula |\n| SourceRefs | Yes | Knowledge or specification references |\n| Status | Yes | Draft, Active, Deprecated, Retired |\n\n### Formula Catalog\n\n| Formula ID | Group | Purpose | Primary Consumers |\n|------------|-------|---------|-------------------|\n| FORM-NPV | NPV | Discount future cash flows | Scenario Engine, Decision Engine |\n| FORM-IRR | IRR | Calculate internal return rate | Investment Engine |\n| FORM-XIRR | XIRR | Calculate irregular cashflow return | Portfolio Engine |\n| FORM-PMT | PMT | Calculate loan payment | Loan Engine |\n| FORM-DTI | DTI | Measure debt burden | Loan Engine, Financial Health Score |\n| FORM-LTV | LTV | Measure collateral leverage | Housing, Loan Engine |\n| FORM-SAVINGS-RATE | Savings Rate | Measure income retained | Cash Flow Engine |\n| FORM-SWR | Safe Withdrawal Rate | Estimate retirement withdrawals | Retirement Engine |\n| FORM-NET-WORTH | Net Worth | Calculate assets minus liabilities | Dashboard |\n| FORM-CF-COVERAGE | Cash Flow Coverage | Measure expense coverage | Liquidity, Dashboard |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| PublishFormulaDefinition | GovernanceApplicationService | FormulaDefinitionPublished |\n| DeprecateFormulaVersion | GovernanceApplicationService | FormulaVersionDeprecated |\n| EvaluateFormula | CalculationApplicationService | FormulaEvaluated |\n| ValidateFormulaInputs | CalculationApplicationService | FormulaInputsValidated |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FFC-VR-001 | Active formula must include version, inputs, units, and assumptions. | Reject publish |\n| FFC-VR-002 | Formula versions are immutable after activation. | Reject update |\n| FFC-VR-003 | Money formulas must preserve currency metadata. | Reject evaluation |\n| FFC-VR-004 | Ratio formulas must define numerator and denominator units. | Reject publish |\n| FFC-VR-005 | Deprecated formulas remain replayable for historical snapshots. | Reject retirement |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/formulas | GET | List formula definitions | Formula:Read |\n| /api/v1/formulas/{formulaId}/versions/{version} | GET | Retrieve formula version | Formula:Read |\n| /api/v1/formulas/evaluate | POST | Evaluate formula | Formula:Evaluate |\n| /api/v1/formulas/{formulaId}/deprecate | POST | Deprecate formula version | Formula:Admin |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing assumption reference | Formula publish fails |\n| Historical formula version read | Original expression is returned |\n| Currency mismatch | Evaluation fails |\n| Zero denominator ratio | Deterministic validation error returned |\n| Deprecated formula replay | Historical snapshot remains reproducible |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

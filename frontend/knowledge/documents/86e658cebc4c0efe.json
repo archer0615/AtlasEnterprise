@@ -1,0 +1,863 @@
+{
+  "id": "86e658cebc4c0efe",
+  "title": "Decision Governance Overview",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-governance.md",
+  "sourceHash": "c313f5d179c58c13923e7614240034c00c2d4d9f3ccf9a2a066a8665e09f6ca5",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Governance Overview"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Business Meaning"
+    },
+    {
+      "level": 2,
+      "text": "Governance Scope"
+    },
+    {
+      "level": 2,
+      "text": "Governance Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Governance Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Ownership"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate Root"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Execution"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision History"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Audit"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Rule"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Rule Engine"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Goal"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Scenario"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Portfolio"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with CashFlow"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Optimization"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Simulation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Risk"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Automation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Notification"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Business Calendar"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with User"
+    },
+    {
+      "level": 1,
+      "text": "Governance Architecture"
+    },
+    {
+      "level": 2,
+      "text": "Governance Engine"
+    },
+    {
+      "level": 2,
+      "text": "Policy Engine"
+    },
+    {
+      "level": 2,
+      "text": "Compliance Engine"
+    },
+    {
+      "level": 2,
+      "text": "Approval Engine"
+    },
+    {
+      "level": 2,
+      "text": "Risk Engine"
+    },
+    {
+      "level": 2,
+      "text": "Monitoring Engine"
+    },
+    {
+      "level": 2,
+      "text": "Audit Engine"
+    },
+    {
+      "level": 2,
+      "text": "Exception Engine"
+    },
+    {
+      "level": 2,
+      "text": "Escalation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Retention Engine"
+    },
+    {
+      "level": 1,
+      "text": "Governance Policies"
+    },
+    {
+      "level": 2,
+      "text": "Decision Creation Policy"
+    },
+    {
+      "level": 2,
+      "text": "Decision Evaluation Policy"
+    },
+    {
+      "level": 2,
+      "text": "Decision Approval Policy"
+    },
+    {
+      "level": 2,
+      "text": "Decision Execution Policy"
+    },
+    {
+      "level": 2,
+      "text": "Decision Rollback Policy"
+    },
+    {
+      "level": 2,
+      "text": "Decision Archive Policy"
+    },
+    {
+      "level": 2,
+      "text": "Decision Retention Policy"
+    },
+    {
+      "level": 2,
+      "text": "Financial Policy"
+    },
+    {
+      "level": 2,
+      "text": "Risk Policy"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Policy"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Policy"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Policy"
+    },
+    {
+      "level": 2,
+      "text": "Goal Alignment Policy"
+    },
+    {
+      "level": 2,
+      "text": "Automation Policy"
+    },
+    {
+      "level": 2,
+      "text": "Compliance Policy"
+    },
+    {
+      "level": 2,
+      "text": "Security Policy"
+    },
+    {
+      "level": 2,
+      "text": "Data Governance Policy"
+    },
+    {
+      "level": 2,
+      "text": "Audit Policy"
+    },
+    {
+      "level": 1,
+      "text": "Compliance Model"
+    },
+    {
+      "level": 2,
+      "text": "Business Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Financial Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Risk Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Execution Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Goal Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Security Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Audit Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Retention Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Regulatory Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Data Compliance"
+    },
+    {
+      "level": 1,
+      "text": "Governance Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Policy Definition"
+    },
+    {
+      "level": 2,
+      "text": "Activation"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    },
+    {
+      "level": 2,
+      "text": "Enforcement"
+    },
+    {
+      "level": 2,
+      "text": "Exception Handling"
+    },
+    {
+      "level": 2,
+      "text": "Escalation"
+    },
+    {
+      "level": 2,
+      "text": "Approval"
+    },
+    {
+      "level": 2,
+      "text": "Monitoring"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Retirement"
+    },
+    {
+      "level": 1,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 1,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "States"
+    },
+    {
+      "level": 2,
+      "text": "Transitions"
+    },
+    {
+      "level": 2,
+      "text": "Triggers"
+    },
+    {
+      "level": 2,
+      "text": "Invariant"
+    },
+    {
+      "level": 2,
+      "text": "Illegal Transition"
+    },
+    {
+      "level": 1,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "CreatePolicy"
+    },
+    {
+      "level": 2,
+      "text": "UpdatePolicy"
+    },
+    {
+      "level": 2,
+      "text": "ActivatePolicy"
+    },
+    {
+      "level": 2,
+      "text": "DeactivatePolicy"
+    },
+    {
+      "level": 2,
+      "text": "ApprovePolicy"
+    },
+    {
+      "level": 2,
+      "text": "RejectPolicy"
+    },
+    {
+      "level": 2,
+      "text": "ArchivePolicy"
+    },
+    {
+      "level": 2,
+      "text": "RestorePolicy"
+    },
+    {
+      "level": 2,
+      "text": "DeletePolicy"
+    },
+    {
+      "level": 2,
+      "text": "EvaluateCompliance"
+    },
+    {
+      "level": 2,
+      "text": "GenerateGovernanceReport"
+    },
+    {
+      "level": 2,
+      "text": "ResolveException"
+    },
+    {
+      "level": 2,
+      "text": "EscalateIssue"
+    },
+    {
+      "level": 2,
+      "text": "RequestPolicyException"
+    },
+    {
+      "level": 2,
+      "text": "ApprovePolicyException"
+    },
+    {
+      "level": 2,
+      "text": "RejectPolicyException"
+    },
+    {
+      "level": 2,
+      "text": "RefreshPolicyCache"
+    },
+    {
+      "level": 2,
+      "text": "RefreshComplianceCache"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "PolicyCreated"
+    },
+    {
+      "level": 2,
+      "text": "PolicyUpdated"
+    },
+    {
+      "level": 2,
+      "text": "PolicyActivated"
+    },
+    {
+      "level": 2,
+      "text": "PolicyDeactivated"
+    },
+    {
+      "level": 2,
+      "text": "PolicyApproved"
+    },
+    {
+      "level": 2,
+      "text": "PolicyRejected"
+    },
+    {
+      "level": 2,
+      "text": "CompliancePassed"
+    },
+    {
+      "level": 2,
+      "text": "ComplianceFailed"
+    },
+    {
+      "level": 2,
+      "text": "GovernanceReportGenerated"
+    },
+    {
+      "level": 2,
+      "text": "ExceptionRaised"
+    },
+    {
+      "level": 2,
+      "text": "ExceptionResolved"
+    },
+    {
+      "level": 2,
+      "text": "IssueEscalated"
+    },
+    {
+      "level": 2,
+      "text": "PolicyArchived"
+    },
+    {
+      "level": 2,
+      "text": "PolicyRestored"
+    },
+    {
+      "level": 2,
+      "text": "PolicyDeleted"
+    },
+    {
+      "level": 2,
+      "text": "ComplianceWarningRaised"
+    },
+    {
+      "level": 2,
+      "text": "PolicyExceptionApproved"
+    },
+    {
+      "level": 2,
+      "text": "PolicyExceptionRejected"
+    },
+    {
+      "level": 2,
+      "text": "PolicyExceptionExpired"
+    },
+    {
+      "level": 1,
+      "text": "Repository"
+    },
+    {
+      "level": 2,
+      "text": "Interface"
+    },
+    {
+      "level": 2,
+      "text": "Methods"
+    },
+    {
+      "level": 2,
+      "text": "Queries"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Aggregation"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 2,
+      "text": "Specification"
+    },
+    {
+      "level": 1,
+      "text": "Domain Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "Application Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "REST Endpoints"
+    },
+    {
+      "level": 2,
+      "text": "HTTP Methods"
+    },
+    {
+      "level": 2,
+      "text": "Request"
+    },
+    {
+      "level": 2,
+      "text": "Response"
+    },
+    {
+      "level": 2,
+      "text": "Errors"
+    },
+    {
+      "level": 2,
+      "text": "Pagination"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 2,
+      "text": "Compliance API"
+    },
+    {
+      "level": 2,
+      "text": "Governance API"
+    },
+    {
+      "level": 2,
+      "text": "Policy API"
+    },
+    {
+      "level": 1,
+      "text": "DTO"
+    },
+    {
+      "level": 2,
+      "text": "Create DTO"
+    },
+    {
+      "level": 2,
+      "text": "Update DTO"
+    },
+    {
+      "level": 2,
+      "text": "Policy DTO"
+    },
+    {
+      "level": 2,
+      "text": "Compliance DTO"
+    },
+    {
+      "level": 2,
+      "text": "Governance DTO"
+    },
+    {
+      "level": 2,
+      "text": "Exception DTO"
+    },
+    {
+      "level": 2,
+      "text": "Approval DTO"
+    },
+    {
+      "level": 2,
+      "text": "Summary DTO"
+    },
+    {
+      "level": 2,
+      "text": "Detail DTO"
+    },
+    {
+      "level": 2,
+      "text": "Search DTO"
+    },
+    {
+      "level": 2,
+      "text": "Report DTO"
+    },
+    {
+      "level": 1,
+      "text": "Database Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Table"
+    },
+    {
+      "level": 2,
+      "text": "Columns"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Constraints"
+    },
+    {
+      "level": 2,
+      "text": "FK"
+    },
+    {
+      "level": 2,
+      "text": "Unique"
+    },
+    {
+      "level": 2,
+      "text": "Check Constraint"
+    },
+    {
+      "level": 2,
+      "text": "Partition Strategy"
+    },
+    {
+      "level": 1,
+      "text": "PostgreSQL Schema"
+    },
+    {
+      "level": 1,
+      "text": "EF Core Mapping"
+    },
+    {
+      "level": 1,
+      "text": "Cache Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Security"
+    },
+    {
+      "level": 1,
+      "text": "Audit"
+    },
+    {
+      "level": 1,
+      "text": "Performance"
+    },
+    {
+      "level": 1,
+      "text": "Example JSON"
+    },
+    {
+      "level": 2,
+      "text": "Create Policy"
+    },
+    {
+      "level": 2,
+      "text": "Update Policy"
+    },
+    {
+      "level": 2,
+      "text": "Activate Policy"
+    },
+    {
+      "level": 2,
+      "text": "Compliance Result"
+    },
+    {
+      "level": 2,
+      "text": "Governance Report"
+    },
+    {
+      "level": 2,
+      "text": "Exception"
+    },
+    {
+      "level": 2,
+      "text": "Approval"
+    },
+    {
+      "level": 2,
+      "text": "Search"
+    },
+    {
+      "level": 2,
+      "text": "Detail"
+    },
+    {
+      "level": 1,
+      "text": "Mermaid"
+    },
+    {
+      "level": 2,
+      "text": "Class Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Sequence Diagram"
+    },
+    {
+      "level": 2,
+      "text": "ER Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Complete State Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Governance Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Compliance Flow"
+    },
+    {
+      "level": 2,
+      "text": "Approval Flow"
+    },
+    {
+      "level": 2,
+      "text": "Exception Flow"
+    },
+    {
+      "level": 1,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Unit Test"
+    },
+    {
+      "level": 2,
+      "text": "Integration Test"
+    },
+    {
+      "level": 2,
+      "text": "Governance Test"
+    },
+    {
+      "level": 2,
+      "text": "Compliance Test"
+    },
+    {
+      "level": 2,
+      "text": "Approval Test"
+    },
+    {
+      "level": 2,
+      "text": "Performance Test"
+    },
+    {
+      "level": 2,
+      "text": "Concurrency Test"
+    },
+    {
+      "level": 2,
+      "text": "Stress Test"
+    },
+    {
+      "level": 2,
+      "text": "Policy Validation Test"
+    },
+    {
+      "level": 1,
+      "text": "Edge Cases"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "﻿# Decision Governance\r\nVersion: 1.0\r\nStatus: Enterprise Specification\r\nOwner: Project Atlas\r\nSource of Truth: Atlas Decision Governance Specification\r\nLast Updated: 2026-07-13\r\n# Decision Governance Overview\r\n## Purpose\r\nDecision Governance defines how Atlas controls policy, compliance, approval, exception, escalation, monitoring, audit, retention, security, and reporting for DecisionSession.\r\nIt coordinates governance with Decision Lifecycle, Decision Evaluation, Decision Execution, Decision Explainability, Decision History, Decision Audit, Decision Rule, Rule Engine, Recommendation, GoalPlan, Scenario, Portfolio, CashFlow, Optimization, Simulation, Risk, Workflow, Automation, Notification, Business Calendar, and User.\r\nIt preserves existing Atlas domain ownership and existing catalog naming.\r\n## Business Meaning\r\nDecision Governance ensures that decision creation, evaluation, approval, execution, rollback, archive, retention, explanation, recommendation mapping, goal alignment, scenario usage, portfolio evidence, cashflow evidence, risk handling, and audit evidence follow approved policy.\r\nGovernance makes decision behavior controllable, auditable, explainable, permission-aware, and compliant.\r\nGovernance does not directly change DecisionSession, Recommendation, GoalPlan, Scenario, Portfolio, CashFlow, Workflow, Automation, or Notification state without explicit domain command.\r\n## Governance Scope\r\nGovernance scope includes policy definition, policy versioning, policy activation, policy enforcement, compliance evaluation, exception handling, escalation, approval control, monitoring, audit, retention, reporting, cache, security, and projections.\r\nScope can apply to DecisionSession, Decision Lifecycle, Decision Evaluation, Decision Execution, Decision Explainability, Decision History, Decision Audit, Decision Rule, Recommendation, GoalPlan, Scenario, Portfolio, CashFlow, Optimization, Simulation, Risk, Workflow, Automation, Notification, Business Calendar, User, household, and tenant when present.\r\nScope must preserve HouseholdId.\r\nScope must preserve TenantId when tenant scope exists.\r\nScope must not include unauthorized source data.\r\n## Governance Lifecycle\r\nGovernance lifecycle starts when a policy is created.\r\nThe policy can be updated, approved, rejected, activated, deactivated, enforced, monitored, archived, restored, retired, or deleted according to lifecycle rules.\r\nCompliance evaluation records pass, fail, warning, not applicable, exception applied, and escalation required results.\r\nException handling records reason, mitigation, approval, expiration, resolution, escalation, and audit evidence.\r\n## Governance Objectives\r\nGovernance objectives are policy consistency, decision quality control, financial discipline, risk discipline, approval traceability, execution control, exception visibility, escalation timing, data protection, explainability, retention discipline, and audit readiness.\r\nObjectives are measured through compliance pass rate, failed compliance count, policy conflict count, exception count, escalation count, approval latency, audit completeness, and retention adherence.\r\n## Ownership\r\nDecision Governance owns policy definitions, governance lifecycle, compliance result, exception record, escalation record, governance report, and governance projections.\r\nDecisionSession owns decision state and outcome.\r\nDecision Lifecycle owns lifecycle state.\r\nDecision Evaluation owns scores and evaluation results.\r\nDecision Execution owns execution records.\r\nDecision Explainability owns explanation artifacts.\r\nDecision History owns history projections.\r\nDecision Audit owns immutable evidence.\r\nSecurity owns authorization and masking.\r\nRepository owns persistence and queries.\r\nApplication Service owns orchestration and transaction boundary.\r\n## Aggregate Root\r\nDecisionSession remains the aggregate root for decision behavior.\r\nDecision Governance policy is a governed policy record scoped to DecisionSession or related decision domains.\r\nGovernance references related aggregates by identifier and source version.\r\n## Relationship with Decision\r\nDecisionSession supplies decision intent, owner, options, selected option, rationale, status, lifecycle state, and decision outcome.\r\nGovernance validates whether decision operations comply with active policy.\r\n## Relationship with Decision Lifecycle\r\nDecision Lifecycle supplies current state, allowed commands, transition history, terminal state, restore state, and delete eligibility.\r\nGovernance can block lifecycle transitions according to active policy.\r\n## Relationship with Decision Evaluation\r\nDecision Evaluation supplies scores, constraints, risk result, confidence score, explainability score, approval readiness, and evaluation version.\r\nGovernance validates stale scores, hard constraint failures, and approval readiness.\r\n## Relationship with Decision Execution\r\nDecision Execution supplies execution state, retry count, rollback state, recovery state, completion verification, and execution logs.\r\nGovernance validates execution eligibility, rollback policy, retry limits, and completion evidence.\r\n## Relationship with Decision Explainability\r\nDecision Explainability supplies rationale, evidence trace, rule trace, formula trace, score trace, and approval explanation.\r\nGovernance can block approval when explanation is incomplete.\r\n## Relationship with Decision History\r\nDecision History supplies state history, evaluation history, approval history, execution history, exception history, and report history.\r\nGovernance history is append-only.\r\n## Relationship with Decision Audit\r\nDecision Audit supplies immutable command, access, approval, exception, escalation, policy, compliance, and retention evidence.\r\nGovernance writes audit records for every command.\r\n## Relationship with Decision Rule\r\nDecision Rule supplies rule definitions, rule priority, rule severity, threshold, and rule version.\r\nGovernance validates policy compatibility with rule version.\r\n## Relationship with Rule Engine\r\nRule Engine evaluates governance rules and returns pass, fail, warning, explanation, rule version, and source version.\r\nRule Engine output is evidence and does not mutate governance state directly.\r\n## Relationship with Recommendation\r\nRecommendation may require governance approval before adoption, suppression, or execution.\r\nGovernance does not own Recommendation lifecycle.\r\n## Relationship with Goal\r\nGoalPlan may be blocked or unblocked by decision compliance through explicit Goal command policy.\r\nGovernance records GoalPlanId when goal alignment is evaluated.\r\n## Relationship with Scenario\r\nScenario supplies assumptions, baseline, simulation evidence, and ScenarioVersion.\r\nGovernance validates ScenarioVersion and stale scenario evidence.\r\n## Relationship with Portfolio\r\nPortfolio supplies allocation, liquidity, risk, valuation, and performance evidence where authorized.\r\nGovernance validates portfolio permission, valuation freshness, risk thresholds, and masking.\r\n## Relationship with CashFlow\r\nCashFlow supplies surplus, deficit, funding gap, contribution capacity, period, and currency evidence where authorized.\r\nGovernance validates cashflow period alignment and financial feasibility.\r\n## Relationship with Optimization\r\nOptimization supplies optimized candidate, objective score, constraint score, and optimization version.\r\nGovernance validates whether optimized output is approved and current.\r\n## Relationship with Simulation\r\nSimulation supplies scenario result, dry run result, confidence interval, and simulation version.\r\nGovernance validates whether simulation output is current and authorized.\r\n## Relationship with Risk\r\nRisk supplies risk score, risk trend, risk severity, threshold state, and mitigation state.\r\nGovernance validates critical risk policy and escalation.\r\n## Relationship with Workflow\r\nWorkflow supplies approval routing, review steps, exception routing, escalation steps, and governance state.\r\nWorkflow cannot bypass governance validation.\r\n## Relationship with Automation\r\nAutomation may trigger compliance evaluation, policy activation, escalation, exception expiration, governance reporting, archive, and cleanup.\r\nAutomationRunId must be recorded.\r\n## Relationship with Notification\r\nNotification receives policy activation, compliance failure, exception raised, exception resolved, issue escalated, approval needed, and report generated triggers.\r\nNotification suppression does not remove governance history.\r\n## Relationship with Business Calendar\r\nBusiness Calendar supplies approval windows, escalation windows, policy effective windows, exception expiration windows, and retention windows.\r\nGovernance deadlines must honor Business Calendar when configured.\r\n## Relationship with User\r\nUser supplies actor, owner, policy administrator, approver, exception requester, reviewer, permission, preference, locale, and masking context.\r\nUser permission is evaluated before command and projection.\r\n# Governance Architecture\r\n## Governance Engine\r\nGovernance Engine coordinates policy applicability, compliance evaluation, exception handling, escalation, approval, monitoring, audit, retention, reporting, and cache invalidation.\r\nIt produces deterministic results for the same policy version and source version.\r\n## Policy Engine\r\nPolicy Engine stores policy definition, version, scope, owner, inputs, outputs, enforcement rules, exception rules, escalation rules, approval rules, and audit rules.\r\nPolicy Engine detects active policy conflicts.\r\n## Compliance Engine\r\nCompliance Engine evaluates source evidence against active policy and records passed, failed, warning, not applicable, exception applied, or escalation required.\r\nCompliance result records source version and policy version.\r\n## Approval Engine\r\nApproval Engine validates policy approval, exception approval, compliance override approval, and DecisionSession approval dependency.\r\nApproval state is recorded with approver, reason, time, and workflow context.\r\n## Risk Engine\r\nRisk Engine evaluates risk policy, risk score, critical risk, risk trend, mitigation evidence, and escalation.\r\nRisk output may block approval or execution.\r\n## Monitoring Engine\r\nMonitoring Engine observes active policies, compliance results, policy conflicts, exception expiration, escalation deadlines, overdue approvals, and governance trends.\r\nMonitoring output feeds dashboard, report, analytics, and notification.\r\n## Audit Engine\r\nAudit Engine records policy lifecycle, compliance evaluation, exception handling, approval, rejection, escalation, report generation, access, and retention decisions.\r\nAudit records are append-only.\r\n## Exception Engine\r\nException Engine validates exception request, exception approval, expiration, scope, mitigation, and resolution.\r\nException cannot delete violation evidence.\r\n## Escalation Engine\r\nEscalation Engine routes unresolved failure, repeated warning, critical risk, overdue approval, expiring exception, and policy conflict to configured recipients.\r\nEscalation respects Business Calendar where configured.\r\n## Retention Engine\r\nRetention Engine applies archive, delete, historical retention, audit retention, report retention, and exception retention rules.\r\nRetention decisions are auditable.\r\n# Governance Policies\r\n## Decision Creation Policy\r\nPurpose: Control creation of DecisionSession.\r\nScope: DecisionSession creation.\r\nOwner: Decision Governance.\r\nInputs: Actor, owner, household, intent, options, related GoalPlan, source version.\r\nOutputs: Compliance result and creation permission.\r\nValidation: Actor must have Decision.Create permission and required fields must exist.\r\nEnforcement Rules: Block creation when scope or owner is invalid.\r\nException Rules: Exception requires policy administrator approval.\r\nEscalation Rules: Escalate repeated invalid creation attempts.\r\nApproval Rules: Approval required for restricted decision scope.\r\nAudit Rules: Record actor, scope, policy version, and result.\r\nExample: Decision with unauthorized portfolio evidence fails creation policy.\r\n## Decision Evaluation Policy\r\nPurpose: Control evaluation completeness and score readiness.\r\nScope: Decision Evaluation.\r\nOwner: Decision Governance.\r\nInputs: EvaluationId, score, constraints, confidence, explainability, source version.\r\nOutputs: Compliance result and evaluation readiness.\r\nValidation: Evaluation must have current source version and required dimension scores.\r\nEnforcement Rules: Block approval when hard constraints fail.\r\nException Rules: Exception requires reason and expiration.\r\nEscalation Rules: Escalate repeated stale evaluations.\r\nApproval Rules: Approval required when confidence is below threshold.\r\nAudit Rules: Record EvaluationId and score summary.\r\nExample: Evaluation with explainability score below threshold requires review.\r\n## Decision Approval Policy\r\nPurpose: Control approval authority and approval readiness.\r\nScope: Decision Lifecycle approval.\r\nOwner: Decision Governance.\r\nInputs: Approver, selected option, evaluation result, workflow state, approval due date.\r\nOutputs: Approval compliance result.\r\nValidation: Approver must have Decision.Approve permission.\r\nEnforcement Rules: Block self-approval when policy forbids it.\r\nException Rules: Exception requires alternate approver and audit reason.\r\nEscalation Rules: Escalate overdue approval.\r\nApproval Rules: Workflow approval must be completed when configured.\r\nAudit Rules: Record approver, reason, option, and time.\r\nExample: Owner cannot self-approve a restricted decision.\r\n## Decision Execution Policy\r\nPurpose: Control whether a decision can execute.\r\nScope: Decision Execution.\r\nOwner: Decision Governance.\r\nInputs: Decision state, evaluation state, approval state, rule result, execution mode.\r\nOutputs: Execution compliance result and blockers.\r\nValidation: Decision must be approved or execution-eligible.\r\nEnforcement Rules: Block execution when approval is stale.\r\nException Rules: Emergency exception requires emergency permission.\r\nEscalation Rules: Escalate blocked execution after deadline.\r\nApproval Rules: Execution override requires approver.\r\nAudit Rules: Record execution id and operator.\r\nExample: Execution is blocked when approved option differs from selected option.\r\n## Decision Rollback Policy\r\nPurpose: Control rollback and compensation.\r\nScope: Decision Execution rollback.\r\nOwner: Decision Governance.\r\nInputs: ExecutionId, rollback reason, completed steps, reversible steps, compensation plan.\r\nOutputs: Rollback compliance result.\r\nValidation: Rollback policy must exist for reversible execution.\r\nEnforcement Rules: Block rollback without eligible state.\r\nException Rules: Compensation exception requires approval.\r\nEscalation Rules: Escalate rollback failure.\r\nApproval Rules: Rollback override requires operator approval.\r\nAudit Rules: Record rollback reason, steps, and result.\r\nExample: Rollback is allowed only for reversible completed steps.\r\n## Decision Archive Policy\r\nPurpose: Control archive behavior.\r\nScope: DecisionSession, evaluation, execution, policy, and report records.\r\nOwner: Decision Governance.\r\nInputs: State, retention class, archive reason, actor.\r\nOutputs: Archive compliance result.\r\nValidation: Record must be terminal or archive-eligible.\r\nEnforcement Rules: Block archive during running execution.\r\nException Rules: Exception requires retention approval.\r\nEscalation Rules: Escalate archive failure for terminal record.\r\nApproval Rules: Restricted archive requires approval.\r\nAudit Rules: Record archive reason and retention class.\r\nExample: Running execution cannot be archived.\r\n## Decision Retention Policy\r\nPurpose: Control retention and deletion.\r\nScope: Decision History, Decision Audit, governance records, reports, and exceptions.\r\nOwner: Decision Audit.\r\nInputs: Record type, retention class, created time, delete request.\r\nOutputs: Retention compliance result.\r\nValidation: Retention class is required.\r\nEnforcement Rules: Block delete before retention expiry.\r\nException Rules: Exception requires audit owner approval.\r\nEscalation Rules: Escalate unauthorized delete request.\r\nApproval Rules: Audit approval required for early deletion.\r\nAudit Rules: Record retention decision.\r\nExample: Compliance result cannot be deleted before retention expiry.\r\n## Financial Policy\r\nPurpose: Control financial evidence and financial thresholds.\r\nScope: Decision Evaluation, Portfolio, CashFlow, GoalPlan.\r\nOwner: Decision Governance.\r\nInputs: Funding gap, budget variance, cashflow capacity, currency, period.\r\nOutputs: Financial compliance result.\r\nValidation: Currency and period are required.\r\nEnforcement Rules: Block approval when hard financial threshold fails.\r\nException Rules: Financial exception requires approval and expiration.\r\nEscalation Rules: Escalate critical funding gap.\r\nApproval Rules: Financial override requires approved reason.\r\nAudit Rules: Record masked financial evidence.\r\nExample: Funding gap above threshold blocks approval.\r\n## Risk Policy\r\nPurpose: Control risk thresholds and mitigation.\r\nScope: Decision Evaluation, Decision Execution, Risk.\r\nOwner: Decision Governance.\r\nInputs: Risk score, risk trend, severity, mitigation, exception.\r\nOutputs: Risk compliance result and escalation flag.\r\nValidation: Risk score must be between 0 and 100.\r\nEnforcement Rules: Critical risk blocks automatic approval.\r\nException Rules: Risk exception requires mitigation.\r\nEscalation Rules: Escalate unresolved critical risk.\r\nApproval Rules: Risk override requires approver.\r\nAudit Rules: Record risk score and mitigation.\r\nExample: RiskScore 85 requires escalation.\r\n## Portfolio Policy\r\nPurpose: Control portfolio evidence use.\r\nScope: Portfolio-related decisions.\r\nOwner: Decision Governance.\r\nInputs: Portfolio permission, valuation time, liquidity, allocation, risk.\r\nOutputs: Portfolio compliance result.\r\nValidation: Portfolio permission and valuation time are required.\r\nEnforcement Rules: Block use of stale valuation when policy requires current data.\r\nException Rules: Exception requires portfolio owner approval.\r\nEscalation Rules: Escalate repeated stale valuation use.\r\nApproval Rules: Portfolio override requires authorization.\r\nAudit Rules: Record valuation time and masking.\r\nExample: Stale portfolio valuation lowers compliance result.\r\n## Scenario Policy\r\nPurpose: Control scenario usage.\r\nScope: Scenario-based decisions, simulation, optimization.\r\nOwner: Decision Governance.\r\nInputs: ScenarioId, ScenarioVersion, assumptions, baseline, source version.\r\nOutputs: Scenario compliance result.\r\nValidation: ScenarioVersion is required.\r\nEnforcement Rules: Block stale scenario result.\r\nException Rules: Exception requires scenario rationale.\r\nEscalation Rules: Escalate missing baseline.\r\nApproval Rules: Scenario override requires approval.\r\nAudit Rules: Record scenario version and assumptions.\r\nExample: Simulation using stale ScenarioVersion fails compliance.\r\n## Recommendation Policy\r\nPurpose: Control recommendation mapping and adoption.\r\nScope: Recommendation linked to DecisionSession.\r\nOwner: Decision Governance.\r\nInputs: RecommendationId, status, ranking, adoption state, suppression reason.\r\nOutputs: Recommendation compliance result.\r\nValidation: Recommendation must exist when referenced.\r\nEnforcement Rules: Require reason for suppressing high impact recommendation.\r\nException Rules: Exception requires expiration.\r\nEscalation Rules: Escalate unresolved high-impact recommendation.\r\nApproval Rules: Suppression override requires approval.\r\nAudit Rules: Record RecommendationId and rationale.\r\nExample: High-impact recommendation suppression without reason fails compliance.\r\n## Goal Alignment Policy\r\nPurpose: Control decision alignment with GoalPlan.\r\nScope: DecisionSession and GoalPlan.\r\nOwner: Decision Governance.\r\nInputs: GoalPlanId, priority, target, progress, health, dependency.\r\nOutputs: Goal compliance result.\r\nValidation: GoalPlan must exist when referenced.\r\nEnforcement Rules: Block decision approval when goal conflict is critical.\r\nException Rules: Exception requires goal owner approval.\r\nEscalation Rules: Escalate unresolved goal conflict.\r\nApproval Rules: Goal override requires approval.\r\nAudit Rules: Record GoalPlanId and alignment result.\r\nExample: Decision conflicts with high-priority GoalPlan and requires review.\r\n## Automation Policy\r\nPurpose: Control automated governance operations.\r\nScope: Automation triggered compliance, reports, escalation, cleanup.\r\nOwner: Decision Governance.\r\nInputs: AutomationRunId, trigger, actor, schedule, policy version.\r\nOutputs: Automation compliance result.\r\nValidation: AutomationRunId and system actor are required.\r\nEnforcement Rules: Block automation without policy permission.\r\nException Rules: Exception requires policy administrator approval.\r\nEscalation Rules: Escalate repeated automation failure.\r\nApproval Rules: Restricted automation requires approval.\r\nAudit Rules: Record automation run and outcome.\r\nExample: Automated compliance run records system actor.\r\n## Compliance Policy\r\nPurpose: Control compliance evaluation behavior.\r\nScope: Compliance Engine and results.\r\nOwner: Decision Governance.\r\nInputs: PolicyId, source version, evidence, rule result, actor.\r\nOutputs: Compliance result and severity.\r\nValidation: Active policy and source version are required.\r\nEnforcement Rules: Failed compliance blocks governed action when policy is hard.\r\nException Rules: Exception requires approved exception.\r\nEscalation Rules: Escalate repeated failures.\r\nApproval Rules: Override approval required for hard failure.\r\nAudit Rules: Record policy version and result.\r\nExample: Hard compliance failure blocks execution.\r\n## Security Policy\r\nPurpose: Control authorization and data access.\r\nScope: Commands, queries, projections, cache, reports.\r\nOwner: Security.\r\nInputs: User, permission, field access, scope, masking mode.\r\nOutputs: Security compliance result.\r\nValidation: Authenticated user and scope permission are required.\r\nEnforcement Rules: Block unauthorized access.\r\nException Rules: No exception for missing authentication.\r\nEscalation Rules: Escalate repeated unauthorized attempts.\r\nApproval Rules: Elevated access requires approval.\r\nAudit Rules: Record access and denial.\r\nExample: User without DecisionGovernance.PolicyRead cannot read policy detail.\r\n## Data Governance Policy\r\nPurpose: Control source version, masking, projection, and retention data rules.\r\nScope: Data used by governance.\r\nOwner: Decision Governance.\r\nInputs: Source version, masking mode, projection fields, retention class.\r\nOutputs: Data compliance result.\r\nValidation: Source version and allowed projection are required.\r\nEnforcement Rules: Block restricted field projection.\r\nException Rules: Exception requires data owner approval.\r\nEscalation Rules: Escalate repeated restricted access attempt.\r\nApproval Rules: Data override requires approval.\r\nAudit Rules: Record projection and masking mode.\r\nExample: Restricted portfolio field is masked in report.\r\n## Audit Policy\r\nPurpose: Control audit completeness.\r\nScope: Governance command, compliance result, approval, exception, escalation, report, and access.\r\nOwner: Decision Audit.\r\nInputs: Command, actor, correlation id, before value, after value.\r\nOutputs: Audit compliance result.\r\nValidation: Audit metadata is required.\r\nEnforcement Rules: Block state change when required audit write fails.\r\nException Rules: No exception for required audit omission.\r\nEscalation Rules: Escalate audit write failure.\r\nApproval Rules: Audit correction requires audit owner approval.\r\nAudit Rules: Record all audit records.\r\nExample: Policy activation fails if audit record cannot be written.\r\n# Compliance Model\r\n## Business Compliance\r\nBusiness Compliance validates decision intent, lifecycle state, selected option, approval readiness, and outcome consistency.\r\n## Financial Compliance\r\nFinancial Compliance validates budget variance, funding gap, CashFlow capacity, Portfolio impact, currency, and period.\r\n## Risk Compliance\r\nRisk Compliance validates risk score, risk trend, critical risk, mitigation, and exception.\r\n## Execution Compliance\r\nExecution Compliance validates execution eligibility, approval freshness, retry limit, rollback policy, and verification.\r\n## Recommendation Compliance\r\nRecommendation Compliance validates recommendation mapping, adoption state, suppression reason, and expected impact.\r\n## Scenario Compliance\r\nScenario Compliance validates ScenarioId, ScenarioVersion, assumptions, baseline, and simulation freshness.\r\n## Goal Compliance\r\nGoal Compliance validates GoalPlan alignment, priority, dependency, progress, and lifecycle state.\r\n## Security Compliance\r\nSecurity Compliance validates command permission, query permission, projection permission, and field-level security.\r\n## Audit Compliance\r\nAudit Compliance validates audit metadata, immutable evidence, actor, correlation id, and retention class.\r\n## Retention Compliance\r\nRetention Compliance validates archive, restore, delete, report retention, exception retention, and audit retention.\r\n## Regulatory Compliance\r\nRegulatory Compliance uses existing Atlas compliance and governance records where applicable.\r\n## Data Compliance\r\nData Compliance validates source version, masking, projection, aggregation, cache safety, and export safety.\r\n# Governance Workflow\r\n## Policy Definition\r\nPolicy Definition captures purpose, scope, owner, inputs, outputs, validation, enforcement rules, exception rules, escalation rules, approval rules, and audit rules.\r\n## Activation\r\nActivation requires approved policy, effective window, conflict validation, owner validation, and audit record.\r\n## Validation\r\nValidation checks policy syntax, scope, owner, rule references, escalation route, approval route, exception route, and audit requirements.\r\n## Enforcement\r\nEnforcement evaluates active policy against source evidence and applies pass, fail, warning, block, exception, or escalation.\r\n## Exception Handling\r\nException Handling validates reason, mitigation, scope, approver, expiration, and resolution.\r\n## Escalation\r\nEscalation routes critical failure, repeated warning, overdue approval, expired exception, and policy conflict.\r\n## Approval\r\nApproval records approver, reason, workflow context, decision context, policy version, and effective time.\r\n## Monitoring\r\nMonitoring observes policy state, compliance results, exception expiration, escalation deadlines, approval latency, and governance trends.\r\n## Audit\r\nAudit records policy, compliance, exception, approval, rejection, escalation, report, access, and retention events.\r\n## Retirement\r\nRetirement deactivates policy after replacement, expiration, governance decision, or retention process.\r\n# Validation Rules\r\n1. PolicyId must be globally unique. 2. Policy name is required. 3. Policy name must follow catalog naming. 4. Policy scope is required. 5. Policy owner is required. 6. Policy version is required. 7. Policy status is required. 8. Policy effective date is required for activation. 9. Expiration date must be after effective date when present. 10. Active policy must be approved. 11. Policy definition must include enforcement rules. 12. Policy definition must include audit rules. 13. Exception rules are required when exceptions are allowed. 14. Escalation rules are required for critical policies. 15. Approval rules are required when override is allowed. 16. ComplianceEvaluationId must be globally unique. 17. Compliance result must be Passed, Failed, Warning, NotApplicable, ExceptionApplied, or EscalationRequired. 18. Compliance evaluation must include source version hash. 19. Compliance evaluation must include policy version. 20. Compliance evaluation must include evaluated time. 21. Compliance evaluation must include actor or system actor. 22. Failed compliance must include violation reason. 23. Warning compliance must include warning reason. 24. ExceptionApplied must reference approved exception. 25. ExceptionId must be globally unique. 26. Exception request must include reason. 27. Exception must include mitigation when policy requires it. 28. Exception must include expiration date. 29. Exception approval requires approver permission. 30. Escalation must include recipient or role. 31. Approval must include approver id. 32. Rejection must include rejection reason. 33. Archive requires inactive, retired, rejected, or policy-approved state. 34. Restore requires archived policy. 35. Delete requires retention validation. 36. TenantId is required when tenant scope exists. 37. HouseholdId is required for household-scoped policy. 38. DecisionSessionId is required for decision-scoped evaluation. 39. Projection field must be allowed. 40. Sorting field must be allowed. 41. Pagination limit must be within API maximum. 42. Audit metadata is required for every command. 43. Source version hash is required for compliance evaluation. 44. Policy conflict check is required before activation. 45. Masked fields must not appear in unauthorized projection.\r\n# Business Rules\r\n1. Decision Governance must preserve Atlas domain ownership. 2. Decision Governance must not redesign Atlas. 3. Decision Governance must not create unrelated business concepts. 4. Governance naming must follow existing catalog. 5. DecisionSession remains the decision aggregate root. 6. Active policy must be approved before enforcement. 7. Inactive policy must not block operations. 8. Archived policy is read-only. 9. Deleted policy cannot be restored. 10. Policy version is immutable after activation. 11. Updating an active policy creates a new version. 12. Policy activation requires conflict validation. 13. Policy deactivation requires reason. 14. Policy rejection requires reason. 15. Policy archive requires eligible state. 16. Policy restore requires conflict validation. 17. Policy delete requires retention validation. 18. Compliance evaluation must use active policy version. 19. Compliance evaluation must record source version. 20. Compliance failure must record violation. 21. Compliance warning must record warning. 22. Not applicable result must record reason. 23. Exception cannot erase violation history. 24. Exception must have expiration date. 25. Expired exception cannot apply. 26. Exception approval requires permission. 27. Exception rejection requires reason. 28. Exception resolution requires result. 29. Escalation must respect Business Calendar when configured. 30. Escalation must record recipient. 31. Notification failure must not remove escalation history. 32. Audit failure must block policy state change when audit is required. 33. Field-level security applies before projection. 34. Masked data must remain masked in cache. 35. Aggregation must not leak unauthorized data. 36. Policy administration permission is required to create policy. 37. Policy administration permission is required to update policy. 38. Policy approver permission is required to approve policy. 39. Policy approver permission is required to reject policy. 40. Compliance read permission is required to view compliance result. 41. Governance report permission is required to generate report. 42. Decision creation policy can block invalid decision creation. 43. Decision evaluation policy can block approval readiness. 44. Decision approval policy can block unauthorized approval. 45. Decision execution policy can block execution. 46. Decision rollback policy can block rollback. 47. Decision archive policy can block archive. 48. Decision retention policy can block delete. 49. Financial policy can block approval. 50. Risk policy can trigger escalation. 51. Portfolio policy requires portfolio permission. 52. Scenario policy requires ScenarioVersion. 53. Recommendation policy requires suppression reason. 54. Goal alignment policy can require review. 55. Automation policy must record AutomationRunId. 56. Compliance policy must record evaluation result. 57. Security policy blocks unauthorized access. 58. Data governance policy controls masking. 59. Audit policy controls immutable evidence. 60. Workflow approval must record WorkflowInstanceId. 61. Decision approval must record DecisionSessionId. 62. Governance report must use permission-filtered projection. 63. Dashboard governance counts must be scoped. 64. Reporting snapshot must preserve governance state. 65. Analytics can use compliance trends only from authorized data. 66. Insights can use governance evidence without expanding visibility. 67. Optimization candidates must satisfy active policy before approval. 68. Simulation output must satisfy scenario policy. 69. Execution must satisfy active policy before start. 70. Compliance cache invalidates on policy activation. 71. Compliance cache invalidates on policy deactivation. 72. Compliance cache invalidates on source version change. 73. Policy cache invalidates on policy update. 74. Permission change invalidates user governance cache. 75. Masking change invalidates cached projections. 76. Materialized views must use committed data. 77. Governance history is append-only. 78. Compliance history is append-only. 79. Approval history is append-only. 80. Exception history is append-only. 81. Policy history is append-only. 82. Operator history is append-only. 83. Concurrent update must use optimistic version. 84. Duplicate active policy for same scope and type is not allowed. 85. Conflicting policy activation must fail validation. 86. Critical compliance failure must be eligible for notification. 87. Repeated compliance failure must be eligible for escalation. 88. Retention policy controls delete. 89. Archive does not delete compliance history. 90. Restore must revalidate current conflicts. 91. Deactivate must not remove historical compliance results. 92. Policy report generation must record actor. 93. Compliance report generation must record source versions. 94. Exception report must include expiration state. 95. Approval state cannot change without command. 96. Policy owner change requires audit. 97. Governance state transition must emit domain event. 98. Emergency override requires reason and permission. 99. Self-approval is blocked when policy forbids it. 100. Governance result must be reproducible from policy version and source version. 101. Export must use masked projection when required. 102. Search must enforce HouseholdId scope. 103. Tenant-aware search must enforce TenantId. 104. Policy delete must not delete audit records early. 105. Exception resolution must preserve original exception request.\r\n# State Machine\r\n## States\r\n- Created\r\n- PendingApproval\r\n- Approved\r\n- Rejected\r\n- Active\r\n- Inactive\r\n- Retired\r\n- Archived\r\n- Deleted\r\n## Transitions\r\n- Created -> PendingApproval by CreatePolicy or UpdatePolicy when approval is required.\r\n- PendingApproval -> Approved by ApprovePolicy.\r\n- PendingApproval -> Rejected by RejectPolicy.\r\n- Approved -> Active by ActivatePolicy.\r\n- Active -> Inactive by DeactivatePolicy.\r\n- Inactive -> Active by ActivatePolicy.\r\n- Inactive -> Retired by retirement process.\r\n- Retired -> Archived by ArchivePolicy.\r\n- Rejected -> Archived by ArchivePolicy.\r\n- Inactive -> Archived by ArchivePolicy.\r\n- Archived -> Inactive by RestorePolicy.\r\n- Archived -> Deleted by DeletePolicy.\r\n## Triggers\r\n- CreatePolicy\r\n- UpdatePolicy\r\n- ActivatePolicy\r\n- DeactivatePolicy\r\n- ApprovePolicy\r\n- RejectPolicy\r\n- ArchivePolicy\r\n- RestorePolicy\r\n- DeletePolicy\r\n- EvaluateCompliance\r\n- GenerateGovernanceReport\r\n- ResolveException\r\n- EscalateIssue\r\n- ExceptionRaised\r\n- ExceptionResolved\r\n- IssueEscalated\r\n## Invariant\r\nPolicyId, created time, created by, original scope, and first version are immutable.\r\nActive policy must be approved and must have effective date.\r\nArchived and Deleted policy cannot be updated except by restore or retention operation.\r\nCompliance result cannot be changed after persistence.\r\n## Illegal Transition\r\n- Deleted -> Active.\r\n- Deleted -> Approved.\r\n- Archived -> Active.\r\n- Rejected -> Active.\r\n- Created -> Active.\r\n- PendingApproval -> Active.\r\n- Active -> Deleted.\r\n- Retired -> Active.\r\n- Approved -> Deleted.\r\n- Inactive -> Deleted without archive.\r\n# Commands\r\n## CreatePolicy\r\nCreates policy definition with scope, owner, rules, exception rules, escalation rules, approval rules, and audit rules.\r\n## UpdatePolicy\r\nUpdates editable policy fields and creates new version when required.\r\n## ActivatePolicy\r\nActivates approved policy for effective window.\r\n## DeactivatePolicy\r\nDeactivates active policy with reason.\r\n## ApprovePolicy\r\nApproves pending policy.\r\n## RejectPolicy\r\nRejects pending policy with reason.\r\n## ArchivePolicy\r\nArchives inactive, retired, or rejected policy.\r\n## RestorePolicy\r\nRestores archived policy after conflict validation.\r\n## DeletePolicy\r\nDeletes eligible policy after retention validation.\r\n## EvaluateCompliance\r\nEvaluates active policies against source evidence.\r\n## GenerateGovernanceReport\r\nGenerates governance report projection and audit record.\r\n## ResolveException\r\nResolves approved or pending exception with outcome.\r\n## EscalateIssue\r\nCreates escalation record and notification trigger.\r\n## RequestPolicyException\r\nCreates policy exception request.\r\n## ApprovePolicyException\r\nApproves policy exception with expiration and mitigation.\r\n## RejectPolicyException\r\nRejects policy exception with reason.\r\n## RefreshPolicyCache\r\nInvalidates and refreshes policy cache.\r\n## RefreshComplianceCache\r\nInvalidates and refreshes compliance cache.\r\n# Domain Events\r\n## PolicyCreated\r\nEmitted after policy creation.\r\n## PolicyUpdated\r\nEmitted after policy update.\r\n## PolicyActivated\r\nEmitted after activation.\r\n## PolicyDeactivated\r\nEmitted after deactivation.\r\n## PolicyApproved\r\nEmitted after approval.\r\n## PolicyRejected\r\nEmitted after rejection.\r\n## CompliancePassed\r\nEmitted after passed compliance evaluation.\r\n## ComplianceFailed\r\nEmitted after failed compliance evaluation.\r\n## GovernanceReportGenerated\r\nEmitted after governance report generation.\r\n## ExceptionRaised\r\nEmitted after exception request is created.\r\n## ExceptionResolved\r\nEmitted after exception is resolved.\r\n## IssueEscalated\r\nEmitted after issue escalation.\r\n## PolicyArchived\r\nEmitted after policy archive.\r\n## PolicyRestored\r\nEmitted after policy restore.\r\n## PolicyDeleted\r\nEmitted after policy delete.\r\n## ComplianceWarningRaised\r\nEmitted after warning result.\r\n## PolicyExceptionApproved\r\nEmitted after exception approval.\r\n## PolicyExceptionRejected\r\nEmitted after exception rejection.\r\n## PolicyExceptionExpired\r\nEmitted after exception expiration.\r\n# Repository\r\n## Interface\r\nIDecisionGovernanceRepository persists policy aggregate, compliance history, approval history, exception history, escalation history, report history, operator history, and projections.\r\n## Methods\r\n- AddPolicy\r\n- UpdatePolicy\r\n- GetPolicyById\r\n- GetActivePoliciesByScope\r\n- SearchPolicies\r\n- SaveComplianceResult\r\n- GetComplianceResult\r\n- SearchComplianceResults\r\n- SaveApprovalHistory\r\n- SaveException\r\n- ResolveException\r\n- SaveEscalation\r\n- SaveGovernanceReport\r\n- ArchivePolicy\r\n- RestorePolicy\r\n- DeletePolicy\r\n- GetPolicyProjection\r\n- GetComplianceProjection\r\n- GetDashboardProjection\r\n## Queries\r\n- PoliciesByStatus\r\n- PoliciesByScope\r\n- PoliciesByOwner\r\n- ActivePolicies\r\n- PendingApprovalPolicies\r\n- ComplianceResultsByScope\r\n- FailedComplianceResults\r\n- WarningComplianceResults\r\n- ExceptionResults\r\n- ExpiringExceptions\r\n- EscalationResults\r\n- GovernanceReportHistory\r\n## Filtering\r\n- PolicyId\r\n- PolicyName\r\n- Status\r\n- Scope\r\n- Owner\r\n- TenantId\r\n- HouseholdId\r\n- DecisionSessionId\r\n- EffectiveDateRange\r\n- ExpirationDateRange\r\n- ComplianceResult\r\n- HasException\r\n- HasEscalation\r\n- CreatedDateRange\r\n## Sorting\r\n- createdAt desc\r\n- updatedAt desc\r\n- effectiveAt desc\r\n- expiresAt asc\r\n- status asc\r\n- scope asc\r\n- owner asc\r\n- severity desc\r\n## Aggregation\r\n- CountByPolicyStatus\r\n- CountByComplianceResult\r\n- CountByScope\r\n- CountByExceptionState\r\n- CountByEscalationState\r\n- FailedComplianceCount\r\n- WarningComplianceCount\r\n- ExpiringExceptionCount\r\n- PendingApprovalCount\r\n## Projection\r\n- PolicySummaryProjection\r\n- PolicyDetailProjection\r\n- ComplianceSummaryProjection\r\n- ComplianceDetailProjection\r\n- GovernanceReportProjection\r\n- ExceptionProjection\r\n- EscalationProjection\r\n- DashboardProjection\r\n## Specification\r\n- ActivePolicySpecification\r\n- VisiblePolicySpecification\r\n- PendingApprovalPolicySpecification\r\n- FailedComplianceSpecification\r\n- ExceptionActiveSpecification\r\n- EscalationRequiredSpecification\r\n- AuditGovernanceSpecification\r\n# Domain Service Interaction\r\n- DecisionGovernanceDomainService validates policy lifecycle, compliance rules, exceptions, escalations, approvals, and business rules.\r\n- DecisionLifecycleDomainService supplies decision state and lifecycle constraints.\r\n- DecisionEvaluationDomainService supplies evaluation score and constraint evidence.\r\n- DecisionExecutionDomainService supplies execution state, retry, rollback, and recovery evidence.\r\n- DecisionExplainabilityDomainService supplies explanation artifacts.\r\n- DecisionHistoryDomainService records governance history projections.\r\n- DecisionAuditDomainService records immutable audit evidence.\r\n- DecisionRuleDomainService supplies rule definitions and rule versions.\r\n- RuleEngineDomainService evaluates policy and decision rules.\r\n- RecommendationDomainService supplies recommendation governance evidence.\r\n- GoalLifecycleDomainService supplies GoalPlan lifecycle and alignment evidence.\r\n- ScenarioDomainService supplies ScenarioVersion and assumptions.\r\n- PortfolioDomainService supplies authorized portfolio evidence.\r\n- CashFlowDomainService supplies authorized cashflow evidence.\r\n- OptimizationDomainService supplies optimization candidate evidence.\r\n- SimulationDomainService supplies simulation evidence.\r\n- RiskDomainService supplies risk score and mitigation evidence.\r\n- WorkflowDomainService supplies approval routing and workflow state.\r\n- AutomationDomainService supplies automation run context.\r\n- NotificationDomainService receives governance notification triggers.\r\n- BusinessCalendarDomainService supplies governance windows and deadlines.\r\n- SecurityDomainService evaluates authorization and masking.\r\n- CacheDomainService invalidates policy and compliance projections.\r\n# Application Service Interaction\r\n- DecisionGovernanceApplicationService coordinates command handlers, query handlers, unit of work, event publication, and cache invalidation.\r\n- CreatePolicyHandler validates create DTO and calls domain service.\r\n- UpdatePolicyHandler validates version and editable fields.\r\n- ActivatePolicyHandler validates approval, effective window, and conflicts.\r\n- DeactivatePolicyHandler records reason and state change.\r\n- ApprovePolicyHandler validates approver authority.\r\n- RejectPolicyHandler validates rejection reason.\r\n- ArchivePolicyHandler makes policy read-only.\r\n- RestorePolicyHandler revalidates conflicts and retention.\r\n- DeletePolicyHandler validates retention and deletes eligible policy.\r\n- EvaluateComplianceHandler collects source evidence and persists compliance result.\r\n- GenerateGovernanceReportHandler creates report projection and audit record.\r\n- ResolveExceptionHandler validates exception resolution and records result.\r\n- EscalateIssueHandler creates escalation and notification trigger.\r\n- GovernanceSearchQueryHandler applies filtering, sorting, projection, and pagination.\r\n# API\r\n## REST Endpoints\r\n- GET /api/decision-governance/policies\r\n- POST /api/decision-governance/policies\r\n- GET /api/decision-governance/policies/{policyId}\r\n- PUT /api/decision-governance/policies/{policyId}\r\n- POST /api/decision-governance/policies/{policyId}/approve\r\n- POST /api/decision-governance/policies/{policyId}/reject\r\n- POST /api/decision-governance/policies/{policyId}/activate\r\n- POST /api/decision-governance/policies/{policyId}/deactivate\r\n- POST /api/decision-governance/policies/{policyId}/archive\r\n- POST /api/decision-governance/policies/{policyId}/restore\r\n- DELETE /api/decision-governance/policies/{policyId}\r\n- POST /api/decision-governance/compliance/evaluate\r\n- GET /api/decision-governance/compliance\r\n- POST /api/decision-governance/reports\r\n- GET /api/decision-governance/reports/{reportId}\r\n- POST /api/decision-governance/exceptions\r\n- POST /api/decision-governance/exceptions/{exceptionId}/resolve\r\n- POST /api/decision-governance/escalations\r\n## HTTP Methods\r\nGET reads governance projections.\r\nPOST creates, approves, rejects, activates, deactivates, archives, restores, evaluates, reports, resolves exception, or escalates issue.\r\nPUT updates eligible policy fields.\r\nDELETE deletes eligible policy after retention validation.\r\n## Request\r\nCreate Policy request includes name, scope, owner, rules, exception rules, escalation rules, approval rules, and audit rules.\r\nUpdate Policy request includes version, editable fields, and update reason.\r\nActivate Policy request includes effective time and activation reason.\r\nCompliance request includes scope, source version mode, policy ids, and evaluation mode.\r\nGovernance report request includes scope, date range, projection, and masking mode.\r\nException request includes policy id, scope, reason, expiration, and mitigation.\r\nApproval request includes approver, reason, workflow context, and expected version.\r\n## Response\r\nPolicy response returns policy detail, lifecycle, version, permissions, and audit metadata.\r\nCompliance response returns result, policy version, source version, violations, warnings, exceptions, and evaluated time.\r\nGovernance response returns status, active policy count, failed compliance count, exception count, and escalation count.\r\nException response returns exception state, expiration, approval state, mitigation, and resolution.\r\nReport response returns report id, scope, summary, compliance counts, exceptions, escalations, and generated time.\r\n## Errors\r\n- 400 invalid request\r\n- 401 unauthenticated\r\n- 403 forbidden\r\n- 404 policy not found\r\n- 409 concurrency conflict\r\n- 410 inactive policy\r\n- 422 validation failed\r\n- 423 policy locked\r\n- 429 rate limited\r\n- 500 internal error\r\n## Pagination\r\nPagination uses pageNumber, pageSize, totalCount, totalPages, hasNextPage, and hasPreviousPage.\r\n## Filtering\r\nFiltering supports status, scope, owner, policy name, effective date, compliance result, exception state, escalation state, householdId, tenantId, DecisionSessionId, and created date.\r\n## Sorting\r\nSorting supports createdAt, updatedAt, effectiveAt, expiresAt, status, scope, owner, compliance result, and severity.\r\n## Projection\r\nProjection supports policy summary, policy detail, compliance summary, compliance detail, governance report, exception, escalation, dashboard, and audit-safe views.\r\n## Compliance API\r\nCompliance API evaluates policies, searches compliance results, returns violation detail, warning detail, and exception state.\r\n## Governance API\r\nGovernance API returns active policy summary, compliance dashboard, exception dashboard, escalation dashboard, and governance report.\r\n## Policy API\r\nPolicy API creates, updates, approves, rejects, activates, deactivates, archives, restores, deletes, and searches policies.\r\n# DTO\r\n## Create DTO\r\nIncludes policy name, scope, owner, enforcement rules, exception rules, escalation rules, approval rules, audit rules, and effective window.\r\n## Update DTO\r\nIncludes policy id, version, editable fields, update reason, and expected state.\r\n## Policy DTO\r\nIncludes policy fields, scope, owner, rules, version, lifecycle, and timestamps.\r\n## Compliance DTO\r\nIncludes compliance id, policy id, result, source version, violations, warnings, exceptions, evaluated time, and actor.\r\n## Governance DTO\r\nIncludes active policy count, failed compliance count, warning count, exception count, escalation count, and generated time.\r\n## Exception DTO\r\nIncludes exception id, policy id, scope, reason, mitigation, approval state, expiration date, resolution, and audit metadata.\r\n## Approval DTO\r\nIncludes approver id, approval state, reason, workflow step, policy version, and occurred time.\r\n## Summary DTO\r\nIncludes policy id, name, scope, status, owner, version, effective date, expiration date, and compliance state.\r\n## Detail DTO\r\nIncludes policy detail, rule definitions, lifecycle history, approval history, exception rules, compliance summary, permissions, and audit metadata.\r\n## Search DTO\r\nIncludes filters, sorting, pagination, projection, and masking mode.\r\n## Report DTO\r\nIncludes report id, scope, period, policy counts, compliance counts, exception counts, escalation counts, and generated time.\r\n# Database Mapping\r\n## Table\r\n- decision_governance_policies\r\n- decision_governance_policy_versions\r\n- decision_governance_compliance_results\r\n- decision_governance_approvals\r\n- decision_governance_exceptions\r\n- decision_governance_escalations\r\n- decision_governance_reports\r\n- decision_governance_operator_history\r\n- decision_governance_audit\r\n## Columns\r\n- policy_id uuid primary key\r\n- tenant_id uuid null\r\n- household_id uuid null\r\n- decision_session_id uuid null\r\n- name varchar(160) not null\r\n- scope_type varchar(80) not null\r\n- scope_id uuid null\r\n- owner varchar(120) not null\r\n- status varchar(40) not null\r\n- version_number int not null\r\n- policy_key varchar(240) not null\r\n- effective_at timestamptz null\r\n- expires_at timestamptz null\r\n- approved_at timestamptz null\r\n- archived_at timestamptz null\r\n- created_at timestamptz not null\r\n- updated_at timestamptz not null\r\n- row_version int not null\r\n## Indexes\r\n- ix_decision_governance_policies_scope_status\r\n- ix_decision_governance_policies_owner\r\n- ix_decision_governance_policies_effective\r\n- ix_decision_governance_policies_household\r\n- ix_decision_governance_policies_decision\r\n- ix_decision_governance_compliance_scope\r\n- ix_decision_governance_compliance_result\r\n- ix_decision_governance_exceptions_expiration\r\n- ux_decision_governance_active_policy_key\r\n## Constraints\r\n- status in supported policy states\r\n- version_number greater than zero\r\n- effective_at before expires_at when expires_at exists\r\n- compliance result in supported compliance states\r\n- exception expiration after request time\r\n## FK\r\n- policy_id references decision_governance_policies for versions, compliance, approvals, exceptions, escalations, reports, operator history, and audit.\r\n- household_id references households when present.\r\n- decision_session_id references decision_sessions when present.\r\n- workflow_instance_id references workflow instances when present.\r\n## Unique\r\n- Unique active policy key per scope and policy type.\r\n- Unique policy version per policy.\r\n## Check Constraint\r\n- Lifecycle timestamp must match policy status.\r\n- Compliance result must have violation reason when failed.\r\n## Partition Strategy\r\n- Partition compliance results, audit, reports, escalations, and operator history by created_at month.\r\n# PostgreSQL Schema\r\n```sql\r\nCREATE TABLE decision_governance_policies (\r\n  policy_id uuid PRIMARY KEY,\r\n  tenant_id uuid NULL,\r\n  household_id uuid NULL,\r\n  decision_session_id uuid NULL,\r\n  name varchar(160) NOT NULL,\r\n  scope_type varchar(80) NOT NULL,\r\n  scope_id uuid NULL,\r\n  owner varchar(120) NOT NULL,\r\n  status varchar(40) NOT NULL,\r\n  version_number int NOT NULL DEFAULT 1,\r\n  policy_key varchar(240) NOT NULL,\r\n  rule_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  exception_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  escalation_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  approval_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  audit_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  effective_at timestamptz NULL,\r\n  expires_at timestamptz NULL,\r\n  approved_at timestamptz NULL,\r\n  archived_at timestamptz NULL,\r\n  created_by uuid NULL,\r\n  updated_by uuid NULL,\r\n  created_at timestamptz NOT NULL DEFAULT now(),\r\n  updated_at timestamptz NOT NULL DEFAULT now(),\r\n  row_version int NOT NULL DEFAULT 1,\r\n  CONSTRAINT ck_decision_governance_policies_status CHECK (status IN ('Created','PendingApproval','Approved','Rejected','Active','Inactive','Retired','Archived','Deleted')),\r\n  CONSTRAINT ck_decision_governance_policies_version CHECK (version_number > 0),\r\n  CONSTRAINT ck_decision_governance_policies_dates CHECK (expires_at IS NULL OR effective_at IS NULL OR expires_at > effective_at)\r\n);\r\nCREATE TABLE decision_governance_compliance_results (\r\n  compliance_id uuid PRIMARY KEY,\r\n  policy_id uuid NOT NULL REFERENCES decision_governance_policies(policy_id),\r\n  tenant_id uuid NULL,\r\n  household_id uuid NULL,\r\n  decision_session_id uuid NULL,\r\n  scope_type varchar(80) NOT NULL,\r\n  scope_id uuid NULL,\r\n  result varchar(40) NOT NULL,\r\n  source_version_hash varchar(128) NOT NULL,\r\n  policy_version int NOT NULL,\r\n  violation_payload jsonb NOT NULL DEFAULT '[]'::jsonb,\r\n  warning_payload jsonb NOT NULL DEFAULT '[]'::jsonb,\r\n  exception_id uuid NULL,\r\n  evaluated_by uuid NULL,\r\n  evaluated_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL,\r\n  CONSTRAINT ck_decision_governance_compliance_result CHECK (result IN ('Passed','Failed','Warning','NotApplicable','ExceptionApplied','EscalationRequired'))\r\n);\r\nCREATE TABLE decision_governance_approvals (\r\n  approval_id uuid PRIMARY KEY,\r\n  policy_id uuid NOT NULL REFERENCES decision_governance_policies(policy_id),\r\n  decision_session_id uuid NULL,\r\n  workflow_instance_id uuid NULL,\r\n  approval_state varchar(40) NOT NULL,\r\n  reason varchar(800) NOT NULL,\r\n  approver_id uuid NULL,\r\n  occurred_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL\r\n);\r\nCREATE TABLE decision_governance_exceptions (\r\n  exception_id uuid PRIMARY KEY,\r\n  policy_id uuid NOT NULL REFERENCES decision_governance_policies(policy_id),\r\n  scope_type varchar(80) NOT NULL,\r\n  scope_id uuid NULL,\r\n  reason varchar(800) NOT NULL,\r\n  mitigation varchar(800) NULL,\r\n  status varchar(40) NOT NULL,\r\n  expires_at timestamptz NOT NULL,\r\n  resolved_at timestamptz NULL,\r\n  requested_by uuid NULL,\r\n  approved_by uuid NULL,\r\n  created_at timestamptz NOT NULL DEFAULT now(),\r\n  CONSTRAINT ck_decision_governance_exception_dates CHECK (expires_at > created_at)\r\n);\r\nCREATE TABLE decision_governance_escalations (\r\n  escalation_id uuid PRIMARY KEY,\r\n  policy_id uuid NOT NULL REFERENCES decision_governance_policies(policy_id),\r\n  compliance_id uuid NULL,\r\n  severity varchar(20) NOT NULL,\r\n  recipient varchar(160) NOT NULL,\r\n  status varchar(40) NOT NULL,\r\n  message varchar(1200) NOT NULL,\r\n  created_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL\r\n);\r\nCREATE TABLE decision_governance_reports (\r\n  report_id uuid PRIMARY KEY,\r\n  tenant_id uuid NULL,\r\n  household_id uuid NULL,\r\n  decision_session_id uuid NULL,\r\n  scope_type varchar(80) NOT NULL,\r\n  report_payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  generated_by uuid NULL,\r\n  generated_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL\r\n);\r\nCREATE TABLE decision_governance_operator_history (\r\n  operator_history_id uuid PRIMARY KEY,\r\n  policy_id uuid NULL,\r\n  operator_id uuid NULL,\r\n  action varchar(120) NOT NULL,\r\n  occurred_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL\r\n);\r\nCREATE TABLE decision_governance_audit (\r\n  audit_id uuid PRIMARY KEY,\r\n  policy_id uuid NULL,\r\n  action varchar(80) NOT NULL,\r\n  actor_id uuid NULL,\r\n  payload jsonb NOT NULL DEFAULT '{}'::jsonb,\r\n  occurred_at timestamptz NOT NULL DEFAULT now(),\r\n  correlation_id uuid NOT NULL\r\n);\r\nCREATE INDEX ix_decision_governance_policies_scope_status ON decision_governance_policies(scope_type, scope_id, status);\r\nCREATE INDEX ix_decision_governance_policies_owner ON decision_governance_policies(owner);\r\nCREATE INDEX ix_decision_governance_policies_effective ON decision_governance_policies(effective_at, expires_at);\r\nCREATE INDEX ix_decision_governance_policies_household ON decision_governance_policies(household_id);\r\nCREATE INDEX ix_decision_governance_policies_decision ON decision_governance_policies(decision_session_id);\r\nCREATE INDEX ix_decision_governance_compliance_scope ON decision_governance_compliance_results(scope_type, scope_id);\r\nCREATE INDEX ix_decision_governance_compliance_result ON decision_governance_compliance_results(result);\r\nCREATE INDEX ix_decision_governance_exceptions_expiration ON decision_governance_exceptions(expires_at);\r\nCREATE UNIQUE INDEX ux_decision_governance_active_policy_key ON decision_governance_policies(policy_key) WHERE status = 'Active';\r\nCREATE VIEW v_decision_governance_policy_summary AS\r\nSELECT policy_id, household_id, decision_session_id, name, scope_type, scope_id, owner, status, version_number, effective_at, expires_at, created_at, updated_at\r\nFROM decision_governance_policies\r\nWHERE status <> 'Deleted';\r\nCREATE MATERIALIZED VIEW mv_decision_governance_compliance_dashboard AS\r\nSELECT household_id, result, count(*) AS compliance_count, max(evaluated_at) AS last_evaluated_at\r\nFROM decision_governance_compliance_results\r\nGROUP BY household_id, result;\r\n```\r\n# EF Core Mapping\r\n- Fluent API maps DecisionGovernancePolicy to decision_governance_policies with policy_id primary key.\r\n- Owned Types map rule payload, exception payload, escalation payload, approval payload, audit payload, report payload, violations, and warnings as JSON.\r\n- Indexes map scope status, owner, effective window, household, decision, compliance scope, compliance result, exception expiration, and active policy key.\r\n- Value Conversion stores PolicyStatus, ComplianceResult, ApprovalState, ExceptionStatus, EscalationStatus, and Severity as strings.\r\n- Query Filters exclude Deleted by default and enforce tenant scope when tenant scope exists.\r\n- Concurrency token uses row_version column.\r\n- Navigation maps compliance results, approvals, exceptions, escalations, reports, operator history, and audit records.\r\n# Cache Strategy\r\n- Redis Key: atlas:decision-governance:{tenantId}:{householdId}:policies:active\r\n- Redis Key: atlas:decision-governance:{tenantId}:{householdId}:policy:{policyId}\r\n- Redis Key: atlas:decision-governance:{tenantId}:{householdId}:decision:{decisionSessionId}\r\n- Redis Key: atlas:decision-governance:{tenantId}:{householdId}:compliance:{scopeType}:{scopeId}\r\n- Redis Key: atlas:decision-governance:{tenantId}:{householdId}:dashboard\r\n- Governance Cache stores active governance summary and dashboard projection.\r\n- Policy Cache stores active policy definitions by scope.\r\n- Compliance Cache stores permission-filtered compliance projections only.\r\n- TTL: active policy cache 600 seconds.\r\n- TTL: policy detail cache 900 seconds.\r\n- TTL: compliance cache 300 seconds.\r\n- TTL: dashboard cache 180 seconds.\r\n- Refresh Strategy: refresh after policy change, compliance evaluation, exception change, escalation, approval change, and materialized view refresh.\r\n- Invalidation: invalidate by policy id, scope, household id, tenant id, DecisionSessionId, permission change, masking change, source version change, and lifecycle event.\r\n# Security\r\n- Authorization requires authenticated user and household access.\r\n- Permissions include DecisionGovernance.PolicyRead.\r\n- Permissions include DecisionGovernance.PolicyCreate.\r\n- Permissions include DecisionGovernance.PolicyUpdate.\r\n- Permissions include DecisionGovernance.PolicyApprove.\r\n- Permissions include DecisionGovernance.PolicyActivate.\r\n- Permissions include DecisionGovernance.PolicyArchive.\r\n- Permissions include DecisionGovernance.PolicyDelete.\r\n- Permissions include DecisionGovernance.ComplianceRead.\r\n- Permissions include DecisionGovernance.ComplianceEvaluate.\r\n- Permissions include DecisionGovernance.ExceptionResolve.\r\n- Permissions include DecisionGovernance.Escalate.\r\n- Permissions include DecisionGovernance.ReportGenerate.\r\n- Permissions include DecisionGovernance.AuditRead.\r\n- Policy Administration requires explicit policy administrator permission.\r\n- Decision Governance Permissions evaluate scope, command, policy type, exception authority, and approval authority.\r\n- Field Level Security masks financial, portfolio, cashflow, scenario, operator, audit, risk, and explainability-sensitive evidence.\r\n- Data Masking applies before cache, dashboard, report, export, notification, and API projection.\r\n# Audit\r\n- Policy History records created, updated, approved, rejected, activated, deactivated, retired, archived, restored, and deleted.\r\n- Compliance History records policy id, policy version, source version, result, violations, warnings, exceptions, actor, and evaluated time.\r\n- Approval History records approver, approval state, reason, DecisionSessionId, WorkflowInstanceId, and occurred time.\r\n- Exception History records request, approval, rejection, expiration, mitigation, resolution, and scope.\r\n- Governance History records report generation, escalation, access, cache invalidation, and retention decisions.\r\n- Operator History records operator action, permission context, masking mode, and timestamp.\r\n# Performance\r\n- Policy Evaluation Optimization uses active policy cache, scope index, policy key, and source version hash.\r\n- Incremental Compliance Check evaluates only changed source scopes and affected policies.\r\n- Parallel Validation evaluates independent policy scopes concurrently with bounded concurrency.\r\n- Caching stores active policies, compliance projections, dashboard projections, and report summaries.\r\n- Materialized Views aggregate compliance counts, failed counts, warning counts, exception counts, and escalation counts.\r\n- Read Optimization uses summary projections, covering indexes, and keyset pagination.\r\n# Example JSON\r\n## Create Policy\r\n```json\r\n{\"name\":\"Decision Approval Policy\",\"scope\":{\"type\":\"DecisionSession\"},\"owner\":\"Decision Governance\",\"rules\":{\"selfApprovalAllowed\":false},\"approvalRules\":{\"required\":true}}\r\n```\r\n## Update Policy\r\n```json\r\n{\"policyId\":\"2a2506af-bd44-4a0b-a001-000000000001\",\"version\":2,\"rules\":{\"approvalExpiresDays\":14},\"reason\":\"Approval freshness adjusted\"}\r\n```\r\n## Activate Policy\r\n```json\r\n{\"policyId\":\"2a2506af-bd44-4a0b-a001-000000000001\",\"effectiveAt\":\"2026-07-13T00:00:00Z\",\"reason\":\"Approved policy activation\"}\r\n```\r\n## Compliance Result\r\n```json\r\n{\"policyId\":\"2a2506af-bd44-4a0b-a001-000000000001\",\"decisionSessionId\":\"33b7ef1f-0000-4000-9000-000000000001\",\"result\":\"Failed\",\"sourceVersionHash\":\"decision-v17\",\"violations\":[{\"code\":\"SelfApprovalBlocked\"}]}\r\n```\r\n## Governance Report\r\n```json\r\n{\"scope\":{\"type\":\"Household\",\"id\":\"7b9f7d3a-1000-4000-9000-000000000001\"},\"period\":{\"from\":\"2026-07-01\",\"to\":\"2026-07-31\"},\"projection\":\"summary\"}\r\n```\r\n## Exception\r\n```json\r\n{\"policyId\":\"2a2506af-bd44-4a0b-a001-000000000001\",\"reason\":\"Approved emergency execution exception\",\"mitigation\":\"Review after execution\",\"expiresAt\":\"2026-08-13T00:00:00Z\"}\r\n```\r\n## Approval\r\n```json\r\n{\"policyId\":\"2a2506af-bd44-4a0b-a001-000000000001\",\"reason\":\"Policy reviewed and accepted\",\"approvalState\":\"Approved\"}\r\n```\r\n## Search\r\n```json\r\n{\"filters\":{\"status\":[\"Active\"],\"scope\":\"DecisionSession\"},\"sorting\":[{\"field\":\"effectiveAt\",\"direction\":\"desc\"}],\"pagination\":{\"pageNumber\":1,\"pageSize\":20}}\r\n```\r\n## Detail\r\n```json\r\n{\"policyId\":\"2a2506af-bd44-4a0b-a001-000000000001\",\"name\":\"Decision Approval Policy\",\"status\":\"Active\",\"version\":2,\"owner\":\"Decision Governance\"}\r\n```\r\n# Mermaid\r\n## Class Diagram\r\n```mermaid\r\nclassDiagram\r\nclass DecisionGovernancePolicy { PolicyId Name Status Version Owner }\r\nclass ComplianceResult { ComplianceId Result SourceVersion EvaluatedAt }\r\nclass PolicyException { ExceptionId Status ExpiresAt Reason }\r\nclass GovernanceApproval { ApprovalId ApprovalState Reason }\r\nDecisionGovernancePolicy --> ComplianceResult\r\nDecisionGovernancePolicy --> PolicyException\r\nDecisionGovernancePolicy --> GovernanceApproval\r\n```\r\n## Sequence Diagram\r\n```mermaid\r\nsequenceDiagram\r\nparticipant App as DecisionGovernanceApplicationService\r\nparticipant Domain as DecisionGovernanceDomainService\r\nparticipant Repo as IDecisionGovernanceRepository\r\nparticipant Event as DomainEventBus\r\nApp->>Domain: EvaluateCompliance(command)\r\nDomain->>Repo: GetActivePoliciesByScope(scope)\r\nDomain->>Domain: Evaluate policy rules\r\nDomain->>Repo: SaveComplianceResult(result)\r\nRepo-->>Domain: Persisted\r\nDomain->>Event: CompliancePassed or ComplianceFailed\r\n```\r\n## ER Diagram\r\n```mermaid\r\nerDiagram\r\ndecision_governance_policies ||--o{ decision_governance_compliance_results : evaluates\r\ndecision_governance_policies ||--o{ decision_governance_approvals : approves\r\ndecision_governance_policies ||--o{ decision_governance_exceptions : excepts\r\ndecision_governance_policies ||--o{ decision_governance_escalations : escalates\r\ndecision_governance_policies ||--o{ decision_governance_audit : audits\r\n```\r\n## Complete State Diagram\r\n```mermaid\r\nstateDiagram-v2\r\n[*] --> Created\r\nCreated --> PendingApproval\r\nPendingApproval --> Approved\r\nPendingApproval --> Rejected\r\nApproved --> Active\r\nActive --> Inactive\r\nInactive --> Active\r\nInactive --> Retired\r\nRetired --> Archived\r\nRejected --> Archived\r\nInactive --> Archived\r\nArchived --> Inactive\r\nArchived --> Deleted\r\n```\r\n## Governance Workflow\r\n```mermaid\r\nflowchart TD\r\nA[Policy Definition] --> B[Policy Validation]\r\nB --> C[Approval]\r\nC --> D[Activation]\r\nD --> E[Enforcement]\r\nE --> F[Monitoring]\r\nF --> G[Audit]\r\nG --> H[Retirement]\r\n```\r\n## Compliance Flow\r\n```mermaid\r\nflowchart TD\r\nA[Collect Evidence] --> B[Load Active Policy]\r\nB --> C[Evaluate Rules]\r\nC --> D{Compliant}\r\nD -->|Yes| E[Compliance Passed]\r\nD -->|No| F[Compliance Failed]\r\nF --> G[Exception Check]\r\nG --> H[Escalation]\r\n```\r\n## Approval Flow\r\n```mermaid\r\nflowchart TD\r\nA[Submit Policy] --> B[Validate Approver]\r\nB --> C{Decision}\r\nC -->|Approve| D[Policy Approved]\r\nC -->|Reject| E[Policy Rejected]\r\nD --> F[Activation Eligible]\r\n```\r\n## Exception Flow\r\n```mermaid\r\nflowchart TD\r\nA[Exception Raised] --> B[Validate Scope]\r\nB --> C[Approval]\r\nC --> D{Approved}\r\nD -->|Yes| E[Exception Active]\r\nD -->|No| F[Exception Rejected]\r\nE --> G[Resolve or Expire]\r\n```\r\n# Testing\r\n## Unit Test\r\nUnit tests validate policy lifecycle, validation rules, compliance evaluation, exception rules, escalation rules, approval rules, security rules, and masking.\r\n## Integration Test\r\nIntegration tests validate repository, API, domain events, cache invalidation, security, report generation, notification, and audit trail.\r\n## Governance Test\r\nGovernance tests validate policy definition, activation, enforcement, monitoring, report generation, retirement, archive, and restore.\r\n## Compliance Test\r\nCompliance tests validate passed, failed, warning, not applicable, exception applied, escalation required, and source version handling.\r\n## Approval Test\r\nApproval tests validate approver permission, workflow state, self-approval restriction, rejection, and approval history.\r\n## Performance Test\r\nPerformance tests validate active policy lookup, compliance evaluation latency, dashboard read latency, and materialized view refresh.\r\n## Concurrency Test\r\nConcurrency tests validate policy update conflict, duplicate activation, concurrent approval, exception race, and compliance evaluation race.\r\n## Stress Test\r\nStress tests validate large policy count, high compliance volume, high exception volume, high escalation volume, and report generation load.\r\n## Policy Validation Test\r\nPolicy validation tests validate scope, owner, rules, effective dates, approval rules, exception rules, escalation rules, and audit rules.\r\n# Edge Cases\r\n1. Policy is activated while another active policy conflicts. 2. Policy is rejected after approval request. 3. Policy effective date is in the past. 4. Policy expiration date is before effective date. 5. Compliance evaluation runs while policy is deactivated. 6. Compliance evaluation runs with stale source version. 7. Exception expires during compliance evaluation. 8. Exception is approved after escalation. 9. Exception is rejected after compliance failure. 10. Escalation recipient is missing. 11. Notification delivery fails. 12. Audit write fails. 13. User loses permission after policy cache is created. 14. Field masking changes after compliance result is cached. 15. Dashboard aggregation lags compliance evaluation. 16. Report generation includes archived policy. 17. Delete request violates retention. 18. Restore request conflicts with active policy. 19. Approval arrives after policy archive. 20. Activation arrives before approval. 21. Deactivation arrives during compliance evaluation. 22. Automation trigger is duplicated. 23. Workflow approval step is skipped. 24. Business Calendar blackout affects escalation due date. 25. Portfolio permission is revoked. 26. CashFlow period is closed. 27. Scenario version changes during evaluation. 28. DecisionSession is closed before approval. 29. Recommendation suppression has no reason. 30. Execution tries to start with failed compliance. 31. Optimization candidate becomes stale after compliance pass. 32. Simulation output is stale. 33. Decision Evaluation is stale. 34. Decision Explainability is incomplete. 35. Risk threshold changes during evaluation. 36. Pagination token references deleted policy. 37. Sorting by unsupported field. 38. Projection requests restricted audit fields. 39. Tenant scope is missing in tenant-aware environment. 40. Aggregation could reveal restricted compliance count. 41. Materialized view refresh fails. 42. Policy owner is deleted or inactive. 43. Exception resolution arrives after expiration. 44. Emergency override lacks reason. 45. Compliance report is requested without report permission.\r\n# Version History\r\n| Version | Date | Change | Owner |\r\n|---|---|---|---|\r\n| 1.0 | 2026-07-13 | Enterprise Specification for Decision Governance. | Project Atlas |\r\n",
+  "references": []
+}

@@ -1,0 +1,163 @@
+{
+  "id": "131675a03b0d0f25",
+  "title": "Home Upgrade Rule Catalog",
+  "category": "rule",
+  "canonicalPath": "knowledge/rule/home-upgrade-rule-catalog.md",
+  "sourceHash": "bbcad2c512c6ec45aabbd74540aa4918cfa3e9c7ad606487d22f9b6ea053a2ea",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Home Upgrade Rule Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    },
+    {
+      "level": 2,
+      "text": "Rule Categories"
+    },
+    {
+      "level": 3,
+      "text": "HUR-001 Liquidity Protection (Critical)"
+    },
+    {
+      "level": 3,
+      "text": "HUR-002 Emergency Fund Preservation (Critical)"
+    },
+    {
+      "level": 3,
+      "text": "HUR-003 Affordability Validation (Critical)"
+    },
+    {
+      "level": 3,
+      "text": "HUR-004 Debt Capacity"
+    },
+    {
+      "level": 3,
+      "text": "HUR-005 Goal Protection"
+    },
+    {
+      "level": 3,
+      "text": "HUR-006 Retirement Protection"
+    },
+    {
+      "level": 3,
+      "text": "HUR-007 Cash Flow Sustainability"
+    },
+    {
+      "level": 3,
+      "text": "HUR-008 Stress Test"
+    },
+    {
+      "level": 3,
+      "text": "HUR-009 Existing Property Evaluation"
+    },
+    {
+      "level": 3,
+      "text": "HUR-010 Scenario Comparison"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Decision Sequence"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Home Upgrade Rule Evaluation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Home Upgrade Rule Evaluation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Home Upgrade Rule Catalog\n\nVersion: 1.0\n\n## Purpose\nDefines the business rules governing home upgrade decisions within Project Atlas.\n\n## Scope\nSupported scenarios:\n- Keep existing home and buy another\n- Sell then buy\n- Buy then sell\n- Mortgage refinancing\n- Equity release\n- Investment property conversion\n\n## Rule Categories\n\n### HUR-001 Liquidity Protection (Critical)\nDo not approve a home upgrade if post-transaction liquidity falls below the minimum required threshold.\n\n### HUR-002 Emergency Fund Preservation (Critical)\nEmergency fund must remain compliant with the Emergency Fund Framework.\n\n### HUR-003 Affordability Validation (Critical)\nProjected housing payments must satisfy IPS affordability limits.\n\n### HUR-004 Debt Capacity\nNew borrowing must remain within approved debt and risk capacity.\n\n### HUR-005 Goal Protection\nFunding reserved for mandatory goals cannot be redirected to discretionary housing upgrades.\n\n### HUR-006 Retirement Protection\nRetirement funding minimums must not be violated.\n\n### HUR-007 Cash Flow Sustainability\nMonthly free cash flow must remain positive under baseline assumptions.\n\n### HUR-008 Stress Test\nEvaluate affordability under:\n- Interest rate increase\n- Income reduction\n- Unexpected expenses\n\n### HUR-009 Existing Property Evaluation\nCompare:\n- Retain and rent\n- Retain vacant\n- Sell immediately\nusing long-term net worth and cash-flow projections.\n\n### HUR-010 Scenario Comparison\nRank all feasible upgrade scenarios using Decision Engine scoring.\n\n## Inputs\n- Property valuations\n- Mortgage balances\n- Loan terms\n- Household income\n- Cash flow\n- Liquidity\n- Net worth\n- Market assumptions\n- Financial Health Score\n\n## Outputs\n- Recommended strategy\n- Required down payment\n- Mortgage recommendation\n- Cash-flow projection\n- Net-worth projection\n- Risk summary\n- Decision explanation\n\n## Decision Sequence\n1. Validate hard constraints.\n2. Preserve liquidity.\n3. Validate affordability.\n4. Compare scenarios.\n5. Rank recommendations.\n6. Generate explainability report.\n\n## Explainability\nInclude:\n- Triggered rules\n- Failed rules\n- Scenario ranking\n- Constraint summary\n- Financial impact\n\n## KPIs\n- Housing Affordability Ratio\n- Mortgage Burden Ratio\n- Liquidity Coverage Ratio\n- Net Worth Growth\n- Cash Flow Stability\n- Goal Funding Impact\n\n## Integration\nConsumes:\n- House Decision Framework\n- Loan Engine\n- Cash Flow Engine\n- Net Worth Framework\n- Liquidity Framework\n- Goal Funding Framework\n\nProduces:\n- Decision Engine\n- Home Upgrade Engine\n- Dashboard\n\n## Testing\n- Upgrade with property retention\n- Sell then buy\n- Buy then sell\n- High interest rates\n- Income reduction\n- Multi-property household\n\n## Future Enhancements\n- Tax-aware optimization\n- AI scenario ranking\n- Regional property rules\n- Rental yield optimization\n\n## Phase 2 Executable Specification\n\n### Home Upgrade Rule Evaluation Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| RuleEvaluationId | Yes | Stable evaluation identifier |\n| HouseholdId | Yes | Household scope |\n| ScenarioId | Yes | Housing scenario being evaluated |\n| RuleId | Yes | HUR rule identifier |\n| RuleVersion | Yes | Immutable rule version |\n| InputSnapshotId | Yes | Source data snapshot |\n| EvaluationResult | Yes | Passed, Failed, Warning, NotApplicable |\n| Severity | Yes | Critical, High, Medium, Low |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| EvaluateHomeUpgradeRules | HomeUpgradeApplicationService | HomeUpgradeRulesEvaluated |\n| RankHomeUpgradeScenarios | HomeUpgradeApplicationService | HomeUpgradeScenariosRanked |\n| RejectUnsafeHomeUpgradeScenario | HomeUpgradeApplicationService | HomeUpgradeScenarioRejected |\n| ReplayHomeUpgradeRuleEvaluation | AdministrationApplicationService | HomeUpgradeRuleEvaluationReplayed |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| HomeUpgradeRulesEvaluated | Rule evaluation completed | Decision Engine, Dashboard |\n| HomeUpgradeScenarioRejected | Critical rule failed | Alert, Recommendation Engine |\n| HomeUpgradeScenarioRanked | Feasible scenario ranking completed | Decision Engine |\n| HomeUpgradeRuleEvaluationReplayed | Historical evaluation reproduced | Audit |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| HUR-VR-001 | Critical liquidity, emergency fund, affordability, and cashflow rules must pass before approval. | Reject scenario |\n| HUR-VR-002 | Every rule result must reference rule version and input snapshot. | Reject result |\n| HUR-VR-003 | Scenario ranking may include only feasible scenarios. | Reject ranking |\n| HUR-VR-004 | Replay must use original rule version and input snapshot. | Reject replay |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/home-upgrade/rules/evaluate | POST | Evaluate home upgrade rules | HomeUpgrade:Evaluate |\n| /api/v1/home-upgrade/scenarios/rank | POST | Rank feasible scenarios | HomeUpgrade:Evaluate |\n| /api/v1/home-upgrade/rules/{evaluationId}/replay | POST | Replay rule evaluation | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Liquidity below threshold | Scenario is rejected |\n| Emergency fund violation | Critical failure is returned |\n| Buy-before-sell stress test fails | Scenario is rejected or escalated |\n| Feasible scenarios ranked | Deterministic ranking returned |\n| Historical replay | Original rule results reproduce |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Home Upgrade Rule Evaluation Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| RuleEvaluationId | Yes | Stable evaluation identifier |\n| HouseholdId | Yes | Household scope |\n| ScenarioId | Yes | Housing scenario being evaluated |\n| RuleId | Yes | HUR rule identifier |\n| RuleVersion | Yes | Immutable rule version |\n| InputSnapshotId | Yes | Source data snapshot |\n| EvaluationResult | Yes | Passed, Failed, Warning, NotApplicable |\n| Severity | Yes | Critical, High, Medium, Low |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| EvaluateHomeUpgradeRules | HomeUpgradeApplicationService | HomeUpgradeRulesEvaluated |\n| RankHomeUpgradeScenarios | HomeUpgradeApplicationService | HomeUpgradeScenariosRanked |\n| RejectUnsafeHomeUpgradeScenario | HomeUpgradeApplicationService | HomeUpgradeScenarioRejected |\n| ReplayHomeUpgradeRuleEvaluation | AdministrationApplicationService | HomeUpgradeRuleEvaluationReplayed |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| HomeUpgradeRulesEvaluated | Rule evaluation completed | Decision Engine, Dashboard |\n| HomeUpgradeScenarioRejected | Critical rule failed | Alert, Recommendation Engine |\n| HomeUpgradeScenarioRanked | Feasible scenario ranking completed | Decision Engine |\n| HomeUpgradeRuleEvaluationReplayed | Historical evaluation reproduced | Audit |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| HUR-VR-001 | Critical liquidity, emergency fund, affordability, and cashflow rules must pass before approval. | Reject scenario |\n| HUR-VR-002 | Every rule result must reference rule version and input snapshot. | Reject result |\n| HUR-VR-003 | Scenario ranking may include only feasible scenarios. | Reject ranking |\n| HUR-VR-004 | Replay must use original rule version and input snapshot. | Reject replay |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/home-upgrade/rules/evaluate | POST | Evaluate home upgrade rules | HomeUpgrade:Evaluate |\n| /api/v1/home-upgrade/scenarios/rank | POST | Rank feasible scenarios | HomeUpgrade:Evaluate |\n| /api/v1/home-upgrade/rules/{evaluationId}/replay | POST | Replay rule evaluation | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Liquidity below threshold | Scenario is rejected |\n| Emergency fund violation | Critical failure is returned |\n| Buy-before-sell stress test fails | Scenario is rejected or escalated |\n| Feasible scenarios ranked | Deterministic ranking returned |\n| Historical replay | Original rule results reproduce |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

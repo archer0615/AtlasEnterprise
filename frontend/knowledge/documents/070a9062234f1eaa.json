@@ -1,0 +1,91 @@
+{
+  "id": "070a9062234f1eaa",
+  "title": "knowledge/decision-workflow.md",
+  "category": "workflow",
+  "canonicalPath": "knowledge/workflow/decision-workflow.md",
+  "sourceHash": "7e150b1321c99648a4fbddf5e57a1e2f6423ff366cbcdfa26830c88e1748bece",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/decision-workflow.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Decision Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "High-Level Workflow"
+    },
+    {
+      "level": 1,
+      "text": "Phase Details"
+    },
+    {
+      "level": 2,
+      "text": "Phase 1 – Input Validation"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 – Assumption Loading"
+    },
+    {
+      "level": 2,
+      "text": "Phase 3 – Scenario Construction"
+    },
+    {
+      "level": 2,
+      "text": "Phase 4 – Domain Engine Execution"
+    },
+    {
+      "level": 2,
+      "text": "Phase 5 – KPI Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Phase 6 – Financial Ratio Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Phase 7 – Risk Assessment"
+    },
+    {
+      "level": 2,
+      "text": "Phase 8 – Decision Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Phase 9 – Recommendation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Phase 10 – Explainability Layer"
+    },
+    {
+      "level": 2,
+      "text": "Phase 11 – Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Phase 12 – Response"
+    },
+    {
+      "level": 1,
+      "text": "Error Handling"
+    },
+    {
+      "level": 1,
+      "text": "Audit Requirements"
+    },
+    {
+      "level": 1,
+      "text": "Extension Points"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/decision-workflow.md\n\n# Atlas Decision Workflow\nVersion: 1.0\n\n## Purpose\nDefines the end-to-end workflow executed by the Atlas Decision Engine. The workflow is deterministic, versioned and auditable, ensuring identical inputs always produce identical outputs under the same assumption set.\n\n---\n\n# High-Level Workflow\n\n1. Receive Decision Request\n2. Validate Input\n3. Load Assumptions\n4. Build Scenario Context\n5. Execute Domain Engines\n6. Calculate KPIs\n7. Calculate Financial Ratios\n8. Execute Risk Framework\n9. Score Decision Matrix\n10. Rank Scenarios\n11. Generate Recommendations\n12. Produce Explainability\n13. Persist Decision Snapshot\n14. Return Result\n\n---\n\n# Phase Details\n\n## Phase 1 – Input Validation\nValidate:\n- Required entities\n- Timeline\n- Currency\n- Asset completeness\n- Liability completeness\n- Goal consistency\n\nFailure:\n- Return validation errors.\n- Do not execute downstream calculations.\n\n---\n\n## Phase 2 – Assumption Loading\n\nLoad:\n- Financial assumptions\n- Market assumptions\n- Tax assumptions\n- Mortgage assumptions\n- Inflation assumptions\n\nEvery assumption must include:\n- Version\n- Effective date\n\n---\n\n## Phase 3 – Scenario Construction\n\nCreate immutable scenario snapshot containing:\n- Household profile\n- Assets\n- Liabilities\n- Cash flow\n- Goals\n- Insurance\n- Portfolio\n- Timeline\n\n---\n\n## Phase 4 – Domain Engine Execution\n\nExecution order:\n\n1. Cash Flow Engine\n2. Loan Engine\n3. Investment Engine\n4. Home Upgrade Engine\n5. Retirement Engine\n\nEach engine returns:\n- Metrics\n- KPIs\n- Warnings\n- Assumptions used\n\n---\n\n## Phase 5 – KPI Calculation\n\nGenerate standardized KPIs using canonical definitions.\n\nOutput:\n- KPI ID\n- Value\n- Unit\n- Status\n\n---\n\n## Phase 6 – Financial Ratio Calculation\n\nGenerate all required financial ratios.\n\nExamples:\n- DTI\n- LTV\n- Savings Rate\n- Emergency Fund Ratio\n- Financial Independence Ratio\n\n---\n\n## Phase 7 – Risk Assessment\n\nEvaluate:\n- Liquidity\n- Cash Flow\n- Leverage\n- Investment\n- Inflation\n- Interest Rate\n- Retirement\n- Insurance\n- Concentration\n- Behavioral risk\n\nProduce:\n- Risk scores\n- Risk level\n- Mitigation actions\n\n---\n\n## Phase 8 – Decision Matrix\n\nAggregate category scores.\n\nApply configured weights.\n\nProduce:\n- Total score\n- Category scores\n- Ranking\n\n---\n\n## Phase 9 – Recommendation Engine\n\nPossible outcomes:\n- Recommend\n- Recommend with Conditions\n- Neutral\n- Not Recommended\n\nInclude:\n- Benefits\n- Trade-offs\n- Constraints\n- Next actions\n\n---\n\n## Phase 10 – Explainability Layer\n\nFor every recommendation provide:\n- Inputs used\n- Formula references\n- Major positive factors\n- Major negative factors\n- Dominant assumptions\n- Sensitivity summary\n\n---\n\n## Phase 11 – Persistence\n\nPersist immutable snapshot including:\n- Decision ID\n- Scenario ID\n- Formula version\n- Assumption version\n- Risk version\n- Timestamp\n- User inputs\n- Engine outputs\n\n---\n\n## Phase 12 – Response\n\nReturn:\n- Ranked scenarios\n- Recommendation\n- KPI summary\n- Ratio summary\n- Risk summary\n- Explanation\n- Audit identifiers\n\n---\n\n# Error Handling\n\nRecoverable:\n- Missing optional data\n- Temporary market data unavailable\n\nNon-recoverable:\n- Invalid financial model\n- Missing required assumptions\n- Circular dependency\n- Corrupted scenario snapshot\n\n---\n\n# Audit Requirements\n\nEvery execution shall record:\n- Workflow version\n- Engine versions\n- Assumption versions\n- Formula versions\n- Execution duration\n- Trace ID\n\nHistorical decision results must remain reproducible.\n\n---\n\n# Extension Points\n\nFuture workflow stages may include:\n- Monte Carlo simulation\n- AI scenario optimization\n- Behavioral coaching\n- Automatic strategy comparison\n- Policy rule engine\n",
+  "references": []
+}

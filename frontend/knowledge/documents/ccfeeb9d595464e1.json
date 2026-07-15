@@ -1,0 +1,211 @@
+{
+  "id": "ccfeeb9d595464e1",
+  "title": "knowledge/financial-ratios.md",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/financial-ratios.md",
+  "sourceHash": "9d0439c744f03f6969bcda9ef3e386bd09064836a5b881073b606f3821fd37de",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/financial-ratios.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Financial Ratios"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Metadata"
+    },
+    {
+      "level": 1,
+      "text": "Liquidity"
+    },
+    {
+      "level": 2,
+      "text": "FR-LIQ-001 Emergency Fund Ratio"
+    },
+    {
+      "level": 2,
+      "text": "FR-LIQ-002 Cash Reserve Ratio"
+    },
+    {
+      "level": 1,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "FR-CF-001 Savings Rate"
+    },
+    {
+      "level": 2,
+      "text": "FR-CF-002 Passive Income Coverage"
+    },
+    {
+      "level": 2,
+      "text": "FR-CF-003 Cash Burn Rate"
+    },
+    {
+      "level": 1,
+      "text": "Debt"
+    },
+    {
+      "level": 2,
+      "text": "FR-DEBT-001 Debt-to-Income (DTI)"
+    },
+    {
+      "level": 2,
+      "text": "FR-DEBT-002 Debt Service Coverage Ratio (DSCR)"
+    },
+    {
+      "level": 2,
+      "text": "FR-DEBT-003 Loan-to-Value (LTV)"
+    },
+    {
+      "level": 1,
+      "text": "Investment"
+    },
+    {
+      "level": 2,
+      "text": "FR-INV-001 Portfolio Return"
+    },
+    {
+      "level": 2,
+      "text": "FR-INV-002 Dividend Yield"
+    },
+    {
+      "level": 2,
+      "text": "FR-INV-003 Allocation Drift"
+    },
+    {
+      "level": 2,
+      "text": "FR-INV-004 Portfolio Turnover"
+    },
+    {
+      "level": 1,
+      "text": "Housing"
+    },
+    {
+      "level": 2,
+      "text": "FR-HOUSE-001 Housing Cost Ratio"
+    },
+    {
+      "level": 2,
+      "text": "FR-HOUSE-002 Home Equity Ratio"
+    },
+    {
+      "level": 1,
+      "text": "Retirement"
+    },
+    {
+      "level": 2,
+      "text": "FR-RET-001 Retirement Funding Ratio"
+    },
+    {
+      "level": 2,
+      "text": "FR-RET-002 Safe Withdrawal Rate"
+    },
+    {
+      "level": 1,
+      "text": "Insurance"
+    },
+    {
+      "level": 2,
+      "text": "FR-INS-001 Insurance Coverage Ratio"
+    },
+    {
+      "level": 1,
+      "text": "Wealth"
+    },
+    {
+      "level": 2,
+      "text": "FR-WEALTH-001 Net Worth Growth Rate"
+    },
+    {
+      "level": 2,
+      "text": "FR-WEALTH-002 Financial Independence Ratio"
+    },
+    {
+      "level": 1,
+      "text": "Composite"
+    },
+    {
+      "level": 2,
+      "text": "FR-COMP-001 Financial Health Index"
+    },
+    {
+      "level": 1,
+      "text": "Governance"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Ratio Calculation Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Ratio Catalog Completeness"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    },
+    {
+      "level": 1,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 2,
+      "text": "Ratio Calculation Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Ratio Catalog Completeness"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/financial-ratios.md\n\n# Atlas Financial Ratios\nVersion: 1.0\n\n## Purpose\nDefines the canonical financial ratios used across all Atlas engines. Every ratio has a stable identifier, business definition, formula, unit, interpretation, thresholds and owner.\n\n---\n\n## Metadata\n\nEach ratio shall define:\n- Ratio ID\n- Name\n- Purpose\n- Formula\n- Inputs\n- Unit\n- Interpretation\n- Target\n- Warning Threshold\n- Critical Threshold\n- Source Engine\n\n---\n\n# Liquidity\n\n## FR-LIQ-001 Emergency Fund Ratio\nFormula:\nLiquid Assets / Average Monthly Expenses\n\nUnit:\nMonths\n\nTarget:\n6–12 months\n\nInterpretation:\nHigher indicates stronger short-term resilience.\n\n---\n\n## FR-LIQ-002 Cash Reserve Ratio\nFormula:\nCash / Total Monthly Obligations\n\nTarget:\n>= 3\n\nOwner:\nCash Flow Engine\n\n---\n\n# Cash Flow\n\n## FR-CF-001 Savings Rate\nFormula:\n(Net Savings / Gross Income) × 100%\n\nTarget:\n>= 20%\n\n---\n\n## FR-CF-002 Passive Income Coverage\nFormula:\nPassive Income / Living Expenses\n\nTarget:\n>= 100%\n\n---\n\n## FR-CF-003 Cash Burn Rate\nFormula:\n(Net Cash Outflow / Month)\n\nTarget:\n<= 0\n\n---\n\n# Debt\n\n## FR-DEBT-001 Debt-to-Income (DTI)\nFormula:\nMonthly Debt Payments / Monthly Gross Income\n\nTarget:\n< 40%\n\n---\n\n## FR-DEBT-002 Debt Service Coverage Ratio (DSCR)\nFormula:\nDisposable Income / Monthly Debt Payment\n\nTarget:\n> 1.5\n\n---\n\n## FR-DEBT-003 Loan-to-Value (LTV)\nFormula:\nOutstanding Loan / Property Value\n\nInterpretation:\nLower generally indicates lower leverage risk.\n\n---\n\n# Investment\n\n## FR-INV-001 Portfolio Return\nFormula:\n(Current Value − Invested Capital) / Invested Capital\n\n---\n\n## FR-INV-002 Dividend Yield\nFormula:\nAnnual Dividend / Portfolio Market Value\n\n---\n\n## FR-INV-003 Allocation Drift\nFormula:\nCurrent Allocation − Target Allocation\n\nTarget:\nWithin IPS tolerance.\n\n---\n\n## FR-INV-004 Portfolio Turnover\nFormula:\nTrading Amount / Average Portfolio Value\n\n---\n\n# Housing\n\n## FR-HOUSE-001 Housing Cost Ratio\nFormula:\nMonthly Housing Cost / Household Income\n\nTarget:\n<= 30%\n\n---\n\n## FR-HOUSE-002 Home Equity Ratio\nFormula:\n(Property Value − Loan Balance) / Property Value\n\n---\n\n# Retirement\n\n## FR-RET-001 Retirement Funding Ratio\nFormula:\nRetirement Assets / Required Retirement Capital\n\nTarget:\n>= 100%\n\n---\n\n## FR-RET-002 Safe Withdrawal Rate\nFormula:\nAnnual Withdrawal / Retirement Assets\n\nReference:\nPolicy dependent (e.g. 4% guideline).\n\n---\n\n# Insurance\n\n## FR-INS-001 Insurance Coverage Ratio\nFormula:\nLife Insurance Coverage / Estimated Protection Need\n\nTarget:\n>= 100%\n\n---\n\n# Wealth\n\n## FR-WEALTH-001 Net Worth Growth Rate\nFormula:\n(Current Net Worth − Previous Net Worth) / Previous Net Worth\n\n---\n\n## FR-WEALTH-002 Financial Independence Ratio\nFormula:\nPassive Income / Required Living Expenses\n\nTarget:\n>= 100%\n\n---\n\n# Composite\n\n## FR-COMP-001 Financial Health Index\n\nA weighted composite derived from:\n- Liquidity\n- Cash Flow\n- Debt\n- Investment\n- Housing\n- Retirement\n- Insurance\n\nRange:\n0–100\n\n---\n\n# Governance\n\n- Ratio IDs are immutable.\n- Formula changes require version updates.\n- Ratios consume normalized data only.\n- Historical calculations remain reproducible by referencing the applicable assumption version.\n- Dashboard, Decision Engine and Scenario Engine must use these canonical definitions exclusively.\n\n---\n\n# Phase 2 Executable Specification\n\n## Ratio Calculation Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| RatioCalculationId | Yes | Stable calculated value identifier |\n| RatioId | Yes | Canonical ratio identifier |\n| RatioVersion | Yes | Ratio definition version |\n| HouseholdId | Yes | Household scope |\n| ScenarioId | No | Scenario scope when applicable |\n| InputSnapshotId | Yes | Source data snapshot |\n| Value | Yes | Calculated ratio value |\n| Unit | Yes | Months, Percent, Ratio, Score |\n| ThresholdState | Yes | Normal, Watch, Warning, Critical |\n| CalculatedAt | Yes | Calculation timestamp |\n| TraceId | Yes | Audit trace |\n\n## Required Ratio Catalog Completeness\n\n| Domain | Required Minimum |\n|--------|------------------|\n| Liquidity | Emergency Fund Ratio, Cash Reserve Ratio |\n| Cash Flow | Savings Rate, Passive Income Coverage, Cash Burn Rate |\n| Debt | DTI, DSCR, LTV |\n| Investment | Return, Dividend Yield, Allocation Drift, Turnover |\n| Housing | Housing Cost Ratio, Home Equity Ratio |\n| Retirement | Funding Ratio, Safe Withdrawal Rate |\n| Insurance | Coverage Ratio |\n| Wealth | Net Worth Growth, Financial Independence Ratio |\n\n## Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CalculateCanonicalRatios | RatioApplicationService | CanonicalRatiosCalculated |\n| CalculateScenarioRatios | ScenarioApplicationService | ScenarioRatiosCalculated |\n| ValidateRatioCatalogCompleteness | GovernanceApplicationService | RatioCatalogCompletenessValidated |\n\n## Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FRC-VR-001 | Every canonical ratio must have stable ID, formula, unit, threshold, and owner. | Reject catalog |\n| FRC-VR-002 | Calculated ratio must preserve input snapshot and formula version. | Reject value |\n| FRC-VR-003 | Scenario ratios must reference ScenarioId and ScenarioVersion. | Reject value |\n| FRC-VR-004 | Ratio values with percent units must define scale. | Reject catalog |\n| FRC-VR-005 | Division by zero must return deterministic validation error. | Reject calculation |\n\n## API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/financial-ratios | GET | Retrieve current canonical ratios | Ratio:Read |\n| /api/v1/financial-ratios/calculate | POST | Calculate canonical ratios | Ratio:Evaluate |\n| /api/v1/scenarios/{scenarioId}/financial-ratios | POST | Calculate scenario ratios | Scenario:Evaluate |\n| /api/v1/financial-ratios/catalog/validate | POST | Validate catalog completeness | Ratio:Admin |\n\n## Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing ratio owner | Catalog validation fails |\n| DTI denominator zero | Deterministic validation error returned |\n| Scenario ratio calculation | Scenario version is stored |\n| Threshold crossing | Threshold state is assigned |\n| Historical calculation read | Input snapshot and ratio version are returned |\n\n# Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n---\n\n# Phase 2 Executable Specification\n\n## Ratio Calculation Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| RatioCalculationId | Yes | Stable calculated value identifier |\n| RatioId | Yes | Canonical ratio identifier |\n| RatioVersion | Yes | Ratio definition version |\n| HouseholdId | Yes | Household scope |\n| ScenarioId | No | Scenario scope when applicable |\n| InputSnapshotId | Yes | Source data snapshot |\n| Value | Yes | Calculated ratio value |\n| Unit | Yes | Months, Percent, Ratio, Score |\n| ThresholdState | Yes | Normal, Watch, Warning, Critical |\n| CalculatedAt | Yes | Calculation timestamp |\n| TraceId | Yes | Audit trace |\n\n## Required Ratio Catalog Completeness\n\n| Domain | Required Minimum |\n|--------|------------------|\n| Liquidity | Emergency Fund Ratio, Cash Reserve Ratio |\n| Cash Flow | Savings Rate, Passive Income Coverage, Cash Burn Rate |\n| Debt | DTI, DSCR, LTV |\n| Investment | Return, Dividend Yield, Allocation Drift, Turnover |\n| Housing | Housing Cost Ratio, Home Equity Ratio |\n| Retirement | Funding Ratio, Safe Withdrawal Rate |\n| Insurance | Coverage Ratio |\n| Wealth | Net Worth Growth, Financial Independence Ratio |\n\n## Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CalculateCanonicalRatios | RatioApplicationService | CanonicalRatiosCalculated |\n| CalculateScenarioRatios | ScenarioApplicationService | ScenarioRatiosCalculated |\n| ValidateRatioCatalogCompleteness | GovernanceApplicationService | RatioCatalogCompletenessValidated |\n\n## Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FRC-VR-001 | Every canonical ratio must have stable ID, formula, unit, threshold, and owner. | Reject catalog |\n| FRC-VR-002 | Calculated ratio must preserve input snapshot and formula version. | Reject value |\n| FRC-VR-003 | Scenario ratios must reference ScenarioId and ScenarioVersion. | Reject value |\n| FRC-VR-004 | Ratio values with percent units must define scale. | Reject catalog |\n| FRC-VR-005 | Division by zero must return deterministic validation error. | Reject calculation |\n\n## API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/financial-ratios | GET | Retrieve current canonical ratios | Ratio:Read |\n| /api/v1/financial-ratios/calculate | POST | Calculate canonical ratios | Ratio:Evaluate |\n| /api/v1/scenarios/{scenarioId}/financial-ratios | POST | Calculate scenario ratios | Scenario:Evaluate |\n| /api/v1/financial-ratios/catalog/validate | POST | Validate catalog completeness | Ratio:Admin |\n\n## Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Missing ratio owner | Catalog validation fails |\n| DTI denominator zero | Deterministic validation error returned |\n| Scenario ratio calculation | Scenario version is stored |\n| Threshold crossing | Threshold state is assigned |\n| Historical calculation read | Input snapshot and ratio version are returned |\n\n# Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

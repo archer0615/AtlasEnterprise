@@ -1,0 +1,91 @@
+{
+  "id": "91edb29ea327799c",
+  "title": "knowledge/decision-matrix.md",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-matrix.md",
+  "sourceHash": "4e1c93742ed388e84bb179b63cf05bec107209fcb34cdead759b8e1ec98c0928",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/decision-matrix.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Decision Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Evaluation Flow"
+    },
+    {
+      "level": 1,
+      "text": "Scoring Scale"
+    },
+    {
+      "level": 1,
+      "text": "Evaluation Categories"
+    },
+    {
+      "level": 1,
+      "text": "Category Examples"
+    },
+    {
+      "level": 2,
+      "text": "Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "Liquidity"
+    },
+    {
+      "level": 2,
+      "text": "Debt"
+    },
+    {
+      "level": 2,
+      "text": "Investment"
+    },
+    {
+      "level": 2,
+      "text": "Retirement"
+    },
+    {
+      "level": 2,
+      "text": "Housing"
+    },
+    {
+      "level": 2,
+      "text": "Risk"
+    },
+    {
+      "level": 2,
+      "text": "Goal Alignment"
+    },
+    {
+      "level": 1,
+      "text": "Decision Rules"
+    },
+    {
+      "level": 1,
+      "text": "Tie-breaking"
+    },
+    {
+      "level": 1,
+      "text": "Output Schema"
+    },
+    {
+      "level": 1,
+      "text": "Explainability"
+    },
+    {
+      "level": 1,
+      "text": "Governance"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/decision-matrix.md\n\n# Atlas Decision Matrix\nVersion: 1.0\n\n## Purpose\nThe Decision Matrix standardizes how the Decision Engine evaluates competing financial scenarios. It converts outputs from domain engines into comparable scores while preserving transparency and explainability.\n\n---\n\n# Evaluation Flow\n\nInputs\n→ Domain Engines\n→ KPI Calculation\n→ Financial Ratios\n→ Risk Framework\n→ Weighted Scoring\n→ Decision Ranking\n→ Recommendation\n\n---\n\n# Scoring Scale\n\n| Score | Meaning |\n|------:|---------|\n| 90–100 | Strongly Recommend |\n| 75–89 | Recommend |\n| 60–74 | Acceptable |\n| 40–59 | Weak |\n| 0–39 | Reject |\n\n---\n\n# Evaluation Categories\n\n| Category | Default Weight |\n|----------|---------------:|\n| Cash Flow | 20% |\n| Liquidity | 15% |\n| Debt & Leverage | 15% |\n| Investment | 15% |\n| Retirement | 15% |\n| Housing | 10% |\n| Risk | 5% |\n| Goal Alignment | 5% |\n\nTotal = 100%\n\n---\n\n# Category Examples\n\n## Cash Flow\nMeasures:\n- Monthly surplus\n- Savings rate\n- Passive income coverage\n\n## Liquidity\nMeasures:\n- Emergency fund ratio\n- Cash reserve ratio\n\n## Debt\nMeasures:\n- DTI\n- LTV\n- DSCR\n\n## Investment\nMeasures:\n- Portfolio return\n- Allocation drift\n- Diversification\n\n## Retirement\nMeasures:\n- Funding ratio\n- Success probability\n\n## Housing\nMeasures:\n- Housing affordability\n- Home equity\n\n## Risk\nMeasures:\n- Overall risk score\n- Concentration\n- Interest-rate sensitivity\n\n## Goal Alignment\nMeasures:\n- Progress toward life goals\n- IPS compliance\n- Blueprint consistency\n\n---\n\n# Decision Rules\n\nThe Decision Engine shall:\n- Use normalized KPIs only.\n- Evaluate every scenario independently.\n- Produce ranked results.\n- Explain score contributions.\n- Record assumption version.\n\n---\n\n# Tie-breaking\n\nIf total scores are equal:\n\n1. Lower overall risk.\n2. Higher liquidity.\n3. Better retirement sustainability.\n4. Better goal alignment.\n5. Lower leverage.\n\n---\n\n# Output Schema\n\n- ScenarioId\n- TotalScore\n- Rank\n- CategoryScores\n- KeyStrengths\n- KeyWeaknesses\n- Recommendation\n- AssumptionVersion\n- FormulaVersion\n- DecisionTimestamp\n\n---\n\n# Explainability\n\nEvery recommendation must include:\n- Why the score was assigned.\n- Largest positive contributors.\n- Largest negative contributors.\n- Recommended improvement actions.\n\n---\n\n# Governance\n\n- Weight changes are version-controlled.\n- Historical decisions remain reproducible.\n- Business rules, formulas and assumptions are independently versioned.\n",
+  "references": []
+}

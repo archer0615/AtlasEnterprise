@@ -1,0 +1,127 @@
+{
+  "id": "58c18508e223d806",
+  "title": "Net Worth Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/net-worth-framework.md",
+  "sourceHash": "1d5b0cf28f9042d284453ae1b1c906049a63384745ff275515f471102b048feb",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Net Worth Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Formula"
+    },
+    {
+      "level": 2,
+      "text": "Asset Categories"
+    },
+    {
+      "level": 3,
+      "text": "Liquid Assets"
+    },
+    {
+      "level": 3,
+      "text": "Investment Assets"
+    },
+    {
+      "level": 3,
+      "text": "Real Assets"
+    },
+    {
+      "level": 3,
+      "text": "Retirement Assets"
+    },
+    {
+      "level": 3,
+      "text": "Other Assets"
+    },
+    {
+      "level": 2,
+      "text": "Liability Categories"
+    },
+    {
+      "level": 2,
+      "text": "Valuation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Derived Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Snapshot Model"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine Integration"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Net Worth Snapshot Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Net Worth Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the enterprise standard for calculating, tracking and analyzing net worth within Project Atlas. This framework is the single source of truth for all asset, liability and equity calculations.\n\n## Objectives\n- Standardize net worth calculations.\n- Provide historical trend analysis.\n- Support decision simulations.\n- Supply consistent metrics to all engines.\n\n## Formula\n\nNet Worth =\nTotal Assets\n- Total Liabilities\n\n## Asset Categories\n### Liquid Assets\n- Cash\n- Checking accounts\n- Savings\n- Money market funds\n\n### Investment Assets\n- Stocks\n- ETFs\n- Mutual funds\n- Bonds\n- Structured products\n\n### Real Assets\n- Primary residence\n- Investment property\n- Vehicles\n- Precious metals\n\n### Retirement Assets\n- Pension\n- Retirement accounts\n\n### Other Assets\n- Business equity\n- Collectibles\n- Other IPS-approved assets\n\n## Liability Categories\n- Mortgage\n- Personal loans\n- Margin loans\n- Credit card balances\n- Tax liabilities\n- Other obligations\n\n## Valuation Rules\n- Market-traded assets use latest market value.\n- Property uses configurable valuation model.\n- Liabilities use outstanding principal plus accrued obligations.\n- Unsupported assets require manual valuation.\n\n## Inputs\n- Asset inventory\n- Liability inventory\n- Market prices\n- Exchange rates\n- Property valuations\n- Loan balances\n\n## Derived Metrics\n- Net Worth\n- Investable Net Worth\n- Liquid Net Worth\n- Housing Equity\n- Debt Ratio\n- Asset Growth Rate\n- Net Worth CAGR\n\n## Snapshot Model\nEach snapshot stores:\n- Date\n- Total Assets\n- Total Liabilities\n- Net Worth\n- Category breakdown\n- Valuation source\n\n## Business Rules\n- Every asset belongs to exactly one category.\n- Every liability belongs to exactly one category.\n- Historical snapshots are immutable.\n- Valuation changes are fully auditable.\n\n## Decision Engine Integration\nConsumed by:\n- Financial Health Score\n- House Decision Framework\n- Retirement Engine\n- Scenario Engine\n- Dashboard\n- Capital Allocation Framework\n\n## Explainability\nEach calculation reports:\n- Asset totals\n- Liability totals\n- Category contributions\n- Valuation assumptions\n- Historical comparison\n\n## KPIs\n- Net Worth\n- Net Worth Growth\n- Liquid Net Worth\n- Investable Assets\n- Debt-to-Net-Worth Ratio\n- Asset Allocation by Category\n\n## Testing\n- Single asset household\n- Multi-property household\n- Negative net worth\n- Multi-currency portfolio\n- Rapid market movement\n- Historical restatement protection\n\n## Future Enhancements\n- Real-time valuation feeds\n- Household consolidation\n- Predictive net worth forecasting\n- AI anomaly detection\n\n## Phase 2 Executable Specification\n\n### Net Worth Snapshot Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | NetWorthSnapshot |\n| Identity | snapshotId |\n| Scope | tenantId, householdId, asOfDate |\n| Inputs | assets, liabilities, prices, FX rates, property valuations, loan balances |\n| Outputs | totalAssets, totalLiabilities, netWorth, liquidNetWorth, investableNetWorth, categoryBreakdown |\n| Immutability | Published snapshots are immutable and corrections require restatement snapshots. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| CalculateNetWorthSnapshot | Calculate a point-in-time net worth snapshot. |\n| PublishNetWorthSnapshot | Freeze a validated snapshot for reporting. |\n| ReconcileNetWorthInputs | Compare source inputs against calculated totals. |\n| RestateNetWorthSnapshot | Correct historical valuation with audit trail. |\n| EvaluateNetWorthThresholds | Evaluate thresholds for alerts and decision rules. |\n| ReplayNetWorthCalculation | Rebuild snapshot from stored inputs and valuation versions. |\n\n### Domain Events\n\n| Event | Trigger |\n|---|---|\n| NetWorthSnapshotCalculated | Snapshot calculation completes. |\n| NetWorthSnapshotPublished | Snapshot is frozen for reporting. |\n| NetWorthInputsReconciled | Source input reconciliation completes. |\n| NetWorthSnapshotRestated | Historical snapshot correction is published. |\n| NetWorthThresholdEvaluated | Threshold evaluation completes. |\n| NetWorthCalculationReplayed | Historical calculation is reproduced. |\n\n### Validation Rules\n\n1. Every asset and liability must belong to exactly one category.\n2. Snapshot totals must equal category sum totals after currency conversion.\n3. Liquid net worth must exclude self-use real estate and illiquid assets unless explicitly configured.\n4. Published snapshots cannot be overwritten.\n5. Restatement must reference the original snapshot and correction reason.\n\n### API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/net-worth/snapshots/calculate | POST | Calculate snapshot. |\n| /api/net-worth/snapshots/{snapshotId}/publish | POST | Publish snapshot. |\n| /api/net-worth/snapshots/{snapshotId} | GET | Retrieve snapshot. |\n| /api/net-worth/snapshots/{snapshotId}/reconcile | POST | Reconcile inputs. |\n| /api/net-worth/snapshots/{snapshotId}/restate | POST | Restate snapshot. |\n| /api/net-worth/snapshots/{snapshotId}/replay | POST | Replay calculation. |\n\n### Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Multi-currency assets | Converted totals match FX version. |\n| Negative net worth | Snapshot publishes with negative result and no calculation failure. |\n| Missing category | Validation fails. |\n| Restate published snapshot | New restatement snapshot is created. |\n| Replay snapshot | Net worth and category totals match original output. |\n\n### Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

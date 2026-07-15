@@ -3,12 +3,12 @@
   "source": "docs.zip",
   "architecture": "Local-First Static PWA on GitHub Pages",
   "rewrittenDocuments": [
-    "docs/00-Vision.md",
-    "docs/05-DatabaseDesign.md",
-    "docs/06-ERD.md",
-    "docs/07-API.md",
-    "docs/08D-CashFlowEngine-API.md",
-    "docs/20-Roadmap.md"
+    "docs/specification/00-Vision.md",
+    "docs/database/05-DatabaseDesign.md",
+    "docs/database/06-ERD.md",
+    "docs/api/07-API.md",
+    "docs/api/08D-CashFlowEngine-API.md",
+    "docs/roadmap/20-Roadmap.md"
   ],
   "addedDocuments": [
     "docs/architecture/ADR-001-Local-First-PWA.md",
@@ -28,14 +28,14 @@
     ".codex/deployment-pages.md"
   ],
   "legacyDocumentsWithArchitectureAmendment": [
-    "docs/01-Blueprint.md",
+    "docs/specification/01-Blueprint.md",
     ".codex/architecture-pwa.md",
-    "docs/knowledge/api-governance-framework.md",
-    "docs/knowledge/backup-recovery-framework.md",
-    "docs/knowledge/financial-health-score.md",
-    "docs/knowledge/scenario-framework.md",
-    "docs/knowledge/entity/User.md",
-    "docs/knowledge/entity/User_p2.md",
-    "docs/knowledge/entity/User_p3.md"
+    "knowledge/api/api-governance-framework.md",
+    "knowledge/framework/backup-recovery-framework.md",
+    "knowledge/supporting/financial-health-score.md",
+    "knowledge/framework/scenario-framework.md",
+    "knowledge/entity/User.md",
+    "knowledge/entity/User_p2.md",
+    "knowledge/entity/User_p3.md"
   ]
 }

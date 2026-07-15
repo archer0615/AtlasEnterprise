@@ -1,0 +1,95 @@
+{
+  "id": "75229b0dc81a9693",
+  "title": "user-journey-framework.md",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/user-journey-framework.md",
+  "sourceHash": "b366f7534ac17a5318a237762d0b6c2a60ee29bf6ea9776290f06985489d6ba5",
+  "headings": [
+    {
+      "level": 1,
+      "text": "user-journey-framework.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Enterprise Specification"
+    },
+    {
+      "level": 2,
+      "text": "User Journey Framework"
+    },
+    {
+      "level": 2,
+      "text": "1. Purpose"
+    },
+    {
+      "level": 1,
+      "text": "2. Journey Principles"
+    },
+    {
+      "level": 1,
+      "text": "3. Journey Stages"
+    },
+    {
+      "level": 1,
+      "text": "4. Primary Personas"
+    },
+    {
+      "level": 1,
+      "text": "5. Core User Flows"
+    },
+    {
+      "level": 2,
+      "text": "Initial Setup"
+    },
+    {
+      "level": 2,
+      "text": "Daily Usage"
+    },
+    {
+      "level": 2,
+      "text": "Decision Workflow"
+    },
+    {
+      "level": 1,
+      "text": "6. Major Decision Journeys"
+    },
+    {
+      "level": 2,
+      "text": "Home Upgrade"
+    },
+    {
+      "level": 2,
+      "text": "Retirement Planning"
+    },
+    {
+      "level": 2,
+      "text": "Loan Optimization"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Optimization"
+    },
+    {
+      "level": 1,
+      "text": "7. Emotional States"
+    },
+    {
+      "level": 1,
+      "text": "8. Supporting Components"
+    },
+    {
+      "level": 1,
+      "text": "9. Success Metrics"
+    },
+    {
+      "level": 1,
+      "text": "10. Integration Dependencies"
+    },
+    {
+      "level": 1,
+      "text": "11. Future Extensions"
+    }
+  ],
+  "bodyMarkdown": "# user-journey-framework.md\n\n# Atlas Enterprise Specification\n## User Journey Framework\n\nVersion: 1.0\n\n## 1. Purpose\n\nThis document defines the end-to-end user journey for Project Atlas (Life Financial Decision Operating System). It standardizes every interaction between the user and the system so all features, APIs, decision engines, dashboards, and recommendations follow a consistent experience.\n\n---\n\n# 2. Journey Principles\n\n- Goal-driven rather than feature-driven.\n- Every workflow must end with an actionable recommendation.\n- Decisions are explainable.\n- Historical decisions remain auditable.\n- Financial data is reusable across all engines.\n- User effort should continuously decrease as profile completeness increases.\n\n---\n\n# 3. Journey Stages\n\n| Stage | Name | Objective |\n|--------|------|-----------|\n| J1 | Onboarding | Build financial profile |\n| J2 | Discover | Understand current position |\n| J3 | Plan | Define goals |\n| J4 | Simulate | Compare scenarios |\n| J5 | Decide | Produce recommendations |\n| J6 | Execute | Create execution plan |\n| J7 | Monitor | Track progress |\n| J8 | Learn | Improve future decisions |\n\n---\n\n# 4. Primary Personas\n\n- Young Professional\n- Family Builder\n- Home Upgrader\n- Wealth Accumulator\n- Pre-Retirement\n- Retiree\n\n---\n\n# 5. Core User Flows\n\n## Initial Setup\n\n1. Create account\n2. Complete profile\n3. Import assets\n4. Import liabilities\n5. Configure income\n6. Configure expenses\n7. Define goals\n8. Generate Blueprint\n9. Generate IPS\n10. View Dashboard\n\n---\n\n## Daily Usage\n\n- Review dashboard\n- Check alerts\n- Record major events\n- Refresh portfolio\n- Review cash flow\n- Update goal progress\n\n---\n\n## Decision Workflow\n\nTrigger\n→ Collect data\n→ Validate constraints\n→ Run engines\n→ Score alternatives\n→ Explain recommendation\n→ Confirm decision\n→ Save audit trail\n→ Generate action plan\n\n---\n\n# 6. Major Decision Journeys\n\n## Home Upgrade\n\nCurrent Home\n→ Market Analysis\n→ Mortgage Analysis\n→ Scenario Comparison\n→ Recommendation\n→ Timeline\n→ Execution Checklist\n\n## Retirement Planning\n\nCurrent Assets\n→ Projection\n→ Withdrawal Strategy\n→ Stress Test\n→ Recommendation\n\n## Loan Optimization\n\nLoan Inventory\n→ Interest Analysis\n→ Cash Flow Analysis\n→ Refinance Simulation\n→ Recommendation\n\n## Portfolio Optimization\n\nPortfolio\n→ Risk Analysis\n→ IPS Validation\n→ Allocation Proposal\n→ Expected Outcome\n\n---\n\n# 7. Emotional States\n\n| Stage | User Need | System Response |\n|--------|-----------|----------------|\n| Uncertain | Explain | Education |\n| Comparing | Simulate | Scenario Engine |\n| Hesitating | Confidence | Explainability |\n| Acting | Guidance | Execution Plan |\n| Monitoring | Visibility | Dashboard |\n\n---\n\n# 8. Supporting Components\n\n- Blueprint\n- IPS\n- Decision Engine\n- Scenario Engine\n- Cash Flow Engine\n- Investment Engine\n- Loan Engine\n- Retirement Engine\n- Notification Engine\n- Explainability Engine\n\n---\n\n# 9. Success Metrics\n\n- Time to first recommendation\n- Goal completion rate\n- Recommendation acceptance rate\n- Decision confidence\n- Dashboard engagement\n- Monthly active usage\n\n---\n\n# 10. Integration Dependencies\n\nThis framework depends on:\n\n- financial-philosophy.md\n- life-goals.md\n- decision-principles.md\n- scenario-framework.md\n- scoring-model.md\n- explainability-framework.md\n- execution-plan-framework.md\n- action-planning-framework.md\n- dashboard-widget-catalog.md\n- notification-framework.md\n\n---\n\n# 11. Future Extensions\n\n- AI financial coach\n- Voice-first planning\n- Family collaboration\n- Advisor mode\n- Predictive life-event detection\n- Automated annual financial review\n",
+  "references": []
+}

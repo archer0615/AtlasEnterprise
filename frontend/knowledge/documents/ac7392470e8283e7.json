@@ -1,0 +1,131 @@
+{
+  "id": "ac7392470e8283e7",
+  "title": "Risk Budget Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/risk-budget-framework.md",
+  "sourceHash": "3eceef97421fadfa124dd32a8ba1b964e6422a93c9595bfc422451b665075d0b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Risk Budget Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Core Principles"
+    },
+    {
+      "level": 2,
+      "text": "Risk Budget Dimensions"
+    },
+    {
+      "level": 3,
+      "text": "Market Risk"
+    },
+    {
+      "level": 3,
+      "text": "Liquidity Risk"
+    },
+    {
+      "level": 3,
+      "text": "Concentration Risk"
+    },
+    {
+      "level": 3,
+      "text": "Leverage Risk"
+    },
+    {
+      "level": 3,
+      "text": "Sequence Risk"
+    },
+    {
+      "level": 3,
+      "text": "Goal Risk"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Risk Budget Allocation"
+    },
+    {
+      "level": 2,
+      "text": "Budget Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Decision Process"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Risk Budget Allocation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Risk Budget Framework\n\nVersion: 1.0\n\n## Purpose\nDefines how Project Atlas allocates and manages financial risk across goals, portfolios, and life stages. A risk budget represents the maximum acceptable level of risk that may be consumed while pursuing financial objectives.\n\n## Objectives\n- Quantify acceptable financial risk.\n- Allocate risk consistently across competing goals.\n- Prevent excessive concentration.\n- Support explainable investment decisions.\n\n## Core Principles\n- Risk is a limited resource.\n- Risk allocation follows the Investment Policy Statement (IPS).\n- Mandatory goals consume less risk budget than discretionary goals.\n- Risk budget is reviewed after major financial events.\n\n## Risk Budget Dimensions\n### Market Risk\nExposure to equity, interest rate, and credit markets.\n\n### Liquidity Risk\nRisk of insufficient liquid assets to meet obligations.\n\n### Concentration Risk\nExposure to a single asset, issuer, sector, geography, or currency.\n\n### Leverage Risk\nRisk introduced by borrowing and margin.\n\n### Sequence Risk\nRisk arising from withdrawals during adverse market periods.\n\n### Goal Risk\nProbability that a financial goal will not be achieved.\n\n## Inputs\n- Financial Health Score\n- Risk Capacity Model\n- Risk Tolerance\n- Life Stage Model\n- Goal Prioritization\n- Liquidity Framework\n- Asset Allocation Framework\n- Market Assumptions\n\n## Risk Budget Allocation\nPriority order:\n1. Essential goals\n2. Retirement\n3. Housing\n4. Long-term investments\n5. Opportunistic investments\n\nEach goal receives:\n- Maximum risk budget\n- Current utilization\n- Remaining capacity\n\n## Budget Constraints\n- Cannot exceed Risk Capacity.\n- Must satisfy IPS allocation limits.\n- Liquidity requirements always override return optimization.\n- Concentration limits must be respected.\n\n## Decision Process\n1. Calculate total risk capacity.\n2. Reserve mandatory risk.\n3. Allocate remaining risk budget.\n4. Validate constraints.\n5. Produce recommendation.\n\n## Outputs\n- Total Risk Budget\n- Consumed Risk Budget\n- Remaining Risk Budget\n- Risk Budget by Goal\n- Constraint Evaluation\n- Recommended Adjustments\n\n## Business Rules\n- Risk budget cannot become negative.\n- Material life events trigger recalculation.\n- Portfolio drift may consume additional risk budget.\n- High-risk strategies require explicit approval.\n\n## Explainability\nEach recommendation includes:\n- Total available risk budget\n- Allocation by goal\n- Utilization percentage\n- Triggered rules\n- Limiting constraints\n\n## KPIs\n- Risk Budget Utilization\n- Diversification Score\n- Concentration Ratio\n- Goal Risk Coverage\n- Portfolio Volatility\n- Probability of Goal Success\n\n## Integration\nConsumes:\n- Risk Capacity Model\n- Asset Allocation Framework\n- Liquidity Framework\n- Goal Prioritization\n- Financial Health Score\n\nProduces:\n- Rebalancing Framework\n- Withdrawal Strategy\n- Decision Engine\n- Scenario Engine\n\n## Testing\n- Conservative investor\n- Aggressive investor\n- Retirement transition\n- High leverage\n- Market crash\n- Multiple competing goals\n\n## Future Enhancements\n- Dynamic risk budgeting\n- Household-level risk budgets\n- AI optimization\n- Monte Carlo risk allocation\n\n## Phase 2 Executable Specification\n\n### Risk Budget Allocation Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | RiskBudget |\n| Identity | riskBudgetId |\n| Scope | tenantId, householdId, scenarioId optional |\n| Inputs | riskCapacity, goals, portfolio, liquiditySnapshot, marketAssumptions, policyVersion |\n| Outputs | totalRiskBudget, consumedRiskBudget, remainingRiskBudget, goalAllocations, constraintResults |\n| Invariant | Consumed risk budget cannot exceed approved risk capacity. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| CalculateRiskBudget | Calculate total, consumed, and remaining risk budget. |\n| AllocateRiskBudgetToGoals | Allocate budget across goals by priority. |\n| ValidateRiskBudgetConstraints | Validate IPS, liquidity, leverage, and concentration constraints. |\n| ApproveHighRiskBudgetUse | Approve high-risk strategy budget consumption. |\n| RecalculateRiskBudget | Recalculate after material life or market events. |\n| ReplayRiskBudgetCalculation | Rebuild calculation from stored inputs and policy versions. |\n\n### Domain Events\n\n| Event | Trigger |\n|---|---|\n| RiskBudgetCalculated | Budget calculation completes. |\n| RiskBudgetAllocatedToGoals | Goal allocation completes. |\n| RiskBudgetConstraintsValidated | Constraint validation completes. |\n| HighRiskBudgetUseApproved | Explicit approval is recorded. |\n| RiskBudgetRecalculated | Material event triggers recalculation. |\n| RiskBudgetCalculationReplayed | Historical calculation is reproduced. |\n\n### Validation Rules\n\n1. Risk budget must not become negative.\n2. Mandatory goals must reserve required budget before discretionary allocation.\n3. Liquidity constraints override return optimization.\n4. High-risk strategy allocation requires approval reference.\n5. Replay must use original risk capacity, policy, assumptions, and goal priority versions.\n\n### API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/risk-budgets/calculate | POST | Calculate risk budget. |\n| /api/risk-budgets/{riskBudgetId}/allocate-goals | POST | Allocate budget to goals. |\n| /api/risk-budgets/{riskBudgetId}/validate | POST | Validate constraints. |\n| /api/risk-budgets/{riskBudgetId}/high-risk-approval | POST | Approve high-risk usage. |\n| /api/risk-budgets/{riskBudgetId}/recalculate | POST | Recalculate budget. |\n| /api/risk-budgets/{riskBudgetId}/replay | POST | Replay calculation. |\n\n### Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Consumed budget exceeds capacity | Validation fails. |\n| Mandatory goal allocation | Essential goals receive budget first. |\n| Liquidity breach | Risk use is constrained. |\n| High-risk strategy without approval | Command is rejected. |\n| Replay calculation | Budget totals and allocations match original result. |\n\n### Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

@@ -1,0 +1,167 @@
+{
+  "id": "624dcc3447f561f8",
+  "title": "Liquidity Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/liquidity-framework.md",
+  "sourceHash": "00059e993368c43f3bb90faece5c57c62c156a94a552c2bcf3206ae92407c071",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Liquidity Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Liquidity Principles"
+    },
+    {
+      "level": 2,
+      "text": "Liquidity Layers"
+    },
+    {
+      "level": 3,
+      "text": "L1 – Immediate Liquidity"
+    },
+    {
+      "level": 3,
+      "text": "L2 – Short-Term Liquidity"
+    },
+    {
+      "level": 3,
+      "text": "L3 – Medium-Term Liquidity"
+    },
+    {
+      "level": 3,
+      "text": "L4 – Long-Term / Illiquid Assets"
+    },
+    {
+      "level": 2,
+      "text": "Liquidity Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Core Metrics"
+    },
+    {
+      "level": 3,
+      "text": "Liquidity Score"
+    },
+    {
+      "level": 3,
+      "text": "Liquidity Coverage Ratio (LCR)"
+    },
+    {
+      "level": 3,
+      "text": "Months of Liquidity"
+    },
+    {
+      "level": 3,
+      "text": "Liquid Asset Ratio"
+    },
+    {
+      "level": 2,
+      "text": "Liquidity Health Bands"
+    },
+    {
+      "level": 2,
+      "text": "Decision Rules"
+    },
+    {
+      "level": 2,
+      "text": "Funding Priority"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine Integration"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Liquidity Snapshot Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Liquidity Snapshot Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Liquidity Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the liquidity management framework for Project Atlas. The framework standardizes how assets, liabilities, and cash flows are evaluated to ensure sufficient liquidity for both expected and unexpected financial needs.\n\n## Objectives\n- Maintain adequate short-term liquidity.\n- Prevent forced asset liquidation.\n- Support major financial decisions.\n- Integrate liquidity into all recommendation engines.\n\n## Liquidity Principles\n- Liquidity precedes optimization.\n- Essential obligations always have highest priority.\n- Liquidity decisions must be explainable.\n- Liquidity is evaluated continuously.\n\n## Liquidity Layers\n\n### L1 – Immediate Liquidity\nAvailable within 24 hours.\nExamples:\n- Cash\n- Checking accounts\n\n### L2 – Short-Term Liquidity\nAvailable within 7 days.\nExamples:\n- High-yield savings\n- Money market funds\n- Time deposits nearing maturity\n\n### L3 – Medium-Term Liquidity\nAvailable within 30 days.\nExamples:\n- ETFs\n- Listed stocks\n- Investment-grade bond funds\n\n### L4 – Long-Term / Illiquid Assets\nLiquidation exceeds 30 days or incurs significant cost.\nExamples:\n- Real estate\n- Private equity\n- Restricted assets\n- Business ownership\n\n## Liquidity Inputs\n- Operating cash\n- Emergency fund\n- Monthly expenses\n- Debt obligations\n- Expected income\n- Planned expenditures\n- Investment portfolio\n- Credit facilities\n\n## Core Metrics\n\n### Liquidity Score\nNormalized score (0–100) representing overall financial liquidity.\n\n### Liquidity Coverage Ratio (LCR)\nAvailable Liquid Assets / Required Short-Term Cash Outflows\n\n### Months of Liquidity\nAvailable Liquid Assets / Monthly Essential Expenses\n\n### Liquid Asset Ratio\nLiquid Assets / Total Assets\n\n## Liquidity Health Bands\n- Critical: 0–20\n- Weak: 21–40\n- Moderate: 41–60\n- Good: 61–80\n- Excellent: 81–100\n\n## Decision Rules\n- Preserve operating cash before investing.\n- Never reduce emergency reserve below minimum.\n- Avoid selling illiquid assets unless required.\n- Prefer funding from higher-liquidity layers first.\n- Major purchases require post-decision liquidity validation.\n\n## Funding Priority\n1. Operating Cash\n2. Emergency Reserve (qualified emergencies only)\n3. Scheduled Income\n4. Highly Liquid Investments\n5. Medium-Term Investments\n6. Long-Term Assets\n7. Secured Borrowing (if allowed by IPS)\n\n## Decision Engine Integration\nConsumed by:\n- Financial Health Score\n- Cash Flow Engine\n- Cash Reserve Framework\n- Emergency Fund Framework\n- Withdrawal Strategy\n- House Decision Framework\n- Asset Allocation Framework\n- Goal Prioritization\n- Scenario Engine\n\n## Explainability\nEvery recommendation reports:\n- Liquidity Score\n- LCR\n- Months of Liquidity\n- Funding source order\n- Constraint evaluation\n- Recommended improvements\n\n## KPIs\n- Liquidity Score\n- Liquidity Coverage Ratio\n- Months of Liquidity\n- Liquid Asset Ratio\n- Cash Buffer Utilization\n- Funding Readiness\n\n## Testing\n- Income interruption\n- Large home purchase\n- Market crash\n- Major medical expense\n- Retirement transition\n- Multiple simultaneous cash demands\n\n## Future Enhancements\n- Multi-currency liquidity analysis\n- Household liquidity optimization\n- Real-time banking integration\n- AI liquidity forecasting\n\n## Phase 2 Executable Specification\n\n### Liquidity Snapshot Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| LiquiditySnapshotId | Yes | Stable snapshot identifier |\n| HouseholdId | Yes | Household scope |\n| AsOfDate | Yes | Evaluation date |\n| LiquidityLayerBalances | Yes | L1 to L4 liquidity values |\n| LiquidityScore | Yes | Normalized 0 to 100 score |\n| LiquidityCoverageRatio | Yes | Available liquid assets divided by required outflows |\n| MonthsOfLiquidity | Yes | Liquid assets divided by essential monthly expenses |\n| SourceSnapshotId | Yes | Source data snapshot |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CalculateLiquiditySnapshot | LiquidityApplicationService | LiquiditySnapshotCalculated |\n| ValidatePostDecisionLiquidity | DecisionApplicationService | PostDecisionLiquidityValidated |\n| AllocateLiquidityFundingSource | LiquidityApplicationService | LiquidityFundingSourceAllocated |\n| ReplayLiquiditySnapshot | AdministrationApplicationService | LiquiditySnapshotReplayed |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| LiquiditySnapshotCalculated | Liquidity metrics calculated | Dashboard, Financial Health Score |\n| LiquidityThresholdBreached | Liquidity falls below policy | Alert, Decision Engine |\n| PostDecisionLiquidityRejected | Proposed decision violates liquidity | Recommendation Engine |\n| LiquidityFundingSourceAllocated | Funding layer selected | Audit, Execution Plan |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| LQ-VR-001 | Major purchases require post-decision liquidity validation. | Reject decision |\n| LQ-VR-002 | Emergency reserve cannot fall below minimum policy. | Reject recommendation |\n| LQ-VR-003 | Funding source order must prefer higher-liquidity layers unless policy allows otherwise. | Reject allocation |\n| LQ-VR-004 | Liquidity snapshot must reference source snapshot and as-of date. | Reject snapshot |\n| LQ-VR-005 | Historical liquidity snapshots are immutable. | Reject update |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/liquidity/snapshot | POST | Calculate liquidity snapshot | Liquidity:Evaluate |\n| /api/v1/liquidity/current | GET | Retrieve current liquidity | Liquidity:Read |\n| /api/v1/liquidity/validate-decision | POST | Validate decision impact | Decision:Evaluate |\n| /api/v1/liquidity/{snapshotId}/replay | POST | Replay liquidity snapshot | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Home purchase drains emergency fund | Decision is rejected |\n| Income interruption | Liquidity threshold breach is emitted |\n| Mixed liquidity layers | Funding order follows priority |\n| Missing as-of date | Snapshot is rejected |\n| Historical replay | Original liquidity score reproduces |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Liquidity Snapshot Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| LiquiditySnapshotId | Yes | Stable snapshot identifier |\n| HouseholdId | Yes | Household scope |\n| AsOfDate | Yes | Evaluation date |\n| LiquidityLayerBalances | Yes | L1 to L4 liquidity values |\n| LiquidityScore | Yes | Normalized 0 to 100 score |\n| LiquidityCoverageRatio | Yes | Available liquid assets divided by required outflows |\n| MonthsOfLiquidity | Yes | Liquid assets divided by essential monthly expenses |\n| SourceSnapshotId | Yes | Source data snapshot |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CalculateLiquiditySnapshot | LiquidityApplicationService | LiquiditySnapshotCalculated |\n| ValidatePostDecisionLiquidity | DecisionApplicationService | PostDecisionLiquidityValidated |\n| AllocateLiquidityFundingSource | LiquidityApplicationService | LiquidityFundingSourceAllocated |\n| ReplayLiquiditySnapshot | AdministrationApplicationService | LiquiditySnapshotReplayed |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| LiquiditySnapshotCalculated | Liquidity metrics calculated | Dashboard, Financial Health Score |\n| LiquidityThresholdBreached | Liquidity falls below policy | Alert, Decision Engine |\n| PostDecisionLiquidityRejected | Proposed decision violates liquidity | Recommendation Engine |\n| LiquidityFundingSourceAllocated | Funding layer selected | Audit, Execution Plan |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| LQ-VR-001 | Major purchases require post-decision liquidity validation. | Reject decision |\n| LQ-VR-002 | Emergency reserve cannot fall below minimum policy. | Reject recommendation |\n| LQ-VR-003 | Funding source order must prefer higher-liquidity layers unless policy allows otherwise. | Reject allocation |\n| LQ-VR-004 | Liquidity snapshot must reference source snapshot and as-of date. | Reject snapshot |\n| LQ-VR-005 | Historical liquidity snapshots are immutable. | Reject update |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/liquidity/snapshot | POST | Calculate liquidity snapshot | Liquidity:Evaluate |\n| /api/v1/liquidity/current | GET | Retrieve current liquidity | Liquidity:Read |\n| /api/v1/liquidity/validate-decision | POST | Validate decision impact | Decision:Evaluate |\n| /api/v1/liquidity/{snapshotId}/replay | POST | Replay liquidity snapshot | Audit:Replay |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Home purchase drains emergency fund | Decision is rejected |\n| Income interruption | Liquidity threshold breach is emitted |\n| Mixed liquidity layers | Funding order follows priority |\n| Missing as-of date | Snapshot is rejected |\n| Historical replay | Original liquidity score reproduces |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

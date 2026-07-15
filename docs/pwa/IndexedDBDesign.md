@@ -1,6 +1,6 @@
 # IndexedDB Design
 
-The canonical store catalog is defined in `docs/05-DatabaseDesign.md`.
+The canonical store catalog is defined in `docs/database/05-DatabaseDesign.md`.
 
 ## Repository Rules
 

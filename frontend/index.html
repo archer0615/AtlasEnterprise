@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1f6f78" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <title>Atlas Enterprise Knowledge</title>
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">A</span>
+          <div>
+            <h1>Atlas Enterprise</h1>
+            <p>Knowledge PWA</p>
+          </div>
+        </div>
+        <div class="search-box">
+          <input id="searchInput" type="search" placeholder="搜尋 Knowledge" autocomplete="off" />
+        </div>
+        <nav id="categoryNav" class="category-nav" aria-label="Knowledge categories"></nav>
+      </aside>
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Static-first PWA</p>
+            <h2 id="pageTitle">Knowledge Index</h2>
+          </div>
+          <div class="status" id="statusText">Loading</div>
+        </header>
+        <section class="content-grid">
+          <div>
+            <div class="list-tools">
+              <span id="resultCount">0 results</span>
+              <button id="clearFiltersButton" type="button">清除</button>
+            </div>
+            <div class="document-list" id="documentList"></div>
+          </div>
+          <article class="document-viewer" id="documentViewer">
+            <p class="empty-state">選擇一份文件檢視內容。</p>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

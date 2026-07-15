@@ -1,0 +1,151 @@
+{
+  "id": "7553cab69c129787",
+  "title": "Financial Milestone Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/financial-milestone-framework.md",
+  "sourceHash": "6da81a4bad22700b20580f311805c1d670241c9274356a1bddfc795602014718",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Financial Milestone Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Milestone Categories"
+    },
+    {
+      "level": 3,
+      "text": "Foundation"
+    },
+    {
+      "level": 3,
+      "text": "Stability"
+    },
+    {
+      "level": 3,
+      "text": "Growth"
+    },
+    {
+      "level": 3,
+      "text": "Expansion"
+    },
+    {
+      "level": 3,
+      "text": "Independence"
+    },
+    {
+      "level": 3,
+      "text": "Legacy"
+    },
+    {
+      "level": 2,
+      "text": "Milestone Attributes"
+    },
+    {
+      "level": 2,
+      "text": "Completion States"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Events"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine Integration"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Milestone Object Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Milestone Object Contract"
+    },
+    {
+      "level": 3,
+      "text": "Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Financial Milestone Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the standard financial milestone model for Project Atlas. Milestones represent measurable achievements used by the Decision Engine to evaluate progress toward long-term financial independence.\n\n## Objectives\n- Standardize milestone definitions.\n- Measure progress consistently.\n- Trigger recommendation updates.\n- Improve explainability across the platform.\n\n## Milestone Categories\n\n### Foundation\n- First positive monthly cash flow\n- Emergency reserve established\n- Insurance protection completed\n\n### Stability\n- High-interest debt eliminated\n- Six-month emergency reserve achieved\n- Financial Health Score reaches target\n\n### Growth\n- First investment portfolio created\n- Portfolio reaches first target value\n- Home purchase completed\n\n### Expansion\n- Home upgrade completed\n- Children's education fund established\n- Multiple income sources achieved\n\n### Independence\n- Retirement funding ratio exceeds target\n- Passive income covers essential expenses\n- Mortgage substantially reduced or repaid\n\n### Legacy\n- Estate plan completed\n- Beneficiary designations verified\n- Intergenerational wealth plan established\n\n## Milestone Attributes\nEach milestone contains:\n- MilestoneId\n- Name\n- Category\n- Description\n- Success Criteria\n- Required Inputs\n- Trigger Events\n- Completion Date\n- Status\n\n## Completion States\n- Planned\n- In Progress\n- Achieved\n- Deferred\n- Cancelled\n\n## Trigger Events\n- Income increase\n- Goal completion\n- Portfolio growth\n- Debt repayment\n- Property purchase\n- Retirement\n- Major life event\n\n## Decision Engine Integration\nMilestones influence:\n- Goal Prioritization\n- Financial Health Score\n- Life Stage Model\n- Scenario Engine\n- Recommendation Engine\n\n## Business Rules\n- Milestones are immutable once achieved.\n- Achievement requires validation.\n- Milestones may unlock additional recommendations.\n- Historical milestone history is retained.\n\n## Explainability\nEach recommendation reports:\n- Relevant milestones\n- Newly achieved milestones\n- Outstanding milestones\n- Next recommended milestone\n- Blocking constraints\n\n## KPIs\n- Milestone Completion Rate\n- Time to Milestone\n- Goal Funding Progress\n- Financial Independence Progress\n- Retirement Readiness\n\n## Testing\n- Sequential milestone completion\n- Parallel milestones\n- Delayed milestones\n- Reversed financial conditions\n- Household milestone scenarios\n\n## Future Enhancements\n- Household milestones\n- Country-specific milestone libraries\n- Predictive milestone forecasting\n- AI milestone planning\n\n## Phase 2 Executable Specification\n\n### Milestone Object Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| MilestoneId | Yes | Stable milestone identifier |\n| HouseholdId | Yes | Owning household |\n| Category | Yes | Foundation, Stability, Growth, Expansion, Independence, Legacy |\n| SuccessCriteria | Yes | Measurable completion condition |\n| RequiredInputs | Yes | Data required for validation |\n| TriggerEvents | Yes | Events that may cause evaluation |\n| Status | Yes | Planned, InProgress, Achieved, Deferred, Cancelled |\n| AchievedAt | No | Completion timestamp |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CreateFinancialMilestone | GoalApplicationService | FinancialMilestoneCreated |\n| EvaluateFinancialMilestone | GoalApplicationService | FinancialMilestoneEvaluated |\n| MarkMilestoneAchieved | GoalApplicationService | FinancialMilestoneAchieved |\n| DeferFinancialMilestone | GoalApplicationService | FinancialMilestoneDeferred |\n| CancelFinancialMilestone | GoalApplicationService | FinancialMilestoneCancelled |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| FinancialMilestoneCreated | Milestone registered | Goal Engine, Dashboard |\n| FinancialMilestoneAchieved | Success criteria validated | Decision Engine, Notification |\n| FinancialMilestoneDeferred | Milestone delayed | Recommendation Engine |\n| FinancialMilestoneCancelled | Milestone no longer applies | Audit, Dashboard |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FMF-VR-001 | Achieved milestones are immutable. | Reject update |\n| FMF-VR-002 | Achievement requires success criteria evidence. | Reject achievement |\n| FMF-VR-003 | Deferred milestones require reason and review date. | Reject defer |\n| FMF-VR-004 | Cancelled milestones remain in history. | Reject deletion |\n| FMF-VR-005 | Trigger events must map to known domain events. | Reject definition |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/milestones | GET | List household milestones | Goal:Read |\n| /api/v1/milestones | POST | Create milestone | Goal:Write |\n| /api/v1/milestones/{milestoneId}/evaluate | POST | Evaluate milestone | Goal:Evaluate |\n| /api/v1/milestones/{milestoneId}/defer | POST | Defer milestone | Goal:Write |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Success criteria satisfied | Milestone becomes Achieved |\n| Missing evidence | Achievement is rejected |\n| Achieved milestone update | Update is rejected |\n| Trigger event received | Milestone evaluation runs |\n| Deferred milestone | Review date and reason are stored |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n\n## Phase 2 Executable Specification\n\n### Milestone Object Contract\n\n| Field | Required | Description |\n|-------|----------|-------------|\n| MilestoneId | Yes | Stable milestone identifier |\n| HouseholdId | Yes | Owning household |\n| Category | Yes | Foundation, Stability, Growth, Expansion, Independence, Legacy |\n| SuccessCriteria | Yes | Measurable completion condition |\n| RequiredInputs | Yes | Data required for validation |\n| TriggerEvents | Yes | Events that may cause evaluation |\n| Status | Yes | Planned, InProgress, Achieved, Deferred, Cancelled |\n| AchievedAt | No | Completion timestamp |\n| TraceId | Yes | Audit trace |\n\n### Commands\n\n| Command | Actor | Output |\n|---------|-------|--------|\n| CreateFinancialMilestone | GoalApplicationService | FinancialMilestoneCreated |\n| EvaluateFinancialMilestone | GoalApplicationService | FinancialMilestoneEvaluated |\n| MarkMilestoneAchieved | GoalApplicationService | FinancialMilestoneAchieved |\n| DeferFinancialMilestone | GoalApplicationService | FinancialMilestoneDeferred |\n| CancelFinancialMilestone | GoalApplicationService | FinancialMilestoneCancelled |\n\n### Domain Events\n\n| Event | Trigger | Consumers |\n|-------|---------|-----------|\n| FinancialMilestoneCreated | Milestone registered | Goal Engine, Dashboard |\n| FinancialMilestoneAchieved | Success criteria validated | Decision Engine, Notification |\n| FinancialMilestoneDeferred | Milestone delayed | Recommendation Engine |\n| FinancialMilestoneCancelled | Milestone no longer applies | Audit, Dashboard |\n\n### Validation Rules\n\n| Rule ID | Rule | Failure |\n|---------|------|---------|\n| FMF-VR-001 | Achieved milestones are immutable. | Reject update |\n| FMF-VR-002 | Achievement requires success criteria evidence. | Reject achievement |\n| FMF-VR-003 | Deferred milestones require reason and review date. | Reject defer |\n| FMF-VR-004 | Cancelled milestones remain in history. | Reject deletion |\n| FMF-VR-005 | Trigger events must map to known domain events. | Reject definition |\n\n### API Contract\n\n| Endpoint | Method | Purpose | Permission |\n|----------|--------|---------|------------|\n| /api/v1/milestones | GET | List household milestones | Goal:Read |\n| /api/v1/milestones | POST | Create milestone | Goal:Write |\n| /api/v1/milestones/{milestoneId}/evaluate | POST | Evaluate milestone | Goal:Evaluate |\n| /api/v1/milestones/{milestoneId}/defer | POST | Defer milestone | Goal:Write |\n\n### Testing Matrix\n\n| Test | Expected Result |\n|------|-----------------|\n| Success criteria satisfied | Milestone becomes Achieved |\n| Missing evidence | Achievement is rejected |\n| Achieved milestone update | Update is rejected |\n| Trigger event received | Milestone evaluation runs |\n| Deferred milestone | Review date and reason are stored |\n\n## Version History\n\n| Version | Date | Change |\n|---------|------|--------|\n| 1.0 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

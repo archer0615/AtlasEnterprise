@@ -1,0 +1,87 @@
+{
+  "id": "dfde3e977a81eeab",
+  "title": "Taiwan Mortgage Knowledge Base",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/taiwan-mortgage.md",
+  "sourceHash": "801bff25c7817c5ce76076bd31ff405af6beef0c0ec2089509220f7b15a749d5",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Taiwan Mortgage Knowledge Base"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Scope"
+    },
+    {
+      "level": 1,
+      "text": "Mortgage Types"
+    },
+    {
+      "level": 1,
+      "text": "Interest Types"
+    },
+    {
+      "level": 1,
+      "text": "Repayment Methods"
+    },
+    {
+      "level": 1,
+      "text": "Loan Attributes"
+    },
+    {
+      "level": 1,
+      "text": "Evaluation Indicators"
+    },
+    {
+      "level": 1,
+      "text": "Cash Flow Impact"
+    },
+    {
+      "level": 1,
+      "text": "Home Upgrade Rules"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "TM-001"
+    },
+    {
+      "level": 2,
+      "text": "TM-002"
+    },
+    {
+      "level": 2,
+      "text": "TM-003"
+    },
+    {
+      "level": 2,
+      "text": "TM-004"
+    },
+    {
+      "level": 2,
+      "text": "TM-005"
+    },
+    {
+      "level": 1,
+      "text": "Scenario Support"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    }
+  ],
+  "bodyMarkdown": "# Taiwan Mortgage Knowledge Base\n\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\n\n------------------------------------------------------------------------\n\n# Purpose\n\n本文件定義 Project Atlas\n在台灣房屋貸款（Mortgage）領域的知識模型、商業規則與預設假設。\n\n本文件提供 Loan Engine、Home Upgrade Engine、Cash Flow Engine、Decision\nEngine 共用。\n\n------------------------------------------------------------------------\n\n# Scope\n\n涵蓋：\n\n-   首購房貸\n-   一般房貸\n-   換屋房貸\n-   增貸\n-   轉貸\n-   寬限期\n-   提前清償\n-   利率模式\n\n------------------------------------------------------------------------\n\n# Mortgage Types\n\n-   First Home Mortgage\n-   General Mortgage\n-   Home Upgrade Mortgage\n-   Home Equity Loan\n-   Refinancing Mortgage\n\n------------------------------------------------------------------------\n\n# Interest Types\n\n-   Fixed Rate\n-   Floating Rate\n-   Mixed Rate\n\n------------------------------------------------------------------------\n\n# Repayment Methods\n\n-   Equal Principal and Interest\n-   Equal Principal\n-   Interest Only (Grace Period)\n\n------------------------------------------------------------------------\n\n# Loan Attributes\n\n每筆房貸至少包含：\n\n-   Loan Id\n-   Property Id\n-   Principal\n-   Outstanding Balance\n-   Interest Rate\n-   Interest Type\n-   Loan Term\n-   Grace Period\n-   Payment Method\n-   Monthly Payment\n-   LTV\n-   Start Date\n-   End Date\n\n------------------------------------------------------------------------\n\n# Evaluation Indicators\n\n-   Loan To Value (LTV)\n-   Debt Service Ratio (DSR)\n-   Monthly Payment\n-   Total Interest\n-   Remaining Balance\n-   Remaining Term\n-   Free Cash Flow Impact\n\n------------------------------------------------------------------------\n\n# Cash Flow Impact\n\n房貸分析必須評估：\n\n-   每月還款能力\n-   緊急預備金\n-   被動收入覆蓋率\n-   換屋影響\n-   退休影響\n\n------------------------------------------------------------------------\n\n# Home Upgrade Rules\n\n需同時比較：\n\n-   保留第一間房\n-   出售第一間房\n-   出租第一間房\n\n至少模擬 30 年。\n\n------------------------------------------------------------------------\n\n# Business Rules\n\n## TM-001\n\n房貸不得導致 Free Cash Flow 長期為負。\n\n## TM-002\n\n增貸前須重新評估 DSR。\n\n## TM-003\n\n轉貸須比較：\n\n-   利率\n-   手續費\n-   違約成本\n-   現金流改善\n\n## TM-004\n\n提前還款須比較：\n\n-   節省利息\n-   投資機會成本\n-   流動性影響\n\n## TM-005\n\n所有房貸決策均需進行情境分析。\n\n------------------------------------------------------------------------\n\n# Scenario Support\n\n-   Interest Rate Increase\n-   Property Price Decline\n-   Income Reduction\n-   Job Loss\n-   Rental Vacancy\n\n------------------------------------------------------------------------\n\n# Domain Events\n\n-   MortgageCreated\n-   MortgageUpdated\n-   MortgageRefinanced\n-   MortgagePaidOff\n-   GracePeriodChanged\n-   InterestRateChanged\n\n------------------------------------------------------------------------\n\n# Related Documents\n\n-   docs/10-LoanEngine.md\n-   docs/11-HomeUpgradeEngine.md\n-   docs/08-CashFlowEngine.md\n-   knowledge/loan.md\n-   knowledge/property.md\n-   knowledge/cashflow.md\n",
+  "references": []
+}

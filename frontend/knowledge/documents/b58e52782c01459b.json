@@ -1,0 +1,87 @@
+{
+  "id": "b58e52782c01459b",
+  "title": "Rebalancing Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/rebalancing-framework.md",
+  "sourceHash": "f38e2c759098dbcba479e3b561e2ff9d48bca3d6c0825e1db67e11e1c272a6b6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Rebalancing Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Rebalancing Triggers"
+    },
+    {
+      "level": 2,
+      "text": "Threshold Rules"
+    },
+    {
+      "level": 2,
+      "text": "Preferred Order"
+    },
+    {
+      "level": 2,
+      "text": "Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Decision Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification"
+    },
+    {
+      "level": 3,
+      "text": "Rebalancing Recommendation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Domain Events"
+    },
+    {
+      "level": 3,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "API Contract"
+    },
+    {
+      "level": 3,
+      "text": "Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Rebalancing Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the portfolio rebalancing policy used by Project Atlas.\n\n## Objectives\n- Maintain target asset allocation.\n- Control portfolio risk.\n- Minimize unnecessary trading.\n- Improve tax and transaction efficiency.\n\n## Rebalancing Triggers\n1. Threshold-based\n2. Calendar-based\n3. Cash-flow-based\n4. Life-event-based\n5. Risk-based\n\n## Threshold Rules\n- Minor drift: monitor only.\n- Moderate drift: rebalance using new cash.\n- Major drift: partial rebalance.\n- Critical drift: full rebalance subject to constraints.\n\n## Preferred Order\n1. Use new contributions.\n2. Reinvest distributions.\n3. Redirect dividends.\n4. Sell overweight assets only when necessary.\n\n## Constraints\n- Preserve emergency fund.\n- Respect IPS limits.\n- Avoid unnecessary taxable events.\n- Respect liquidity requirements.\n\n## Decision Inputs\n- Current allocation\n- Target allocation\n- Asset drift\n- Market valuation\n- Cash position\n- Upcoming liabilities\n\n## Explainability\nEach recommendation records:\n- Trigger\n- Drift values\n- Selected actions\n- Constraints\n- Expected allocation after execution\n\n## Testing\n- Bull market\n- Bear market\n- Large cash inflow\n- Retirement withdrawal\n- Multiple simultaneous drifts\n\n## Future Enhancements\n- Tax-aware optimization\n- Multi-account optimization\n- AI-assisted rebalancing\n- Scenario simulation\n\n## Phase 2 Executable Specification\n\n### Rebalancing Recommendation Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | RebalancingRecommendation |\n| Identity | recommendationId |\n| Scope | tenantId, householdId, portfolioId |\n| Inputs | currentAllocation, targetAllocation, drift, cashPosition, constraints, taxAssumptions |\n| Outputs | recommendedActions, expectedAllocation, constraintResults, explainabilityReport |\n| Invariant | Recommended actions must not violate IPS, liquidity, or emergency fund constraints. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| EvaluateRebalancingNeed | Determine if portfolio drift requires action. |\n| GenerateRebalancingRecommendation | Create recommended buy, sell, or cash-flow actions. |\n| ApproveRebalancingRecommendation | Approve recommendation for execution. |\n| RejectRebalancingRecommendation | Reject recommendation with reason. |\n| ExecuteRebalancingRecommendation | Execute approved actions. |\n| ReplayRebalancingEvaluation | Rebuild recommendation from stored inputs and policy versions. |\n\n### Domain Events\n\n| Event | Trigger |\n|---|---|\n| RebalancingNeedEvaluated | Drift evaluation completes. |\n| RebalancingRecommendationGenerated | Recommendation is created. |\n| RebalancingRecommendationApproved | User or workflow approves recommendation. |\n| RebalancingRecommendationRejected | Recommendation is rejected. |\n| RebalancingRecommendationExecuted | Approved actions are executed. |\n| RebalancingEvaluationReplayed | Historical recommendation is reproduced. |\n\n### Validation Rules\n\n1. Target allocation must be policy-aligned and total 100%.\n2. New contributions and distributions must be evaluated before sell actions.\n3. Emergency fund and upcoming liabilities must be preserved.\n4. Taxable sell actions must include estimated tax and transaction cost.\n5. Replay must reference original allocation, price, policy, and assumption versions.\n\n### API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/portfolios/{portfolioId}/rebalancing/evaluate | POST | Evaluate rebalancing need. |\n| /api/portfolios/{portfolioId}/rebalancing/recommendations | POST | Generate recommendation. |\n| /api/rebalancing-recommendations/{recommendationId}/approve | POST | Approve recommendation. |\n| /api/rebalancing-recommendations/{recommendationId}/reject | POST | Reject recommendation. |\n| /api/rebalancing-recommendations/{recommendationId}/execute | POST | Execute approved recommendation. |\n| /api/rebalancing-recommendations/{recommendationId}/replay | POST | Replay recommendation. |\n\n### Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Minor drift | Monitor-only result is returned. |\n| Large cash inflow | New cash is recommended before sells. |\n| Emergency fund would be breached | Recommendation is rejected or constrained. |\n| Taxable sell action | Estimated tax and cost are included. |\n| Replay evaluation | Same actions and constraint results are produced. |\n\n### Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable specification added. |\n",
+  "references": []
+}

@@ -1,0 +1,71 @@
+{
+  "id": "fbc2a9087d9dc9a9",
+  "title": "Cash Flow Knowledge Base",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/cashflow.md",
+  "sourceHash": "9e0dc54c3ce8cf067d378fb625642b90d2f65b01ec5dcc13197bb092e77c5d91",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Cash Flow Knowledge Base"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Core Philosophy"
+    },
+    {
+      "level": 1,
+      "text": "Cash Flow Hierarchy"
+    },
+    {
+      "level": 2,
+      "text": "Level 1 -- Employment Income"
+    },
+    {
+      "level": 2,
+      "text": "Level 2 -- Passive Income"
+    },
+    {
+      "level": 2,
+      "text": "Level 3 -- Investment Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "Level 4 -- Credit Cash Flow"
+    },
+    {
+      "level": 2,
+      "text": "Level 5 -- Emergency Cash Flow"
+    },
+    {
+      "level": 1,
+      "text": "Cash Flow Classification"
+    },
+    {
+      "level": 1,
+      "text": "Key Metrics"
+    },
+    {
+      "level": 1,
+      "text": "Cash Flow KPI"
+    },
+    {
+      "level": 1,
+      "text": "Decision Rules"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 1,
+      "text": "Related Documents"
+    }
+  ],
+  "bodyMarkdown": "# Cash Flow Knowledge Base\r\n\r\nVersion: 1.0 Project: Atlas -- Life Financial Decision Operating System\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Purpose\r\n\r\nCash Flow 是 Project Atlas 最重要的核心。\r\n\r\nProject Atlas 不以資產大小作為人生是否安全的判斷，而是以：\r\n\r\n> Cash Flow 是否可以持續支撐人生目標\r\n\r\n作為所有 Decision Engine 的最高優先依據。\r\n\r\n所有重大決策：\r\n\r\n-   買房\r\n-   換屋\r\n-   保留第一間房\r\n-   買車\r\n-   投資\r\n-   提前還款\r\n-   提前退休\r\n\r\n全部都建立於 Cash Flow。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Core Philosophy\r\n\r\nAtlas 對 Cash Flow 的定義：\r\n\r\n> 持續、可預測、可管理的資金流動。\r\n\r\n重點不是收入很多，而是任何月份都能持續支付所有必要支出。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Cash Flow Hierarchy\r\n\r\n## Level 1 -- Employment Income\r\n\r\n-   Salary\r\n-   Bonus\r\n-   Allowance\r\n\r\n## Level 2 -- Passive Income\r\n\r\n-   ETF Dividend\r\n-   Bond Coupon\r\n-   FCN Coupon\r\n-   Rental Income\r\n\r\n## Level 3 -- Investment Cash Flow\r\n\r\n-   Periodic Asset Selling\r\n-   Portfolio Withdrawal\r\n\r\n## Level 4 -- Credit Cash Flow\r\n\r\n-   Mortgage Refinance\r\n-   HELOC\r\n-   Margin Loan\r\n\r\n## Level 5 -- Emergency Cash Flow\r\n\r\n-   Emergency Fund\r\n-   Money Market\r\n-   Cash Deposit\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Cash Flow Classification\r\n\r\n-   Income\r\n-   Expense\r\n-   Transfer\r\n-   Investment\r\n-   Loan\r\n-   Tax\r\n-   Insurance\r\n-   Adjustment\r\n-   Unknown\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Key Metrics\r\n\r\n-   Free Cash Flow\r\n-   Disposable Cash Flow\r\n-   Monthly Surplus\r\n-   Annual Surplus\r\n-   Passive Income Ratio\r\n-   Savings Rate\r\n-   Expense Ratio\r\n-   Emergency Fund Months\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Cash Flow KPI\r\n\r\n-   Monthly Free Cash Flow\r\n-   Annual Free Cash Flow\r\n-   Passive Income Ratio\r\n-   Savings Rate\r\n-   Debt Service Ratio\r\n-   Housing Cost Ratio\r\n-   Investment Ratio\r\n-   Insurance Ratio\r\n-   Cash Burn Rate\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Decision Rules\r\n\r\n-   CF-001：Free Cash Flow \\< 0，不可新增投資。\r\n-   CF-002：Emergency Fund \\< 6 個月，不可新增高風險投資。\r\n-   CF-003：優先提高 Passive Income，而非提高生活支出。\r\n-   CF-004：必要支出增加時，重新評估退休年齡。\r\n-   CF-005：房貸不得使 Monthly Free Cash Flow 低於安全值。\r\n-   CF-006：所有重大決策需模擬至少未來 30 年 Cash Flow。\r\n-   CF-007：任一月份 Cash Flow \\< 0，標示 Warning。\r\n-   CF-008：連續六個月 Cash Flow \\< 0，標示 High Risk。\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Domain Events\r\n\r\n-   CashFlowAdded\r\n-   CashFlowUpdated\r\n-   IncomeChanged\r\n-   ExpenseChanged\r\n-   PassiveIncomeChanged\r\n-   EmergencyFundChanged\r\n-   MortgageChanged\r\n-   LoanCreated\r\n-   LoanClosed\r\n-   InvestmentWithdrawn\r\n-   ScenarioCalculated\r\n-   DecisionEvaluated\r\n\r\n------------------------------------------------------------------------\r\n\r\n# Related Documents\r\n\r\n-   docs/08-CashFlowEngine.md\r\n-   docs/specification/08B-CashFlowEngine-Formula.md\r\n-   docs/13-DecisionEngine.md\r\n-   docs/14-Scenario.md\r\n-   knowledge/investment-policy.md\r\n-   knowledge/loan.md\r\n-   knowledge/retirement.md\r\n",
+  "references": []
+}

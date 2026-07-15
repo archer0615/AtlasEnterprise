@@ -1,0 +1,911 @@
+{
+  "id": "c24b7c9933385692",
+  "title": "Lifecycle Architecture",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-lifecycle.md",
+  "sourceHash": "d50896200188c3afbc6ae54dba64dd21ca2d2d192a84d315f2a49094c3429653",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Business Meaning"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Scope"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Ownership"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate Root"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Goal"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Scenario"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Portfolio"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with CashFlow"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Notification"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation History"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation Audit"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation Priority"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation Rule"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Optimization"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Simulation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Automation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Business Calendar"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with User"
+    },
+    {
+      "level": 1,
+      "text": "Lifecycle Architecture"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Coordinator"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Engine"
+    },
+    {
+      "level": 2,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "Workflow Engine"
+    },
+    {
+      "level": 2,
+      "text": "Validation Engine"
+    },
+    {
+      "level": 2,
+      "text": "Ranking Engine"
+    },
+    {
+      "level": 2,
+      "text": "Priority Engine"
+    },
+    {
+      "level": 2,
+      "text": "Approval Engine"
+    },
+    {
+      "level": 2,
+      "text": "Audit Engine"
+    },
+    {
+      "level": 2,
+      "text": "Recovery Engine"
+    },
+    {
+      "level": 2,
+      "text": "History Engine"
+    },
+    {
+      "level": 2,
+      "text": "Notification Engine"
+    },
+    {
+      "level": 1,
+      "text": "Recommendation States"
+    },
+    {
+      "level": 2,
+      "text": "Draft"
+    },
+    {
+      "level": 2,
+      "text": "Generated"
+    },
+    {
+      "level": 2,
+      "text": "Pending Review"
+    },
+    {
+      "level": 2,
+      "text": "Ranked"
+    },
+    {
+      "level": 2,
+      "text": "Prioritized"
+    },
+    {
+      "level": 2,
+      "text": "Waiting Approval"
+    },
+    {
+      "level": 2,
+      "text": "Approved"
+    },
+    {
+      "level": 2,
+      "text": "Rejected"
+    },
+    {
+      "level": 2,
+      "text": "Published"
+    },
+    {
+      "level": 2,
+      "text": "Accepted"
+    },
+    {
+      "level": 2,
+      "text": "Declined"
+    },
+    {
+      "level": 2,
+      "text": "Implemented"
+    },
+    {
+      "level": 2,
+      "text": "Expired"
+    },
+    {
+      "level": 2,
+      "text": "Archived"
+    },
+    {
+      "level": 2,
+      "text": "Deleted"
+    },
+    {
+      "level": 2,
+      "text": "Restored"
+    },
+    {
+      "level": 2,
+      "text": "Historical"
+    },
+    {
+      "level": 2,
+      "text": "Template"
+    },
+    {
+      "level": 1,
+      "text": "Transition Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Legal Transition"
+    },
+    {
+      "level": 2,
+      "text": "Illegal Transition"
+    },
+    {
+      "level": 2,
+      "text": "Trigger"
+    },
+    {
+      "level": 2,
+      "text": "Pre-condition"
+    },
+    {
+      "level": 2,
+      "text": "Post-condition"
+    },
+    {
+      "level": 2,
+      "text": "Invariant"
+    },
+    {
+      "level": 2,
+      "text": "Rollback Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Recovery Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Recommendation Validation"
+    },
+    {
+      "level": 2,
+      "text": "Business Validation"
+    },
+    {
+      "level": 2,
+      "text": "Financial Validation"
+    },
+    {
+      "level": 2,
+      "text": "Goal Validation"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Validation"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Validation"
+    },
+    {
+      "level": 2,
+      "text": "CashFlow Validation"
+    },
+    {
+      "level": 2,
+      "text": "Priority Validation"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Validation"
+    },
+    {
+      "level": 2,
+      "text": "Permission Validation"
+    },
+    {
+      "level": 2,
+      "text": "Consistency Validation"
+    },
+    {
+      "level": 1,
+      "text": "Recommendation Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Generation"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Ranking"
+    },
+    {
+      "level": 2,
+      "text": "Prioritization"
+    },
+    {
+      "level": 2,
+      "text": "Approval"
+    },
+    {
+      "level": 2,
+      "text": "Publication"
+    },
+    {
+      "level": 2,
+      "text": "Acceptance"
+    },
+    {
+      "level": 2,
+      "text": "Implementation"
+    },
+    {
+      "level": 2,
+      "text": "Verification"
+    },
+    {
+      "level": 2,
+      "text": "Archive"
+    },
+    {
+      "level": 1,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 1,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "Complete State Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Transitions"
+    },
+    {
+      "level": 2,
+      "text": "Triggers"
+    },
+    {
+      "level": 2,
+      "text": "Invariant"
+    },
+    {
+      "level": 2,
+      "text": "Illegal Transition"
+    },
+    {
+      "level": 1,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "All Related Domain Commands"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 1,
+      "text": "Repository"
+    },
+    {
+      "level": 2,
+      "text": "Interface"
+    },
+    {
+      "level": 2,
+      "text": "Methods"
+    },
+    {
+      "level": 2,
+      "text": "Queries"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Aggregation"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 2,
+      "text": "Specification"
+    },
+    {
+      "level": 1,
+      "text": "Domain Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "Application Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "REST Endpoints"
+    },
+    {
+      "level": 2,
+      "text": "HTTP Methods"
+    },
+    {
+      "level": 2,
+      "text": "Request"
+    },
+    {
+      "level": 2,
+      "text": "Response"
+    },
+    {
+      "level": 2,
+      "text": "Errors"
+    },
+    {
+      "level": 2,
+      "text": "Pagination"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 2,
+      "text": "Bulk Operations"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Operations"
+    },
+    {
+      "level": 1,
+      "text": "DTO"
+    },
+    {
+      "level": 2,
+      "text": "Create DTO"
+    },
+    {
+      "level": 2,
+      "text": "Update DTO"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation DTO"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle DTO"
+    },
+    {
+      "level": 2,
+      "text": "State DTO"
+    },
+    {
+      "level": 2,
+      "text": "Transition DTO"
+    },
+    {
+      "level": 2,
+      "text": "Priority DTO"
+    },
+    {
+      "level": 2,
+      "text": "Ranking DTO"
+    },
+    {
+      "level": 2,
+      "text": "Snapshot DTO"
+    },
+    {
+      "level": 2,
+      "text": "Summary DTO"
+    },
+    {
+      "level": 2,
+      "text": "Detail DTO"
+    },
+    {
+      "level": 2,
+      "text": "Search DTO"
+    },
+    {
+      "level": 1,
+      "text": "Database Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Table"
+    },
+    {
+      "level": 2,
+      "text": "Columns"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Constraints"
+    },
+    {
+      "level": 2,
+      "text": "FK"
+    },
+    {
+      "level": 2,
+      "text": "Unique"
+    },
+    {
+      "level": 2,
+      "text": "Check Constraint"
+    },
+    {
+      "level": 2,
+      "text": "Partition Strategy"
+    },
+    {
+      "level": 1,
+      "text": "PostgreSQL Schema"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Views"
+    },
+    {
+      "level": 2,
+      "text": "Materialized Views"
+    },
+    {
+      "level": 1,
+      "text": "EF Core Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Fluent API"
+    },
+    {
+      "level": 2,
+      "text": "Owned Types"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Value Conversion"
+    },
+    {
+      "level": 2,
+      "text": "Query Filters"
+    },
+    {
+      "level": 1,
+      "text": "Cache Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Redis Key"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Cache"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Cache"
+    },
+    {
+      "level": 2,
+      "text": "TTL"
+    },
+    {
+      "level": 2,
+      "text": "Refresh Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Invalidation"
+    },
+    {
+      "level": 1,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Authorization"
+    },
+    {
+      "level": 2,
+      "text": "Permissions"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Permissions"
+    },
+    {
+      "level": 2,
+      "text": "Approval Permissions"
+    },
+    {
+      "level": 2,
+      "text": "Field Level Security"
+    },
+    {
+      "level": 2,
+      "text": "Data Masking"
+    },
+    {
+      "level": 1,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation History"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle History"
+    },
+    {
+      "level": 2,
+      "text": "Approval History"
+    },
+    {
+      "level": 2,
+      "text": "Ranking History"
+    },
+    {
+      "level": 2,
+      "text": "Implementation History"
+    },
+    {
+      "level": 2,
+      "text": "Operator History"
+    },
+    {
+      "level": 1,
+      "text": "Performance"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Optimization"
+    },
+    {
+      "level": 2,
+      "text": "Batch Recommendation Processing"
+    },
+    {
+      "level": 2,
+      "text": "Parallel Ranking"
+    },
+    {
+      "level": 2,
+      "text": "Caching"
+    },
+    {
+      "level": 2,
+      "text": "Materialized Views"
+    },
+    {
+      "level": 2,
+      "text": "Incremental Processing"
+    },
+    {
+      "level": 1,
+      "text": "Example JSON"
+    },
+    {
+      "level": 2,
+      "text": "Create"
+    },
+    {
+      "level": 2,
+      "text": "Update"
+    },
+    {
+      "level": 2,
+      "text": "Generate"
+    },
+    {
+      "level": 2,
+      "text": "Approve"
+    },
+    {
+      "level": 2,
+      "text": "Reject"
+    },
+    {
+      "level": 2,
+      "text": "Publish"
+    },
+    {
+      "level": 2,
+      "text": "Accept"
+    },
+    {
+      "level": 2,
+      "text": "Implement"
+    },
+    {
+      "level": 2,
+      "text": "Archive"
+    },
+    {
+      "level": 2,
+      "text": "Restore"
+    },
+    {
+      "level": 2,
+      "text": "Search"
+    },
+    {
+      "level": 2,
+      "text": "Summary"
+    },
+    {
+      "level": 2,
+      "text": "Detail"
+    },
+    {
+      "level": 2,
+      "text": "Snapshot"
+    },
+    {
+      "level": 1,
+      "text": "Mermaid"
+    },
+    {
+      "level": 2,
+      "text": "Class Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Sequence Diagram"
+    },
+    {
+      "level": 2,
+      "text": "ER Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Complete State Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Flow"
+    },
+    {
+      "level": 2,
+      "text": "Approval Flow"
+    },
+    {
+      "level": 2,
+      "text": "Implementation Flow"
+    },
+    {
+      "level": 1,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Unit Test"
+    },
+    {
+      "level": 2,
+      "text": "Integration Test"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Test"
+    },
+    {
+      "level": 2,
+      "text": "Validation Test"
+    },
+    {
+      "level": 2,
+      "text": "Approval Test"
+    },
+    {
+      "level": 2,
+      "text": "Ranking Test"
+    },
+    {
+      "level": 2,
+      "text": "Performance Test"
+    },
+    {
+      "level": 2,
+      "text": "Concurrency Test"
+    },
+    {
+      "level": 2,
+      "text": "Recovery Test"
+    },
+    {
+      "level": 1,
+      "text": "Edge Cases"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification Addendum"
+    },
+    {
+      "level": 3,
+      "text": "Recommendation Lifecycle Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Version History"
+    }
+  ],
+  "bodyMarkdown": "﻿# Recommendation Lifecycle Overview\r\nVersion: 1.0.0\r\nStatus: Enterprise Specification\r\nOwner: Atlas Recommendation Domain\r\nSource of Truth: Recommendation Catalog\r\nLast Updated: 2026-07-13\r\n\r\n## Purpose\r\nRecommendation Lifecycle defines how Atlas creates, evaluates, ranks, approves, publishes, accepts, implements, archives, restores, and deletes Recommendations. It governs lifecycle state without changing Decision, Goal, Scenario, Portfolio, CashFlow, Notification, Workflow, Automation, Business Calendar, or User domains.\r\nIt provides enterprise-grade consistency for Recommendation status, priority, ranking, history, audit, and implementation tracking.\r\n\r\n## Business Meaning\r\nA Recommendation is an actionable business suggestion generated or maintained inside Atlas from existing domain data. Recommendation Lifecycle ensures each Recommendation has a controlled state, explicit owner, auditable transition, and permission-aware visibility.\r\nThe lifecycle turns Recommendation signals into governed business actions while preserving domain ownership.\r\n\r\n## Lifecycle Scope\r\nScope includes Recommendation creation, generation, evaluation, ranking, prioritization, approval, publication, acceptance, decline, implementation, expiration, archive, restore, deletion, snapshot, history, audit, and recovery. Scope excludes creation of new Atlas business concepts and excludes direct mutation of Decision, Goal, Scenario, Portfolio, CashFlow, Notification, Workflow, Automation, Business Calendar, or User records.\r\n\r\n## Lifecycle Objectives\r\n1. Keep Recommendation state deterministic and auditable. 2. Ensure every lifecycle transition has a valid trigger and permission. 3. Preserve ranking, priority, evidence, and business meaning. 4. Coordinate with Decision, Goal, Scenario, Portfolio, CashFlow, Optimization, Simulation, Workflow, Automation, Notification, Business Calendar, and User context. 5. Support enterprise APIs, repositories, database mapping, cache, security, audit, and performance. 6. Prevent stale, unauthorized, duplicate, or inconsistent Recommendations from driving action.\r\n\r\n## Ownership\r\nRecommendation Lifecycle is owned by the Recommendation domain. Recommendation source evidence remains owned by the originating domain.\r\nRecommendation approval and implementation ownership are assigned by permission, Workflow, or Recommendation policy.\r\n\r\n## Aggregate Root\r\nRecommendation is the aggregate root when it owns identity, lifecycle state, ranking, priority, approval state, publication state, acceptance state, implementation state, history, audit, and snapshot references. Lifecycle state is part of the Recommendation aggregate.\r\nRecommendation Lifecycle must not become the owner of Decision, Goal, Scenario, Portfolio, CashFlow, Notification, Workflow, Automation, Business Calendar, or User state.\r\n\r\n## Relationship with Recommendation\r\nRecommendation is the primary aggregate governed by the lifecycle. Every lifecycle command applies to exactly one Recommendation unless the command is explicitly a bulk lifecycle operation.\r\n\r\n## Relationship with Decision\r\nDecision provides business context, approval relevance, execution relevance, and adoption impact. Recommendation may reference Decision, but lifecycle commands must not mutate Decision directly.\r\n\r\n## Relationship with Decision Lifecycle\r\nDecision Lifecycle provides Decision state and timing. Recommendation Lifecycle may use Decision state to validate publish, accept, implement, expire, or archive transitions.\r\n\r\n## Relationship with Decision Evaluation\r\nDecision Evaluation provides evidence, criteria scores, quality score, and confidence. Recommendation Evaluation can use those values as input without owning them.\r\n\r\n## Relationship with Goal\r\nGoal provides alignment, priority, progress, health, and business value context. Recommendation priority and ranking may depend on Goal alignment.\r\n\r\n## Relationship with Scenario\r\nScenario provides assumption-based comparison and outcome projection. Recommendation may be generated or ranked from Scenario comparison.\r\n\r\n## Relationship with Portfolio\r\nPortfolio provides exposure, allocation, performance, and concentration context. Recommendation may reference Portfolio impact and constraints.\r\n\r\n## Relationship with CashFlow\r\nCashFlow provides timing, amount, gap, surplus, and shortfall context. Recommendation may be ranked by CashFlow impact.\r\n\r\n## Relationship with Notification\r\nNotification delivers Recommendation lifecycle awareness to authorized Users. Notification owns channel, delivery, read state, and retry behavior.\r\n\r\n## Relationship with Recommendation History\r\nRecommendation History records immutable lifecycle transitions, field changes, ranking changes, priority changes, and implementation updates.\r\n\r\n## Relationship with Recommendation Audit\r\nRecommendation Audit records command source, permission result, policy result, approval result, export, access, and recovery activity.\r\n\r\n## Relationship with Recommendation Priority\r\nRecommendation Priority determines business ordering and urgency. Priority can be calculated, overridden by authorized User, or inherited from Goal, Decision, Risk, CashFlow, or Portfolio context.\r\n\r\n## Relationship with Recommendation Engine\r\nRecommendation Engine generates and refreshes Recommendations from existing Atlas data. Lifecycle accepts Recommendation Engine output only after validation and duplicate checks.\r\n\r\n## Relationship with Recommendation Rule\r\nRecommendation Rule defines generation, ranking, approval, expiration, and notification criteria. Lifecycle stores rule identifier and rule version when rule-driven.\r\n\r\n## Relationship with Optimization\r\nOptimization provides candidate improvements and objective scores. Recommendation may be generated from Optimization result.\r\n\r\n## Relationship with Simulation\r\nSimulation provides projected outcomes under assumptions. Recommendation may be generated or ranked from Simulation output.\r\n\r\n## Relationship with Workflow\r\nWorkflow coordinates approval, review, publication, acceptance, implementation, and escalation. Lifecycle commands may be triggered by Workflow events.\r\n\r\n## Relationship with Automation\r\nAutomation triggers scheduled generation, refresh, expiration, notification, and archive checks.\r\n\r\n## Relationship with Business Calendar\r\nBusiness Calendar defines business-day due dates, review windows, expiration windows, and escalation windows.\r\n\r\n## Relationship with User\r\nUser provides owner, reviewer, approver, acceptor, implementer, viewer, and audit actor context. All lifecycle output must be permission-filtered per User.\r\n\r\n---\r\n\r\n# Lifecycle Architecture\r\n\r\n## Lifecycle Coordinator\r\nLifecycle Coordinator validates commands, loads Recommendation aggregate, checks permissions, applies state transition, records events, invalidates cache, and writes audit.\r\n\r\n## Recommendation Engine\r\nRecommendation Engine generates or refreshes Recommendation content from existing Atlas sources. It must provide evidence, confidence, rule version, and source references.\r\n\r\n## State Machine\r\nState Machine enforces legal Recommendation states and transitions. It prevents illegal transitions and preserves invariants.\r\n\r\n## Workflow Engine\r\nWorkflow Engine routes review, approval, publication, acceptance, and implementation work.\r\n\r\n## Validation Engine\r\nValidation Engine checks business, financial, Goal, Scenario, Portfolio, CashFlow, priority, dependency, permission, and consistency rules.\r\n\r\n## Ranking Engine\r\nRanking Engine calculates rank from value, urgency, confidence, risk, effort, Goal alignment, and impact.\r\n\r\n## Priority Engine\r\nPriority Engine calculates priority and validates authorized priority overrides.\r\n\r\n## Approval Engine\r\nApproval Engine evaluates approval requirements and approval transitions.\r\n\r\n## Audit Engine\r\nAudit Engine records every command, transition, validation result, approval result, ranking change, implementation change, and recovery action.\r\n\r\n## Recovery Engine\r\nRecovery Engine handles failed generation, failed ranking, failed approval, failed publication, failed implementation, and failed cache invalidation.\r\n\r\n## History Engine\r\nHistory Engine writes immutable lifecycle records with prior state, next state, actor, reason, correlation identifier, and timestamp.\r\n\r\n## Notification Engine\r\nNotification Engine requests Notification creation for publish, approval, rejection, acceptance, decline, implementation, expiration, and escalation events.\r\n\r\n---\r\n\r\n# Recommendation States\r\n\r\n## Draft\r\nPurpose: Represents a manually created Recommendation that is not ready for evaluation. Entry Criteria: CreateRecommendation command succeeds with minimum required fields.\r\nExit Criteria: Required content and evidence are complete. Allowed Commands: UpdateRecommendation, EvaluateRecommendation, DeleteRecommendation, CloneRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationCreated, RecommendationUpdated, RecommendationSnapshotCreated. Business Constraints: Draft Recommendations cannot be published, accepted, or implemented.\r\n\r\n## Generated\r\nPurpose: Represents a Recommendation produced by Recommendation Engine. Entry Criteria: GenerateRecommendation command succeeds with evidence and rule version.\r\nExit Criteria: Recommendation is ready for evaluation or ranking. Allowed Commands: EvaluateRecommendation, RankRecommendation, ArchiveRecommendation, DeleteRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationGenerated, RecommendationEvaluated, RecommendationRanked. Business Constraints: Generated Recommendations must include source evidence.\r\n\r\n## Pending Review\r\nPurpose: Represents a Recommendation waiting for business review. Entry Criteria: Evaluation requires human or workflow review.\r\nExit Criteria: Reviewer completes review and sends to ranking, prioritization, approval, or rejection. Allowed Commands: UpdateRecommendation, EvaluateRecommendation, RankRecommendation, RejectRecommendation, ArchiveRecommendation.\r\nAllowed Events: RecommendationUpdated, RecommendationEvaluated, RecommendationRanked, RecommendationRejected. Business Constraints: Review must respect assigned reviewer permission.\r\n\r\n## Ranked\r\nPurpose: Represents a Recommendation with calculated rank. Entry Criteria: RankRecommendation command succeeds.\r\nExit Criteria: Priority is assigned or approval is requested. Allowed Commands: RankRecommendation, ApproveRecommendation, RejectRecommendation, ArchiveRecommendation.\r\nAllowed Events: RecommendationRanked, RecommendationApproved, RecommendationRejected. Business Constraints: Rank requires complete ranking inputs.\r\n\r\n## Prioritized\r\nPurpose: Represents a Recommendation with validated priority. Entry Criteria: Priority Engine assigns or validates priority.\r\nExit Criteria: Approval is requested or publication is allowed. Allowed Commands: UpdateRecommendation, ApproveRecommendation, RejectRecommendation, PublishRecommendation.\r\nAllowed Events: RecommendationUpdated, RecommendationApproved, RecommendationRejected, RecommendationPublished. Business Constraints: Priority override requires permission and reason.\r\n\r\n## Waiting Approval\r\nPurpose: Represents a Recommendation awaiting approval. Entry Criteria: Approval Engine determines approval is required.\r\nExit Criteria: Approval or rejection is recorded. Allowed Commands: ApproveRecommendation, RejectRecommendation, ArchiveRecommendation.\r\nAllowed Events: RecommendationApproved, RecommendationRejected, RecommendationArchived. Business Constraints: Approver must be authorized and cannot violate approval segregation.\r\n\r\n## Approved\r\nPurpose: Represents a Recommendation approved for publication or acceptance. Entry Criteria: ApproveRecommendation command succeeds.\r\nExit Criteria: Recommendation is published, archived, or rejected by policy reversal. Allowed Commands: PublishRecommendation, ArchiveRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationApproved, RecommendationPublished, RecommendationArchived. Business Constraints: Approved Recommendation cannot be edited without returning to review.\r\n\r\n## Rejected\r\nPurpose: Represents a Recommendation rejected during review or approval. Entry Criteria: RejectRecommendation command succeeds.\r\nExit Criteria: Recommendation is archived, restored, or deleted by retention policy. Allowed Commands: ArchiveRecommendation, RestoreRecommendation, DeleteRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationRejected, RecommendationArchived, RecommendationRestored, RecommendationDeleted. Business Constraints: Rejection reason is required.\r\n\r\n## Published\r\nPurpose: Represents a Recommendation visible for acceptance or decline. Entry Criteria: PublishRecommendation command succeeds.\r\nExit Criteria: User accepts, declines, expires, or archive policy applies. Allowed Commands: AcceptRecommendation, DeclineRecommendation, ArchiveRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationPublished, RecommendationAccepted, RecommendationDeclined, RecommendationArchived. Business Constraints: Published Recommendation must be visible only to authorized Users.\r\n\r\n## Accepted\r\nPurpose: Represents a Recommendation accepted by authorized User. Entry Criteria: AcceptRecommendation command succeeds.\r\nExit Criteria: Implementation starts, archive applies, or expiration applies. Allowed Commands: ImplementRecommendation, ArchiveRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationAccepted, RecommendationImplemented, RecommendationArchived. Business Constraints: Acceptance reason may be required by policy.\r\n\r\n## Declined\r\nPurpose: Represents a Recommendation declined by authorized User. Entry Criteria: DeclineRecommendation command succeeds.\r\nExit Criteria: Archive, restore, or delete applies. Allowed Commands: ArchiveRecommendation, RestoreRecommendation, DeleteRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationDeclined, RecommendationArchived, RecommendationRestored, RecommendationDeleted. Business Constraints: Decline reason is required.\r\n\r\n## Implemented\r\nPurpose: Represents a Recommendation whose action has been completed or applied. Entry Criteria: ImplementRecommendation command succeeds with implementation evidence.\r\nExit Criteria: Archive or snapshot applies. Allowed Commands: ArchiveRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationImplemented, RecommendationArchived, RecommendationSnapshotCreated. Business Constraints: Implementation evidence is required.\r\n\r\n## Expired\r\nPurpose: Represents a Recommendation no longer actionable due to time, source state, or Business Calendar rules. Entry Criteria: Expiration rule is reached or source condition is no longer current.\r\nExit Criteria: Archive, restore, or delete applies. Allowed Commands: ArchiveRecommendation, RestoreRecommendation, DeleteRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationArchived, RecommendationRestored, RecommendationDeleted, RecommendationSnapshotCreated. Business Constraints: Expiration must record reason and timestamp.\r\n\r\n## Archived\r\nPurpose: Represents a retained read-only Recommendation. Entry Criteria: ArchiveRecommendation command succeeds.\r\nExit Criteria: Restore or delete applies. Allowed Commands: RestoreRecommendation, DeleteRecommendation, CreateSnapshot.\r\nAllowed Events: RecommendationArchived, RecommendationRestored, RecommendationDeleted. Business Constraints: Archived Recommendation cannot be updated, ranked, approved, published, accepted, declined, or implemented.\r\n\r\n## Deleted\r\nPurpose: Represents a soft-deleted Recommendation excluded from standard queries. Entry Criteria: DeleteRecommendation command succeeds.\r\nExit Criteria: None unless retention policy supports administrative restore. Allowed Commands: CreateSnapshot only when audit policy allows.\r\nAllowed Events: RecommendationDeleted. Business Constraints: Deleted Recommendation cannot be modified or published.\r\n\r\n## Restored\r\nPurpose: Represents a Recommendation restored from archive or deletion policy path. Entry Criteria: RestoreRecommendation command succeeds.\r\nExit Criteria: Recommendation returns to valid prior state or review state. Allowed Commands: EvaluateRecommendation, RankRecommendation, ArchiveRecommendation, DeleteRecommendation.\r\nAllowed Events: RecommendationRestored, RecommendationEvaluated, RecommendationRanked, RecommendationArchived. Business Constraints: Restore requires source context validation.\r\n\r\n## Historical\r\nPurpose: Represents a read-only historical projection for reporting or audit. Entry Criteria: Retention or snapshot process creates historical projection.\r\nExit Criteria: Retention deletion if allowed. Allowed Commands: CreateSnapshot.\r\nAllowed Events: RecommendationSnapshotCreated. Business Constraints: Historical projection must not drive active workflow.\r\n\r\n## Template\r\nPurpose: Represents a reusable Recommendation pattern defined by authorized configuration. Entry Criteria: CloneRecommendation or template creation policy succeeds.\r\nExit Criteria: New Recommendation is created from template. Allowed Commands: CloneRecommendation, UpdateRecommendation, ArchiveRecommendation.\r\nAllowed Events: RecommendationCreated, RecommendationUpdated, RecommendationArchived. Business Constraints: Template must not reference live Decision outcome as mutable state.\r\n\r\n---\r\n\r\n# Transition Matrix\r\n\r\n## Legal Transition\r\n1. `Draft -> Pending Review`. 2. `Draft -> Deleted`. 3. `Generated -> Pending Review`. 4. `Generated -> Ranked`. 5. `Generated -> Archived`. 6. `Pending Review -> Ranked`. 7. `Pending Review -> Rejected`. 8. `Ranked -> Prioritized`. 9. `Ranked -> Waiting Approval`. 10. `Prioritized -> Waiting Approval`. 11. `Prioritized -> Published`. 12. `Waiting Approval -> Approved`. 13. `Waiting Approval -> Rejected`. 14. `Approved -> Published`. 15. `Approved -> Archived`. 16. `Rejected -> Archived`. 17. `Published -> Accepted`. 18. `Published -> Declined`. 19. `Published -> Expired`. 20. `Accepted -> Implemented`. 21. `Accepted -> Archived`. 22. `Declined -> Archived`. 23. `Implemented -> Archived`. 24. `Expired -> Archived`. 25. `Archived -> Restored`. 26. `Archived -> Deleted`. 27. `Restored -> Pending Review`. 28. `Restored -> Ranked`. 29. `Template -> Draft`. 30. `Template -> Archived`.\r\n\r\n## Illegal Transition\r\n1. `Deleted -> Published`. 2. `Deleted -> Accepted`. 3. `Archived -> Implemented`. 4. `Draft -> Published`. 5. `Generated -> Accepted`. 6. `Pending Review -> Implemented`. 7. `Ranked -> Accepted`. 8. `Prioritized -> Implemented`. 9. `Waiting Approval -> Published`. 10. `Rejected -> Published`. 11. `Declined -> Implemented`. 12. `Expired -> Accepted`. 13. `Implemented -> Draft`. 14. `Historical -> Published`. 15. `Template -> Implemented`.\r\n\r\n## Trigger\r\nTriggers include manual command, Recommendation Engine output, Workflow event, Automation schedule, Business Calendar expiration, approval action, user acceptance, implementation evidence, source domain event, and retention policy.\r\n\r\n## Pre-condition\r\nPre-condition includes valid Recommendation identity, tenant access, current version match, legal current state, permission, source context availability, validation success, and idempotency key.\r\n\r\n## Post-condition\r\nPost-condition includes updated state, incremented version, persisted history, emitted Domain Event, updated cache invalidation, and audit record.\r\n\r\n## Invariant\r\nTenant, Recommendation identity, creation timestamp, source evidence identity, and immutable history cannot change.\r\n\r\n## Rollback Strategy\r\nFailed command rolls back aggregate state and persistence transaction. Failed notification or cache invalidation records recovery task without reverting successful lifecycle transition.\r\n\r\n## Recovery Strategy\r\nRecovery uses idempotency key, correlation identifier, prior state, retry policy, and audit trail to resume or compensate.\r\n\r\n---\r\n\r\n# Recommendation Validation\r\n\r\n## Business Validation\r\nRecommendation must have title, business meaning, category, owner, source, and actionable content when moving beyond Draft.\r\n\r\n## Financial Validation\r\nFinancial Recommendation must include amount, currency, period, confidence, and source evidence.\r\n\r\n## Goal Validation\r\nGoal-related Recommendation must reference authorized Goal and alignment score.\r\n\r\n## Scenario Validation\r\nScenario-related Recommendation must reference compatible Scenario output.\r\n\r\n## Portfolio Validation\r\nPortfolio-related Recommendation must reference Portfolio identifier and exposure evidence.\r\n\r\n## CashFlow Validation\r\nCashFlow-related Recommendation must reference period, amount, and impact direction.\r\n\r\n## Priority Validation\r\nPriority must be valid, justified, and consistent with ranking unless authorized override exists.\r\n\r\n## Dependency Validation\r\nRecommendation dependencies must not be blocked, deleted, or unauthorized.\r\n\r\n## Permission Validation\r\nUser must have command-specific permission and access to referenced source data.\r\n\r\n## Consistency Validation\r\nLifecycle state, version, rank, priority, approval, publication, acceptance, and implementation status must be internally consistent.\r\n\r\n---\r\n\r\n# Recommendation Workflow\r\n\r\n## Generation\r\nRecommendation is created manually or generated by Recommendation Engine.\r\n\r\n## Evaluation\r\nRecommendation is evaluated for business validity, evidence, confidence, and applicability.\r\n\r\n## Ranking\r\nRanking Engine calculates rank from value, urgency, confidence, impact, risk, effort, and alignment.\r\n\r\n## Prioritization\r\nPriority Engine assigns priority or validates override.\r\n\r\n## Approval\r\nApproval Engine determines required approvals and records approval or rejection.\r\n\r\n## Publication\r\nApproved Recommendation becomes visible to authorized target Users.\r\n\r\n## Acceptance\r\nAuthorized User accepts Recommendation for implementation.\r\n\r\n## Implementation\r\nImplementation evidence confirms accepted Recommendation has been applied.\r\n\r\n## Verification\r\nVerification confirms Recommendation outcome and source state.\r\n\r\n## Archive\r\nRecommendation is retained read-only after completion, rejection, decline, expiration, or retention action.\r\n\r\n---\r\n\r\n# Validation Rules\r\n\r\n1. `recommendation_id` is required. 2. `tenant_id` is required. 3. `title` is required. 4. `business_meaning` is required after Draft. 5. `category` must exist in Recommendation Catalog. 6. `state` must be valid. 7. `priority` must be valid. 8. `rank_score` must be between `0.0000` and `1.0000`. 9. `confidence_score` must be between `0.0000` and `1.0000`. 10. `business_value_score` must be between `0.0000` and `1.0000`. 11. `owner_user_id` is required. 12. Source type must be valid. 13. Source identifier is required for generated Recommendation. 14. Rule version is required for rule-generated Recommendation. 15. Evaluation result is required before ranking. 16. Ranking inputs are required before Ranked. 17. Priority reason is required for priority override. 18. Approval reason is required for approval. 19. Rejection reason is required for rejection. 20. Publication target is required before Published. 21. Acceptance actor is required for Accepted. 22. Decline reason is required for Declined. 23. Implementation evidence is required for Implemented. 24. Expiration reason is required for Expired. 25. Archive reason is required for Archived. 26. Restore reason is required for Restored. 27. Delete reason is required for Deleted. 28. Snapshot name is required for snapshot command. 29. Version must match for update commands. 30. Idempotency key is required for command endpoints. 31. Correlation identifier is required for event-driven commands. 32. Date range start must not exceed date range end. 33. Expiration date must use Business Calendar when policy requires. 34. Currency is required for financial Recommendation. 35. CashFlow period is required for CashFlow Recommendation. 36. Portfolio identifier is required for Portfolio Recommendation. 37. Scenario identifier is required for Scenario Recommendation. 38. Goal identifier is required for Goal Recommendation. 39. Decision identifier is required for Decision-scoped Recommendation. 40. Archived Recommendation cannot be updated. 41. Deleted Recommendation cannot be updated. 42. Published Recommendation cannot be modified without review policy. 43. Accepted Recommendation cannot be declined. 44. Declined Recommendation cannot be implemented. 45. Expired Recommendation cannot be accepted. 46. Implementation cannot occur before acceptance. 47. Approval cannot occur without approver permission. 48. Approver cannot violate segregation rule. 49. Field-level security must apply before response. 50. Masked fields cannot be exported without permission. 51. Bulk command size must not exceed limit. 52. Search sort field must be allowlisted. 53. Search filter field must be allowlisted. 54. Projection name must be valid. 55. Tenant isolation must be enforced before aggregation. 56. Cache key must include tenant and authorization context. 57. Audit write must include operator or system actor. 58. History record must include prior and next state. 59. Snapshot must preserve immutable source version. 60. Restore must validate current source context.\r\n\r\n---\r\n\r\n# Business Rules\r\n\r\n1. Recommendation Lifecycle must not redesign Atlas. 2. Recommendation Lifecycle must not modify other domain ownership. 3. Recommendation Lifecycle must not create unknown business concepts. 4. Recommendation must remain tenant-isolated. 5. Recommendation must have one current lifecycle state. 6. Recommendation state transition must be legal. 7. Every state transition must be auditable. 8. Every command must be idempotent. 9. Every generated Recommendation must include evidence. 10. Every rule-generated Recommendation must include rule version. 11. Draft Recommendation cannot be published. 12. Draft Recommendation cannot be accepted. 13. Draft Recommendation cannot be implemented. 14. Generated Recommendation must pass validation before ranking. 15. Pending Review Recommendation must be reviewed by authorized User or Workflow. 16. Ranked Recommendation must have rank score. 17. Prioritized Recommendation must have priority. 18. Waiting Approval Recommendation cannot be published. 19. Approved Recommendation can be published. 20. Rejected Recommendation requires rejection reason. 21. Published Recommendation can be accepted or declined. 22. Accepted Recommendation can be implemented. 23. Declined Recommendation cannot be implemented. 24. Implemented Recommendation requires evidence. 25. Expired Recommendation cannot be accepted. 26. Archived Recommendation is read-only. 27. Deleted Recommendation is excluded from normal queries. 28. Restored Recommendation must pass validation. 29. Historical Recommendation is read-only. 30. Template Recommendation cannot be implemented directly. 31. Priority override requires permission. 32. Priority override requires reason. 33. Ranking recalculation must record prior rank. 34. Ranking recalculation must record new rank. 35. Approval must record approver. 36. Approval must record timestamp. 37. Rejection must record rejector. 38. Publication must record target audience. 39. Acceptance must record accepting User. 40. Decline must record declining User. 41. Implementation must record implementer. 42. Snapshot must preserve state and version. 43. Clone must create a new Recommendation identifier. 44. Clone must not copy audit actor as current actor. 45. Recommendation cannot mutate Decision directly. 46. Recommendation cannot mutate Goal directly. 47. Recommendation cannot mutate Scenario directly. 48. Recommendation cannot mutate Portfolio directly. 49. Recommendation cannot mutate CashFlow directly. 50. Recommendation cannot mutate Notification directly. 51. Recommendation may request Notification through Notification command. 52. Recommendation may be generated from Optimization output. 53. Recommendation may be generated from Simulation output. 54. Recommendation may be generated from Decision Evaluation output. 55. Recommendation may be ranked by Goal alignment. 56. Recommendation may be ranked by CashFlow impact. 57. Recommendation may be ranked by Portfolio impact. 58. Recommendation may be ranked by business value. 59. Recommendation may be ranked by confidence. 60. Recommendation may be ranked by urgency. 61. Recommendation may be ranked by implementation effort. 62. Recommendation with missing evidence must have lower confidence. 63. Recommendation with stale source data must be marked stale. 64. Stale Recommendation must be refreshed before approval when policy requires. 65. Recommendation expiration uses Business Calendar. 66. Approval due date uses Business Calendar. 67. Implementation due date uses Business Calendar. 68. Notification recipients must be authorized. 69. Published Recommendation visibility must respect permissions. 70. Search must exclude deleted records by default. 71. Search must exclude archived records unless requested. 72. Summary projection must not include restricted evidence. 73. Detail projection must apply field-level security. 74. Export must record access history. 75. Export must apply masking. 76. Cache must include authorization hash. 77. Cache must be invalidated after lifecycle transition. 78. Cache must be invalidated after priority change. 79. Cache must be invalidated after ranking change. 80. Cache must be invalidated after approval change. 81. Cache must be invalidated after implementation change. 82. Bulk generation must isolate per-item failure. 83. Bulk ranking must preserve deterministic ordering. 84. Concurrent update must use version check. 85. Duplicate generation must be prevented by fingerprint. 86. Duplicate active Recommendation for same source and rule is not allowed. 87. Manual Recommendation duplicate must warn or reject by policy. 88. Recommendation History is append-only. 89. Recommendation Audit is append-only. 90. Recovery must not skip audit. 91. Failed Notification must not roll back successful lifecycle transition. 92. Failed cache invalidation must create recovery task. 93. Workflow cancellation must not delete Recommendation. 94. Automation retry must use idempotency key. 95. Decision archive may archive related Recommendations by policy. 96. Decision restore may restore related Recommendations by policy. 97. Goal cancellation may expire related Recommendations by policy. 98. CashFlow change may trigger Recommendation refresh. 99. Portfolio change may trigger Recommendation refresh. 100. Scenario change may trigger Recommendation refresh. 101. Simulation result change may trigger Recommendation refresh. 102. Optimization result change may trigger Recommendation refresh. 103. User permission change must invalidate Recommendation cache. 104. Compliance hold can block deletion. 105. Retention policy controls hard deletion.\r\n\r\n---\r\n\r\n# State Machine\r\n\r\n## Complete State Matrix\r\n| From | To | Trigger | Guard |\r\n|---|---|---|---|\r\n| Draft | Pending Review | EvaluateRecommendation | Content complete |\r\n| Draft | Deleted | DeleteRecommendation | Retention allows |\r\n| Generated | Pending Review | EvaluateRecommendation | Evidence complete |\r\n| Generated | Ranked | RankRecommendation | Evaluation passed |\r\n| Pending Review | Ranked | RankRecommendation | Review passed |\r\n| Pending Review | Rejected | RejectRecommendation | Reason provided |\r\n| Ranked | Prioritized | RankRecommendation | Priority calculated |\r\n| Ranked | Waiting Approval | Approve route | Approval required |\r\n| Prioritized | Waiting Approval | Approval route | Approval required |\r\n| Prioritized | Published | PublishRecommendation | Approval not required |\r\n| Waiting Approval | Approved | ApproveRecommendation | Approver valid |\r\n| Waiting Approval | Rejected | RejectRecommendation | Rejector valid |\r\n| Approved | Published | PublishRecommendation | Target valid |\r\n| Published | Accepted | AcceptRecommendation | Actor valid |\r\n| Published | Declined | DeclineRecommendation | Reason provided |\r\n| Published | Expired | Business Calendar | Expired |\r\n| Accepted | Implemented | ImplementRecommendation | Evidence valid |\r\n| Rejected | Archived | ArchiveRecommendation | Archive allowed |\r\n| Declined | Archived | ArchiveRecommendation | Archive allowed |\r\n| Implemented | Archived | ArchiveRecommendation | Archive allowed |\r\n| Expired | Archived | ArchiveRecommendation | Archive allowed |\r\n| Archived | Restored | RestoreRecommendation | Context valid |\r\n| Archived | Deleted | DeleteRecommendation | Retention allows |\r\n\r\n## Transitions\r\nTransitions must be executed through commands or authorized system triggers.\r\n\r\n## Triggers\r\nTriggers include command, workflow, automation, rule, Business Calendar, source event, and retention policy.\r\n\r\n## Invariant\r\nLifecycle state, version, history, audit, and source evidence must remain consistent.\r\n\r\n## Illegal Transition\r\nIllegal transitions are rejected with `409 Conflict` or domain validation error.\r\n\r\n---\r\n\r\n# Commands\r\n\r\n1. `CreateRecommendation`: Creates manual Recommendation. 2. `UpdateRecommendation`: Updates mutable Recommendation data. 3. `GenerateRecommendation`: Generates Recommendation from source evidence. 4. `EvaluateRecommendation`: Evaluates Recommendation validity. 5. `RankRecommendation`: Calculates rank. 6. `ApproveRecommendation`: Approves Recommendation. 7. `RejectRecommendation`: Rejects Recommendation. 8. `PublishRecommendation`: Publishes Recommendation. 9. `AcceptRecommendation`: Accepts Recommendation. 10. `DeclineRecommendation`: Declines Recommendation. 11. `ImplementRecommendation`: Marks implementation complete with evidence. 12. `ArchiveRecommendation`: Archives Recommendation. 13. `RestoreRecommendation`: Restores Recommendation. 14. `DeleteRecommendation`: Soft deletes Recommendation. 15. `CloneRecommendation`: Creates new Recommendation from existing Recommendation. 16. `CreateSnapshot`: Creates immutable Recommendation snapshot.\r\n\r\n## All Related Domain Commands\r\n1. `PrioritizeRecommendation`. 2. `RecalculateRecommendationRank`. 3. `RefreshRecommendation`. 4. `ExpireRecommendation`. 5. `PublishRecommendationBatch`. 6. `ArchiveRecommendationBatch`. 7. `AssignRecommendationOwner`. 8. `ChangeRecommendationPriority`. 9. `AttachRecommendationEvidence`. 10. `DetachRecommendationEvidence`.\r\n\r\n---\r\n\r\n# Domain Events\r\n\r\n1. `RecommendationCreated`. 2. `RecommendationUpdated`. 3. `RecommendationGenerated`. 4. `RecommendationEvaluated`. 5. `RecommendationRanked`. 6. `RecommendationApproved`. 7. `RecommendationRejected`. 8. `RecommendationPublished`. 9. `RecommendationAccepted`. 10. `RecommendationDeclined`. 11. `RecommendationImplemented`. 12. `RecommendationArchived`. 13. `RecommendationRestored`. 14. `RecommendationDeleted`. 15. `RecommendationSnapshotCreated`. 16. `RecommendationPrioritized`. 17. `RecommendationRankChanged`. 18. `RecommendationPriorityChanged`. 19. `RecommendationExpired`. 20. `RecommendationOwnerAssigned`. 21. `RecommendationEvidenceAttached`. 22. `RecommendationEvidenceDetached`. 23. `RecommendationRefreshFailed`. 24. `RecommendationNotificationRequested`.\r\n\r\n---\r\n\r\n# Repository\r\n\r\n## Interface\r\n```csharp\r\npublic interface IRecommendationRepository\r\n{\r\n    Task<Recommendation?> GetByIdAsync(Guid tenantId, Guid recommendationId, CancellationToken cancellationToken);\r\n    Task<Recommendation?> GetByFingerprintAsync(Guid tenantId, string fingerprint, CancellationToken cancellationToken);\r\n    Task<IReadOnlyList<Recommendation>> SearchAsync(RecommendationSearchSpecification specification, CancellationToken cancellationToken);\r\n    Task AddAsync(Recommendation recommendation, CancellationToken cancellationToken);\r\n    Task UpdateAsync(Recommendation recommendation, CancellationToken cancellationToken);\r\n    Task AddHistoryAsync(RecommendationHistory history, CancellationToken cancellationToken);\r\n    Task SaveChangesAsync(CancellationToken cancellationToken);\r\n}\r\n```\r\n\r\n## Methods\r\n1. `GetByIdAsync`. 2. `GetByDecisionIdAsync`. 3. `GetByGoalIdAsync`. 4. `GetByScenarioIdAsync`. 5. `GetByPortfolioIdAsync`. 6. `GetByCashFlowIdAsync`. 7. `GetByFingerprintAsync`. 8. `SearchAsync`. 9. `CountAsync`. 10. `AggregateByStateAsync`. 11. `AggregateByPriorityAsync`. 12. `AddAsync`. 13. `UpdateAsync`. 14. `AddHistoryAsync`. 15. `AddSnapshotAsync`. 16. `SoftDeleteAsync`. 17. `SaveChangesAsync`.\r\n\r\n## Queries\r\n1. Active Recommendations by tenant. 2. Recommendations by Decision. 3. Recommendations by Goal. 4. Recommendations by Scenario. 5. Recommendations by Portfolio. 6. Recommendations by CashFlow period. 7. Recommendations pending approval. 8. Recommendations pending implementation. 9. Expired Recommendations. 10. Archived Recommendations. 11. Recommendation snapshots. 12. Recommendation history.\r\n\r\n## Filtering\r\n1. `tenant_id`. 2. `recommendation_id`. 3. `state`. 4. `priority`. 5. `category`. 6. `decision_id`. 7. `goal_id`. 8. `scenario_id`. 9. `portfolio_id`. 10. `cashflow_id`. 11. `owner_user_id`. 12. `generated_from`. 13. `generated_to`. 14. `expires_from`. 15. `expires_to`.\r\n\r\n## Sorting\r\n1. `rank_score desc`. 2. `priority desc`. 3. `confidence_score desc`. 4. `business_value_score desc`. 5. `created_at desc`. 6. `updated_at desc`. 7. `expires_at asc`. 8. `state asc`.\r\n\r\n## Aggregation\r\n1. Count by state. 2. Count by priority. 3. Count by category. 4. Count by owner. 5. Average rank score. 6. Average confidence score. 7. Published count. 8. Accepted count. 9. Implemented count. 10. Expired count.\r\n\r\n## Projection\r\n1. Summary projection. 2. Detail projection. 3. Lifecycle projection. 4. State projection. 5. Transition projection. 6. Priority projection. 7. Ranking projection. 8. Snapshot projection. 9. Search projection. 10. Audit projection.\r\n\r\n## Specification\r\n`RecommendationSearchSpecification` includes tenant, authorization context, filters, sorting, pagination, projection, include archived flag, and include deleted flag.\r\n\r\n---\r\n\r\n# Domain Service Interaction\r\n\r\n1. `RecommendationLifecycleService` validates transitions. 2. `RecommendationGenerationService` handles generated content and evidence. 3. `RecommendationValidationService` applies validation categories. 4. `RecommendationRankingService` calculates rank. 5. `RecommendationPriorityService` calculates priority. 6. `RecommendationApprovalService` validates approval rules. 7. `RecommendationPublicationService` validates publish target. 8. `RecommendationAcceptanceService` validates accept and decline. 9. `RecommendationImplementationService` validates implementation evidence. 10. `RecommendationExpirationService` calculates expiration. 11. `RecommendationSnapshotService` creates snapshots. 12. `RecommendationHistoryService` writes history. 13. `RecommendationAuditService` writes audit. 14. `RecommendationNotificationService` requests Notification. 15. `RecommendationCacheService` invalidates cache.\r\n\r\n---\r\n\r\n# Application Service Interaction\r\n\r\n1. `CreateRecommendationApplicationService`. 2. `UpdateRecommendationApplicationService`. 3. `GenerateRecommendationApplicationService`. 4. `EvaluateRecommendationApplicationService`. 5. `RankRecommendationApplicationService`. 6. `ApproveRecommendationApplicationService`. 7. `RejectRecommendationApplicationService`. 8. `PublishRecommendationApplicationService`. 9. `AcceptRecommendationApplicationService`. 10. `DeclineRecommendationApplicationService`. 11. `ImplementRecommendationApplicationService`. 12. `ArchiveRecommendationApplicationService`. 13. `RestoreRecommendationApplicationService`. 14. `DeleteRecommendationApplicationService`. 15. `CloneRecommendationApplicationService`. 16. `CreateRecommendationSnapshotApplicationService`. 17. `SearchRecommendationApplicationService`. 18. `DecisionApplicationService` supplies Decision context. 19. `GoalApplicationService` supplies Goal context. 20. `ScenarioApplicationService` supplies Scenario context. 21. `PortfolioApplicationService` supplies Portfolio context. 22. `CashFlowApplicationService` supplies CashFlow context. 23. `NotificationApplicationService` handles Notification commands. 24. `WorkflowApplicationService` handles approval and implementation routing. 25. `BusinessCalendarApplicationService` handles business date calculation.\r\n\r\n---\r\n\r\n# API\r\n\r\n## REST Endpoints\r\n| Endpoint | Method | Purpose |\r\n|---|---:|---|\r\n| `/api/recommendations` | `POST` | Create Recommendation |\r\n| `/api/recommendations` | `GET` | Search Recommendations |\r\n| `/api/recommendations/{recommendationId}` | `GET` | Get detail |\r\n| `/api/recommendations/{recommendationId}` | `PATCH` | Update Recommendation |\r\n| `/api/recommendations/generate` | `POST` | Generate Recommendation |\r\n| `/api/recommendations/{recommendationId}/evaluate` | `POST` | Evaluate Recommendation |\r\n| `/api/recommendations/{recommendationId}/rank` | `POST` | Rank Recommendation |\r\n| `/api/recommendations/{recommendationId}/approve` | `POST` | Approve Recommendation |\r\n| `/api/recommendations/{recommendationId}/reject` | `POST` | Reject Recommendation |\r\n| `/api/recommendations/{recommendationId}/publish` | `POST` | Publish Recommendation |\r\n| `/api/recommendations/{recommendationId}/accept` | `POST` | Accept Recommendation |\r\n| `/api/recommendations/{recommendationId}/decline` | `POST` | Decline Recommendation |\r\n| `/api/recommendations/{recommendationId}/implement` | `POST` | Implement Recommendation |\r\n| `/api/recommendations/{recommendationId}/archive` | `POST` | Archive Recommendation |\r\n| `/api/recommendations/{recommendationId}/restore` | `POST` | Restore Recommendation |\r\n| `/api/recommendations/{recommendationId}` | `DELETE` | Delete Recommendation |\r\n| `/api/recommendations/{recommendationId}/clone` | `POST` | Clone Recommendation |\r\n| `/api/recommendations/{recommendationId}/snapshots` | `POST` | Create snapshot |\r\n\r\n## HTTP Methods\r\n`GET` reads Recommendation resources. `POST` creates resources or executes lifecycle commands.\r\n`PATCH` updates mutable fields. `DELETE` performs soft deletion.\r\n\r\n## Request\r\nRequests include tenant context, authorization token, idempotency key for command endpoints, version for concurrency, correlation identifier, filters, sorting, pagination, and projection where applicable.\r\n\r\n## Response\r\nResponses include data, metadata, links, errors, trace identifier, timestamp, and version.\r\n\r\n## Errors\r\n1. `400 Bad Request`: Validation failed. 2. `401 Unauthorized`: Authentication missing. 3. `403 Forbidden`: Permission denied. 4. `404 Not Found`: Recommendation not found. 5. `409 Conflict`: Invalid state transition or duplicate fingerprint. 6. `412 Precondition Failed`: Version conflict. 7. `422 Unprocessable Entity`: Business rule violation. 8. `429 Too Many Requests`: Bulk or generation limit exceeded. 9. `500 Internal Server Error`: Unexpected failure.\r\n\r\n## Pagination\r\nPagination includes `pageNumber`, `pageSize`, `totalCount`, `totalPages`, and `hasNext`.\r\n\r\n## Filtering\r\nFiltering supports allowlisted Recommendation fields and related identifiers.\r\n\r\n## Sorting\r\nSorting supports allowlisted fields and stable secondary sort.\r\n\r\n## Projection\r\nProjection options include summary, detail, lifecycle, state, transition, priority, ranking, snapshot, search, and audit.\r\n\r\n## Bulk Operations\r\nBulk operations include generate, evaluate, rank, publish, archive, expire, and export where configured.\r\n\r\n## Lifecycle Operations\r\nLifecycle operations are command endpoints that enforce state machine rules.\r\n\r\n---\r\n\r\n# DTO\r\n\r\n## Create DTO\r\n```json\r\n{\r\n  \"title\": \"Reduce cash flow pressure\",\r\n  \"businessMeaning\": \"Adjust timing to reduce projected shortfall.\",\r\n  \"category\": \"CashFlowRecommendation\",\r\n  \"ownerUserId\": \"11111111-1111-1111-1111-111111111111\",\r\n  \"sourceType\": \"CashFlow\",\r\n  \"sourceId\": \"22222222-2222-2222-2222-222222222222\"\r\n}\r\n```\r\n\r\n## Update DTO\r\n```json\r\n{\r\n  \"title\": \"Reduce projected cash flow pressure\",\r\n  \"businessMeaning\": \"Adjust Decision timing to reduce shortfall.\",\r\n  \"version\": 2\r\n}\r\n```\r\n\r\n## Recommendation DTO\r\nFields: `recommendationId`, `tenantId`, `title`, `category`, `state`, `priority`, `rankScore`, `confidenceScore`, `ownerUserId`, `version`.\r\n\r\n## Lifecycle DTO\r\nFields: `state`, `enteredAt`, `expiresAt`, `lastTransition`, `allowedCommands`.\r\n\r\n## State DTO\r\nFields: `state`, `purpose`, `entryCriteria`, `exitCriteria`, `allowedCommands`, `businessConstraints`.\r\n\r\n## Transition DTO\r\nFields: `fromState`, `toState`, `trigger`, `preCondition`, `postCondition`, `operatorUserId`, `occurredAt`.\r\n\r\n## Priority DTO\r\nFields: `priority`, `priorityScore`, `reason`, `isOverride`, `updatedBy`, `updatedAt`.\r\n\r\n## Ranking DTO\r\nFields: `rankScore`, `rankPosition`, `rankingInputs`, `formula`, `calculatedAt`.\r\n\r\n## Snapshot DTO\r\nFields: `snapshotId`, `recommendationId`, `state`, `version`, `snapshotData`, `createdAt`.\r\n\r\n## Summary DTO\r\nFields: `recommendationId`, `title`, `state`, `priority`, `rankScore`, `confidenceScore`, `updatedAt`.\r\n\r\n## Detail DTO\r\nFields: summary fields, `businessMeaning`, `evidence`, `history`, `audit`, `approval`, `implementation`.\r\n\r\n## Search DTO\r\nFields: `filters`, `sort`, `pagination`, `projection`, `includeArchived`, `includeDeleted`.\r\n\r\n---\r\n\r\n# Database Mapping\r\n\r\n## Table\r\nPrimary table: `recommendations`. History table: `recommendation_history`.\r\nSnapshot table: `recommendation_snapshots`. Evidence table: `recommendation_evidence`.\r\n\r\n## Columns\r\n1. `recommendation_id`. 2. `tenant_id`. 3. `fingerprint`. 4. `title`. 5. `business_meaning`. 6. `category`. 7. `state`. 8. `priority`. 9. `rank_score`. 10. `confidence_score`. 11. `business_value_score`. 12. `owner_user_id`. 13. `source_type`. 14. `source_id`. 15. `rule_id`. 16. `rule_version`. 17. `expires_at`. 18. `published_at`. 19. `accepted_at`. 20. `implemented_at`. 21. `archived_at`. 22. `deleted_at`. 23. `created_at`. 24. `updated_at`. 25. `version`.\r\n\r\n## Indexes\r\n1. Primary key on `recommendation_id`. 2. Index on `tenant_id`, `state`. 3. Index on `tenant_id`, `priority`. 4. Index on `tenant_id`, `owner_user_id`. 5. Index on `tenant_id`, `source_type`, `source_id`. 6. Index on `tenant_id`, `expires_at`. 7. Unique active fingerprint index.\r\n\r\n## Constraints\r\n1. Tenant identifier not null. 2. Title not null. 3. Category not null. 4. State not null. 5. Priority not null. 6. Score range checks. 7. Version greater than zero.\r\n\r\n## FK\r\nHistory, evidence, and snapshot records reference `recommendations.recommendation_id`.\r\n\r\n## Unique\r\nActive fingerprint must be unique per tenant where deleted is null and state is not Archived or Deleted.\r\n\r\n## Check Constraint\r\nState, priority, score range, and version constraints are enforced at database level.\r\n\r\n## Partition Strategy\r\nHistory and snapshots may be partitioned by tenant and month.\r\n\r\n---\r\n\r\n# PostgreSQL Schema\r\n\r\n```sql\r\nCREATE TABLE recommendations (\r\n    recommendation_id uuid PRIMARY KEY,\r\n    tenant_id uuid NOT NULL,\r\n    fingerprint varchar(160) NOT NULL,\r\n    title varchar(240) NOT NULL,\r\n    business_meaning text NULL,\r\n    category varchar(80) NOT NULL,\r\n    state varchar(40) NOT NULL,\r\n    priority varchar(20) NOT NULL,\r\n    rank_score numeric(7,4) NOT NULL DEFAULT 0,\r\n    confidence_score numeric(7,4) NOT NULL DEFAULT 0,\r\n    business_value_score numeric(7,4) NOT NULL DEFAULT 0,\r\n    owner_user_id uuid NOT NULL,\r\n    source_type varchar(80) NULL,\r\n    source_id uuid NULL,\r\n    rule_id uuid NULL,\r\n    rule_version integer NULL,\r\n    expires_at timestamptz NULL,\r\n    published_at timestamptz NULL,\r\n    accepted_at timestamptz NULL,\r\n    implemented_at timestamptz NULL,\r\n    archived_at timestamptz NULL,\r\n    deleted_at timestamptz NULL,\r\n    created_at timestamptz NOT NULL,\r\n    updated_at timestamptz NOT NULL,\r\n    version integer NOT NULL DEFAULT 1,\r\n    CONSTRAINT ck_recommendations_state CHECK (state IN ('Draft','Generated','PendingReview','Ranked','Prioritized','WaitingApproval','Approved','Rejected','Published','Accepted','Declined','Implemented','Expired','Archived','Deleted','Restored','Historical','Template')),\r\n    CONSTRAINT ck_recommendations_priority CHECK (priority IN ('Low','Medium','High','Critical')),\r\n    CONSTRAINT ck_recommendations_scores CHECK (rank_score BETWEEN 0 AND 1 AND confidence_score BETWEEN 0 AND 1 AND business_value_score BETWEEN 0 AND 1),\r\n    CONSTRAINT ck_recommendations_version CHECK (version > 0)\r\n);\r\n\r\nCREATE TABLE recommendation_history (\r\n    history_id uuid PRIMARY KEY,\r\n    recommendation_id uuid NOT NULL REFERENCES recommendations(recommendation_id),\r\n    tenant_id uuid NOT NULL,\r\n    from_state varchar(40) NULL,\r\n    to_state varchar(40) NOT NULL,\r\n    action_name varchar(80) NOT NULL,\r\n    reason text NULL,\r\n    operator_user_id uuid NULL,\r\n    correlation_id varchar(120) NOT NULL,\r\n    occurred_at timestamptz NOT NULL\r\n);\r\n\r\nCREATE TABLE recommendation_evidence (\r\n    evidence_id uuid PRIMARY KEY,\r\n    recommendation_id uuid NOT NULL REFERENCES recommendations(recommendation_id),\r\n    tenant_id uuid NOT NULL,\r\n    source_type varchar(80) NOT NULL,\r\n    source_id uuid NOT NULL,\r\n    evidence_name varchar(120) NOT NULL,\r\n    evidence_value text NULL,\r\n    captured_at timestamptz NOT NULL,\r\n    created_at timestamptz NOT NULL\r\n);\r\n\r\nCREATE TABLE recommendation_snapshots (\r\n    snapshot_id uuid PRIMARY KEY,\r\n    recommendation_id uuid NOT NULL REFERENCES recommendations(recommendation_id),\r\n    tenant_id uuid NOT NULL,\r\n    snapshot_name varchar(160) NOT NULL,\r\n    snapshot_data jsonb NOT NULL,\r\n    created_by uuid NULL,\r\n    created_at timestamptz NOT NULL\r\n);\r\n\r\nCREATE INDEX ix_recommendations_tenant_state ON recommendations (tenant_id, state);\r\nCREATE INDEX ix_recommendations_tenant_priority ON recommendations (tenant_id, priority);\r\nCREATE INDEX ix_recommendations_tenant_owner ON recommendations (tenant_id, owner_user_id);\r\nCREATE INDEX ix_recommendations_source ON recommendations (tenant_id, source_type, source_id);\r\nCREATE INDEX ix_recommendations_expires ON recommendations (tenant_id, expires_at) WHERE expires_at IS NOT NULL AND deleted_at IS NULL;\r\nCREATE UNIQUE INDEX ux_recommendations_active_fingerprint ON recommendations (tenant_id, fingerprint) WHERE deleted_at IS NULL AND state NOT IN ('Archived','Deleted');\r\nCREATE INDEX ix_recommendation_history_recommendation ON recommendation_history (tenant_id, recommendation_id, occurred_at DESC);\r\nCREATE INDEX ix_recommendation_evidence_recommendation ON recommendation_evidence (tenant_id, recommendation_id);\r\nCREATE INDEX ix_recommendation_snapshots_recommendation ON recommendation_snapshots (tenant_id, recommendation_id, created_at DESC);\r\n\r\nCREATE VIEW v_recommendation_summary AS\r\nSELECT recommendation_id, tenant_id, title, category, state, priority, rank_score, confidence_score, owner_user_id, updated_at\r\nFROM recommendations\r\nWHERE deleted_at IS NULL;\r\n\r\nCREATE MATERIALIZED VIEW mv_recommendation_lifecycle_metrics AS\r\nSELECT tenant_id, state, priority, count(*) AS recommendation_count, avg(rank_score) AS avg_rank_score, avg(confidence_score) AS avg_confidence_score\r\nFROM recommendations\r\nWHERE deleted_at IS NULL\r\nGROUP BY tenant_id, state, priority;\r\n\r\nCREATE INDEX ix_mv_recommendation_lifecycle_metrics ON mv_recommendation_lifecycle_metrics (tenant_id, state, priority);\r\n```\r\n\r\n## Indexes\r\nIndexes support state, priority, owner, source, expiration, history, evidence, and snapshot reads.\r\n\r\n## Constraints\r\nConstraints enforce state, priority, score range, and version validity.\r\n\r\n## Views\r\n`v_recommendation_summary` supports search and summary projection.\r\n\r\n## Materialized Views\r\n`mv_recommendation_lifecycle_metrics` supports dashboard, analytics, and reporting.\r\n\r\n---\r\n\r\n# EF Core Mapping\r\n\r\n## Fluent API\r\n```csharp\r\nbuilder.ToTable(\"recommendations\");\r\nbuilder.HasKey(x => x.RecommendationId);\r\nbuilder.Property(x => x.TenantId).IsRequired();\r\nbuilder.Property(x => x.Fingerprint).HasMaxLength(160).IsRequired();\r\nbuilder.Property(x => x.Title).HasMaxLength(240).IsRequired();\r\nbuilder.Property(x => x.Category).HasMaxLength(80).IsRequired();\r\nbuilder.Property(x => x.State).HasMaxLength(40).IsRequired();\r\nbuilder.Property(x => x.Priority).HasMaxLength(20).IsRequired();\r\nbuilder.Property(x => x.RankScore).HasPrecision(7, 4);\r\nbuilder.Property(x => x.ConfidenceScore).HasPrecision(7, 4);\r\nbuilder.Property(x => x.BusinessValueScore).HasPrecision(7, 4);\r\nbuilder.Property(x => x.Version).IsConcurrencyToken();\r\n```\r\n\r\n## Owned Types\r\n1. `RecommendationLifecycle`. 2. `RecommendationPriority`. 3. `RecommendationRanking`. 4. `RecommendationSource`. 5. `RecommendationAuditMetadata`.\r\n\r\n## Indexes\r\n```csharp\r\nbuilder.HasIndex(x => new { x.TenantId, x.State });\r\nbuilder.HasIndex(x => new { x.TenantId, x.Priority });\r\nbuilder.HasIndex(x => new { x.TenantId, x.OwnerUserId });\r\nbuilder.HasIndex(x => new { x.TenantId, x.SourceType, x.SourceId });\r\nbuilder.HasIndex(x => new { x.TenantId, x.Fingerprint }).IsUnique().HasFilter(\"deleted_at IS NULL AND state NOT IN ('Archived','Deleted')\");\r\n```\r\n\r\n## Value Conversion\r\nState, priority, category, source type, and command result convert to string. Scores convert to decimal with four-place precision.\r\n\r\n## Query Filters\r\nGlobal query filter enforces tenant and excludes soft-deleted records by default.\r\n\r\n---\r\n\r\n# Cache Strategy\r\n\r\n## Redis Key\r\n1. `atlas:tenant:{tenantId}:recommendation:{recommendationId}:detail:{authHash}`. 2. `atlas:tenant:{tenantId}:recommendation:{recommendationId}:lifecycle:{authHash}`. 3. `atlas:tenant:{tenantId}:recommendations:search:{filterHash}:{authHash}`. 4. `atlas:tenant:{tenantId}:recommendations:metrics:{projection}:{authHash}`. 5. `atlas:tenant:{tenantId}:recommendations:pending-approval:{authHash}`.\r\n\r\n## Recommendation Cache\r\nRecommendation cache stores summary, detail, and lifecycle projections after permission filtering.\r\n\r\n## Lifecycle Cache\r\nLifecycle cache stores state, allowed commands, transition history summary, and due dates.\r\n\r\n## TTL\r\nDetail TTL is 5 minutes. Lifecycle TTL is 3 minutes.\r\nSearch TTL is 2 minutes. Metrics TTL is 5 minutes.\r\n\r\n## Refresh Strategy\r\nRefresh cache after lifecycle transition, priority change, ranking change, evidence change, approval change, implementation change, archive, restore, or delete.\r\n\r\n## Invalidation\r\nInvalidate by tenant, Recommendation, owner, source, state, priority, and projection.\r\n\r\n---\r\n\r\n# Security\r\n\r\n## Authorization\r\nAuthorization validates tenant access, Recommendation access, source access, command permission, projection permission, and field permission.\r\n\r\n## Permissions\r\n1. `Recommendation.Read`. 2. `Recommendation.Create`. 3. `Recommendation.Update`. 4. `Recommendation.Generate`. 5. `Recommendation.Evaluate`. 6. `Recommendation.Rank`. 7. `Recommendation.Approve`. 8. `Recommendation.Reject`. 9. `Recommendation.Publish`. 10. `Recommendation.Accept`. 11. `Recommendation.Decline`. 12. `Recommendation.Implement`. 13. `Recommendation.Archive`. 14. `Recommendation.Restore`. 15. `Recommendation.Delete`. 16. `Recommendation.Snapshot`.\r\n\r\n## Recommendation Permissions\r\nRecommendation permissions control lifecycle commands, search, detail, export, and snapshot access.\r\n\r\n## Approval Permissions\r\nApproval permissions require approver role and segregation compliance.\r\n\r\n## Field Level Security\r\nFinancial amounts, CashFlow values, Portfolio exposure, Risk notes, User behavior, approval comments, and audit details must be masked when unauthorized.\r\n\r\n## Data Masking\r\nMasked values must not be cached or exported as raw values.\r\n\r\n---\r\n\r\n# Audit\r\n\r\n## Recommendation History\r\nStores state transition history and lifecycle field changes.\r\n\r\n## Lifecycle History\r\nStores command, trigger, prior state, next state, and correlation identifier.\r\n\r\n## Approval History\r\nStores approver, decision, reason, timestamp, and policy result.\r\n\r\n## Ranking History\r\nStores prior rank, new rank, formula, input references, and calculation timestamp.\r\n\r\n## Implementation History\r\nStores implementer, evidence, result, and verification state.\r\n\r\n## Operator History\r\nStores User or system actor for every lifecycle command.\r\n\r\n---\r\n\r\n# Performance\r\n\r\n## Lifecycle Optimization\r\nUse summary projection for lists and detail projection only on demand.\r\n\r\n## Batch Recommendation Processing\r\nBatch generation, ranking, expiration, and archive operations must partition by tenant and source.\r\n\r\n## Parallel Ranking\r\nIndependent Recommendations may be ranked in parallel with deterministic ordering after merge.\r\n\r\n## Caching\r\nCache summary, lifecycle, metrics, and pending approval projections.\r\n\r\n## Materialized Views\r\nUse materialized lifecycle metrics for dashboard and reporting.\r\n\r\n## Incremental Processing\r\nIncremental refresh uses source change cursor and idempotent replay.\r\n\r\n---\r\n\r\n# Example JSON\r\n\r\n## Create\r\n```json\r\n{\r\n  \"title\": \"Improve Decision timing\",\r\n  \"businessMeaning\": \"Move the Decision date to reduce CashFlow pressure.\",\r\n  \"category\": \"CashFlowRecommendation\",\r\n  \"ownerUserId\": \"11111111-1111-1111-1111-111111111111\"\r\n}\r\n```\r\n\r\n## Update\r\n```json\r\n{\r\n  \"title\": \"Improve Decision timing for next period\",\r\n  \"version\": 2\r\n}\r\n```\r\n\r\n## Generate\r\n```json\r\n{\r\n  \"sourceType\": \"DecisionEvaluation\",\r\n  \"sourceId\": \"22222222-2222-2222-2222-222222222222\",\r\n  \"ruleId\": \"33333333-3333-3333-3333-333333333333\",\r\n  \"correlationId\": \"recommendation-generation-20260713-001\"\r\n}\r\n```\r\n\r\n## Approve\r\n```json\r\n{\r\n  \"approvalReason\": \"Recommendation meets policy and evidence requirements.\",\r\n  \"version\": 4\r\n}\r\n```\r\n\r\n## Reject\r\n```json\r\n{\r\n  \"rejectionReason\": \"Evidence is insufficient for publication.\",\r\n  \"version\": 4\r\n}\r\n```\r\n\r\n## Publish\r\n```json\r\n{\r\n  \"targetUserIds\": [\"11111111-1111-1111-1111-111111111111\"],\r\n  \"version\": 5\r\n}\r\n```\r\n\r\n## Accept\r\n```json\r\n{\r\n  \"acceptanceReason\": \"Recommendation will be implemented.\",\r\n  \"version\": 6\r\n}\r\n```\r\n\r\n## Implement\r\n```json\r\n{\r\n  \"implementationEvidence\": [\r\n    {\r\n      \"sourceType\": \"Decision\",\r\n      \"sourceId\": \"22222222-2222-2222-2222-222222222222\",\r\n      \"evidenceName\": \"implementationStatus\",\r\n      \"evidenceValue\": \"Completed\"\r\n    }\r\n  ],\r\n  \"version\": 7\r\n}\r\n```\r\n\r\n## Archive\r\n```json\r\n{\r\n  \"archiveReason\": \"Recommendation lifecycle completed.\",\r\n  \"version\": 8\r\n}\r\n```\r\n\r\n## Restore\r\n```json\r\n{\r\n  \"restoreReason\": \"Business review requires restored Recommendation.\",\r\n  \"version\": 9\r\n}\r\n```\r\n\r\n## Search\r\n```json\r\n{\r\n  \"filters\": {\r\n    \"state\": [\"Published\", \"Accepted\"],\r\n    \"priority\": [\"High\", \"Critical\"]\r\n  },\r\n  \"sort\": [{ \"field\": \"rankScore\", \"direction\": \"desc\" }],\r\n  \"pagination\": { \"pageNumber\": 1, \"pageSize\": 25 },\r\n  \"projection\": \"summary\"\r\n}\r\n```\r\n\r\n## Summary\r\n```json\r\n{\r\n  \"recommendationId\": \"44444444-4444-4444-4444-444444444444\",\r\n  \"title\": \"Improve Decision timing\",\r\n  \"state\": \"Published\",\r\n  \"priority\": \"High\",\r\n  \"rankScore\": 0.86,\r\n  \"confidenceScore\": 0.82\r\n}\r\n```\r\n\r\n## Detail\r\n```json\r\n{\r\n  \"recommendationId\": \"44444444-4444-4444-4444-444444444444\",\r\n  \"title\": \"Improve Decision timing\",\r\n  \"businessMeaning\": \"Move the Decision date to reduce CashFlow pressure.\",\r\n  \"state\": \"Published\",\r\n  \"priority\": \"High\",\r\n  \"history\": [],\r\n  \"evidence\": []\r\n}\r\n```\r\n\r\n## Snapshot\r\n```json\r\n{\r\n  \"snapshotName\": \"Approval Snapshot\",\r\n  \"includeEvidence\": true,\r\n  \"includeHistory\": true\r\n}\r\n```\r\n\r\n---\r\n\r\n# Mermaid\r\n\r\n## Class Diagram\r\n```mermaid\r\nclassDiagram\r\n    class Recommendation {\r\n        +Guid recommendationId\r\n        +string state\r\n        +string priority\r\n        +decimal rankScore\r\n        +Approve()\r\n        +Publish()\r\n        +Accept()\r\n        +Implement()\r\n    }\r\n    class RecommendationHistory {\r\n        +Guid historyId\r\n        +string fromState\r\n        +string toState\r\n        +string actionName\r\n    }\r\n    class RecommendationEvidence {\r\n        +Guid evidenceId\r\n        +string sourceType\r\n        +Guid sourceId\r\n    }\r\n    Recommendation \"1\" --> \"many\" RecommendationHistory\r\n    Recommendation \"1\" --> \"many\" RecommendationEvidence\r\n```\r\n\r\n## Sequence Diagram\r\n```mermaid\r\nsequenceDiagram\r\n    participant User\r\n    participant API as Recommendation API\r\n    participant App as Lifecycle Application Service\r\n    participant Domain as Recommendation Lifecycle Service\r\n    participant Repo as Repository\r\n    participant Audit as Audit Service\r\n    User->>API: Approve Recommendation\r\n    API->>App: Validate request\r\n    App->>Domain: Apply transition\r\n    Domain->>Repo: Save aggregate\r\n    Domain->>Audit: Record transition\r\n    App-->>API: Approval result\r\n```\r\n\r\n## ER Diagram\r\n```mermaid\r\nerDiagram\r\n    RECOMMENDATIONS ||--o{ RECOMMENDATION_HISTORY : records\r\n    RECOMMENDATIONS ||--o{ RECOMMENDATION_EVIDENCE : has\r\n    RECOMMENDATIONS ||--o{ RECOMMENDATION_SNAPSHOTS : creates\r\n```\r\n\r\n## Complete State Diagram\r\n```mermaid\r\nstateDiagram-v2\r\n    [*] --> Draft\r\n    [*] --> Generated\r\n    Draft --> PendingReview\r\n    Generated --> PendingReview\r\n    Generated --> Ranked\r\n    PendingReview --> Ranked\r\n    PendingReview --> Rejected\r\n    Ranked --> Prioritized\r\n    Ranked --> WaitingApproval\r\n    Prioritized --> WaitingApproval\r\n    Prioritized --> Published\r\n    WaitingApproval --> Approved\r\n    WaitingApproval --> Rejected\r\n    Approved --> Published\r\n    Published --> Accepted\r\n    Published --> Declined\r\n    Published --> Expired\r\n    Accepted --> Implemented\r\n    Rejected --> Archived\r\n    Declined --> Archived\r\n    Implemented --> Archived\r\n    Expired --> Archived\r\n    Archived --> Restored\r\n    Archived --> Deleted\r\n```\r\n\r\n## Lifecycle Flow\r\n```mermaid\r\nflowchart TD\r\n    A[Generation] --> B[Evaluation]\r\n    B --> C[Ranking]\r\n    C --> D[Prioritization]\r\n    D --> E[Approval]\r\n    E --> F[Publication]\r\n    F --> G[Acceptance]\r\n    G --> H[Implementation]\r\n    H --> I[Archive]\r\n```\r\n\r\n## Approval Flow\r\n```mermaid\r\nflowchart TD\r\n    A[Waiting Approval] --> B[Validate Approver]\r\n    B --> C{Approved}\r\n    C -->|Yes| D[Approved]\r\n    C -->|No| E[Rejected]\r\n    D --> F[Publish]\r\n```\r\n\r\n## Implementation Flow\r\n```mermaid\r\nflowchart TD\r\n    A[Accepted] --> B[Collect Evidence]\r\n    B --> C[Validate Evidence]\r\n    C --> D[Implemented]\r\n    D --> E[History and Audit]\r\n```\r\n\r\n---\r\n\r\n# Testing\r\n\r\n## Unit Test\r\n1. Validate legal transition. 2. Reject illegal transition. 3. Validate priority calculation. 4. Validate rank calculation. 5. Validate approval permission. 6. Validate source evidence requirement. 7. Validate expiration calculation. 8. Validate duplicate fingerprint. 9. Validate cache key. 10. Validate projection masking.\r\n\r\n## Integration Test\r\n1. Create Recommendation. 2. Generate Recommendation. 3. Evaluate Recommendation. 4. Rank Recommendation. 5. Approve Recommendation. 6. Reject Recommendation. 7. Publish Recommendation. 8. Accept Recommendation. 9. Decline Recommendation. 10. Implement Recommendation. 11. Archive Recommendation. 12. Restore Recommendation. 13. Delete Recommendation. 14. Create snapshot.\r\n\r\n## Lifecycle Test\r\n1. Draft to Pending Review. 2. Generated to Ranked. 3. Ranked to Prioritized. 4. Waiting Approval to Approved. 5. Published to Accepted. 6. Published to Declined. 7. Accepted to Implemented. 8. Implemented to Archived. 9. Archived to Restored. 10. Archived to Deleted.\r\n\r\n## Validation Test\r\n1. Missing title. 2. Missing source evidence. 3. Invalid state. 4. Invalid priority. 5. Invalid rank score. 6. Invalid confidence score. 7. Missing rejection reason. 8. Missing implementation evidence. 9. Invalid date range. 10. Unauthorized command.\r\n\r\n## Approval Test\r\n1. Authorized approver approves. 2. Unauthorized approver rejected. 3. Segregation violation rejected. 4. Approval reason required. 5. Approval history persisted.\r\n\r\n## Ranking Test\r\n1. Ranking formula produces deterministic score. 2. Missing input lowers confidence. 3. Ranking history stores prior score. 4. Parallel ranking remains deterministic. 5. Priority override does not overwrite rank.\r\n\r\n## Performance Test\r\n1. Search 100,000 Recommendations. 2. Batch generate 10,000 Recommendations. 3. Parallel rank 10,000 Recommendations. 4. Refresh materialized metrics. 5. Read lifecycle projection under target latency.\r\n\r\n## Concurrency Test\r\n1. Concurrent update version conflict. 2. Concurrent approve and reject. 3. Concurrent publish and archive. 4. Concurrent accept and decline. 5. Concurrent rank recalculation.\r\n\r\n## Recovery Test\r\n1. Failed generation recovery. 2. Failed ranking recovery. 3. Failed Notification recovery. 4. Failed cache invalidation recovery. 5. Failed audit write handling.\r\n\r\n---\r\n\r\n# Edge Cases\r\n\r\n1. Recommendation does not exist. 2. Recommendation exists but User lacks access. 3. Source Decision is archived. 4. Source Goal is cancelled. 5. Source Scenario is unavailable. 6. Source Portfolio value is stale. 7. Source CashFlow period is missing. 8. Rule version is inactive. 9. Duplicate generation event arrives. 10. Duplicate fingerprint is created concurrently. 11. Ranking input is incomplete. 12. Confidence score is zero. 13. Rank score exceeds allowed range. 14. Priority override lacks reason. 15. Approval route has no approver. 16. Approver violates segregation rule. 17. Recommendation expires during approval. 18. Recommendation expires after publication. 19. User accepts after expiration. 20. User declines after acceptance. 21. Implementation evidence is missing. 22. Implementation evidence is masked. 23. Archive blocked by compliance hold. 24. Delete blocked by retention. 25. Restore source context is unavailable. 26. Snapshot creation fails. 27. Notification request fails. 28. Cache invalidation fails. 29. Audit write fails. 30. History write fails. 31. Bulk generation partially fails. 32. Bulk ranking partially fails. 33. Search filter field is unsupported. 34. Sort field is unsupported. 35. Projection is invalid. 36. Export includes masked field. 37. Business Calendar changes expiration. 38. User permission changes after publication. 39. Decision state changes after acceptance. 40. Optimization result changes after ranking. 41. Simulation output changes after publication. 42. Workflow is cancelled during approval. 43. Automation retries same command. 44. Version conflict occurs during implementation. 45. Historical projection is requested for active command.\r\n\r\n---\r\n\r\n# Version History\n\n| Version | Date | Author | Change |\n|---|---:|---|---|\n| 1.0.0 | 2026-07-13 | Atlas Recommendation Domain | Enterprise specification for Recommendation Lifecycle. |\n\n## Phase 2 Executable Specification Addendum\n\n### Recommendation Lifecycle Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | Recommendation |\n| Identity | recommendationId |\n| Scope | tenantId, ownerUserId, sourceReference |\n| Required State | state, priority, rankScore, confidenceScore, sourceEvidence, version |\n| Outputs | lifecycleState, allowedCommands, transitionHistory, auditReference |\n| Invariant | Every lifecycle transition must be legal, permissioned, versioned, and audited. |\n\n### Required Commands\n\n| Command | Purpose |\n|---|---|\n| CreateRecommendation | Create draft recommendation. |\n| GenerateRecommendation | Create recommendation from engine output. |\n| RankRecommendation | Rank recommendation with deterministic inputs. |\n| PrioritizeRecommendation | Assign or validate priority. |\n| ApproveRecommendation | Approve for publication or acceptance. |\n| PublishRecommendation | Make recommendation visible to authorized users. |\n| AcceptRecommendation | Record user acceptance. |\n| DeclineRecommendation | Record user decline. |\n| ImplementRecommendation | Record implementation evidence. |\n| ArchiveRecommendation | Move recommendation to retained read-only state. |\n| ReplayRecommendationLifecycle | Rebuild lifecycle state from history. |\n\n### Addendum Validation Rules\n\n1. Current state and requested command must be legal in the transition matrix.\n2. Lifecycle command must include actor, reason when required, version, and correlation id.\n3. Duplicate active fingerprint is not allowed per tenant.\n4. Implementation requires evidence and authorized implementer.\n5. Replay must produce one current state and immutable transition history.\n\n### Addendum Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| Draft to published | Illegal transition is rejected. |\n| Waiting approval to approved | Authorized approver transitions state. |\n| Published to accepted after expiration | Command is rejected. |\n| Duplicate fingerprint | Creation or generation fails. |\n| Replay lifecycle | Current state and history match stored transitions. |\n\n### Addendum Version History\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable addendum added. |\n",
+  "references": []
+}

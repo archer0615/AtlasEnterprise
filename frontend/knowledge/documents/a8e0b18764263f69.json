@@ -1,0 +1,87 @@
+{
+  "id": "a8e0b18764263f69",
+  "title": "Emergency Fund Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/emergency-fund-framework.md",
+  "sourceHash": "944678b0ecfd8dfaf556501323fe7d050cb16a439603da0396d5cea310b4e8d0",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Emergency Fund Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    },
+    {
+      "level": 2,
+      "text": "Emergency Event Types"
+    },
+    {
+      "level": 2,
+      "text": "Fund Structure"
+    },
+    {
+      "level": 3,
+      "text": "Tier 1 – Immediate Cash"
+    },
+    {
+      "level": 3,
+      "text": "Tier 2 – Emergency Reserve"
+    },
+    {
+      "level": 3,
+      "text": "Tier 3 – Contingency Reserve"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Coverage Levels"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Decision Engine Integration"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Emergency Fund Framework\n\nVersion: 1.0\n\n## Purpose\nDefines the emergency fund policy for Project Atlas. The framework ensures sufficient liquid assets are maintained to absorb unexpected financial shocks without disrupting long-term goals.\n\n## Objectives\n- Protect household financial stability.\n- Prevent forced liquidation of investments.\n- Support resilience during income interruption.\n- Integrate with Financial Health Score and Decision Engine.\n\n## Scope\nApplies to:\n- Individuals\n- Couples\n- Families\n- Retirees\n- Self-employed households\n\n## Emergency Event Types\n- Job loss\n- Income reduction\n- Medical emergency\n- Major home repair\n- Vehicle replacement\n- Family emergency\n- Natural disaster\n\n## Fund Structure\n\n### Tier 1 – Immediate Cash\nPurpose:\n- Available within 24 hours.\n\nTarget:\n- 1 month of essential expenses.\n\n### Tier 2 – Emergency Reserve\nPurpose:\n- Income replacement.\n\nTarget:\n- 3–12 months of essential expenses.\n\n### Tier 3 – Contingency Reserve\nPurpose:\n- Low-probability, high-impact events.\n\nTarget:\n- User-defined based on risk profile.\n\n## Inputs\n- Essential monthly expenses\n- Household income\n- Income stability\n- Number of dependents\n- Debt obligations\n- Insurance coverage\n- Life Stage\n- Risk Capacity\n- Financial Health Score\n\n## Calculation\nEmergency Fund Target =\nEssential Monthly Expenses × Recommended Coverage Months\n\nCoverage months increase when:\n- Income is volatile.\n- Household has dependents.\n- Debt burden is high.\n- Employment risk is elevated.\n\n## Coverage Levels\n- Critical: <1 month\n- Weak: 1–2 months\n- Adequate: 3–5 months\n- Strong: 6–12 months\n- Exceptional: >12 months\n\n## Business Rules\n- Emergency fund takes priority over discretionary investing.\n- Emergency assets must remain highly liquid.\n- Major life events trigger recalculation.\n- Emergency fund usage generates domain events and replenishment recommendations.\n\n## Decision Engine Integration\nConsumed by:\n- Cash Flow Engine\n- Cash Reserve Framework\n- Liquidity Framework\n- Financial Health Score\n- Withdrawal Strategy\n- House Decision Framework\n\n## Outputs\n- Target emergency fund\n- Current coverage\n- Coverage ratio\n- Funding gap\n- Recommended monthly contribution\n- Priority level\n\n## Explainability\nEach recommendation includes:\n- Calculation inputs\n- Coverage months\n- Triggering assumptions\n- Constraint evaluation\n- Improvement actions\n\n## KPIs\n- Emergency Coverage Ratio\n- Months of Protection\n- Funding Progress\n- Liquidity Readiness\n- Emergency Preparedness Score\n\n## Testing\n- Stable employment\n- Self-employed income\n- High debt household\n- New child\n- Retirement transition\n- Major emergency withdrawal\n\n## Future Enhancements\n- Inflation-adjusted targets\n- Household optimization\n- Country-specific guidance\n- AI forecasting of emergency needs\n",
+  "references": []
+}

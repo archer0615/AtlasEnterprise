@@ -1,0 +1,735 @@
+{
+  "id": "9f9e6315a6161340",
+  "title": "Goal Progress Overview",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-progress-tracking.md",
+  "sourceHash": "f66c74e09b8c8902ca4a5c0c82046fcd5fe683856a502dfd1156a818b56ae29d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Progress Overview"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Business Meaning"
+    },
+    {
+      "level": 2,
+      "text": "Progress Model"
+    },
+    {
+      "level": 2,
+      "text": "Tracking Scope"
+    },
+    {
+      "level": 2,
+      "text": "Calculation Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Update Frequency"
+    },
+    {
+      "level": 2,
+      "text": "Consistency Requirements"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Goal"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Milestone"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Task"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Decision"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Recommendation"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Scenario"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with Notification"
+    },
+    {
+      "level": 2,
+      "text": "Relationship with User"
+    },
+    {
+      "level": 1,
+      "text": "Progress Model"
+    },
+    {
+      "level": 2,
+      "text": "Physical Progress"
+    },
+    {
+      "level": 2,
+      "text": "Financial Progress"
+    },
+    {
+      "level": 2,
+      "text": "Time Progress"
+    },
+    {
+      "level": 2,
+      "text": "Milestone Progress"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Progress"
+    },
+    {
+      "level": 2,
+      "text": "Risk Progress"
+    },
+    {
+      "level": 2,
+      "text": "Confidence Score"
+    },
+    {
+      "level": 2,
+      "text": "Completion Score"
+    },
+    {
+      "level": 2,
+      "text": "Health Score"
+    },
+    {
+      "level": 2,
+      "text": "Overall Progress"
+    },
+    {
+      "level": 1,
+      "text": "Progress Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Weighted Progress"
+    },
+    {
+      "level": 2,
+      "text": "Milestone Contribution"
+    },
+    {
+      "level": 2,
+      "text": "Financial Contribution"
+    },
+    {
+      "level": 2,
+      "text": "Elapsed Time %"
+    },
+    {
+      "level": 2,
+      "text": "Remaining Time %"
+    },
+    {
+      "level": 2,
+      "text": "Schedule Variance"
+    },
+    {
+      "level": 2,
+      "text": "Budget Variance"
+    },
+    {
+      "level": 2,
+      "text": "Forecast Completion"
+    },
+    {
+      "level": 2,
+      "text": "Expected Completion Date"
+    },
+    {
+      "level": 2,
+      "text": "Progress Confidence"
+    },
+    {
+      "level": 2,
+      "text": "Goal Health Score"
+    },
+    {
+      "level": 2,
+      "text": "Risk Adjusted Progress"
+    },
+    {
+      "level": 2,
+      "text": "Composite Progress Score"
+    },
+    {
+      "level": 1,
+      "text": "Progress Update Rules"
+    },
+    {
+      "level": 2,
+      "text": "Manual Update"
+    },
+    {
+      "level": 2,
+      "text": "Automatic Update"
+    },
+    {
+      "level": 2,
+      "text": "Event Driven Update"
+    },
+    {
+      "level": 2,
+      "text": "Batch Update"
+    },
+    {
+      "level": 2,
+      "text": "Scheduled Update"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Simulation Update"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Update"
+    },
+    {
+      "level": 2,
+      "text": "Decision Update"
+    },
+    {
+      "level": 2,
+      "text": "Rollback Rules"
+    },
+    {
+      "level": 2,
+      "text": "Recalculation Rules"
+    },
+    {
+      "level": 1,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 1,
+      "text": "Business Rules"
+    },
+    {
+      "level": 1,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "States"
+    },
+    {
+      "level": 2,
+      "text": "Transitions"
+    },
+    {
+      "level": 2,
+      "text": "Triggers"
+    },
+    {
+      "level": 2,
+      "text": "Invariant"
+    },
+    {
+      "level": 2,
+      "text": "Illegal Transition"
+    },
+    {
+      "level": 1,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "RefreshGoalProgress"
+    },
+    {
+      "level": 2,
+      "text": "RecalculateGoalProgress"
+    },
+    {
+      "level": 2,
+      "text": "UpdateGoalProgress"
+    },
+    {
+      "level": 2,
+      "text": "FreezeProgress"
+    },
+    {
+      "level": 2,
+      "text": "ResumeProgress"
+    },
+    {
+      "level": 2,
+      "text": "ResetProgress"
+    },
+    {
+      "level": 2,
+      "text": "ArchiveProgress"
+    },
+    {
+      "level": 2,
+      "text": "RestoreProgress"
+    },
+    {
+      "level": 2,
+      "text": "All related Domain Commands"
+    },
+    {
+      "level": 1,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "GoalProgressUpdated"
+    },
+    {
+      "level": 2,
+      "text": "GoalProgressRecalculated"
+    },
+    {
+      "level": 2,
+      "text": "GoalCompleted"
+    },
+    {
+      "level": 2,
+      "text": "GoalDelayed"
+    },
+    {
+      "level": 2,
+      "text": "GoalAheadOfSchedule"
+    },
+    {
+      "level": 2,
+      "text": "GoalBehindSchedule"
+    },
+    {
+      "level": 2,
+      "text": "GoalHealthChanged"
+    },
+    {
+      "level": 2,
+      "text": "GoalForecastChanged"
+    },
+    {
+      "level": 2,
+      "text": "GoalProgressReset"
+    },
+    {
+      "level": 2,
+      "text": "All related Events"
+    },
+    {
+      "level": 1,
+      "text": "Repository"
+    },
+    {
+      "level": 2,
+      "text": "Interface"
+    },
+    {
+      "level": 2,
+      "text": "Methods"
+    },
+    {
+      "level": 2,
+      "text": "Queries"
+    },
+    {
+      "level": 2,
+      "text": "Specification"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Aggregation"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 1,
+      "text": "Domain Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "Application Service Interaction"
+    },
+    {
+      "level": 1,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "REST Endpoints"
+    },
+    {
+      "level": 2,
+      "text": "HTTP Methods"
+    },
+    {
+      "level": 2,
+      "text": "Requests"
+    },
+    {
+      "level": 2,
+      "text": "Responses"
+    },
+    {
+      "level": 2,
+      "text": "Errors"
+    },
+    {
+      "level": 2,
+      "text": "Pagination"
+    },
+    {
+      "level": 2,
+      "text": "Filtering"
+    },
+    {
+      "level": 2,
+      "text": "Sorting"
+    },
+    {
+      "level": 2,
+      "text": "Projection"
+    },
+    {
+      "level": 1,
+      "text": "DTO"
+    },
+    {
+      "level": 2,
+      "text": "Create DTO"
+    },
+    {
+      "level": 2,
+      "text": "Update DTO"
+    },
+    {
+      "level": 2,
+      "text": "Detail DTO"
+    },
+    {
+      "level": 2,
+      "text": "Summary DTO"
+    },
+    {
+      "level": 2,
+      "text": "Search DTO"
+    },
+    {
+      "level": 2,
+      "text": "Progress DTO"
+    },
+    {
+      "level": 2,
+      "text": "Forecast DTO"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard DTO"
+    },
+    {
+      "level": 1,
+      "text": "Database Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Table"
+    },
+    {
+      "level": 2,
+      "text": "Columns"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Constraints"
+    },
+    {
+      "level": 2,
+      "text": "FK"
+    },
+    {
+      "level": 2,
+      "text": "Unique"
+    },
+    {
+      "level": 2,
+      "text": "Check Constraint"
+    },
+    {
+      "level": 2,
+      "text": "Partition Strategy"
+    },
+    {
+      "level": 1,
+      "text": "PostgreSQL Schema"
+    },
+    {
+      "level": 1,
+      "text": "EF Core Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Fluent API"
+    },
+    {
+      "level": 2,
+      "text": "Owned Types"
+    },
+    {
+      "level": 2,
+      "text": "Value Conversion"
+    },
+    {
+      "level": 2,
+      "text": "Indexes"
+    },
+    {
+      "level": 2,
+      "text": "Query Filters"
+    },
+    {
+      "level": 1,
+      "text": "Cache Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Redis Key"
+    },
+    {
+      "level": 2,
+      "text": "Expiration"
+    },
+    {
+      "level": 2,
+      "text": "Invalidation"
+    },
+    {
+      "level": 2,
+      "text": "Refresh Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Authorization"
+    },
+    {
+      "level": 2,
+      "text": "Permission"
+    },
+    {
+      "level": 2,
+      "text": "Field Level Security"
+    },
+    {
+      "level": 2,
+      "text": "Masking"
+    },
+    {
+      "level": 1,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Audit Trail"
+    },
+    {
+      "level": 2,
+      "text": "History"
+    },
+    {
+      "level": 2,
+      "text": "Versioning"
+    },
+    {
+      "level": 2,
+      "text": "Change Tracking"
+    },
+    {
+      "level": 1,
+      "text": "Performance"
+    },
+    {
+      "level": 2,
+      "text": "Bulk Update"
+    },
+    {
+      "level": 2,
+      "text": "Parallel Calculation"
+    },
+    {
+      "level": 2,
+      "text": "Incremental Refresh"
+    },
+    {
+      "level": 2,
+      "text": "Materialized View Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Caching"
+    },
+    {
+      "level": 2,
+      "text": "Read Optimization"
+    },
+    {
+      "level": 1,
+      "text": "Example JSON"
+    },
+    {
+      "level": 2,
+      "text": "Create"
+    },
+    {
+      "level": 2,
+      "text": "Update"
+    },
+    {
+      "level": 2,
+      "text": "Refresh"
+    },
+    {
+      "level": 2,
+      "text": "Detail"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard"
+    },
+    {
+      "level": 2,
+      "text": "Forecast"
+    },
+    {
+      "level": 2,
+      "text": "Search"
+    },
+    {
+      "level": 1,
+      "text": "Mermaid"
+    },
+    {
+      "level": 2,
+      "text": "Class Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Sequence Diagram"
+    },
+    {
+      "level": 2,
+      "text": "ER Diagram"
+    },
+    {
+      "level": 2,
+      "text": "State Diagram"
+    },
+    {
+      "level": 2,
+      "text": "Progress Calculation Flow"
+    },
+    {
+      "level": 1,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Unit Test"
+    },
+    {
+      "level": 2,
+      "text": "Integration Test"
+    },
+    {
+      "level": 2,
+      "text": "Calculation Test"
+    },
+    {
+      "level": 2,
+      "text": "Performance Test"
+    },
+    {
+      "level": 2,
+      "text": "Concurrency Test"
+    },
+    {
+      "level": 1,
+      "text": "Edge Cases"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification Addendum"
+    },
+    {
+      "level": 3,
+      "text": "Progress Calculation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Testing Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification Addendum"
+    },
+    {
+      "level": 3,
+      "text": "Progress Calculation Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Testing Matrix"
+    }
+  ],
+  "bodyMarkdown": "﻿# Goal Progress Tracking\r\nVersion: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Progress Tracking Specification Last Updated: 2026-07-13\r\n# Goal Progress Overview\r\n## Purpose\r\nGoal Progress Tracking defines how Atlas measures, updates, validates, persists, exposes, audits, and reports progress for GoalPlan. It coordinates GoalPlan progress with Goal Lifecycle, Goal Dependency, Goal Prioritization, Goal Funding, Goal Review, DecisionSession, Recommendation, Scenario, Notification, Dashboard, Projection, Calculation, Audit, Security, Permission, Tenant, Database, Cache, API, and Reporting. It does not redesign Atlas. It does not modify existing Domain ownership. It does not create a new Business Concept. It does not replace GoalPlan, Goal Lifecycle, Goal Dependency, DecisionSession, Recommendation, Scenario, or Notification.\r\n## Business Meaning\r\nGoal Progress is the governed measurement of how close a GoalPlan is to its intended outcome. It gives the User and Household a consistent view of completion, financial readiness, schedule position, milestone state, dependency readiness, risk, confidence, health, and forecast. It supports dashboard visibility, recommendation refresh, decision review, scenario comparison, notification triggering, audit, and replay.\r\n## Progress Model\r\nGoal Progress is derived data attached to GoalPlan. GoalPlan remains the authoritative aggregate. Progress records store current values, forecast values, version, source snapshot, state, and history. Progress records are not independent goals.\r\n## Tracking Scope\r\nTracking applies to Active, In Progress, Deferred, On Hold, Completed, Cancelled, and Archived GoalPlan according to lifecycle rules. Tracking includes GoalPlan, Milestone, Task when existing planning data supports it, Dependency, DecisionSession, Recommendation, Scenario, Notification, User, Household, Dashboard, API, and Audit. Completed progress is immutable at 100% unless approved correction restores the GoalPlan. Cancelled and Archived progress are read-only.\r\n## Calculation Strategy\r\nCalculation is deterministic for the same GoalPlan state, milestone state, task state, dependency state, financial state, decision state, recommendation state, scenario state, assumptions, formulas, and calculation version. Dimension weights are configuration-owned and versioned. All progress percentages use decimal values from 0 to 1. Manual updates are allowed only for permitted fields and allowed lifecycle states. Scenario simulation creates forecast progress and does not overwrite committed progress.\r\n## Update Frequency\r\n| Update | Frequency | Requirement |\r\n|---|---|---|\r\n| Manual Update | On user or service action | Validate, authorize, audit. |\r\n| Automatic Update | On source mutation | Recalculate affected dimensions. |\r\n| Event Driven Update | On Domain Event | Idempotent update with causation id. |\r\n| Batch Update | Background Job | Bounded pages and checkpoint. |\r\n| Scheduled Update | Configured cadence | Reconcile stale progress. |\r\n| Scenario Simulation Update | On Scenario run | Forecast only. |\r\n| Recommendation Update | On Recommendation change | Recalculate expected or realized impact. |\r\n| Decision Update | On DecisionSession change | Commit or revert decision impact. |\r\n## Consistency Requirements\r\nGoal Progress is eventually consistent with ordinary source changes. Goal completion requires strong consistency before final 100% is exposed. Financial, milestone, dependency, decision, recommendation, and scenario values must be traceable to source records. Archived, Cancelled, and Completed progress must not be changed by ordinary updates.\r\n## Relationship with Goal\r\nGoalPlan owns the progress consistency boundary. GoalProgress references GoalPlanId, HouseholdId, TenantId when applicable, lifecycle state, and calculation version. Goal status controls update, freeze, reset, archive, restore, and completion behavior.\r\n## Relationship with Milestone\r\nMilestones contribute weighted completion. Milestone weights sum to 1 per GoalPlan. Completed milestones contribute full value. Blocked or delayed milestones affect health, dependency, schedule, and notification behavior.\r\n## Relationship with Task\r\nTasks contribute to physical progress only when existing Goal planning data tracks task state. Task progress is subordinate to milestone and Goal completion rules. Task rollback triggers recalculation.\r\n## Relationship with Decision\r\nDecisionSession can update progress when accepted, rejected, replayed, or superseded. Accepted decisions may commit forecast or recommendation impact. Decision-driven changes must store DecisionSessionId and decision version.\r\n## Relationship with Recommendation\r\nAccepted Recommendation can increase forecast progress. Completed Recommendation can increase committed progress. Dismissed or suppressed Recommendation can recalculate forecast, confidence, and health. Recommendation-driven changes must store RecommendationId and version.\r\n## Relationship with Scenario\r\nScenario supplies forecast progress and comparison values. Scenario progress remains forecast until accepted through DecisionSession. Scenario values must include ScenarioId, ScenarioVersion, generated time, and assumptions.\r\n## Relationship with Notification\r\nNotification is triggered by threshold crossing, delay, ahead state, behind state, health change, milestone completion, dependency block, forecast change, and Goal completion. Notification does not own progress. Notification suppression does not suppress audit.\r\n## Relationship with User\r\nUser reads or updates progress through authenticated and authorized API, UI, dashboard, notification, or report paths. Manual update requires actor, permission, reason, and audit.\r\n# Progress Model\r\n## Physical Progress\r\nPhysical Progress measures non-financial execution completion.\r\n```text\r\nPhysicalProgress = sum(TaskWeight_i * TaskCompletion_i) / sum(TaskWeight_i)\r\n```\r\nIf task data is not tracked:\r\n```text\r\nPhysicalProgress = MilestoneProgress\r\n```\r\n## Financial Progress\r\nFinancial Progress measures funding against target.\r\n```text\r\nFinancialProgress = clamp(CurrentFundedAmount / TargetAmount, 0, 1)\r\n```\r\nWhen TargetAmount is missing:\r\n```text\r\nFinancialProgress = null\r\n```\r\n## Time Progress\r\nTime Progress measures elapsed time against planned time.\r\n```text\r\nTimeProgress = clamp((AsOfDate - StartDate) / (TargetDate - StartDate), 0, 1)\r\n```\r\nWhen TargetDate is missing:\r\n```text\r\nTimeProgress = null\r\n```\r\n## Milestone Progress\r\n```text\r\nMilestoneProgress = sum(MilestoneWeight_i * MilestoneCompletion_i)\r\n```\r\n```text\r\nsum(MilestoneWeight_i) = 1\r\n```\r\n## Dependency Progress\r\n```text\r\nDependencyProgress = ReadyDependencyCount / RequiredDependencyCount\r\n```\r\nIf RequiredDependencyCount is 0:\r\n```text\r\nDependencyProgress = 1\r\n```\r\n## Risk Progress\r\n```text\r\nRiskProgress = 1 - clamp(CurrentRiskScore / BaselineRiskScore, 0, 1)\r\n```\r\nIf BaselineRiskScore is 0:\r\n```text\r\nRiskProgress = 1\r\n```\r\n## Confidence Score\r\n```text\r\nConfidenceScore =\r\n  0.35 * DataCompletenessScore +\r\n  0.25 * CalculationFreshnessScore +\r\n  0.20 * DependencyReliabilityScore +\r\n  0.10 * ScenarioReliabilityScore +\r\n  0.10 * DecisionReliabilityScore\r\n```\r\n## Completion Score\r\n```text\r\nCompletionScore =\r\n  0.35 * FinancialProgressOrNeutral +\r\n  0.25 * MilestoneProgress +\r\n  0.20 * PhysicalProgress +\r\n  0.10 * DependencyProgress +\r\n  0.10 * DecisionCompletionScore\r\n```\r\nIf FinancialProgress is null:\r\n```text\r\nFinancialProgressOrNeutral = MilestoneProgress\r\n```\r\n## Health Score\r\n```text\r\nHealthScore =\r\n  0.30 * CompletionScore +\r\n  0.20 * ScheduleHealth +\r\n  0.20 * BudgetHealth +\r\n  0.15 * RiskProgress +\r\n  0.15 * ConfidenceScore\r\n```\r\n## Overall Progress\r\n```text\r\nOverallProgress =\r\n  0.30 * MilestoneProgress +\r\n  0.25 * FinancialProgressOrNeutral +\r\n  0.15 * PhysicalProgress +\r\n  0.10 * DependencyProgress +\r\n  0.10 * RiskProgress +\r\n  0.10 * ConfidenceScore\r\n```\r\nCompleted GoalPlan forces:\r\n```text\r\nOverallProgress = 1\r\n```\r\n# Progress Calculation\r\n## Weighted Progress\r\n```text\r\nWeightedProgress = sum(Weight_i * DimensionScore_i)\r\n```\r\n```text\r\n0 <= Weight_i <= 1\r\nsum(Weight_i) = 1\r\n0 <= DimensionScore_i <= 1\r\n```\r\n## Milestone Contribution\r\n```text\r\nMilestoneContribution_i = MilestoneWeight_i * MilestoneCompletion_i\r\nMilestoneProgress = sum(MilestoneContribution_i)\r\n```\r\n## Financial Contribution\r\n```text\r\nFinancialContribution = FinancialWeight * clamp(CurrentFundedAmount / TargetAmount, 0, 1)\r\n```\r\n## Elapsed Time %\r\n```text\r\nElapsedTimePercent = clamp((AsOfDate - StartDate) / (TargetDate - StartDate), 0, 1)\r\n```\r\n## Remaining Time %\r\n```text\r\nRemainingTimePercent = 1 - ElapsedTimePercent\r\n```\r\n## Schedule Variance\r\n```text\r\nScheduleVariance = OverallProgress - ElapsedTimePercent\r\n```\r\n## Budget Variance\r\n```text\r\nBudgetVariance = ActualFunding - ExpectedFundingAtDate\r\nBudgetVariancePercent = BudgetVariance / TargetAmount\r\n```\r\n## Forecast Completion\r\n```text\r\nForecastCompletion = clamp(CurrentProgress + ForecastProgressDelta, 0, 1)\r\n```\r\n## Expected Completion Date\r\n```text\r\nExpectedCompletionDate = AsOfDate + ((1 - CurrentProgress) / ProgressRatePerDay)\r\n```\r\nIf ProgressRatePerDay <= 0:\r\n```text\r\nExpectedCompletionDate = null\r\n```\r\n## Progress Confidence\r\n```text\r\nProgressConfidence =\r\n  0.40 * DataCompletenessScore +\r\n  0.20 * SourceFreshnessScore +\r\n  0.15 * CalculationTraceScore +\r\n  0.15 * DependencyStabilityScore +\r\n  0.10 * ScenarioConfidenceScore\r\n```\r\n## Goal Health Score\r\n```text\r\nScheduleHealth = clamp(1 + ScheduleVariance, 0, 1)\r\nBudgetHealth = clamp(1 + BudgetVariancePercent, 0, 1)\r\nGoalHealthScore =\r\n  0.30 * OverallProgress +\r\n  0.20 * ScheduleHealth +\r\n  0.20 * BudgetHealth +\r\n  0.15 * RiskProgress +\r\n  0.15 * ProgressConfidence\r\n```\r\n## Risk Adjusted Progress\r\n```text\r\nRiskPenalty = clamp(CurrentRiskScore * RiskWeight, 0, 0.50)\r\nRiskAdjustedProgress = OverallProgress * (1 - RiskPenalty)\r\n```\r\n## Composite Progress Score\r\n```text\r\nCompositeProgressScore =\r\n  0.40 * OverallProgress +\r\n  0.20 * CompletionScore +\r\n  0.15 * GoalHealthScore +\r\n  0.15 * RiskAdjustedProgress +\r\n  0.10 * ProgressConfidence\r\n```\r\n# Progress Update Rules\r\n## Manual Update\r\nManual update changes allowed fields directly. Manual update requires GoalProgress.Update permission, actor, reason, row version, and audit. Manual update cannot update Archived, Cancelled, or Completed GoalPlan except approved restore or correction.\r\n## Automatic Update\r\nAutomatic update recalculates from source records. Automatic update must use current calculation version. Automatic update must preserve frozen state. Automatic update emits GoalProgressUpdated when committed values change.\r\n## Event Driven Update\r\nEvent-driven update responds to Domain Events. It must be idempotent. It must record source event id and causation id.\r\n## Batch Update\r\nBatch update recalculates multiple GoalPlan records. It uses bounded pages, checkpoint, retry, and audit. It must not update Archived or Cancelled GoalPlan.\r\n## Scheduled Update\r\nScheduled update detects stale progress, refreshes forecast values, and emits schedule-related events when thresholds change.\r\n## Scenario Simulation Update\r\nScenario simulation update creates forecast progress. It must not overwrite committed progress without accepted DecisionSession.\r\n## Recommendation Update\r\nRecommendation update recalculates expected and realized recommendation contribution. Accepted Recommendation changes forecast. Completed Recommendation changes committed progress when source rules allow it.\r\n## Decision Update\r\nDecision update recalculates decision-dependent progress. Accepted Decision commits approved forecast or recommendation impact. Rejected Decision removes expected impact when applicable.\r\n## Rollback Rules\r\nRollback restores prior progress version. Rollback preserves audit history. Rollback cannot violate Completed GoalPlan invariant. Rollback requires RestoreProgress before archived records can become editable.\r\n## Recalculation Rules\r\nRecalculation must use deterministic calculation version. Recalculation must include every dimension. Recalculation must preserve frozen fields. Recalculation emits event only when stored values change.\r\n# Validation Rules\r\n1. GoalPlanId is required. 2. HouseholdId is required.\r\n3. TenantId is required when tenant scope exists. 4. ProgressId is required for persisted progress.\r\n5. OverallProgress must be between 0 and 1. 6. PhysicalProgress must be between 0 and 1.\r\n7. FinancialProgress must be null or between 0 and 1. 8. TimeProgress must be null or between 0 and 1.\r\n9. MilestoneProgress must be between 0 and 1. 10. DependencyProgress must be between 0 and 1.\r\n11. RiskProgress must be between 0 and 1. 12. ConfidenceScore must be between 0 and 1.\r\n13. CompletionScore must be between 0 and 1. 14. HealthScore must be between 0 and 1.\r\n15. CompositeProgressScore must be between 0 and 1. 16. Dimension weights must sum to 1.\r\n17. Milestone weights must sum to 1 when milestones exist. 18. TargetAmount must be greater than 0 when FinancialProgress is calculated.\r\n19. CurrentFundedAmount must not be negative unless source financial model permits it. 20. TargetDate must be after StartDate when both are present.\r\n21. AsOfDate is required. 22. ExpectedCompletionDate must be null or on or after AsOfDate.\r\n23. ScheduleVariance must be between -1 and 1. 24. BudgetVariance must preserve currency.\r\n25. Manual update requires reason. 26. Manual update requires actor.\r\n27. Manual update requires permission. 28. Automatic update requires source reference.\r\n29. Event-driven update requires source event id. 30. Batch update requires batch id.\r\n31. Scheduled update requires scheduler run id. 32. Scenario forecast requires ScenarioId.\r\n33. Recommendation update requires RecommendationId when recommendation-driven. 34. Decision update requires DecisionSessionId when decision-driven.\r\n35. Archived GoalPlan cannot update progress. 36. Cancelled GoalPlan cannot update progress.\r\n37. Completed GoalPlan cannot fall below 100%. 38. Frozen progress cannot update except allowed fields.\r\n39. Reset requires explicit permission. 40. Restore requires archived source version.\r\n41. Rollback requires prior version. 42. Recalculation requires calculation version.\r\n43. Forecast requires forecast version. 44. CorrelationId is required.\r\n45. CausationId is required for event-driven update. 46. RequestId is required for API update.\r\n47. RowVersion is required for concurrent update. 48. Deleted progress record cannot be updated.\r\n49. Progress projection must match source GoalPlan scope. 50. Cache key must include GoalPlanId, HouseholdId, and TenantId when applicable.\r\n51. API cursor must preserve scope. 52. Sorting field must be allowlisted.\r\n53. Filtering field must be allowlisted. 54. Field-level security must be evaluated before response.\r\n55. Masking must be applied before export. 56. Notification threshold must be valid.\r\n57. Event emission must be idempotent. 58. Health band must match HealthScore.\r\n59. Forecast values must be marked forecast. 60. Audit record must include changed fields.\r\n# Business Rules\r\n1. Goal Progress belongs to GoalPlan. 2. Goal Progress is derived from approved sources.\r\n3. Goal Progress must not redefine GoalPlan. 4. Goal Progress must not redefine Milestone.\r\n5. Goal Progress must not redefine Task. 6. Goal Progress must not redefine DecisionSession.\r\n7. Goal Progress must not redefine Recommendation. 8. Goal Progress must not redefine Scenario.\r\n9. Progress cannot decrease unexpectedly. 10. Decrease requires rollback, correction, reset, rejected decision, reversed recommendation, dependency block, or approved manual update.\r\n11. Completed Goal must remain 100%. 12. Archived Goal cannot update.\r\n13. Cancelled Goal cannot update. 14. Frozen progress blocks automatic updates.\r\n15. Dependency blocking reduces health score. 16. Dependency blocking can prevent 100% completion.\r\n17. Milestone synchronization runs when milestone state changes. 18. Financial synchronization runs when funding source changes.\r\n19. Decision synchronization runs when DecisionSession changes. 20. Recommendation synchronization runs when Recommendation changes.\r\n21. Scenario synchronization runs when Scenario simulation changes forecast. 22. Notification triggering runs when thresholds are crossed.\r\n23. Manual update requires audit. 24. Recalculation requires audit.\r\n25. Reset requires audit. 26. Freeze requires audit.\r\n27. Resume requires audit. 28. Archive requires audit.\r\n29. Restore requires audit. 30. Event-driven update must be idempotent.\r\n31. Scheduled update must not override manual freeze. 32. Batch update must use bounded pages.\r\n33. Batch update must checkpoint. 34. Batch update must be retryable.\r\n35. Progress calculations must be deterministic. 36. Calculation version must be recorded.\r\n37. Forecast version must be recorded. 38. Manual update must include reason.\r\n39. Financial progress must preserve currency. 40. Time progress must use UTC date boundary unless local date is explicitly configured.\r\n41. Goal without target date has null TimeProgress. 42. Goal without target amount has null FinancialProgress.\r\n43. Null FinancialProgress must not fail non-financial goals. 44. OverallProgress must remain between 0 and 1.\r\n45. HealthScore must remain between 0 and 1. 46. ConfidenceScore must remain between 0 and 1.\r\n47. RiskAdjustedProgress must not exceed OverallProgress. 48. Milestone completion must not exceed 100%.\r\n49. Task completion must not exceed 100%. 50. Dependency progress equals 1 when no required dependencies exist.\r\n51. Blocked dependencies must be visible in detail DTO. 52. GoalDelayed emits when delay threshold is crossed.\r\n53. GoalAheadOfSchedule emits when ahead threshold is crossed. 54. GoalBehindSchedule emits when behind threshold is crossed.\r\n55. GoalHealthChanged emits when health band changes. 56. GoalForecastChanged emits when expected completion changes materially.\r\n57. GoalCompleted emits once. 58. Duplicate GoalCompleted emission is prohibited.\r\n59. GoalProgressReset emits when reset commits. 60. GoalProgressRecalculated emits when recalculation changes stored values.\r\n61. GoalProgressUpdated emits when committed values change. 62. Notification suppression must not suppress audit.\r\n63. API must not expose another Household progress. 64. API must not expose another Tenant progress.\r\n65. Repository must apply Household filter. 66. Repository must apply Tenant filter when applicable.\r\n67. Cache must invalidate after committed update. 68. Projection must refresh after committed update.\r\n69. Dashboard must show generated time. 70. Forecast must show scenario and assumption version.\r\n71. Search must use allowlisted filters. 72. Sorting must use allowlisted columns.\r\n73. Aggregation must preserve Household scope. 74. Export requires permission.\r\n75. Restore preserves history. 76. Archive preserves last committed progress.\r\n77. Recalculation cannot hide source inconsistency. 78. Scenario forecast cannot become committed without accepted DecisionSession.\r\n79. Recommendation forecast cannot become realized without source confirmation. 80. User-visible values must respect field-level security.\r\n# State Machine\r\n## States\r\n| State | Meaning |\r\n|---|---|\r\n| NotTracked | Progress has not been initialized. |\r\n| Tracking | Progress is active and recalculates from sources. |\r\n| Frozen | Progress is held at last committed values. |\r\n| Recalculating | Progress is being recalculated. |\r\n| Forecasted | Forecast progress exists for Scenario or Recommendation analysis. |\r\n| Completed | Goal progress is locked at 100%. |\r\n| Reset | Progress was reset and awaits refresh or manual update. |\r\n| Archived | Progress is read-only historical record. |\r\n| Restored | Archived progress was restored. |\r\n## Transitions\r\n| From | To | Trigger |\r\n|---|---|---|\r\n| NotTracked | Tracking | RefreshGoalProgress |\r\n| Tracking | Recalculating | RecalculateGoalProgress |\r\n| Recalculating | Tracking | GoalProgressRecalculated |\r\n| Tracking | Frozen | FreezeProgress |\r\n| Frozen | Tracking | ResumeProgress |\r\n| Tracking | Forecasted | Scenario Simulation Update |\r\n| Forecasted | Tracking | Decision accepts forecast |\r\n| Tracking | Completed | GoalCompleted |\r\n| Tracking | Reset | ResetProgress |\r\n| Reset | Tracking | RefreshGoalProgress |\r\n| Tracking | Archived | ArchiveProgress |\r\n| Archived | Restored | RestoreProgress |\r\n| Restored | Tracking | RefreshGoalProgress |\r\n## Triggers\r\nTriggers include command, Domain Event, Scheduler run, Background Job, Scenario simulation, Decision acceptance, Recommendation completion, financial mutation, milestone mutation, and dependency mutation.\r\n## Invariant\r\nCompleted state has OverallProgress = 1. Archived state is read-only. Cancelled GoalPlan progress is read-only. Frozen state blocks automatic source updates. Every state change is audited.\r\n## Illegal Transition\r\n| From | To | Reason |\r\n|---|---|---|\r\n| Archived | Tracking | RestoreProgress is required first. |\r\n| Completed | Tracking | Approved correction is required first. |\r\n| Frozen | Recalculating | ResumeProgress is required first. |\r\n| Reset | Archived | Refresh or approved archive correction is required first. |\r\n| NotTracked | Completed | Initialization and validation are required first. |\r\n# Commands\r\n## RefreshGoalProgress\r\nRefreshes GoalPlan progress from current source data. Input: GoalPlanId, HouseholdId, TenantId, AsOfDate, RequestedBy, CorrelationId. Output: ProgressId, OverallProgress, HealthScore, UpdatedAt.\r\n## RecalculateGoalProgress\r\nRuns deterministic recalculation. Input: GoalPlanId, CalculationVersion, RecalculationReason, SourceSnapshotId, CorrelationId. Output: PreviousVersion, NewVersion, ChangedFields.\r\n## UpdateGoalProgress\r\nApplies manual update to allowed fields. Input: GoalPlanId, PhysicalProgress, MilestoneProgress, FinancialProgress, Reason, RowVersion. Output: ProgressId, Version, UpdatedFields.\r\n## FreezeProgress\r\nPrevents automatic updates. Input: GoalPlanId, FreezeReason, EffectiveAt, CorrelationId. Output: ProgressState = Frozen.\r\n## ResumeProgress\r\nResumes automatic updates. Input: GoalPlanId, ResumeReason, RecalculateOnResume, CorrelationId. Output: ProgressState, RecalculationStatus.\r\n## ResetProgress\r\nResets progress to baseline or selected version. Input: GoalPlanId, ResetMode, ResetReason, TargetVersion, CorrelationId. Output: ProgressState = Reset, ResetVersion.\r\n## ArchiveProgress\r\nArchives progress as read-only history. Input: GoalPlanId, ArchiveReason, CorrelationId. Output: ProgressState = Archived.\r\n## RestoreProgress\r\nRestores archived progress. Input: GoalPlanId, RestoreReason, RestoreVersion, CorrelationId. Output: ProgressState = Restored.\r\n## All related Domain Commands\r\n| Command | Progress Relationship |\r\n|---|---|\r\n| CreateGoal | Initializes NotTracked progress. |\r\n| UpdateGoal | Recalculates affected dimensions. |\r\n| SubmitGoal | Validates progress readiness. |\r\n| ActivateGoal | Starts Tracking. |\r\n| CompleteGoal | Locks progress at 100%. |\r\n| CancelGoal | Locks progress read-only. |\r\n| ArchiveGoal | Archives progress. |\r\n| RestoreGoal | Restores progress when allowed. |\r\n| UpdateGoalDependency | Recalculates DependencyProgress. |\r\n| AcceptRecommendation | Updates expected progress. |\r\n| CompleteRecommendation | Updates realized progress. |\r\n| AcceptDecision | Commits decision impact. |\r\n| RunScenario | Creates forecast progress. |\r\n# Domain Events\r\n## GoalProgressUpdated\r\nPayload: GoalPlanId, ProgressId, ChangedFields, OverallProgress, HealthScore, Version, CorrelationId.\r\n## GoalProgressRecalculated\r\nPayload: GoalPlanId, PreviousVersion, NewVersion, CalculationVersion, ChangedFields, CorrelationId.\r\n## GoalCompleted\r\nPayload: GoalPlanId, CompletionDate, OverallProgress = 1, CorrelationId.\r\n## GoalDelayed\r\nPayload: GoalPlanId, TargetDate, ExpectedCompletionDate, DelayDays, CorrelationId.\r\n## GoalAheadOfSchedule\r\nEmitted when ScheduleVariance exceeds ahead threshold.\r\n## GoalBehindSchedule\r\nEmitted when ScheduleVariance falls below behind threshold.\r\n## GoalHealthChanged\r\nEmitted when health band changes.\r\n## GoalForecastChanged\r\nEmitted when forecast completion or expected completion date materially changes.\r\n## GoalProgressReset\r\nEmitted when progress reset commits.\r\n## All related Events\r\n| Event | Progress Impact |\r\n|---|---|\r\n| GoalCreated | Initialize progress. |\r\n| GoalUpdated | Recalculate affected dimensions. |\r\n| GoalActivated | Start tracking. |\r\n| GoalCompleted | Force 100%. |\r\n| GoalCancelled | Lock read-only. |\r\n| GoalArchived | Archive progress. |\r\n| GoalRestored | Restore progress. |\r\n| GoalDependencyUpdated | Recalculate dependency progress. |\r\n| RecommendationAccepted | Update expected progress. |\r\n| RecommendationCompleted | Update realized progress. |\r\n| DecisionAccepted | Commit decision impact. |\r\n| DecisionRejected | Recalculate expected impact. |\r\n| ScenarioSimulated | Update forecast progress. |\r\n| NotificationTriggered | Record notification outcome. |\r\n# Repository\r\n## Interface\r\n```csharp\r\npublic interface IGoalProgressRepository\r\n{\r\n    Task<GoalProgress?> GetByGoalPlanIdAsync(Guid householdId, Guid goalPlanId, CancellationToken cancellationToken);\r\n    Task<GoalProgress?> GetByIdAsync(Guid householdId, Guid progressId, CancellationToken cancellationToken);\r\n    Task<IReadOnlyList<GoalProgress>> SearchAsync(GoalProgressSearchSpecification specification, CancellationToken cancellationToken);\r\n    Task<GoalProgressSummary> GetSummaryAsync(Guid householdId, GoalProgressSummarySpecification specification, CancellationToken cancellationToken);\r\n    Task AddAsync(GoalProgress progress, CancellationToken cancellationToken);\r\n    Task UpdateAsync(GoalProgress progress, CancellationToken cancellationToken);\r\n    Task ArchiveAsync(Guid householdId, Guid goalPlanId, string reason, CancellationToken cancellationToken);\r\n}\r\n```\r\n## Methods\r\nMethods include GetByGoalPlanIdAsync, GetByIdAsync, SearchAsync, GetSummaryAsync, GetDashboardAsync, GetForecastAsync, GetHistoryAsync, AddAsync, UpdateAsync, ArchiveAsync, RestoreAsync, and SaveCheckpointAsync.\r\n## Queries\r\nQueries include progress by GoalPlanId, HouseholdId, state, health band, forecast delay, milestone completion, dependency block, recommendation impact, decision impact, and updated time.\r\n## Specification\r\nGoalProgressSearchSpecification fields: HouseholdId, TenantId, GoalPlanIds, ProgressStates, HealthBands, MinOverallProgress, MaxOverallProgress, HasDependencyBlock, UpdatedFrom, UpdatedTo, Sort, PageSize, Cursor.\r\n## Filtering\r\nAllowed filters: goalPlanId, householdId, progressState, healthBand, overallProgress, healthScore, expectedCompletionDate, hasDependencyBlock, updatedAt.\r\n## Sorting\r\nAllowed sorting: updatedAt, overallProgress, healthScore, expectedCompletionDate, scheduleVariance, budgetVariance.\r\n## Aggregation\r\nSupported aggregations: average overall progress, average health score, count by health band, count by state, count delayed goals, count blocked goals, count completed goals.\r\n## Projection\r\nSupported projections: summary, detail, dashboard, forecast, search, history.\r\n# Domain Service Interaction\r\nGoalProgressDomainService validates lifecycle invariants, calculates dimensions, evaluates unexpected decrease, applies milestone contribution, applies dependency blocking, applies financial synchronization, applies schedule variance, applies risk adjustment, evaluates completion readiness, and emits Domain Events.\r\n| Service | Interaction |\r\n|---|---|\r\n| GoalLifecycleDomainService | Provides editable state and transition rules. |\r\n| GoalDependencyDomainService | Provides readiness and blockers. |\r\n| GoalPrioritizationDomainService | Consumes progress for ranking. |\r\n| GoalFundingDomainService | Supplies financial inputs. |\r\n| DecisionDomainService | Supplies decision acceptance state. |\r\n| RecommendationDomainService | Supplies recommendation impact state. |\r\n| ScenarioDomainService | Supplies forecast result. |\r\n| NotificationDomainService | Consumes threshold events. |\r\n# Application Service Interaction\r\nGoalProgressApplicationService authorizes request, resolves Household scope, loads GoalPlan, loads progress, loads source data, invokes Domain Service, persists result, publishes events, invalidates cache, updates projection, records audit, and returns DTO.\r\n```csharp\r\nTask<GoalProgressDetailDto> RefreshGoalProgressAsync(RefreshGoalProgressRequest request);\r\nTask<GoalProgressDetailDto> RecalculateGoalProgressAsync(RecalculateGoalProgressRequest request);\r\nTask<GoalProgressDetailDto> UpdateGoalProgressAsync(UpdateGoalProgressRequest request);\r\nTask<GoalProgressDetailDto> FreezeProgressAsync(FreezeProgressRequest request);\r\nTask<GoalProgressDetailDto> ResumeProgressAsync(ResumeProgressRequest request);\r\nTask<GoalProgressDetailDto> ResetProgressAsync(ResetProgressRequest request);\r\nTask<GoalProgressDetailDto> ArchiveProgressAsync(ArchiveProgressRequest request);\r\nTask<GoalProgressDetailDto> RestoreProgressAsync(RestoreProgressRequest request);\r\nTask<GoalProgressSearchResultDto> SearchGoalProgressAsync(GoalProgressSearchRequest request);\r\n```\r\n# API\r\n## REST Endpoints\r\n| Method | Endpoint | Purpose |\r\n|---|---|---|\r\n| GET | /api/goal-progress | Search progress. |\r\n| GET | /api/goal-progress/{progressId} | Get progress detail. |\r\n| GET | /api/goals/{goalPlanId}/progress | Get progress by GoalPlan. |\r\n| POST | /api/goals/{goalPlanId}/progress/refresh | Refresh progress. |\r\n| POST | /api/goals/{goalPlanId}/progress/recalculate | Recalculate progress. |\r\n| PATCH | /api/goals/{goalPlanId}/progress | Manual update progress. |\r\n| POST | /api/goals/{goalPlanId}/progress/freeze | Freeze progress. |\r\n| POST | /api/goals/{goalPlanId}/progress/resume | Resume progress. |\r\n| POST | /api/goals/{goalPlanId}/progress/reset | Reset progress. |\r\n| POST | /api/goals/{goalPlanId}/progress/archive | Archive progress. |\r\n| POST | /api/goals/{goalPlanId}/progress/restore | Restore progress. |\r\n| GET | /api/goals/{goalPlanId}/progress/forecast | Get forecast. |\r\n| GET | /api/goal-progress/dashboard | Get dashboard. |\r\n## HTTP Methods\r\nGET reads progress. POST executes commands. PATCH applies partial manual update. DELETE is not supported.\r\n## Requests\r\n```json\r\n{\r\n  \"asOfDate\": \"2026-07-13\",\r\n  \"reason\": \"source-refresh\",\r\n  \"calculationVersion\": \"1.0\"\r\n}\r\n```\r\n## Responses\r\nDetail response returns GoalProgressDetailDto. Search response returns paginated GoalProgressSummaryDto. Forecast response returns GoalProgressForecastDto. Dashboard response returns GoalProgressDashboardDto.\r\n## Errors\r\n| Status | Error |\r\n|---|---|\r\n| 400 | InvalidProgressValue |\r\n| 401 | Unauthenticated |\r\n| 403 | GoalProgressPermissionDenied |\r\n| 404 | GoalProgressNotFound |\r\n| 409 | GoalProgressConcurrencyConflict |\r\n| 422 | GoalProgressLifecycleViolation |\r\n| 423 | GoalProgressFrozen |\r\n## Pagination\r\nCursor pagination is required. Default page size is 50. Maximum page size is 200. Cursor preserves filters, sorting, HouseholdId, and TenantId.\r\n## Filtering\r\nAPI supports allowlisted filters only.\r\n## Sorting\r\nAPI supports allowlisted sorting only. Default sorting is updatedAt desc.\r\n## Projection\r\nProjection parameter supports summary, detail, forecast, and dashboard.\r\n# DTO\r\n## Create DTO\r\n```json\r\n{ \"goalPlanId\": \"uuid\", \"asOfDate\": \"2026-07-13\", \"calculationVersion\": \"1.0\" }\r\n```\r\n## Update DTO\r\n```json\r\n{ \"physicalProgress\": 0.6, \"milestoneProgress\": 0.5, \"reason\": \"manual update\", \"rowVersion\": \"base64\" }\r\n```\r\n## Detail DTO\r\n```json\r\n{\r\n  \"progressId\": \"uuid\",\r\n  \"goalPlanId\": \"uuid\",\r\n  \"overallProgress\": 0.72,\r\n  \"financialProgress\": 0.68,\r\n  \"timeProgress\": 0.55,\r\n  \"milestoneProgress\": 0.75,\r\n  \"dependencyProgress\": 1.0,\r\n  \"riskProgress\": 0.80,\r\n  \"confidenceScore\": 0.90,\r\n  \"completionScore\": 0.73,\r\n  \"healthScore\": 0.82,\r\n  \"expectedCompletionDate\": \"2027-04-30\",\r\n  \"progressState\": \"Tracking\",\r\n  \"updatedAt\": \"2026-07-13T00:00:00Z\"\r\n}\r\n```\r\n## Summary DTO\r\n```json\r\n{ \"progressId\": \"uuid\", \"goalPlanId\": \"uuid\", \"overallProgress\": 0.72, \"healthScore\": 0.82, \"healthBand\": \"Healthy\", \"updatedAt\": \"2026-07-13T00:00:00Z\" }\r\n```\r\n## Search DTO\r\n```json\r\n{ \"filters\": { \"healthBand\": \"Behind\", \"hasDependencyBlock\": true }, \"sort\": \"updatedAt:desc\", \"pageSize\": 50, \"cursor\": null }\r\n```\r\n## Progress DTO\r\n```json\r\n{ \"overallProgress\": 0.72, \"completionScore\": 0.73, \"healthScore\": 0.82, \"confidenceScore\": 0.90 }\r\n```\r\n## Forecast DTO\r\n```json\r\n{ \"goalPlanId\": \"uuid\", \"forecastCompletion\": 0.91, \"expectedCompletionDate\": \"2027-04-30\", \"scenarioId\": \"uuid\", \"scenarioVersion\": \"1.0\" }\r\n```\r\n## Dashboard DTO\r\n```json\r\n{ \"householdId\": \"uuid\", \"averageProgress\": 0.64, \"averageHealthScore\": 0.78, \"behindScheduleCount\": 2, \"blockedGoalCount\": 1, \"generatedAt\": \"2026-07-13T00:00:00Z\" }\r\n```\r\n# Database Mapping\r\n## Table\r\nPrimary table: goal_progress. History table: goal_progress_history.\r\n## Columns\r\nColumns: progress_id, tenant_id, household_id, goal_plan_id, progress_state, overall_progress, physical_progress, financial_progress, time_progress, milestone_progress, dependency_progress, risk_progress, confidence_score, completion_score, health_score, schedule_variance, budget_variance, expected_completion_date, calculation_version, forecast_version, source_snapshot_id, row_version, created_at, updated_at, archived_at.\r\n## Indexes\r\nIndexes: ix_goal_progress_household_goal, ix_goal_progress_household_state, ix_goal_progress_household_health, ix_goal_progress_updated_at, ix_goal_progress_expected_completion.\r\n## Constraints\r\nConstraints: primary key on progress_id, FK to GoalPlan, progress values from 0 to 1, completed invariant, unique household_id and goal_plan_id.\r\n## FK\r\nfk_goal_progress_goal_plan.\r\n## Unique\r\nuq_goal_progress_household_goal_plan.\r\n## Check Constraint\r\noverall_progress between 0 and 1.\r\n## Partition Strategy\r\nPartition history by updated_at month when volume requires it.\r\n# PostgreSQL Schema\r\n```sql\r\nCREATE TABLE goal_progress (\r\n    progress_id uuid PRIMARY KEY,\r\n    tenant_id uuid NULL,\r\n    household_id uuid NOT NULL,\r\n    goal_plan_id uuid NOT NULL,\r\n    progress_state varchar(32) NOT NULL,\r\n    overall_progress numeric(7,6) NOT NULL,\r\n    physical_progress numeric(7,6) NOT NULL,\r\n    financial_progress numeric(7,6) NULL,\r\n    time_progress numeric(7,6) NULL,\r\n    milestone_progress numeric(7,6) NOT NULL,\r\n    dependency_progress numeric(7,6) NOT NULL,\r\n    risk_progress numeric(7,6) NOT NULL,\r\n    confidence_score numeric(7,6) NOT NULL,\r\n    completion_score numeric(7,6) NOT NULL,\r\n    health_score numeric(7,6) NOT NULL,\r\n    schedule_variance numeric(7,6) NOT NULL,\r\n    budget_variance numeric(18,2) NULL,\r\n    expected_completion_date date NULL,\r\n    calculation_version varchar(32) NOT NULL,\r\n    forecast_version varchar(32) NULL,\r\n    source_snapshot_id uuid NULL,\r\n    is_dependency_blocked boolean NOT NULL DEFAULT false,\r\n    health_band varchar(32) GENERATED ALWAYS AS (\r\n        CASE WHEN health_score >= 0.80 THEN 'Healthy'\r\n             WHEN health_score >= 0.60 THEN 'Watch'\r\n             ELSE 'Behind' END\r\n    ) STORED,\r\n    row_version bigint NOT NULL DEFAULT 1,\r\n    created_at timestamptz NOT NULL,\r\n    updated_at timestamptz NOT NULL,\r\n    archived_at timestamptz NULL,\r\n    CONSTRAINT uq_goal_progress_household_goal_plan UNIQUE (household_id, goal_plan_id),\r\n    CONSTRAINT ck_goal_progress_overall CHECK (overall_progress >= 0 AND overall_progress <= 1),\r\n    CONSTRAINT ck_goal_progress_physical CHECK (physical_progress >= 0 AND physical_progress <= 1),\r\n    CONSTRAINT ck_goal_progress_financial CHECK (financial_progress IS NULL OR (financial_progress >= 0 AND financial_progress <= 1)),\r\n    CONSTRAINT ck_goal_progress_time CHECK (time_progress IS NULL OR (time_progress >= 0 AND time_progress <= 1)),\r\n    CONSTRAINT ck_goal_progress_milestone CHECK (milestone_progress >= 0 AND milestone_progress <= 1),\r\n    CONSTRAINT ck_goal_progress_dependency CHECK (dependency_progress >= 0 AND dependency_progress <= 1),\r\n    CONSTRAINT ck_goal_progress_risk CHECK (risk_progress >= 0 AND risk_progress <= 1),\r\n    CONSTRAINT ck_goal_progress_confidence CHECK (confidence_score >= 0 AND confidence_score <= 1),\r\n    CONSTRAINT ck_goal_progress_completion CHECK (completion_score >= 0 AND completion_score <= 1),\r\n    CONSTRAINT ck_goal_progress_health CHECK (health_score >= 0 AND health_score <= 1)\r\n);\r\nCREATE INDEX ix_goal_progress_household_goal ON goal_progress (household_id, goal_plan_id);\r\nCREATE INDEX ix_goal_progress_household_state ON goal_progress (household_id, progress_state);\r\nCREATE INDEX ix_goal_progress_household_health ON goal_progress (household_id, health_band, health_score);\r\nCREATE INDEX ix_goal_progress_updated_at ON goal_progress (updated_at DESC);\r\nCREATE INDEX ix_goal_progress_expected_completion ON goal_progress (household_id, expected_completion_date);\r\nCREATE TABLE goal_progress_history (\r\n    history_id uuid PRIMARY KEY,\r\n    progress_id uuid NOT NULL,\r\n    tenant_id uuid NULL,\r\n    household_id uuid NOT NULL,\r\n    goal_plan_id uuid NOT NULL,\r\n    version bigint NOT NULL,\r\n    change_reason varchar(256) NOT NULL,\r\n    changed_by uuid NULL,\r\n    previous_values jsonb NOT NULL,\r\n    new_values jsonb NOT NULL,\r\n    correlation_id uuid NOT NULL,\r\n    created_at timestamptz NOT NULL\r\n);\r\nCREATE INDEX ix_goal_progress_history_progress ON goal_progress_history (progress_id, version DESC);\r\nCREATE INDEX ix_goal_progress_history_household_goal ON goal_progress_history (household_id, goal_plan_id, created_at DESC);\r\nCREATE VIEW goal_progress_dashboard_view AS\r\nSELECT household_id,\r\n       count(*) AS goal_count,\r\n       avg(overall_progress) AS average_progress,\r\n       avg(health_score) AS average_health_score,\r\n       count(*) FILTER (WHERE health_band = 'Behind') AS behind_count,\r\n       count(*) FILTER (WHERE is_dependency_blocked = true) AS blocked_count,\r\n       max(updated_at) AS generated_at\r\nFROM goal_progress\r\nWHERE archived_at IS NULL\r\nGROUP BY household_id;\r\n```\r\n# EF Core Mapping\r\n## Fluent API\r\n```csharp\r\nbuilder.ToTable(\"goal_progress\");\r\nbuilder.HasKey(x => x.ProgressId);\r\nbuilder.Property(x => x.ProgressId).HasColumnName(\"progress_id\");\r\nbuilder.Property(x => x.TenantId).HasColumnName(\"tenant_id\");\r\nbuilder.Property(x => x.HouseholdId).HasColumnName(\"household_id\").IsRequired();\r\nbuilder.Property(x => x.GoalPlanId).HasColumnName(\"goal_plan_id\").IsRequired();\r\nbuilder.Property(x => x.ProgressState).HasColumnName(\"progress_state\").HasMaxLength(32).IsRequired();\r\nbuilder.Property(x => x.OverallProgress).HasColumnName(\"overall_progress\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.PhysicalProgress).HasColumnName(\"physical_progress\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.FinancialProgress).HasColumnName(\"financial_progress\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.TimeProgress).HasColumnName(\"time_progress\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.MilestoneProgress).HasColumnName(\"milestone_progress\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.DependencyProgress).HasColumnName(\"dependency_progress\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.RiskProgress).HasColumnName(\"risk_progress\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.ConfidenceScore).HasColumnName(\"confidence_score\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.CompletionScore).HasColumnName(\"completion_score\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.HealthScore).HasColumnName(\"health_score\").HasPrecision(7, 6);\r\nbuilder.Property(x => x.RowVersion).HasColumnName(\"row_version\").IsConcurrencyToken();\r\nbuilder.HasIndex(x => new { x.HouseholdId, x.GoalPlanId }).IsUnique();\r\nbuilder.HasIndex(x => new { x.HouseholdId, x.ProgressState });\r\nbuilder.HasIndex(x => new { x.HouseholdId, x.HealthScore });\r\nbuilder.HasQueryFilter(x => x.ArchivedAt == null);\r\n```\r\n## Owned Types\r\nGoalProgressScore can be modeled as owned value object when existing code supports owned progress scores.\r\n## Value Conversion\r\nProgressState and HealthBand use string conversion. Percent values use decimal conversion.\r\n## Indexes\r\nIndexes match PostgreSQL schema.\r\n## Query Filters\r\nDefault query filter excludes archived progress. Repository specification applies Household and Tenant filters.\r\n# Cache Strategy\r\n## Redis Key\r\nDetail key:\r\n```text\r\natlas:{tenantId}:household:{householdId}:goal:{goalPlanId}:progress:v1\r\n```\r\nDashboard key:\r\n```text\r\natlas:{tenantId}:household:{householdId}:goal-progress:dashboard:v1\r\n```\r\nSearch key:\r\n```text\r\natlas:{tenantId}:household:{householdId}:goal-progress:search:{hash}:v1\r\n```\r\n## Expiration\r\nDetail TTL is 5 minutes. Dashboard TTL is 2 minutes. Forecast TTL is 10 minutes. Search TTL is 1 minute.\r\n## Invalidation\r\nInvalidate on GoalProgressUpdated, GoalProgressRecalculated, GoalCompleted, GoalDelayed, GoalAheadOfSchedule, GoalBehindSchedule, GoalHealthChanged, GoalForecastChanged, GoalProgressReset, Goal archived, Goal restored, Recommendation change, Decision change, Scenario simulation, Milestone change, and Dependency change.\r\n## Refresh Strategy\r\nRefresh detail cache after committed command. Refresh dashboard cache asynchronously. Refresh forecast cache after scenario simulation.\r\n# Security\r\n## Authorization\r\nPermissions: GoalProgress.Read, GoalProgress.Update, GoalProgress.Refresh, GoalProgress.Recalculate, GoalProgress.Freeze, GoalProgress.Resume, GoalProgress.Reset, GoalProgress.Archive, GoalProgress.Restore, GoalProgress.Export.\r\n## Permission\r\nPermission evaluation includes Principal, HouseholdId, TenantId, GoalPlanId, action, lifecycle state, and field scope.\r\n## Field Level Security\r\nSensitive fields include BudgetVariance, financial source amounts, forecast assumptions, Decision references, and Recommendation impact details.\r\n## Masking\r\nMask financial values when user lacks financial read permission. Mask decision and recommendation references when user lacks source permission.\r\n# Audit\r\n## Audit Trail\r\nAudit is required for manual update, refresh, recalculation, freeze, resume, reset, archive, restore, completion, delay detection, health band change, and forecast change.\r\n## History\r\nHistory records store previous values, new values, version, actor, reason, and correlation.\r\n## Versioning\r\nProgress version increments on every persisted change. CalculationVersion records formula and weight version. ForecastVersion records scenario forecast model. RowVersion supports concurrency.\r\n## Change Tracking\r\nChanged fields are stored in audit payload. Source snapshot reference is stored when recalculation occurs. Manual reason is stored when manual update occurs.\r\n# Performance\r\n## Bulk Update\r\nUse bounded batches. Default batch size is 500. Maximum batch size is 5000. Use checkpoint by household and goalPlanId.\r\n## Parallel Calculation\r\nParallel calculation is allowed across GoalPlan records. Parallel calculation is not allowed for the same GoalPlan version. Concurrency uses RowVersion.\r\n## Incremental Refresh\r\nOnly affected dimensions recalculate when source event scope is known. Full recalculation is required when formula version changes.\r\n## Materialized View Strategy\r\nDashboard view can be materialized when read volume requires it. Refresh must expose generated time.\r\n## Caching\r\nUse Redis for detail, dashboard, forecast, and search cache. Cache values include version and updatedAt.\r\n## Read Optimization\r\nUse summary projection for list views. Use detail projection for single GoalPlan. Use dashboard view for household dashboard.\r\n# Example JSON\r\n## Create\r\n```json\r\n{ \"goalPlanId\": \"5e4b510a-6f80-43c7-9978-89f2b9f89a11\", \"householdId\": \"afc64d0c-cc24-48bb-a2e9-7bb8736fbdf4\", \"asOfDate\": \"2026-07-13\", \"calculationVersion\": \"1.0\" }\r\n```\r\n## Update\r\n```json\r\n{ \"physicalProgress\": 0.45, \"milestoneProgress\": 0.50, \"reason\": \"milestone evidence accepted\", \"rowVersion\": \"AAAAAAAAB9E=\" }\r\n```\r\n## Refresh\r\n```json\r\n{ \"asOfDate\": \"2026-07-13\", \"sourceSnapshotId\": \"b89a0d52-909c-42f7-91b6-b6fe9c6af7cd\", \"reason\": \"scheduled refresh\" }\r\n```\r\n## Detail\r\n```json\r\n{ \"progressId\": \"6bd52a38-462e-4c21-82c7-bdffdf70110a\", \"goalPlanId\": \"5e4b510a-6f80-43c7-9978-89f2b9f89a11\", \"progressState\": \"Tracking\", \"overallProgress\": 0.72, \"healthScore\": 0.82, \"healthBand\": \"Healthy\", \"expectedCompletionDate\": \"2027-04-30\", \"updatedAt\": \"2026-07-13T00:00:00Z\" }\r\n```\r\n## Dashboard\r\n```json\r\n{ \"householdId\": \"afc64d0c-cc24-48bb-a2e9-7bb8736fbdf4\", \"goalCount\": 8, \"averageProgress\": 0.64, \"averageHealthScore\": 0.78, \"behindCount\": 2, \"blockedCount\": 1, \"generatedAt\": \"2026-07-13T00:00:00Z\" }\r\n```\r\n## Forecast\r\n```json\r\n{ \"goalPlanId\": \"5e4b510a-6f80-43c7-9978-89f2b9f89a11\", \"forecastCompletion\": 0.91, \"expectedCompletionDate\": \"2027-04-30\", \"confidenceScore\": 0.87, \"scenarioId\": \"393b984d-bdf4-4f2c-a2ef-a64793adf78a\", \"scenarioVersion\": \"1.0\" }\r\n```\r\n## Search\r\n```json\r\n{ \"items\": [{ \"progressId\": \"6bd52a38-462e-4c21-82c7-bdffdf70110a\", \"goalPlanId\": \"5e4b510a-6f80-43c7-9978-89f2b9f89a11\", \"overallProgress\": 0.72, \"healthScore\": 0.82, \"healthBand\": \"Healthy\" }], \"nextCursor\": null }\r\n```\r\n# Mermaid\r\n## Class Diagram\r\n```mermaid\r\nclassDiagram\r\n  class GoalPlan { GoalPlanId HouseholdId GoalStatus }\r\n  class GoalProgress { ProgressId GoalPlanId OverallProgress HealthScore ProgressState }\r\n  class GoalProgressHistory { HistoryId ProgressId Version ChangedAt }\r\n  GoalPlan \"1\" --> \"1\" GoalProgress\r\n  GoalProgress \"1\" --> \"*\" GoalProgressHistory\r\n```\r\n## Sequence Diagram\r\n```mermaid\r\nsequenceDiagram\r\n  participant API as API\r\n  participant APP as Application Service\r\n  participant DOM as Domain Service\r\n  participant REPO as Repository\r\n  participant AUD as Audit\r\n  API->>APP: RecalculateGoalProgress\r\n  APP->>REPO: Load GoalProgress\r\n  APP->>DOM: Calculate dimensions\r\n  DOM-->>APP: Progress result\r\n  APP->>REPO: Save progress\r\n  APP->>AUD: Record audit\r\n  APP-->>API: Detail DTO\r\n```\r\n## ER Diagram\r\n```mermaid\r\nerDiagram\r\n  GOAL_PLAN ||--|| GOAL_PROGRESS : owns\r\n  GOAL_PROGRESS ||--o{ GOAL_PROGRESS_HISTORY : records\r\n  GOAL_PROGRESS {\r\n    uuid progress_id PK\r\n    uuid household_id\r\n    uuid goal_plan_id\r\n    numeric overall_progress\r\n    numeric health_score\r\n  }\r\n```\r\n## State Diagram\r\n```mermaid\r\nstateDiagram-v2\r\n  [*] --> NotTracked\r\n  NotTracked --> Tracking: RefreshGoalProgress\r\n  Tracking --> Recalculating: RecalculateGoalProgress\r\n  Recalculating --> Tracking: GoalProgressRecalculated\r\n  Tracking --> Frozen: FreezeProgress\r\n  Frozen --> Tracking: ResumeProgress\r\n  Tracking --> Completed: GoalCompleted\r\n  Tracking --> Reset: ResetProgress\r\n  Reset --> Tracking: RefreshGoalProgress\r\n  Tracking --> Archived: ArchiveProgress\r\n  Archived --> Restored: RestoreProgress\r\n  Restored --> Tracking: RefreshGoalProgress\r\n```\r\n## Progress Calculation Flow\r\n```mermaid\r\nflowchart TD\r\n  Source[Goal Source Data] --> Validate[Validate Inputs]\r\n  Validate --> Dimensions[Calculate Dimensions]\r\n  Dimensions --> Weighted[Weighted Progress]\r\n  Weighted --> Health[Health Score]\r\n  Health --> Forecast[Forecast Completion]\r\n  Forecast --> Persist[Persist Progress]\r\n  Persist --> Events[Emit Events]\r\n  Events --> Cache[Invalidate Cache]\r\n```\r\n# Testing\r\n## Unit Test\r\nUnit tests cover weighted progress, milestone contribution, financial contribution, time progress, schedule variance, budget variance, health score, risk-adjusted progress, completed invariant, and archived update rejection.\r\n## Integration Test\r\nIntegration tests cover refresh API, recalculation API, manual update audit, freeze behavior, resume behavior, reset history, archive read-only behavior, restore behavior, dashboard query, and search query.\r\n## Calculation Test\r\nCalculation tests cover deterministic recalculation, formula version, expected completion, null financial progress, and null time progress.\r\n## Performance Test\r\nPerformance tests cover bulk recalculation, dashboard query latency, search query latency, cache hit ratio, and materialized view refresh.\r\n## Concurrency Test\r\nConcurrency tests cover RowVersion conflict, parallel recalculation same GoalPlan rejection, batch retry, duplicate event idempotency, and cache invalidation race.\r\n# Edge Cases\r\n1. GoalPlan missing. 2. GoalPlan archived.\r\n3. GoalPlan cancelled. 4. GoalPlan completed and update attempts 99%.\r\n5. Progress record missing. 6. Duplicate progress record exists.\r\n7. Milestone weights do not sum to 1. 8. Milestone completion exceeds 1.\r\n9. Task completion missing. 10. TargetAmount is zero.\r\n11. CurrentFundedAmount exceeds TargetAmount. 12. CurrentFundedAmount is negative.\r\n13. TargetDate is before StartDate. 14. TargetDate is missing.\r\n15. StartDate is missing. 16. AsOfDate before StartDate.\r\n17. ExpectedCompletionDate cannot be calculated. 18. ProgressRatePerDay is zero.\r\n19. Dependency count is zero. 20. Dependency is blocked.\r\n21. DecisionSession is accepted twice. 22. Recommendation is completed after dismissal.\r\n23. Scenario forecast is stale. 24. Scenario version is incompatible.\r\n25. Notification threshold crosses twice. 26. Event is delivered twice.\r\n27. Event arrives out of order. 28. Cache returns stale version.\r\n29. RowVersion conflict occurs. 30. Manual update lacks reason.\r\n31. User lacks permission. 32. HouseholdId mismatch.\r\n33. TenantId mismatch. 34. Audit write fails.\r\n35. Projection refresh fails. 36. Batch job stops mid-page.\r\n37. Scheduler overlaps previous run. 38. Restore references missing history.\r\n39. Reset target version is invalid. 40. Financial currency mismatch.\r\n# Version History\n| Version | Date | Description |\n|---|---|---|\n| 1.0 | 2026-07-13 | Enterprise Specification for Goal Progress Tracking. |\n\n## Phase 2 Executable Specification Addendum\n\n### Progress Calculation Contract\n\n| Field | Required | Description |\n|---|---|---|\n| ProgressCalculationId | Yes | Stable progress calculation identifier |\n| ProgressId | Yes | Progress record identifier |\n| HouseholdId | Yes | Household scope |\n| GoalPlanId | Yes | Goal scope |\n| ProgressModelVersion | Yes | Progress formula model version |\n| SourceSnapshotId | Yes | Source data snapshot |\n| DimensionResults | Yes | Milestone, financial, physical, dependency, risk, confidence results |\n| OverallProgress | Yes | Calculated progress value |\n| CorrelationId | Yes | Audit correlation |\n\n### Required Commands\n\n| Command | Actor | Output |\n|---|---|---|\n| ExecuteGoalProgressCalculation | GoalProgressApplicationService | GoalProgressCalculated |\n| RefreshGoalProgressSnapshot | GoalProgressApplicationService | GoalProgressRefreshed |\n| FreezeGoalProgress | GoalProgressApplicationService | GoalProgressFrozen |\n| ReplayGoalProgressCalculation | AdministrationApplicationService | GoalProgressCalculationReplayed |\n\n### Addendum Validation Rules\n\n| Rule ID | Rule | Failure |\n|---|---|---|\n| GPT-P2-VR-001 | Progress calculation must include model version and source snapshot. | Reject calculation |\n| GPT-P2-VR-002 | Completed goal progress must remain 100 percent unless correction policy applies. | Reject update |\n| GPT-P2-VR-003 | Frozen progress cannot be refreshed until resumed. | Reject refresh |\n| GPT-P2-VR-004 | Replay must use original progress model and source snapshot. | Reject replay |\n\n### Addendum Testing Matrix\n\n| Test | Expected Result |\n|---|---|\n| Missing source snapshot | Calculation fails |\n| Completed goal set to 99 percent | Update is rejected |\n| Frozen progress refresh | Refresh is rejected |\n| Duplicate source event | Idempotent result is returned |\n| Historical replay | Original progress value reproduces |\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable addendum added. |\n\n## Phase 2 Executable Specification Addendum\n\n### Progress Calculation Contract\n\n| Field | Required | Description |\n|---|---|---|\n| ProgressCalculationId | Yes | Stable progress calculation identifier |\n| ProgressId | Yes | Progress record identifier |\n| HouseholdId | Yes | Household scope |\n| GoalPlanId | Yes | Goal scope |\n| ProgressModelVersion | Yes | Progress formula model version |\n| SourceSnapshotId | Yes | Source data snapshot |\n| DimensionResults | Yes | Milestone, financial, physical, dependency, risk, confidence results |\n| OverallProgress | Yes | Calculated progress value |\n| CorrelationId | Yes | Audit correlation |\n\n### Required Commands\n\n| Command | Actor | Output |\n|---|---|---|\n| ExecuteGoalProgressCalculation | GoalProgressApplicationService | GoalProgressCalculated |\n| RefreshGoalProgressSnapshot | GoalProgressApplicationService | GoalProgressRefreshed |\n| FreezeGoalProgress | GoalProgressApplicationService | GoalProgressFrozen |\n| ReplayGoalProgressCalculation | AdministrationApplicationService | GoalProgressCalculationReplayed |\n\n### Addendum Validation Rules\n\n| Rule ID | Rule | Failure |\n|---|---|---|\n| GPT-P2-VR-001 | Progress calculation must include model version and source snapshot. | Reject calculation |\n| GPT-P2-VR-002 | Completed goal progress must remain 100 percent unless correction policy applies. | Reject update |\n| GPT-P2-VR-003 | Frozen progress cannot be refreshed until resumed. | Reject refresh |\n| GPT-P2-VR-004 | Replay must use original progress model and source snapshot. | Reject replay |\n\n### Addendum Testing Matrix\n\n| Test | Expected Result |\n|---|---|\n| Missing source snapshot | Calculation fails |\n| Completed goal set to 99 percent | Update is rejected |\n| Frozen progress refresh | Refresh is rejected |\n| Duplicate source event | Idempotent result is returned |\n| Historical replay | Original progress value reproduces |\n\n| Version | Date | Description |\n|---|---|---|\n| 1.0-p2 | 2026-07-15 | Phase 2 executable addendum added. |\n",
+  "references": []
+}

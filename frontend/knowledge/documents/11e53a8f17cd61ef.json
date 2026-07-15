@@ -1,0 +1,91 @@
+{
+  "id": "11e53a8f17cd61ef",
+  "title": "Decision Learning Framework",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/decision-learning-framework.md",
+  "sourceHash": "e2583423447d3d4198d5185350153c8c9e9e920aa449beb0bd192ad05d341dad",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Learning Framework"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Design Principles"
+    },
+    {
+      "level": 2,
+      "text": "Learning Sources"
+    },
+    {
+      "level": 2,
+      "text": "Learning Pipeline"
+    },
+    {
+      "level": 2,
+      "text": "Outcome Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Learning Categories"
+    },
+    {
+      "level": 3,
+      "text": "Recommendation Quality"
+    },
+    {
+      "level": 3,
+      "text": "Prediction Accuracy"
+    },
+    {
+      "level": 3,
+      "text": "Rule Effectiveness"
+    },
+    {
+      "level": 3,
+      "text": "Scenario Accuracy"
+    },
+    {
+      "level": 2,
+      "text": "Feedback Model"
+    },
+    {
+      "level": 2,
+      "text": "Learning Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Future Enhancements"
+    }
+  ],
+  "bodyMarkdown": "# Decision Learning Framework\n\nVersion: 1.0\n\n## Purpose\nDefines how Project Atlas continuously improves recommendations by learning from historical decisions and their outcomes while preserving deterministic business rules and explainability.\n\n## Objectives\n- Measure recommendation effectiveness.\n- Compare predicted versus actual outcomes.\n- Identify recurring decision patterns.\n- Improve future recommendations without violating governance.\n\n## Design Principles\n- Business rules remain authoritative.\n- Learning never overrides hard constraints.\n- Every learned insight is auditable.\n- Models are versioned and reproducible.\n\n## Learning Sources\n- Decision History\n- Decision Audit\n- Execution Plans\n- Goal Reviews\n- Scenario Comparisons\n- User Feedback\n- Financial Outcomes\n\n## Learning Pipeline\n1. Collect decision outcomes.\n2. Validate data quality.\n3. Compare predicted vs actual results.\n4. Identify patterns.\n5. Generate insights.\n6. Review governance rules.\n7. Publish new learning version.\n\n## Outcome Metrics\n- Recommendation Accepted\n- Recommendation Executed\n- Goal Achieved\n- Time to Completion\n- Net Worth Impact\n- Cash Flow Improvement\n- Liquidity Change\n- User Satisfaction\n\n## Learning Categories\n### Recommendation Quality\nEvaluate acceptance and execution rates.\n\n### Prediction Accuracy\nCompare forecast values with realized outcomes.\n\n### Rule Effectiveness\nMeasure which rules consistently improve outcomes.\n\n### Scenario Accuracy\nEvaluate baseline versus alternative scenarios.\n\n## Feedback Model\nSupported feedback:\n- Helpful\n- Not Helpful\n- Too Conservative\n- Too Aggressive\n- Already Completed\n- Ignore\n\n## Learning Outputs\n- Insight ID\n- Pattern\n- Confidence\n- Supporting Evidence\n- Suggested Rule Review\n- Suggested Metric Update\n\n## Business Rules\n- Historical decisions remain immutable.\n- Learning suggestions require governance approval.\n- Rule changes create new rule versions.\n- All learning references audit records.\n\n## Explainability\nEvery learning insight records:\n- Source decisions\n- Sample size\n- Confidence score\n- Supporting KPIs\n- Suggested improvement\n\n## Integration\nConsumes:\n- Decision History Framework\n- Decision Audit Framework\n- Goal Review Framework\n- Recommendation Priority Framework\n- Financial Projection Framework\n\nProduces:\n- Decision Engine tuning inputs\n- Analytics\n- Governance reports\n- Dashboard insights\n\n## KPIs\n- Prediction Accuracy\n- Recommendation Success Rate\n- Goal Achievement Rate\n- Rule Improvement Rate\n- Learning Coverage\n- Feedback Participation\n\n## Testing\n- Historical replay\n- Rule revision impact\n- Prediction variance\n- Sparse data\n- Conflicting feedback\n- Large decision datasets\n\n## Future Enhancements\n- AI-assisted pattern discovery\n- Reinforcement learning (governed)\n- Household-level learning\n- Cross-user anonymized benchmarking\n",
+  "references": []
+}

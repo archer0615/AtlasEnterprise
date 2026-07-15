@@ -1,0 +1,75 @@
+{
+  "id": "98bce9b06e5efe7b",
+  "title": "knowledge/scoring-model.md",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/scoring-model.md",
+  "sourceHash": "3ede4b3cf7a4cff27c8b86b8d2d6e2f60920d338fc38dc1fedcde1295769fb86",
+  "headings": [
+    {
+      "level": 1,
+      "text": "knowledge/scoring-model.md"
+    },
+    {
+      "level": 1,
+      "text": "Atlas Decision Scoring Model"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Design Principles"
+    },
+    {
+      "level": 2,
+      "text": "Overall Formula"
+    },
+    {
+      "level": 2,
+      "text": "Default Category Weights"
+    },
+    {
+      "level": 2,
+      "text": "Category Score Model"
+    },
+    {
+      "level": 2,
+      "text": "KPI Normalization"
+    },
+    {
+      "level": 2,
+      "text": "Bonus Rules"
+    },
+    {
+      "level": 2,
+      "text": "Penalty Rules"
+    },
+    {
+      "level": 2,
+      "text": "Hard Rules"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Bands"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Sensitivity Analysis"
+    },
+    {
+      "level": 2,
+      "text": "Versioning"
+    },
+    {
+      "level": 2,
+      "text": "Output Schema"
+    }
+  ],
+  "bodyMarkdown": "# knowledge/scoring-model.md\n\n# Atlas Decision Scoring Model\nVersion: 1.0\n\n## Purpose\nDefines the canonical 0–100 scoring methodology used by the Decision Engine. The model is deterministic, explainable, versioned, and independent from UI presentation.\n\n## Design Principles\n- Deterministic\n- Explainable\n- Version controlled\n- Extensible\n- Comparable across scenarios\n\n## Overall Formula\n\nFinal Score =\nΣ(Category Score × Category Weight)\n+ Bonus Score\n− Penalty Score\n\nThe final score is clamped to the range [0,100].\n\n## Default Category Weights\n\n| Category | Weight |\n|---|---:|\n| Cash Flow | 20% |\n| Liquidity | 15% |\n| Debt | 15% |\n| Investment | 15% |\n| Retirement | 15% |\n| Housing | 10% |\n| Risk | 5% |\n| Goal Alignment | 5% |\n\nTotal = 100%.\n\n## Category Score Model\n\nEach category score is computed from one or more KPIs.\n\nCategory Score =\nΣ(KPI Normalized Score × KPI Weight)\n\nEvery KPI is normalized to 0–100 before weighting.\n\n## KPI Normalization\n\nSupported methods:\n- Linear\n- Piecewise linear\n- Threshold\n- Target range\n- Logistic (advanced)\n\nEach KPI definition declares its normalization strategy.\n\n## Bonus Rules\n\nExamples:\n- Emergency fund > 12 months: +2\n- Passive income covers 100% of expenses: +3\n- IPS compliance within tolerance: +2\n\nDefault maximum cumulative bonus: +5.\n\n## Penalty Rules\n\nExamples:\n- DTI exceeds policy: −5\n- Negative monthly cash flow: −8\n- Retirement funding ratio below policy: −5\n\nDefault maximum cumulative penalty: −20.\n\n## Hard Rules\n\nCertain conditions override numeric score.\n\nExamples:\n- Insolvent cash flow\n- Invalid scenario\n- Missing mandatory assumptions\n- Regulatory constraint\n\nResult:\nRecommendation = Reject regardless of score.\n\n## Recommendation Bands\n\n| Score | Recommendation |\n|---:|---|\n| 90–100 | Strongly Recommend |\n| 75–89 | Recommend |\n| 60–74 | Acceptable |\n| 40–59 | Weak |\n| 0–39 | Reject |\n\n## Explainability\n\nFor every score provide:\n- Category breakdown\n- KPI contributions\n- Bonus applied\n- Penalties applied\n- Hard rule triggers\n- Assumption version\n- Formula version\n\n## Sensitivity Analysis\n\nOptionally recompute score after varying:\n- Interest rate\n- Inflation\n- Salary growth\n- Investment return\n- Property appreciation\n\nReport the score delta for each variable.\n\n## Versioning\n\nEach calculation references:\n- Scoring Model Version\n- Formula Version\n- Assumption Version\n- Decision Matrix Version\n\nHistorical results remain reproducible.\n\n## Output Schema\n\n- DecisionId\n- ScenarioId\n- TotalScore\n- CategoryScores[]\n- BonusItems[]\n- PenaltyItems[]\n- Recommendation\n- HardRuleTriggered\n- AssumptionVersion\n- FormulaVersion\n- ScoringModelVersion\n- CalculatedAt\n",
+  "references": []
+}
