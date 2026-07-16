@@ -87,5 +87,6 @@ Each action must be:
 - `frontend/fixtures/dashboard-snapshots.json`
 - `frontend/src/dashboard-model.js`
 - `knowledge/product/current-capability-matrix.md`
+- `knowledge/product/dashboard-formula-traceability.md`
 - `knowledge/reporting/decision-dashboard.md`
 - `knowledge/workflow/decision-workflow.md`

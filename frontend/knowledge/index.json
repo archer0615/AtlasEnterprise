@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T15:43:52.357Z",
-  "buildId": "926a4e0b5b25",
+  "generatedAt": "2026-07-16T15:47:40.112Z",
+  "buildId": "5d5fab48eebd",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -3276,11 +3276,19 @@
       "summary": "# Current Capability Matrix Document Path: knowledge/product/current-capability-matrix.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Context: Pro"
     },
     {
+      "id": "94d989e6d377728e",
+      "title": "dashboard-formula-traceability",
+      "category": "product",
+      "path": "knowledge/product/dashboard-formula-traceability.md",
+      "sourceHash": "c12ceb4507eabc15a6a4ed7a3be9f7709aaff2cbc30da6b6608a7ed99545176d",
+      "summary": "# Dashboard Formula Traceability Document Path: knowledge/product/dashboard-formula-traceability.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Co"
+    },
+    {
       "id": "f0a7454456f39e50",
       "title": "Dashboard Snapshot Contract",
       "category": "product",
       "path": "knowledge/product/dashboard-snapshot-contract.md",
-      "sourceHash": "120b2c093b84774b53452c8c9be7a3719ae82c3d78727604061076ee4e660f0c",
+      "sourceHash": "affc4a5db22bd75398c0a688afadcd72896dc890a71c9426d8470dba2f961dd9",
       "summary": "# Dashboard Snapshot Contract # Dashboard Snapshot Contract Document Path: knowledge/product/dashboard-snapshot-contract.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Produ"
     },
     {
@@ -3298,6 +3306,14 @@
       "path": "knowledge/product/pwa-runtime-capability.md",
       "sourceHash": "bb69bacb8436456361ece593f56085f677ad99525feb3889e8f0ba122709ce9c",
       "summary": "# PWA Runtime Capability Document Path: knowledge/product/pwa-runtime-capability.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Context: PWA Owner:"
+    },
+    {
+      "id": "27c4191b06983c92",
+      "title": "simulator-formula-coverage",
+      "category": "product",
+      "path": "knowledge/product/simulator-formula-coverage.md",
+      "sourceHash": "ab258df67a4f0509f83489f41d77671f05c92f41e713b7b71c9b468c5a31e590",
+      "summary": "# Simulator Formula Coverage Document Path: knowledge/product/simulator-formula-coverage.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Context: S"
     },
     {
       "id": "d9b537ddc3ef0ac7",

@@ -1,0 +1,31 @@
+{
+  "id": "94d989e6d377728e",
+  "title": "dashboard-formula-traceability",
+  "category": "product",
+  "canonicalPath": "knowledge/product/dashboard-formula-traceability.md",
+  "sourceHash": "c12ceb4507eabc15a6a4ed7a3be9f7709aaff2cbc30da6b6608a7ed99545176d",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Traceability Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Rules"
+    },
+    {
+      "level": 2,
+      "text": "Known Gaps"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "﻿# Dashboard Formula Traceability\n\nDocument Path: knowledge/product/dashboard-formula-traceability.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: Dashboard\nOwner: Project Atlas\nSource of Truth: Atlas Dashboard Formula Traceability Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nMaps dashboard snapshot fields to formula, KPI, scenario, and domain knowledge sources.\n\n## Traceability Matrix\n\n| Dashboard Area | Field | Source Type | Canonical Source | Validation |\n| --- | --- | --- | --- | --- |\n| Snapshot | `snapshotId` | Identity | `knowledge/product/dashboard-snapshot-contract.md` | Frontend validation |\n| Snapshot | `sourceFixture` | Fixture link | `simulator/fixtures/*.json` | Fixture validation |\n| Metrics | Cash-flow values | KPI/formula | `knowledge/reporting/kpi-definitions.md`, `knowledge/supporting/cashflow.md` | Simulator output validation |\n| Metrics | Emergency reserve months | Ratio/formula | `knowledge/framework/emergency-fund-framework.md`, `knowledge/framework/cash-reserve-framework.md` | Simulator output validation |\n| Metrics | Decision score | Scoring | `knowledge/supporting/scoring-model.md`, `knowledge/supporting/decision-evaluation.md` | Simulator output validation |\n| Metrics | Loan pressure | Loan formula | `knowledge/entity/Loan.md`, `knowledge/workflow/loan-workflow.md` | Simulator output validation |\n| Metrics | Portfolio drawdown | Portfolio formula | `knowledge/supporting/portfolio.md`, `knowledge/framework/portfolio-performance-framework.md` | Simulator output validation |\n| Scenarios | `score` | Scenario score | `knowledge/framework/scenario-framework.md`, `knowledge/engine/simulation-engine-framework.md` | Frontend validation |\n| Actions | Next action text | Recommendation/action | `knowledge/entity/ActionPlan.md`, `knowledge/entity/Recommendation.md` | Frontend validation |\n\n## Rules\n\n- Every dashboard metric must be traceable to a source fixture and at least one canonical knowledge document.\n- Every scenario score must be numeric and reproducible from fixture assumptions or simulator output.\n- Every next action must be tied to a scenario, metric, recommendation, or rule.\n- User-visible dashboard strings must pass readable UTF-8 validation.\n\n## Known Gaps\n\n- Current dashboard snapshots are fixture-backed rather than generated from a production calculation service.\n- Some metrics have document-level traceability but do not yet map to a named formula identifier.\n- Formula identifiers should be added when the formula catalog is expanded.\n\n## Related Specifications\n\n- `knowledge/product/dashboard-snapshot-contract.md`\n- `knowledge/product/current-capability-matrix.md`\n- `knowledge/product/simulator-formula-coverage.md`\n- `frontend/fixtures/dashboard-snapshots.json`\r\n",
+  "references": []
+}

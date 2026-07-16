@@ -106,7 +106,7 @@ function renderList() {
       <span class="doc-path">${escapeHtml(doc.path)}</span>
       ${tokens.length ? `<span class="doc-score">match ${doc.score}</span>` : ""}
     </button>
-  `).join("") || `<p class="empty-state">找不到符合條件的文件。</p>`;
+  `).join("") || `<p class="empty-state">找不到符合條件的知識文件。</p>`;
 }
 
 function normalizeQuery(value) {
@@ -150,7 +150,7 @@ async function openDocument(id) {
 
   const response = await fetch(`/knowledge/documents/${doc.id}.json`);
   if (!response.ok) {
-    documentViewer.innerHTML = `<p class="empty-state">文件載入失敗。</p>`;
+    documentViewer.innerHTML = `<p class="empty-state">知識文件載入失敗。</p>`;
     return;
   }
 
