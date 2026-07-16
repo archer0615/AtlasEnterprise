@@ -1,0 +1,31 @@
+{
+  "id": "33dc41531fab30a7",
+  "title": "Portfolio Governance and Testing",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/portfolio-entity/governance-and-testing.md",
+  "sourceHash": "31dc203da58d129917340678b23401a31354f9c7623f0b5498595ce036c8d824",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Governance and Testing\n\n## Purpose\nThis split document isolates Portfolio security, audit, observability, performance, examples, diagrams, testing, edge cases, error catalog, migration, and consistency verification from the parent Portfolio Entity Specification.\n\n## Source\n- Parent specification: [Portfolio Entity Specification](../Portfolio.md)\n\n## Governance\nGovernance covers tenant isolation, household isolation, owner visibility, financial data masking, audit, stale valuation handling, and migration compatibility.\n\n## Testing\nTesting covers portfolio creation, allocation validation, valuation refresh, asset association, archive, restore, concurrency, cache invalidation, and edge cases.\n\n",
+  "references": []
+}

@@ -1,4 +1,8 @@
 # API Governance Framework
+## Split Navigation
+- [API standards and contracts](api-governance/standards-and-contracts.md)
+- [API resource catalog](api-governance/resource-catalog.md)
+- [API security testing and operations](api-governance/security-testing-and-operations.md)
 
 # Document Control
 

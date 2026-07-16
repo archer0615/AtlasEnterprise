@@ -1,4 +1,8 @@
 # Message Contract Catalog
+## Split Navigation
+- [Message contract catalog entries](message-contract/catalog-entries.md)
+- [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md)
+- [Message contract governance and testing](message-contract/governance-and-testing.md)
 
 # Document Control
 

@@ -1,0 +1,31 @@
+{
+  "id": "b75c5f031f94aa6a",
+  "title": "Domain Event Matrices and Delivery",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-event/matrices-and-delivery.md",
+  "sourceHash": "6be5ba59f3f36b4c37d8690f39838e371117656194fd1684ef53a2b0c97f1010",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Event Matrices and Delivery"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Delivery Rules"
+    }
+  ],
+  "bodyMarkdown": "# Domain Event Matrices and Delivery\n\n## Purpose\nThis split document isolates event matrices and delivery rules from the parent Domain Event Catalog.\n\n## Source\n- Parent specification: [Domain Event Catalog](../domain-event-catalog.md)\n\n## Matrices\nMatrices include event classification, event ownership, aggregate event, command event, repository event, projection, workflow, saga, automation, notification, message contract, outbox, inbox, cache invalidation, and search index mapping.\n\n## Delivery Rules\nDelivery rules cover ordering, idempotency, replay, retry, versioning, evolution, and backward compatibility.\n\n",
+  "references": []
+}

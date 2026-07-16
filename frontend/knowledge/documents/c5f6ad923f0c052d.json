@@ -1,0 +1,39 @@
+{
+  "id": "c5f6ad923f0c052d",
+  "title": "Recommendation Evaluation Execution and Audit",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-evaluation/execution-and-audit.md",
+  "sourceHash": "ec0cb5ef17a720496496262c6411fdb27cd5fe9998208a8ee6bbfda8842204a1",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Evaluation Execution and Audit"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Pipeline"
+    },
+    {
+      "level": 2,
+      "text": "Execution Surfaces"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Evaluation Execution and Audit\n\n## Purpose\nThis split document isolates recommendation evaluation pipeline, commands, state machine, API, persistence, audit, and testing from the parent Recommendation Evaluation specification.\n\n## Source\n- Parent specification: [Recommendation Evaluation](../recommendation-evaluation.md)\n\n## Evaluation Pipeline\nThe pipeline collects inputs, validates, normalizes, evaluates rules, checks goal alignment, runs financial/risk/scenario/portfolio/simulation/optimization analysis, scores, ranks, selects recommendations, and writes audit records.\n\n## Execution Surfaces\nExecution includes state machine transitions, commands, domain events, repository queries, application service orchestration, REST APIs, DTOs, database mapping, cache, security, and audit.\n\n## Audit\nEvaluation audit records source inputs, scoring version, ranking result, constraint output, selected recommendation, operator, and correlation identifier.\n\n## Testing\nTesting covers scoring, constraints, ranking, validation, API, persistence, explainability, performance, concurrency, and replay.\n\n",
+  "references": []
+}

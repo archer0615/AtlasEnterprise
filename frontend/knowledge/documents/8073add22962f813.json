@@ -1,0 +1,31 @@
+{
+  "id": "8073add22962f813",
+  "title": "Position API and Persistence",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/position/api-and-persistence.md",
+  "sourceHash": "520731121430f7fa154319ef45797d1d84436c537c9effeeb82c87e35fd341bb",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Position API and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "Persistence"
+    }
+  ],
+  "bodyMarkdown": "# Position API and Persistence\n\n## Purpose\nThis split document isolates Position commands, events, repository, services, REST API, DTOs, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Position Entity Specification.\n\n## Source\n- Parent specification: [Position Entity Specification](../Position.md)\n\n## API\nPosition APIs expose create, update, detail, search, valuation, archive, restore, and delete behavior under portfolio and permission boundaries.\n\n## Persistence\nPersistence covers position table mapping, indexes, constraints, EF Core precision, optimistic concurrency, cache invalidation, and portfolio projection refresh.\n\n",
+  "references": []
+}

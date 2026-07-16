@@ -1,0 +1,31 @@
+{
+  "id": "78e6f84ebd524e14",
+  "title": "Backup Trigger and Scope",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/backup-automation/trigger-and-scope.md",
+  "sourceHash": "9d4c47fde865558e259f05c4e01d18b94a8ae53f4ef5b49d32105b4667df888c",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Backup Trigger and Scope"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Scope"
+    },
+    {
+      "level": 2,
+      "text": "Backup Scope"
+    }
+  ],
+  "bodyMarkdown": "# Backup Trigger and Scope\n\n## Purpose\nThis split document isolates backup automation triggers, backup scope, and eligibility from the parent BackupAutomation specification.\n\n## Source\n- Parent specification: [BackupAutomation](../backup-automation.md)\n\n## Trigger Scope\nTriggers include scheduled backup, manual backup, pre-migration backup, incident response backup, and retention checkpoint backup.\n\n## Backup Scope\nBackup scope includes database state, configuration, document indexes, generated artifacts, audit evidence, and restore metadata where policy allows.\n\n",
+  "references": []
+}

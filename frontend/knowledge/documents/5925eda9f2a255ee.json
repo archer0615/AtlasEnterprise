@@ -1,0 +1,31 @@
+{
+  "id": "5925eda9f2a255ee",
+  "title": "Background Job Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/background-job/governance-and-testing.md",
+  "sourceHash": "233d3f750af911b8d8e6a1b523b23d4cd8288999cf15fdabb6fde489d5a4a0a3",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Background Job Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Background Job Governance and Testing\n\n## Purpose\nThis split document isolates background job validation, business rules, security, audit, performance, diagrams, testing, edge cases, and consistency verification from the parent Background Job Framework.\n\n## Source\n- Parent specification: [Background Job Framework](../background-job-framework.md)\n\n## Governance\nGovernance covers validation rules, business rules, security, audit, performance, scheduler coordination, automation coordination, workflow coordination, and repository access boundaries.\n\n## Testing\nTesting covers unit, execution, retry, checkpoint, performance, recovery, edge cases, final consistency matrix, and completion checklist validation.\n\n",
+  "references": []
+}

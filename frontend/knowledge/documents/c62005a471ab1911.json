@@ -1,0 +1,31 @@
+{
+  "id": "c62005a471ab1911",
+  "title": "Scheduler Catalog and Timing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/scheduler/catalog-and-timing.md",
+  "sourceHash": "773c5c6e2dea7d78e6de8d295e4a6be2262b2eadd8a49575087dec7258a36542",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scheduler Catalog and Timing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Timing Rules"
+    }
+  ],
+  "bodyMarkdown": "# Scheduler Catalog and Timing\n\n## Purpose\nThis split document isolates scheduler catalog entries, cron strategy, calendar strategy, and scheduling timing behavior from the parent Scheduler Framework.\n\n## Source\n- Parent specification: [Scheduler Framework](../scheduler-framework.md)\n\n## Catalog Scope\nSchedulers define recurring and calendar-aware triggers for background jobs, workflows, automations, commands, domain events, and operational maintenance.\n\n## Timing Rules\nTiming rules include cron strategy, calendar strategy, business-day handling, cutoff behavior, timezone handling, misfire detection, catch-up windows, and concurrency limits.\n\n",
+  "references": []
+}

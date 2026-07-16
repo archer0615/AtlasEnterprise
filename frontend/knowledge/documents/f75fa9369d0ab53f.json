@@ -1,0 +1,43 @@
+{
+  "id": "f75fa9369d0ab53f",
+  "title": "Portfolio Execution and Reporting",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/portfolio/execution-and-reporting.md",
+  "sourceHash": "8889597100ef62fce1a21cdaeb6b61bcdfddc9e8556e0bf8f511f23fceb8d8c2",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Execution and Reporting"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Execution and Reporting\n\n## Purpose\nThis split document isolates portfolio commands, events, validation, API, KPIs, and testing from the parent Portfolio Knowledge Base.\n\n## Source\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\n\n## Portfolio Contract\nPortfolio owns name, owner, base currency, target allocation, current allocation, holdings, risk level, market value, cost basis, unrealized gain/loss, annual income, and allocation drift.\n\n## Required Commands\n- CreatePortfolio\n- UpdatePortfolioProfile\n- AddPortfolioHolding\n- RemovePortfolioHolding\n- UpdatePortfolioValuation\n- ChangePortfolioAllocation\n- ArchivePortfolio\n- ReplayPortfolioState\n\n## Domain Events\n- PortfolioCreated\n- PortfolioProfileUpdated\n- PortfolioHoldingAdded\n- PortfolioHoldingRemoved\n- PortfolioValuationUpdated\n- PortfolioAllocationChanged\n- PortfolioArchived\n- PortfolioStateReplayed\n\n## KPIs\nPortfolio reporting exposes portfolio value, net investment value, annual income, passive income ratio, asset allocation accuracy, portfolio return, drawdown, and risk score.\n\n## Testing Matrix\nTesting covers valid portfolio creation, invalid allocation totals, unsupported asset class rejection, IPS validation, archive protection, and replay accuracy.\n\n",
+  "references": []
+}

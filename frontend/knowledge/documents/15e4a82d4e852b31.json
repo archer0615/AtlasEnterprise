@@ -1,0 +1,31 @@
+{
+  "id": "15e4a82d4e852b31",
+  "title": "Position Identity and Valuation",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/position/identity-and-valuation.md",
+  "sourceHash": "7b0eff78adc417ba553547bc5d653917a8aba09e4ab4c93b34f1b52f1999b990",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Position Identity and Valuation"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Identity"
+    },
+    {
+      "level": 2,
+      "text": "Valuation"
+    }
+  ],
+  "bodyMarkdown": "# Position Identity and Valuation\n\n## Purpose\nThis split document isolates Position identity, lifecycle, ownership, properties, semantics, quantity model, cost basis model, valuation reference model, validation, and business rules from the parent Position Entity Specification.\n\n## Source\n- Parent specification: [Position Entity Specification](../Position.md)\n\n## Identity\nPosition represents a holding quantity and valuation relationship inside a portfolio while preserving asset, account, cost basis, and audit context.\n\n## Valuation\nValuation behavior covers quantity, cost basis, current value, valuation reference, price source, stale valuation handling, and derived portfolio contribution.\n\n",
+  "references": []
+}

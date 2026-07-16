@@ -1,0 +1,31 @@
+{
+  "id": "116f7c6499c3334d",
+  "title": "Goal Conflict Governance and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-conflict-resolution/governance-and-testing.md",
+  "sourceHash": "81d6492491f8e4225bead2d57d09439e68ac3723933184276e24c814ee04abd5",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Conflict Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Goal Conflict Governance and Testing\n\n## Purpose\nThis split document isolates goal conflict governance, validation, security, audit, testing, edge cases, and consistency checks from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Governance\nGovernance covers conflict evidence immutability, permission-aware visibility, household isolation, decision audit, recommendation linkage, and scenario source references.\n\n## Testing\nTesting covers detection, classification, severity ranking, resolution workflow, recommendation mapping, permission masking, audit, concurrency, and edge cases.\n\n",
+  "references": []
+}

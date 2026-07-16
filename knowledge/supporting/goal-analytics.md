@@ -1,5 +1,9 @@
 ﻿# Goal Analytics
 Version: 1.0
+## Split Navigation
+- [Goal analytics indicators](goal-analytics/indicators.md)
+- [Goal analytics pipeline and reporting](goal-analytics/pipeline-and-reporting.md)
+- [Goal analytics governance and testing](goal-analytics/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Analytics Specification

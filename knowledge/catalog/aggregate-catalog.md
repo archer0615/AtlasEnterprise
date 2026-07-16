@@ -1,4 +1,8 @@
 # Aggregate Catalog
+## Split Navigation
+- [Aggregate core catalog](aggregate-catalog/core-aggregates.md)
+- [Aggregate ownership mapping](aggregate-catalog/ownership-mapping.md)
+- [Aggregate governance and testing](aggregate-catalog/governance-and-testing.md)
 
 # Document Control
 

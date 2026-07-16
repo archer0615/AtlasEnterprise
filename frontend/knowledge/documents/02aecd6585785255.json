@@ -1,0 +1,35 @@
+{
+  "id": "02aecd6585785255",
+  "title": "Goal Progress Model and Formulas",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-progress-tracking/model-and-formulas.md",
+  "sourceHash": "20a7f6bd26913f02ae85336c31bbc1d15a4986892bade97e8b1727dab1c1c9c6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Progress Model and Formulas"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Progress Dimensions"
+    },
+    {
+      "level": 2,
+      "text": "Calculation Formulas"
+    },
+    {
+      "level": 2,
+      "text": "Update Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Progress Model and Formulas\n\n## Purpose\nThis split document isolates progress dimensions, calculation formulas, update frequency, and consistency requirements from the parent Goal Progress Tracking specification.\n\n## Source\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\n\n## Progress Dimensions\n- Physical Progress\n- Financial Progress\n- Time Progress\n- Milestone Progress\n- Dependency Progress\n- Risk Progress\n- Confidence Score\n- Completion Score\n- Health Score\n- Overall Progress\n\n## Calculation Formulas\n- Weighted Progress\n- Milestone Contribution\n- Financial Contribution\n- Elapsed Time %\n- Remaining Time %\n- Schedule Variance\n- Budget Variance\n- Forecast Completion\n- Expected Completion Date\n- Progress Confidence\n- Goal Health Score\n- Risk Adjusted Progress\n- Composite Progress Score\n\n## Update Rules\nProgress updates can be manual, automatic, event driven, batch, scheduled, scenario simulation based, recommendation driven, decision driven, rollback based, or recalculated.\n\n",
+  "references": []
+}

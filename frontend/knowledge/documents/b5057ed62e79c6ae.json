@@ -1,0 +1,31 @@
+{
+  "id": "b5057ed62e79c6ae",
+  "title": "Outbox Publish Trigger and Scope",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/outbox-publish-automation/trigger-and-scope.md",
+  "sourceHash": "36de8abcf8b0f92145cf3c745ee9f56f9d69f44d57bfd3476ca2b68520e308ae",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Outbox Publish Trigger and Scope"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Scope"
+    },
+    {
+      "level": 2,
+      "text": "Eligibility"
+    }
+  ],
+  "bodyMarkdown": "# Outbox Publish Trigger and Scope\n\n## Purpose\nThis split document isolates outbox publish automation triggers, message scope, and publish eligibility from the parent OutboxPublishAutomation specification.\n\n## Source\n- Parent specification: [OutboxPublishAutomation](../outbox-publish-automation.md)\n\n## Trigger Scope\nTriggers include scheduled outbox polling, domain event creation, retry due time, failed publish recovery, and manual replay requests.\n\n## Eligibility\nEligibility preserves outbox status, message version, tenant scope, ordering key, retry window, idempotency key, and dead-letter policy.\n\n",
+  "references": []
+}

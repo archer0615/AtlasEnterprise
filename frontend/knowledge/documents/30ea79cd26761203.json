@@ -1,0 +1,31 @@
+{
+  "id": "30ea79cd26761203",
+  "title": "Application Service Command Orchestration",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/application-service/command-orchestration.md",
+  "sourceHash": "d3ee379eebd045a11b52fd0883324f2a443d2df637238c52f89069549a03529f",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Application Service Command Orchestration"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Command Scope"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Application Service Command Orchestration\n\n## Purpose\nThis split document isolates command orchestration responsibilities from the parent Application Service Catalog.\n\n## Source\n- Parent specification: [Application Service Catalog](../application-service-catalog.md)\n\n## Command Scope\nApplication services orchestrate command validation, permission checks, idempotency, aggregate loading, domain service calls, transaction boundaries, event emission, audit requests, and response DTO mapping.\n\n## Boundary Rules\nApplication services coordinate domain behavior but do not own domain invariants or bypass aggregate command ownership.\n\n",
+  "references": []
+}

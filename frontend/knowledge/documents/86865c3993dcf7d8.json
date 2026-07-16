@@ -1,0 +1,31 @@
+{
+  "id": "86865c3993dcf7d8",
+  "title": "Goal Conflict Resolution Workflow",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-conflict-resolution/resolution-workflow.md",
+  "sourceHash": "55ccbb441c68a3a4f9f9d3dca80c5c8c7dc4a5d16f90b4a4280bf31186c1d91d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Conflict Resolution Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    }
+  ],
+  "bodyMarkdown": "# Goal Conflict Resolution Workflow\n\n## Purpose\nThis split document isolates conflict resolution workflow, decision support, recommendation mapping, and outcome handling from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Workflow\nResolution workflow identifies conflict evidence, ranks severity, evaluates alternatives, maps recommendations, records user decision, updates related plans, and preserves audit history.\n\n## Outputs\nOutputs include conflict summary, severity, affected goals, proposed resolution, trade-off explanation, recommendation references, and follow-up actions.\n\n",
+  "references": []
+}

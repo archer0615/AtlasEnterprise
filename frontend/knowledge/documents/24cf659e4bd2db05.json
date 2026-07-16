@@ -1,0 +1,31 @@
+{
+  "id": "24cf659e4bd2db05",
+  "title": "Recommendation Refresh Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/recommendation-refresh-automation/governance-and-testing.md",
+  "sourceHash": "d450fb93c88aac96a756d2512bba13d40041b406fe0d005885b9050cca6135a5",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Refresh Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Refresh Governance and Testing\n\n## Purpose\nThis split document isolates recommendation refresh automation governance, validation, audit, retry, testing, and edge cases from the parent RecommendationRefreshAutomation specification.\n\n## Source\n- Parent specification: [RecommendationRefreshAutomation](../recommendation-refresh-automation.md)\n\n## Governance\nGovernance covers idempotency, duplicate prevention, permission-aware source reads, audit trail, retry behavior, failure recovery, and stale projection protection.\n\n## Testing\nTesting covers trigger matching, stale detection, command execution, retry, idempotency, audit, notification, and edge cases.\n\n",
+  "references": []
+}

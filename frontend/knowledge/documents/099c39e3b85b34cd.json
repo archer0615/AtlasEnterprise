@@ -1,0 +1,31 @@
+{
+  "id": "099c39e3b85b34cd",
+  "title": "Bounded Context Definitions",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/bounded-context/definitions.md",
+  "sourceHash": "22c0ee3d68d755b988eaa81a84a63a1a0f969a721afb29d13b14ea2bfe19d719",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Bounded Context Definitions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Definition Scope"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Usage"
+    }
+  ],
+  "bodyMarkdown": "# Bounded Context Definitions\n\n## Purpose\nThis split document isolates bounded context definitions from the parent Bounded Context Catalog.\n\n## Source\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\n\n## Definition Scope\nEach bounded context defines domain purpose, ownership, aggregates, entities, application services, domain services, repositories, APIs, messages, permissions, and data ownership.\n\n## Catalog Usage\nBounded context definitions are the source for context boundaries, module ownership, service routing, and cross-context integration controls.\n\n",
+  "references": []
+}

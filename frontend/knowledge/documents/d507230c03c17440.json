@@ -1,0 +1,31 @@
+{
+  "id": "d507230c03c17440",
+  "title": "Message Contract Governance and Testing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/message-contract/governance-and-testing.md",
+  "sourceHash": "3277fb5dd0865cc14031ab14119aeb3f1c730617ac7becb9a6a33055beae68b7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Message Contract Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Message Contract Governance and Testing\n\n## Purpose\nThis split document isolates message contract security, audit, validation, testing, edge cases, and consistency checks from the parent Message Contract Catalog.\n\n## Source\n- Parent specification: [Message Contract Catalog](../message-contract-catalog.md)\n\n## Governance\nGovernance covers ownership, schema validation, permission mapping, field masking, audit metadata, contract lifecycle, compatibility review, and release controls.\n\n## Testing\nTesting covers producer contracts, consumer contracts, schema validation, replay, retry, dead letter, compatibility, permission masking, and edge cases.\n\n",
+  "references": []
+}

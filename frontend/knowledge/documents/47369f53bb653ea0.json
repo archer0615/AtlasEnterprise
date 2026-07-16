@@ -1,0 +1,35 @@
+{
+  "id": "47369f53bb653ea0",
+  "title": "API Governance Standards and Contracts",
+  "category": "api",
+  "canonicalPath": "knowledge/api/api-governance/standards-and-contracts.md",
+  "sourceHash": "d4518c74007ec1efe67b979ace62947144d0437390631e20b9ed22f31ad3d44d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "API Governance Standards and Contracts"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Standards"
+    },
+    {
+      "level": 2,
+      "text": "Query Controls"
+    },
+    {
+      "level": 2,
+      "text": "Consistency Controls"
+    }
+  ],
+  "bodyMarkdown": "# API Governance Standards and Contracts\n\n## Purpose\nThis split document isolates API standards, contracts, naming, versioning, request/response rules, DTOs, errors, pagination, sorting, filtering, search, bulk operations, idempotency, and concurrency from the parent API Governance Framework.\n\n## Source\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\n\n## Standards\nAPI standards cover resource naming, URI shape, HTTP method usage, response contract, request contract, media type, content negotiation, API version strategy, REST endpoint standard, command API standard, query API standard, DTO standard, and error contract standard.\n\n## Query Controls\nPagination, sorting, filtering, search, and bulk operation standards must be consistent across APIs and preserve tenant and permission constraints.\n\n## Consistency Controls\nIdempotency and concurrency standards must protect command replay, retry safety, optimistic locking, and duplicate request handling.\n\n",
+  "references": []
+}

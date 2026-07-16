@@ -1,4 +1,8 @@
 # Automation - InboxProcessAutomation
+## Split Navigation
+- [Inbox process trigger and scope](inbox-process-automation/trigger-and-scope.md)
+- [Inbox process execution](inbox-process-automation/execution.md)
+- [Inbox process governance and testing](inbox-process-automation/governance-and-testing.md)
 
 # Document Control
 

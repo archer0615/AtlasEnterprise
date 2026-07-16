@@ -1,4 +1,8 @@
 # Position Entity Specification
+## Split Navigation
+- [Position identity and valuation](position/identity-and-valuation.md)
+- [Position API and persistence](position/api-and-persistence.md)
+- [Position governance and testing](position/governance-and-testing.md)
 # Document Control
 | Field | Value |
 |---|---|

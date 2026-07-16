@@ -3,7 +3,7 @@
   "title": "knowledge/taiwan-market-data-sources.md",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/taiwan-market-data-sources.md",
-  "sourceHash": "dbafdbd923f0858f4dd08804b8a7ade86d64c39d4655e1e6c9bf870bfb35f1e9",
+  "sourceHash": "c868eb1d7ab17a1d58866e3d57e419e097074271a20a256f5c66876e2d79e8d1",
   "headings": [
     {
       "level": 1,
@@ -42,6 +42,6 @@
       "text": "Codex Notes"
     }
   ],
-  "bodyMarkdown": "# knowledge/taiwan-market-data-sources.md\r\n\r\n## Purpose\r\nDefines authoritative Taiwan financial market data sources used by Project Atlas.\r\n\r\n### Primary Sources\r\n- TWSE\r\n- TPEx\r\n- Central Bank of Taiwan\r\n- DGBAS\r\n- Ministry of the Interior\r\n- ETF issuer official websites\r\n- Major domestic banks\r\n\r\n### Data Domains\r\n- Equity prices\r\n- ETF NAV, holdings, dividends\r\n- Mortgage rates\r\n- Deposit rates\r\n- CPI and inflation\r\n- Salary statistics\r\n- House price index\r\n- Exchange rates\r\n\r\n### Metadata Required\r\n- Source\r\n- CollectedAt\r\n- EffectiveDate\r\n- Version\r\n- ConfidenceScore\r\n- Checksum\r\n\r\n### Confidence Levels\r\n|Score|Meaning|\r\n|---:|---|\r\n|100|Official government/exchange|\r\n|90|Issuer|\r\n|80|Financial institution|\r\n|70|Validated third party|\r\n|50|Manual input|\r\n\r\n### Fallback Priority\r\n1. Official source\r\n2. Exchange\r\n3. Issuer\r\n4. Bank\r\n5. Cached snapshot\r\n\r\n### Architecture\r\nExternal Source\r\n→ Collector\r\n→ Validator\r\n→ Normalizer\r\n→ Snapshot Storage\r\n→ Domain Service\r\n→ Decision Engine\r\n\r\n### Codex Notes\r\nBusiness rules must consume normalized snapshots rather than querying external providers directly.\r\n",
+  "bodyMarkdown": "# knowledge/taiwan-market-data-sources.md\n\n## Purpose\nDefines authoritative Taiwan financial market data sources used by Project Atlas.\n\n### Primary Sources\n- TWSE\n- TPEx\n- Central Bank of Taiwan\n- DGBAS\n- Ministry of the Interior\n- ETF issuer official websites\n- Major domestic banks\n\n### Data Domains\n- Equity prices\n- ETF NAV, holdings, dividends\n- Mortgage rates\n- Deposit rates\n- CPI and inflation\n- Salary statistics\n- House price index\n- Exchange rates\n\n### Metadata Required\n- Source\n- CollectedAt\n- EffectiveDate\n- Version\n- ConfidenceScore\n- Checksum\n\n### Confidence Levels\n|Score|Meaning|\n|---:|---|\n|100|Official government/exchange|\n|90|Issuer|\n|80|Financial institution|\n|70|Validated third party|\n|50|Manual input|\n\n### Fallback Priority\n1. Official source\n2. Exchange\n3. Issuer\n4. Bank\n5. Cached snapshot\n\n### Architecture\nExternal Source\n→ Collector\n→ Validator\n→ Normalizer\n→ Snapshot Storage\n→ Domain Service\n→ Decision Engine\n\n### Codex Notes\nBusiness rules must consume normalized snapshots rather than querying external providers directly.\n",
   "references": []
 }

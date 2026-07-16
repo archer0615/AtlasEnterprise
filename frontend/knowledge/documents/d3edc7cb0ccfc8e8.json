@@ -1,0 +1,31 @@
+{
+  "id": "d3edc7cb0ccfc8e8",
+  "title": "Scenario Refresh Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/scenario-refresh-automation/governance-and-testing.md",
+  "sourceHash": "47735e40ec0b2bd2d2436fd814ac487ece435b25f2434ccad0289f11408f82a8",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scenario Refresh Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Scenario Refresh Governance and Testing\n\n## Purpose\nThis split document isolates scenario refresh governance, validation, audit, retry, performance, testing, and edge cases from the parent ScenarioRefreshAutomation specification.\n\n## Source\n- Parent specification: [ScenarioRefreshAutomation](../scenario-refresh-automation.md)\n\n## Governance\nGovernance covers assumption versioning, source timestamps, idempotency, duplicate prevention, audit, retry, failure recovery, and stale result handling.\n\n## Testing\nTesting covers trigger matching, scenario selection, simulation invocation, result persistence, projection refresh, downstream triggers, retry, and edge cases.\n\n",
+  "references": []
+}

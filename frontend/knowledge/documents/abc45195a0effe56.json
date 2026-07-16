@@ -1,0 +1,31 @@
+{
+  "id": "abc45195a0effe56",
+  "title": "Outbox Publish Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/outbox-publish-automation/governance-and-testing.md",
+  "sourceHash": "0092a882b9d3a3407901fb66677cba4c0b61d741816fcf3e77fc36bb587d1555",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Outbox Publish Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Outbox Publish Governance and Testing\n\n## Purpose\nThis split document isolates outbox publish governance, validation, audit, retry, dead-letter handling, testing, and edge cases from the parent OutboxPublishAutomation specification.\n\n## Source\n- Parent specification: [OutboxPublishAutomation](../outbox-publish-automation.md)\n\n## Governance\nGovernance covers idempotency, ordering, duplicate prevention, retry limits, dead-letter rules, audit, replay control, and message compatibility.\n\n## Testing\nTesting covers message selection, publish success, publish failure, retry, ordering, idempotency, dead-letter, replay, audit, and edge cases.\n\n",
+  "references": []
+}

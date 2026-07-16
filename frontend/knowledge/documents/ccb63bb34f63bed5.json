@@ -1,0 +1,31 @@
+{
+  "id": "ccb63bb34f63bed5",
+  "title": "Domain Event Governance and Testing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-event/governance-and-testing.md",
+  "sourceHash": "74e04690d95498a291dbbdb32291dfce148c3e2a6d4e429c0db68ec749d2a6f9",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Event Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Domain Event Governance and Testing\n\n## Purpose\nThis split document isolates event validation, business rules, error handling, security, audit, performance, diagrams, testing, edge cases, and consistency checks from the parent Domain Event Catalog.\n\n## Source\n- Parent specification: [Domain Event Catalog](../domain-event-catalog.md)\n\n## Governance\nGovernance covers event ownership, payload compatibility, validation rules, security classification, audit metadata, performance expectations, and failure handling.\n\n## Testing\nTesting covers unit, integration, ordering, idempotency, replay, outbox, inbox, projection, saga, workflow, edge cases, and final consistency matrix validation.\n\n",
+  "references": []
+}

@@ -4,6 +4,9 @@ Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Review Specification
 Last Updated: 2026-07-13
+## Split Navigation
+- [Goal review cadence and evidence](goal-review/cadence-and-evidence.md)
+- [Goal review execution and audit](goal-review/execution-and-audit.md)
 # Goal Review Overview
 ## Purpose
 Goal Review defines how Atlas evaluates a GoalPlan at a point in time, compares current state against expected progress, records review findings, and coordinates resulting decisions, recommendations, notifications, and follow-up actions.

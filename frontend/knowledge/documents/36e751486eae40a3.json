@@ -1,0 +1,31 @@
+{
+  "id": "36e751486eae40a3",
+  "title": "Decision Lifecycle States and Transitions",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-lifecycle/states-and-transitions.md",
+  "sourceHash": "b9eac6baa10d8407e2d0142be6609ae85ce6e34cf06c10247ad1ec6b7bdfff64",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Lifecycle States and Transitions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "States"
+    },
+    {
+      "level": 2,
+      "text": "Transitions"
+    }
+  ],
+  "bodyMarkdown": "# Decision Lifecycle States and Transitions\n\n## Purpose\nThis split document isolates decision lifecycle states, transition rules, triggers, invariants, and rollback behavior from the parent Decision Lifecycle specification.\n\n## Source\n- Parent specification: [Decision Lifecycle](../decision-lifecycle.md)\n\n## States\nDecision lifecycle states include draft, generated, presented, reviewed, accepted, rejected, deferred, executing, executed, measured, archived, restored, and deleted.\n\n## Transitions\nTransitions must preserve trigger evidence, previous state, next state, operator, timestamp, correlation identifier, and business reason.\n\n",
+  "references": []
+}

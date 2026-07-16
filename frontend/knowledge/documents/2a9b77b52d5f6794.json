@@ -1,0 +1,31 @@
+{
+  "id": "2a9b77b52d5f6794",
+  "title": "Decision Governance and Testing",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/decision/governance-and-testing.md",
+  "sourceHash": "978d20debe1e9519ec84a1b43af47e71dd1549f24fbad8c2617f598a121171bd",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Decision Governance and Testing\n\n## Purpose\nThis split document isolates Decision security, audit, performance, examples, diagrams, testing, edge cases, and consistency checks from the parent Decision Entity Specification.\n\n## Source\n- Parent specification: [Decision Entity Specification](../Decision.md)\n\n## Governance\nGovernance covers household isolation, permission masking, approval evidence, rejection evidence, snapshot protection, audit, retention, and explainability references.\n\n## Testing\nTesting covers creation, scoring validation, approve, reject, defer, execute, archive, restore, concurrency, masking, cache invalidation, and edge cases.\n\n",
+  "references": []
+}

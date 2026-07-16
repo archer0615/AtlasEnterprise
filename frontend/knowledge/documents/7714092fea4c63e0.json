@@ -1,0 +1,31 @@
+{
+  "id": "7714092fea4c63e0",
+  "title": "Cleanup Trigger and Scope",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/cleanup-automation/trigger-and-scope.md",
+  "sourceHash": "ac66396f33889d7377a2a2f2c9a68eceeef0bb61522da057ad22ef21915e5959",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Cleanup Trigger and Scope"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Scope"
+    },
+    {
+      "level": 2,
+      "text": "Cleanup Scope"
+    }
+  ],
+  "bodyMarkdown": "# Cleanup Trigger and Scope\n\n## Purpose\nThis split document isolates cleanup automation triggers, cleanup target scope, and eligibility from the parent CleanupAutomation specification.\n\n## Source\n- Parent specification: [CleanupAutomation](../cleanup-automation.md)\n\n## Trigger Scope\nTriggers include scheduled cleanup, retention windows, archive expiration, stale cache, stale temporary data, failed job recovery, and manual cleanup requests.\n\n## Cleanup Scope\nCleanup scope includes expired records, temporary artifacts, stale projections, obsolete snapshots, dead-letter retention, and archived data eligible for policy action.\n\n",
+  "references": []
+}

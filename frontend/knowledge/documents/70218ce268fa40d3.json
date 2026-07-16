@@ -1,0 +1,31 @@
+{
+  "id": "70218ce268fa40d3",
+  "title": "Decision Dashboard Data and Interactions",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/decision-dashboard/data-and-interactions.md",
+  "sourceHash": "dd8a9c710d253910dfca2f8ad47e2f0d3737864eefe3f94efd6e2f7d57f4c722",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Dashboard Data and Interactions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Data Sources"
+    },
+    {
+      "level": 2,
+      "text": "Interactions"
+    }
+  ],
+  "bodyMarkdown": "# Decision Dashboard Data and Interactions\n\n## Purpose\nThis split document isolates decision dashboard data sources, projections, interaction behavior, and refresh rules from the parent Decision Dashboard specification.\n\n## Source\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\n\n## Data Sources\nDashboard data consumes Decision, Recommendation, Scenario, Decision History, Decision Metrics, Decision Audit, Decision Insights, Portfolio, CashFlow, Goal, and User preferences.\n\n## Interactions\nInteractions include filtering, search, sorting, scenario switching, decision selection, action triggering, refresh, and empty or error states.\n\n",
+  "references": []
+}

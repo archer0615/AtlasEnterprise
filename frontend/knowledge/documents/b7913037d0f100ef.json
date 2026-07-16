@@ -3,7 +3,7 @@
   "title": "Goal Funding Targets and Contributions",
   "category": "framework",
   "canonicalPath": "knowledge/framework/goal-funding/targets-and-contributions.md",
-  "sourceHash": "e086a4b79a295fe19cce1d5fef0aa0f4178d1ccc3ee737028cf7b5bed7dc2a7d",
+  "sourceHash": "90668c8340e44d61cb7558d05aa45788358bc933721f1178eaac4f1146d94cf1",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Goal Funding Targets and Contributions\n\n## Purpose\n\nThis split document isolates target and contribution behavior from the larger Goal Funding Framework.\n\n## Source\n\n- Parent specification: [Goal Funding Framework](../goal-funding-framework.md)\n\n## Target Rules\n\n- Goal funding targets must preserve currency, target date, and required amount.\n- Target calculations must remain explainable and formula-versioned.\n- Target changes must remain auditable when used for recommendations.\n\n## Contribution Rules\n\n- Contribution plans must identify required monthly contribution.\n- Contribution feasibility must consider cashflow safety and reserve constraints.\n- Contribution changes should preserve priority and scenario context.\n\n## Related References\n\n- [Goal Entity](../../entity/Goal.md)\n- [Goal Funding Framework](../goal-funding-framework.md)\n- [Cash Reserve Framework](../cash-reserve-framework.md)\n",
+  "bodyMarkdown": "# Goal Funding Targets and Contributions\r\n\r\n## Purpose\r\n\r\nThis split document isolates target and contribution behavior from the larger Goal Funding Framework.\r\n\r\n## Source\r\n\r\n- Parent specification: [Goal Funding Framework](../goal-funding-framework.md)\r\n\r\n## Target Rules\r\n\r\n- Goal funding targets must preserve currency, target date, and required amount.\r\n- Target calculations must remain explainable and formula-versioned.\r\n- Target changes must remain auditable when used for recommendations.\r\n\r\n## Contribution Rules\r\n\r\n- Contribution plans must identify required monthly contribution.\r\n- Contribution feasibility must consider cashflow safety and reserve constraints.\r\n- Contribution changes should preserve priority and scenario context.\r\n\r\n## Related References\r\n\r\n- [Goal Entity](../../entity/Goal.md)\r\n- [Goal Funding Framework](../goal-funding-framework.md)\r\n- [Cash Reserve Framework](../cash-reserve-framework.md)\r\n",
   "references": []
 }

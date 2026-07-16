@@ -1,0 +1,27 @@
+{
+  "id": "195aa625929b0a04",
+  "title": "Scenario Identity and Assumptions",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/scenario/identity-and-assumptions.md",
+  "sourceHash": "993c1db2bf69e3e31850fbae6eb8aac27a3687b796b28a22f0ccd4af6d9e7daf",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scenario Identity and Assumptions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Identity"
+    }
+  ],
+  "bodyMarkdown": "# Scenario Identity and Assumptions\n\n## Purpose\nThis split document isolates Scenario identity, assumptions, lifecycle, relationships, properties, validation, and business rules from the parent Scenario Entity Specification.\n\n## Source\n- Parent specification: [Scenario Entity Specification](../Scenario.md)\n\n## Identity\nScenario represents a versioned what-if or baseline planning state with assumptions, source references, status, generated outputs, and decision support context.\n\n",
+  "references": []
+}

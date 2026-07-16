@@ -1,6 +1,10 @@
 # Goal Lifecycle
 
 Version: 1.0
+## Split Navigation
+- [Goal lifecycle states](goal-lifecycle/states-and-transitions.md)
+- [Goal lifecycle execution](goal-lifecycle/execution-and-audit.md)
+- [Goal lifecycle governance and testing](goal-lifecycle/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Domain Positioning: Goal Lifecycle Domain Specification

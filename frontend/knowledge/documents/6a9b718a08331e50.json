@@ -1,0 +1,31 @@
+{
+  "id": "6a9b718a08331e50",
+  "title": "Bounded Context Governance",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/bounded-context/governance.md",
+  "sourceHash": "06af29b3f94784678c211d46457f8c00191590b2a910f05b528e1efff19efdb2",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Bounded Context Governance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Bounded Context Governance\n\n## Purpose\nThis split document isolates bounded context governance, validation, security, audit, testing, and consistency verification from the parent Bounded Context Catalog.\n\n## Source\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\n\n## Governance\nGovernance covers context ownership, data boundaries, permission mapping, audit ownership, transaction boundaries, API ownership, repository access, and integration rules.\n\n## Testing\nTesting covers context isolation, integration contracts, command routing, event routing, permission mapping, data ownership, migration safety, and edge cases.\n\n",
+  "references": []
+}

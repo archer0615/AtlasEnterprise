@@ -1,0 +1,31 @@
+{
+  "id": "bfb36ff16b852ed3",
+  "title": "Goal Insights Dashboard and Actions",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-insights/dashboard-and-actions.md",
+  "sourceHash": "2a01cebdc9510c6ec3321aaaa535a948e187c7a47a4b9c40e1bb31722cc4f623",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Insights Dashboard and Actions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard"
+    },
+    {
+      "level": 2,
+      "text": "Actions"
+    }
+  ],
+  "bodyMarkdown": "# Goal Insights Dashboard and Actions\n\n## Purpose\nThis split document isolates Goal Insight dashboard presentation, action mapping, notifications, and recommendation linkage from the parent Goal Insights specification.\n\n## Source\n- Parent specification: [Goal Insights](../goal-insights.md)\n\n## Dashboard\nDashboard projection exposes insight severity, confidence, impacted goal, evidence summary, recommended action, generated time, and resolution status.\n\n## Actions\nActions include acknowledge, dismiss, resolve, map recommendation, trigger review, refresh forecast, and archive.\n\n",
+  "references": []
+}

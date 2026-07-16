@@ -1,0 +1,27 @@
+{
+  "id": "27ad13930e7dfd29",
+  "title": "Inbox Process Execution",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/inbox-process-automation/execution.md",
+  "sourceHash": "d25d96cf4602b9dbd979a561603cbc88bfef982c0f637757da65c117087ef579",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Inbox Process Execution"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    }
+  ],
+  "bodyMarkdown": "# Inbox Process Execution\n\n## Purpose\nThis split document isolates inbox process execution, handler dispatch, status update, and retry behavior from the parent InboxProcessAutomation specification.\n\n## Source\n- Parent specification: [InboxProcessAutomation](../inbox-process-automation.md)\n\n## Execution\nExecution selects pending messages, validates compatibility, dispatches handlers, updates status, increments retry state, records audit, and routes failed messages to retry or dead-letter handling.\n\n",
+  "references": []
+}

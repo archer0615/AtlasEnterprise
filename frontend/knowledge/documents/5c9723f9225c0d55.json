@@ -1,0 +1,27 @@
+{
+  "id": "5c9723f9225c0d55",
+  "title": "Decision Analytics Governance and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-analytics/governance-and-testing.md",
+  "sourceHash": "bebc57a9101ab16a18cbd6646aa17a0eaf946e3aa9ff08e361076c57d987ba93",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Analytics Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Decision Analytics Governance and Testing\n\n## Purpose\nThis split document isolates Decision Analytics governance, security, audit, performance, testing, edge cases, and consistency checks from the parent Decision Analytics specification.\n\n## Source\n- Parent specification: [Decision Analytics](../decision-analytics.md)\n\n## Testing\nTesting covers formula calculation, aggregation, forecast comparison, dashboard projection, permissions, masking, report generation, export, and edge cases.\n\n",
+  "references": []
+}

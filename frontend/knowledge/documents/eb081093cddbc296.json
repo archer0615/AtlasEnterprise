@@ -1,0 +1,31 @@
+{
+  "id": "eb081093cddbc296",
+  "title": "Decision API and Persistence",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/decision/api-and-persistence.md",
+  "sourceHash": "588193f01bcec25d231c201496270c8e5506e559937c30d9fdf573ec1cb802e9",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision API and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "Persistence"
+    }
+  ],
+  "bodyMarkdown": "# Decision API and Persistence\n\n## Purpose\nThis split document isolates Decision commands, events, repository, services, API, DTOs, database mapping, EF Core mapping, and cache strategy from the parent Decision Entity Specification.\n\n## Source\n- Parent specification: [Decision Entity Specification](../Decision.md)\n\n## API\nDecision APIs expose create, update, approve, reject, defer, execute, archive, restore, delete, detail, summary, and search behavior under user and permission boundaries.\n\n## Persistence\nPersistence covers decision table mapping, snapshots, option fields, score precision, indexes, constraints, optimistic concurrency, and cache invalidation.\n\n",
+  "references": []
+}

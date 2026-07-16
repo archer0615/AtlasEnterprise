@@ -1,0 +1,31 @@
+{
+  "id": "7e905e320769705c",
+  "title": "Integration Catalog",
+  "category": "integration",
+  "canonicalPath": "knowledge/integration/integration/catalog.md",
+  "sourceHash": "085b5881d5f5f480fffd27aa21bd5bd1e32ad42ed2e3ef5a44b24cd15a626a3a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Integration Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Integration Entries"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Contract"
+    }
+  ],
+  "bodyMarkdown": "# Integration Catalog\n\n## Purpose\nThis split document isolates the complete integration catalog from the parent Integration Framework.\n\n## Source\n- Parent specification: [Integration Framework](../integration-framework.md)\n\n## Integration Entries\n- BankingApiIntegration\n- BrokerageApiIntegration\n- MarketDataIntegration\n- ExchangeRateIntegration\n- GovernmentOpenDataIntegration\n- NotificationProviderIntegration\n- EmailIntegration\n- SmsIntegration\n- PushNotificationIntegration\n- CalendarIntegration\n- ReportExportIntegration\n- WebhookCallbackIntegration\n\n## Catalog Contract\nEach integration preserves owner, external system, protocol, authentication, data contract, retry policy, timeout, rate limit, error handling, audit, and privacy controls.\n\n",
+  "references": []
+}

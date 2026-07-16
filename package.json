@@ -12,10 +12,12 @@
     "report:visual": "node frontend/scripts/generate-visual-report.mjs",
     "simulator:run": "node simulator/scripts/run-simulator.mjs",
     "validate:simulator": "node simulator/scripts/validate-simulator-output.mjs",
+    "visual:screenshots": "node frontend/scripts/capture-playwright-screenshots.mjs",
     "validate": "npm run validate:frontend && npm run validate:fixtures && npm run validate:pwa && npm run validate:offline && npm run validate:simulator",
     "build": "npm run build:knowledge",
     "dev": "npm run build:knowledge"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
 }

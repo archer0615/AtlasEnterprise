@@ -1,0 +1,31 @@
+{
+  "id": "fe5e3be7bd80d51b",
+  "title": "Goal Governance Policy and Compliance",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-governance/policy-and-compliance.md",
+  "sourceHash": "fcfa9657a8b8432721335acd6ca98a275f518736a3b632d9a4449bbad85e1966",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Governance Policy and Compliance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Policy Scope"
+    },
+    {
+      "level": 2,
+      "text": "Compliance"
+    }
+  ],
+  "bodyMarkdown": "# Goal Governance Policy and Compliance\n\n## Purpose\nThis split document isolates Goal Governance policies, principles, compliance rules, and enforcement responsibilities from the parent Goal Governance specification.\n\n## Source\n- Parent specification: [Goal Governance](../goal-governance.md)\n\n## Policy Scope\nGoal governance policies cover goal validity, ownership, priority, evidence, review cadence, risk controls, compliance expectations, and exception handling.\n\n## Compliance\nCompliance checks preserve household isolation, permission-aware source access, audit evidence, policy version, and governance outcome.\n\n",
+  "references": []
+}

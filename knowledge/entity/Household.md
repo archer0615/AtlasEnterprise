@@ -1,4 +1,8 @@
 # Household Entity Specification
+## Split Navigation
+- [Household identity and ownership](household/identity-and-ownership.md)
+- [Household API and persistence](household/api-and-persistence.md)
+- [Household governance and testing](household/governance-and-testing.md)
 # Document Control
 | Field | Value |
 |---|---|

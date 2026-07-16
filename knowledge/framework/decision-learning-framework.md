@@ -2,6 +2,10 @@
 
 Version: 1.0
 
+## Split Navigation
+- [Decision learning feedback and calibration](decision-learning/feedback-and-calibration.md)
+- [Decision learning governance and outputs](decision-learning/governance-and-outputs.md)
+
 ## Purpose
 Defines how Project Atlas continuously improves recommendations by learning from historical decisions and their outcomes while preserving deterministic business rules and explainability.
 

@@ -29,7 +29,29 @@ function computeMetrics(fixture) {
 
   if (fixture.fixtureId === "mortgage-prepayment-baseline-2026") {
     const postPrepaymentReserveMonths = round((fixture.inputs.cashReserve - fixture.inputs.plannedPrepayment) / fixture.inputs.monthlyExpenses, 2);
-    return { postPrepaymentReserveMonths };
+    const monthlyMortgagePayment = calculateAmortizedPayment(
+      fixture.inputs.ordinaryMortgageBalance,
+      fixture.inputs.mortgageRate,
+      fixture.inputs.planningHorizonMonths,
+    );
+    return { postPrepaymentReserveMonths, monthlyMortgagePayment };
+  }
+
+  if (fixture.fixtureId === "loan-refinancing-rate-shock") {
+    const currentMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.currentRate, fixture.inputs.remainingMonths);
+    const resetMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.resetRate, fixture.inputs.remainingMonths);
+    const refinanceMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.refinanceRate, fixture.inputs.remainingMonths);
+    const monthlyPaymentSavingsAfterReset = round(resetMonthlyPayment - refinanceMonthlyPayment, 2);
+    const refinanceFeeRecoveryMonths = monthlyPaymentSavingsAfterReset > 0
+      ? round(fixture.inputs.refinanceFee / monthlyPaymentSavingsAfterReset, 2)
+      : null;
+    return {
+      currentMonthlyPayment,
+      resetMonthlyPayment,
+      refinanceMonthlyPayment,
+      monthlyPaymentSavingsAfterReset,
+      refinanceFeeRecoveryMonths,
+    };
   }
 
   if (fixture.fixtureId === "home-upgrade-2031-baseline") {
@@ -43,6 +65,13 @@ function computeMetrics(fixture) {
 function round(value, precision) {
   const multiplier = 10 ** precision;
   return Math.round(value * multiplier) / multiplier;
+}
+
+function calculateAmortizedPayment(principal, annualRate, months) {
+  if (months <= 0) return 0;
+  const monthlyRate = annualRate / 12;
+  if (monthlyRate === 0) return round(principal / months, 2);
+  return round((principal * monthlyRate) / (1 - (1 + monthlyRate) ** -months), 2);
 }
 
 await mkdir(outputRoot, { recursive: true });

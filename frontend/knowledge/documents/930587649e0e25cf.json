@@ -1,0 +1,27 @@
+{
+  "id": "930587649e0e25cf",
+  "title": "Cleanup Execution",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/cleanup-automation/execution.md",
+  "sourceHash": "e124e1817fb7f9a167b81bc3cfc747d3bce79a294676c9d59e76c05e7f4a52dc",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Cleanup Execution"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    }
+  ],
+  "bodyMarkdown": "# Cleanup Execution\n\n## Purpose\nThis split document isolates cleanup execution, deletion policy, archival behavior, and status reporting from the parent CleanupAutomation specification.\n\n## Source\n- Parent specification: [CleanupAutomation](../cleanup-automation.md)\n\n## Execution\nExecution selects eligible cleanup targets, validates retention policy, applies archive or deletion action, records audit, and reports cleanup summary.\n\n",
+  "references": []
+}

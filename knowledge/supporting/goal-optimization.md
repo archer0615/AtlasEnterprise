@@ -1,5 +1,9 @@
 ﻿# Goal Optimization
 Version: 1.0
+## Split Navigation
+- [Goal optimization strategy and objectives](goal-optimization/strategy-and-objectives.md)
+- [Goal optimization execution workflow](goal-optimization/execution-workflow.md)
+- [Goal optimization governance and testing](goal-optimization/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Optimization Specification

@@ -1,4 +1,8 @@
 # Automation - RecommendationRefreshAutomation
+## Split Navigation
+- [Recommendation refresh trigger and scope](recommendation-refresh-automation/trigger-and-scope.md)
+- [Recommendation refresh execution](recommendation-refresh-automation/execution.md)
+- [Recommendation refresh governance and testing](recommendation-refresh-automation/governance-and-testing.md)
 
 # Document Control
 

@@ -1,0 +1,31 @@
+{
+  "id": "98dc393437276528",
+  "title": "Service Catalog Domain Services",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/service-catalog/domain-services.md",
+  "sourceHash": "6f126e95b2dcc1b28d5400f6c991b14ec9aeeb3cd639da2622c63cebfda757f9",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Service Catalog Domain Services"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Domain Service Scope"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Usage"
+    }
+  ],
+  "bodyMarkdown": "# Service Catalog Domain Services\n\n## Purpose\nThis split document isolates domain service entries from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Domain Service Scope\nDomain services own domain calculation, validation, scoring, lifecycle rule evaluation, policy enforcement, and cross-entity domain logic that does not belong inside a single entity.\n\n## Catalog Usage\nEach domain service entry must preserve ownership, inputs, outputs, invariants, dependencies, side-effect boundaries, and related aggregate ownership.\n\n",
+  "references": []
+}

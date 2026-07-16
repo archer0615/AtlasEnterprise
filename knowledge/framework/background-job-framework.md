@@ -1,4 +1,8 @@
 # Background Job Framework
+## Split Navigation
+- [Background job catalog](background-job/catalog.md)
+- [Background job execution strategy](background-job/execution-strategy.md)
+- [Background job governance and testing](background-job/governance-and-testing.md)
 
 # Document Control
 

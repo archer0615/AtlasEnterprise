@@ -1,0 +1,27 @@
+{
+  "id": "a6bbf5bf99c344e2",
+  "title": "Goal Lifecycle Execution and Audit",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-lifecycle/execution-and-audit.md",
+  "sourceHash": "751f0a77a43f8127f1e80ce89c556bb7419ee8ea1b031961f09704802e7b516a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Lifecycle Execution and Audit"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    }
+  ],
+  "bodyMarkdown": "# Goal Lifecycle Execution and Audit\n\n## Purpose\nThis split document isolates Goal lifecycle commands, events, workflow coordination, reporting projections, and audit behavior from the parent Goal Lifecycle specification.\n\n## Source\n- Parent specification: [Goal Lifecycle](../goal-lifecycle.md)\n\n## Execution\nExecution coordinates lifecycle command validation, state updates, dashboard projection refresh, automation triggers, and immutable history creation.\n\n",
+  "references": []
+}

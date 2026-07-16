@@ -1,4 +1,8 @@
 # Automation - ReportGenerationAutomation
+## Split Navigation
+- [Report generation trigger and scope](report-generation-automation/trigger-and-scope.md)
+- [Report generation execution](report-generation-automation/execution.md)
+- [Report generation governance and testing](report-generation-automation/governance-and-testing.md)
 
 # Document Control
 

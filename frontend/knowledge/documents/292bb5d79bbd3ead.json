@@ -1,0 +1,31 @@
+{
+  "id": "292bb5d79bbd3ead",
+  "title": "Goal Lifecycle Automation and Execution",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-lifecycle-management/automation-and-execution.md",
+  "sourceHash": "422f102d6a6c3e119d17fc049e03bc779e8d3dc97a64cc257b3693cbe1ee4e57",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Lifecycle Automation and Execution"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Automation"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    }
+  ],
+  "bodyMarkdown": "# Goal Lifecycle Automation and Execution\n\n## Purpose\nThis split document isolates Goal lifecycle automation, commands, events, workflow integration, recovery, and reporting behavior from the parent Goal Lifecycle Management specification.\n\n## Source\n- Parent specification: [Goal Lifecycle Management](../goal-lifecycle-management.md)\n\n## Automation\nAutomation includes automatic activation, completion, archive, reminder, review, escalation, recovery, and cleanup.\n\n## Commands\nCommands include create, update, activate, pause, resume, block, unblock, complete, cancel, archive, restore, delete, merge, split, clone, convert to template, create snapshot, expire, report, and recalculate lifecycle state.\n\n",
+  "references": []
+}

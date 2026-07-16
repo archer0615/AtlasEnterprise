@@ -1,5 +1,9 @@
 ﻿# Decision Execution
 Version: 1.0
+## Split Navigation
+- [Decision execution planning](decision-execution/planning-and-workflow.md)
+- [Decision execution recovery](decision-execution/recovery-and-audit.md)
+- [Decision execution governance and testing](decision-execution/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Decision Execution Specification

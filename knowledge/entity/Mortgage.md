@@ -1,4 +1,8 @@
 # Mortgage Entity Specification
+## Split Navigation
+- [Mortgage identity and repayment](mortgage/identity-and-repayment.md)
+- [Mortgage persistence and API](mortgage/persistence-and-api.md)
+- [Mortgage governance and testing](mortgage/governance-and-testing.md)
 # Document Control
 | Field | Value |
 |---|---|

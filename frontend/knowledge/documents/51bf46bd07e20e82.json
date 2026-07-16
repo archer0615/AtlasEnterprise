@@ -1,0 +1,43 @@
+{
+  "id": "51bf46bd07e20e82",
+  "title": "Goal Review Execution and Audit",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-review/execution-and-audit.md",
+  "sourceHash": "33aceae2b33fe1b7a8f614dc8245ae8e0479580396d3983ae497b8fc58bdcd1f",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Review Execution and Audit"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "States"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Goal Review Execution and Audit\n\n## Purpose\nThis split document isolates Goal Review commands, state machine behavior, persistence, API, audit, and testing concerns from the parent Goal Review specification.\n\n## Source\n- Parent specification: [Goal Review](../goal-review.md)\n\n## States\nGoal Review states include Draft, Scheduled, InProgress, Completed, Approved, Rejected, Archived, Restored, and Deleted.\n\n## Commands\n- CreateReview\n- UpdateReview\n- StartReview\n- CompleteReview\n- ApproveReview\n- RejectReview\n- ArchiveReview\n- RestoreReview\n- DeleteReview\n\n## Domain Events\n- ReviewCreated\n- ReviewStarted\n- ReviewCompleted\n- ReviewApproved\n- ReviewRejected\n- ReviewArchived\n- ReviewUpdated\n\n## Audit\nReview history, review trail, and versioning must record operator, source, timestamp, reason, prior state, next state, and correlation identifier.\n\n## Testing\nTesting covers unit, integration, validation, performance, state transition, API, repository, audit, cache, security, and edge-case behavior.\n\n",
+  "references": []
+}

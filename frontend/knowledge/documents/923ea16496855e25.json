@@ -1,0 +1,27 @@
+{
+  "id": "923ea16496855e25",
+  "title": "Decision Governance Approvals and Exceptions",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-governance/approvals-and-exceptions.md",
+  "sourceHash": "f256a1fce93b64e01a52f90ab4ffc9f29218ca62cce8ad5bba0e06efbde58cc9",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Governance Approvals and Exceptions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Approval Flow"
+    }
+  ],
+  "bodyMarkdown": "# Decision Governance Approvals and Exceptions\n\n## Purpose\nThis split document isolates approval workflow, escalation, exceptions, overrides, and governance outcome handling from the parent Decision Governance specification.\n\n## Source\n- Parent specification: [Decision Governance](../decision-governance.md)\n\n## Approval Flow\nApproval flow records approver, reason, evidence, policy result, exception status, expiration, and follow-up action.\n\n",
+  "references": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "169e6774693ed7e2",
+  "title": "System Module Governance and Testing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/system-module/governance-and-testing.md",
+  "sourceHash": "3d70ddedc2f5f9a9d5518a8362b0fb426acd17c3890cf241d544401f6282e23a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "System Module Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# System Module Governance and Testing\n\n## Purpose\nThis split document isolates system module governance, validation, security, audit, performance, testing, edge cases, and consistency checks from the parent System Module Catalog.\n\n## Source\n- Parent specification: [System Module Catalog](../system-module-catalog.md)\n\n## Governance\nGovernance covers module ownership, dependency control, API boundaries, permission mapping, audit ownership, deployment safety, and operational responsibility.\n\n## Testing\nTesting covers module boundaries, dependency checks, service ownership, API routing, event routing, permission mapping, background jobs, integrations, and edge cases.\n\n",
+  "references": []
+}

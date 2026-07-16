@@ -1,0 +1,31 @@
+{
+  "id": "14769f6443f3e5ee",
+  "title": "Scenario Refresh Trigger and Scope",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/scenario-refresh-automation/trigger-and-scope.md",
+  "sourceHash": "2ac503dc8586384ea05876ada21b7ccd517e6cd878d162a5dbcfb718bda2802e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scenario Refresh Trigger and Scope"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Scope"
+    },
+    {
+      "level": 2,
+      "text": "Eligibility"
+    }
+  ],
+  "bodyMarkdown": "# Scenario Refresh Trigger and Scope\n\n## Purpose\nThis split document isolates scenario refresh triggers, source scope, and refresh eligibility from the parent ScenarioRefreshAutomation specification.\n\n## Source\n- Parent specification: [ScenarioRefreshAutomation](../scenario-refresh-automation.md)\n\n## Trigger Scope\nTriggers include assumption version changes, goal changes, cash flow changes, portfolio changes, loan changes, decision changes, scheduled refresh, and manual refresh.\n\n## Eligibility\nRefresh eligibility preserves scenario status, source freshness, household scope, tenant scope, and idempotency.\n\n",
+  "references": []
+}

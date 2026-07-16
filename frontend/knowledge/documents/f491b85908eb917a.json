@@ -1,0 +1,27 @@
+{
+  "id": "f491b85908eb917a",
+  "title": "Decision Execution Planning and Workflow",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-execution/planning-and-workflow.md",
+  "sourceHash": "6362ac20cadb028ef63035028301f19558545555b4915292303a7daf580a586a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Execution Planning and Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Planning"
+    }
+  ],
+  "bodyMarkdown": "# Decision Execution Planning and Workflow\n\n## Purpose\nThis split document isolates Decision Execution planning, workflow stages, ownership boundaries, and implementation steps from the parent Decision Execution specification.\n\n## Source\n- Parent specification: [Decision Execution](../decision-execution.md)\n\n## Planning\nExecution planning records action steps, owner, timeline, dependencies, approval status, expected effect, validation criteria, and rollback readiness.\n\n",
+  "references": []
+}

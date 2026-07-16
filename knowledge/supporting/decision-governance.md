@@ -1,5 +1,9 @@
 ﻿# Decision Governance
 Version: 1.0
+## Split Navigation
+- [Decision governance policies](decision-governance/policies.md)
+- [Decision governance approvals](decision-governance/approvals-and-exceptions.md)
+- [Decision governance testing](decision-governance/testing-and-audit.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Decision Governance Specification

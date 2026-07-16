@@ -1,0 +1,31 @@
+{
+  "id": "0d43e7005c38afb5",
+  "title": "Event-Driven Governance and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/event-driven-architecture/governance-and-testing.md",
+  "sourceHash": "31d74f35f4260c6456260750b7eb854db4fc793327e0433b54fa16a496a7d23d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Event-Driven Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Event-Driven Governance and Testing\n\n## Purpose\nThis split document isolates event-driven security, audit, performance, validation, business rules, diagrams, testing, edge cases, and consistency verification from the parent Event Driven Architecture specification.\n\n## Source\n- Parent specification: [Event Driven Architecture](../event-driven-architecture.md)\n\n## Governance\nGovernance covers security, audit, performance, validation rules, business rules, event ownership, message compatibility, replay controls, dead letter handling, and projection consistency.\n\n## Testing\nTesting covers publishing, subscription, ordering, retry, outbox, inbox, dead letter, replay, projection refresh, saga coordination, workflow coordination, failure recovery, and edge cases.\n\n",
+  "references": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "0b8774cf541ceaf6",
+  "title": "Application Service Query Projection",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/application-service/query-projection.md",
+  "sourceHash": "7594781a27d10e924accdea15321d5b85f7243beb967794d14674c738d52724a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Application Service Query Projection"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Query Scope"
+    },
+    {
+      "level": 2,
+      "text": "Projection Rules"
+    }
+  ],
+  "bodyMarkdown": "# Application Service Query Projection\n\n## Purpose\nThis split document isolates query and projection responsibilities from the parent Application Service Catalog.\n\n## Source\n- Parent specification: [Application Service Catalog](../application-service-catalog.md)\n\n## Query Scope\nApplication service query behavior includes filtering, sorting, pagination, authorization, projection mapping, cache interaction, dashboard summaries, reporting projections, and search surfaces.\n\n## Projection Rules\nQuery projections must preserve tenant isolation, household isolation, field masking, source timestamps, staleness markers, and source-of-truth references.\n\n",
+  "references": []
+}

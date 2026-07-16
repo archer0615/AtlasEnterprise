@@ -1,0 +1,31 @@
+{
+  "id": "f156abf17b561731",
+  "title": "Automation Catalog and Triggers",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automation/catalog-and-triggers.md",
+  "sourceHash": "9c5a5608066021be2c80d2c2be69f60f9699f2c4200ecc93154d07f38013f4a1",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Automation Catalog and Triggers"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Model"
+    }
+  ],
+  "bodyMarkdown": "# Automation Catalog and Triggers\n\n## Purpose\nThis split document isolates automation catalog, trigger matrix, condition matrix, and action matrix from the parent Automation Framework.\n\n## Source\n- Parent specification: [Automation Framework](../automation-framework.md)\n\n## Catalog Scope\nAutomation definitions coordinate scheduled, event-driven, workflow-driven, and rule-driven behavior across Atlas modules.\n\n## Trigger Model\nAutomation triggers map source events, schedules, workflow states, rule outputs, commands, domain events, and projection changes to action execution.\n\n",
+  "references": []
+}

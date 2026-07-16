@@ -1,0 +1,43 @@
+{
+  "id": "d350a3dc24b90a46",
+  "title": "Decision Learning Governance and Outputs",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/decision-learning/governance-and-outputs.md",
+  "sourceHash": "1674e9a70697fc1aaace8c51f438147fe4eed8469da2af628bfaeb1f0275d50e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Learning Governance and Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Learning Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Decision Learning Governance and Outputs\n\n## Purpose\nThis split document isolates Decision Learning governance, explainability, integration, outputs, KPIs, and testing from the parent Decision Learning Framework.\n\n## Source\n- Parent specification: [Decision Learning Framework](../decision-learning-framework.md)\n\n## Learning Outputs\nLearning outputs include calibration recommendations, rule improvement candidates, model quality signals, dashboard insights, and governance reports.\n\n## Business Rules\n- Learning does not mutate historical decisions.\n- Learning outputs require approval before changing production rules.\n- Feedback must remain auditable and reproducible.\n- Model and rule changes must preserve version history.\n\n## Explainability\nEvery learning output records source evidence, reason for change, affected rule or model, expected impact, and validation status.\n\n## KPIs\n- Decision accuracy\n- Recommendation stability\n- Outcome success rate\n- Calibration acceptance rate\n- Rule improvement effectiveness\n\n## Testing\nTesting covers feedback capture, variance calculation, calibration proposal, approval governance, explainability, and historical replay.\n\n",
+  "references": []
+}

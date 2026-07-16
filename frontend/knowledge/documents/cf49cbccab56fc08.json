@@ -1,0 +1,31 @@
+{
+  "id": "cf49cbccab56fc08",
+  "title": "Message Contract Catalog Entries",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/message-contract/catalog-entries.md",
+  "sourceHash": "8c582b775fd14e417f3cf3bcf1b1c20205907dc95d32ada944da44fae0169c77",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Message Contract Catalog Entries"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Contract Requirements"
+    }
+  ],
+  "bodyMarkdown": "# Message Contract Catalog Entries\n\n## Purpose\nThis split document isolates message contract definitions from the parent Message Contract Catalog.\n\n## Source\n- Parent specification: [Message Contract Catalog](../message-contract-catalog.md)\n\n## Catalog Scope\nMessage contracts define event, command, integration, notification, workflow, automation, scheduler, and reporting payloads exchanged between Atlas modules and external systems.\n\n## Contract Requirements\nEach contract preserves name, producer, consumer, schema, version, idempotency key, correlation identifiers, causation identifiers, tenant scope, permission scope, and audit classification.\n\n",
+  "references": []
+}

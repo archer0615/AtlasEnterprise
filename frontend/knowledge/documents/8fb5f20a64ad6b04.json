@@ -1,0 +1,27 @@
+{
+  "id": "8fb5f20a64ad6b04",
+  "title": "Cache Refresh Execution",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/cache-refresh-automation/execution.md",
+  "sourceHash": "6239f4ae505153c3aa5276371cc8421b7d128dfc464e427b0b58972fc5349077",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Cache Refresh Execution"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    }
+  ],
+  "bodyMarkdown": "# Cache Refresh Execution\n\n## Purpose\nThis split document isolates cache refresh execution, invalidation, rebuild, and projection refresh behavior from the parent CacheRefreshAutomation specification.\n\n## Source\n- Parent specification: [CacheRefreshAutomation](../cache-refresh-automation.md)\n\n## Execution\nExecution identifies affected cache keys, invalidates stale projections, rebuilds requested summaries, records source timestamps, and writes audit evidence.\n\n",
+  "references": []
+}

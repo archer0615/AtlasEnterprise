@@ -1,0 +1,31 @@
+{
+  "id": "f6eeccb08b2d3c9b",
+  "title": "Report Generation Trigger and Scope",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/report-generation-automation/trigger-and-scope.md",
+  "sourceHash": "0d28beba97f4cc8ba57bf8eb8e46810280325d6d178764c8a1696f25ac7a6238",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Report Generation Trigger and Scope"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Scope"
+    },
+    {
+      "level": 2,
+      "text": "Eligibility"
+    }
+  ],
+  "bodyMarkdown": "# Report Generation Trigger and Scope\n\n## Purpose\nThis split document isolates report generation triggers, report scope, source eligibility, and scheduling rules from the parent ReportGenerationAutomation specification.\n\n## Source\n- Parent specification: [ReportGenerationAutomation](../report-generation-automation.md)\n\n## Trigger Scope\nTriggers include scheduled report cadence, manual report requests, scenario completion, decision review completion, recommendation refresh, dashboard snapshot, and compliance reporting windows.\n\n## Eligibility\nReport generation must preserve tenant scope, household scope, permission-aware sources, data freshness, report type, and idempotency key.\n\n",
+  "references": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "dbc2be65ed3643a3",
+  "title": "Notification Dispatch Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/notification-dispatch-automation/governance-and-testing.md",
+  "sourceHash": "1119a052780381a7ca3a62762abbfa0af98fc8b8c5d98dbd20fa553149a26418",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Notification Dispatch Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Notification Dispatch Governance and Testing\n\n## Purpose\nThis split document isolates notification dispatch governance, validation, audit, rate limiting, testing, and edge cases from the parent NotificationDispatchAutomation specification.\n\n## Source\n- Parent specification: [NotificationDispatchAutomation](../notification-dispatch-automation.md)\n\n## Governance\nGovernance covers consent, preferences, permission filtering, masking, provider failure handling, rate limiting, audit, retry, and duplicate prevention.\n\n## Testing\nTesting covers recipient selection, masking, provider success, provider failure, retry, preferences, rate limits, audit, and edge cases.\n\n",
+  "references": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "78e03364cf76ded3",
+  "title": "Decision Review Automation Execution",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/decision-review-automation/execution.md",
+  "sourceHash": "8990e76180d7bcbfd048f11ae138ecfa8f74cdbd1b538d4806ee683dea839886",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Review Automation Execution"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    }
+  ],
+  "bodyMarkdown": "# Decision Review Automation Execution\n\n## Purpose\nThis split document isolates decision review automation execution, review creation, notification, and projection refresh from the parent DecisionReviewAutomation specification.\n\n## Source\n- Parent specification: [DecisionReviewAutomation](../decision-review-automation.md)\n\n## Execution\nExecution selects reviewable decisions, validates review requirements, creates review tasks or commands, refreshes decision projections, records audit, and triggers notifications when required.\n\n",
+  "references": []
+}

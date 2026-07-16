@@ -30,6 +30,11 @@ for (const result of output.results) {
   if (result.metrics?.postPrepaymentReserveMonths !== undefined) {
     assert(Math.abs(result.metrics.postPrepaymentReserveMonths - fixture.expected.metrics.postPrepaymentReserveMonths) <= 0.01, `${result.fixtureId} postPrepaymentReserveMonths outside tolerance`);
   }
+  for (const metric of ["monthlyMortgagePayment", "currentMonthlyPayment", "resetMonthlyPayment", "refinanceMonthlyPayment", "monthlyPaymentSavingsAfterReset", "refinanceFeeRecoveryMonths"]) {
+    if (result.metrics?.[metric] !== undefined && fixture.expected.metrics?.[metric] !== undefined) {
+      assert(Math.abs(result.metrics[metric] - fixture.expected.metrics[metric]) <= fixture.tolerances.currency, `${result.fixtureId} ${metric} outside tolerance`);
+    }
+  }
   if (result.metrics?.transactionCostEstimate !== undefined) {
     assert(Math.abs(result.metrics.transactionCostEstimate - fixture.expected.metrics.transactionCostEstimate) <= fixture.tolerances.currency, `${result.fixtureId} transactionCostEstimate outside tolerance`);
   }

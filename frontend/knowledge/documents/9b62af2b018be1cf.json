@@ -1,0 +1,31 @@
+{
+  "id": "9b62af2b018be1cf",
+  "title": "Domain Event Catalog Entries",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-event/catalog-entries.md",
+  "sourceHash": "7442253bd3695e890492cfeba6b445fd39fb16e457e5844e7b64765ced99e710",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Event Catalog Entries"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Event Groups"
+    },
+    {
+      "level": 2,
+      "text": "Entry Contract"
+    }
+  ],
+  "bodyMarkdown": "# Domain Event Catalog Entries\n\n## Purpose\nThis split document isolates domain event definitions from the parent Domain Event Catalog.\n\n## Source\n- Parent specification: [Domain Event Catalog](../domain-event-catalog.md)\n\n## Event Groups\nDomain events cover cash flow, investment, loan, home, insurance, retirement, decision, rule, and system event groups.\n\n## Entry Contract\nEach event entry preserves event code, name, aggregate owner, publisher, payload, trigger command, consumers, ordering, idempotency, audit classification, and replay behavior.\n\n",
+  "references": []
+}

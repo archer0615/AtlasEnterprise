@@ -1,0 +1,35 @@
+{
+  "id": "29d8a47de50732c0",
+  "title": "Decision Optimization Objectives and Constraints",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-optimization/objectives-and-constraints.md",
+  "sourceHash": "60b77e70e94a31efc43efe54872e1e8e65b55163ec86f4bf59a882ed43cad194",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Optimization Objectives and Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Objectives"
+    },
+    {
+      "level": 2,
+      "text": "Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Algorithms"
+    }
+  ],
+  "bodyMarkdown": "# Decision Optimization Objectives and Constraints\n\n## Purpose\nThis split document isolates Decision Optimization objectives, constraints, algorithms, and scoring behavior from the parent Decision Optimization specification.\n\n## Source\n- Parent specification: [Decision Optimization](../decision-optimization.md)\n\n## Objectives\nObjectives include financial return, cash flow stability, risk reduction, goal achievement, portfolio balance, liquidity, tax efficiency, debt optimization, time optimization, priority optimization, user preference alignment, execution feasibility, and business value.\n\n## Constraints\nConstraints include hard, soft, budget, cash flow, risk, goal, scenario, portfolio, execution, user preference, compliance, and regulatory constraints.\n\n## Algorithms\nAlgorithms include weighted optimization, constraint satisfaction, multi-objective optimization, Pareto optimization, heuristic optimization, rule-based optimization, scenario optimization, incremental optimization, sensitivity analysis, and trade-off analysis.\n\n",
+  "references": []
+}

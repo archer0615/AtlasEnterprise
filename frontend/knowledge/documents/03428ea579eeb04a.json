@@ -1,0 +1,31 @@
+{
+  "id": "03428ea579eeb04a",
+  "title": "Domain Model Entities",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-model/entities.md",
+  "sourceHash": "d478c618b1d282bd2d1ab72ec800a00b15b796e2122a78fa461154abb85e58ce",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Model Entities"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Entity Scope"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Usage"
+    }
+  ],
+  "bodyMarkdown": "# Domain Model Entities\n\n## Purpose\nThis split document isolates domain model entity definitions from the parent Domain Model Catalog.\n\n## Source\n- Parent specification: [Domain Model Catalog](../domain-model-catalog.md)\n\n## Entity Scope\nDomain model entities define identity, ownership, lifecycle, attributes, commands, events, repositories, invariants, persistence mapping, and API exposure for Atlas business concepts.\n\n## Catalog Usage\nEach entity entry must preserve its bounded context, aggregate ownership, service ownership, validation rules, audit requirements, security classification, and consistency boundaries.\n\n",
+  "references": []
+}

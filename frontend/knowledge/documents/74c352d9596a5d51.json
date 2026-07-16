@@ -3,7 +3,7 @@
   "title": "Asset Allocation Targets and Constraints",
   "category": "framework",
   "canonicalPath": "knowledge/framework/asset-allocation/targets-and-constraints.md",
-  "sourceHash": "8b7da4cefd5fe116205ab8e33ff94971d5a9e0a7fc5ddaba1b3ef1b5314a75b0",
+  "sourceHash": "09bd4080fec67d6933ec88ac950b9c1c0d04070456300f933ebb370f34228fad",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Asset Allocation Targets and Constraints\n\n## Purpose\n\nThis split document isolates target and constraint rules from the larger Asset Allocation Framework.\n\n## Source\n\n- Parent specification: [Asset Allocation Framework](../asset-allocation-framework.md)\n\n## Target Rules\n\n- Allocation targets must align with Investment Policy Statement constraints.\n- Targets must preserve portfolio, goal, risk, and time horizon context.\n- Target changes must be versioned when used for recommendations or scenarios.\n\n## Constraint Rules\n\n- Constraints should include liquidity, risk budget, concentration, tax, and transaction cost considerations.\n- Constraint breaches must produce warning references.\n- Constraints must be evaluated before rebalancing proposals.\n\n## Related References\n\n- [Investment Policy](../../supporting/investment-policy.md)\n- [Risk Budget Framework](../risk-budget-framework.md)\n- [Rebalancing Framework](../rebalancing-framework.md)\n",
+  "bodyMarkdown": "# Asset Allocation Targets and Constraints\r\n\r\n## Purpose\r\n\r\nThis split document isolates target and constraint rules from the larger Asset Allocation Framework.\r\n\r\n## Source\r\n\r\n- Parent specification: [Asset Allocation Framework](../asset-allocation-framework.md)\r\n\r\n## Target Rules\r\n\r\n- Allocation targets must align with Investment Policy Statement constraints.\r\n- Targets must preserve portfolio, goal, risk, and time horizon context.\r\n- Target changes must be versioned when used for recommendations or scenarios.\r\n\r\n## Constraint Rules\r\n\r\n- Constraints should include liquidity, risk budget, concentration, tax, and transaction cost considerations.\r\n- Constraint breaches must produce warning references.\r\n- Constraints must be evaluated before rebalancing proposals.\r\n\r\n## Related References\r\n\r\n- [Investment Policy](../../supporting/investment-policy.md)\r\n- [Risk Budget Framework](../risk-budget-framework.md)\r\n- [Rebalancing Framework](../rebalancing-framework.md)\r\n",
   "references": []
 }

@@ -1,0 +1,31 @@
+{
+  "id": "1c5d89c2a80ef37b",
+  "title": "Automation Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automation/governance-and-testing.md",
+  "sourceHash": "b3e03d4eea13aacbac4d889f45a9dfe3e72b6b1a39b255f404add5a5a19063fb",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Automation Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Automation Governance and Testing\n\n## Purpose\nThis split document isolates automation validation, business rules, security, audit, performance, diagrams, testing, edge cases, and consistency checks from the parent Automation Framework.\n\n## Source\n- Parent specification: [Automation Framework](../automation-framework.md)\n\n## Governance\nGovernance covers validation rules, business rules, security, audit, performance, approval controls, escalation controls, and failure recovery.\n\n## Testing\nTesting covers automation, trigger, condition, retry, compensation, escalation, performance, edge cases, and final consistency matrix validation.\n\n",
+  "references": []
+}

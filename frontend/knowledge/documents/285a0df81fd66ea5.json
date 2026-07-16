@@ -1,0 +1,39 @@
+{
+  "id": "285a0df81fd66ea5",
+  "title": "Decision Learning Feedback and Calibration",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/decision-learning/feedback-and-calibration.md",
+  "sourceHash": "daa71b59763aee396f587bff6283a93dafe1ec4cbb0495a28d55fcd01c441b1c",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Learning Feedback and Calibration"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Learning Sources"
+    },
+    {
+      "level": 2,
+      "text": "Learning Pipeline"
+    },
+    {
+      "level": 2,
+      "text": "Outcome Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Feedback Model"
+    }
+  ],
+  "bodyMarkdown": "# Decision Learning Feedback and Calibration\n\n## Purpose\nThis split document isolates Decision Learning sources, feedback model, learning pipeline, outcome metrics, and calibration behavior from the parent Decision Learning Framework.\n\n## Source\n- Parent specification: [Decision Learning Framework](../decision-learning-framework.md)\n\n## Learning Sources\nDecision Learning consumes decision outcomes, recommendation outcomes, scenario accuracy, user actions, execution results, variance records, and audit-safe feedback.\n\n## Learning Pipeline\nThe learning pipeline collects outcomes, normalizes evidence, compares expected versus actual results, identifies variance, and proposes calibration signals.\n\n## Outcome Metrics\n- Expected vs actual result\n- Recommendation adoption\n- Outcome success\n- Variance direction\n- Time to decision\n- Rule stability\n\n## Feedback Model\nFeedback records must preserve source decision, operator context, outcome evidence, confidence, and versioned learning reason.\n\n",
+  "references": []
+}

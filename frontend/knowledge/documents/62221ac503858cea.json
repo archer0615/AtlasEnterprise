@@ -1,0 +1,31 @@
+{
+  "id": "62221ac503858cea",
+  "title": "Goal Insights Governance and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-insights/governance-and-testing.md",
+  "sourceHash": "d32d5662b60b9a7ed60eda91c19e457a6d3131b336ce422933fc4cb112e960fe",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Insights Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Goal Insights Governance and Testing\n\n## Purpose\nThis split document isolates Goal Insight governance, permissions, audit, performance, testing, edge cases, and consistency checks from the parent Goal Insights specification.\n\n## Source\n- Parent specification: [Goal Insights](../goal-insights.md)\n\n## Governance\nGovernance covers evidence immutability, permission-aware masking, household isolation, audit history, source freshness, duplicate detection, and resolution controls.\n\n## Testing\nTesting covers insight generation, detection rules, scoring, dashboard projection, action mapping, masking, audit, concurrency, and edge cases.\n\n",
+  "references": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "6c0f1774a8a1b567",
+  "title": "User API and Persistence",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/user/api-and-persistence.md",
+  "sourceHash": "fb631f0a1cbe435992f3a6f8db9df62a4ea48f869d374e6279ac40049a411476",
+  "headings": [
+    {
+      "level": 1,
+      "text": "User API and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "API"
+    }
+  ],
+  "bodyMarkdown": "# User API and Persistence\n\n## Purpose\nThis split document isolates User commands, events, repository, services, API, DTOs, database mapping, EF Core mapping, and cache strategy from the parent User Entity Specification.\n\n## Source\n- Parent specification: [User Entity Specification](../User.md)\n\n## API\nUser APIs expose create, update, profile, preference, membership, archive, restore, detail, summary, and search behavior under permission boundaries.\n\n",
+  "references": []
+}

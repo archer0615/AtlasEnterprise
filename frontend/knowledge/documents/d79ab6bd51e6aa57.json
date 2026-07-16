@@ -3,7 +3,7 @@
   "title": "Financial Health Score Debt and Goal Readiness",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/financial-health-score/debt-and-goal-readiness.md",
-  "sourceHash": "725831caf7043db2f4a11be1b92ea5e3b2d5a8e4e02d005fb75dca2ea3188e97",
+  "sourceHash": "ddedb91c423d9cb7f669072ceb131fa1a8dfe235c1d40f5a6238c6f90ceefb0f",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Financial Health Score Debt and Goal Readiness\n\n## Purpose\n\nThis split document isolates debt pressure and goal readiness scoring inputs from the larger Financial Health Score specification.\n\n## Source\n\n- Parent specification: [Financial Health Score](../financial-health-score.md)\n\n## Debt Inputs\n\n- Debt-to-income pressure\n- Mortgage and loan payment burden\n- Refinancing and rate reset risk\n- Early repayment liquidity impact\n\n## Goal Readiness Inputs\n\n- Goal funding progress\n- Time horizon alignment\n- Required monthly contribution\n- Scenario stress sensitivity\n\n## Dashboard Use\n\n- Debt and goal readiness can be summarized in dashboard scenarios.\n- Warnings should identify the constraint driving a score reduction.\n- Recommendation outputs must keep explanation and warning references.\n\n## Related References\n\n- [Loan Supporting Document](../loan.md)\n- [Goal Funding Framework](../../framework/goal-funding-framework.md)\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\n",
+  "bodyMarkdown": "# Financial Health Score Debt and Goal Readiness\r\n\r\n## Purpose\r\n\r\nThis split document isolates debt pressure and goal readiness scoring inputs from the larger Financial Health Score specification.\r\n\r\n## Source\r\n\r\n- Parent specification: [Financial Health Score](../financial-health-score.md)\r\n\r\n## Debt Inputs\r\n\r\n- Debt-to-income pressure\r\n- Mortgage and loan payment burden\r\n- Refinancing and rate reset risk\r\n- Early repayment liquidity impact\r\n\r\n## Goal Readiness Inputs\r\n\r\n- Goal funding progress\r\n- Time horizon alignment\r\n- Required monthly contribution\r\n- Scenario stress sensitivity\r\n\r\n## Dashboard Use\r\n\r\n- Debt and goal readiness can be summarized in dashboard scenarios.\r\n- Warnings should identify the constraint driving a score reduction.\r\n- Recommendation outputs must keep explanation and warning references.\r\n\r\n## Related References\r\n\r\n- [Loan Supporting Document](../loan.md)\r\n- [Goal Funding Framework](../../framework/goal-funding-framework.md)\r\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Asset Classification and Risk",
   "category": "entity",
   "canonicalPath": "knowledge/entity/asset/classification-and-risk.md",
-  "sourceHash": "6a65ce8d7e7c7b2e1e36d14930aeb61337961031dabd3c05d0725fe61c2e925e",
+  "sourceHash": "4f98b669344b184b782bbfaa37e0c75ffd48b087fe40d6668f8dcd52e9fdb358",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Asset Classification and Risk\n\n## Purpose\n\nThis split document isolates Asset classification and risk rules from the larger Asset entity specification.\n\n## Source\n\n- Parent specification: [Asset Entity Specification](../Asset.md)\n\n## Classification Rules\n\n- AssetType must come from the catalog-approved `AssetType` enumeration.\n- Currency must use `CurrencyCode`.\n- Unknown AssetType and CurrencyCode values must be rejected.\n- Asset class is an implementation detail unless a catalog formalizes it.\n\n## Risk Rules\n\n- RiskLevel is catalog-approved when used.\n- Liquidity classification is metadata or projection output and must not create a new enumeration here.\n- Risk scoring should be computed by PortfolioService, AllocationService, or RiskService.\n- Asset risk signals can feed Scenario, Decision, and Recommendation flows.\n\n## Related References\n\n- [Asset Entity Specification](../Asset.md)\n- [Risk Framework](../../framework/risk-framework.md)\n- [Enumeration Catalog](../../catalog/enumeration-catalog.md)\n- [Value Object Catalog](../../catalog/value-object-catalog.md)\n",
+  "bodyMarkdown": "# Asset Classification and Risk\r\n\r\n## Purpose\r\n\r\nThis split document isolates Asset classification and risk rules from the larger Asset entity specification.\r\n\r\n## Source\r\n\r\n- Parent specification: [Asset Entity Specification](../Asset.md)\r\n\r\n## Classification Rules\r\n\r\n- AssetType must come from the catalog-approved `AssetType` enumeration.\r\n- Currency must use `CurrencyCode`.\r\n- Unknown AssetType and CurrencyCode values must be rejected.\r\n- Asset class is an implementation detail unless a catalog formalizes it.\r\n\r\n## Risk Rules\r\n\r\n- RiskLevel is catalog-approved when used.\r\n- Liquidity classification is metadata or projection output and must not create a new enumeration here.\r\n- Risk scoring should be computed by PortfolioService, AllocationService, or RiskService.\r\n- Asset risk signals can feed Scenario, Decision, and Recommendation flows.\r\n\r\n## Related References\r\n\r\n- [Asset Entity Specification](../Asset.md)\r\n- [Risk Framework](../../framework/risk-framework.md)\r\n- [Enumeration Catalog](../../catalog/enumeration-catalog.md)\r\n- [Value Object Catalog](../../catalog/value-object-catalog.md)\r\n",
   "references": []
 }

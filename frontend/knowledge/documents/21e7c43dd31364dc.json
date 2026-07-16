@@ -3,7 +3,7 @@
   "title": "Financial Health Score Liquidity and Cashflow",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/financial-health-score/liquidity-and-cashflow.md",
-  "sourceHash": "b3eb59f3e992adc5f199783dffff33fd76f53fea73dd356a2d2177fc42934ccb",
+  "sourceHash": "fe8494f093378b7222fe9f4b847a89c92e00a516a11b034f084ef6feb07c5d8a",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Financial Health Score Liquidity and Cashflow\n\n## Purpose\n\nThis split document isolates liquidity and cashflow scoring inputs from the larger Financial Health Score specification.\n\n## Source\n\n- Parent specification: [Financial Health Score](../financial-health-score.md)\n\n## Liquidity Inputs\n\n- Emergency reserve months\n- Cash reserve adequacy\n- Near-term obligation coverage\n- Liquid asset availability\n\n## Cashflow Inputs\n\n- Monthly free cash flow\n- Savings rate\n- Negative month count\n- Income and expense stability\n\n## Dashboard Use\n\n- Dashboard metrics may summarize liquidity and cashflow status.\n- Dashboard labels must not replace canonical scoring definitions.\n- Scenario fixtures should include warning references when reserve or cashflow thresholds are breached.\n\n## Related References\n\n- [Cash Reserve Framework](../../framework/cash-reserve-framework.md)\n- [Cashflow Supporting Document](../cashflow.md)\n- [Financial Dashboard Metrics](../../reporting/financial-dashboard-metrics.md)\n",
+  "bodyMarkdown": "# Financial Health Score Liquidity and Cashflow\r\n\r\n## Purpose\r\n\r\nThis split document isolates liquidity and cashflow scoring inputs from the larger Financial Health Score specification.\r\n\r\n## Source\r\n\r\n- Parent specification: [Financial Health Score](../financial-health-score.md)\r\n\r\n## Liquidity Inputs\r\n\r\n- Emergency reserve months\r\n- Cash reserve adequacy\r\n- Near-term obligation coverage\r\n- Liquid asset availability\r\n\r\n## Cashflow Inputs\r\n\r\n- Monthly free cash flow\r\n- Savings rate\r\n- Negative month count\r\n- Income and expense stability\r\n\r\n## Dashboard Use\r\n\r\n- Dashboard metrics may summarize liquidity and cashflow status.\r\n- Dashboard labels must not replace canonical scoring definitions.\r\n- Scenario fixtures should include warning references when reserve or cashflow thresholds are breached.\r\n\r\n## Related References\r\n\r\n- [Cash Reserve Framework](../../framework/cash-reserve-framework.md)\r\n- [Cashflow Supporting Document](../cashflow.md)\r\n- [Financial Dashboard Metrics](../../reporting/financial-dashboard-metrics.md)\r\n",
   "references": []
 }

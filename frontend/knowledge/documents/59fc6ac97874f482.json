@@ -1,0 +1,31 @@
+{
+  "id": "59fc6ac97874f482",
+  "title": "Decision Evaluation Governance and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-evaluation/governance-and-testing.md",
+  "sourceHash": "811a3d14eae62afd84e99cf45b3b00197282700bc4ac458f3c86d8942979d49d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Evaluation Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Decision Evaluation Governance and Testing\n\n## Purpose\nThis split document isolates decision evaluation governance, validation, audit, security, performance, testing, edge cases, and consistency checks from the parent Decision Evaluation specification.\n\n## Source\n- Parent specification: [Decision Evaluation](../decision-evaluation.md)\n\n## Governance\nGovernance covers evidence immutability, permission-aware visibility, formula versioning, rule versioning, audit, cache invalidation, and reproducibility.\n\n## Testing\nTesting covers criteria calculation, scoring, scenario comparison, evidence capture, permission masking, audit, concurrency, and edge cases.\n\n",
+  "references": []
+}

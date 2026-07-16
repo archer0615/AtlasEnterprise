@@ -1,6 +1,9 @@
 # knowledge/market-assumptions.md
 
 # Project Atlas — Market Assumptions
+## Split Navigation
+- [Market assumptions returns and risk](market-assumptions/returns-and-risk.md)
+- [Market assumptions scenarios and governance](market-assumptions/scenarios-and-governance.md)
 
 ## 1. 文件目的
 

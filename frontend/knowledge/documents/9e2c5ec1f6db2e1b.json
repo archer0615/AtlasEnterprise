@@ -1,0 +1,31 @@
+{
+  "id": "9e2c5ec1f6db2e1b",
+  "title": "Service Catalog Governance",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/service-catalog/governance.md",
+  "sourceHash": "174086452d22aaeede99732f24210d6ca410f0f7991ba0abf22cf58b4a752933",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Service Catalog Governance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Service Catalog Governance\n\n## Purpose\nThis split document isolates service ownership, orchestration rules, validation rules, security, audit, testing, and consistency checks from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Governance\nService governance ensures application services do not own domain invariants, domain services do not perform persistence orchestration, permissions are checked at application boundaries, and audit records preserve command intent.\n\n## Testing\nTesting covers service routing, command orchestration, query projection, permission checks, domain validation, audit emission, transaction boundaries, and catalog consistency.\n\n",
+  "references": []
+}

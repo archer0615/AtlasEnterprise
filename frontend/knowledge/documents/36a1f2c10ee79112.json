@@ -1,0 +1,35 @@
+{
+  "id": "36a1f2c10ee79112",
+  "title": "Mortgage Persistence and API",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/mortgage/persistence-and-api.md",
+  "sourceHash": "1df7957890253a6311d56f8700b74c2f2229861411aed57207806da6380dd3ea",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Mortgage Persistence and API"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Commands and Events"
+    },
+    {
+      "level": 2,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "Persistence"
+    }
+  ],
+  "bodyMarkdown": "# Mortgage Persistence and API\n\n## Purpose\nThis split document isolates Mortgage commands, events, repository, services, REST API, DTO, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Mortgage Entity Specification.\n\n## Source\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\n\n## Commands and Events\nMortgage commands and events must align with Loan aggregate ownership and preserve payment, refinance, close, archive, restore, and replay behavior.\n\n## API\nMortgage API behavior is exposed through loan-aligned routes and must preserve permissions, idempotency, error handling, and audit evidence.\n\n## Persistence\nPersistence includes mortgage or loan-backed tables, repository query methods, EF Core mapping, amortization cache invalidation, and consistency verification.\n\n",
+  "references": []
+}

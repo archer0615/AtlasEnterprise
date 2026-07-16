@@ -1,0 +1,31 @@
+{
+  "id": "8ef30a296d36b594",
+  "title": "Domain Service Governance and Testing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-service/governance-and-testing.md",
+  "sourceHash": "0ba8748dfadf67688864dc8f749e47b4c4ff803ddb1ebd6540560345cef421fa",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Service Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Domain Service Governance and Testing\n\n## Purpose\nThis split document isolates transaction rules, consistency rules, validation, business rules, error catalog, security, audit, performance, diagrams, testing, edge cases, and consistency checks from the parent Domain Service Catalog.\n\n## Source\n- Parent specification: [Domain Service Catalog](../domain-service-catalog.md)\n\n## Governance\nGovernance covers transaction rules, consistency rules, validation rules, business rules, error catalog, security, audit, and performance boundaries.\n\n## Testing\nTesting covers unit, integration, rule, calculation, projection, optimization, simulation, performance, edge cases, and final consistency matrix validation.\n\n",
+  "references": []
+}

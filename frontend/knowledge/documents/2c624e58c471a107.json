@@ -1,0 +1,39 @@
+{
+  "id": "2c624e58c471a107",
+  "title": "Goal Progress Execution and Dashboard",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-progress-tracking/execution-and-dashboard.md",
+  "sourceHash": "8ae2d4092783006d698f5afb4dc75c955add6436cfacd1a1947053a71e0c869f",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Progress Execution and Dashboard"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Dashboard Projection"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Goal Progress Execution and Dashboard\n\n## Purpose\nThis split document isolates Goal Progress commands, state machine, APIs, persistence, dashboard projection, audit, and testing from the parent Goal Progress Tracking specification.\n\n## Source\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\n\n## Commands\n- RefreshGoalProgress\n- RecalculateGoalProgress\n- UpdateGoalProgress\n- FreezeProgress\n- ResumeProgress\n- ResetProgress\n- ArchiveProgress\n- RestoreProgress\n\n## Domain Events\n- GoalProgressUpdated\n- GoalProgressRecalculated\n- GoalCompleted\n- GoalDelayed\n- GoalAheadOfSchedule\n- GoalBehindSchedule\n- GoalHealthChanged\n- GoalForecastChanged\n- GoalProgressReset\n\n## Dashboard Projection\nDashboard projection exposes progress summary, forecast, health, variance, confidence, and stale-state indicators without owning canonical Goal state.\n\n## Testing\nTesting covers calculation, integration, concurrency, performance, API, cache, audit, and edge-case behavior.\n\n",
+  "references": []
+}

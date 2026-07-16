@@ -1,0 +1,35 @@
+{
+  "id": "aca9a3790c6bbe9b",
+  "title": "API Governance Security Testing and Operations",
+  "category": "api",
+  "canonicalPath": "knowledge/api/api-governance/security-testing-and-operations.md",
+  "sourceHash": "aa327afb735890bf768b91b79d84fbed2c7383380abd572fef9dfac01e47522b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "API Governance Security Testing and Operations"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Operations"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# API Governance Security Testing and Operations\n\n## Purpose\nThis split document isolates API authentication, authorization, audit, tracing, performance, caching, rate limiting, OpenAPI, validation, business rules, testing, and edge cases from the parent API Governance Framework.\n\n## Source\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\n\n## Security\nAPI security covers authentication, authorization, permission mapping, audit, correlation identifiers, causation identifiers, tracing, security headers, and field-level protection.\n\n## Operations\nOperational standards cover performance, caching, rate limiting, OpenAPI convention, JSON naming, DateTime convention, money convention, decimal precision, and enum serialization.\n\n## Testing\nTesting covers API contract, OpenAPI, security, performance, compatibility, error handling, validation, and edge cases.\n\n",
+  "references": []
+}

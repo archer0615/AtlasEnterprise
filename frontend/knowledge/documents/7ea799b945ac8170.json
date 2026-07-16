@@ -1,0 +1,31 @@
+{
+  "id": "7ea799b945ac8170",
+  "title": "Command Ownership and Routing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/command/ownership-and-routing.md",
+  "sourceHash": "8978606bd54179e24fee44447b04e5b5ce163c6b58e498645f29994a95105f16",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Command Ownership and Routing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Routing"
+    },
+    {
+      "level": 2,
+      "text": "Ownership Rules"
+    }
+  ],
+  "bodyMarkdown": "# Command Ownership and Routing\n\n## Purpose\nThis split document isolates command ownership, routing, service mapping, repository mapping, event mapping, and transaction behavior from the parent Command Catalog.\n\n## Source\n- Parent specification: [Command Catalog](../command-catalog.md)\n\n## Routing\nCommand routing maps API endpoints to application services, aggregate commands, domain services, repositories, domain events, permissions, and audit records.\n\n## Ownership Rules\nCommands must mutate only the owning aggregate boundary and coordinate cross-aggregate work through events, workflows, or application orchestration.\n\n",
+  "references": []
+}

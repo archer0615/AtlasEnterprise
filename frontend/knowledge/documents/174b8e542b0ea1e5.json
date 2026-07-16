@@ -1,0 +1,31 @@
+{
+  "id": "174b8e542b0ea1e5",
+  "title": "Automation Execution Strategies",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automation/execution-strategies.md",
+  "sourceHash": "8cfc7c352b57baab469b6c5c6e0729c1dabf31d9d1d6c12b1292a84d83ff7763",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Automation Execution Strategies"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Strategies"
+    }
+  ],
+  "bodyMarkdown": "# Automation Execution Strategies\n\n## Purpose\nThis split document isolates automation matrices and execution strategies from the parent Automation Framework.\n\n## Source\n- Parent specification: [Automation Framework](../automation-framework.md)\n\n## Matrices\nMatrices include automation, trigger, condition, action, workflow, scheduler, background job, command, domain event, rule engine, decision engine, projection, and notification mapping.\n\n## Strategies\nExecution strategies include retry, compensation, escalation, approval, failure recovery, idempotency, dependency handling, and notification coordination.\n\n",
+  "references": []
+}

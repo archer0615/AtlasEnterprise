@@ -1,0 +1,31 @@
+{
+  "id": "6a8a1245937e686d",
+  "title": "Goal Governance Audit and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-governance/audit-and-testing.md",
+  "sourceHash": "bad683f7aa0ae685114c5c33a81ce935baa4c89b62d3c49d6695cec5089ccbdf",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Governance Audit and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Goal Governance Audit and Testing\n\n## Purpose\nThis split document isolates Goal Governance audit, security, validation, performance, testing, edge cases, and consistency checks from the parent Goal Governance specification.\n\n## Source\n- Parent specification: [Goal Governance](../goal-governance.md)\n\n## Audit\nAudit records governance policy evaluations, approval actions, exception decisions, monitoring results, escalations, operator identity, timestamps, and source evidence.\n\n## Testing\nTesting covers policy evaluation, approval, rejection, exception, monitoring, escalation, audit history, permission masking, and edge cases.\n\n",
+  "references": []
+}

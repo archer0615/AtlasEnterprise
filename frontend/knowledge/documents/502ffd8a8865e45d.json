@@ -1,0 +1,31 @@
+{
+  "id": "502ffd8a8865e45d",
+  "title": "Goal Optimization Governance and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-optimization/governance-and-testing.md",
+  "sourceHash": "3979f5a2f5348840fc4e1061e29003e9aada8bb8ef5fb6e44d031fe93dd8c4c2",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Optimization Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Goal Optimization Governance and Testing\n\n## Purpose\nThis split document isolates Goal Optimization validation, business rules, security, audit, performance, testing, edge cases, and consistency checks from the parent Goal Optimization specification.\n\n## Source\n- Parent specification: [Goal Optimization](../goal-optimization.md)\n\n## Governance\nGovernance covers constraint validity, objective versioning, permission-aware inputs, explainability, audit, cache invalidation, approval, and rollback evidence.\n\n## Testing\nTesting covers constraints, objective scoring, ranking, approval, execution, rollback, permissions, audit, concurrency, and edge cases.\n\n",
+  "references": []
+}

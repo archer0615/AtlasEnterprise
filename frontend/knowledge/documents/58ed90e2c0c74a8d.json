@@ -1,0 +1,27 @@
+{
+  "id": "58ed90e2c0c74a8d",
+  "title": "Recommendation Refresh Execution",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/recommendation-refresh-automation/execution.md",
+  "sourceHash": "df13eaa429590d00b7cbe4c27c1eeed259c1562a11370c1a2ba5d6dc37a2f5c0",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Refresh Execution"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Refresh Execution\n\n## Purpose\nThis split document isolates recommendation refresh execution behavior from the parent RecommendationRefreshAutomation specification.\n\n## Source\n- Parent specification: [RecommendationRefreshAutomation](../recommendation-refresh-automation.md)\n\n## Execution\nExecution collects changed sources, evaluates stale recommendations, invokes recommendation refresh commands, updates projections, records audit, and emits follow-up notifications when required.\n\n",
+  "references": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "1526dd80466ca794",
+  "title": "System Module Dependencies",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/system-module/dependencies.md",
+  "sourceHash": "8c72b27423fd3e771dd16bdd2625ad555df1905bef1a892d102df131a8d52fce",
+  "headings": [
+    {
+      "level": 1,
+      "text": "System Module Dependencies"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Scope"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# System Module Dependencies\n\n## Purpose\nThis split document isolates system module dependency mapping from the parent System Module Catalog.\n\n## Source\n- Parent specification: [System Module Catalog](../system-module-catalog.md)\n\n## Dependency Scope\nDependencies include module-to-module calls, event subscriptions, external integrations, background jobs, schedulers, automations, repositories, shared value objects, and reporting projections.\n\n## Boundary Rules\nModules must preserve explicit ownership, avoid hidden cross-module writes, and expose integrations through approved APIs, events, or message contracts.\n\n",
+  "references": []
+}

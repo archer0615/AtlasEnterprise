@@ -3,7 +3,7 @@
   "title": "Recommendation Evaluation Feedback and Learning",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-evaluation/feedback-and-learning.md",
-  "sourceHash": "8761276e81d7ecda3d3eb70f66feae859541309042bd51288c29908a019d4ffe",
+  "sourceHash": "f8699819857b67d5dab6f0577c0082d8f88f85c2cedf348b7273a14591908fb6",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Recommendation Evaluation Feedback and Learning\n\n## Purpose\n\nThis split document isolates feedback and learning loop behavior from the larger Recommendation Evaluation overview.\n\n## Source\n\n- Parent specification: [Recommendation Evaluation Overview](../recommendation-evaluation.md)\n\n## Feedback Rules\n\n- Capture whether a Recommendation was accepted, deferred, rejected, or executed.\n- Preserve outcome evidence without rewriting the original Recommendation.\n- Feedback must remain auditable and permission-aware.\n- Feedback should support future score calibration.\n\n## Learning Rules\n\n- Learning outputs must not silently change domain rules.\n- Calibration should preserve assumption and formula versions.\n- Model or rule updates must be explainable and governed.\n\n## Related References\n\n- [Recommendation Evaluation Overview](../recommendation-evaluation.md)\n- [Decision Learning Framework](../../framework/decision-learning-framework.md)\n- [Audit Framework](../../security/audit-framework.md)\n",
+  "bodyMarkdown": "# Recommendation Evaluation Feedback and Learning\r\n\r\n## Purpose\r\n\r\nThis split document isolates feedback and learning loop behavior from the larger Recommendation Evaluation overview.\r\n\r\n## Source\r\n\r\n- Parent specification: [Recommendation Evaluation Overview](../recommendation-evaluation.md)\r\n\r\n## Feedback Rules\r\n\r\n- Capture whether a Recommendation was accepted, deferred, rejected, or executed.\r\n- Preserve outcome evidence without rewriting the original Recommendation.\r\n- Feedback must remain auditable and permission-aware.\r\n- Feedback should support future score calibration.\r\n\r\n## Learning Rules\r\n\r\n- Learning outputs must not silently change domain rules.\r\n- Calibration should preserve assumption and formula versions.\r\n- Model or rule updates must be explainable and governed.\r\n\r\n## Related References\r\n\r\n- [Recommendation Evaluation Overview](../recommendation-evaluation.md)\r\n- [Decision Learning Framework](../../framework/decision-learning-framework.md)\r\n- [Audit Framework](../../security/audit-framework.md)\r\n",
   "references": []
 }

@@ -4,6 +4,10 @@ Version: 1.0 Project: Atlas -- Life Financial Decision Operating System
 
 ------------------------------------------------------------------------
 
+## Split Navigation
+- [Investment policy rules and allocation](investment-policy/rules-and-allocation.md)
+- [Investment policy execution and governance](investment-policy/execution-and-governance.md)
+
 # Purpose
 
 本文件定義 Project Atlas 的 Investment Policy（投資政策）知識模型。

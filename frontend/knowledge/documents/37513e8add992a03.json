@@ -1,0 +1,31 @@
+{
+  "id": "37513e8add992a03",
+  "title": "Notification Dispatch Trigger and Channels",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/notification-dispatch-automation/trigger-and-channels.md",
+  "sourceHash": "c51480fd6a5b5a6998652869d36f156c0bde1e6b75893a818201be505236cc68",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Notification Dispatch Trigger and Channels"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Scope"
+    },
+    {
+      "level": 2,
+      "text": "Channels"
+    }
+  ],
+  "bodyMarkdown": "# Notification Dispatch Trigger and Channels\n\n## Purpose\nThis split document isolates notification dispatch triggers, recipient selection, channel selection, and delivery eligibility from the parent NotificationDispatchAutomation specification.\n\n## Source\n- Parent specification: [NotificationDispatchAutomation](../notification-dispatch-automation.md)\n\n## Trigger Scope\nTriggers include notification created, scheduled reminder, escalation, critical insight, decision event, recommendation event, report ready, and manual dispatch requests.\n\n## Channels\nChannels include in-app, email, SMS, push, and provider-specific delivery where configured.\n\n",
+  "references": []
+}

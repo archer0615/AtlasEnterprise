@@ -2,6 +2,10 @@
 
 Version: 1.0
 
+## Split Navigation
+- [Decision history records and versions](decision-history/records-and-versioning.md)
+- [Decision history outcomes and analytics](decision-history/outcomes-and-analytics.md)
+
 ## Purpose
 Defines how Project Atlas records, versions, and analyzes the complete lifecycle of financial decisions after they have been generated. Unlike the Decision Audit Framework, which focuses on reproducibility and traceability, this framework focuses on decision evolution and outcome tracking.
 
@@ -38,6 +42,8 @@ Draft
 → Archived
 
 ## History Record
+
+Detailed history record and versioning rules are maintained in [Decision history records and versions](decision-history/records-and-versioning.md).
 Each record contains:
 - Decision ID
 - Version
@@ -69,6 +75,8 @@ Supported actions:
 - Add Notes
 
 ## Outcome Tracking
+
+Detailed outcome tracking, analytics, and KPI rules are maintained in [Decision history outcomes and analytics](decision-history/outcomes-and-analytics.md).
 Track:
 - Expected outcome
 - Actual outcome

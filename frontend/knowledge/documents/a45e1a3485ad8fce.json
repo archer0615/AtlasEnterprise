@@ -1,0 +1,31 @@
+{
+  "id": "a45e1a3485ad8fce",
+  "title": "Command Catalog Entries",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/command/catalog-entries.md",
+  "sourceHash": "7aaf206fc72a553fcad99274d4067a63146df8bb7c8447c685b0ca17b1bc17fa",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Command Catalog Entries"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Entry Contract"
+    }
+  ],
+  "bodyMarkdown": "# Command Catalog Entries\n\n## Purpose\nThis split document isolates command definitions from the parent Command Catalog.\n\n## Source\n- Parent specification: [Command Catalog](../command-catalog.md)\n\n## Catalog Scope\nCommands define intent to mutate aggregate state through application services and domain services while preserving ownership and transaction boundaries.\n\n## Entry Contract\nEach command entry preserves command name, aggregate owner, application service, domain service, payload, validation rules, idempotency, events emitted, permissions, audit, and error behavior.\n\n",
+  "references": []
+}

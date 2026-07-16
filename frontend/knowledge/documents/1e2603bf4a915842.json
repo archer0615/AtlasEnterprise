@@ -1,0 +1,27 @@
+{
+  "id": "1e2603bf4a915842",
+  "title": "Outbox Publish Execution",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/outbox-publish-automation/execution.md",
+  "sourceHash": "f945fe0fa0db777e42607bbc77038af2339a74d5a376939323ee544f591148ad",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Outbox Publish Execution"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    }
+  ],
+  "bodyMarkdown": "# Outbox Publish Execution\n\n## Purpose\nThis split document isolates outbox publish execution, message dispatch, status update, and retry behavior from the parent OutboxPublishAutomation specification.\n\n## Source\n- Parent specification: [OutboxPublishAutomation](../outbox-publish-automation.md)\n\n## Execution\nExecution selects pending messages, respects ordering, publishes to the message bus, updates status, increments retry state, records audit, and routes failed messages to retry or dead-letter handling.\n\n",
+  "references": []
+}

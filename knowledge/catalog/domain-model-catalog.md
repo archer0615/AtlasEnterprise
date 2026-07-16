@@ -1,4 +1,8 @@
 # Domain Model Catalog
+## Split Navigation
+- [Domain model entities](domain-model/entities.md)
+- [Domain model relationships](domain-model/relationships.md)
+- [Domain model governance](domain-model/governance.md)
 
 # Document Control
 

@@ -1,5 +1,9 @@
 ﻿# Goal Lifecycle Management
 Version: 1.0
+## Split Navigation
+- [Goal lifecycle states](goal-lifecycle-management/states-and-transitions.md)
+- [Goal lifecycle automation and execution](goal-lifecycle-management/automation-and-execution.md)
+- [Goal lifecycle governance and testing](goal-lifecycle-management/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Lifecycle Management Specification

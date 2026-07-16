@@ -1,5 +1,9 @@
 ﻿# Goal Governance
 Version: 1.0
+## Split Navigation
+- [Goal governance policy and compliance](goal-governance/policy-and-compliance.md)
+- [Goal governance approval and monitoring](goal-governance/approval-and-monitoring.md)
+- [Goal governance audit and testing](goal-governance/audit-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Governance Specification

@@ -1,0 +1,47 @@
+{
+  "id": "cce988c2d57eec83",
+  "title": "Decision History Outcomes and Analytics",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/decision-history/outcomes-and-analytics.md",
+  "sourceHash": "0289ebd61b7308448a9a104335b67dcaaa1275547a57f333f3bb589c3a0687cd",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision History Outcomes and Analytics"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Outcome Tracking"
+    },
+    {
+      "level": 2,
+      "text": "Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Integration"
+    },
+    {
+      "level": 2,
+      "text": "KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Analytics"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Decision History Outcomes and Analytics\n\n## Purpose\nThis split document isolates outcome tracking, analytics, reporting outputs, and testing responsibilities from the parent Decision History Framework.\n\n## Source\n- Parent specification: [Decision History Framework](../decision-history-framework.md)\n\n## Outcome Tracking\nTrack expected outcome, actual outcome, variance, completion date, and success status.\n\n## Explainability\nEvery history entry provides previous recommendation, new recommendation, reason for change, triggering events, and KPI deltas.\n\n## Integration\n\nConsumes:\n- Decision Audit Framework\n- Recommendation Priority Framework\n- Decision Metrics Framework\n- Financial Projection Framework\n\nProduces:\n- Decision Timeline\n- Dashboard\n- Executive Reports\n- Analytics\n\n## KPIs\n- Decision Acceptance Rate\n- Decision Execution Rate\n- Recommendation Stability\n- Decision Accuracy\n- Average Time to Decision\n- Outcome Success Rate\n\n## Analytics\n- Recommendation evolution\n- User behavior trends\n- Rule effectiveness\n- Decision reversal frequency\n- Scenario adoption\n\n## Testing\n- Multiple revisions\n- User rejection\n- Accepted then executed\n- Outcome mismatch\n- Historical replay\n- Concurrent updates\n\n",
+  "references": []
+}

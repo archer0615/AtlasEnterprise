@@ -1,0 +1,47 @@
+{
+  "id": "5490f84a8b5df108",
+  "title": "Portfolio Lifecycle Execution and Validation",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/portfolio-lifecycle/execution-and-validation.md",
+  "sourceHash": "a659e8107adf941ad9e9f74a04c29cf179ade232421c8a0e648f28f755f6dd26",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Lifecycle Execution and Validation"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Lifecycle Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Lifecycle Execution and Validation\n\n## Purpose\nThis split document isolates the executable lifecycle contract, commands, events, API surface, and test matrix from the parent Portfolio Lifecycle specification.\n\n## Source\n- Parent specification: [Portfolio Lifecycle](../portfolio-lifecycle.md)\n\n## Portfolio Lifecycle Contract\n\n| Field | Requirement |\n|---|---|\n| Aggregate | PortfolioLifecycle |\n| Identity | portfolioId |\n| Scope | tenantId, householdId |\n| Required State | currentState, previousState, transitionReason, validationResult, effectiveAt |\n| Outputs | transitionDecision, supportingRules, expectedFinancialImpact, auditReference |\n| Invariant | A portfolio has exactly one active lifecycle state. |\n\n## Required Commands\n\n| Command | Purpose |\n|---|---|\n| InitializePortfolioLifecycle | Create lifecycle state for a portfolio. |\n| EvaluatePortfolioLifecycleTransition | Validate if transition is allowed. |\n| TransitionPortfolioLifecycle | Move portfolio to a new lifecycle state. |\n| EmergencyTransitionPortfolioLifecycle | Execute approved emergency transition. |\n| ArchivePortfolioLifecycle | Close lifecycle tracking for archived portfolio. |\n| ReplayPortfolioLifecycle | Rebuild lifecycle state from transition history. |\n\n## Domain Events\n\n| Event | Trigger |\n|---|---|\n| PortfolioLifecycleInitialized | Lifecycle tracking starts. |\n| PortfolioLifecycleTransitionEvaluated | Transition validation completes. |\n| PortfolioLifecycleTransitioned | State changes. |\n| PortfolioLifecycleEmergencyTransitioned | Emergency state change is approved. |\n| PortfolioLifecycleArchived | Portfolio lifecycle is closed. |\n| PortfolioLifecycleReplayed | Historical lifecycle state is reproduced. |\n\n## Validation Rules\n1. Transition must include previous state, new state, trigger event, and validation result.\n2. Closed portfolios cannot transition except through approved restore workflow.\n3. Distribution transition must validate withdrawal and cash reserve dependencies.\n4. Emergency transition must record major financial event and approval reference.\n5. Replay must produce exactly one active lifecycle state.\n\n## API Contract\n\n| Endpoint | Method | Purpose |\n|---|---|---|\n| /api/portfolios/{portfolioId}/lifecycle | POST | Initialize lifecycle. |\n| /api/portfolios/{portfolioId}/lifecycle/evaluate-transition | POST | Evaluate transition. |\n| /api/portfolios/{portfolioId}/lifecycle/transition | POST | Execute transition. |\n| /api/portfolios/{portfolioId}/lifecycle/emergency-transition | POST | Execute emergency transition. |\n| /api/portfolios/{portfolioId}/lifecycle/replay | POST | Replay lifecycle history. |\n\n## Testing Matrix\n\n| Scenario | Expected Result |\n|---|---|\n| New portfolio onboarding | PortfolioLifecycleInitialized is emitted. |\n| Accumulation to distribution without retirement validation | Transition is rejected. |\n| Emergency transition with approval | Emergency transition event is emitted. |\n| Closed portfolio transition | Command is rejected. |\n| Replay lifecycle | Current state matches transition history. |\n\n",
+  "references": []
+}

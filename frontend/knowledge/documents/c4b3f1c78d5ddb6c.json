@@ -1,0 +1,31 @@
+{
+  "id": "c4b3f1c78d5ddb6c",
+  "title": "Portfolio API and Persistence",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/portfolio-entity/api-and-persistence.md",
+  "sourceHash": "dc9339e8dec86cd78a43124080e22892093ddd5569bd837d43e55a0ef3706988",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio API and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "Persistence"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio API and Persistence\n\n## Purpose\nThis split document isolates Portfolio commands, events, repository, services, REST API, DTOs, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Portfolio Entity Specification.\n\n## Source\n- Parent specification: [Portfolio Entity Specification](../Portfolio.md)\n\n## API\nPortfolio APIs expose create, update, detail, search, allocation, valuation, archive, restore, and delete behavior under household and permission boundaries.\n\n## Persistence\nPersistence covers portfolio table mapping, indexes, constraints, EF Core mapping, optimistic concurrency, cache invalidation, and projection refresh.\n\n",
+  "references": []
+}

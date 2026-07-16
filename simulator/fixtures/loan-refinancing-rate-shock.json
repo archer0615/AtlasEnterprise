@@ -20,7 +20,12 @@
     "metrics": {
       "rateShock": "moderate",
       "monthlyPaymentPressure": "watch",
-      "refinanceBenefit": "conditional"
+      "refinanceBenefit": "conditional",
+      "currentMonthlyPayment": 20739.96,
+      "resetMonthlyPayment": 21945.04,
+      "refinanceMonthlyPayment": 21186.95,
+      "monthlyPaymentSavingsAfterReset": 758.09,
+      "refinanceFeeRecoveryMonths": 63.32
     },
     "warnings": [
       "refinance-fee-must-be-recovered",

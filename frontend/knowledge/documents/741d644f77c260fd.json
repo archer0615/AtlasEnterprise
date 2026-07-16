@@ -1,0 +1,31 @@
+{
+  "id": "741d644f77c260fd",
+  "title": "Decision Evaluation Execution and Evidence",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-evaluation/execution-and-evidence.md",
+  "sourceHash": "449c8b3de9e3b7b1307c68a0448188e1ef3cb835522953a81f31b189dabab53e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Evaluation Execution and Evidence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    },
+    {
+      "level": 2,
+      "text": "Evidence"
+    }
+  ],
+  "bodyMarkdown": "# Decision Evaluation Execution and Evidence\n\n## Purpose\nThis split document isolates decision evaluation execution pipeline, evidence capture, commands, events, APIs, and projection outputs from the parent Decision Evaluation specification.\n\n## Source\n- Parent specification: [Decision Evaluation](../decision-evaluation.md)\n\n## Execution\nExecution collects inputs, validates assumptions, applies rules, calculates scores, compares scenarios, records evidence, emits evaluation results, and refreshes dashboard projections.\n\n## Evidence\nEvidence preserves source references, metric values, rule versions, scenario versions, assumption versions, calculation timestamp, and evaluator context.\n\n",
+  "references": []
+}

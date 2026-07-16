@@ -1,0 +1,31 @@
+{
+  "id": "1c810b24cbd6cb54",
+  "title": "Report Generation Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/report-generation-automation/governance-and-testing.md",
+  "sourceHash": "b7f6cb5f0ab5f1a6a129187a68405a8964379efae0fce77bb028960dcfa5fbb3",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Report Generation Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Report Generation Governance and Testing\n\n## Purpose\nThis split document isolates report generation governance, validation, audit, retry, retention, testing, and edge cases from the parent ReportGenerationAutomation specification.\n\n## Source\n- Parent specification: [ReportGenerationAutomation](../report-generation-automation.md)\n\n## Governance\nGovernance covers masking, export permission, artifact retention, duplicate prevention, retry behavior, failure recovery, audit trail, and stale data indicators.\n\n## Testing\nTesting covers trigger matching, source collection, rendering, export, masking, retry, notification, retention, audit, and edge cases.\n\n",
+  "references": []
+}

@@ -1,4 +1,8 @@
 # Automation Framework
+## Split Navigation
+- [Automation catalog and triggers](automation/catalog-and-triggers.md)
+- [Automation execution strategies](automation/execution-strategies.md)
+- [Automation governance and testing](automation/governance-and-testing.md)
 
 # Document Control
 

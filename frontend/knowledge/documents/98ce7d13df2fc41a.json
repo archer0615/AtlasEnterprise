@@ -1,0 +1,31 @@
+{
+  "id": "98ce7d13df2fc41a",
+  "title": "Value Object Catalog Entries",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/value-object/catalog-entries.md",
+  "sourceHash": "7cb34d626ed7652b75e2851ae50edc3bbe8dcae3f73281dad2af4d41649e325d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Value Object Catalog Entries"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Entry Contract"
+    }
+  ],
+  "bodyMarkdown": "# Value Object Catalog Entries\n\n## Purpose\nThis split document isolates value object definitions from the parent Value Object Catalog.\n\n## Source\n- Parent specification: [Value Object Catalog](../value-object-catalog.md)\n\n## Catalog Scope\nValue objects define immutable domain values, equality behavior, validation rules, serialization behavior, persistence mapping, and API representation.\n\n## Entry Contract\nEach value object entry preserves name, purpose, fields, constraints, examples, owning aggregates, services, database mapping, DTO mapping, and error behavior.\n\n",
+  "references": []
+}

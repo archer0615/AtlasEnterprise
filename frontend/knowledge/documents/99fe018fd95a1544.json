@@ -1,0 +1,31 @@
+{
+  "id": "99fe018fd95a1544",
+  "title": "Repository Governance and Testing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/repository/governance-and-testing.md",
+  "sourceHash": "c938b1dc99c4fc730c7988ae31ec0d92cad37a9d49c201d94111e2a1fc79e70f",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Repository Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Repository Governance and Testing\n\n## Purpose\nThis split document isolates repository governance, validation, security, audit, performance, testing, edge cases, and consistency checks from the parent Repository Catalog.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Governance\nGovernance covers aggregate ownership, table ownership, query boundaries, command boundaries, transaction safety, field masking, audit metadata, and performance constraints.\n\n## Testing\nTesting covers repository queries, specifications, persistence mapping, concurrency, transaction behavior, cache invalidation, security filters, performance, and edge cases.\n\n",
+  "references": []
+}

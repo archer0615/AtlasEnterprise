@@ -1,0 +1,31 @@
+{
+  "id": "0380c75986205c53",
+  "title": "Decision Review Automation Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/decision-review-automation/governance-and-testing.md",
+  "sourceHash": "e328f0133df5554b25169392699ac62ecd4e4ba579955b3fceef393a2124ed09",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Review Automation Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Decision Review Automation Governance and Testing\n\n## Purpose\nThis split document isolates decision review automation governance, audit, retry, testing, and edge cases from the parent DecisionReviewAutomation specification.\n\n## Source\n- Parent specification: [DecisionReviewAutomation](../decision-review-automation.md)\n\n## Governance\nGovernance covers duplicate prevention, review cadence compliance, permission-aware reads, audit trail, retry behavior, and failed review recovery.\n\n## Testing\nTesting covers trigger matching, decision selection, review creation, notification, retry, idempotency, audit, and edge cases.\n\n",
+  "references": []
+}

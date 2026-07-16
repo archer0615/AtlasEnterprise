@@ -1,0 +1,31 @@
+{
+  "id": "042a306172c3848b",
+  "title": "Recommendation Refresh Trigger and Scope",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/recommendation-refresh-automation/trigger-and-scope.md",
+  "sourceHash": "4e41ba835cd2f7c16703e1dbc18f29953a4784a3a9b02200d6ee30f67f3aea0b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Refresh Trigger and Scope"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Trigger Scope"
+    },
+    {
+      "level": 2,
+      "text": "Eligibility"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Refresh Trigger and Scope\n\n## Purpose\nThis split document isolates recommendation refresh automation triggers, input scope, and refresh eligibility from the parent RecommendationRefreshAutomation specification.\n\n## Source\n- Parent specification: [RecommendationRefreshAutomation](../recommendation-refresh-automation.md)\n\n## Trigger Scope\nTriggers include decision changes, scenario changes, goal progress changes, market assumption changes, recommendation stale windows, scheduled refresh, and manual refresh requests.\n\n## Eligibility\nRefresh eligibility must preserve household scope, permission scope, recommendation status, source freshness, and idempotency.\n\n",
+  "references": []
+}

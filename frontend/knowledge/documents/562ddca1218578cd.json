@@ -1,0 +1,27 @@
+{
+  "id": "562ddca1218578cd",
+  "title": "Goal Analytics Indicators",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-analytics/indicators.md",
+  "sourceHash": "bee9751c2aab291e89c1f8e56a67d156386ce525b37a4d3ca00039e85df8f933",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Analytics Indicators"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Indicator Scope"
+    }
+  ],
+  "bodyMarkdown": "# Goal Analytics Indicators\n\n## Purpose\nThis split document isolates Goal Analytics categories, indicators, formulas, thresholds, and dashboard metric usage from the parent Goal Analytics specification.\n\n## Source\n- Parent specification: [Goal Analytics](../goal-analytics.md)\n\n## Indicator Scope\nIndicators cover progress, completion, financial, cash flow, priority, risk, dependency, milestone, review, decision, recommendation, scenario, portfolio, behavior, forecast, and trend analytics.\n\n",
+  "references": []
+}

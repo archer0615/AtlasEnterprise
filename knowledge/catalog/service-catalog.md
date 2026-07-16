@@ -1,4 +1,8 @@
 # Service Catalog
+## Split Navigation
+- [Service catalog application services](service-catalog/application-services.md)
+- [Service catalog domain services](service-catalog/domain-services.md)
+- [Service catalog governance](service-catalog/governance.md)
 
 # Document Control
 

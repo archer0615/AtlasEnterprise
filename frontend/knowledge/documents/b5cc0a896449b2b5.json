@@ -3,7 +3,7 @@
   "title": "Loan Risk and Refinancing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/loan/risk-and-refinancing.md",
-  "sourceHash": "f16bf43b95fbb725be5e913d9d2128e8847d7ff3c3ab15e7b776909d4b037cdf",
+  "sourceHash": "b89988030d1b82a73db78d00dd58d0580bfaf88e0cab1de5c76b063c37f1f9f2",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Loan Risk and Refinancing\n\n## Purpose\n\nThis split document isolates Loan risk, refinancing, and scenario integration concerns.\n\n## Source\n\n- Parent specification: [Loan Entity Specification](../Loan.md)\n\n## Risk Rules\n\n- Debt pressure should be evaluated with cash-flow, liquidity, and debt-to-income constraints.\n- Loan risk must be traceable to supporting assumptions and rule catalogs.\n- Stress testing should include interest-rate changes and repayment shocks.\n\n## Refinancing Rules\n\n- Refinancing scenarios must include fees, rate changes, tenor changes, and cash-flow effects.\n- Refinancing recommendations must include explanation and warning references.\n- Scenario simulator fixtures should preserve deterministic expected results.\n\n## Related References\n\n- [Loan Entity Specification](../Loan.md)\n- [Risk Framework](../../framework/risk-framework.md)\n- [Cash Reserve Framework](../../framework/cash-reserve-framework.md)\n- [Scenario Framework](../../framework/scenario-framework.md)\n",
+  "bodyMarkdown": "# Loan Risk and Refinancing\r\n\r\n## Purpose\r\n\r\nThis split document isolates Loan risk, refinancing, and scenario integration concerns.\r\n\r\n## Source\r\n\r\n- Parent specification: [Loan Entity Specification](../Loan.md)\r\n\r\n## Risk Rules\r\n\r\n- Debt pressure should be evaluated with cash-flow, liquidity, and debt-to-income constraints.\r\n- Loan risk must be traceable to supporting assumptions and rule catalogs.\r\n- Stress testing should include interest-rate changes and repayment shocks.\r\n\r\n## Refinancing Rules\r\n\r\n- Refinancing scenarios must include fees, rate changes, tenor changes, and cash-flow effects.\r\n- Refinancing recommendations must include explanation and warning references.\r\n- Scenario simulator fixtures should preserve deterministic expected results.\r\n\r\n## Related References\r\n\r\n- [Loan Entity Specification](../Loan.md)\r\n- [Risk Framework](../../framework/risk-framework.md)\r\n- [Cash Reserve Framework](../../framework/cash-reserve-framework.md)\r\n- [Scenario Framework](../../framework/scenario-framework.md)\r\n",
   "references": []
 }

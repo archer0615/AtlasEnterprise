@@ -1,4 +1,8 @@
 # Automation - NotificationDispatchAutomation
+## Split Navigation
+- [Notification dispatch trigger and channels](notification-dispatch-automation/trigger-and-channels.md)
+- [Notification dispatch execution](notification-dispatch-automation/execution.md)
+- [Notification dispatch governance and testing](notification-dispatch-automation/governance-and-testing.md)
 
 # Document Control
 

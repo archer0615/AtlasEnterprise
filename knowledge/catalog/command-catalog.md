@@ -1,4 +1,8 @@
 # Command Catalog
+## Split Navigation
+- [Command catalog entries](command/catalog-entries.md)
+- [Command ownership and routing](command/ownership-and-routing.md)
+- [Command governance and testing](command/governance-and-testing.md)
 
 # Document Control
 

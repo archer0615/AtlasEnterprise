@@ -1,4 +1,8 @@
 # Automation - BankingImportAutomation
+## Split Navigation
+- [Banking import trigger and scope](banking-import-automation/trigger-and-scope.md)
+- [Banking import execution](banking-import-automation/execution.md)
+- [Banking import governance and testing](banking-import-automation/governance-and-testing.md)
 
 # Document Control
 

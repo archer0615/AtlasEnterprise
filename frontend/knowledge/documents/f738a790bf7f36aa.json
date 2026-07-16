@@ -1,0 +1,31 @@
+{
+  "id": "f738a790bf7f36aa",
+  "title": "Decision Dashboard Metrics and Views",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/decision-dashboard/metrics-and-views.md",
+  "sourceHash": "722ab91381b01bc01a9e81b7b2ece8983bb650397462a88ec99ee1a4f56b5978",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Dashboard Metrics and Views"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Views"
+    }
+  ],
+  "bodyMarkdown": "# Decision Dashboard Metrics and Views\n\n## Purpose\nThis split document isolates dashboard-visible decision metrics, view composition, filtering, and status summaries from the parent Decision Dashboard specification.\n\n## Source\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\n\n## Metrics\nDecision dashboard metrics include decision count, status distribution, acceptance rate, execution rate, stale decisions, recommendation stability, scenario comparison, and outcome success.\n\n## Views\nViews include dashboard summary, decision timeline, recommendation list, scenario comparison, action queue, warning panel, and historical trend.\n\n",
+  "references": []
+}

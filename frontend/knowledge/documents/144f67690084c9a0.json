@@ -1,0 +1,31 @@
+{
+  "id": "144f67690084c9a0",
+  "title": "Background Job Execution Strategy",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/background-job/execution-strategy.md",
+  "sourceHash": "7a83aa0ef5c8565ad0848a92f49c304ab60919fa7fc65b2f47eeb34db41b48ce",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Background Job Execution Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Execution Strategy"
+    }
+  ],
+  "bodyMarkdown": "# Background Job Execution Strategy\n\n## Purpose\nThis split document isolates background job matrices and execution strategies from the parent Background Job Framework.\n\n## Source\n- Parent specification: [Background Job Framework](../background-job-framework.md)\n\n## Matrices\n- Background Job Matrix\n- Scheduler Matrix\n- Automation Matrix\n- Workflow Matrix\n- Repository Matrix\n- Command Matrix\n- Domain Event Matrix\n\n## Execution Strategy\nExecution strategy covers retry, checkpoint, resume, failure recovery, dependency ordering, idempotent replay, partial failure isolation, and operational recovery.\n\n",
+  "references": []
+}

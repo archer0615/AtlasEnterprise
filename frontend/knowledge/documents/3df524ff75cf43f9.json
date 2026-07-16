@@ -1,0 +1,27 @@
+{
+  "id": "3df524ff75cf43f9",
+  "title": "Goal Lifecycle Governance and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-lifecycle/governance-and-testing.md",
+  "sourceHash": "7a752fe598bd5925441ff02057ea5894159edb22f18cee2c3ac120733a15e5aa",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Lifecycle Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Goal Lifecycle Governance and Testing\n\n## Purpose\nThis split document isolates Goal lifecycle governance, validation, security, performance, testing, edge cases, and consistency checks from the parent Goal Lifecycle specification.\n\n## Source\n- Parent specification: [Goal Lifecycle](../goal-lifecycle.md)\n\n## Testing\nTesting covers valid transitions, invalid transitions, pause, resume, block, complete, cancel, archive, restore, automation, concurrency, and edge cases.\n\n",
+  "references": []
+}

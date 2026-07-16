@@ -1,0 +1,31 @@
+{
+  "id": "97f3bd15fe69fa1b",
+  "title": "Aggregate Catalog Core Aggregates",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/aggregate-catalog/core-aggregates.md",
+  "sourceHash": "a0647f23b6d7c0222c127d5696016c7763835211e362dc24977756e14e167d4a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Aggregate Catalog Core Aggregates"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Core Aggregates"
+    },
+    {
+      "level": 2,
+      "text": "Definition Standard"
+    }
+  ],
+  "bodyMarkdown": "# Aggregate Catalog Core Aggregates\n\n## Purpose\nThis split document isolates the core aggregate definitions from the parent Aggregate Catalog.\n\n## Source\n- Parent specification: [Aggregate Catalog](../aggregate-catalog.md)\n\n## Core Aggregates\n- User\n- Household\n- FinancialProfile\n- AssetPortfolio\n- LiabilityPortfolio\n- GoalPlan\n- Property\n- Loan\n- Scenario\n- DecisionSession\n- Recommendation\n- RetirementPlan\n- Notification\n- Policy\n- Configuration\n\n## Definition Standard\nEach aggregate entry preserves business meaning, ownership, aggregate boundary, lifecycle, commands, events, repositories, invariants, and consistency requirements.\n\n",
+  "references": []
+}

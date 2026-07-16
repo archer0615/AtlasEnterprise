@@ -1,0 +1,35 @@
+{
+  "id": "6a65753d0bf21054",
+  "title": "Recommendation Evaluation Scoring and Constraints",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-evaluation/scoring-and-constraints.md",
+  "sourceHash": "92a8ae7b92625a6d289165c1869185baa229ce544a0a76e0f4d494eeb3260b35",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Evaluation Scoring and Constraints"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Dimensions"
+    },
+    {
+      "level": 2,
+      "text": "Scoring Model"
+    },
+    {
+      "level": 2,
+      "text": "Constraint Evaluation"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Evaluation Scoring and Constraints\n\n## Purpose\nThis split document isolates recommendation evaluation dimensions, scoring model, ranking behavior, and constraint evaluation from the parent Recommendation Evaluation specification.\n\n## Source\n- Parent specification: [Recommendation Evaluation](../recommendation-evaluation.md)\n\n## Evaluation Dimensions\n- Goal Alignment\n- Financial Benefit\n- Cash Flow Impact\n- Portfolio Impact\n- Risk Level\n- Priority\n- Urgency\n- Feasibility\n- Execution Complexity\n- Dependency\n- Expected ROI\n- Expected Value\n- Confidence Score\n- Explainability Score\n- User Preference Alignment\n- Time Sensitivity\n- Business Value\n\n## Scoring Model\nScoring includes weighted score, composite score, normalized score, confidence score, penalty rules, bonus rules, ranking rules, and tie-breaking rules.\n\n## Constraint Evaluation\nConstraints include hard, soft, budget, risk, portfolio, cash flow, goal, scenario, compliance, and user preference constraints.\n\n",
+  "references": []
+}

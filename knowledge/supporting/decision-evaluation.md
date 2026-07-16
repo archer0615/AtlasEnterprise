@@ -1,5 +1,9 @@
 ﻿# Decision Evaluation
 Version: 1.0
+## Split Navigation
+- [Decision evaluation criteria](decision-evaluation/criteria-and-scoring.md)
+- [Decision evaluation execution](decision-evaluation/execution-and-evidence.md)
+- [Decision evaluation governance and testing](decision-evaluation/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Decision Evaluation Specification

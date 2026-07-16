@@ -1,0 +1,31 @@
+{
+  "id": "772d3531313ae952",
+  "title": "Repository Query and Persistence Rules",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/repository/query-and-persistence-rules.md",
+  "sourceHash": "0c405069ab187725674479a071873f4fc970da8ded88ee7ed3bd42744b51f649",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Repository Query and Persistence Rules"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Query Rules"
+    },
+    {
+      "level": 2,
+      "text": "Persistence Rules"
+    }
+  ],
+  "bodyMarkdown": "# Repository Query and Persistence Rules\n\n## Purpose\nThis split document isolates repository query, persistence, specification, filtering, sorting, aggregation, projection, and concurrency rules from the parent Repository Catalog.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Query Rules\nQuery rules cover tenant filters, household filters, permission-aware projections, pagination, sorting, filtering, search, aggregation, and read model separation.\n\n## Persistence Rules\nPersistence rules cover aggregate root loading, optimistic concurrency, soft delete, audit fields, transaction boundaries, index usage, and cache invalidation.\n\n",
+  "references": []
+}

@@ -1,4 +1,8 @@
 # User Entity Specification
+## Split Navigation
+- [User identity and access](user/identity-and-access.md)
+- [User API and persistence](user/api-and-persistence.md)
+- [User governance and testing](user/governance-and-testing.md)
 
 # Entity Overview
 

@@ -1,0 +1,27 @@
+{
+  "id": "e28e70e3c4677e22",
+  "title": "Decision Governance Policies",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-governance/policies.md",
+  "sourceHash": "b1e4dab6d04352507c82e2cde54c429c0192adfa40ea87ff4384df956a61df72",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Governance Policies"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Policy Scope"
+    }
+  ],
+  "bodyMarkdown": "# Decision Governance Policies\n\n## Purpose\nThis split document isolates decision governance policy definitions, scope, ownership, and enforcement responsibilities from the parent Decision Governance specification.\n\n## Source\n- Parent specification: [Decision Governance](../decision-governance.md)\n\n## Policy Scope\nDecision governance policies define approval requirements, exception handling, evidence requirements, risk controls, compliance checks, and audit obligations.\n\n",
+  "references": []
+}

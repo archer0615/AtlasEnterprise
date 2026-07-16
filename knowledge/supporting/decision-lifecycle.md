@@ -1,5 +1,9 @@
 ﻿# Decision Lifecycle
 Version: 1.0
+## Split Navigation
+- [Decision lifecycle states](decision-lifecycle/states-and-transitions.md)
+- [Decision lifecycle execution](decision-lifecycle/execution-and-audit.md)
+- [Decision lifecycle governance and testing](decision-lifecycle/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Decision Lifecycle Specification

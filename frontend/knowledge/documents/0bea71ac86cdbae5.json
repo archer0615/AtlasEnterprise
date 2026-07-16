@@ -1,0 +1,31 @@
+{
+  "id": "0bea71ac86cdbae5",
+  "title": "Enumeration Governance and Testing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/enumeration/governance-and-testing.md",
+  "sourceHash": "af04019bcd387f9f893ef3cdd784bbc19213de8bd40ce3fea99ae086503c4d66",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Enumeration Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Enumeration Governance and Testing\n\n## Purpose\nThis split document isolates enumeration validation, governance, testing, edge cases, and consistency checks from the parent Enumeration Catalog.\n\n## Source\n- Parent specification: [Enumeration Catalog](../enumeration-catalog.md)\n\n## Governance\nGovernance covers ownership, naming, lifecycle, deprecation, localization, serialization, persistence, and compatibility review.\n\n## Testing\nTesting covers serialization, persistence mapping, API schema, invalid values, deprecated values, migration safety, and edge cases.\n\n",
+  "references": []
+}

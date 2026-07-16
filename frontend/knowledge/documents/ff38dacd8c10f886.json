@@ -1,0 +1,31 @@
+{
+  "id": "ff38dacd8c10f886",
+  "title": "Scheduler Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/scheduler/governance-and-testing.md",
+  "sourceHash": "e45a42eb1230984c1dab4142d7db9e95f16db8917f87e4b15c93fe1171e12fca",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scheduler Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Scheduler Governance and Testing\n\n## Purpose\nThis split document isolates scheduler validation, business rules, security, audit, performance, diagrams, testing, edge cases, and consistency checks from the parent Scheduler Framework.\n\n## Source\n- Parent specification: [Scheduler Framework](../scheduler-framework.md)\n\n## Governance\nGovernance covers schedule ownership, validation rules, business rules, permission checks, audit trail, performance, operational safety, and stale schedule handling.\n\n## Testing\nTesting covers schedule calculation, cron behavior, calendar behavior, retry, misfire, catch-up, concurrency, background job triggering, and edge cases.\n\n",
+  "references": []
+}

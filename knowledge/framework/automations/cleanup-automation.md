@@ -1,4 +1,8 @@
 # Automation - CleanupAutomation
+## Split Navigation
+- [Cleanup trigger and scope](cleanup-automation/trigger-and-scope.md)
+- [Cleanup execution](cleanup-automation/execution.md)
+- [Cleanup governance and testing](cleanup-automation/governance-and-testing.md)
 
 # Document Control
 

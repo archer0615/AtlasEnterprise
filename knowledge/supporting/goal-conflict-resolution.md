@@ -1,4 +1,8 @@
 # Goal Conflict Resolution
+## Split Navigation
+- [Goal conflict detection](goal-conflict-resolution/detection-and-classification.md)
+- [Goal conflict resolution workflow](goal-conflict-resolution/resolution-workflow.md)
+- [Goal conflict governance and testing](goal-conflict-resolution/governance-and-testing.md)
 
 ## Document Control
 

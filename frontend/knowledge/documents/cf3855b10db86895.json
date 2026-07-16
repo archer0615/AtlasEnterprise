@@ -1,0 +1,47 @@
+{
+  "id": "cf3855b10db86895",
+  "title": "Decision History Records and Versioning",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/decision-history/records-and-versioning.md",
+  "sourceHash": "2b296b67ebe2f1ac0617e79736fd6a71ca1be62ff8ef37879d4486dc2f7c5526",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision History Records and Versioning"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Core Principles"
+    },
+    {
+      "level": 2,
+      "text": "Decision Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "History Record"
+    },
+    {
+      "level": 2,
+      "text": "Versioning"
+    },
+    {
+      "level": 2,
+      "text": "User Actions"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    }
+  ],
+  "bodyMarkdown": "# Decision History Records and Versioning\n\n## Purpose\nThis split document isolates immutable history record structure, versioning rules, and user action tracking from the parent Decision History Framework.\n\n## Source\n- Parent specification: [Decision History Framework](../decision-history-framework.md)\n\n## Core Principles\n- History is immutable.\n- Every decision has a persistent Decision ID.\n- Every revision creates a new Decision Version.\n- User actions are recorded independently.\n\n## Decision Lifecycle\n\n```mermaid\nstateDiagram-v2\n    [*] --> Draft\n    Draft --> Generated\n    Generated --> Presented\n    Presented --> UserReviewed\n    UserReviewed --> Accepted\n    UserReviewed --> Rejected\n    UserReviewed --> Deferred\n    Accepted --> Executed\n    Executed --> OutcomeMeasured\n    Rejected --> Archived\n    Deferred --> Archived\n    OutcomeMeasured --> Archived\n```\n\n## History Record\nEach record contains Decision ID, version, parent version, timestamp, user or household, decision type, scenario ID, recommendation ID, and status.\n\n## Versioning\nEach version stores changed assumptions, changed inputs, rule differences, metric differences, and recommendation changes.\n\n## User Actions\nSupported actions include view, accept, reject, dismiss, snooze, execute, undo, and add notes.\n\n## Business Rules\n- Historical versions are immutable.\n- Accepted decisions remain linked to execution records.\n- Deleted decisions are never physically removed.\n- Major financial events create new decision versions.\n\n",
+  "references": []
+}

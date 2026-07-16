@@ -1,5 +1,8 @@
 ﻿# Goal Progress Tracking
 Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Progress Tracking Specification Last Updated: 2026-07-13
+## Split Navigation
+- [Goal progress model and formulas](goal-progress-tracking/model-and-formulas.md)
+- [Goal progress execution and dashboard](goal-progress-tracking/execution-and-dashboard.md)
 # Goal Progress Overview
 ## Purpose
 Goal Progress Tracking defines how Atlas measures, updates, validates, persists, exposes, audits, and reports progress for GoalPlan. It coordinates GoalPlan progress with Goal Lifecycle, Goal Dependency, Goal Prioritization, Goal Funding, Goal Review, DecisionSession, Recommendation, Scenario, Notification, Dashboard, Projection, Calculation, Audit, Security, Permission, Tenant, Database, Cache, API, and Reporting. It does not redesign Atlas. It does not modify existing Domain ownership. It does not create a new Business Concept. It does not replace GoalPlan, Goal Lifecycle, Goal Dependency, DecisionSession, Recommendation, Scenario, or Notification.

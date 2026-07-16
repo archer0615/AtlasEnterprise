@@ -1,0 +1,31 @@
+{
+  "id": "7fe48270510cb9c5",
+  "title": "Entity Governance and Testing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/entity-catalog/governance-and-testing.md",
+  "sourceHash": "ca51989b220a6a87fcd3423236aa6764cc1592b296638465c645d0a071cb0cbf",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Entity Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Entity Governance and Testing\n\n## Purpose\nThis split document isolates entity validation, security, audit, migration, testing, edge cases, and consistency checks from the parent Entity Catalog.\n\n## Source\n- Parent specification: [Entity Catalog](../entity-catalog.md)\n\n## Governance\nGovernance covers identity rules, lifecycle rules, ownership rules, security classification, audit coverage, persistence compatibility, and API consistency.\n\n## Testing\nTesting covers entity mapping, lifecycle transitions, validation rules, command routing, event routing, repository behavior, API behavior, and edge cases.\n\n",
+  "references": []
+}

@@ -1,5 +1,9 @@
 ﻿# Decision Analytics
 Version: 1.0
+## Split Navigation
+- [Decision analytics indicators](decision-analytics/indicators.md)
+- [Decision analytics pipeline](decision-analytics/pipeline-and-reporting.md)
+- [Decision analytics governance and testing](decision-analytics/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Decision Analytics Specification

@@ -1,0 +1,31 @@
+{
+  "id": "59c6e8419270d48a",
+  "title": "Domain Service Matrices and Dependencies",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-service/matrices-and-dependencies.md",
+  "sourceHash": "318900a9a015d9c4e0adab697e0da18962014e2ab460e2cebf4a54b12a78fcdd",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Service Matrices and Dependencies"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Rules"
+    }
+  ],
+  "bodyMarkdown": "# Domain Service Matrices and Dependencies\n\n## Purpose\nThis split document isolates domain service matrices and dependency mapping from the parent Domain Service Catalog.\n\n## Source\n- Parent specification: [Domain Service Catalog](../domain-service-catalog.md)\n\n## Matrices\nMatrices include service ownership, aggregate, entity, repository, rule, engine, dependency, value object, enumeration, calculation engine, rule engine, projection engine, simulation engine, optimization engine, business capability, calculation, validation, decision, projection, optimization, and simulation mapping.\n\n## Dependency Rules\nDomain service dependencies must preserve aggregate ownership, avoid persistence orchestration, and keep calculation/rule behavior deterministic.\n\n",
+  "references": []
+}

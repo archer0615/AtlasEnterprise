@@ -4,6 +4,9 @@ Status: Enterprise Specification
 Owner: Atlas Recommendation Domain
 Source of Truth: Recommendation Catalog
 Last Updated: 2026-07-13
+## Split Navigation
+- [Recommendation lifecycle states and workflow](recommendation-lifecycle/states-and-workflow.md)
+- [Recommendation lifecycle execution and audit](recommendation-lifecycle/execution-and-audit.md)
 
 ## Purpose
 Recommendation Lifecycle defines how Atlas creates, evaluates, ranks, approves, publishes, accepts, implements, archives, restores, and deletes Recommendations. It governs lifecycle state without changing Decision, Goal, Scenario, Portfolio, CashFlow, Notification, Workflow, Automation, Business Calendar, or User domains.

@@ -1,0 +1,35 @@
+{
+  "id": "4d0dca0b5437ae8c",
+  "title": "Mortgage Identity and Repayment",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/mortgage/identity-and-repayment.md",
+  "sourceHash": "999dd3989dac588a33b20cd21a1a96380b14b170aa440c271e53b6b299794455",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Mortgage Identity and Repayment"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Identity"
+    },
+    {
+      "level": 2,
+      "text": "Repayment Model"
+    },
+    {
+      "level": 2,
+      "text": "Invariants"
+    }
+  ],
+  "bodyMarkdown": "# Mortgage Identity and Repayment\n\n## Purpose\nThis split document isolates Mortgage identity, aggregate boundary, lifecycle, ownership, relationships, properties, monetary semantics, interest model, repayment model, grace period model, collateral reference model, validation, and business rules from the parent Mortgage Entity Specification.\n\n## Source\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\n\n## Identity\nMortgage represents a housing loan record aligned to Loan ownership where mortgage behavior must preserve household, property, collateral, repayment, and audit context.\n\n## Repayment Model\nRepayment behavior covers principal, interest, installment amount, payment frequency, early repayment, refinance context, grace period, and amortization cache ownership.\n\n## Invariants\nMortgage balances cannot become negative, repayment must preserve loan command ownership, collateral references must resolve, and closed mortgage records cannot receive payment.\n\n",
+  "references": []
+}

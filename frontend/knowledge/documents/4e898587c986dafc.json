@@ -1,0 +1,31 @@
+{
+  "id": "4e898587c986dafc",
+  "title": "Repository Catalog Entries",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/repository/catalog-entries.md",
+  "sourceHash": "a763ed563e43be9bc664ffdfe88bf59a766dfab1bea5e3dd6cd63657463c33af",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Repository Catalog Entries"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Repository Scope"
+    },
+    {
+      "level": 2,
+      "text": "Entry Contract"
+    }
+  ],
+  "bodyMarkdown": "# Repository Catalog Entries\n\n## Purpose\nThis split document isolates repository definitions from the parent Repository Catalog.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Repository Scope\nRepositories own aggregate persistence access, query methods, specifications, projections, concurrency handling, transaction participation, and storage mapping.\n\n## Entry Contract\nEach repository entry preserves aggregate owner, entity owner, table mapping, query behavior, command behavior, transaction boundary, cache interaction, and audit expectations.\n\n",
+  "references": []
+}

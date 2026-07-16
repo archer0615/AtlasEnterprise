@@ -1,0 +1,27 @@
+{
+  "id": "db96beb7e87605b6",
+  "title": "Goal Lifecycle States and Transitions",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-lifecycle/states-and-transitions.md",
+  "sourceHash": "2132b9e6ed88b6f5e533c30bc59cc6c9cea5275aac62896b8a8b9408003a6b79",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Lifecycle States and Transitions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    }
+  ],
+  "bodyMarkdown": "# Goal Lifecycle States and Transitions\n\n## Purpose\nThis split document isolates Goal lifecycle states, transitions, triggers, invariants, and invalid transition rules from the parent Goal Lifecycle specification.\n\n## Source\n- Parent specification: [Goal Lifecycle](../goal-lifecycle.md)\n\n## Scope\nLifecycle state tracking preserves source goal state, previous state, transition reason, validation result, operator, timestamp, and audit reference.\n\n",
+  "references": []
+}

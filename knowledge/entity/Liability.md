@@ -1,4 +1,8 @@
 # Liability Entity Specification
+## Split Navigation
+- [Liability identity and lifecycle](liability/identity-and-lifecycle.md)
+- [Liability API and persistence](liability/api-and-persistence.md)
+- [Liability governance and testing](liability/governance-and-testing.md)
 # Document Control
 | Field | Value |
 |---|---|

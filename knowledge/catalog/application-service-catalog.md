@@ -1,4 +1,8 @@
 # Application Service Catalog
+## Split Navigation
+- [Application service command orchestration](application-service/command-orchestration.md)
+- [Application service query projection](application-service/query-projection.md)
+- [Application service governance](application-service/governance.md)
 
 # Document Control
 

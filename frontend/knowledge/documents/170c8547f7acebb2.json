@@ -1,0 +1,43 @@
+{
+  "id": "170c8547f7acebb2",
+  "title": "Investment Policy Execution and Governance",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/investment-policy/execution-and-governance.md",
+  "sourceHash": "3e9079e2a4f22f8c5656cf6ebd1c9b4e772c9a86fd2ab79e3593a16b7002c98e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Investment Policy Execution and Governance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Investment Policy Contract"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "API Contract"
+    },
+    {
+      "level": 2,
+      "text": "Testing Matrix"
+    }
+  ],
+  "bodyMarkdown": "# Investment Policy Execution and Governance\n\n## Purpose\nThis split document isolates executable Investment Policy commands, validation, API, testing, and governance from the parent Investment Policy Knowledge Base.\n\n## Source\n- Parent specification: [Investment Policy Knowledge Base](../investment-policy.md)\n\n## Investment Policy Contract\nInvestment Policy owns household policy constraints, target allocation rules, review cadence, exception handling, and policy evidence.\n\n## Commands\n- CreateInvestmentPolicy\n- UpdateInvestmentPolicy\n- ApproveInvestmentPolicy\n- ReviewInvestmentPolicy\n- ArchiveInvestmentPolicy\n\n## Validation Rules\n- Policy must define approved asset classes.\n- Target allocation must remain inside policy constraints.\n- Portfolio changes must validate against policy before execution.\n- Policy review must preserve previous policy evidence.\n\n## API Contract\nInvestment Policy APIs expose create, read, update, approve, review, archive, and search behavior under permission control.\n\n## Testing Matrix\nTesting covers policy creation, invalid allocation, policy exception, review cadence, archive protection, and replay from audit history.\n\n",
+  "references": []
+}

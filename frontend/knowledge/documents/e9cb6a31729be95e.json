@@ -3,7 +3,7 @@
   "title": "Goal Progress Milestones and Variance",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-progress-tracking/milestones-and-variance.md",
-  "sourceHash": "c2c1d8130e7aa44f7d937e3a24a541bc17b35718ba1e075f2ae7725ff47276c5",
+  "sourceHash": "988b77c88d9011ea1ee25b3a58dc3c8ca118a02de2605ea8ff44877ce428baf6",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Goal Progress Milestones and Variance\n\n## Purpose\n\nThis split document isolates milestone and variance tracking from the larger Goal Progress Tracking specification.\n\n## Source\n\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\n\n## Milestone Rules\n\n- Goal progress is derived data attached to GoalPlan.\n- Milestones must preserve GoalPlan authority and lifecycle boundaries.\n- Completed progress is immutable at 100% unless approved correction restores the GoalPlan.\n- Cancelled and archived progress are read-only.\n\n## Variance Rules\n\n- Progress variance compares current, forecast, and target values.\n- Variance calculations must remain deterministic for the same inputs and calculation version.\n- Scenario simulation may create forecast progress but must not overwrite committed progress.\n\n## Related References\n\n- [Goal Entity](../../entity/Goal.md)\n- [Goal Funding Framework](../../framework/goal-funding-framework.md)\n- [Goal Review](../goal-review.md)\n",
+  "bodyMarkdown": "# Goal Progress Milestones and Variance\r\n\r\n## Purpose\r\n\r\nThis split document isolates milestone and variance tracking from the larger Goal Progress Tracking specification.\r\n\r\n## Source\r\n\r\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\r\n\r\n## Milestone Rules\r\n\r\n- Goal progress is derived data attached to GoalPlan.\r\n- Milestones must preserve GoalPlan authority and lifecycle boundaries.\r\n- Completed progress is immutable at 100% unless approved correction restores the GoalPlan.\r\n- Cancelled and archived progress are read-only.\r\n\r\n## Variance Rules\r\n\r\n- Progress variance compares current, forecast, and target values.\r\n- Variance calculations must remain deterministic for the same inputs and calculation version.\r\n- Scenario simulation may create forecast progress but must not overwrite committed progress.\r\n\r\n## Related References\r\n\r\n- [Goal Entity](../../entity/Goal.md)\r\n- [Goal Funding Framework](../../framework/goal-funding-framework.md)\r\n- [Goal Review](../goal-review.md)\r\n",
   "references": []
 }

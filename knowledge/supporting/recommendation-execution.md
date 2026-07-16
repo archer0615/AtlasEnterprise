@@ -4,6 +4,9 @@ Status: Enterprise Specification
 Owner: Atlas Recommendation Domain
 Source of Truth: Recommendation Catalog
 Last Updated: 2026-07-13
+## Split Navigation
+- [Recommendation execution planning](recommendation-execution/planning-and-workflow.md)
+- [Recommendation execution recovery](recommendation-execution/recovery-and-audit.md)
 
 ## Purpose
 Recommendation Execution defines governed execution for existing Recommendations in Atlas, preserving existing Domain ownership, Catalog naming, validation, audit, security, lifecycle, and execution evidence.

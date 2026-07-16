@@ -1,0 +1,27 @@
+{
+  "id": "6a34b9d16ad3e6b3",
+  "title": "Scenario API and Persistence",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/scenario/api-and-persistence.md",
+  "sourceHash": "a68cf73d51f651111edccd61ad94768fc6fcefdab386a96d3fed9778b8337217",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scenario API and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "API"
+    }
+  ],
+  "bodyMarkdown": "# Scenario API and Persistence\n\n## Purpose\nThis split document isolates Scenario commands, events, repository, services, API, DTOs, database mapping, EF Core mapping, and cache strategy from the parent Scenario Entity Specification.\n\n## Source\n- Parent specification: [Scenario Entity Specification](../Scenario.md)\n\n## API\nScenario APIs expose create, update, evaluate, compare, archive, restore, detail, summary, and search behavior under household and permission boundaries.\n\n",
+  "references": []
+}

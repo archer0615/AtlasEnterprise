@@ -1,0 +1,35 @@
+{
+  "id": "763eeceeaf758bfb",
+  "title": "Liability Identity and Lifecycle",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/liability/identity-and-lifecycle.md",
+  "sourceHash": "81b9b45aec4e7b734e428ec16396943c72e8a1eebec697b3d56cc2fe920d3196",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Liability Identity and Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Identity"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Invariants"
+    }
+  ],
+  "bodyMarkdown": "# Liability Identity and Lifecycle\n\n## Purpose\nThis split document isolates Liability identity, aggregate root behavior, aggregate boundary, lifecycle, ownership, relationships, navigation, properties, validation, business rules, invariants, and state machine from the parent Liability Entity Specification.\n\n## Source\n- Parent specification: [Liability Entity Specification](../Liability.md)\n\n## Identity\nLiability stores debt identity, classification, amount, rate, payment terms, dates, lender, secured status, collateral reference, audit fields, version, and concurrency metadata.\n\n## Lifecycle\nLiability lifecycle covers active obligation, payment recording, balance adjustment, payoff, archive, restore, delete, and terminal state protection.\n\n## Invariants\nOutstanding balance cannot be negative, archived liabilities cannot accept mutation, payment and balance adjustments must be audited, and Loan-owned behavior must not be mutated by Liability.\n\n",
+  "references": []
+}

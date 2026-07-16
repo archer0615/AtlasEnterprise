@@ -1,0 +1,27 @@
+{
+  "id": "726c25f69a520803",
+  "title": "Goal Analytics Pipeline and Reporting",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-analytics/pipeline-and-reporting.md",
+  "sourceHash": "f6fd0f5882abc4ac2070eda5f58c1ceaa29a1fae90b732766bb37473b0708c42",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Analytics Pipeline and Reporting"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Pipeline"
+    }
+  ],
+  "bodyMarkdown": "# Goal Analytics Pipeline and Reporting\n\n## Purpose\nThis split document isolates Goal Analytics data pipeline, aggregation, calculation, forecast, reporting, caching, and visualization behavior from the parent Goal Analytics specification.\n\n## Source\n- Parent specification: [Goal Analytics](../goal-analytics.md)\n\n## Pipeline\nPipeline stages collect source snapshots, aggregate by scope, calculate indicators, compare forecasts, generate reports, and refresh dashboard projections.\n\n",
+  "references": []
+}

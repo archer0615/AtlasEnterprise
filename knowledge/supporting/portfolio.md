@@ -4,6 +4,10 @@ Version: 1.0 Project: Atlas -- Life Financial Decision Operating System
 
 ------------------------------------------------------------------------
 
+## Split Navigation
+- [Portfolio holdings and allocation](portfolio/holdings-and-allocation.md)
+- [Portfolio execution and reporting](portfolio/execution-and-reporting.md)
+
 # Purpose
 
 Portfolio 在 Atlas 中代表整體資產配置，而非單一投資帳戶。

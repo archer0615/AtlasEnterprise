@@ -1,0 +1,31 @@
+{
+  "id": "c6e0cc9f3c1bd288",
+  "title": "Entity Relationships and Ownership",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/entity-catalog/relationships-and-ownership.md",
+  "sourceHash": "f1cc05213a4052e12dff636db0f03ebb0bb99e243910bff05f37ce35b8509243",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Entity Relationships and Ownership"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Rules"
+    }
+  ],
+  "bodyMarkdown": "# Entity Relationships and Ownership\n\n## Purpose\nThis split document isolates entity ownership and relationship matrices from the parent Entity Catalog.\n\n## Source\n- Parent specification: [Entity Catalog](../entity-catalog.md)\n\n## Matrices\nMatrices include entity ownership, entity dependency, entity relationship, command ownership, event ownership, repository mapping, API mapping, and table mapping.\n\n## Rules\nEntity ownership rules preserve aggregate boundaries, lifecycle ownership, repository ownership, persistence ownership, and projection separation.\n\n",
+  "references": []
+}

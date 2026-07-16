@@ -1,0 +1,43 @@
+{
+  "id": "e7e0f113497fc464",
+  "title": "Recommendation Lifecycle Execution and Audit",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-lifecycle/execution-and-audit.md",
+  "sourceHash": "35d49f7d6cce10a7716b59614981df85f022a5817ab96a540e7dde0f2b67be66",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Lifecycle Execution and Audit"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Lifecycle Execution and Audit\n\n## Purpose\nThis split document isolates recommendation lifecycle commands, events, repository, API, persistence, cache, security, audit, and testing concerns from the parent Recommendation Lifecycle specification.\n\n## Source\n- Parent specification: [Recommendation Lifecycle](../recommendation-lifecycle.md)\n\n## Commands\nRecommendation lifecycle commands cover generation, evaluation, ranking, prioritization, approval, rejection, publication, acceptance, implementation, archive, restore, delete, search, bulk operations, and lifecycle operations.\n\n## Domain Events\nLifecycle events record generation, ranking, prioritization, approval, publication, user response, implementation, verification, archive, restore, and deletion transitions.\n\n## API\nRecommendation lifecycle APIs expose REST endpoints for lifecycle operations, pagination, filtering, sorting, projection, bulk operations, and lifecycle-specific state actions.\n\n## Audit\nAudit covers recommendation history, lifecycle history, approval history, ranking history, implementation history, and operator history.\n\n## Testing\nTesting covers unit, integration, lifecycle, validation, approval, ranking, performance, concurrency, and recovery behavior.\n\n",
+  "references": []
+}

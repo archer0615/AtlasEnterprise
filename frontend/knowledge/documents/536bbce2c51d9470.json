@@ -1,0 +1,39 @@
+{
+  "id": "536bbce2c51d9470",
+  "title": "Recommendation Lifecycle States and Workflow",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-lifecycle/states-and-workflow.md",
+  "sourceHash": "4f4f3205e46fae6d4045abf216794a36a752683f67baa987d609e6692cafe262",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Lifecycle States and Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation States"
+    },
+    {
+      "level": 2,
+      "text": "Transition Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Validation"
+    },
+    {
+      "level": 2,
+      "text": "Recommendation Workflow"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Lifecycle States and Workflow\n\n## Purpose\nThis split document isolates recommendation lifecycle state semantics, transition matrix, validation categories, and workflow stages from the parent Recommendation Lifecycle specification.\n\n## Source\n- Parent specification: [Recommendation Lifecycle](../recommendation-lifecycle.md)\n\n## Recommendation States\nRecommendation states include Draft, Generated, Pending Review, Ranked, Prioritized, Waiting Approval, Approved, Rejected, Published, Accepted, Declined, Implemented, Expired, Archived, Deleted, Restored, Historical, and Template.\n\n## Transition Matrix\nLegal transitions must preserve lifecycle invariant, trigger evidence, pre-condition, post-condition, rollback strategy, and recovery strategy.\n\n## Recommendation Validation\nValidation covers business, financial, goal, scenario, portfolio, cashflow, priority, dependency, permission, and consistency checks.\n\n## Recommendation Workflow\nWorkflow stages include generation, evaluation, ranking, prioritization, approval, publication, acceptance, implementation, verification, and archive.\n\n",
+  "references": []
+}

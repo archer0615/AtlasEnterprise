@@ -1,4 +1,8 @@
 # Automation - ScenarioRefreshAutomation
+## Split Navigation
+- [Scenario refresh trigger and scope](scenario-refresh-automation/trigger-and-scope.md)
+- [Scenario refresh execution](scenario-refresh-automation/execution.md)
+- [Scenario refresh governance and testing](scenario-refresh-automation/governance-and-testing.md)
 
 # Document Control
 

@@ -1,0 +1,31 @@
+{
+  "id": "f3e4db8ea5d094b8",
+  "title": "API Governance Resource Catalog",
+  "category": "api",
+  "canonicalPath": "knowledge/api/api-governance/resource-catalog.md",
+  "sourceHash": "1d6f3cfe4c412aa248f9bd114c97e545cba3613e35c64b5a377ed7be4209e195",
+  "headings": [
+    {
+      "level": 1,
+      "text": "API Governance Resource Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Resource Groups"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Rules"
+    }
+  ],
+  "bodyMarkdown": "# API Governance Resource Catalog\n\n## Purpose\nThis split document isolates the complete API resource catalog from the parent API Governance Framework.\n\n## Source\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\n\n## Resource Groups\n- Users API\n- Households API\n- Blueprint API\n- Goals API\n- Portfolios API\n- Loans API\n- Properties API\n- Scenarios API\n- Decisions API\n- Recommendations API\n- Policies API\n- Dashboard API\n- Notifications API\n- Reports API\n- Administration API\n- Audit API\n\n## Catalog Rules\nEach resource group must define route, application service, domain service, aggregate, commands, queries, DTO, repository, domain events, permissions, audit requirement, idempotency requirement, and error catalog references.\n\n",
+  "references": []
+}

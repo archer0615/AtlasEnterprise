@@ -19,6 +19,7 @@
     "metrics": {
       "minimumReserveMonths": 6,
       "postPrepaymentReserveMonths": 6.52,
+      "monthlyMortgagePayment": 73800.48,
       "debtPressure": "moderate"
     },
     "warnings": [

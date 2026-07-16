@@ -1,6 +1,9 @@
 ﻿# Decision Insights Overview
 Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Decision Domain Source of Truth: Decision Catalog
 Last Updated: 2026-07-13
+## Split Navigation
+- [Decision insights generation](decision-insights/generation-and-detection.md)
+- [Decision insights execution and reporting](decision-insights/execution-and-reporting.md)
 ## Purpose
 Decision Insights defines how Atlas detects, explains, ranks, and governs business insights related to Decision behavior. It converts Decision, Recommendation, Goal, Scenario, Portfolio, CashFlow, Risk, Simulation, Workflow, Automation, Notification, Business Calendar, and User signals into auditable insight records. It supports decision quality improvement, execution monitoring, risk awareness, opportunity discovery, and governance visibility without changing existing Atlas domains.
 ## Business Meaning

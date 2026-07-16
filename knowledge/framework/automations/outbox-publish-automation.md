@@ -1,4 +1,8 @@
 # Automation - OutboxPublishAutomation
+## Split Navigation
+- [Outbox publish trigger and scope](outbox-publish-automation/trigger-and-scope.md)
+- [Outbox publish execution](outbox-publish-automation/execution.md)
+- [Outbox publish governance and testing](outbox-publish-automation/governance-and-testing.md)
 
 # Document Control
 

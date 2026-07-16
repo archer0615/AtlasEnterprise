@@ -1,5 +1,9 @@
 ﻿# Decision Optimization
 Version: 1.0
+## Split Navigation
+- [Decision optimization objectives](decision-optimization/objectives-and-constraints.md)
+- [Decision optimization execution](decision-optimization/execution-workflow.md)
+- [Decision optimization governance and testing](decision-optimization/governance-and-testing.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Decision Optimization Specification

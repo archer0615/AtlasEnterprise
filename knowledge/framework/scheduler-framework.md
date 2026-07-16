@@ -1,4 +1,8 @@
 # Scheduler Framework
+## Split Navigation
+- [Scheduler catalog and timing](scheduler/catalog-and-timing.md)
+- [Scheduler execution strategies](scheduler/execution-strategies.md)
+- [Scheduler governance and testing](scheduler/governance-and-testing.md)
 
 # Document Control
 

@@ -1,0 +1,31 @@
+{
+  "id": "187a6375190402cc",
+  "title": "Decision Optimization Execution Workflow",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-optimization/execution-workflow.md",
+  "sourceHash": "1cfb0d382608417d706695c309c6b61537a040223ddfb0b5bd4c37a2fc8a161a",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Optimization Execution Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Pipeline"
+    },
+    {
+      "level": 2,
+      "text": "Execution"
+    }
+  ],
+  "bodyMarkdown": "# Decision Optimization Execution Workflow\n\n## Purpose\nThis split document isolates Decision Optimization pipeline, commands, events, candidate generation, approval preparation, and audit logging from the parent Decision Optimization specification.\n\n## Source\n- Parent specification: [Decision Optimization](../decision-optimization.md)\n\n## Pipeline\nPipeline steps include input collection, validation, constraint loading, objective loading, scenario generation, simulation, optimization, candidate generation, scoring, ranking, recommendation, approval preparation, and audit logging.\n\n## Execution\nExecution coordinates Decision, Recommendation, Scenario, Portfolio, CashFlow, Risk, Simulation, Workflow, Automation, Notification, Business Calendar, and User signals.\n\n",
+  "references": []
+}

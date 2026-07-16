@@ -1,0 +1,27 @@
+{
+  "id": "9c52bbc7f4fc5ba2",
+  "title": "User Governance and Testing",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/user/governance-and-testing.md",
+  "sourceHash": "6bdcb7a334fbe337c2156bd040f4483d0903d39bdbd4dde19107d2da9ba17977",
+  "headings": [
+    {
+      "level": 1,
+      "text": "User Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# User Governance and Testing\n\n## Purpose\nThis split document isolates User security, audit, performance, examples, diagrams, testing, edge cases, and consistency checks from the parent User Entity Specification.\n\n## Source\n- Parent specification: [User Entity Specification](../User.md)\n\n## Testing\nTesting covers user creation, profile update, permission context, household membership, archive, restore, masking, cache invalidation, and edge cases.\n\n",
+  "references": []
+}

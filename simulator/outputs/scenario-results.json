@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T15:39:43.581Z",
+  "generatedAt": "2026-07-16T06:08:01.175Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -37,8 +37,14 @@
       "status": "conditional",
       "score": 66,
       "warningCount": 2,
-      "metrics": {},
-      "generatedFrom": "fixture-expected-output"
+      "metrics": {
+        "currentMonthlyPayment": 20739.96,
+        "resetMonthlyPayment": 21945.04,
+        "refinanceMonthlyPayment": 21186.95,
+        "monthlyPaymentSavingsAfterReset": 758.09,
+        "refinanceFeeRecoveryMonths": 63.32
+      },
+      "generatedFrom": "fixture-runtime-formula"
     },
     {
       "fixtureId": "mortgage-prepayment-baseline-2026",
@@ -49,7 +55,8 @@
       "score": 72,
       "warningCount": 1,
       "metrics": {
-        "postPrepaymentReserveMonths": 6.52
+        "postPrepaymentReserveMonths": 6.52,
+        "monthlyMortgagePayment": 73800.48
       },
       "generatedFrom": "fixture-runtime-formula"
     },

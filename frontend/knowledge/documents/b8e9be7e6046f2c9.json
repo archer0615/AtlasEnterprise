@@ -1,0 +1,31 @@
+{
+  "id": "b8e9be7e6046f2c9",
+  "title": "Domain Model Relationships",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-model/relationships.md",
+  "sourceHash": "588986c8fd0367b62fa3cca46478dbe5940feea29897bdddc3436a2d7eb2558b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Model Relationships"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Relationship Scope"
+    },
+    {
+      "level": 2,
+      "text": "Mapping Rules"
+    }
+  ],
+  "bodyMarkdown": "# Domain Model Relationships\n\n## Purpose\nThis split document isolates domain model relationship, dependency, and ownership mapping rules from the parent Domain Model Catalog.\n\n## Source\n- Parent specification: [Domain Model Catalog](../domain-model-catalog.md)\n\n## Relationship Scope\nRelationships cover aggregate references, entity dependencies, command routing, event publication, repository access, service orchestration, read projections, and reporting dependencies.\n\n## Mapping Rules\nMappings must preserve canonical ownership, avoid cross-aggregate mutation, and keep dashboard or report projections separate from source-of-truth domain state.\n\n",
+  "references": []
+}

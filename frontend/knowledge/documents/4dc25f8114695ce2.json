@@ -3,7 +3,7 @@
   "title": "Portfolio Holdings and Allocation",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/portfolio/holdings-and-allocation.md",
-  "sourceHash": "a0b4021b52e52272f5a3a047f9b7667bf421f6321a1b190be1214d7752742a78",
+  "sourceHash": "e107664011b86c5a638a81f5985de616e524434ca05f6b3cdb63cb98658a0221",
   "headings": [
     {
       "level": 1,
@@ -19,7 +19,11 @@
     },
     {
       "level": 2,
-      "text": "Holdings Rules"
+      "text": "Portfolio Structure"
+    },
+    {
+      "level": 2,
+      "text": "Asset Classes"
     },
     {
       "level": 2,
@@ -27,9 +31,13 @@
     },
     {
       "level": 2,
-      "text": "Related References"
+      "text": "Rebalancing"
+    },
+    {
+      "level": 2,
+      "text": "Cash Flow"
     }
   ],
-  "bodyMarkdown": "# Portfolio Holdings and Allocation\n\n## Purpose\n\nThis split document isolates holdings and allocation concepts from the larger Portfolio knowledge base.\n\n## Source\n\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\n\n## Holdings Rules\n\n- Holdings represent portfolio positions and must remain separate from Asset identity.\n- Holdings must preserve quantity, valuation, currency, and source snapshot where applicable.\n- Holdings are used for performance, risk, allocation, and scenario analysis.\n\n## Allocation Rules\n\n- Allocation compares current holdings with target policy.\n- Allocation outputs may feed rebalancing, recommendation, and dashboard workflows.\n- Allocation calculations must preserve assumptions and formula versions.\n\n## Related References\n\n- [Asset Entity](../../entity/Asset.md)\n- [Portfolio Entity](../../entity/Portfolio.md)\n- [Asset Allocation Framework](../../framework/asset-allocation-framework.md)\n",
+  "bodyMarkdown": "# Portfolio Holdings and Allocation\n\n## Purpose\nThis split document isolates portfolio structure, asset classes, allocation rules, rebalancing principles, risk levels, and cash flow inputs from the parent Portfolio Knowledge Base.\n\n## Source\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\n\n## Portfolio Structure\nEach Portfolio includes portfolio ID, name, owner, base currency, target allocation, current allocation, holdings, cost basis, market value, unrealized gain/loss, annual income, and risk level.\n\n## Asset Classes\n- Cash\n- Fixed Income\n- Equity\n- Alternative\n\n## Allocation Rules\nEvery asset class must define target weight, minimum weight, maximum weight, and rebalance threshold.\n\n## Rebalancing\nRebalancing can be triggered by allocation drift, periodic review, life events, and market changes. Preferred execution uses new cash flow before selling assets.\n\n## Cash Flow\nPortfolio supplies dividend, coupon, rental income, withdrawal, and asset sale data to Cash Flow Engine.\n\n",
   "references": []
 }

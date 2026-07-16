@@ -1,4 +1,8 @@
 # Automation - BackupAutomation
+## Split Navigation
+- [Backup trigger and scope](backup-automation/trigger-and-scope.md)
+- [Backup execution](backup-automation/execution.md)
+- [Backup governance and testing](backup-automation/governance-and-testing.md)
 
 # Document Control
 

@@ -1,4 +1,8 @@
 # Decision Entity Specification
+## Split Navigation
+- [Decision identity and scoring](decision/identity-and-scoring.md)
+- [Decision API and persistence](decision/api-and-persistence.md)
+- [Decision governance and testing](decision/governance-and-testing.md)
 
 # Document Control
 

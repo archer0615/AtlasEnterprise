@@ -2,6 +2,10 @@
 
 Version: 1.0
 
+## Split Navigation
+- [Portfolio lifecycle states](portfolio-lifecycle/states-and-transitions.md)
+- [Portfolio lifecycle execution](portfolio-lifecycle/execution-and-validation.md)
+
 ## Purpose
 Defines the complete lifecycle of an investment portfolio within Project Atlas, from creation through retirement and closure.
 
@@ -11,6 +15,8 @@ Defines the complete lifecycle of an investment portfolio within Project Atlas, 
 - Ensure deterministic, auditable investment decisions.
 
 ## Lifecycle Phases
+
+Detailed lifecycle state criteria and transition rules are maintained in [Portfolio lifecycle states](portfolio-lifecycle/states-and-transitions.md).
 
 ### 1. Portfolio Creation
 Entry criteria:
@@ -139,6 +145,8 @@ Every transition records:
 - Automatic transition recommendations
 
 ## Phase 2 Executable Specification
+
+Detailed executable commands, events, API contracts, and tests are maintained in [Portfolio lifecycle execution](portfolio-lifecycle/execution-and-validation.md).
 
 ### Portfolio Lifecycle Contract
 

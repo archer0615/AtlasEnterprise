@@ -1,0 +1,31 @@
+{
+  "id": "61085af8dd9293bd",
+  "title": "Goal Lifecycle States and Transitions",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-lifecycle-management/states-and-transitions.md",
+  "sourceHash": "7202b9f2598fff0f0788b6233d52bd2ab1605ec7a3d27f4081cf601c62123d37",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Lifecycle States and Transitions"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Stages"
+    },
+    {
+      "level": 2,
+      "text": "Transition Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Lifecycle States and Transitions\n\n## Purpose\nThis split document isolates Goal lifecycle stages, legal transitions, illegal transitions, triggers, preconditions, postconditions, invariants, rollback, and recovery strategy from the parent Goal Lifecycle Management specification.\n\n## Source\n- Parent specification: [Goal Lifecycle Management](../goal-lifecycle-management.md)\n\n## Stages\nGoal lifecycle stages include Draft, Planning, Ready, Active, Paused, Blocked, Waiting, Reviewing, Completed, Succeeded, Failed, Cancelled, Archived, Deleted, Restored, Expired, Merged, Split, Template, Snapshot, and Historical.\n\n## Transition Rules\nTransitions must preserve source state, target state, trigger, validation result, operator, timestamp, and audit reference.\n\n",
+  "references": []
+}

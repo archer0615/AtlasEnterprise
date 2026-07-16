@@ -1,0 +1,31 @@
+{
+  "id": "6c1608eb2b6149dc",
+  "title": "Cleanup Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automations/cleanup-automation/governance-and-testing.md",
+  "sourceHash": "6ad0e7d1dd628dde08d5e2bbb160dd17cbcdfb94c3689c4a025f4ca96a37250b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Cleanup Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Cleanup Governance and Testing\n\n## Purpose\nThis split document isolates cleanup governance, validation, audit, safety controls, testing, and edge cases from the parent CleanupAutomation specification.\n\n## Source\n- Parent specification: [CleanupAutomation](../cleanup-automation.md)\n\n## Governance\nGovernance covers retention policy, legal hold, audit trail, dry-run support, delete safety, tenant isolation, and failure recovery.\n\n## Testing\nTesting covers eligibility, retention validation, archive action, delete action, dry-run, legal hold, audit, and edge cases.\n\n",
+  "references": []
+}

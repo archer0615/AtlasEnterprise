@@ -1,0 +1,43 @@
+{
+  "id": "b88d69ff2fddb4ce",
+  "title": "Investment Policy Rules and Allocation",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/investment-policy/rules-and-allocation.md",
+  "sourceHash": "867e1a8f75997bb0dbd000e9847cc1bb194899dedac8e17b33663fe5eb90dc5c",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Investment Policy Rules and Allocation"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Core Principles"
+    },
+    {
+      "level": 2,
+      "text": "Investment Universe"
+    },
+    {
+      "level": 2,
+      "text": "Asset Allocation"
+    },
+    {
+      "level": 2,
+      "text": "Portfolio Rules"
+    },
+    {
+      "level": 2,
+      "text": "Risk Management"
+    }
+  ],
+  "bodyMarkdown": "# Investment Policy Rules and Allocation\n\n## Purpose\nThis split document isolates investment policy principles, investable universe, allocation policy, portfolio rules, rebalancing, and risk management from the parent Investment Policy Knowledge Base.\n\n## Source\n- Parent specification: [Investment Policy Knowledge Base](../investment-policy.md)\n\n## Core Principles\nInvestment decisions must align with Blueprint, IPS, risk capacity, liquidity needs, and long-term life goals.\n\n## Investment Universe\n- Cash\n- Fixed Income\n- Equity\n- Alternative\n\n## Asset Allocation\nAsset allocation defines strategic target weights, minimum and maximum ranges, and rebalancing expectations for each supported asset class.\n\n## Portfolio Rules\nPortfolio rules constrain holdings, concentration, liquidity, investment fit, and policy exceptions.\n\n## Risk Management\nRisk management covers risk capacity, drawdown tolerance, liquidity reserve, concentration control, and review triggers.\n\n",
+  "references": []
+}

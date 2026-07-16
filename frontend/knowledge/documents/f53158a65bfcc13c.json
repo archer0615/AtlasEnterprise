@@ -1,0 +1,31 @@
+{
+  "id": "f53158a65bfcc13c",
+  "title": "Message Contract Delivery and Compatibility",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/message-contract/delivery-and-compatibility.md",
+  "sourceHash": "df9ff0fa03c4ba3050c8d3a7f92f955620493ebfefb470562e2cf37348d3534e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Message Contract Delivery and Compatibility"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Delivery Rules"
+    },
+    {
+      "level": 2,
+      "text": "Compatibility"
+    }
+  ],
+  "bodyMarkdown": "# Message Contract Delivery and Compatibility\n\n## Purpose\nThis split document isolates message delivery, compatibility, versioning, serialization, and schema evolution from the parent Message Contract Catalog.\n\n## Source\n- Parent specification: [Message Contract Catalog](../message-contract-catalog.md)\n\n## Delivery Rules\nDelivery rules cover ordering, retry, dead letter behavior, replay safety, outbox/inbox usage, duplicate detection, and consumer idempotency.\n\n## Compatibility\nCompatibility rules preserve backward-compatible field additions, explicit breaking changes, versioned schemas, deprecation windows, and consumer migration evidence.\n\n",
+  "references": []
+}

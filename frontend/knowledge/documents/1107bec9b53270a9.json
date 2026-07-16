@@ -1,0 +1,31 @@
+{
+  "id": "1107bec9b53270a9",
+  "title": "Goal Lifecycle Governance and Testing",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-lifecycle-management/governance-and-testing.md",
+  "sourceHash": "546328b4ce0238557dc4b4d2620c621c90a90dabd1cd7925622ec803c3fdbf2d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Lifecycle Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    }
+  ],
+  "bodyMarkdown": "# Goal Lifecycle Governance and Testing\n\n## Purpose\nThis split document isolates Goal lifecycle governance, validation, permissions, audit, monitoring, retention, testing, edge cases, and consistency checks from the parent Goal Lifecycle Management specification.\n\n## Source\n- Parent specification: [Goal Lifecycle Management](../goal-lifecycle-management.md)\n\n## Governance\nGovernance covers state validation, dependency validation, progress validation, financial validation, schedule validation, ownership validation, permission validation, and consistency validation.\n\n## Testing\nTesting covers lifecycle transitions, invalid transitions, automation, recovery, merge, split, template conversion, snapshot creation, archive, restore, and edge cases.\n\n",
+  "references": []
+}

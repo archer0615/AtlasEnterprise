@@ -4,6 +4,9 @@ Status: Enterprise Specification
 Owner: Atlas Recommendation Domain
 Source of Truth: Recommendation Catalog
 Last Updated: 2026-07-13
+## Split Navigation
+- [Recommendation evaluation scoring](recommendation-evaluation/scoring-and-constraints.md)
+- [Recommendation evaluation execution](recommendation-evaluation/execution-and-audit.md)
 
 ## Purpose
 Recommendation Evaluation defines how Atlas evaluates, scores, ranks, explains, approves, reports, and audits Recommendations. It uses existing Recommendation, Recommendation Lifecycle, Recommendation Rule, Recommendation Priority, Decision, Decision Evaluation, Goal, Scenario, Portfolio, CashFlow, Risk, Optimization, Simulation, Workflow, Automation, Business Calendar, Notification, and User data.

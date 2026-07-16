@@ -1,0 +1,31 @@
+{
+  "id": "a0d78b4badf51451",
+  "title": "Notification API and Persistence",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/notification/api-and-persistence.md",
+  "sourceHash": "db6f1e0cf0b5097ccc60ed6da83e9cc72383856b49df62a04459f8597987941e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Notification API and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "API"
+    },
+    {
+      "level": 2,
+      "text": "Persistence"
+    }
+  ],
+  "bodyMarkdown": "# Notification API and Persistence\n\n## Purpose\nThis split document isolates Notification commands, events, repository, services, API, DTOs, database mapping, EF Core mapping, and cache strategy from the parent Notification Entity Specification.\n\n## Source\n- Parent specification: [Notification Entity Specification](../Notification.md)\n\n## API\nNotification APIs expose create, schedule, send, mark read, acknowledge, archive, restore, delete, detail, summary, and search behavior under user and permission boundaries.\n\n## Persistence\nPersistence covers notification table mapping, status timestamps, provider identifiers, retry metadata, indexes, constraints, optimistic concurrency, and cache invalidation.\n\n",
+  "references": []
+}

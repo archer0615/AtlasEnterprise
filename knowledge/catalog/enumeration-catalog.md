@@ -1,4 +1,8 @@
 # Enumeration Catalog
+## Split Navigation
+- [Enumeration catalog entries](enumeration/catalog-entries.md)
+- [Enumeration mapping and compatibility](enumeration/mapping-and-compatibility.md)
+- [Enumeration governance and testing](enumeration/governance-and-testing.md)
 
 # Document Control
 
