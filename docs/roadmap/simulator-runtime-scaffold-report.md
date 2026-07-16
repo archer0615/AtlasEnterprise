@@ -16,6 +16,8 @@ This report records the first simulator runtime scaffold.
 - Emits `scoreEvaluation` with `FORM-DECISION-SCORE` metadata.
 - Calculates deterministic recommendation scores through the runtime service.
 - Reads score thresholds from `score-policy.mjs`.
+- Persists score policy in `simulator/config/score-policy.json`.
+- Generates dashboard runtime bindings from simulator output.
 
 ## Command
 
@@ -32,6 +34,7 @@ This report records the first simulator runtime scaffold.
 - Score evaluation output must equal the result score and remain traceable to `FORM-DECISION-SCORE`.
 - Dashboard v2 fixture metric cards must carry persisted formula IDs.
 - Score output must carry the active score policy version.
+- Runtime dashboard bindings must preserve source fixture, score, status, formula IDs, and score policy version.
 
 ## Follow-up
 
@@ -39,3 +42,4 @@ This report records the first simulator runtime scaffold.
 - Add output tolerance comparison against fixture expectations.
 - Replace fixture-backed status and score passthrough with production calculation service responses.
 - Replace module-based score policy with persisted configuration when the calculation service is introduced.
+- Replace runtime dashboard fixture generation with the production dashboard projection service.

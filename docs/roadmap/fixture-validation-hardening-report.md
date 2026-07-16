@@ -24,6 +24,8 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Dashboard snapshots must use `dashboard-snapshot.v2`.
 - Dashboard metric cards must persist formula IDs that match the canonical mapping.
 - Dashboard fixture collections must carry `generatedBy: dashboard-fixture-generator.v1`.
+- Dashboard runtime fixture collections must carry `generatedBy: dashboard-runtime-generator.v1`.
+- Runtime bindings must include source fixture ID, score, status, formula IDs, and score policy version.
 
 ## Validation
 
@@ -35,3 +37,4 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Add support for additional JSON Schema keywords only when repository schemas require them.
 - Move dashboard metric formula ID mapping from helper constants to generated fixture metadata when runtime dashboard generation exists.
 - Add generator drift checks if dashboard fixtures become edited by multiple tooling paths.
+- Replace runtime fixture file generation with service-backed projection generation when available.

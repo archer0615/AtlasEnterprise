@@ -1,0 +1,35 @@
+{
+  "policyVersion": "decision-score-policy.v1",
+  "formulaId": "FORM-DECISION-SCORE",
+  "defaultScore": 50,
+  "statusScores": {
+    "pass": 88,
+    "conditional": 72,
+    "monitor": 71,
+    "defer": 61,
+    "at-risk": 42
+  },
+  "metricRules": [
+    {
+      "metric": "refinanceFeeRecoveryMonths",
+      "operator": ">",
+      "threshold": 120,
+      "score": 58
+    },
+    {
+      "metric": "refinanceFeeRecoveryMonths",
+      "operator": ">",
+      "threshold": 60,
+      "score": 66
+    },
+    {
+      "metric": "drawdownRate",
+      "operator": ">",
+      "threshold": 0.12,
+      "score": 64
+    }
+  ],
+  "fixtureOverrides": {
+    "retirement-readiness-stress": 69
+  }
+}

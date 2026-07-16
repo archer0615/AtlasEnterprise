@@ -1,0 +1,380 @@
+{
+  "generatedBy": "dashboard-runtime-generator.v1",
+  "generatedAt": "2026-07-16T16:33:26.911Z",
+  "defaultSnapshotId": "dashboard-fixture-2026-07-15",
+  "snapshots": [
+    {
+      "snapshotId": "dashboard-fixture-2026-07-15",
+      "label": "房貸提前還款基準",
+      "asOfDate": "2026-07-15",
+      "currency": "TWD",
+      "sourceFixture": "simulator/fixtures/mortgage-prepayment-baseline-2026.json",
+      "metrics": [
+        {
+          "label": "每月可用現金流",
+          "value": "88K",
+          "detail": "扣除必要支出後的 TWD 現金流",
+          "formulaIds": [
+            "FORM-PMT"
+          ]
+        },
+        {
+          "label": "剩餘年限",
+          "value": "6.5 年",
+          "detail": "提前還款後縮短約 6 個月",
+          "formulaIds": [
+            "FORM-CF-COVERAGE"
+          ]
+        },
+        {
+          "label": "還款壓力",
+          "value": "中",
+          "detail": "現金流仍保留安全緩衝",
+          "formulaIds": [
+            "FORM-CF-COVERAGE"
+          ]
+        },
+        {
+          "label": "決策分數",
+          "value": "72",
+          "detail": "綜合利息節省與流動性風險",
+          "formulaIds": [
+            "FORM-DECISION-SCORE"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "維持原方案",
+          "score": 72,
+          "status": "穩定"
+        },
+        {
+          "name": "提前還款",
+          "score": 68,
+          "status": "節省利息但降低流動性"
+        },
+        {
+          "name": "保留投資現金",
+          "score": 79,
+          "status": "風險調整後較佳"
+        }
+      ],
+      "actions": [
+        "檢查 2027 年提前還款後的緊急預備金是否仍達 6 個月",
+        "比較 2031 年換屋計畫與提前還款的資金排擠效果",
+        "保留此 fixture 作為房貸情境基準"
+      ],
+      "schemaVersion": "dashboard-snapshot.v2",
+      "runtimeBinding": {
+        "sourceFixtureId": "mortgage-prepayment-baseline-2026",
+        "simulatorGeneratedAt": "2026-07-16T16:30:41.578Z",
+        "score": 72,
+        "status": "conditional",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-CF-COVERAGE"
+        ],
+        "scorePolicyVersion": "decision-score-policy.v1"
+      }
+    },
+    {
+      "snapshotId": "home-upgrade-2031-baseline",
+      "label": "2031 換屋基準",
+      "asOfDate": "2026-07-15",
+      "currency": "TWD",
+      "sourceFixture": "simulator/fixtures/home-upgrade-2031-baseline.json",
+      "metrics": [
+        {
+          "label": "換屋準備金",
+          "value": "900K",
+          "detail": "目前可投入換屋的 TWD 資金",
+          "formulaIds": [
+            "FORM-CF-COVERAGE"
+          ]
+        },
+        {
+          "label": "預估資金缺口",
+          "value": "910K",
+          "detail": "依基準情境仍需補足",
+          "formulaIds": [
+            "FORM-CF-COVERAGE"
+          ]
+        },
+        {
+          "label": "負擔狀態",
+          "value": "偏高",
+          "detail": "換屋後固定支出上升",
+          "formulaIds": [
+            "FORM-CF-COVERAGE"
+          ]
+        },
+        {
+          "label": "決策分數",
+          "value": "61",
+          "detail": "受資金缺口與貸款壓力影響",
+          "formulaIds": [
+            "FORM-DECISION-SCORE"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "2031 換屋",
+          "score": 61,
+          "status": "可行但需控管風險"
+        },
+        {
+          "name": "延後一年",
+          "score": 70,
+          "status": "資金緩衝改善"
+        },
+        {
+          "name": "降低物件預算",
+          "score": 76,
+          "status": "較符合現金流限制"
+        }
+      ],
+      "actions": [
+        "更新換屋預算與頭期款假設",
+        "檢查換屋後的緊急預備金與月付壓力",
+        "評估延後一年或降低物件預算的替代方案"
+      ],
+      "schemaVersion": "dashboard-snapshot.v2",
+      "runtimeBinding": {
+        "sourceFixtureId": "home-upgrade-2031-baseline",
+        "simulatorGeneratedAt": "2026-07-16T16:30:41.578Z",
+        "score": 61,
+        "status": "defer",
+        "formulaIds": [
+          "FORM-CF-COVERAGE"
+        ],
+        "scorePolicyVersion": "decision-score-policy.v1"
+      }
+    },
+    {
+      "snapshotId": "retirement-readiness-stress",
+      "label": "退休準備壓力測試",
+      "asOfDate": "2026-07-15",
+      "currency": "TWD",
+      "sourceFixture": "simulator/fixtures/retirement-readiness-stress.json",
+      "metrics": [
+        {
+          "label": "退休準備狀態",
+          "value": "偏弱",
+          "detail": "以年化報酬下降 5% 測試",
+          "formulaIds": [
+            "FORM-SWR"
+          ]
+        },
+        {
+          "label": "退休現金流",
+          "value": "不足",
+          "detail": "通膨假設上升至 2.5%",
+          "formulaIds": [
+            "FORM-WITHDRAWAL-SUSTAINABILITY"
+          ]
+        },
+        {
+          "label": "提領安全性",
+          "value": "中",
+          "detail": "需控制早期提領速度",
+          "formulaIds": [
+            "FORM-WITHDRAWAL-SUSTAINABILITY"
+          ]
+        },
+        {
+          "label": "決策分數",
+          "value": "69",
+          "detail": "壓力情境下仍需補強",
+          "formulaIds": [
+            "FORM-DECISION-SCORE"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "基準報酬",
+          "score": 78,
+          "status": "可接受"
+        },
+        {
+          "name": "報酬下修",
+          "score": 69,
+          "status": "需調整提撥"
+        },
+        {
+          "name": "延後退休",
+          "score": 75,
+          "status": "可改善成功率"
+        }
+      ],
+      "actions": [
+        "提高每月退休提撥或降低退休支出假設",
+        "檢查投資組合在壓力情境下的最大回撤",
+        "評估延後退休對成功率的改善幅度"
+      ],
+      "schemaVersion": "dashboard-snapshot.v2",
+      "runtimeBinding": {
+        "sourceFixtureId": "retirement-readiness-stress",
+        "simulatorGeneratedAt": "2026-07-16T16:30:41.578Z",
+        "score": 69,
+        "status": "monitor",
+        "formulaIds": [
+          "FORM-DECISION-SCORE"
+        ],
+        "scorePolicyVersion": "decision-score-policy.v1"
+      }
+    },
+    {
+      "snapshotId": "loan-refinancing-rate-shock",
+      "label": "貸款轉貸利率壓力",
+      "asOfDate": "2026-07-15",
+      "currency": "TWD",
+      "sourceFixture": "simulator/fixtures/loan-refinancing-rate-shock.json",
+      "metrics": [
+        {
+          "label": "目前利率",
+          "value": "中",
+          "detail": "現有房貸利率 2.9%",
+          "formulaIds": [
+            "FORM-PMT"
+          ]
+        },
+        {
+          "label": "轉貸效益",
+          "value": "有限",
+          "detail": "手續費抵銷部分利息節省",
+          "formulaIds": [
+            "FORM-REFI-BREAK-EVEN"
+          ]
+        },
+        {
+          "label": "現金流壓力",
+          "value": "不足",
+          "detail": "升息情境下月付增加",
+          "formulaIds": [
+            "FORM-REFI-BREAK-EVEN"
+          ]
+        },
+        {
+          "label": "決策分數",
+          "value": "66",
+          "detail": "轉貸需要更明確的 break-even 條件",
+          "formulaIds": [
+            "FORM-DECISION-SCORE"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "維持原貸款",
+          "score": 58,
+          "status": "成本較高但穩定"
+        },
+        {
+          "name": "轉貸降息",
+          "score": 66,
+          "status": "需確認費用與年限"
+        },
+        {
+          "name": "部分提前還款",
+          "score": 62,
+          "status": "降低本金但壓縮流動性"
+        }
+      ],
+      "actions": [
+        "重新估算轉貸手續費與利率差距",
+        "檢查升息後月付與 DTI 是否超過門檻",
+        "比較轉貸與提前還款的 break-even 日期"
+      ],
+      "schemaVersion": "dashboard-snapshot.v2",
+      "runtimeBinding": {
+        "sourceFixtureId": "loan-refinancing-rate-shock",
+        "simulatorGeneratedAt": "2026-07-16T16:30:41.578Z",
+        "score": 66,
+        "status": "conditional",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-REFI-BREAK-EVEN"
+        ],
+        "scorePolicyVersion": "decision-score-policy.v1"
+      }
+    },
+    {
+      "snapshotId": "investment-drawdown-stress",
+      "label": "投資回撤壓力測試",
+      "asOfDate": "2026-07-15",
+      "currency": "TWD",
+      "sourceFixture": "simulator/fixtures/investment-drawdown-stress.json",
+      "metrics": [
+        {
+          "label": "投資回撤",
+          "value": "22%",
+          "detail": "壓力情境下的最大跌幅",
+          "formulaIds": [
+            "FORM-PORTFOLIO-DRAWDOWN"
+          ]
+        },
+        {
+          "label": "壓力後資產",
+          "value": "5.3M",
+          "detail": "投資組合剩餘 TWD 市值",
+          "formulaIds": [
+            "FORM-PORTFOLIO-DRAWDOWN"
+          ]
+        },
+        {
+          "label": "現金緩衝",
+          "value": "13.0 月",
+          "detail": "可支應必要支出的月份",
+          "formulaIds": [
+            "FORM-CF-COVERAGE"
+          ]
+        },
+        {
+          "label": "決策分數",
+          "value": "71",
+          "detail": "壓力情境下仍有調整空間",
+          "formulaIds": [
+            "FORM-DECISION-SCORE"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "基準投資組合",
+          "score": 78,
+          "status": "穩健"
+        },
+        {
+          "name": "市場回撤",
+          "score": 71,
+          "status": "需降低集中風險"
+        },
+        {
+          "name": "增加現金",
+          "score": 74,
+          "status": "改善流動性但犧牲報酬"
+        }
+      ],
+      "actions": [
+        "檢查投資組合集中度與風險預算",
+        "維持至少 12 個月現金緩衝",
+        "評估增加現金部位對長期報酬的影響"
+      ],
+      "schemaVersion": "dashboard-snapshot.v2",
+      "runtimeBinding": {
+        "sourceFixtureId": "investment-drawdown-stress",
+        "simulatorGeneratedAt": "2026-07-16T16:30:41.578Z",
+        "score": 71,
+        "status": "monitor",
+        "formulaIds": [
+          "FORM-PORTFOLIO-DRAWDOWN",
+          "FORM-CF-COVERAGE"
+        ],
+        "scorePolicyVersion": "decision-score-policy.v1"
+      }
+    }
+  ]
+}

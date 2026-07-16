@@ -7,6 +7,7 @@ const root = process.cwd();
 const fixtureRoot = path.join(root, "simulator", "fixtures");
 const frontendDashboardFixture = path.join(root, "frontend", "fixtures", "dashboard-snapshot.json");
 const frontendDashboardFixtures = path.join(root, "frontend", "fixtures", "dashboard-snapshots.json");
+const frontendDashboardRuntimeFixtures = path.join(root, "frontend", "fixtures", "dashboard-runtime-snapshots.json");
 const simulatorSchema = JSON.parse(await readFile(path.join(fixtureRoot, "scenario-fixture.schema.json"), "utf8"));
 const dashboardSchema = JSON.parse(await readFile(path.join(root, "frontend", "fixtures", "dashboard-snapshot.schema.json"), "utf8"));
 
@@ -94,6 +95,7 @@ assert(Array.isArray(dashboard.scenarios) && dashboard.scenarios.length > 0, "da
 assert(Array.isArray(dashboard.actions) && dashboard.actions.length > 0, "dashboard fixture missing actions");
 
 const dashboards = JSON.parse(await readFile(frontendDashboardFixtures, "utf8"));
+const runtimeDashboards = JSON.parse(await readFile(frontendDashboardRuntimeFixtures, "utf8"));
 assert(dashboards.defaultSnapshotId, "dashboard fixture collection missing defaultSnapshotId");
 assert(dashboards.generatedBy === "dashboard-fixture-generator.v1", "dashboard fixture collection missing generatedBy marker");
 assert(Array.isArray(dashboards.snapshots) && dashboards.snapshots.length > 0, "dashboard fixture collection missing snapshots");
@@ -125,6 +127,17 @@ for (const snapshot of dashboards.snapshots) {
   for (const [index, metric] of snapshot.metrics.entries()) {
     assert(JSON.stringify(metric.formulaIds) === JSON.stringify(dashboardMetricFormulaIds[snapshot.snapshotId][index]), `${snapshot.snapshotId} metric ${index} formulaIds mismatch`);
   }
+}
+
+assert(runtimeDashboards.generatedBy === "dashboard-runtime-generator.v1", "dashboard runtime fixture collection missing generatedBy marker");
+assert(runtimeDashboards.defaultSnapshotId === dashboards.defaultSnapshotId, "dashboard runtime defaultSnapshotId mismatch");
+assert(Array.isArray(runtimeDashboards.snapshots) && runtimeDashboards.snapshots.length === dashboards.snapshots.length, "dashboard runtime snapshot count mismatch");
+for (const snapshot of runtimeDashboards.snapshots) {
+  assert(snapshot.runtimeBinding?.sourceFixtureId, `${snapshot.snapshotId} runtime binding missing sourceFixtureId`);
+  assert(Number.isFinite(snapshot.runtimeBinding?.score), `${snapshot.snapshotId} runtime binding missing score`);
+  assert(snapshot.runtimeBinding?.status, `${snapshot.snapshotId} runtime binding missing status`);
+  assert(Array.isArray(snapshot.runtimeBinding?.formulaIds), `${snapshot.snapshotId} runtime binding formulaIds must be an array`);
+  assert(snapshot.runtimeBinding?.scorePolicyVersion, `${snapshot.snapshotId} runtime binding missing score policy version`);
 }
 
 console.log(`Fixture validation passed with ${fixtureFiles.length} simulator fixtures.`);

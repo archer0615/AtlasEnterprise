@@ -23,6 +23,9 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Score weights and overrides now live in `simulator/scripts/score-policy.mjs`.
 - Dashboard fixture formula bindings can be regenerated with `npm run generate:dashboard-fixtures`.
 - Schema validation now also supports `minimum`, `maximum`, `oneOf`, and `anyOf`.
+- Score policy is persisted in `simulator/config/score-policy.json` and validated against runtime policy.
+- Dashboard fixture drift is checked by `npm run validate:dashboard-drift`.
+- Runtime dashboard bindings are generated into `frontend/fixtures/dashboard-runtime-snapshots.json`.
 
 ## Validation
 
@@ -36,3 +39,4 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Runtime formula implementations are still fixture-scaffolded for recommendation status and score.
 - Dashboard metrics are mapped at fixture/snapshot level; individual metric-card formula IDs remain a later field-level enhancement.
 - Score evaluation remains deterministic until production scoring policy is backed by persisted configuration.
+- Runtime dashboard binding is fixture-backed until a service endpoint owns dashboard projection generation.
