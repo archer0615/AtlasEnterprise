@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T16:05:08.622Z",
+  "generatedAt": "2026-07-16T16:09:48.880Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -13,7 +13,18 @@
       "metrics": {
         "transactionCostEstimate": 910000
       },
-      "generatedFrom": "fixture-runtime-formula"
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 8,
+          "violations": []
+        },
+        "evaluatedMetricCount": 1,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     },
     {
       "fixtureId": "investment-drawdown-stress",
@@ -27,7 +38,18 @@
         "stressedPortfolioValue": 5304000,
         "reserveMonths": 13.04
       },
-      "generatedFrom": "fixture-runtime-formula"
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 7,
+          "violations": []
+        },
+        "evaluatedMetricCount": 2,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     },
     {
       "fixtureId": "loan-amortization-schedule-baseline",
@@ -44,7 +66,18 @@
         "endingBalanceAfterFirstMonth": 3184860.04,
         "totalInterest": 533192.8
       },
-      "generatedFrom": "fixture-runtime-formula"
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 4,
+          "violations": []
+        },
+        "evaluatedMetricCount": 5,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     },
     {
       "fixtureId": "loan-refinancing-fee-breakdown",
@@ -59,7 +92,18 @@
         "monthlyPaymentSavingsAfterReset": 758.09,
         "refinanceFeeRecoveryMonths": 126.63
       },
-      "generatedFrom": "fixture-runtime-formula"
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 10,
+          "violations": []
+        },
+        "evaluatedMetricCount": 3,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     },
     {
       "fixtureId": "loan-refinancing-rate-shock",
@@ -76,7 +120,18 @@
         "monthlyPaymentSavingsAfterReset": 758.09,
         "refinanceFeeRecoveryMonths": 63.32
       },
-      "generatedFrom": "fixture-runtime-formula"
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 9,
+          "violations": []
+        },
+        "evaluatedMetricCount": 5,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     },
     {
       "fixtureId": "mortgage-prepayment-baseline-2026",
@@ -90,7 +145,18 @@
         "postPrepaymentReserveMonths": 6.52,
         "monthlyMortgagePayment": 73800.48
       },
-      "generatedFrom": "fixture-runtime-formula"
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 8,
+          "violations": []
+        },
+        "evaluatedMetricCount": 2,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     },
     {
       "fixtureId": "portfolio-drawdown-attribution-stress",
@@ -108,7 +174,18 @@
         "stressedPortfolioValue": 5858200,
         "drawdownRate": 0.1385
       },
-      "generatedFrom": "fixture-runtime-formula"
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 8,
+          "violations": []
+        },
+        "evaluatedMetricCount": 6,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     },
     {
       "fixtureId": "retirement-readiness-stress",
@@ -119,7 +196,18 @@
       "score": 69,
       "warningCount": 1,
       "metrics": {},
-      "generatedFrom": "fixture-expected-output"
+      "generatedFrom": "fixture-expected-output",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 7,
+          "violations": []
+        },
+        "evaluatedMetricCount": 0,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     },
     {
       "fixtureId": "retirement-withdrawal-sustainability-stress",
@@ -137,7 +225,18 @@
         "sustainableAnnualWithdrawal": 392000,
         "annualWithdrawalGap": 568000
       },
-      "generatedFrom": "fixture-runtime-formula"
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 5,
+          "violations": []
+        },
+        "evaluatedMetricCount": 6,
+        "formulaVersion": "cash-flow-engine-formula.v1"
+      }
     }
   ]
 }

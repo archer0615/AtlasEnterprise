@@ -9,6 +9,8 @@ This report records the first simulator runtime scaffold.
 - Reads simulator fixture JSON files from `simulator/fixtures/`.
 - Produces deterministic summary output at `simulator/outputs/scenario-results.json`.
 - Uses expected fixture recommendation data until executable simulation formulas exist.
+- Emits `formulaEvaluation.contractVersion` for each result.
+- Records formula input validation status, checked field count, violations, evaluated metric count, and formula version.
 
 ## Command
 
@@ -19,8 +21,11 @@ This report records the first simulator runtime scaffold.
 - Runtime scaffold must not invent financial advice.
 - Output must preserve fixture IDs, assumption versions, and formula versions.
 - Generated output should remain small and reviewable.
+- Runtime formula evaluation must use `runtime-formula-evaluation.v1`.
+- Input validation must pass before a result can be considered evaluated.
 
 ## Follow-up
 
 - Replace expected-output passthrough with formula-backed calculations.
 - Add output tolerance comparison against fixture expectations.
+- Move shared input validation into a reusable formula contract module when production services are introduced.

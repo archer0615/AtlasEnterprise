@@ -32,6 +32,33 @@ function assertTolerances(fixture, file) {
   assert(fixture.tolerances.ratio >= 0, `${file} ratio tolerance must be non-negative`);
 }
 
+function assertFormulaInputRules(fixture, file) {
+  assert(/^[a-z0-9]+(-[a-z0-9]+)*$/.test(fixture.fixtureId), `${file} fixtureId must be kebab-case`);
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(fixture.asOfDate), `${file} asOfDate must be YYYY-MM-DD`);
+  assert(/\.v\d+$/u.test(fixture.assumptionVersion), `${file} assumptionVersion must end with .vN`);
+  assert(/\.v\d+$/u.test(fixture.formulaVersion), `${file} formulaVersion must end with .vN`);
+  assert(Object.keys(fixture.inputs).length > 0, `${file} inputs must not be empty`);
+
+  for (const [field, value] of Object.entries(fixture.inputs)) {
+    if (field === "currency") {
+      assert(/^[A-Z]{3}$/.test(value), `${file} inputs.currency must be an ISO-style currency code`);
+      continue;
+    }
+    assert(Number.isFinite(value), `${file} inputs.${field} must be numeric`);
+    assert(value >= 0, `${file} inputs.${field} must be non-negative`);
+    if (/(Rate|Weight)$/u.test(field)) {
+      assert(value <= 1, `${file} inputs.${field} must be between 0 and 1`);
+    }
+    if (/Months$/u.test(field)) {
+      assert(Number.isInteger(value) && value > 0, `${file} inputs.${field} must be a positive integer month count`);
+    }
+  }
+
+  for (const warningReference of fixture.expected.recommendation.warningReferences) {
+    assert(fixture.expected.warnings.includes(warningReference), `${file} recommendation warning reference not declared: ${warningReference}`);
+  }
+}
+
 const fixtureFiles = (await readdir(fixtureRoot)).filter((file) => file.endsWith(".json") && !file.endsWith(".schema.json"));
 assert(fixtureFiles.length > 0, "simulator fixtures must include at least one JSON file");
 const fixtureIds = new Set();
@@ -55,6 +82,7 @@ for (const file of fixtureFiles) {
   assert(fixture.expected.recommendation?.explanation, `${file} missing expected recommendation explanation`);
   assert(Array.isArray(fixture.references), `${file} missing references`);
   assertTolerances(fixture, file);
+  assertFormulaInputRules(fixture, file);
 
   for (const reference of fixture.references) {
     await assertReferenceExists(reference, fixture.fixtureId);
@@ -87,6 +115,12 @@ for (const snapshot of dashboards.snapshots) {
   assert(Array.isArray(snapshot.metrics) && snapshot.metrics.length === 4, `${snapshot.snapshotId} must have four metrics`);
   assert(Array.isArray(snapshot.scenarios) && snapshot.scenarios.length > 0, `${snapshot.snapshotId} missing scenarios`);
   assert(Array.isArray(snapshot.actions) && snapshot.actions.length > 0, `${snapshot.snapshotId} missing actions`);
+  const sourceFile = path.basename(snapshot.sourceFixture);
+  const sourceFixtureId = sourceFile.replace(/\.json$/u, "");
+  assert(fixtureIds.has(sourceFixtureId), `${snapshot.snapshotId} sourceFixture is not a simulator fixture: ${snapshot.sourceFixture}`);
+  assert(snapshot.metrics.every((metric) => metric.label && metric.value && metric.detail), `${snapshot.snapshotId} metric cards must include label, value, and detail`);
+  assert(snapshot.scenarios.every((scenario) => scenario.name && Number.isFinite(scenario.score) && scenario.status), `${snapshot.snapshotId} scenarios must include name, numeric score, and status`);
+  assert(snapshot.actions.every((action) => typeof action === "string" && action.trim().length > 0), `${snapshot.snapshotId} actions must be non-empty strings`);
 }
 
 console.log(`Fixture validation passed with ${fixtureFiles.length} simulator fixtures.`);
