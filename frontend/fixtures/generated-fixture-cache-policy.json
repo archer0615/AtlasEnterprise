@@ -1,0 +1,20 @@
+{
+  "policyVersion": "generated-fixture-cache-policy.v1",
+  "artifacts": [
+    {
+      "path": "frontend/fixtures/dashboard-snapshots.json",
+      "generatedBy": "dashboard-fixture-generator.v1",
+      "cacheKeyFields": ["defaultSnapshotId", "generatedBy", "snapshots.snapshotId", "snapshots.schemaVersion"]
+    },
+    {
+      "path": "frontend/fixtures/dashboard-runtime-snapshots.json",
+      "generatedBy": "dashboard-runtime-generator.v1",
+      "cacheKeyFields": ["defaultSnapshotId", "generatedBy", "snapshots.snapshotId", "snapshots.runtimeBinding.scorePolicyVersion"]
+    },
+    {
+      "path": "simulator/outputs/scenario-results.json",
+      "generatedBy": "fixture-runtime-scaffold",
+      "cacheKeyFields": ["mode", "results.fixtureId", "results.formulaVersion", "results.scoreEvaluation.policyVersion"]
+    }
+  ]
+}

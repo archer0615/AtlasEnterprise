@@ -26,6 +26,8 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Dashboard fixture collections must carry `generatedBy: dashboard-fixture-generator.v1`.
 - Dashboard runtime fixture collections must carry `generatedBy: dashboard-runtime-generator.v1`.
 - Runtime bindings must include source fixture ID, score, status, formula IDs, and score policy version.
+- Generated fixture cache policy must reference existing generated artifacts.
+- Dashboard projection API validation must confirm runtime projection fields.
 
 ## Validation
 
@@ -38,3 +40,4 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Move dashboard metric formula ID mapping from helper constants to generated fixture metadata when runtime dashboard generation exists.
 - Add generator drift checks if dashboard fixtures become edited by multiple tooling paths.
 - Replace runtime fixture file generation with service-backed projection generation when available.
+- Add cache invalidation tests when generated artifacts are consumed by a service worker runtime cache.

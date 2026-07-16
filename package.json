@@ -10,6 +10,8 @@
     "validate:offline": "node frontend/scripts/validate-offline-cache.mjs",
     "validate:formula-registry": "node simulator/scripts/validate-formula-registry.mjs",
     "validate:score-policy": "node simulator/scripts/validate-score-policy.mjs",
+    "validate:cache-policy": "node frontend/scripts/validate-generated-fixture-cache-policy.mjs",
+    "validate:dashboard-api": "node backend/validate-dashboard-projection-api.mjs",
     "validate:fixtures": "node simulator/scripts/validate-fixtures.mjs",
     "generate:dashboard-fixtures": "node frontend/scripts/generate-dashboard-fixtures.mjs",
     "generate:dashboard-runtime": "node frontend/scripts/generate-dashboard-runtime.mjs",
@@ -18,7 +20,7 @@
     "simulator:run": "node simulator/scripts/run-simulator.mjs",
     "validate:simulator": "node simulator/scripts/validate-simulator-output.mjs",
     "visual:screenshots": "node frontend/scripts/capture-playwright-screenshots.mjs",
-    "validate": "npm run validate:frontend && npm run validate:formula-registry && npm run validate:score-policy && npm run validate:fixtures && npm run validate:dashboard-drift && npm run validate:pwa && npm run validate:offline && npm run validate:simulator",
+    "validate": "npm run validate:frontend && npm run validate:formula-registry && npm run validate:score-policy && npm run validate:cache-policy && npm run validate:fixtures && npm run validate:dashboard-drift && npm run validate:dashboard-api && npm run validate:pwa && npm run validate:offline && npm run validate:simulator",
     "build": "npm run build:knowledge",
     "dev": "npm run build:knowledge"
   },

@@ -1,0 +1,11 @@
+{
+  "migrationId": "score-policy-migration-2026-07-17",
+  "from": "inline-score-policy",
+  "to": "simulator/config/score-policy.json",
+  "policyVersion": "decision-score-policy.v1",
+  "status": "applied",
+  "validation": [
+    "npm run validate:score-policy",
+    "npm run validate:simulator"
+  ]
+}

@@ -18,6 +18,8 @@ This report records the first simulator runtime scaffold.
 - Reads score thresholds from `score-policy.mjs`.
 - Persists score policy in `simulator/config/score-policy.json`.
 - Generates dashboard runtime bindings from simulator output.
+- Records score policy migration metadata.
+- Validates generated fixture cache policy and dashboard projection API contract.
 
 ## Command
 
@@ -35,6 +37,7 @@ This report records the first simulator runtime scaffold.
 - Dashboard v2 fixture metric cards must carry persisted formula IDs.
 - Score output must carry the active score policy version.
 - Runtime dashboard bindings must preserve source fixture, score, status, formula IDs, and score policy version.
+- Projection API contracts must preserve runtime binding fields.
 
 ## Follow-up
 
@@ -43,3 +46,4 @@ This report records the first simulator runtime scaffold.
 - Replace fixture-backed status and score passthrough with production calculation service responses.
 - Replace module-based score policy with persisted configuration when the calculation service is introduced.
 - Replace runtime dashboard fixture generation with the production dashboard projection service.
+- Move cache policy enforcement into deployment validation when hosting is introduced.
