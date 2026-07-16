@@ -1,0 +1,39 @@
+{
+  "id": "1db0f8ede0352aa3",
+  "title": "Decision Dashboard Rules and Lifecycle",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/decision-dashboard/rules-and-lifecycle.md",
+  "sourceHash": "28bbe145ba87400f00cdbea99bf7347bc276efb862b6cbb32c785ac540c1b3cd",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Dashboard Rules and Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "State and Refresh"
+    }
+  ],
+  "bodyMarkdown": "# Decision Dashboard Rules and Lifecycle\n\n## Purpose\nThis split document isolates Decision Dashboard lifecycle, validation rules, business rules, permissions, refresh behavior, and state handling from the parent Decision Dashboard specification.\n\n## Source\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\n\n## Lifecycle\nDecision Dashboard lifecycle covers dashboard definition, widget configuration, filter configuration, refresh, sharing, export, archive, restore, deletion, and dashboard history.\n\n## Validation Rules\nValidation covers dashboard creation and update, widget configuration, filter allowlist, layout, refresh policy, permission, cache key generation, state transition, export format, sorting, pagination, and source projection availability.\n\n## Business Rules\nDecision Dashboard is a governed read model for monitoring Decisions. It must not mutate Decision, Recommendation, Goal, Portfolio, CashFlow, Risk, Scenario, Simulation, Workflow, Automation, Notification, or User source data.\n\n## State and Refresh\nRefresh operations update projections and cached values without mutating source domain data. Created, Configured, Active, Refreshing, Refreshed, Shared, Exported, Archived, Restored, Deleted, and Failed transitions must be auditable.\n",
+  "references": []
+}

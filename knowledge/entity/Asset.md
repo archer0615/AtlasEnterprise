@@ -6,6 +6,8 @@
 - [Asset valuation and reporting](asset/valuation-and-reporting.md)
 - [Asset classification and risk](asset/classification-and-risk.md)
 - [Asset API and audit](asset/api-and-audit.md)
+- [Asset property and lifecycle rules](asset/property-and-lifecycle-rules.md)
+- [Asset governance and verification](asset/governance-and-verification.md)
 
 # Document Control
 

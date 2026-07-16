@@ -3,6 +3,7 @@
 - [Portfolio identity and semantics](portfolio-entity/identity-and-semantics.md)
 - [Portfolio API and persistence](portfolio-entity/api-and-persistence.md)
 - [Portfolio governance and testing](portfolio-entity/governance-and-testing.md)
+- [Portfolio rules and state](portfolio-entity/rules-and-state.md)
 # Document Control
 | Field | Value |
 |---|---|

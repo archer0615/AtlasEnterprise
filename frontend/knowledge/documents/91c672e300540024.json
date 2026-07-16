@@ -1,0 +1,39 @@
+{
+  "id": "91c672e300540024",
+  "title": "Liability Rules and State",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/liability/rules-and-state.md",
+  "sourceHash": "0bfdd620c5c58c8593a7b18389760640f11feaddf8d11433eb6b3474512603f6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Liability Rules and State"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate Invariants"
+    },
+    {
+      "level": 2,
+      "text": "State and Events"
+    }
+  ],
+  "bodyMarkdown": "# Liability Rules and State\n\n## Purpose\nThis split document isolates Liability validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Liability Entity Specification.\n\n## Source\n- Parent specification: [Liability Entity Specification](../Liability.md)\n\n## Validation Rules\nLiability validation requires TenantId, HouseholdId, LiabilityPortfolioId, LiabilityName, Currency, non-negative OutstandingBalance, valid amount ordering, valid payment dates, and trusted cross-aggregate references for LoanId, MortgageId, and CollateralAssetId.\n\n## Business Rules\nLiability remains a child entity owned by LiabilityPortfolio. Loan, Mortgage, CashFlow, Asset, Goal, Scenario, Decision, Recommendation, and Notification behavior is reference-only or projection-only and cannot be mutated through Liability.\n\n## Aggregate Invariants\nLiabilityPortfolio is the consistency and concurrency boundary. Closed Liability requires zero OutstandingBalance, archived or deleted Liability rejects ordinary update, read model values cannot become aggregate source state, and every amount mutation must be audited.\n\n## State and Events\nActive, Suspended, Closed, Archived, and Deleted are implementation status values. No LiabilityPortfolio domain events are cataloged; use audit records and catalog-owned Loan events without creating new Liability domain events.\n",
+  "references": []
+}

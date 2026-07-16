@@ -6,6 +6,8 @@ Source of Truth: Recommendation Catalog
 Last Updated: 2026-07-13
 ## Split Navigation
 - [Recommendation execution planning](recommendation-execution/planning-and-workflow.md)
+- [Recommendation execution policies and monitoring](recommendation-execution/policies-and-monitoring.md)
+- [Recommendation execution contracts and persistence](recommendation-execution/contracts-and-persistence.md)
 - [Recommendation execution recovery](recommendation-execution/recovery-and-audit.md)
 
 ## Purpose

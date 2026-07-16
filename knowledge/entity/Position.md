@@ -3,6 +3,7 @@
 - [Position identity and valuation](position/identity-and-valuation.md)
 - [Position API and persistence](position/api-and-persistence.md)
 - [Position governance and testing](position/governance-and-testing.md)
+- [Position rules and state](position/rules-and-state.md)
 # Document Control
 | Field | Value |
 |---|---|

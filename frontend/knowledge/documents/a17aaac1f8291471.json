@@ -1,0 +1,43 @@
+{
+  "id": "a17aaac1f8291471",
+  "title": "Loan Persistence and Verification",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/loan/persistence-and-verification.md",
+  "sourceHash": "f97bd0d5975ca793c2492e41fb53bd71d29c66dd85b2ff2576cdc647c1574c3d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Loan Persistence and Verification"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Verification"
+    },
+    {
+      "level": 2,
+      "text": "Visual and Example Coverage"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Loan Persistence and Verification\n\n## Purpose\n\nThis split document isolates Loan database mapping, PostgreSQL DDL, EF Core Fluent API, cache strategy, security, audit, observability, performance, examples, diagrams, testing, edge cases, error catalog, data migration, and consistency verification from the larger Loan entity specification.\n\n## Source\n\n- Parent specification: [Loan Entity Specification](../Loan.md)\n\n## Persistence\n\n- Loan persistence maps through LoanRepository and database tables such as `loans` and `mortgages` when Mortgage is mapped separately.\n- PostgreSQL DDL and EF Core Fluent API must preserve aggregate ownership, concurrency, soft-delete behavior, tenant filtering where tenancy exists, and household filtering.\n- Cache strategy is limited to computed outputs such as Loan amortization cache and must not become source of truth.\n- Read models and projections are read-only and must not replace aggregate state.\n\n## Governance\n\n- Security covers authentication, authorization, Liability permission mapping, tenant isolation, household isolation, masking, audit, and over-posting protection.\n- Audit must capture loan creation, payment, refinance, close, archive, restore, replay, and failed authorization or validation behavior where applicable.\n- Observability and performance rules must preserve deterministic calculation outputs and avoid repository-owned business calculations.\n\n## Verification\n\n- Testing covers create, update, payment, refinance, close, archive, restore, replay, concurrency, stale amortization, invalid term, invalid rate, invalid currency, and permission denial behavior.\n- Consistency verification checks catalog alignment, command/event mapping, repository ownership, calculation boundaries, API DTO behavior, database mapping, cache boundaries, audit completeness, and final consistency matrix status.\n\n## Visual and Example Coverage\n\n- Example JSON covers create, update, payment, refinance, detail, search, errors, and relevant lifecycle responses.\n- Mermaid coverage includes class, ER, state, sequence, and aggregate diagrams.\n\n## Related References\n\n- [Loan Entity Specification](../Loan.md)\n- [Loan API and audit](api-and-audit.md)\n- [Loan scenario integration](scenario-integration.md)\n",
+  "references": []
+}

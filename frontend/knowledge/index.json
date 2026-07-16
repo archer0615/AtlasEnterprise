@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T07:03:37.853Z",
-  "buildId": "92cafd1604bd",
+  "generatedAt": "2026-07-16T07:13:22.171Z",
+  "buildId": "36fab0d6f562",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -1142,8 +1142,8 @@
       "title": "Asset Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Asset.md",
-      "sourceHash": "bab3d1ec10472a89c856f43209142f77770724bf371369a7fb4750484ffa873f",
-      "summary": "# Asset Entity Specification ## Split Navigation - [Asset identity and ownership](asset/identity-and-ownership.md) - [Asset valuation and reporting](asset/valuation-and-reporting.md) - [Asset classification and risk](asset/classific"
+      "sourceHash": "a526e98b3d4b51227a05c79c54652672192afb487fd86e98daa1c36e249787f9",
+      "summary": "# Asset Entity Specification ## Split Navigation - [Asset identity and ownership](asset/identity-and-ownership.md) - [Asset valuation and reporting](asset/valuation-and-reporting.md) - [Asset classification and risk](asset/classifica"
     },
     {
       "id": "58676d3f460531ff",
@@ -1162,12 +1162,28 @@
       "summary": "# Asset Classification and Risk ## Purpose This split document isolates Asset classification and risk rules from the larger Asset entity specification. ## Source - Parent specification: [Asset Entity Specification](../Asset.md)"
     },
     {
+      "id": "4f0a2404cd3e7064",
+      "title": "Asset Governance and Verification",
+      "category": "entity",
+      "path": "knowledge/entity/asset/governance-and-verification.md",
+      "sourceHash": "496fd8e9bbc6fc7601a94fb74dd10b7851c8addece3dc27817b1ba418773f45f",
+      "summary": "# Asset Governance and Verification ## Purpose This split document isolates Asset security, audit, observability, performance, examples, diagrams, testing, edge cases, error catalog, data migration, and consistency verification from the l"
+    },
+    {
       "id": "c59bf1338da8cddd",
       "title": "Asset Identity and Ownership",
       "category": "entity",
       "path": "knowledge/entity/asset/identity-and-ownership.md",
       "sourceHash": "328c35f5c2465ad4a19c44cb56db194f2d491112fff176f87ecf2bc5e1d922b5",
       "summary": "# Asset Identity and Ownership ## Purpose This split document isolates Asset identity and ownership rules from the larger Asset entity specification. ## Source - Parent specification: [Asset Entity Specification](../Asset.md)"
+    },
+    {
+      "id": "d8d6263d51035ef5",
+      "title": "Asset Property and Lifecycle Rules",
+      "category": "entity",
+      "path": "knowledge/entity/asset/property-and-lifecycle-rules.md",
+      "sourceHash": "15afa122fdbba12ed1f09c456cc09bf35f131d380f42b19788d3fb119ff42d8d",
+      "summary": "# Asset Property and Lifecycle Rules ## Purpose This split document isolates Asset property semantics, validation rules, business rules, aggregate invariants, and state machine behavior from the larger Asset entity specification. ## Sour"
     },
     {
       "id": "0c3ced33912c37e4",
@@ -1262,7 +1278,7 @@
       "title": "Liability Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Liability.md",
-      "sourceHash": "1c503f7a5815409c2f392a7c4a90c65a0ece988f61f6c5ffca51f4beb6cc2853",
+      "sourceHash": "b40f43fd6f103cc2ae413994b97bb8c3abc4d185b64d400a7c529d88f7e72cf6",
       "summary": "# Liability Entity Specification ## Split Navigation - [Liability identity and lifecycle](liability/identity-and-lifecycle.md) - [Liability API and persistence](liability/api-and-persistence.md) - [Liability governance and testing](liabilit"
     },
     {
@@ -1290,12 +1306,20 @@
       "summary": "# Liability Identity and Lifecycle ## Purpose This split document isolates Liability identity, aggregate root behavior, aggregate boundary, lifecycle, ownership, relationships, navigation, properties, validation, business rules, invariants"
     },
     {
+      "id": "91c672e300540024",
+      "title": "Liability Rules and State",
+      "category": "entity",
+      "path": "knowledge/entity/liability/rules-and-state.md",
+      "sourceHash": "0bfdd620c5c58c8593a7b18389760640f11feaddf8d11433eb6b3474512603f6",
+      "summary": "# Liability Rules and State ## Purpose This split document isolates Liability validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Liability Entity Specification. ##"
+    },
+    {
       "id": "67b0cd26d836388a",
       "title": "Loan Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Loan.md",
-      "sourceHash": "8aea9c121c2e0287f3c3f83e1ba5a6d7d4b310b510daf6808401ca4795fa3443",
-      "summary": "# Loan Entity Specification ## Split Navigation - [Loan identity and repayment](loan/identity-and-repayment.md) - [Loan risk and refinancing](loan/risk-and-refinancing.md) - [Loan API and audit](loan/api-and-audit.md) - [Loan scena"
+      "sourceHash": "1423f8d993ec763c50d7ee90241890e57f78c0aa77ce5ee7c7247a18872a8c9e",
+      "summary": "# Loan Entity Specification ## Split Navigation - [Loan identity and repayment](loan/identity-and-repayment.md) - [Loan risk and refinancing](loan/risk-and-refinancing.md) - [Loan API and audit](loan/api-and-audit.md) - [Loan scenari"
     },
     {
       "id": "b6b3005a77846717",
@@ -1312,6 +1336,22 @@
       "path": "knowledge/entity/loan/identity-and-repayment.md",
       "sourceHash": "fa72d9a01bcabff9ef805cd9ac81b505d10ae6fc6d42b9c3a44952848d1f5c5e",
       "summary": "# Loan Identity and Repayment ## Purpose This split document prepares the Loan entity for focused review by isolating identity and repayment behavior. ## Source - Parent specification: [Loan Entity Specification](../Loan.md)"
+    },
+    {
+      "id": "a17aaac1f8291471",
+      "title": "Loan Persistence and Verification",
+      "category": "entity",
+      "path": "knowledge/entity/loan/persistence-and-verification.md",
+      "sourceHash": "f97bd0d5975ca793c2492e41fb53bd71d29c66dd85b2ff2576cdc647c1574c3d",
+      "summary": "# Loan Persistence and Verification ## Purpose This split document isolates Loan database mapping, PostgreSQL DDL, EF Core Fluent API, cache strategy, security, audit, observability, performance, examples, diagrams, testing, edge cases, e"
+    },
+    {
+      "id": "7ad7f230c9fa6449",
+      "title": "Loan Property and Lifecycle Rules",
+      "category": "entity",
+      "path": "knowledge/entity/loan/property-and-lifecycle-rules.md",
+      "sourceHash": "1359d4a3c673f5e37e40e7f3c243a2787c7734790610f6c5d265bedceea76735",
+      "summary": "# Loan Property and Lifecycle Rules ## Purpose This split document isolates Loan properties, monetary semantics, interest model, repayment model, grace period model, validation rules, business rules, aggregate invariants, and state machin"
     },
     {
       "id": "b5cc0a896449b2b5",
@@ -1334,7 +1374,7 @@
       "title": "Mortgage Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Mortgage.md",
-      "sourceHash": "2ccfd0319195273658306df3dc49087e2f4810ee97f7c08c783fb0cd3e6cece4",
+      "sourceHash": "8bac2c4f5dbd28a1da677cd6df25b966bc66b807429ddaa454f27e65d47f36f7",
       "summary": "# Mortgage Entity Specification ## Split Navigation - [Mortgage identity and repayment](mortgage/identity-and-repayment.md) - [Mortgage persistence and API](mortgage/persistence-and-api.md) - [Mortgage governance and testing](mortgage/gover"
     },
     {
@@ -1360,6 +1400,22 @@
       "path": "knowledge/entity/mortgage/persistence-and-api.md",
       "sourceHash": "1df7957890253a6311d56f8700b74c2f2229861411aed57207806da6380dd3ea",
       "summary": "# Mortgage Persistence and API ## Purpose This split document isolates Mortgage commands, events, repository, services, REST API, DTO, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Mortgage Entity Sp"
+    },
+    {
+      "id": "da359f12d0e922d5",
+      "title": "Mortgage Property and Collateral Rules",
+      "category": "entity",
+      "path": "knowledge/entity/mortgage/property-and-collateral-rules.md",
+      "sourceHash": "2b38d14d576ce34f543651aa8d92fbba479eed19c35978ded1c19b6e429d1d73",
+      "summary": "# Mortgage Property and Collateral Rules ## Purpose This split document isolates Mortgage properties, monetary semantics, interest model, repayment model, grace period model, collateral reference model, validation rules, business rules, a"
+    },
+    {
+      "id": "e8989d6bfcd046db",
+      "title": "Mortgage Scenario and Refinance Behavior",
+      "category": "entity",
+      "path": "knowledge/entity/mortgage/scenario-and-refinance-behavior.md",
+      "sourceHash": "af724fe61c6c8ff8fdfa5adc4cc5dc7a0faabf0c0690a2ab38b410ee254527a6",
+      "summary": "# Mortgage Scenario and Refinance Behavior ## Purpose This split document isolates Mortgage refinance, affordability, amortization, scenario, cash flow, recommendation, decision, and projection behavior from the larger Mortgage entity spe"
     },
     {
       "id": "87021bfea90ada02",
@@ -1418,11 +1474,19 @@
       "summary": "# Portfolio Identity and Semantics ## Purpose This split document isolates Portfolio identity, aggregate boundary, lifecycle, ownership, relationships, properties, portfolio semantics, ownership model, asset association model, validation,"
     },
     {
+      "id": "d1259527ea42e07d",
+      "title": "Portfolio Rules and State",
+      "category": "entity",
+      "path": "knowledge/entity/portfolio-entity/rules-and-state.md",
+      "sourceHash": "b95632074a64ffa0ac0207215e08afd013fbdab40b60edfbb2cad54b97b3bc78",
+      "summary": "# Portfolio Rules and State ## Purpose This split document isolates Portfolio validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Portfolio Entity Specification. ##"
+    },
+    {
       "id": "cb7961c60679be71",
       "title": "Portfolio Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Portfolio.md",
-      "sourceHash": "eff329972e961fad0bb3264920394c3745a140ee1943ecc3cd08e6485c554fed",
+      "sourceHash": "a3480af4c9475842deeb12b3228b6723ecd4585049560aae825ae8a8db03c582",
       "summary": "# Portfolio Entity Specification ## Split Navigation - [Portfolio identity and semantics](portfolio-entity/identity-and-semantics.md) - [Portfolio API and persistence](portfolio-entity/api-and-persistence.md) - [Portfolio governance and tes"
     },
     {
@@ -1430,7 +1494,7 @@
       "title": "Position Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Position.md",
-      "sourceHash": "f6c6e81331e41a95ea5f0ee4ed7486a76fea40691872d211cd175b7722656f3f",
+      "sourceHash": "188945a9b4ab3a1c4283f61c2303a14d361512a0287be58679301f4f698a551b",
       "summary": "# Position Entity Specification ## Split Navigation - [Position identity and valuation](position/identity-and-valuation.md) - [Position API and persistence](position/api-and-persistence.md) - [Position governance and testing](position/gover"
     },
     {
@@ -1456,6 +1520,14 @@
       "path": "knowledge/entity/position/identity-and-valuation.md",
       "sourceHash": "7b0eff78adc417ba553547bc5d653917a8aba09e4ab4c93b34f1b52f1999b990",
       "summary": "# Position Identity and Valuation ## Purpose This split document isolates Position identity, lifecycle, ownership, properties, semantics, quantity model, cost basis model, valuation reference model, validation, and business rules from the"
+    },
+    {
+      "id": "b1c0fcc07c808ccf",
+      "title": "Position Rules and State",
+      "category": "entity",
+      "path": "knowledge/entity/position/rules-and-state.md",
+      "sourceHash": "9e19f0f29fa31be10b972b49ae833c6fabc41fc465965343657dc42b556bab6a",
+      "summary": "# Position Rules and State ## Purpose This split document isolates Position/Holding validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Position Entity Specification."
     },
     {
       "id": "eb0e81fa13800bfd",
@@ -2606,7 +2678,7 @@
       "title": "Dashboard Architecture",
       "category": "reporting",
       "path": "knowledge/reporting/decision-dashboard.md",
-      "sourceHash": "49ed2166e44c45f467c246cae86b486d24e0930d1d9edcf56662bc1f00979de3",
+      "sourceHash": "4427e3ff145dee1776b5f50bc70143b9adae82a5d762aad357a766aecdba7354",
       "summary": "# Decision Dashboard Overview Version: 1.0.0 ## Split Navigation - [Decision dashboard metrics and views](decision-dashboard/metrics-and-views.md) - [Decision dashboard data and interactions](decision-dashboard/data-and-interactions.md) -"
     },
     {
@@ -2632,6 +2704,14 @@
       "path": "knowledge/reporting/decision-dashboard/metrics-and-views.md",
       "sourceHash": "722ab91381b01bc01a9e81b7b2ece8983bb650397462a88ec99ee1a4f56b5978",
       "summary": "# Decision Dashboard Metrics and Views ## Purpose This split document isolates dashboard-visible decision metrics, view composition, filtering, and status summaries from the parent Decision Dashboard specification. ## Source - Parent spec"
+    },
+    {
+      "id": "1db0f8ede0352aa3",
+      "title": "Decision Dashboard Rules and Lifecycle",
+      "category": "reporting",
+      "path": "knowledge/reporting/decision-dashboard/rules-and-lifecycle.md",
+      "sourceHash": "28bbe145ba87400f00cdbea99bf7347bc276efb862b6cbb32c785ac540c1b3cd",
+      "summary": "# Decision Dashboard Rules and Lifecycle ## Purpose This split document isolates Decision Dashboard lifecycle, validation rules, business rules, permissions, refresh behavior, and state handling from the parent Decision Dashboard specifica"
     },
     {
       "id": "88b669833ff93c8a",
@@ -2974,8 +3054,24 @@
       "title": "Insight Architecture",
       "category": "supporting",
       "path": "knowledge/supporting/decision-insights.md",
-      "sourceHash": "54ce5666f7a98105874cfd7acb91fe024aded682242f71c848f23cc56ad1a087",
+      "sourceHash": "2766fa484301dc255a1cb5f331ee24e70c926bcb6b0b89d81674fb2daac05114",
       "summary": "# Decision Insights Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Decision Domain Source of Truth: Decision Catalog Last Updated: 2026-07-13 ## Split Navigation - [Decision insights generation](decision-insights/g"
+    },
+    {
+      "id": "a83680ea32904771",
+      "title": "Decision Insight Categories and Rules",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-insights/categories-and-rules.md",
+      "sourceHash": "8d854ef0f9fcd5dc53ff5ef21a4b1d83ac0d98a96bdb0d2ffa16924c4c242e7b",
+      "summary": "# Decision Insight Categories and Rules ## Purpose This split document isolates Decision Insight categories, detection rules, validation rules, business rules, and lifecycle state behavior from the parent Decision Insights specification."
+    },
+    {
+      "id": "c11ec55cb92155b2",
+      "title": "Decision Insight Contracts and Persistence",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-insights/contracts-and-persistence.md",
+      "sourceHash": "6f16b1dac6d466d07cd939b5b46cbcd73c2a15bb2d612588990e4190ffba7b72",
+      "summary": "# Decision Insight Contracts and Persistence ## Purpose This split document isolates Decision Insight commands, domain events, repository, API, DTO, database mapping, cache, security, audit, performance, examples, diagrams, testing, and ed"
     },
     {
       "id": "e9b504e1823b559c",
@@ -3238,8 +3334,16 @@
       "title": "Goal Conflict Resolution",
       "category": "supporting",
       "path": "knowledge/supporting/goal-conflict-resolution.md",
-      "sourceHash": "a4eb04b75b43224b9c8ce5646fc0b2439582fba77c787e3fbb8be1dda39283d2",
-      "summary": "# Goal Conflict Resolution ## Split Navigation - [Goal conflict detection](goal-conflict-resolution/detection-and-classification.md) - [Goal conflict resolution workflow](goal-conflict-resolution/resolution-workflow.md) - [Goal conflict gov"
+      "sourceHash": "9e575b5d64c5e73ee914420460993012e99046119db5b3d7ec791511f34033ed",
+      "summary": "# Goal Conflict Resolution ## Split Navigation - [Goal conflict detection](goal-conflict-resolution/detection-and-classification.md) - [Goal conflict resolution workflow](goal-conflict-resolution/resolution-workflow.md) - [Goal conflict lif"
+    },
+    {
+      "id": "1c2fdc2781e02387",
+      "title": "Goal Conflict Contracts and Persistence",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-conflict-resolution/contracts-and-persistence.md",
+      "sourceHash": "3a380883934d73d136697e1defb5c97e87837e4ef97f0bee145f03d4d6bdbfc2",
+      "summary": "# Goal Conflict Contracts and Persistence ## Purpose This split document isolates Goal Conflict commands, events, API, DTO, persistence mapping, cache, and example payload concerns from the parent Goal Conflict Resolution specification. #"
     },
     {
       "id": "3e50655c945a5de1",
@@ -3256,6 +3360,14 @@
       "path": "knowledge/supporting/goal-conflict-resolution/governance-and-testing.md",
       "sourceHash": "81d6492491f8e4225bead2d57d09439e68ac3723933184276e24c814ee04abd5",
       "summary": "# Goal Conflict Governance and Testing ## Purpose This split document isolates goal conflict governance, validation, security, audit, testing, edge cases, and consistency checks from the parent Goal Conflict Resolution specification. ## S"
+    },
+    {
+      "id": "2095b4a42251624f",
+      "title": "Goal Conflict Lifecycle and State",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-conflict-resolution/lifecycle-and-state.md",
+      "sourceHash": "4b954c5ec08114eaf2a18e3963a6dd0e7b3c96c9327501141e732e64b8350448",
+      "summary": "# Goal Conflict Lifecycle and State ## Purpose This split document isolates Goal Conflict lifecycle, status, state machine, deterministic transition rules, and resolution state from the parent Goal Conflict Resolution specification. ## So"
     },
     {
       "id": "86865c3993dcf7d8",
@@ -3750,8 +3862,16 @@
       "title": "Execution Architecture",
       "category": "supporting",
       "path": "knowledge/supporting/recommendation-execution.md",
-      "sourceHash": "03dd555a151a28b14a15b055e168f7d4b8add0ce3b0229fb990288db6ecb0f88",
+      "sourceHash": "ccdda04a1b4a2bcd5c8d42a02c6d7f451eced14191b2326eff28a9c83283713e",
       "summary": "# Recommendation Execution Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Recommendation Domain Source of Truth: Recommendation Catalog Last Updated: 2026-07-13 ## Split Navigation - [Recommendation execution pl"
+    },
+    {
+      "id": "3e7555e7923cc93e",
+      "title": "Recommendation Execution Contracts and Persistence",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-execution/contracts-and-persistence.md",
+      "sourceHash": "732c613635aef3bb8ca28c9770f34da0d15f1e8d5ec1b5fbfe675529fc384373",
+      "summary": "# Recommendation Execution Contracts and Persistence ## Purpose This split document isolates Recommendation Execution commands, domain events, repository, API, DTO, database mapping, cache, security, audit, performance, examples, diagrams,"
     },
     {
       "id": "7699c9be2a7020f5",
@@ -3768,6 +3888,14 @@
       "path": "knowledge/supporting/recommendation-execution/planning-and-workflow.md",
       "sourceHash": "4dc5212a4b879394cebb5231d79436ec047a62a82c4c3c996b968f17ec98e688",
       "summary": "# Recommendation Execution Planning and Workflow ## Purpose This split document isolates recommendation execution planning, workflow stages, ownership boundaries, and implementation steps from the parent Recommendation Execution specificat"
+    },
+    {
+      "id": "a35f09f7f66786c1",
+      "title": "Recommendation Execution Policies and Monitoring",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-execution/policies-and-monitoring.md",
+      "sourceHash": "8f082760687177d16da1380936f8dcae7c487baf444c423ae704babafedacfbf",
+      "summary": "# Recommendation Execution Policies and Monitoring ## Purpose This split document isolates execution policies, execution modes, monitoring, health, metrics, KPIs, forecasts, timelines, logs, and validation rules from the parent Recommendat"
     },
     {
       "id": "175b7d344f8d3af8",

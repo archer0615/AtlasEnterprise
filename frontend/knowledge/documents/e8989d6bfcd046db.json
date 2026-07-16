@@ -1,0 +1,39 @@
+{
+  "id": "e8989d6bfcd046db",
+  "title": "Mortgage Scenario and Refinance Behavior",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/mortgage/scenario-and-refinance-behavior.md",
+  "sourceHash": "af724fe61c6c8ff8fdfa5adc4cc5dc7a0faabf0c0690a2ab38b410ee254527a6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Mortgage Scenario and Refinance Behavior"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Refinance Behavior"
+    },
+    {
+      "level": 2,
+      "text": "Scenario and Projection Behavior"
+    },
+    {
+      "level": 2,
+      "text": "Governance Boundaries"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Mortgage Scenario and Refinance Behavior\n\n## Purpose\n\nThis split document isolates Mortgage refinance, affordability, amortization, scenario, cash flow, recommendation, decision, and projection behavior from the larger Mortgage entity specification.\n\n## Source\n\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\n\n## Refinance Behavior\n\n- Mortgage refinance behavior uses `RefinanceLoan` and emits `LoanRefinanced`.\n- Refinance analysis may include current rate, reset rate, refinancing rate, fees, remaining term, payment delta, interest savings, and break-even timing.\n- Refinance output is calculation or decision support and must not bypass Loan aggregate lifecycle rules.\n\n## Scenario and Projection Behavior\n\n- Mortgage scenario inputs can support affordability, cash flow pressure, stress, rate shock, and Taiwan mortgage program comparisons.\n- Projection outputs and dashboard summaries are read models and must not become source of truth.\n- Amortization calculation belongs to LoanService and calculation engine, not Mortgage repository logic.\n- CashFlow forecasting belongs to CashFlowService and Projection Engine.\n- Recommendation generation belongs to RecommendationService and decision scoring belongs to DecisionService.\n\n## Governance Boundaries\n\n- Mortgage scenario behavior must preserve household isolation, tenant boundary where tenancy exists, audit traceability, deterministic formulas, and catalog command/event mapping.\n- Taiwan mortgage detail is implementation value metadata unless a catalog concept explicitly defines otherwise.\n\n## Related References\n\n- [Mortgage Entity Specification](../Mortgage.md)\n- [Mortgage governance and testing](governance-and-testing.md)\n- [Loan scenario integration](../loan/scenario-integration.md)\n- [Loan risk and refinancing](../loan/risk-and-refinancing.md)\n",
+  "references": []
+}

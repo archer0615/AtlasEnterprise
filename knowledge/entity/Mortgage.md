@@ -3,6 +3,8 @@
 - [Mortgage identity and repayment](mortgage/identity-and-repayment.md)
 - [Mortgage persistence and API](mortgage/persistence-and-api.md)
 - [Mortgage governance and testing](mortgage/governance-and-testing.md)
+- [Mortgage property and collateral rules](mortgage/property-and-collateral-rules.md)
+- [Mortgage scenario and refinance behavior](mortgage/scenario-and-refinance-behavior.md)
 # Document Control
 | Field | Value |
 |---|---|

@@ -1,0 +1,39 @@
+{
+  "id": "2095b4a42251624f",
+  "title": "Goal Conflict Lifecycle and State",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-conflict-resolution/lifecycle-and-state.md",
+  "sourceHash": "4b954c5ec08114eaf2a18e3963a6dd0e7b3c96c9327501141e732e64b8350448",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Conflict Lifecycle and State"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Conflict Status and Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "Resolution State"
+    },
+    {
+      "level": 2,
+      "text": "Deterministic Transition Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Conflict Lifecycle and State\n\n## Purpose\nThis split document isolates Goal Conflict lifecycle, status, state machine, deterministic transition rules, and resolution state from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Conflict Status and Lifecycle\nGoal Conflict lifecycle covers detection, reevaluation, proposal, selection, acceptance, rejection, override, deferral, escalation, resolution, reopen, archive, and restore behavior.\n\n## State Machine\nThe state machine preserves GoalPlan-owned conflict state and supports auditable transitions across open, proposed, selected, accepted, rejected, overridden, deferred, escalated, resolved, reopened, archived, and restored states.\n\n## Resolution State\nResolution state records selected strategy, resolution candidate, decision evidence, operator, reason, prior state, next state, timestamp, and correlation identifier.\n\n## Deterministic Transition Rules\nTransitions must remain deterministic, idempotent, permission-aware, tenant-safe, and compatible with historical replay and audit compatibility.\n",
+  "references": []
+}

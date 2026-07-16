@@ -1,0 +1,43 @@
+{
+  "id": "c11ec55cb92155b2",
+  "title": "Decision Insight Contracts and Persistence",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/decision-insights/contracts-and-persistence.md",
+  "sourceHash": "6f16b1dac6d466d07cd939b5b46cbcd73c2a15bb2d612588990e4190ffba7b72",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Insight Contracts and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "API and DTO"
+    },
+    {
+      "level": 2,
+      "text": "Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Operations"
+    }
+  ],
+  "bodyMarkdown": "# Decision Insight Contracts and Persistence\n\n## Purpose\nThis split document isolates Decision Insight commands, domain events, repository, API, DTO, database mapping, cache, security, audit, performance, examples, diagrams, testing, and edge cases from the parent Decision Insights specification.\n\n## Source\n- Parent specification: [Decision Insights](../decision-insights.md)\n\n## Commands\nInsight commands include CreateInsight, UpdateInsight, RefreshInsight, GenerateInsight, DismissInsight, ResolveInsight, ArchiveInsight, RestoreInsight, DeleteInsight, GenerateInsightReport, and related existing domain commands.\n\n## Domain Events\nDomain events preserve insight lifecycle, evidence, recommendation mapping, reporting, resolution, dismissal, archive, restore, delete, audit, and cross-domain references without overriding source domain ownership.\n\n## API and DTO\nREST Endpoints, HTTP Methods, Request, Response, Errors, Pagination, Filtering, Sorting, Projection, Insight API, Report API, and Bulk API use Create DTO, Update DTO, Insight DTO, Evidence DTO, Recommendation DTO, Risk DTO, Summary DTO, Detail DTO, Search DTO, and Report DTO contracts.\n\n## Persistence\nRepository interface, methods, queries, filtering, sorting, aggregation, projection, specification, database table, columns, indexes, constraints, FK, unique, check constraint, partition strategy, PostgreSQL schema, EF Core mapping, and cache strategy preserve independent lifecycle, evidence collection, resolution state, audit trail, and repository identity.\n\n## Operations\nSecurity, authorization, permissions, field level security, data masking, audit history, batch generation, incremental detection, parallel processing, caching, materialized views, read optimization, example JSON, Mermaid diagrams, and tests support governed Decision Insight execution.\n",
+  "references": []
+}

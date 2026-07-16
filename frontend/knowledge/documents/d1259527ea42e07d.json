@@ -1,0 +1,39 @@
+{
+  "id": "d1259527ea42e07d",
+  "title": "Portfolio Rules and State",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/portfolio-entity/rules-and-state.md",
+  "sourceHash": "b95632074a64ffa0ac0207215e08afd013fbdab40b60edfbb2cad54b97b3bc78",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Rules and State"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate Invariants"
+    },
+    {
+      "level": 2,
+      "text": "State and Events"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Rules and State\n\n## Purpose\nThis split document isolates Portfolio validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Portfolio Entity Specification.\n\n## Source\n- Parent specification: [Portfolio Entity Specification](../Portfolio.md)\n\n## Validation Rules\nPortfolio validation requires AssetPortfolioId, HouseholdId, OwnerUserId, PortfolioName, BaseCurrency, unique tenant PortfolioNumber, valid target allocation totals, valid RebalancePolicy, and trusted owner, household, and asset portfolio references.\n\n## Business Rules\nPortfolio is a child entity owned by AssetPortfolio. Holding is the Catalog entity for positions inside Portfolio, and Goal, Scenario, Decision, Recommendation, MarketData, and external read models remain reference-only or projection-only outside Portfolio mutation.\n\n## Aggregate Invariants\nAssetPortfolio protects Portfolio, Holding membership, allocation metadata, lifecycle state, version, and ConcurrencyToken. Archived or deleted Portfolio rejects ordinary updates, repository business logic is forbidden, and performance, NAV, risk, allocation, and dashboard values remain projections.\n\n## State and Events\nDraft, Active, Suspended, Archived, and Deleted are implementation status values. Catalog command and event boundaries remain CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio, PortfolioCreated, SecurityPurchased, SecuritySold, PortfolioRebalanced, and DividendDistributed.\n",
+  "references": []
+}

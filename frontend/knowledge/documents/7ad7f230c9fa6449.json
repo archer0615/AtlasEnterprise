@@ -1,0 +1,39 @@
+{
+  "id": "7ad7f230c9fa6449",
+  "title": "Loan Property and Lifecycle Rules",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/loan/property-and-lifecycle-rules.md",
+  "sourceHash": "1359d4a3c673f5e37e40e7f3c243a2787c7734790610f6c5d265bedceea76735",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Loan Property and Lifecycle Rules"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Property Semantics"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Rules"
+    },
+    {
+      "level": 2,
+      "text": "Validation and Invariants"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Loan Property and Lifecycle Rules\n\n## Purpose\n\nThis split document isolates Loan properties, monetary semantics, interest model, repayment model, grace period model, validation rules, business rules, aggregate invariants, and state machine behavior from the larger Loan entity specification.\n\n## Source\n\n- Parent specification: [Loan Entity Specification](../Loan.md)\n\n## Property Semantics\n\n- Loan maintains `LoanId`, optional `LoanNumber`, household scope, principal state, balance state, interest metadata, term metadata, payment metadata, refinance metadata, lifecycle status, audit fields, and versioning.\n- Original principal, outstanding principal, remaining balance, fees, penalties, and payment allocation must keep Money and Currency semantics.\n- Interest metadata includes InterestRate, rate type values, margin, reference rate, reset metadata, and effective dates.\n- Term metadata includes LoanTerm, origination date, maturity date, remaining term, payment frequency, and amortization assumptions where supported.\n\n## Lifecycle Rules\n\n- Loan lifecycle includes active, suspended, closed, archived, deleted, and implementation states described by the parent specification.\n- `RecordLoanPayment` reduces balance and emits `LoanPaymentMade`.\n- `RefinanceLoan` changes terms and emits `LoanRefinanced`.\n- Closing a Loan must preserve audit history and emit catalog-aligned closure behavior.\n- Mortgage behavior remains owned by Loan when Mortgage is represented as subtype/entity inside Loan.\n\n## Validation and Invariants\n\n- Loan requires stable identity, household authorization scope, valid currency, non-negative principal and balance values, valid interest metadata, and valid term metadata.\n- Payment application must not create invalid negative balances unless explicitly defined by settlement behavior.\n- Refinance behavior must preserve command/event mapping and audit completeness.\n- Repository logic must not perform business calculations; LoanService and calculation engine own calculation behavior.\n\n## Related References\n\n- [Loan Entity Specification](../Loan.md)\n- [Loan identity and repayment](identity-and-repayment.md)\n- [Loan risk and refinancing](risk-and-refinancing.md)\n- [Mortgage Entity Specification](../Mortgage.md)\n",
+  "references": []
+}

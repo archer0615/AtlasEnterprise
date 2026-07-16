@@ -1,0 +1,39 @@
+{
+  "id": "da359f12d0e922d5",
+  "title": "Mortgage Property and Collateral Rules",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/mortgage/property-and-collateral-rules.md",
+  "sourceHash": "2b38d14d576ce34f543651aa8d92fbba479eed19c35978ded1c19b6e429d1d73",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Mortgage Property and Collateral Rules"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Property Semantics"
+    },
+    {
+      "level": 2,
+      "text": "Collateral Reference Rules"
+    },
+    {
+      "level": 2,
+      "text": "Validation and Invariants"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Mortgage Property and Collateral Rules\n\n## Purpose\n\nThis split document isolates Mortgage properties, monetary semantics, interest model, repayment model, grace period model, collateral reference model, validation rules, business rules, aggregate invariants, and state machine behavior from the larger Mortgage entity specification.\n\n## Source\n\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\n\n## Property Semantics\n\n- Mortgage maintains MortgageId or LoanId subtype identity, LoanId linkage, PropertyId or CollateralAssetId reference, principal state, balance state, interest metadata, repayment metadata, grace period metadata, Taiwan mortgage detail, audit fields, and versioning.\n- Mortgage is a property-backed loan subtype inside the Loan aggregate and is not an aggregate root.\n- Principal, remaining principal, outstanding balance, accrued interest snapshots, fees, and repayment values must keep Money and Currency semantics.\n- Fixed/floating rate inputs, effective dates, payment cadence, repayment model, and grace period inputs feed LoanService and calculation engine behavior.\n\n## Collateral Reference Rules\n\n- PropertyId or CollateralAssetId is a reference only and must not transfer Asset or Property valuation ownership into Mortgage.\n- Appraisal ownership and lien ownership are not Catalog Concepts here.\n- Collateral validation must reject invalid or cross-scope references while preserving Loan aggregate ownership.\n\n## Validation and Invariants\n\n- Mortgage requires Loan linkage, valid household scope through Loan, valid currency, valid principal and balance values, valid interest metadata, and valid collateral references where provided.\n- Mortgage lifecycle follows Loan lifecycle; payment, refinance, and closure behavior route through Loan commands.\n- Mortgage-specific status values are implementation values and must not create new catalog enumerations.\n\n## Related References\n\n- [Mortgage Entity Specification](../Mortgage.md)\n- [Mortgage identity and repayment](identity-and-repayment.md)\n- [Mortgage persistence and API](persistence-and-api.md)\n- [Loan Entity Specification](../Loan.md)\n",
+  "references": []
+}

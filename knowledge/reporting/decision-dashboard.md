@@ -4,6 +4,7 @@ Version: 1.0.0
 - [Decision dashboard metrics and views](decision-dashboard/metrics-and-views.md)
 - [Decision dashboard data and interactions](decision-dashboard/data-and-interactions.md)
 - [Decision dashboard governance and testing](decision-dashboard/governance-and-testing.md)
+- [Decision dashboard rules and lifecycle](decision-dashboard/rules-and-lifecycle.md)
 Status: Enterprise Specification
 Owner: Atlas Decision Domain
 Source of Truth: Decision Catalog

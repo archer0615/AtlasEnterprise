@@ -1,0 +1,39 @@
+{
+  "id": "3e7555e7923cc93e",
+  "title": "Recommendation Execution Contracts and Persistence",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-execution/contracts-and-persistence.md",
+  "sourceHash": "732c613635aef3bb8ca28c9770f34da0d15f1e8d5ec1b5fbfe675529fc384373",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Execution Contracts and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "API and DTO"
+    },
+    {
+      "level": 2,
+      "text": "Persistence"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Execution Contracts and Persistence\n\n## Purpose\nThis split document isolates Recommendation Execution commands, domain events, repository, API, DTO, database mapping, cache, security, audit, performance, examples, diagrams, and tests from the parent Recommendation Execution specification.\n\n## Source\n- Parent specification: [Recommendation Execution](../recommendation-execution.md)\n\n## Commands\nExecution commands include CreateExecution, StartExecution, PauseExecution, ResumeExecution, RetryExecution, CancelExecution, CompleteExecution, RollbackExecution, RecoverExecution, ArchiveExecution, RestoreExecution, DeleteExecution, GenerateExecutionPlan, ValidateExecution, ApproveExecution, RejectExecution, ScheduleExecution, DispatchExecution, VerifyExecution, FailExecution, EscalateExecution, and NotifyExecution.\n\n## Domain Events\nExecution events include lifecycle, validation, approval, scheduling, dispatch, verification, escalation, notification, and linked cross-domain events such as RecommendationExecutionLinked, DecisionExecutionRequested, GoalExecutionImpacted, PortfolioExecutionImpacted, and CashFlowExecutionImpacted.\n\n## API and DTO\nREST Endpoints, HTTP Methods, Request, Response, Errors, Pagination, Filtering, Sorting, Projection, Execution API, and Batch API are represented by Create DTO, Update DTO, Execution DTO, Execution Plan DTO, Execution Result DTO, Execution Log DTO, Execution Status DTO, Summary DTO, Detail DTO, and Search DTO contracts.\n\n## Persistence\nRepository interface, methods, queries, filtering, sorting, aggregation, projection, specification, database table, columns, indexes, constraints, FK, unique, check constraints, partition strategy, PostgreSQL schema, EF Core mapping, and cache strategy preserve execution evidence and auditability.\n",
+  "references": []
+}

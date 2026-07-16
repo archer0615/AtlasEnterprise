@@ -6,6 +6,8 @@
 - [Loan risk and refinancing](loan/risk-and-refinancing.md)
 - [Loan API and audit](loan/api-and-audit.md)
 - [Loan scenario integration](loan/scenario-integration.md)
+- [Loan property and lifecycle rules](loan/property-and-lifecycle-rules.md)
+- [Loan persistence and verification](loan/persistence-and-verification.md)
 
 # Document Control
 | Field | Value |
