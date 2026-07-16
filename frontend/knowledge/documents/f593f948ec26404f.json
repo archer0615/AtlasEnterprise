@@ -1,0 +1,27 @@
+{
+  "id": "f593f948ec26404f",
+  "title": "formula-coverage-roadmap",
+  "category": "product",
+  "canonicalPath": "knowledge/product/formula-coverage-roadmap.md",
+  "sourceHash": "83c9916c5c00d02e1ec3097fa36f559af4974cbb6191b29cb44a9436d6657130",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Roadmap"
+    },
+    {
+      "level": 2,
+      "text": "Completion Criteria"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "﻿# Formula Coverage Roadmap\n\nDocument Path: knowledge/product/formula-coverage-roadmap.md\nDocument Type: Atlas Enterprise Planning Note\nVersion: 1.0\nStatus: Planning\nDomain: Formula Governance\nBounded Context: Calculation\nOwner: Project Atlas\nSource of Truth: Atlas Formula Coverage Roadmap\nLast Updated: 2026-07-16\n\n## Purpose\n\nTracks the next formula coverage increments after the current dashboard and simulator formula alignment work.\n\n## Roadmap\n\n| Priority | Work Item | Target |\n| --- | --- | --- |\n| P0 | Add explicit formula IDs to simulator outputs | Simulator result payloads include formula references. |\n| P0 | Add amortization schedule fixture | Validate `FORM-LOAN-AMORTIZATION` period-by-period. |\n| P0 | Add refinancing fee breakdown fixture | Validate `FORM-REFI-BREAK-EVEN` with fee components. |\n| P1 | Add portfolio attribution fixture | Validate `FORM-DRAWDOWN-ATTRIBUTION` by holding and classification. |\n| P1 | Add retirement withdrawal stress fixture | Validate `FORM-WITHDRAWAL-SUSTAINABILITY` under stress cases. |\n| P1 | Add formula registry validation script | Ensure all mapped formula IDs exist in the catalog. |\n| P2 | Add runtime formula evaluation contract | Align future services with current formula IDs. |\n\n## Completion Criteria\n\n- `npm run validate` passes.\n- Formula IDs in dashboard and simulator docs match the formula catalog.\n- Fixture outputs can name the formulas used for key metrics.\n\n## Related Specifications\n\n- `knowledge/product/formula-validation-matrix.md`\n- `knowledge/product/dashboard-metric-formula-mapping.md`\n- `knowledge/product/simulator-formula-coverage.md`\n",
+  "references": []
+}

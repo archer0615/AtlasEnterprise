@@ -1,0 +1,27 @@
+{
+  "id": "b5adbb63405d0cb5",
+  "title": "dashboard-metric-formula-mapping",
+  "category": "product",
+  "canonicalPath": "knowledge/product/dashboard-metric-formula-mapping.md",
+  "sourceHash": "b8b4522b6ac4306e2646e4477054fd0e9a6afee82ea15c232be06080bb5110d1",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Mapping Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "﻿# Dashboard Metric Formula Mapping\n\nDocument Path: knowledge/product/dashboard-metric-formula-mapping.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: Dashboard\nOwner: Project Atlas\nSource of Truth: Atlas Dashboard Metric Formula Mapping Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nMaps dashboard fixture metrics to formula identifiers so dashboard values can be traced, validated, and eventually generated from runtime services.\n\n## Mapping Matrix\n\n| Snapshot | Metric | Formula ID | Source Fixture |\n| --- | --- | --- | --- |\n| `dashboard-fixture-2026-07-15` | 瘥??舐?暸?瘚?| FORM-CF-COVERAGE | `mortgage-prepayment-baseline-2026.json` |\n| `dashboard-fixture-2026-07-15` | ?拚?撟湧? | FORM-LOAN-AMORTIZATION | `mortgage-prepayment-baseline-2026.json` |\n| `dashboard-fixture-2026-07-15` | ?狡憯? | FORM-DTI | `mortgage-prepayment-baseline-2026.json` |\n| `dashboard-fixture-2026-07-15` | 瘙箇?? | FORM-DECISION-SCORE | `mortgage-prepayment-baseline-2026.json` |\n| `home-upgrade-2031-baseline` | ??皞???| FORM-NET-WORTH | `home-upgrade-2031-baseline.json` |\n| `home-upgrade-2031-baseline` | ?摯鞈?蝻箏 | FORM-CF-COVERAGE | `home-upgrade-2031-baseline.json` |\n| `retirement-readiness-stress` | ?隡?????| FORM-WITHDRAWAL-SUSTAINABILITY | `retirement-readiness-stress.json` |\n| `retirement-readiness-stress` | ??摰??| FORM-SWR | `retirement-readiness-stress.json` |\n| `loan-refinancing-rate-shock` | 頧硫?? | FORM-REFI-BREAK-EVEN | `loan-refinancing-rate-shock.json` |\n| `loan-refinancing-rate-shock` | ?暸?瘚???| FORM-DTI | `loan-refinancing-rate-shock.json` |\n| `investment-drawdown-stress` | ??? | FORM-PORTFOLIO-DRAWDOWN | `investment-drawdown-stress.json` |\n| `investment-drawdown-stress` | 憯?敺???| FORM-DRAWDOWN-ATTRIBUTION | `investment-drawdown-stress.json` |\n\n## Validation\n\n- Every dashboard snapshot metric should map to at least one formula ID.\n- Formula IDs must exist in `knowledge/catalog/financial-formula-catalog.md`.\n- Fixture-backed metric values must remain valid UTF-8 and pass frontend validation.\n\n## Related Specifications\n\n- `knowledge/product/dashboard-formula-traceability.md`\n- `knowledge/product/dashboard-snapshot-contract.md`\n- `knowledge/catalog/financial-formula-catalog.md`\n",
+  "references": []
+}

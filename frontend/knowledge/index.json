@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T15:54:19.626Z",
-  "buildId": "faa1327d2c7a",
+  "generatedAt": "2026-07-16T16:02:08.308Z",
+  "buildId": "75fc0a1ac0f5",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -608,7 +608,7 @@
       "title": "Financial Formula Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/financial-formula-catalog.md",
-      "sourceHash": "27a1a46fdf39b11af1e98a60abcde1fe8682b426ebde6b023859a4a13da765df",
+      "sourceHash": "d0daccd4bb4de5681f7fe7b0650bae0a0e57f0fdb4194e13a12349fbce45331d",
       "summary": "# Financial Formula Catalog Document Path: knowledge/catalog/financial-formula-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.1 Status: Canonical Specification Domain: Formula Governance Bounded Context: Calc"
     },
     {
@@ -3300,12 +3300,36 @@
       "summary": "# Dashboard Formula Traceability Document Path: knowledge/product/dashboard-formula-traceability.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Co"
     },
     {
+      "id": "b5adbb63405d0cb5",
+      "title": "dashboard-metric-formula-mapping",
+      "category": "product",
+      "path": "knowledge/product/dashboard-metric-formula-mapping.md",
+      "sourceHash": "b8b4522b6ac4306e2646e4477054fd0e9a6afee82ea15c232be06080bb5110d1",
+      "summary": "# Dashboard Metric Formula Mapping Document Path: knowledge/product/dashboard-metric-formula-mapping.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounde"
+    },
+    {
       "id": "f0a7454456f39e50",
       "title": "Dashboard Snapshot Contract",
       "category": "product",
       "path": "knowledge/product/dashboard-snapshot-contract.md",
       "sourceHash": "affc4a5db22bd75398c0a688afadcd72896dc890a71c9426d8470dba2f961dd9",
       "summary": "# Dashboard Snapshot Contract # Dashboard Snapshot Contract Document Path: knowledge/product/dashboard-snapshot-contract.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Produ"
+    },
+    {
+      "id": "f593f948ec26404f",
+      "title": "formula-coverage-roadmap",
+      "category": "product",
+      "path": "knowledge/product/formula-coverage-roadmap.md",
+      "sourceHash": "83c9916c5c00d02e1ec3097fa36f559af4974cbb6191b29cb44a9436d6657130",
+      "summary": "# Formula Coverage Roadmap Document Path: knowledge/product/formula-coverage-roadmap.md Document Type: Atlas Enterprise Planning Note Version: 1.0 Status: Planning Domain: Formula Governance Bounded Context: Calculation Owner: Project Atl"
+    },
+    {
+      "id": "746f616066c472a6",
+      "title": "formula-validation-matrix",
+      "category": "product",
+      "path": "knowledge/product/formula-validation-matrix.md",
+      "sourceHash": "161598e8ebc4ecc8c079e972d70880c2c8bb9a7acd6a6e22c4174ce7ef807ca8",
+      "summary": "# Formula Validation Matrix Document Path: knowledge/product/formula-validation-matrix.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Formula Governance Bounded Context: Cal"
     },
     {
       "id": "8e0339af74b3c600",
@@ -3316,12 +3340,28 @@
       "summary": "# Offline Cache And Local State Document Path: knowledge/product/offline-cache-and-local-state.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Conte"
     },
     {
+      "id": "69a467047208d069",
+      "title": "portfolio-drawdown-attribution",
+      "category": "product",
+      "path": "knowledge/product/portfolio-drawdown-attribution.md",
+      "sourceHash": "6fc84df14aeb2180198ba854d767d3edb650e7d6d366e5b7af81a80858d2f6ef",
+      "summary": "# Portfolio Drawdown Attribution Document Path: knowledge/product/portfolio-drawdown-attribution.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Co"
+    },
+    {
       "id": "bb86b6c3500ed763",
       "title": "PWA Runtime Capability",
       "category": "product",
       "path": "knowledge/product/pwa-runtime-capability.md",
       "sourceHash": "bb69bacb8436456361ece593f56085f677ad99525feb3889e8f0ba122709ce9c",
       "summary": "# PWA Runtime Capability Document Path: knowledge/product/pwa-runtime-capability.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Context: PWA Owner:"
+    },
+    {
+      "id": "76ed4ccf0346d71d",
+      "title": "retirement-withdrawal-sustainability",
+      "category": "product",
+      "path": "knowledge/product/retirement-withdrawal-sustainability.md",
+      "sourceHash": "4e4564971f30ef9f29c35a7e3e3f5ec325fc8f485b3f874e65044cbae4d8d4e0",
+      "summary": "# Retirement Withdrawal Sustainability Document Path: knowledge/product/retirement-withdrawal-sustainability.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capabilit"
     },
     {
       "id": "27c4191b06983c92",

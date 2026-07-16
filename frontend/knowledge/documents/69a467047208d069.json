@@ -1,0 +1,35 @@
+{
+  "id": "69a467047208d069",
+  "title": "portfolio-drawdown-attribution",
+  "category": "product",
+  "canonicalPath": "knowledge/product/portfolio-drawdown-attribution.md",
+  "sourceHash": "6fc84df14aeb2180198ba854d767d3edb650e7d6d366e5b7af81a80858d2f6ef",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Formula"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "﻿# Portfolio Drawdown Attribution\n\nDocument Path: knowledge/product/portfolio-drawdown-attribution.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: Portfolio\nOwner: Project Atlas\nSource of Truth: Atlas Portfolio Drawdown Attribution Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines `FORM-DRAWDOWN-ATTRIBUTION`, the formula contract for explaining which holdings, asset classes, accounts, sectors, or risk factors contributed to a portfolio drawdown.\n\n## Inputs\n\n| Input | Required | Unit | Rule |\n| --- | --- | --- | --- |\n| PortfolioValueSeries | Yes | Money time series | Must include ordered valuation dates. |\n| HoldingValueSeries | Yes | Money time series | Must reconcile to portfolio value by date. |\n| ClassificationMap | Yes | Mapping | Maps holdings to asset class, sector, account, or factor. |\n| BenchmarkSeries | No | Money or index series | Required for benchmark-relative attribution. |\n| Currency | Yes | Currency | Must match valuation currency or include FX conversion. |\n| Period | Yes | Date range | Defines drawdown window. |\n\n## Formula\n\n- PeakValue = maximum portfolio value before the trough within Period.\n- TroughValue = minimum portfolio value after PeakValue within Period.\n- MaxDrawdown = (TroughValue - PeakValue) / PeakValue.\n- HoldingContribution = holding value change over drawdown window adjusted for cash flows.\n- ClassificationContribution = sum HoldingContribution by classification bucket.\n- ContributionShare = ClassificationContribution / total portfolio drawdown amount.\n\n## Outputs\n\n- Maximum drawdown percentage.\n- Peak date and trough date.\n- Drawdown amount.\n- Contribution by holding.\n- Contribution by asset class, account, sector, or factor.\n- Recovery date when available.\n- Formula version and source data references.\n\n## Validation\n\n- Reject unordered valuation dates.\n- Reject missing holding reconciliation unless marked estimated.\n- Reject zero or negative PeakValue.\n- Contributions must reconcile to total drawdown within rounding tolerance.\n- Replay must use the original classification map and formula version.\n\n## Related Specifications\n\n- `knowledge/catalog/financial-formula-catalog.md`\n- `knowledge/framework/portfolio-performance-framework.md`\n- `knowledge/framework/portfolio-performance/attribution-and-reporting.md`\n- `knowledge/product/simulator-formula-coverage.md`\r\n",
+  "references": []
+}

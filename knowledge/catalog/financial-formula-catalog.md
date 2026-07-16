@@ -46,6 +46,8 @@ Defines stable formula identifiers, metadata, lifecycle controls, and validation
 | FORM-NET-WORTH | 1.0 | Balance Sheet | Calculate assets minus liabilities. | Dashboard |
 | FORM-CF-COVERAGE | 1.0 | Liquidity | Measure expense coverage. | Liquidity, Dashboard |
 | FORM-PORTFOLIO-DRAWDOWN | 1.0 | Portfolio | Measure portfolio peak-to-trough drawdown. | Portfolio Engine, Simulator |
+| FORM-DRAWDOWN-ATTRIBUTION | 1.0 | Portfolio | Attribute drawdown to assets, sectors, accounts, or factors. | Portfolio Engine, Dashboard |
+| FORM-WITHDRAWAL-SUSTAINABILITY | 1.0 | Retirement | Estimate retirement withdrawal sustainability under assumptions and stress cases. | Retirement Engine, Simulator |
 | FORM-DECISION-SCORE | 1.0 | Score | Normalize weighted decision score. | Decision Dashboard |
 
 ## Formula Governance Commands
@@ -94,6 +96,9 @@ Defines stable formula identifiers, metadata, lifecycle controls, and validation
 
 - `knowledge/product/dashboard-formula-traceability.md`
 - `knowledge/product/simulator-formula-coverage.md`
+- `knowledge/product/dashboard-metric-formula-mapping.md`
+- `knowledge/product/formula-validation-matrix.md`
+- `knowledge/product/formula-coverage-roadmap.md`
 - `knowledge/engine/calculation-engine-framework.md`
 - `knowledge/entity/loan/amortization-spec.md`
 - `knowledge/entity/loan/refinancing-break-even-spec.md`

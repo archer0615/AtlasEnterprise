@@ -1,0 +1,35 @@
+{
+  "id": "76ed4ccf0346d71d",
+  "title": "retirement-withdrawal-sustainability",
+  "category": "product",
+  "canonicalPath": "knowledge/product/retirement-withdrawal-sustainability.md",
+  "sourceHash": "4e4564971f30ef9f29c35a7e3e3f5ec325fc8f485b3f874e65044cbae4d8d4e0",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Formula"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "﻿# Retirement Withdrawal Sustainability\n\nDocument Path: knowledge/product/retirement-withdrawal-sustainability.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: Retirement\nOwner: Project Atlas\nSource of Truth: Atlas Retirement Withdrawal Sustainability Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines `FORM-WITHDRAWAL-SUSTAINABILITY`, the formula contract for estimating whether a retirement withdrawal plan remains sustainable under base, conservative, and stress assumptions.\n\n## Inputs\n\n| Input | Required | Unit | Rule |\n| --- | --- | --- | --- |\n| InitialPortfolioValue | Yes | Money | Must be greater than zero. |\n| AnnualWithdrawalAmount | Yes | Money | Must be zero or greater. |\n| WithdrawalStrategy | Yes | Enum | Fixed amount, fixed percentage, guardrail, dynamic, or bucket. |\n| RetirementHorizonYears | Yes | Count | Positive integer. |\n| ExpectedReturn | Yes | Percentage | Versioned assumption. |\n| InflationRate | Yes | Percentage | Versioned assumption. |\n| VolatilityAssumption | No | Percentage | Required for stochastic or stress testing. |\n| IncomeSources | No | Money schedule | Pension, rental, dividend, or other retirement income. |\n| ExpenseSchedule | Yes | Money schedule | Retirement expenses by period. |\n\n## Formula\n\n- RealWithdrawal = nominal withdrawal adjusted by InflationRate.\n- NetWithdrawalNeed = ExpenseSchedule - IncomeSources.\n- PortfolioEndBalance = prior balance * (1 + ExpectedReturn) - NetWithdrawalNeed.\n- SustainabilityRatio = projected ending balance / InitialPortfolioValue.\n- FailurePeriod = first period where projected balance is below zero.\n- StressResult = minimum sustainability status across configured stress scenarios.\n\n## Outputs\n\n- Sustainability status: Strong, Watch, At Risk, or Failed.\n- Projected ending balance.\n- First failure period when applicable.\n- Safe withdrawal estimate.\n- Required contribution or spending reduction when at risk.\n- Formula version and assumption references.\n\n## Validation\n\n- Reject negative horizon, portfolio value, or invalid strategy.\n- Reject missing inflation or return assumption versions.\n- Stress scenario must preserve original assumptions for replay.\n- Guardrail strategy must define upper and lower adjustment thresholds.\n\n## Related Specifications\n\n- `knowledge/catalog/financial-formula-catalog.md`\n- `knowledge/supporting/retirement.md`\n- `knowledge/framework/financial-projection-framework.md`\n- `knowledge/product/simulator-formula-coverage.md`\n",
+  "references": []
+}
