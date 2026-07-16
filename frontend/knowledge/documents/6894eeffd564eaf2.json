@@ -3,7 +3,7 @@
   "title": "Decision Review Automation Trigger and Scope",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/decision-review-automation/trigger-and-scope.md",
-  "sourceHash": "a01941f709975c014f891d7a7a52c1f0a0538cc164112d1ac36c5b715b3644da",
+  "sourceHash": "bafb6fadd78b1b79ee75746398db505857d48d88a754a56258b89b8fb5bb82b6",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Eligibility"
     }
   ],
-  "bodyMarkdown": "# Decision Review Automation Trigger and Scope\n\n## Purpose\nThis split document isolates decision review automation triggers, eligibility, and input scope from the parent DecisionReviewAutomation specification.\n\n## Source\n- Parent specification: [DecisionReviewAutomation](../decision-review-automation.md)\n\n## Trigger Scope\nTriggers include scheduled review cadence, stale decision windows, outcome measurement due dates, major financial events, scenario changes, recommendation changes, and manual review requests.\n\n## Eligibility\nEligibility preserves decision status, household scope, tenant scope, permission scope, source freshness, and idempotency.\n\n",
+  "bodyMarkdown": "# Decision Review Automation Trigger and Scope\r\n\r\n## Purpose\r\nThis split document isolates decision review automation triggers, eligibility, and input scope from the parent DecisionReviewAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [DecisionReviewAutomation](../decision-review-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include scheduled review cadence, stale decision windows, outcome measurement due dates, major financial events, scenario changes, recommendation changes, and manual review requests.\r\n\r\n## Eligibility\r\nEligibility preserves decision status, household scope, tenant scope, permission scope, source freshness, and idempotency.\r\n\r\n",
   "references": []
 }

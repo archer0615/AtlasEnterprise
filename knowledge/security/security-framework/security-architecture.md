@@ -2,6 +2,12 @@
 
 Source: [security-framework.md](../security-framework.md)
 
+## Split Navigation
+
+- [Identity and Access Architecture](security-architecture/identity-and-access-architecture.md) - authentication, authorization, permissions, identity, and token lifecycle.
+- [Secrets, Encryption, and Interface Security](security-architecture/secrets-encryption-and-interface-security.md) - credential handling, secrets, encryption, keys, API, message, and repository security.
+- [Data Isolation and Threat Controls](security-architecture/data-isolation-and-threat-controls.md) - database, tenant, household, PII, masking, audit, threat model, and permission mapping controls.
+
 ## Authentication Architecture
 
 Authentication Architecture defines mandatory controls for Atlas components that depend on identity, permission, data protection, or audit evidence.

@@ -1,0 +1,27 @@
+{
+  "id": "44fc4d7726cc01e5",
+  "title": "Goal Reporting Governance and Testing",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-reporting/governance-and-testing.md",
+  "sourceHash": "2ddfe9938e7975642a6a78ee32d6f817f312c95f2892221edc62014b38882534",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Reporting Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Governance Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Reporting Governance and Testing\n\n## Purpose\n\nThis split document isolates Goal Reporting validation, business rules, repository, services, API, persistence, cache, security, audit, performance, examples, diagrams, testing, edge cases, version history, and Phase 2 addenda from the canonical `knowledge/reporting/goal-reporting.md` parent.\n\n## Covered Sections\n\n- Validation Rules\n- Business Rules\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n- Phase 2 Executable Specification Addendum\n\n## Governance Rules\n\n- Goal report access must enforce user and goal ownership scope.\n- Export and schedule APIs must preserve audit and retention rules.\n- Cache refresh must not make stale progress, milestone, or forecast values appear current.\n- Testing must include progress, export, schedule, load, concurrency, and permission coverage.\n",
+  "references": []
+}

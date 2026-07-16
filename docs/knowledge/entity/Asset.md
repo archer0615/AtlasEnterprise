@@ -1,3 +1,9 @@
+# Legacy Reference
+
+- Status: Legacy reference only; do not treat this document as canonical.
+- Canonical source: [knowledge/entity/Asset.md](../../../knowledge/entity/Asset.md).
+- Retirement note: keep this file intact for historical lookup until legacy docs are retired.
+
 # Asset Entity Specification
 
 # Entity Overview

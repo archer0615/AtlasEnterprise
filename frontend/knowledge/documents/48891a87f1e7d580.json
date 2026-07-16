@@ -1,0 +1,31 @@
+{
+  "id": "48891a87f1e7d580",
+  "title": "Goal Metrics Implementation and Governance",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-metrics/implementation-and-governance.md",
+  "sourceHash": "6f740d8bc02f436032084b8e2e7951353594a5e0caf6214655e3936a257ed49b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Metrics Implementation and Governance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Parent"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Metrics Implementation and Governance\n\n## Purpose\n\nThis split document isolates Goal Metrics commands, events, persistence, APIs, DTOs, storage mappings, cache, security, audit, performance, examples, diagrams, tests, edge cases, and executable addendum from the canonical `knowledge/reporting/goal-metrics.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-metrics.md`\n- Domain: Goal metrics\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Commands and Domain Events\n- Repository, Domain Service Interaction, Application Service Interaction, API, and DTO\n- Database Mapping, PostgreSQL Schema, EF Core Mapping, and Cache Strategy\n- Security, Audit, Performance, Example JSON, Mermaid, Testing, Edge Cases, Version History, and Phase 2 Executable Specification Addendum\n\n## Boundary Rules\n\n- Commands and APIs must preserve HouseholdId, TenantId when applicable, authorization, audit evidence, and calculation source versions.\n- Repository and cache behavior must distinguish metric definitions, current metric values, historical values, projections, trends, and forecasts.\n- Tests must cover deterministic calculation, validation, refresh behavior, concurrency, performance, and executable addendum command contracts.\n",
+  "references": []
+}

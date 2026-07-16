@@ -3,7 +3,7 @@
   "title": "Enumeration Catalog Entries",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/enumeration/catalog-entries.md",
-  "sourceHash": "9e760c046545c5082249435ca341ccb860c2c62845d4dcb6b043ab0cd57d2746",
+  "sourceHash": "2756692ad7aef1964e355e654cb50f744942db87e59dd8ecd935f30832832689",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Entry Contract"
     }
   ],
-  "bodyMarkdown": "# Enumeration Catalog Entries\n\n## Purpose\nThis split document isolates enumeration definitions from the parent Enumeration Catalog.\n\n## Source\n- Parent specification: [Enumeration Catalog](../enumeration-catalog.md)\n\n## Catalog Scope\nEnumerations define canonical status, type, category, priority, severity, lifecycle, permission, module, and domain option sets used across Atlas.\n\n## Entry Contract\nEach enumeration entry preserves enum name, values, descriptions, owning module, API serialization, database mapping, default behavior, and deprecation rules.\n\n",
+  "bodyMarkdown": "# Enumeration Catalog Entries\r\n\r\n## Purpose\r\nThis split document isolates enumeration definitions from the parent Enumeration Catalog.\r\n\r\n## Source\r\n- Parent specification: [Enumeration Catalog](../enumeration-catalog.md)\r\n\r\n## Catalog Scope\r\nEnumerations define canonical status, type, category, priority, severity, lifecycle, permission, module, and domain option sets used across Atlas.\r\n\r\n## Entry Contract\r\nEach enumeration entry preserves enum name, values, descriptions, owning module, API serialization, database mapping, default behavior, and deprecation rules.\r\n\r\n",
   "references": []
 }

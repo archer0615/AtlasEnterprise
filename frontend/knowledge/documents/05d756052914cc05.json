@@ -3,7 +3,7 @@
   "title": "Goal Governance Approval and Monitoring",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-governance/approval-and-monitoring.md",
-  "sourceHash": "ed56a1bf7cc3aac9597b0096b124866e639e01addbfb5dbc9d26d644b8517ca5",
+  "sourceHash": "77429b57fc3ca6ebf6b104fd4a89ca2f4115e5ebd55e9d1def950b2b55f3af2a",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Monitoring"
     }
   ],
-  "bodyMarkdown": "# Goal Governance Approval and Monitoring\n\n## Purpose\nThis split document isolates Goal Governance approval workflow, monitoring, reporting, and escalation behavior from the parent Goal Governance specification.\n\n## Source\n- Parent specification: [Goal Governance](../goal-governance.md)\n\n## Approval\nApproval behavior records approver, reason, policy evidence, exception state, expiration, and follow-up requirements.\n\n## Monitoring\nMonitoring observes goal state, progress, metrics, dashboard, analytics, reporting, insights, optimization, execution, review, decision, recommendation, scenario, portfolio, cashflow, notification, workflow, automation, business calendar, and user signals.\n\n",
+  "bodyMarkdown": "# Goal Governance Approval and Monitoring\r\n\r\n## Purpose\r\nThis split document isolates Goal Governance approval workflow, monitoring, reporting, and escalation behavior from the parent Goal Governance specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Governance](../goal-governance.md)\r\n\r\n## Approval\r\nApproval behavior records approver, reason, policy evidence, exception state, expiration, and follow-up requirements.\r\n\r\n## Monitoring\r\nMonitoring observes goal state, progress, metrics, dashboard, analytics, reporting, insights, optimization, execution, review, decision, recommendation, scenario, portfolio, cashflow, notification, workflow, automation, business calendar, and user signals.\r\n\r\n",
   "references": []
 }

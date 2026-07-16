@@ -3,7 +3,7 @@
   "title": "Scheduler Catalog and Timing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/scheduler/catalog-and-timing.md",
-  "sourceHash": "773c5c6e2dea7d78e6de8d295e4a6be2262b2eadd8a49575087dec7258a36542",
+  "sourceHash": "3f482f0c122d8bd1b51d7c2ea92dcf6d7107c6036a5a63de8b6d9205e2ec7b79",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Timing Rules"
     }
   ],
-  "bodyMarkdown": "# Scheduler Catalog and Timing\n\n## Purpose\nThis split document isolates scheduler catalog entries, cron strategy, calendar strategy, and scheduling timing behavior from the parent Scheduler Framework.\n\n## Source\n- Parent specification: [Scheduler Framework](../scheduler-framework.md)\n\n## Catalog Scope\nSchedulers define recurring and calendar-aware triggers for background jobs, workflows, automations, commands, domain events, and operational maintenance.\n\n## Timing Rules\nTiming rules include cron strategy, calendar strategy, business-day handling, cutoff behavior, timezone handling, misfire detection, catch-up windows, and concurrency limits.\n\n",
+  "bodyMarkdown": "# Scheduler Catalog and Timing\r\n\r\n## Purpose\r\nThis split document isolates scheduler catalog entries, cron strategy, calendar strategy, and scheduling timing behavior from the parent Scheduler Framework.\r\n\r\n## Source\r\n- Parent specification: [Scheduler Framework](../scheduler-framework.md)\r\n\r\n## Catalog Scope\r\nSchedulers define recurring and calendar-aware triggers for background jobs, workflows, automations, commands, domain events, and operational maintenance.\r\n\r\n## Timing Rules\r\nTiming rules include cron strategy, calendar strategy, business-day handling, cutoff behavior, timezone handling, misfire detection, catch-up windows, and concurrency limits.\r\n\r\n",
   "references": []
 }

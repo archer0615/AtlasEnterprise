@@ -3,7 +3,7 @@
   "title": "Service Catalog Relationship Matrices",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/service-catalog/relationship-matrices.md",
-  "sourceHash": "760c6fb3fa37762d5320b993cf49d512d620871b32f49b9a2ff227bb84b7cbce",
+  "sourceHash": "e16f8df782404f12dd255eb64c7fc8356f7c5a76256fd3c4c8ce52a1c31da577",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Parent Sections"
     }
   ],
-  "bodyMarkdown": "# Service Catalog Relationship Matrices\n\n## Purpose\nThis split document isolates Service relationship matrix navigation from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Catalog Scope\nService relationship matrices preserve the service source of truth for Aggregate, Repository, Domain Service, Application Service, Command, Domain Event, Workflow, Background Job, Scheduler, Automation, External Integration, Capability, Dependency, Communication, and Transaction mappings.\n\n## Matrix Contract\nEach matrix row keeps the original Service, Category, Dependency, Consumer, Control, Aggregate, Repository, Domain Service, Application Service, Command, Domain Event, Workflow, Background Job, Scheduler, Automation, External Integration, Capability, Communication, and Transaction terminology defined in the parent specification.\n\n## Parent Sections\n- Service Dependency Matrix\n- Service Aggregate Matrix\n- Service Repository Matrix\n- Service Domain Service Matrix\n- Service Application Service Matrix\n- Service Command Matrix\n- Service Domain Event Matrix\n- Service Workflow Matrix\n- Service Background Job Matrix\n- Service Scheduler Matrix\n- Service Automation Matrix\n- Service External Integration Matrix\n- Capability Matrix\n- Dependency Matrix\n- Communication Matrix\n- Transaction Matrix\n",
+  "bodyMarkdown": "# Service Catalog Relationship Matrices\r\n\r\n## Purpose\r\nThis split document isolates Service relationship matrix navigation from the parent Service Catalog.\r\n\r\n## Source\r\n- Parent specification: [Service Catalog](../service-catalog.md)\r\n\r\n## Catalog Scope\r\nService relationship matrices preserve the service source of truth for Aggregate, Repository, Domain Service, Application Service, Command, Domain Event, Workflow, Background Job, Scheduler, Automation, External Integration, Capability, Dependency, Communication, and Transaction mappings.\r\n\r\n## Matrix Contract\r\nEach matrix row keeps the original Service, Category, Dependency, Consumer, Control, Aggregate, Repository, Domain Service, Application Service, Command, Domain Event, Workflow, Background Job, Scheduler, Automation, External Integration, Capability, Communication, and Transaction terminology defined in the parent specification.\r\n\r\n## Parent Sections\r\n- Service Dependency Matrix\r\n- Service Aggregate Matrix\r\n- Service Repository Matrix\r\n- Service Domain Service Matrix\r\n- Service Application Service Matrix\r\n- Service Command Matrix\r\n- Service Domain Event Matrix\r\n- Service Workflow Matrix\r\n- Service Background Job Matrix\r\n- Service Scheduler Matrix\r\n- Service Automation Matrix\r\n- Service External Integration Matrix\r\n- Capability Matrix\r\n- Dependency Matrix\r\n- Communication Matrix\r\n- Transaction Matrix\r\n",
   "references": []
 }

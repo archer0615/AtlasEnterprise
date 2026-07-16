@@ -1,0 +1,27 @@
+{
+  "id": "149fea8c24d1d4c0",
+  "title": "Recommendation Governance and Testing",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/recommendation/governance-and-testing.md",
+  "sourceHash": "d7c945f727f36647d10aba1c90eeec81becfd174ea7565af0ac9d6f4b9ec83a7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Governance Rules"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Governance and Testing\n\n## Purpose\n\nThis split document isolates Recommendation API, persistence, cache, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/entity/Recommendation.md` parent.\n\n## Covered Sections\n\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n\n## Governance Rules\n\n- Recommendation security must enforce Household/User scope and decision access boundaries.\n- Audit must preserve scoring, rationale, explainability reference, assignment, acceptance, rejection, expiration, archive, and deletion.\n- Testing must cover stale recommendation prevention, explainability presence, score ordering, and execution handoff.\n",
+  "references": []
+}

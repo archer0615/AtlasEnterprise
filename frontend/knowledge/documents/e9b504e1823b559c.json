@@ -3,7 +3,7 @@
   "title": "Decision Insights Execution and Reporting",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-insights/execution-and-reporting.md",
-  "sourceHash": "d666cc6bac118eda38048c1c1cf444457cc926cd88f5e6f14fc336fad919d4a5",
+  "sourceHash": "fea2756547b6b55d9a763e91fb2552340f3e9fafdf3e3ac70285118164d94908",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Insights Execution and Reporting\n\n## Purpose\nThis split document isolates Decision Insight commands, APIs, DTOs, persistence, reporting, security, audit, performance, and testing from the parent Decision Insights specification.\n\n## Source\n- Parent specification: [Decision Insights](../decision-insights.md)\n\n## Commands\nCommands include CreateInsight, UpdateInsight, RefreshInsight, GenerateInsight, DismissInsight, ResolveInsight, ArchiveInsight, RestoreInsight, DeleteInsight, and GenerateInsightReport.\n\n## Reporting\nReporting exposes insight summary, detail, search, report projection, dashboard aggregation, evidence summaries, recommendations, and status history under permission-aware masking.\n\n## Audit\nAudit covers insight history, evidence history, resolution history, recommendation history, access history, source snapshots, rule versions, and operator actions.\n\n## Testing\nTesting covers unit, integration, insight, detection, evidence, performance, concurrency, stress, forecast, API, cache, and export behavior.\n\n",
+  "bodyMarkdown": "# Decision Insights Execution and Reporting\r\n\r\n## Purpose\r\nThis split document isolates Decision Insight commands, APIs, DTOs, persistence, reporting, security, audit, performance, and testing from the parent Decision Insights specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Insights](../decision-insights.md)\r\n\r\n## Commands\r\nCommands include CreateInsight, UpdateInsight, RefreshInsight, GenerateInsight, DismissInsight, ResolveInsight, ArchiveInsight, RestoreInsight, DeleteInsight, and GenerateInsightReport.\r\n\r\n## Reporting\r\nReporting exposes insight summary, detail, search, report projection, dashboard aggregation, evidence summaries, recommendations, and status history under permission-aware masking.\r\n\r\n## Audit\r\nAudit covers insight history, evidence history, resolution history, recommendation history, access history, source snapshots, rule versions, and operator actions.\r\n\r\n## Testing\r\nTesting covers unit, integration, insight, detection, evidence, performance, concurrency, stress, forecast, API, cache, and export behavior.\r\n\r\n",
   "references": []
 }

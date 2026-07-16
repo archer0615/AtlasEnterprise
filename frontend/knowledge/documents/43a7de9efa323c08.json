@@ -1,0 +1,27 @@
+{
+  "id": "43a7de9efa323c08",
+  "title": "Goal Execution Governance and Testing",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/goal-execution/governance-and-testing.md",
+  "sourceHash": "1e369b665a8a0ea38297ddc3f812636c08e707c1cc7e297c2912cfadb8964bd1",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Execution Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Governance Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Execution Governance and Testing\n\n## Purpose\n\nThis split document isolates Goal Execution repository, services, API, DTO, persistence, cache, security, audit, performance, examples, diagrams, testing, edge cases, version history, and Phase 2 addenda from the canonical `knowledge/framework/goal-execution-framework.md` parent.\n\n## Covered Sections\n\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n- Phase 2 Executable Specification Addendum\n\n## Governance Rules\n\n- Execution persistence must preserve status, logs, result, retry, rollback, and recovery history.\n- Security must enforce user, goal, and workflow permission boundaries.\n- Audit must trace all execution commands, generated execution plans, progress synchronization, and notifications.\n- Testing must include workflow, execution, recovery, stress, concurrency, and performance coverage.\n",
+  "references": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "2aeab93c1f23ae65",
+  "title": "Goal Dashboard Widgets and KPIs",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-dashboard/widgets-and-kpis.md",
+  "sourceHash": "bec236d45c1f8bc63c4e745780d125009ef2f1742ac8e2f57711a5b4cd5b3b56",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Dashboard Widgets and KPIs"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Parent"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Dashboard Widgets and KPIs\n\n## Purpose\n\nThis split document isolates Goal Dashboard widgets, KPIs, filters, refresh rules, validation, business rules, and state behavior from the canonical `knowledge/reporting/goal-dashboard.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-dashboard.md`\n- Domain: Goal dashboard\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Dashboard Widgets\n- Dashboard KPIs\n- Dashboard Filters\n- Dashboard Refresh Rules\n- Validation Rules\n- Business Rules\n- State Machine\n\n## Boundary Rules\n\n- Widgets must declare source projections, layout behavior, visibility, refresh requirements, authorization, and empty-state behavior.\n- KPIs must preserve calculation source, unit, version, time window, and masking rules.\n- Filters and refresh rules must not expose unauthorized goals, household data, tenant data, financial records, or user-specific dashboard configuration.\n",
+  "references": []
+}

@@ -3,7 +3,7 @@
   "title": "Decision Evaluation Execution and Evidence",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-evaluation/execution-and-evidence.md",
-  "sourceHash": "449c8b3de9e3b7b1307c68a0448188e1ef3cb835522953a81f31b189dabab53e",
+  "sourceHash": "b434cc25f109fb9cfa1c2148754368593dd3161e42e4e0d0410ef27931382fa6",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Evidence"
     }
   ],
-  "bodyMarkdown": "# Decision Evaluation Execution and Evidence\n\n## Purpose\nThis split document isolates decision evaluation execution pipeline, evidence capture, commands, events, APIs, and projection outputs from the parent Decision Evaluation specification.\n\n## Source\n- Parent specification: [Decision Evaluation](../decision-evaluation.md)\n\n## Execution\nExecution collects inputs, validates assumptions, applies rules, calculates scores, compares scenarios, records evidence, emits evaluation results, and refreshes dashboard projections.\n\n## Evidence\nEvidence preserves source references, metric values, rule versions, scenario versions, assumption versions, calculation timestamp, and evaluator context.\n\n",
+  "bodyMarkdown": "# Decision Evaluation Execution and Evidence\r\n\r\n## Purpose\r\nThis split document isolates decision evaluation execution pipeline, evidence capture, commands, events, APIs, and projection outputs from the parent Decision Evaluation specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Evaluation](../decision-evaluation.md)\r\n\r\n## Execution\r\nExecution collects inputs, validates assumptions, applies rules, calculates scores, compares scenarios, records evidence, emits evaluation results, and refreshes dashboard projections.\r\n\r\n## Evidence\r\nEvidence preserves source references, metric values, rule versions, scenario versions, assumption versions, calculation timestamp, and evaluator context.\r\n\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Recommendation Execution Recovery and Audit",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-execution/recovery-and-audit.md",
-  "sourceHash": "0e2772d7349cef3ee91199c73be13ec7a2e4e2283fa19b5fb35cf45fe7a80ca6",
+  "sourceHash": "e29b6dee0bf74f2c74a7238d39d1a43a9a6efd1097a189740c99215761437295",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Recommendation Execution Recovery and Audit\n\n## Purpose\nThis split document isolates rollback, recovery, validation, audit, persistence, and testing from the parent Recommendation Execution specification.\n\n## Source\n- Parent specification: [Recommendation Execution](../recommendation-execution.md)\n\n## Recovery Model\nRecovery covers retry rules, rollback rules, recovery workflow, failed execution handling, dependency failure handling, and validation after recovery.\n\n## Audit\nExecution audit records lifecycle state, operator, source, timestamp, reason, previous state, next state, correlation identifier, rollback evidence, and recovery evidence.\n\n## Testing\nTesting covers unit, integration, execution, workflow, validation, performance, concurrency, recovery, stress, rollback, and edge-case behavior.\n\n",
+  "bodyMarkdown": "# Recommendation Execution Recovery and Audit\r\n\r\n## Purpose\r\nThis split document isolates rollback, recovery, validation, audit, persistence, and testing from the parent Recommendation Execution specification.\r\n\r\n## Source\r\n- Parent specification: [Recommendation Execution](../recommendation-execution.md)\r\n\r\n## Recovery Model\r\nRecovery covers retry rules, rollback rules, recovery workflow, failed execution handling, dependency failure handling, and validation after recovery.\r\n\r\n## Audit\r\nExecution audit records lifecycle state, operator, source, timestamp, reason, previous state, next state, correlation identifier, rollback evidence, and recovery evidence.\r\n\r\n## Testing\r\nTesting covers unit, integration, execution, workflow, validation, performance, concurrency, recovery, stress, rollback, and edge-case behavior.\r\n\r\n",
   "references": []
 }

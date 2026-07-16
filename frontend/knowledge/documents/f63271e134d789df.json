@@ -3,7 +3,7 @@
   "title": "Decision Insights Generation and Detection",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-insights/generation-and-detection.md",
-  "sourceHash": "b3c8cb8859e1050c160c34a8eab1f5bb469c0407675bd413e67ffc744953d5ed",
+  "sourceHash": "62504d71f9c92f91b5b454de4ffcc26bc5a49d98b8c331aca0d1b14752d0cb24",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Detection Rules"
     }
   ],
-  "bodyMarkdown": "# Decision Insights Generation and Detection\n\n## Purpose\nThis split document isolates insight generation architecture, pipeline, categories, detection rules, scoring, ranking, and evidence collection from the parent Decision Insights specification.\n\n## Source\n- Parent specification: [Decision Insights](../decision-insights.md)\n\n## Insight Architecture\nInsight generation coordinates the Insight Engine, Pattern Detection Engine, Trend Analysis Engine, Anomaly Detection Engine, Recommendation Engine, Forecast Engine, Risk Engine, Opportunity Engine, Scoring Engine, Evidence Engine, Audit Engine, and Caching Layer.\n\n## Generation Pipeline\nPipeline steps include data collection, normalization, aggregation, pattern detection, trend analysis, anomaly detection, opportunity discovery, risk discovery, scoring, ranking, evidence collection, recommendation mapping, and audit logging.\n\n## Detection Rules\nDetection includes threshold, pattern, historical comparison, forecast comparison, peer comparison, scenario comparison, rule-based, event-driven, scheduled, and incremental detection.\n\n",
+  "bodyMarkdown": "# Decision Insights Generation and Detection\r\n\r\n## Purpose\r\nThis split document isolates insight generation architecture, pipeline, categories, detection rules, scoring, ranking, and evidence collection from the parent Decision Insights specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Insights](../decision-insights.md)\r\n\r\n## Insight Architecture\r\nInsight generation coordinates the Insight Engine, Pattern Detection Engine, Trend Analysis Engine, Anomaly Detection Engine, Recommendation Engine, Forecast Engine, Risk Engine, Opportunity Engine, Scoring Engine, Evidence Engine, Audit Engine, and Caching Layer.\r\n\r\n## Generation Pipeline\r\nPipeline steps include data collection, normalization, aggregation, pattern detection, trend analysis, anomaly detection, opportunity discovery, risk discovery, scoring, ranking, evidence collection, recommendation mapping, and audit logging.\r\n\r\n## Detection Rules\r\nDetection includes threshold, pattern, historical comparison, forecast comparison, peer comparison, scenario comparison, rule-based, event-driven, scheduled, and incremental detection.\r\n\r\n",
   "references": []
 }

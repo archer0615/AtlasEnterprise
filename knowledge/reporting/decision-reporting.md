@@ -4,6 +4,12 @@ Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Decision Reporting Specification
 Last Updated: 2026-07-13
+# Split Navigation
+
+- [Scope and Architecture](decision-reporting/scope-and-architecture.md)
+- [Reports and Exports](decision-reporting/reports-and-exports.md)
+- [Governance and Testing](decision-reporting/governance-and-testing.md)
+
 # Decision Reporting Overview
 ## Purpose
 Decision Reporting defines how Atlas creates, updates, generates, refreshes, archives, restores, deletes, exports, shares, schedules, cancels schedules, secures, audits, and serves reports for DecisionSession.

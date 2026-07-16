@@ -3,7 +3,7 @@
   "title": "Recommendation Execution Planning and Workflow",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-execution/planning-and-workflow.md",
-  "sourceHash": "4dc5212a4b879394cebb5231d79436ec047a62a82c4c3c996b968f17ec98e688",
+  "sourceHash": "bde9956cd15a78da2fee167e56469b6e6fccff5ed103ced43d7b8908edfd2279",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Coordination"
     }
   ],
-  "bodyMarkdown": "# Recommendation Execution Planning and Workflow\n\n## Purpose\nThis split document isolates recommendation execution planning, workflow stages, ownership boundaries, and implementation steps from the parent Recommendation Execution specification.\n\n## Source\n- Parent specification: [Recommendation Execution](../recommendation-execution.md)\n\n## Execution Planning\nExecution planning records action steps, owner, timeline, dependencies, approval status, expected effect, validation criteria, and rollback readiness.\n\n## Workflow\nExecution workflow covers create, start, pause, resume, retry, rollback, recover, complete, detail, search, and execution plan behavior.\n\n## Coordination\nRecommendation Execution coordinates with Recommendation, Decision, Goal, Scenario, Portfolio, CashFlow, Workflow, Automation, Notification, Business Calendar, and User without taking ownership of their canonical state.\n\n",
+  "bodyMarkdown": "# Recommendation Execution Planning and Workflow\r\n\r\n## Purpose\r\nThis split document isolates recommendation execution planning, workflow stages, ownership boundaries, and implementation steps from the parent Recommendation Execution specification.\r\n\r\n## Source\r\n- Parent specification: [Recommendation Execution](../recommendation-execution.md)\r\n\r\n## Execution Planning\r\nExecution planning records action steps, owner, timeline, dependencies, approval status, expected effect, validation criteria, and rollback readiness.\r\n\r\n## Workflow\r\nExecution workflow covers create, start, pause, resume, retry, rollback, recover, complete, detail, search, and execution plan behavior.\r\n\r\n## Coordination\r\nRecommendation Execution coordinates with Recommendation, Decision, Goal, Scenario, Portfolio, CashFlow, Workflow, Automation, Notification, Business Calendar, and User without taking ownership of their canonical state.\r\n\r\n",
   "references": []
 }

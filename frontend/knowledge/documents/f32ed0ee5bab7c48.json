@@ -3,7 +3,7 @@
   "title": "Aggregate Catalog Governance and Testing",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/aggregate-catalog/governance-and-testing.md",
-  "sourceHash": "71c4ded945bebe752b928362883cca9ed37783537ed5e968deb4581c9df17a7a",
+  "sourceHash": "d1d034bc0a49058cfa0d163ef8c92d8335e23fe03ec1587ffe0ca8490e763453",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Aggregate Catalog Governance and Testing\n\n## Purpose\nThis split document isolates aggregate governance, lifecycle, repository rules, command/event rules, validation, edge cases, testing, and consistency checks from the parent Aggregate Catalog.\n\n## Source\n- Parent specification: [Aggregate Catalog](../aggregate-catalog.md)\n\n## Governance\nGovernance covers aggregate invariants, aggregate lifecycle, repository rules, command ownership rules, domain event ownership rules, persistence ownership rules, API ownership rules, security boundary, audit boundary, performance, and concurrency.\n\n## Validation\nValidation rules enforce aggregate ownership, transaction scope, idempotency, terminal state protection, consistency boundaries, and command/event alignment.\n\n## Testing\nTesting covers ownership mapping, aggregate invariants, lifecycle transitions, repository behavior, command routing, event routing, concurrency, performance, edge cases, and final consistency matrix checks.\n\n",
+  "bodyMarkdown": "# Aggregate Catalog Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates aggregate governance, lifecycle, repository rules, command/event rules, validation, edge cases, testing, and consistency checks from the parent Aggregate Catalog.\r\n\r\n## Source\r\n- Parent specification: [Aggregate Catalog](../aggregate-catalog.md)\r\n\r\n## Governance\r\nGovernance covers aggregate invariants, aggregate lifecycle, repository rules, command ownership rules, domain event ownership rules, persistence ownership rules, API ownership rules, security boundary, audit boundary, performance, and concurrency.\r\n\r\n## Validation\r\nValidation rules enforce aggregate ownership, transaction scope, idempotency, terminal state protection, consistency boundaries, and command/event alignment.\r\n\r\n## Testing\r\nTesting covers ownership mapping, aggregate invariants, lifecycle transitions, repository behavior, command routing, event routing, concurrency, performance, edge cases, and final consistency matrix checks.\r\n\r\n",
   "references": []
 }

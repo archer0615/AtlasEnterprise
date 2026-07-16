@@ -3,7 +3,7 @@
   "title": "Goal Insights Dashboard and Actions",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-insights/dashboard-and-actions.md",
-  "sourceHash": "2a01cebdc9510c6ec3321aaaa535a948e187c7a47a4b9c40e1bb31722cc4f623",
+  "sourceHash": "0de61176534db3277e3d2ff6aad6b46cbc86888a2d7e9b214b37db6dfe236f55",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Actions"
     }
   ],
-  "bodyMarkdown": "# Goal Insights Dashboard and Actions\n\n## Purpose\nThis split document isolates Goal Insight dashboard presentation, action mapping, notifications, and recommendation linkage from the parent Goal Insights specification.\n\n## Source\n- Parent specification: [Goal Insights](../goal-insights.md)\n\n## Dashboard\nDashboard projection exposes insight severity, confidence, impacted goal, evidence summary, recommended action, generated time, and resolution status.\n\n## Actions\nActions include acknowledge, dismiss, resolve, map recommendation, trigger review, refresh forecast, and archive.\n\n",
+  "bodyMarkdown": "# Goal Insights Dashboard and Actions\r\n\r\n## Purpose\r\nThis split document isolates Goal Insight dashboard presentation, action mapping, notifications, and recommendation linkage from the parent Goal Insights specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Insights](../goal-insights.md)\r\n\r\n## Dashboard\r\nDashboard projection exposes insight severity, confidence, impacted goal, evidence summary, recommended action, generated time, and resolution status.\r\n\r\n## Actions\r\nActions include acknowledge, dismiss, resolve, map recommendation, trigger review, refresh forecast, and archive.\r\n\r\n",
   "references": []
 }

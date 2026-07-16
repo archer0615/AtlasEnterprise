@@ -3,7 +3,7 @@
   "title": "Asset API and Audit",
   "category": "entity",
   "canonicalPath": "knowledge/entity/asset/api-and-audit.md",
-  "sourceHash": "e7354b1b42f47970ed90758437288406d68f90bf283af00d74f84d2a1c530b0c",
+  "sourceHash": "570d492c862b2eeb8f6457b2f1a6f160fe6339eb0db9fe7c52067bb4ea302566",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Asset API and Audit\r\n\r\n## Purpose\r\n\r\nThis split document isolates Asset API, permission, cache, and audit boundaries from the larger Asset entity specification.\r\n\r\n## Source\r\n\r\n- Parent specification: [Asset Entity Specification](../Asset.md)\r\n\r\n## API Rules\r\n\r\n- `/api/v1/assets` is the frontend-facing Asset resource.\r\n- Asset DTOs are implementation details and are not entities.\r\n- User-facing Asset use cases route through PortfolioApplicationService.\r\n- API behavior must follow API governance and permission framework rules.\r\n\r\n## Permission and Audit Rules\r\n\r\n- Asset permissions include read, create, and update behavior.\r\n- Asset audit is handled through AssetPortfolio ownership.\r\n- Audit records must remain append-only.\r\n- Asset cache keys must be scoped by asset and portfolio context.\r\n\r\n## Related References\r\n\r\n- [Asset Entity Specification](../Asset.md)\r\n- [API Governance Framework](../../api/api-governance-framework.md)\r\n- [Permission Framework](../../security/permission-framework.md)\r\n- [Audit Framework](../../security/audit-framework.md)\r\n",
+  "bodyMarkdown": "# Asset API and Audit\n\n## Purpose\n\nThis split document isolates Asset API, permission, cache, and audit boundaries from the larger Asset entity specification.\n\n## Source\n\n- Parent specification: [Asset Entity Specification](../Asset.md)\n\n## API Rules\n\n- `/api/v1/assets` is the frontend-facing Asset resource.\n- Asset DTOs are implementation details and are not entities.\n- User-facing Asset use cases route through PortfolioApplicationService.\n- API behavior must follow API governance and permission framework rules.\n\n## Permission and Audit Rules\n\n- Asset permissions include read, create, and update behavior.\n- Asset audit is handled through AssetPortfolio ownership.\n- Audit records must remain append-only.\n- Asset cache keys must be scoped by asset and portfolio context.\n\n## Related References\n\n- [Asset Entity Specification](../Asset.md)\n- [API Governance Framework](../../api/api-governance-framework.md)\n- [Permission Framework](../../security/permission-framework.md)\n- [Audit Framework](../../security/audit-framework.md)\n",
   "references": []
 }

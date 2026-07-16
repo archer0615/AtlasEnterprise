@@ -3,7 +3,7 @@
   "title": "Decision Insight Warnings and Dashboard Use",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-insights/warnings-and-dashboard.md",
-  "sourceHash": "63762e6ec312058099cea0cf40e659186516691b7fd6affc5fc8148636ce7c04",
+  "sourceHash": "6082a2c98a7debbc8be1f58cb19609da8760a52f25ae46d5c37f3cef4627a5d6",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Decision Insight Warnings and Dashboard Use\r\n\r\n## Purpose\r\n\r\nThis split document isolates warning and dashboard display behavior from the larger Decision Insights overview.\r\n\r\n## Source\r\n\r\n- Parent specification: [Decision Insights Overview](../decision-insights.md)\r\n\r\n## Warning Rules\r\n\r\n- Warnings must reference evidence and explain why attention is needed.\r\n- Warning severity must remain traceable to risk, cash-flow, goal, or execution signals.\r\n- Dashboard warnings must not become canonical decision state.\r\n- Warning display should preserve permission and tenant boundaries.\r\n\r\n## Dashboard Use\r\n\r\n- Dashboard metrics may summarize insight severity and priority.\r\n- Scenario fixtures may include warning IDs to explain recommendation status.\r\n- Insight display should help compare baseline, alternative, and stress scenarios.\r\n- Dashboard labels must remain separate from canonical insight definitions.\r\n\r\n## Related References\r\n\r\n- [Decision Insights Overview](../decision-insights.md)\r\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\r\n- [Fixture Output Tolerance Report](../../../docs/roadmap/fixture-output-tolerance-report.md)\r\n",
+  "bodyMarkdown": "# Decision Insight Warnings and Dashboard Use\n\n## Purpose\n\nThis split document isolates warning and dashboard display behavior from the larger Decision Insights overview.\n\n## Source\n\n- Parent specification: [Decision Insights Overview](../decision-insights.md)\n\n## Warning Rules\n\n- Warnings must reference evidence and explain why attention is needed.\n- Warning severity must remain traceable to risk, cash-flow, goal, or execution signals.\n- Dashboard warnings must not become canonical decision state.\n- Warning display should preserve permission and tenant boundaries.\n\n## Dashboard Use\n\n- Dashboard metrics may summarize insight severity and priority.\n- Scenario fixtures may include warning IDs to explain recommendation status.\n- Insight display should help compare baseline, alternative, and stress scenarios.\n- Dashboard labels must remain separate from canonical insight definitions.\n\n## Related References\n\n- [Decision Insights Overview](../decision-insights.md)\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\n- [Fixture Output Tolerance Report](../../../docs/roadmap/fixture-output-tolerance-report.md)\n",
   "references": []
 }

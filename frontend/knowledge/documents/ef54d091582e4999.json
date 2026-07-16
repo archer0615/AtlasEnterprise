@@ -3,7 +3,7 @@
   "title": "Market Assumptions Scenarios and Governance",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/market-assumptions/scenarios-and-governance.md",
-  "sourceHash": "79a8e46fa7ed603b2f5997a77bce23920ff00e64e78a93d6aa6aa65f1f64b308",
+  "sourceHash": "c79afaf9bc3ea0713eb16b9b97176640ef3551b522e72838cf06c926bb5eef5c",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Market Assumptions Scenarios and Governance\n\n## Purpose\nThis split document isolates scenario overrides, stress assumptions, database/API requirements, dashboard presentation, decision-engine usage, validation, and testing from the parent Market Assumptions specification.\n\n## Source\n- Parent specification: [Market Assumptions](../market-assumptions.md)\n\n## Scenario Assumptions\nScenario assumptions include rebalancing assumptions, sequence of returns risk, Monte Carlo assumptions, stress test assumptions, FCN assumptions, property market assumptions, cash assumptions, and emergency reserve assumptions.\n\n## Governance\nGovernance covers database design, API requirements, validation rules, dashboard presentation, decision-engine usage, testing, implementation instructions, undefined business rules, undefined formulas, and document status.\n\n## Testing\nTesting covers assumption completeness, scenario override behavior, formula consistency, API persistence, dashboard projection, stress scenario inputs, and decision-engine consumption.\n\n",
+  "bodyMarkdown": "# Market Assumptions Scenarios and Governance\r\n\r\n## Purpose\r\nThis split document isolates scenario overrides, stress assumptions, database/API requirements, dashboard presentation, decision-engine usage, validation, and testing from the parent Market Assumptions specification.\r\n\r\n## Source\r\n- Parent specification: [Market Assumptions](../market-assumptions.md)\r\n\r\n## Scenario Assumptions\r\nScenario assumptions include rebalancing assumptions, sequence of returns risk, Monte Carlo assumptions, stress test assumptions, FCN assumptions, property market assumptions, cash assumptions, and emergency reserve assumptions.\r\n\r\n## Governance\r\nGovernance covers database design, API requirements, validation rules, dashboard presentation, decision-engine usage, testing, implementation instructions, undefined business rules, undefined formulas, and document status.\r\n\r\n## Testing\r\nTesting covers assumption completeness, scenario override behavior, formula consistency, API persistence, dashboard projection, stress scenario inputs, and decision-engine consumption.\r\n\r\n",
   "references": []
 }

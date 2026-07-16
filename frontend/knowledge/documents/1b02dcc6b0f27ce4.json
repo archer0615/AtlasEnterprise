@@ -1,0 +1,27 @@
+{
+  "id": "1b02dcc6b0f27ce4",
+  "title": "ActionPlan Governance and Testing",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/action-plan/governance-and-testing.md",
+  "sourceHash": "0ca0dcf9056cfc2f32138d27dbfa97b114f810dee9bf71c1fbabe62dd5171639",
+  "headings": [
+    {
+      "level": 1,
+      "text": "ActionPlan Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Governance Rules"
+    }
+  ],
+  "bodyMarkdown": "# ActionPlan Governance and Testing\n\n## Purpose\n\nThis split document isolates ActionPlan repository, API, persistence, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/entity/ActionPlan.md` parent.\n\n## Covered Sections\n\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n\n## Governance Rules\n\n- ActionPlanRepository loads ActionPlan records and history without cascading cross-aggregate changes.\n- Security must enforce User scope inherited through ExecutionPlan ownership.\n- Audit must include assignment, start, pause, resume, completion, cancellation, archive, restore, deletion, and history.\n- Performance checks must cover ordered task lists, dashboard summaries, and history retrieval.\n",
+  "references": []
+}

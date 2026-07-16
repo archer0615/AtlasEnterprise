@@ -1,0 +1,27 @@
+{
+  "id": "261c7b46183906cd",
+  "title": "ActionPlan Commands and Workflow",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/action-plan/commands-and-workflow.md",
+  "sourceHash": "a004b679e773d76e84b90935726f23766991263d347f6d68b9ff13597cdfb217",
+  "headings": [
+    {
+      "level": 1,
+      "text": "ActionPlan Commands and Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Workflow Rules"
+    }
+  ],
+  "bodyMarkdown": "# ActionPlan Commands and Workflow\n\n## Purpose\n\nThis split document isolates ActionPlan command, workflow, scheduling, result, and state-transition concerns from the canonical `knowledge/entity/ActionPlan.md` parent.\n\n## Covered Sections\n\n- EstimatedDuration, EstimatedCost, ExpectedBenefit\n- RiskLevel, Progress\n- StartDate, DueDate, CompletedDate\n- Result, FailureReason\n- IsRequired, IsRecurring\n- Validation Rules\n- Business Rules\n- State Machine\n- Commands\n- Domain Events\n\n## Workflow Rules\n\n- ActionPlan is the atomic execution unit that turns an ExecutionPlan into ordered tasks and workflow steps.\n- ActionPlan may create, schedule, or reference Task identities through Task Service or Scheduler.\n- ActionPlan status changes must emit immutable DomainEvent records for traceability.\n- Recurring actions must preserve sequence, due date, result, and failure context per execution.\n",
+  "references": []
+}

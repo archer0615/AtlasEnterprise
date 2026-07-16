@@ -3,7 +3,7 @@
   "title": "Inbox Process Trigger and Scope",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/inbox-process-automation/trigger-and-scope.md",
-  "sourceHash": "00c525c2fefb9d1b2fcf1afc7c2982fad3cfa3fb9a8f3b0f52cfdd080336e12d",
+  "sourceHash": "51c6d0b475a793527de744aa5a6dd866e4bb7370c48c2c082aa6cde2f1844ec0",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Eligibility"
     }
   ],
-  "bodyMarkdown": "# Inbox Process Trigger and Scope\n\n## Purpose\nThis split document isolates inbox processing triggers, message scope, and processing eligibility from the parent InboxProcessAutomation specification.\n\n## Source\n- Parent specification: [InboxProcessAutomation](../inbox-process-automation.md)\n\n## Trigger Scope\nTriggers include scheduled inbox polling, message arrival, retry due time, failed processing recovery, and manual replay requests.\n\n## Eligibility\nEligibility preserves inbox status, message version, tenant scope, ordering key, retry window, idempotency key, and dead-letter policy.\n\n",
+  "bodyMarkdown": "# Inbox Process Trigger and Scope\r\n\r\n## Purpose\r\nThis split document isolates inbox processing triggers, message scope, and processing eligibility from the parent InboxProcessAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [InboxProcessAutomation](../inbox-process-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include scheduled inbox polling, message arrival, retry due time, failed processing recovery, and manual replay requests.\r\n\r\n## Eligibility\r\nEligibility preserves inbox status, message version, tenant scope, ordering key, retry window, idempotency key, and dead-letter policy.\r\n\r\n",
   "references": []
 }

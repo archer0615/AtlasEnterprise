@@ -1,0 +1,31 @@
+{
+  "id": "7837bcec1e70a15f",
+  "title": "Goal Reporting Scope and Relationships",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-reporting/scope-and-relationships.md",
+  "sourceHash": "468657c6c0cf88247f685af745a18fa5039abc4a731f860507c8573628dacf4e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Reporting Scope and Relationships"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Parent"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Reporting Scope and Relationships\n\n## Purpose\n\nThis split document isolates Goal Reporting overview, ownership, lifecycle, scope, architecture, and relationships from the canonical `knowledge/reporting/goal-reporting.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-reporting.md`\n- Domain: Goal reporting\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Goal Reporting Overview\n- Purpose and business meaning\n- Reporting lifecycle, ownership, scope, and architecture\n- Relationships with Goal, Milestone, Task, Goal Progress, Goal Metrics, Goal Dashboard, Goal Analytics, Goal Review, Decision, Recommendation, Scenario, Portfolio, CashFlow, Notification, and User\n\n## Boundary Rules\n\n- Goal reports are reporting projections, not goal mutation surfaces.\n- Goal reporting must preserve links to progress, metrics, dashboard, analytics, and review evidence.\n- Goal reporting should not duplicate canonical Goal entity lifecycle behavior.\n",
+  "references": []
+}

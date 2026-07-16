@@ -1,0 +1,27 @@
+{
+  "id": "97e8d4bfacba81fc",
+  "title": "Scenario Execution and Governance",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/scenario/execution-and-governance.md",
+  "sourceHash": "818415a1c7f5b6b15a8b67f00c20c6ffbc6328f8d2d82fe906097b581966a783",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scenario Execution and Governance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Governance Rules"
+    }
+  ],
+  "bodyMarkdown": "# Scenario Execution and Governance\n\n## Purpose\n\nThis split document isolates Scenario execution modes, templates, storage, API, frontend display, explanations, business rules, formulas, tests, implementation rules, open items, and summary sections from the canonical `knowledge/framework/scenario-framework.md` parent.\n\n## Covered Sections\n\n- Engine Execution Order\n- Deterministic, Stress, and Monte Carlo Modes\n- Scenario Template Model\n- Database Design Guidance\n- API Design Guidance\n- Frontend Display Guidance\n- Explanation Requirements\n- Business Rules\n- Formula Requirements\n- Testing Requirements\n- Codex Implementation Rules\n- Open Items and Follow-up Documents\n- Summary\n\n## Governance Rules\n\n- Execution order must be reproducible and traceable.\n- Scenario templates must not override explicit scenario assumptions without visibility.\n- API and frontend views must expose scenario identity, version, assumptions, output, score, and explanation evidence.\n- Testing must cover deterministic replay, stress behavior, Monte Carlo boundaries, and comparison consistency.\n",
+  "references": []
+}

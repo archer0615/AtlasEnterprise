@@ -3,7 +3,7 @@
   "title": "Goal Analytics Governance and Testing",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-analytics/governance-and-testing.md",
-  "sourceHash": "9133a1d68b1b11cf5495fe8fcb0e3b89de3a99204b5b3fdd0434000ead582977",
+  "sourceHash": "e11f25e9fcdca1fd130568dcb9248bbe1b2ec1c5e1d16b31b054c8ad7e657188",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Goal Analytics Governance and Testing\n\n## Purpose\nThis split document isolates Goal Analytics security, audit, validation, performance, testing, edge cases, and consistency checks from the parent Goal Analytics specification.\n\n## Source\n- Parent specification: [Goal Analytics](../goal-analytics.md)\n\n## Governance\nGovernance covers source permissions, masking, generated timestamps, formula versions, calculation versions, audit history, cache invalidation, and export controls.\n\n## Testing\nTesting covers formula calculation, aggregation, forecast comparison, dashboard projection, permissions, masking, report generation, export, and edge cases.\n\n",
+  "bodyMarkdown": "# Goal Analytics Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Goal Analytics security, audit, validation, performance, testing, edge cases, and consistency checks from the parent Goal Analytics specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Analytics](../goal-analytics.md)\r\n\r\n## Governance\r\nGovernance covers source permissions, masking, generated timestamps, formula versions, calculation versions, audit history, cache invalidation, and export controls.\r\n\r\n## Testing\r\nTesting covers formula calculation, aggregation, forecast comparison, dashboard projection, permissions, masking, report generation, export, and edge cases.\r\n\r\n",
   "references": []
 }

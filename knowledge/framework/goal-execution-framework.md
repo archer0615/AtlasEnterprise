@@ -4,6 +4,12 @@ Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Execution Specification
 Last Updated: 2026-07-13
+# Split Navigation
+
+- [Scope and Architecture](goal-execution/scope-and-architecture.md)
+- [Workflow and Policies](goal-execution/workflow-and-policies.md)
+- [Governance and Testing](goal-execution/governance-and-testing.md)
+
 # Goal Execution Overview
 ## Purpose
 Goal Execution defines how Atlas creates, starts, pauses, resumes, retries, cancels, completes, rolls back, archives, restores, deletes, secures, audits, and observes execution for GoalPlan. It coordinates execution with GoalPlan, Milestone, Task, Goal Progress Tracking, Goal Metrics, Goal Dashboard, Goal Analytics, Goal Reporting, Goal Insights, Goal Optimization, Goal Review, DecisionSession, Recommendation, Scenario, Portfolio, CashFlow, Notification, User, Business Calendar, Automation, and Workflow.

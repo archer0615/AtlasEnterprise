@@ -1,0 +1,27 @@
+{
+  "id": "6b306f435deb3933",
+  "title": "Decision Reporting Reports and Exports",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/decision-reporting/reports-and-exports.md",
+  "sourceHash": "2feba5c4913faf4a9fc2957bcd6be0a9c507ce6a321dc2b4a758ca5e4ccde1fd",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Reporting Reports and Exports"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Reporting Rules"
+    }
+  ],
+  "bodyMarkdown": "# Decision Reporting Reports and Exports\n\n## Purpose\n\nThis split document isolates Decision Reporting report types, report sections, report generation modes, export formats, commands, and domain events from the canonical `knowledge/reporting/decision-reporting.md` parent.\n\n## Covered Sections\n\n- Report Types\n- Report Sections\n- Reporting Engine\n- Export Formats\n- State Machine\n- Commands\n- Domain Events\n\n## Reporting Rules\n\n- Executive, management, operational, compliance, audit, and custom reports must identify their decision evidence source.\n- Export formats must preserve auditability, permissions, retention, and versioning.\n- Scheduled and batch reports must preserve schedule identity, generation result, failure reason, and export history.\n- Real-time and incremental reports must not bypass permission or audit layers.\n",
+  "references": []
+}

@@ -3,7 +3,7 @@
   "title": "Decision Governance Testing and Audit",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-governance/testing-and-audit.md",
-  "sourceHash": "b72a5d2116dc7d13d65ccd16cc13eea068deda7ce736905946a5e42d3ccd06a1",
+  "sourceHash": "d37d36f1fc277f0311001ec561baf6bccfc7624d1a835175a4dfed20bb0fb163",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Governance Testing and Audit\n\n## Purpose\nThis split document isolates decision governance audit, security, testing, edge cases, and consistency checks from the parent Decision Governance specification.\n\n## Source\n- Parent specification: [Decision Governance](../decision-governance.md)\n\n## Testing\nTesting covers policy evaluation, approval, rejection, exception, escalation, audit history, permission masking, and edge cases.\n\n",
+  "bodyMarkdown": "# Decision Governance Testing and Audit\r\n\r\n## Purpose\r\nThis split document isolates decision governance audit, security, testing, edge cases, and consistency checks from the parent Decision Governance specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Governance](../decision-governance.md)\r\n\r\n## Testing\r\nTesting covers policy evaluation, approval, rejection, exception, escalation, audit history, permission masking, and edge cases.\r\n\r\n",
   "references": []
 }

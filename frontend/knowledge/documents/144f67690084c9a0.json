@@ -3,7 +3,7 @@
   "title": "Background Job Execution Strategy",
   "category": "framework",
   "canonicalPath": "knowledge/framework/background-job/execution-strategy.md",
-  "sourceHash": "7a83aa0ef5c8565ad0848a92f49c304ab60919fa7fc65b2f47eeb34db41b48ce",
+  "sourceHash": "4b19e27f2eb56ddfd3a3319c757fc59c3de3e6c8c5f61bfbbe807406e92239bb",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Execution Strategy"
     }
   ],
-  "bodyMarkdown": "# Background Job Execution Strategy\n\n## Purpose\nThis split document isolates background job matrices and execution strategies from the parent Background Job Framework.\n\n## Source\n- Parent specification: [Background Job Framework](../background-job-framework.md)\n\n## Matrices\n- Background Job Matrix\n- Scheduler Matrix\n- Automation Matrix\n- Workflow Matrix\n- Repository Matrix\n- Command Matrix\n- Domain Event Matrix\n\n## Execution Strategy\nExecution strategy covers retry, checkpoint, resume, failure recovery, dependency ordering, idempotent replay, partial failure isolation, and operational recovery.\n\n",
+  "bodyMarkdown": "# Background Job Execution Strategy\r\n\r\n## Purpose\r\nThis split document isolates background job matrices and execution strategies from the parent Background Job Framework.\r\n\r\n## Source\r\n- Parent specification: [Background Job Framework](../background-job-framework.md)\r\n\r\n## Matrices\r\n- Background Job Matrix\r\n- Scheduler Matrix\r\n- Automation Matrix\r\n- Workflow Matrix\r\n- Repository Matrix\r\n- Command Matrix\r\n- Domain Event Matrix\r\n\r\n## Execution Strategy\r\nExecution strategy covers retry, checkpoint, resume, failure recovery, dependency ordering, idempotent replay, partial failure isolation, and operational recovery.\r\n\r\n",
   "references": []
 }

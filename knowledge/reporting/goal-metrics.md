@@ -4,6 +4,12 @@ Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Metrics Specification
 Last Updated: 2026-07-13
+# Split Navigation
+
+- [Scope and Architecture](goal-metrics/scope-and-architecture.md)
+- [Definitions and Rules](goal-metrics/definitions-and-rules.md)
+- [Implementation and Governance](goal-metrics/implementation-and-governance.md)
+
 # Goal Metrics Overview
 ## Purpose
 Goal Metrics defines how Atlas names, calculates, validates, stores, refreshes, exposes, audits, and reports metrics for GoalPlan.

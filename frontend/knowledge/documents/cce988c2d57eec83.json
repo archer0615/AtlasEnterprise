@@ -3,7 +3,7 @@
   "title": "Decision History Outcomes and Analytics",
   "category": "framework",
   "canonicalPath": "knowledge/framework/decision-history/outcomes-and-analytics.md",
-  "sourceHash": "0289ebd61b7308448a9a104335b67dcaaa1275547a57f333f3bb589c3a0687cd",
+  "sourceHash": "fa6ad5c3e475869805fa421ece3efc5588ec3281e5a7086c2e372190a7c31da7",
   "headings": [
     {
       "level": 1,
@@ -42,6 +42,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision History Outcomes and Analytics\n\n## Purpose\nThis split document isolates outcome tracking, analytics, reporting outputs, and testing responsibilities from the parent Decision History Framework.\n\n## Source\n- Parent specification: [Decision History Framework](../decision-history-framework.md)\n\n## Outcome Tracking\nTrack expected outcome, actual outcome, variance, completion date, and success status.\n\n## Explainability\nEvery history entry provides previous recommendation, new recommendation, reason for change, triggering events, and KPI deltas.\n\n## Integration\n\nConsumes:\n- Decision Audit Framework\n- Recommendation Priority Framework\n- Decision Metrics Framework\n- Financial Projection Framework\n\nProduces:\n- Decision Timeline\n- Dashboard\n- Executive Reports\n- Analytics\n\n## KPIs\n- Decision Acceptance Rate\n- Decision Execution Rate\n- Recommendation Stability\n- Decision Accuracy\n- Average Time to Decision\n- Outcome Success Rate\n\n## Analytics\n- Recommendation evolution\n- User behavior trends\n- Rule effectiveness\n- Decision reversal frequency\n- Scenario adoption\n\n## Testing\n- Multiple revisions\n- User rejection\n- Accepted then executed\n- Outcome mismatch\n- Historical replay\n- Concurrent updates\n\n",
+  "bodyMarkdown": "# Decision History Outcomes and Analytics\r\n\r\n## Purpose\r\nThis split document isolates outcome tracking, analytics, reporting outputs, and testing responsibilities from the parent Decision History Framework.\r\n\r\n## Source\r\n- Parent specification: [Decision History Framework](../decision-history-framework.md)\r\n\r\n## Outcome Tracking\r\nTrack expected outcome, actual outcome, variance, completion date, and success status.\r\n\r\n## Explainability\r\nEvery history entry provides previous recommendation, new recommendation, reason for change, triggering events, and KPI deltas.\r\n\r\n## Integration\r\n\r\nConsumes:\r\n- Decision Audit Framework\r\n- Recommendation Priority Framework\r\n- Decision Metrics Framework\r\n- Financial Projection Framework\r\n\r\nProduces:\r\n- Decision Timeline\r\n- Dashboard\r\n- Executive Reports\r\n- Analytics\r\n\r\n## KPIs\r\n- Decision Acceptance Rate\r\n- Decision Execution Rate\r\n- Recommendation Stability\r\n- Decision Accuracy\r\n- Average Time to Decision\r\n- Outcome Success Rate\r\n\r\n## Analytics\r\n- Recommendation evolution\r\n- User behavior trends\r\n- Rule effectiveness\r\n- Decision reversal frequency\r\n- Scenario adoption\r\n\r\n## Testing\r\n- Multiple revisions\r\n- User rejection\r\n- Accepted then executed\r\n- Outcome mismatch\r\n- Historical replay\r\n- Concurrent updates\r\n\r\n",
   "references": []
 }

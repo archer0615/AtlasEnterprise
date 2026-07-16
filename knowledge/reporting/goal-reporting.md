@@ -4,6 +4,12 @@ Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Reporting Specification
 Last Updated: 2026-07-13
+# Split Navigation
+
+- [Scope and Relationships](goal-reporting/scope-and-relationships.md)
+- [Reports and Metrics](goal-reporting/reports-and-metrics.md)
+- [Governance and Testing](goal-reporting/governance-and-testing.md)
+
 # Goal Reporting Overview
 ## Purpose
 Goal Reporting defines how Atlas creates, updates, generates, refreshes, exports, shares, schedules, archives, restores, deletes, secures, audits, and retains reports for GoalPlan. It coordinates reporting with GoalPlan, Milestone, Task when tracked, Goal Progress Tracking, Goal Metrics, Goal Dashboard, Goal Analytics, Goal Review, DecisionSession, Recommendation, Scenario, Portfolio, CashFlow, Notification, User, API, Repository, Cache, Security, Permission, Audit, and Reporting consumers.

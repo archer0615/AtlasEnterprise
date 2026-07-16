@@ -3,7 +3,7 @@
   "title": "Entity Governance and Testing",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/entity-catalog/governance-and-testing.md",
-  "sourceHash": "ca51989b220a6a87fcd3423236aa6764cc1592b296638465c645d0a071cb0cbf",
+  "sourceHash": "f9a21e0a6ef88dedcac3ec16fac455bb355111a55f7415ef6a9ad9f38b9f2b0c",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Entity Governance and Testing\n\n## Purpose\nThis split document isolates entity validation, security, audit, migration, testing, edge cases, and consistency checks from the parent Entity Catalog.\n\n## Source\n- Parent specification: [Entity Catalog](../entity-catalog.md)\n\n## Governance\nGovernance covers identity rules, lifecycle rules, ownership rules, security classification, audit coverage, persistence compatibility, and API consistency.\n\n## Testing\nTesting covers entity mapping, lifecycle transitions, validation rules, command routing, event routing, repository behavior, API behavior, and edge cases.\n\n",
+  "bodyMarkdown": "# Entity Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates entity validation, security, audit, migration, testing, edge cases, and consistency checks from the parent Entity Catalog.\r\n\r\n## Source\r\n- Parent specification: [Entity Catalog](../entity-catalog.md)\r\n\r\n## Governance\r\nGovernance covers identity rules, lifecycle rules, ownership rules, security classification, audit coverage, persistence compatibility, and API consistency.\r\n\r\n## Testing\r\nTesting covers entity mapping, lifecycle transitions, validation rules, command routing, event routing, repository behavior, API behavior, and edge cases.\r\n\r\n",
   "references": []
 }

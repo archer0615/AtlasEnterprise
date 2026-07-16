@@ -3,7 +3,7 @@
   "title": "Integration Resilience and Security",
   "category": "integration",
   "canonicalPath": "knowledge/integration/integration/resilience-and-security.md",
-  "sourceHash": "c53fbc0cb51c9e17f22e1059dd2082121536d1f9e8831097e98dc62fba55c345",
+  "sourceHash": "b4302332ce2cdaf3742d55a5ec5249d34ee09d0c836b97333f193624dd88cd97",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Resilience"
     }
   ],
-  "bodyMarkdown": "# Integration Resilience and Security\n\n## Purpose\nThis split document isolates integration authentication, authorization, resilience, retry, timeout, circuit breaker, bulkhead, rate limiting, webhook, callback, and polling strategies from the parent Integration Framework.\n\n## Source\n- Parent specification: [Integration Framework](../integration-framework.md)\n\n## Security\nSecurity strategies include API key, OAuth, JWT, mTLS, authorization mapping, credential rotation, tenant isolation, and external data masking.\n\n## Resilience\nResilience strategies include retry, timeout, circuit breaker, bulkhead, rate limiting, webhook verification, callback validation, polling safety, and duplicate handling.\n\n",
+  "bodyMarkdown": "# Integration Resilience and Security\r\n\r\n## Purpose\r\nThis split document isolates integration authentication, authorization, resilience, retry, timeout, circuit breaker, bulkhead, rate limiting, webhook, callback, and polling strategies from the parent Integration Framework.\r\n\r\n## Source\r\n- Parent specification: [Integration Framework](../integration-framework.md)\r\n\r\n## Security\r\nSecurity strategies include API key, OAuth, JWT, mTLS, authorization mapping, credential rotation, tenant isolation, and external data masking.\r\n\r\n## Resilience\r\nResilience strategies include retry, timeout, circuit breaker, bulkhead, rate limiting, webhook verification, callback validation, polling safety, and duplicate handling.\r\n\r\n",
   "references": []
 }

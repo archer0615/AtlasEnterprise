@@ -3,7 +3,7 @@
   "title": "Event-Driven Delivery Patterns",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/event-driven-architecture/delivery-patterns.md",
-  "sourceHash": "db275561b222c71bf298371bd0b3c30b63bc7fb6652c86b7f797253e3d6a7d60",
+  "sourceHash": "0e721ba0f09833915f59772019661c3521b8eab90b22d832f899432bbad6c0bf",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Boundaries"
     }
   ],
-  "bodyMarkdown": "# Event-Driven Delivery Patterns\n\n## Purpose\nThis split document isolates event delivery architecture and messaging patterns from the parent Event Driven Architecture specification.\n\n## Source\n- Parent specification: [Event Driven Architecture](../event-driven-architecture.md)\n\n## Delivery Patterns\nDelivery patterns cover publishing, subscription, delivery guarantee, ordering, outbox, inbox, retry, dead letter, replay, projection, read model, saga coordination, workflow coordination, automation coordination, background job coordination, scheduler coordination, notifications, cache invalidation, and search index updates.\n\n## Boundaries\nEvent delivery must preserve transaction boundaries, consistency boundaries, idempotency, replay safety, and failure recovery semantics.\n\n",
+  "bodyMarkdown": "# Event-Driven Delivery Patterns\r\n\r\n## Purpose\r\nThis split document isolates event delivery architecture and messaging patterns from the parent Event Driven Architecture specification.\r\n\r\n## Source\r\n- Parent specification: [Event Driven Architecture](../event-driven-architecture.md)\r\n\r\n## Delivery Patterns\r\nDelivery patterns cover publishing, subscription, delivery guarantee, ordering, outbox, inbox, retry, dead letter, replay, projection, read model, saga coordination, workflow coordination, automation coordination, background job coordination, scheduler coordination, notifications, cache invalidation, and search index updates.\r\n\r\n## Boundaries\r\nEvent delivery must preserve transaction boundaries, consistency boundaries, idempotency, replay safety, and failure recovery semantics.\r\n\r\n",
   "references": []
 }

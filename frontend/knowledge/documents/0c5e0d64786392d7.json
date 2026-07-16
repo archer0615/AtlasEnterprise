@@ -3,7 +3,7 @@
   "title": "Application Service Governance",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/application-service/governance.md",
-  "sourceHash": "f56072287b306475d77b3a37e59a10e9119fc1892bf4667f7f5b4e38733aa651",
+  "sourceHash": "0e6ad01cbd49764c85839307152dc88667add72b955273bc14e0a9ec73160047",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Application Service Governance\n\n## Purpose\nThis split document isolates application service governance, validation, security, audit, performance, testing, and consistency checks from the parent Application Service Catalog.\n\n## Source\n- Parent specification: [Application Service Catalog](../application-service-catalog.md)\n\n## Governance\nGovernance covers service ownership, API alignment, permissions, transaction scope, idempotency, correlation identifiers, audit emission, cache invalidation, and error handling.\n\n## Testing\nTesting covers command orchestration, query projection, permission enforcement, DTO mapping, error handling, audit emission, cache behavior, performance, concurrency, and edge cases.\n\n",
+  "bodyMarkdown": "# Application Service Governance\r\n\r\n## Purpose\r\nThis split document isolates application service governance, validation, security, audit, performance, testing, and consistency checks from the parent Application Service Catalog.\r\n\r\n## Source\r\n- Parent specification: [Application Service Catalog](../application-service-catalog.md)\r\n\r\n## Governance\r\nGovernance covers service ownership, API alignment, permissions, transaction scope, idempotency, correlation identifiers, audit emission, cache invalidation, and error handling.\r\n\r\n## Testing\r\nTesting covers command orchestration, query projection, permission enforcement, DTO mapping, error handling, audit emission, cache behavior, performance, concurrency, and edge cases.\r\n\r\n",
   "references": []
 }

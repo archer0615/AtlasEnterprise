@@ -1,0 +1,31 @@
+{
+  "id": "689d893d049d4da3",
+  "title": "Goal Execution Scope and Architecture",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/goal-execution/scope-and-architecture.md",
+  "sourceHash": "3f722884af2d5b9dc41fc70120957ef77287e0e9f2992abbe0a7b57a4ebd68fc",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Execution Scope and Architecture"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Parent"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Execution Scope and Architecture\n\n## Purpose\n\nThis split document isolates Goal Execution overview, lifecycle, scope, strategy, context, relationships, and execution architecture from the canonical `knowledge/framework/goal-execution-framework.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/framework/goal-execution-framework.md`\n- Framework: Goal Execution\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Goal Execution Overview\n- Execution Lifecycle\n- Execution Scope\n- Execution Strategy\n- Execution Context\n- Relationships with Goal, Milestone, Task, Goal Progress, Goal Metrics, Goal Dashboard, Goal Analytics, Goal Reporting, Goal Insights, Goal Optimization, Goal Review, Decision, Recommendation, Scenario, Portfolio, CashFlow, Notification, User, Business Calendar, Automation, and Workflow\n- Execution Architecture\n\n## Boundary Rules\n\n- Goal execution coordinates workflow, scheduling, task dispatch, progress synchronization, notification, decision, recommendation, audit, and recovery.\n- Goal execution must not duplicate canonical Goal entity lifecycle rules.\n- Cross-domain relationships must remain identity or evidence references unless an approved command owns the mutation.\n",
+  "references": []
+}

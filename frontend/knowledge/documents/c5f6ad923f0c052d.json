@@ -3,7 +3,7 @@
   "title": "Recommendation Evaluation Execution and Audit",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-evaluation/execution-and-audit.md",
-  "sourceHash": "ec0cb5ef17a720496496262c6411fdb27cd5fe9998208a8ee6bbfda8842204a1",
+  "sourceHash": "156c6267af398e19d2e5ac70224fb483a34163f8aaa7054ff8b04f4c689c38cf",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Recommendation Evaluation Execution and Audit\n\n## Purpose\nThis split document isolates recommendation evaluation pipeline, commands, state machine, API, persistence, audit, and testing from the parent Recommendation Evaluation specification.\n\n## Source\n- Parent specification: [Recommendation Evaluation](../recommendation-evaluation.md)\n\n## Evaluation Pipeline\nThe pipeline collects inputs, validates, normalizes, evaluates rules, checks goal alignment, runs financial/risk/scenario/portfolio/simulation/optimization analysis, scores, ranks, selects recommendations, and writes audit records.\n\n## Execution Surfaces\nExecution includes state machine transitions, commands, domain events, repository queries, application service orchestration, REST APIs, DTOs, database mapping, cache, security, and audit.\n\n## Audit\nEvaluation audit records source inputs, scoring version, ranking result, constraint output, selected recommendation, operator, and correlation identifier.\n\n## Testing\nTesting covers scoring, constraints, ranking, validation, API, persistence, explainability, performance, concurrency, and replay.\n\n",
+  "bodyMarkdown": "# Recommendation Evaluation Execution and Audit\r\n\r\n## Purpose\r\nThis split document isolates recommendation evaluation pipeline, commands, state machine, API, persistence, audit, and testing from the parent Recommendation Evaluation specification.\r\n\r\n## Source\r\n- Parent specification: [Recommendation Evaluation](../recommendation-evaluation.md)\r\n\r\n## Evaluation Pipeline\r\nThe pipeline collects inputs, validates, normalizes, evaluates rules, checks goal alignment, runs financial/risk/scenario/portfolio/simulation/optimization analysis, scores, ranks, selects recommendations, and writes audit records.\r\n\r\n## Execution Surfaces\r\nExecution includes state machine transitions, commands, domain events, repository queries, application service orchestration, REST APIs, DTOs, database mapping, cache, security, and audit.\r\n\r\n## Audit\r\nEvaluation audit records source inputs, scoring version, ranking result, constraint output, selected recommendation, operator, and correlation identifier.\r\n\r\n## Testing\r\nTesting covers scoring, constraints, ranking, validation, API, persistence, explainability, performance, concurrency, and replay.\r\n\r\n",
   "references": []
 }

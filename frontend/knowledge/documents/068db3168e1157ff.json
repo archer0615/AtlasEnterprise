@@ -3,7 +3,7 @@
   "title": "Portfolio Stress and Dashboard",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/portfolio/stress-and-dashboard.md",
-  "sourceHash": "0bf9784aa48963d35283d0ad2d27bfbc3a8b9459ff76f19e8603471fda19c5c3",
+  "sourceHash": "b2cdb8f2895ddab8486912b48da64488fb49788920cd0026cd1f2b53b37612d0",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Portfolio Stress and Dashboard\r\n\r\n## Purpose\r\n\r\nThis split document isolates portfolio stress and dashboard behavior from the larger Portfolio knowledge base.\r\n\r\n## Source\r\n\r\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\r\n\r\n## Stress Rules\r\n\r\n- Stress scenarios should include baseline, stressed, and mitigation alternatives.\r\n- Drawdown stress must preserve assumption version and formula version.\r\n- Stress outputs should include warning references for recommendation explanation.\r\n\r\n## Dashboard Rules\r\n\r\n- Dashboard portfolio metrics may summarize value, drawdown, allocation, and risk.\r\n- Dashboard outputs must not replace Portfolio source state.\r\n- Scenario outputs should remain deterministic for the same fixture inputs.\r\n\r\n## Related References\r\n\r\n- [Investment Drawdown Fixture](../../../simulator/fixtures/investment-drawdown-stress.json)\r\n- [Portfolio Performance Split Progress Report](../../../docs/roadmap/portfolio-performance-split-progress-report.md)\r\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\r\n",
+  "bodyMarkdown": "# Portfolio Stress and Dashboard\n\n## Purpose\n\nThis split document isolates portfolio stress and dashboard behavior from the larger Portfolio knowledge base.\n\n## Source\n\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\n\n## Stress Rules\n\n- Stress scenarios should include baseline, stressed, and mitigation alternatives.\n- Drawdown stress must preserve assumption version and formula version.\n- Stress outputs should include warning references for recommendation explanation.\n\n## Dashboard Rules\n\n- Dashboard portfolio metrics may summarize value, drawdown, allocation, and risk.\n- Dashboard outputs must not replace Portfolio source state.\n- Scenario outputs should remain deterministic for the same fixture inputs.\n\n## Related References\n\n- [Investment Drawdown Fixture](../../../simulator/fixtures/investment-drawdown-stress.json)\n- [Portfolio Performance Split Progress Report](../../../docs/roadmap/portfolio-performance-split-progress-report.md)\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\n",
   "references": []
 }

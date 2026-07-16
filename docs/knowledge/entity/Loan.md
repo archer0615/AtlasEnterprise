@@ -1,3 +1,9 @@
+# Legacy Reference
+
+- Status: Legacy reference only; do not treat this document as canonical.
+- Canonical source: [knowledge/entity/Loan.md](../../../knowledge/entity/Loan.md).
+- Retirement note: keep this file intact for historical lookup until legacy docs are retired.
+
 # Loan Entity Specification
 
 # Entity Overview

@@ -3,7 +3,7 @@
   "title": "Decision Analytics Indicators",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-analytics/indicators.md",
-  "sourceHash": "7485fae2b8552f8c6afea1835d62c2cea43611072d0717a7eef508aaa2e291b5",
+  "sourceHash": "d09650634857c0a1dd61187d70b041e1bac1ff03fbcc1a78a050bb12b62e04aa",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Indicator Scope"
     }
   ],
-  "bodyMarkdown": "# Decision Analytics Indicators\n\n## Purpose\nThis split document isolates Decision Analytics categories, indicators, formulas, thresholds, and dashboard metric usage from the parent Decision Analytics specification.\n\n## Source\n- Parent specification: [Decision Analytics](../decision-analytics.md)\n\n## Indicator Scope\nIndicators cover decision completion, acceptance, rejection, execution, success, accuracy, recommendation stability, scenario adoption, reversal frequency, and time-to-decision metrics.\n\n",
+  "bodyMarkdown": "# Decision Analytics Indicators\r\n\r\n## Purpose\r\nThis split document isolates Decision Analytics categories, indicators, formulas, thresholds, and dashboard metric usage from the parent Decision Analytics specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Analytics](../decision-analytics.md)\r\n\r\n## Indicator Scope\r\nIndicators cover decision completion, acceptance, rejection, execution, success, accuracy, recommendation stability, scenario adoption, reversal frequency, and time-to-decision metrics.\r\n\r\n",
   "references": []
 }

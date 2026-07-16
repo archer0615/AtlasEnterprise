@@ -1,0 +1,31 @@
+{
+  "id": "d1a487c70049f593",
+  "title": "Goal Dashboard Implementation and Governance",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-dashboard/implementation-and-governance.md",
+  "sourceHash": "cdb9f1a147c5fa7bd1dc2ffda47fd58e82366da7d5df4492828d9c192e8eb968",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Dashboard Implementation and Governance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Parent"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Dashboard Implementation and Governance\n\n## Purpose\n\nThis split document isolates Goal Dashboard commands, events, persistence, APIs, DTOs, storage mappings, cache, security, audit, performance, examples, diagrams, tests, edge cases, and executable addendum from the canonical `knowledge/reporting/goal-dashboard.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-dashboard.md`\n- Domain: Goal dashboard\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Commands and Domain Events\n- Repository, Domain Service Interaction, Application Service Interaction, API, and DTO\n- Database Mapping, PostgreSQL Schema, EF Core Mapping, and Cache Strategy\n- Security, Audit, Performance, Example JSON, Mermaid, Testing, Edge Cases, Version History, and Phase 2 Executable Specification Addendum\n\n## Boundary Rules\n\n- Commands and APIs must preserve dashboard ownership, widget configuration, permission filtering, export safety, and audit evidence.\n- Repository and cache behavior must distinguish dashboard definitions, widget configuration, snapshots, projections, exports, and sharing records.\n- Tests must cover rendering contract, widget configuration, refresh behavior, cache invalidation, permission filtering, export behavior, and executable addendum command contracts.\n",
+  "references": []
+}

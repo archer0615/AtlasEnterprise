@@ -3,7 +3,7 @@
   "title": "Household API and Persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/household/api-and-persistence.md",
-  "sourceHash": "f0c286515d71d88709f67b578ff43c9a6123d59614d43a5c0061aac47edd784a",
+  "sourceHash": "1b38d9e7e2280d9a55193fe6d8c0b0208c7b896a56fe1f6c90f5395df94a4d0c",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "# Household API and Persistence\n\n## Purpose\nThis split document isolates Household commands, events, repository, services, API, DTOs, database mapping, EF Core mapping, and cache strategy from the parent Household Entity Specification.\n\n## Source\n- Parent specification: [Household Entity Specification](../Household.md)\n\n## API\nHousehold APIs expose create, update, detail, members, preferences, summary, search, archive, restore, and delete behavior under tenant and permission boundaries.\n\n## Persistence\nPersistence covers household table mapping, member associations, indexes, constraints, optimistic concurrency, cache invalidation, and projection refresh.\n\n",
+  "bodyMarkdown": "# Household API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Household commands, events, repository, services, API, DTOs, database mapping, EF Core mapping, and cache strategy from the parent Household Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Household Entity Specification](../Household.md)\r\n\r\n## API\r\nHousehold APIs expose create, update, detail, members, preferences, summary, search, archive, restore, and delete behavior under tenant and permission boundaries.\r\n\r\n## Persistence\r\nPersistence covers household table mapping, member associations, indexes, constraints, optimistic concurrency, cache invalidation, and projection refresh.\r\n\r\n",
   "references": []
 }

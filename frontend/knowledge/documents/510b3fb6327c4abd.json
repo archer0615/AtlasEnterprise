@@ -1,0 +1,27 @@
+{
+  "id": "510b3fb6327c4abd",
+  "title": "ExecutionPlan Governance and Persistence",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/execution-plan/governance-and-persistence.md",
+  "sourceHash": "9f920abd675f07e29a79b42b3a0fb849ef0dc50fa56e025ec7472b60abf78d23",
+  "headings": [
+    {
+      "level": 1,
+      "text": "ExecutionPlan Governance and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Governance Rules"
+    }
+  ],
+  "bodyMarkdown": "# ExecutionPlan Governance and Persistence\n\n## Purpose\n\nThis split document isolates ExecutionPlan persistence, API, service interaction, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/entity/ExecutionPlan.md` parent.\n\n## Covered Sections\n\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n\n## Governance Rules\n\n- ExecutionPlan persistence must preserve Version and ConcurrencyToken boundaries.\n- Security must enforce User scope and decision/recommendation execution authorization.\n- Audit must trace planning, approval, start, pause, completion, failure, cancellation, archive, restore, and deletion.\n- Performance checks must cover dashboard execution status, history, and action summary queries.\n",
+  "references": []
+}

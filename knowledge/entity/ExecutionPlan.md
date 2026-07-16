@@ -37,6 +37,12 @@ Related Specifications:
 - knowledge/decision-execution.md
 - knowledge/recommendation-execution.md
 
+# Split Navigation
+
+- [Identity and Planning Scope](execution-plan/identity-and-planning-scope.md)
+- [Execution Workflow](execution-plan/execution-workflow.md)
+- [Governance and Persistence](execution-plan/governance-and-persistence.md)
+
 # Entity Overview
 
 Purpose: ExecutionPlan represents the catalog-aligned execution plan produced after a Decision or Recommendation is accepted for execution.

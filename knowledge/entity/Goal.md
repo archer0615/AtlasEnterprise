@@ -41,6 +41,12 @@ Related Specifications:
 - knowledge/goal-dependency.md
 - knowledge/goal-conflict-resolution.md
 
+# Split Navigation
+
+- [Identity and Ownership](goal/identity-and-ownership.md)
+- [Funding Progress and Review](goal/funding-progress-and-review.md)
+- [Governance and Testing](goal/governance-and-testing.md)
+
 # Entity Overview
 
 Purpose: Goal represents a user life or financial objective managed inside GoalPlan and used by prioritization, dependency, conflict resolution, review, progress tracking, scenario evaluation, decision making, recommendation generation, and execution planning.

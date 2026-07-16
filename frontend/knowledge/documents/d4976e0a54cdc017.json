@@ -1,0 +1,27 @@
+{
+  "id": "d4976e0a54cdc017",
+  "title": "ExecutionPlan Execution Workflow",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/execution-plan/execution-workflow.md",
+  "sourceHash": "ffb98e9d235f9e12f9d34c229e181f94c792cdf3a24570ffb577380a5931e30c",
+  "headings": [
+    {
+      "level": 1,
+      "text": "ExecutionPlan Execution Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Workflow Rules"
+    }
+  ],
+  "bodyMarkdown": "# ExecutionPlan Execution Workflow\n\n## Purpose\n\nThis split document isolates ExecutionPlan execution workflow, progress, automation, ownership, approval, and result concerns from the canonical `knowledge/entity/ExecutionPlan.md` parent.\n\n## Covered Sections\n\n- EstimatedDuration, EstimatedCost, ExpectedBenefit\n- RiskLevel, Progress\n- StartDate, TargetDate, CompletedDate\n- IsAutomated, IsRecurring\n- Owner, Approver\n- ExecutionResult, FailureReason\n- Validation Rules\n- Business Rules\n- State Machine\n- Commands\n- Domain Events\n\n## Workflow Rules\n\n- ExecutionPlan status changes must preserve approval, result, failure, and audit context.\n- Automated and recurring plans must keep execution strategy, owner, approver, and target date explicit.\n- ExecutionPlan progress is derived from approved execution workflow and ActionPlan completion evidence.\n",
+  "references": []
+}

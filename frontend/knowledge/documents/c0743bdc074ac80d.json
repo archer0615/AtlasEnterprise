@@ -3,7 +3,7 @@
   "title": "Service Catalog Application Services",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/service-catalog/application-services.md",
-  "sourceHash": "7d3605de0c1841fad6bc57efa0af60f6254aae038f6c5d2a6cbdc6c987ff1305",
+  "sourceHash": "e6772de7905c5d051c8637fe60cb4f118f778239db8e03f8c0e03fb6d4a33bf6",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Catalog Usage"
     }
   ],
-  "bodyMarkdown": "# Service Catalog Application Services\n\n## Purpose\nThis split document isolates application service entries from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Application Service Scope\nApplication services orchestrate commands, queries, permissions, DTO mapping, validation coordination, transaction boundaries, audit requests, and integration with domain services.\n\n## Catalog Usage\nEach application service entry must preserve service name, owning module, consumed aggregate, commands, queries, permissions, events, repositories, and API surface.\n\n",
+  "bodyMarkdown": "# Service Catalog Application Services\r\n\r\n## Purpose\r\nThis split document isolates application service entries from the parent Service Catalog.\r\n\r\n## Source\r\n- Parent specification: [Service Catalog](../service-catalog.md)\r\n\r\n## Application Service Scope\r\nApplication services orchestrate commands, queries, permissions, DTO mapping, validation coordination, transaction boundaries, audit requests, and integration with domain services.\r\n\r\n## Catalog Usage\r\nEach application service entry must preserve service name, owning module, consumed aggregate, commands, queries, permissions, events, repositories, and API surface.\r\n\r\n",
   "references": []
 }

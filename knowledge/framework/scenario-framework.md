@@ -8,6 +8,12 @@
 > Layer: Knowledge Base / Decision Modeling  
 > Status: Specification Draft v1.0  
 > Owner: Project Atlas  
+
+# Split Navigation
+
+- [Design and Lifecycle](scenario/design-and-lifecycle.md)
+- [Inputs Outputs and Scoring](scenario/inputs-outputs-and-scoring.md)
+- [Execution and Governance](scenario/execution-and-governance.md)
 > Purpose: Define the standard scenario model used across cashflow, loan, investment, home upgrade, retirement, insurance, tax, and life-event decision engines.
 
 ---

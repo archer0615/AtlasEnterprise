@@ -1,0 +1,31 @@
+{
+  "id": "f789500633a1d5b2",
+  "title": "Scenario Design and Lifecycle",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/scenario/design-and-lifecycle.md",
+  "sourceHash": "16eda9ecea6e50c568be5bb4216c83ae5bff105e4e6a6ef7f722fb448b30215f",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scenario Design and Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Parent"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Scenario Design and Lifecycle\n\n## Purpose\n\nThis split document isolates Scenario framework purpose, principles, scenario types, lifecycle, identity, versioning, time model, assumption hierarchy, and assumption categories from the canonical `knowledge/framework/scenario-framework.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/framework/scenario-framework.md`\n- Framework: Scenario Framework\n- Status: Specification Draft v1.0\n\n## Covered Sections\n\n- Document Purpose\n- Core Principle\n- Scenario Design Goals\n- Scenario Definition\n- Scenario Types\n- Scenario Lifecycle\n- Scenario Identity and Versioning\n- Scenario Time Model\n- Assumption Resolution Hierarchy\n- Standard Assumption Categories\n\n## Boundary Rules\n\n- Scenario design must remain deterministic enough for replay and audit.\n- Scenario identity and versioning must preserve comparison and historical traceability.\n- Assumption resolution must keep global, household, goal, portfolio, and scenario-specific layers explicit.\n",
+  "references": []
+}

@@ -3,7 +3,7 @@
   "title": "Decision Optimization Governance and Testing",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-optimization/governance-and-testing.md",
-  "sourceHash": "24a1bb49f8861e5f3ea8d9bf6a7b8370bb6734bbc9eb321ac4af6e660377d261",
+  "sourceHash": "fab44964877c7dafccbffa9ffc210f48d836e200d57ecbf8abfda8f18e1a2469",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Optimization Governance and Testing\n\n## Purpose\nThis split document isolates Decision Optimization validation, business rules, security, audit, performance, testing, edge cases, and consistency checks from the parent Decision Optimization specification.\n\n## Source\n- Parent specification: [Decision Optimization](../decision-optimization.md)\n\n## Governance\nGovernance covers objective versioning, constraint validity, explainability, approval controls, permission-aware inputs, audit, cache invalidation, and rollback evidence.\n\n## Testing\nTesting covers objective scoring, constraint loading, candidate generation, ranking, sensitivity analysis, approval preparation, audit, concurrency, and edge cases.\n\n",
+  "bodyMarkdown": "# Decision Optimization Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Decision Optimization validation, business rules, security, audit, performance, testing, edge cases, and consistency checks from the parent Decision Optimization specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Optimization](../decision-optimization.md)\r\n\r\n## Governance\r\nGovernance covers objective versioning, constraint validity, explainability, approval controls, permission-aware inputs, audit, cache invalidation, and rollback evidence.\r\n\r\n## Testing\r\nTesting covers objective scoring, constraint loading, candidate generation, ranking, sensitivity analysis, approval preparation, audit, concurrency, and edge cases.\r\n\r\n",
   "references": []
 }

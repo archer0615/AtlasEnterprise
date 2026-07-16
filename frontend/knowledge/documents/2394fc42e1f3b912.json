@@ -3,7 +3,7 @@
   "title": "Backup Execution",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/backup-automation/execution.md",
-  "sourceHash": "e6e9fca486e849926b9b0bd1f219189efd36bba96aa6b6c08fe950abdb94b962",
+  "sourceHash": "7f25f468f0f1e17c5ef7b3f9463d808169c022e1c58c059a7b0ba09897535be0",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Execution"
     }
   ],
-  "bodyMarkdown": "# Backup Execution\n\n## Purpose\nThis split document isolates backup execution, verification, storage, and restore metadata behavior from the parent BackupAutomation specification.\n\n## Source\n- Parent specification: [BackupAutomation](../backup-automation.md)\n\n## Execution\nExecution creates backup snapshot, validates integrity, stores metadata, applies retention policy, emits audit records, and reports backup status.\n\n",
+  "bodyMarkdown": "# Backup Execution\r\n\r\n## Purpose\r\nThis split document isolates backup execution, verification, storage, and restore metadata behavior from the parent BackupAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [BackupAutomation](../backup-automation.md)\r\n\r\n## Execution\r\nExecution creates backup snapshot, validates integrity, stores metadata, applies retention policy, emits audit records, and reports backup status.\r\n\r\n",
   "references": []
 }

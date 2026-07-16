@@ -3,7 +3,7 @@
   "title": "Cleanup Trigger and Scope",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/cleanup-automation/trigger-and-scope.md",
-  "sourceHash": "ac66396f33889d7377a2a2f2c9a68eceeef0bb61522da057ad22ef21915e5959",
+  "sourceHash": "7a6223afac06e5436ce9a22ccd5f5d926f1a753d287d0b7aef24bd07926524d1",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Cleanup Scope"
     }
   ],
-  "bodyMarkdown": "# Cleanup Trigger and Scope\n\n## Purpose\nThis split document isolates cleanup automation triggers, cleanup target scope, and eligibility from the parent CleanupAutomation specification.\n\n## Source\n- Parent specification: [CleanupAutomation](../cleanup-automation.md)\n\n## Trigger Scope\nTriggers include scheduled cleanup, retention windows, archive expiration, stale cache, stale temporary data, failed job recovery, and manual cleanup requests.\n\n## Cleanup Scope\nCleanup scope includes expired records, temporary artifacts, stale projections, obsolete snapshots, dead-letter retention, and archived data eligible for policy action.\n\n",
+  "bodyMarkdown": "# Cleanup Trigger and Scope\r\n\r\n## Purpose\r\nThis split document isolates cleanup automation triggers, cleanup target scope, and eligibility from the parent CleanupAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [CleanupAutomation](../cleanup-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include scheduled cleanup, retention windows, archive expiration, stale cache, stale temporary data, failed job recovery, and manual cleanup requests.\r\n\r\n## Cleanup Scope\r\nCleanup scope includes expired records, temporary artifacts, stale projections, obsolete snapshots, dead-letter retention, and archived data eligible for policy action.\r\n\r\n",
   "references": []
 }

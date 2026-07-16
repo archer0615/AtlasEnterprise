@@ -3,7 +3,7 @@
   "title": "System Module Relationship Matrices",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/system-module/relationship-matrices.md",
-  "sourceHash": "b3638ca33d545600ace4cdac5a32b0bd8dcf0c9b0ed5e46b4bf05509037d27d0",
+  "sourceHash": "0b572a7f7fc48f4ac374af0d7c08c3d1f0238f91aef5862de5832ec4d8b6899d",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Parent Sections"
     }
   ],
-  "bodyMarkdown": "# System Module Relationship Matrices\n\n## Purpose\nThis split document isolates relationship and ownership matrix navigation from the parent System Module Catalog.\n\n## Source\n- Parent specification: [System Module Catalog](../system-module-catalog.md)\n\n## Catalog Scope\nSystem Module relationship matrices preserve module mapping across Domain, Bounded Context, Aggregate, Entity, Repository, Command, Domain Event, Application Service, Domain Service, API, Workflow, Integration, and Database concerns.\n\n## Matrix Contract\nEach matrix row keeps the original Module, Mapping, Owner, Dependency Control, inbound dependency, outbound dependency, and catalog-aligned ownership terminology defined in the parent specification.\n\n## Parent Sections\n- Module Ownership Matrix\n- Module Dependency Matrix\n- Domain Module Matrix\n- Bounded Context Module Matrix\n- Aggregate Module Matrix\n- Entity Module Matrix\n- Repository Module Matrix\n- Command Module Matrix\n- Domain Event Module Matrix\n- Application Service Module Matrix\n- Domain Service Module Matrix\n- API Module Matrix\n- Workflow Module Matrix\n- Integration Module Matrix\n- Database Module Matrix\n",
+  "bodyMarkdown": "# System Module Relationship Matrices\r\n\r\n## Purpose\r\nThis split document isolates relationship and ownership matrix navigation from the parent System Module Catalog.\r\n\r\n## Source\r\n- Parent specification: [System Module Catalog](../system-module-catalog.md)\r\n\r\n## Catalog Scope\r\nSystem Module relationship matrices preserve module mapping across Domain, Bounded Context, Aggregate, Entity, Repository, Command, Domain Event, Application Service, Domain Service, API, Workflow, Integration, and Database concerns.\r\n\r\n## Matrix Contract\r\nEach matrix row keeps the original Module, Mapping, Owner, Dependency Control, inbound dependency, outbound dependency, and catalog-aligned ownership terminology defined in the parent specification.\r\n\r\n## Parent Sections\r\n- Module Ownership Matrix\r\n- Module Dependency Matrix\r\n- Domain Module Matrix\r\n- Bounded Context Module Matrix\r\n- Aggregate Module Matrix\r\n- Entity Module Matrix\r\n- Repository Module Matrix\r\n- Command Module Matrix\r\n- Domain Event Module Matrix\r\n- Application Service Module Matrix\r\n- Domain Service Module Matrix\r\n- API Module Matrix\r\n- Workflow Module Matrix\r\n- Integration Module Matrix\r\n- Database Module Matrix\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "API Governance Standards and Contracts",
   "category": "api",
   "canonicalPath": "knowledge/api/api-governance/standards-and-contracts.md",
-  "sourceHash": "d4518c74007ec1efe67b979ace62947144d0437390631e20b9ed22f31ad3d44d",
+  "sourceHash": "02face0d88c57a46cc84be475703ccd391d59e3d9cba04678fb3737125fc2bb8",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Consistency Controls"
     }
   ],
-  "bodyMarkdown": "# API Governance Standards and Contracts\n\n## Purpose\nThis split document isolates API standards, contracts, naming, versioning, request/response rules, DTOs, errors, pagination, sorting, filtering, search, bulk operations, idempotency, and concurrency from the parent API Governance Framework.\n\n## Source\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\n\n## Standards\nAPI standards cover resource naming, URI shape, HTTP method usage, response contract, request contract, media type, content negotiation, API version strategy, REST endpoint standard, command API standard, query API standard, DTO standard, and error contract standard.\n\n## Query Controls\nPagination, sorting, filtering, search, and bulk operation standards must be consistent across APIs and preserve tenant and permission constraints.\n\n## Consistency Controls\nIdempotency and concurrency standards must protect command replay, retry safety, optimistic locking, and duplicate request handling.\n\n",
+  "bodyMarkdown": "# API Governance Standards and Contracts\r\n\r\n## Purpose\r\nThis split document isolates API standards, contracts, naming, versioning, request/response rules, DTOs, errors, pagination, sorting, filtering, search, bulk operations, idempotency, and concurrency from the parent API Governance Framework.\r\n\r\n## Source\r\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\r\n\r\n## Standards\r\nAPI standards cover resource naming, URI shape, HTTP method usage, response contract, request contract, media type, content negotiation, API version strategy, REST endpoint standard, command API standard, query API standard, DTO standard, and error contract standard.\r\n\r\n## Query Controls\r\nPagination, sorting, filtering, search, and bulk operation standards must be consistent across APIs and preserve tenant and permission constraints.\r\n\r\n## Consistency Controls\r\nIdempotency and concurrency standards must protect command replay, retry safety, optimistic locking, and duplicate request handling.\r\n\r\n",
   "references": []
 }

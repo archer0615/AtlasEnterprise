@@ -40,6 +40,12 @@ Related Specifications:
 - knowledge/recommendation-evaluation.md
 - knowledge/decision-lifecycle.md
 
+# Split Navigation
+
+- [Identity and Scoring](recommendation/identity-and-scoring.md)
+- [Lifecycle and Execution](recommendation/lifecycle-and-execution.md)
+- [Governance and Testing](recommendation/governance-and-testing.md)
+
 # Entity Overview
 
 Entity Name: Recommendation

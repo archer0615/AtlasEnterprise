@@ -1,0 +1,31 @@
+{
+  "id": "2ba8fde20ee0c1ec",
+  "title": "Goal Metrics Scope and Architecture",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-metrics/scope-and-architecture.md",
+  "sourceHash": "aaf62b9e62adf8c2bcc2dec7167d2d2c25f1a9eda3af08fd2c7588a190118dec",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Metrics Scope and Architecture"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Parent"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Metrics Scope and Architecture\n\n## Purpose\n\nThis split document isolates Goal Metrics overview, ownership, relationships, lifecycle, collection, calculation, refresh, and calculation architecture from the canonical `knowledge/reporting/goal-metrics.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-metrics.md`\n- Domain: Goal metrics\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Goal Metrics Overview\n- Purpose and business meaning\n- Metric lifecycle, ownership, categories, collection strategy, calculation strategy, and refresh policy\n- Relationships with Goal, Milestone, Task, Decision, Recommendation, Scenario, Portfolio, CashFlow, Notification, Dashboard, and User\n- Calculation Engine\n\n## Boundary Rules\n\n- Goal Metrics defines governed measurements and calculated results for GoalPlan; it does not replace GoalPlan ownership.\n- Metric calculations must remain deterministic for the same source snapshot, formula version, assumptions, precision, rounding, and calculation date.\n- Refresh behavior must preserve historical metric evidence and avoid overwriting append-only records.\n",
+  "references": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "ae4187f5efb4d70c",
+  "title": "Goal Governance and Testing",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/goal/governance-and-testing.md",
+  "sourceHash": "e1d45ccd494baefa42a073ebefa1b908c659e77f44388a8830762d93791cb1ab",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Governance Rules"
+    },
+    {
+      "level": 2,
+      "text": "Testing Focus"
+    }
+  ],
+  "bodyMarkdown": "# Goal Governance and Testing\n\n## Purpose\n\nThis split document isolates Goal governance, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/entity/Goal.md` parent.\n\n## Covered Sections\n\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n\n## Governance Rules\n\n- Goal audit records must preserve lifecycle, progress, priority, review, dependency, and conflict changes.\n- Goal security must enforce User access scope and GoalPlan ownership boundaries.\n- Goal read models may include related summaries but cannot mutate referenced entities.\n- Goal performance validation must include search, summary, history, progress, and dashboard usage.\n\n## Testing Focus\n\n- Identity immutability and User scope.\n- ParentGoalId cycle prevention.\n- Progress recalculation boundaries.\n- Review cadence transitions.\n- Archive, restore, deletion, and history traceability.\n",
+  "references": []
+}

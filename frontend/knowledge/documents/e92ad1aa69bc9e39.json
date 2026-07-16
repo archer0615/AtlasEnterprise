@@ -1,0 +1,27 @@
+{
+  "id": "e92ad1aa69bc9e39",
+  "title": "Scenario Inputs Outputs and Scoring",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/scenario/inputs-outputs-and-scoring.md",
+  "sourceHash": "8826b2da246b774ff20e01386939cd44cba65c5bd670d273d0837e6958d4788b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scenario Inputs Outputs and Scoring"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Scenario Rules"
+    }
+  ],
+  "bodyMarkdown": "# Scenario Inputs Outputs and Scoring\n\n## Purpose\n\nThis split document isolates Scenario input, output, KPI, comparison, scoring, risk, validation, and decision/life-event model concerns from the canonical `knowledge/framework/scenario-framework.md` parent.\n\n## Covered Sections\n\n- Decision Set Model\n- Life Event Model\n- Scenario Input Snapshot\n- Scenario Output Model\n- KPI Integration\n- Scenario Comparison Framework\n- Scenario Scoring\n- Risk Level Model\n- Scenario Validation Rules\n\n## Scenario Rules\n\n- Scenario input snapshots must be immutable after execution.\n- Scenario outputs must be comparable across deterministic, stress, and Monte Carlo modes.\n- KPI integration, scoring, and risk levels must preserve assumptions used during calculation.\n- Decision sets and life events must not mutate canonical entity state outside approved workflows.\n",
+  "references": []
+}

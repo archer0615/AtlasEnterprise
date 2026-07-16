@@ -3,7 +3,7 @@
   "title": "Event-Driven Flow Catalog",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/event-driven-architecture/flow-catalog.md",
-  "sourceHash": "920108ba64d582bf954ed8aaa9b3ec57b2415ca508c0bd1a599afcfe719b7f1e",
+  "sourceHash": "701d376b4e7c01410d22a6f537abed3962de02105c368e69db147909c2fa421f",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Flow Contract"
     }
   ],
-  "bodyMarkdown": "# Event-Driven Flow Catalog\n\n## Purpose\nThis split document isolates the complete event flow catalog from the parent Event Driven Architecture specification.\n\n## Source\n- Parent specification: [Event Driven Architecture](../event-driven-architecture.md)\n\n## Event Flow Catalog\nThe flow catalog includes salary, expense, portfolio, security, loan, home, policy, premium, retirement, scenario, recommendation, decision, rule, constraint, score, snapshot, and replay event flows.\n\n## Flow Contract\nEach flow preserves publisher, subscriber, trigger, payload, ordering, retry behavior, idempotency key, projection updates, audit requirements, and failure behavior.\n\n",
+  "bodyMarkdown": "# Event-Driven Flow Catalog\r\n\r\n## Purpose\r\nThis split document isolates the complete event flow catalog from the parent Event Driven Architecture specification.\r\n\r\n## Source\r\n- Parent specification: [Event Driven Architecture](../event-driven-architecture.md)\r\n\r\n## Event Flow Catalog\r\nThe flow catalog includes salary, expense, portfolio, security, loan, home, policy, premium, retirement, scenario, recommendation, decision, rule, constraint, score, snapshot, and replay event flows.\r\n\r\n## Flow Contract\r\nEach flow preserves publisher, subscriber, trigger, payload, ordering, retry behavior, idempotency key, projection updates, audit requirements, and failure behavior.\r\n\r\n",
   "references": []
 }

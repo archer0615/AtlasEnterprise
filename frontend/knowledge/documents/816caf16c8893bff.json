@@ -1,0 +1,31 @@
+{
+  "id": "816caf16c8893bff",
+  "title": "Goal Metrics Definitions and Rules",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-metrics/definitions-and-rules.md",
+  "sourceHash": "30e53f65d75adf5fb70148f00b9f8548b0912b7ee9d44c04c0a85053a5e656b4",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Metrics Definitions and Rules"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Parent"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Metrics Definitions and Rules\n\n## Purpose\n\nThis split document isolates Goal Metrics metric categories, named metric definitions, validation, business rules, and state behavior from the canonical `knowledge/reporting/goal-metrics.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-metrics.md`\n- Domain: Goal metrics\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Metric Categories\n- Metric Definitions\n- Validation Rules\n- Business Rules\n- State Machine\n\n## Boundary Rules\n\n- Metric definitions must keep units, scale, thresholds, precision, source requirements, and calculation versions explicit.\n- Validation must reject missing source identifiers, incompatible units, invalid weights, stale inputs, unauthorized scope, and precision loss.\n- State transitions must preserve metric lifecycle integrity across creation, update, refresh, recalculation, archival, restoration, and deletion.\n",
+  "references": []
+}

@@ -3,7 +3,7 @@
   "title": "Household Governance and Testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/household/governance-and-testing.md",
-  "sourceHash": "2c090abb7b86ebb71b80dd38987b4156549118f5e27b3a053b47765b4ea756f1",
+  "sourceHash": "4b1041388823512127b2a8168dfe07d73d62fe03b2ecc049ec71d1879faeeef6",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Household Governance and Testing\n\n## Purpose\nThis split document isolates Household security, audit, observability, performance, examples, diagrams, testing, edge cases, migration, and consistency verification from the parent Household Entity Specification.\n\n## Source\n- Parent specification: [Household Entity Specification](../Household.md)\n\n## Governance\nGovernance covers tenant isolation, household membership, permission checks, field masking, audit, retention, and migration compatibility.\n\n## Testing\nTesting covers household creation, membership changes, permissions, archive, restore, search, cache invalidation, concurrency, and edge cases.\n\n",
+  "bodyMarkdown": "# Household Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Household security, audit, observability, performance, examples, diagrams, testing, edge cases, migration, and consistency verification from the parent Household Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Household Entity Specification](../Household.md)\r\n\r\n## Governance\r\nGovernance covers tenant isolation, household membership, permission checks, field masking, audit, retention, and migration compatibility.\r\n\r\n## Testing\r\nTesting covers household creation, membership changes, permissions, archive, restore, search, cache invalidation, concurrency, and edge cases.\r\n\r\n",
   "references": []
 }

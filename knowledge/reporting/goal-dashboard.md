@@ -4,6 +4,12 @@ Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Dashboard Specification
 Last Updated: 2026-07-13
+# Split Navigation
+
+- [Scope and Architecture](goal-dashboard/scope-and-architecture.md)
+- [Widgets and KPIs](goal-dashboard/widgets-and-kpis.md)
+- [Implementation and Governance](goal-dashboard/implementation-and-governance.md)
+
 # Goal Dashboard Overview
 ## Purpose
 Goal Dashboard defines how Atlas presents GoalPlan status, progress, metrics, review, decision, recommendation, scenario, portfolio, cashflow, notification, and activity data in a governed dashboard experience.

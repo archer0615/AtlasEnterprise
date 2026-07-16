@@ -1,0 +1,27 @@
+{
+  "id": "1b161de948e03993",
+  "title": "Goal Reporting Reports and Metrics",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/goal-reporting/reports-and-metrics.md",
+  "sourceHash": "032bcf5b42fbdf9e21e381808f84896a86f8c151c80083942bf0583baebf3008",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Reporting Reports and Metrics"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Reporting Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Reporting Reports and Metrics\n\n## Purpose\n\nThis split document isolates Goal Reporting report types, report sections, reporting engine, export formats, state machine, commands, and domain events from the canonical `knowledge/reporting/goal-reporting.md` parent.\n\n## Covered Sections\n\n- Report Types\n- Report Sections\n- Reporting Engine\n- Export Formats\n- State Machine\n- Commands\n- Domain Events\n\n## Reporting Rules\n\n- Goal progress, completion, health, risk, financial, forecast, review, recommendation, decision, portfolio, and scenario reports must identify their evidence source.\n- Metrics, KPIs, forecast, risk, cash flow, budget, dependencies, and timeline sections must remain reproducible from snapshots.\n- Scheduled and exported reports must preserve generation status, export status, and schedule cancellation evidence.\n",
+  "references": []
+}

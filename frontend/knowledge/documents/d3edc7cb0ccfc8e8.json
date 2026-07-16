@@ -3,7 +3,7 @@
   "title": "Scenario Refresh Governance and Testing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/scenario-refresh-automation/governance-and-testing.md",
-  "sourceHash": "47735e40ec0b2bd2d2436fd814ac487ece435b25f2434ccad0289f11408f82a8",
+  "sourceHash": "8606ccec157265b9b75bd81f0af071edc8b0145d954b6dce39bb4cfc0b3a4e12",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Scenario Refresh Governance and Testing\n\n## Purpose\nThis split document isolates scenario refresh governance, validation, audit, retry, performance, testing, and edge cases from the parent ScenarioRefreshAutomation specification.\n\n## Source\n- Parent specification: [ScenarioRefreshAutomation](../scenario-refresh-automation.md)\n\n## Governance\nGovernance covers assumption versioning, source timestamps, idempotency, duplicate prevention, audit, retry, failure recovery, and stale result handling.\n\n## Testing\nTesting covers trigger matching, scenario selection, simulation invocation, result persistence, projection refresh, downstream triggers, retry, and edge cases.\n\n",
+  "bodyMarkdown": "# Scenario Refresh Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates scenario refresh governance, validation, audit, retry, performance, testing, and edge cases from the parent ScenarioRefreshAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [ScenarioRefreshAutomation](../scenario-refresh-automation.md)\r\n\r\n## Governance\r\nGovernance covers assumption versioning, source timestamps, idempotency, duplicate prevention, audit, retry, failure recovery, and stale result handling.\r\n\r\n## Testing\r\nTesting covers trigger matching, scenario selection, simulation invocation, result persistence, projection refresh, downstream triggers, retry, and edge cases.\r\n\r\n",
   "references": []
 }

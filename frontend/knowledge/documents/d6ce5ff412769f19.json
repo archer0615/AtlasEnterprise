@@ -3,7 +3,7 @@
   "title": "Value Object Validation and Mapping",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/value-object/validation-and-mapping.md",
-  "sourceHash": "6fbd5f67731d4baa731535b0e392cf93aaf3d9f9198597f55771b6818f581822",
+  "sourceHash": "5a14fda514fb288949b745612324bb426481f45eb477dd842e55889d223cd4f5",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Mapping"
     }
   ],
-  "bodyMarkdown": "# Value Object Validation and Mapping\n\n## Purpose\nThis split document isolates value object validation, persistence mapping, DTO mapping, and conversion rules from the parent Value Object Catalog.\n\n## Source\n- Parent specification: [Value Object Catalog](../value-object-catalog.md)\n\n## Validation\nValidation covers required fields, formats, range constraints, currency precision, date/time constraints, enum alignment, and cross-field invariants.\n\n## Mapping\nMapping covers EF Core owned types, scalar conversions, JSON serialization, API DTO representation, database column precision, and migration compatibility.\n\n",
+  "bodyMarkdown": "# Value Object Validation and Mapping\r\n\r\n## Purpose\r\nThis split document isolates value object validation, persistence mapping, DTO mapping, and conversion rules from the parent Value Object Catalog.\r\n\r\n## Source\r\n- Parent specification: [Value Object Catalog](../value-object-catalog.md)\r\n\r\n## Validation\r\nValidation covers required fields, formats, range constraints, currency precision, date/time constraints, enum alignment, and cross-field invariants.\r\n\r\n## Mapping\r\nMapping covers EF Core owned types, scalar conversions, JSON serialization, API DTO representation, database column precision, and migration compatibility.\r\n\r\n",
   "references": []
 }

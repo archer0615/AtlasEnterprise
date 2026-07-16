@@ -3,7 +3,7 @@
   "title": "Goal Conflict Lifecycle and State",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-conflict-resolution/lifecycle-and-state.md",
-  "sourceHash": "4b954c5ec08114eaf2a18e3963a6dd0e7b3c96c9327501141e732e64b8350448",
+  "sourceHash": "b75f7e4ac0b12183086ea5d205f08f242f297c0dc71de61c742650e44d162e2f",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "Deterministic Transition Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Conflict Lifecycle and State\n\n## Purpose\nThis split document isolates Goal Conflict lifecycle, status, state machine, deterministic transition rules, and resolution state from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Conflict Status and Lifecycle\nGoal Conflict lifecycle covers detection, reevaluation, proposal, selection, acceptance, rejection, override, deferral, escalation, resolution, reopen, archive, and restore behavior.\n\n## State Machine\nThe state machine preserves GoalPlan-owned conflict state and supports auditable transitions across open, proposed, selected, accepted, rejected, overridden, deferred, escalated, resolved, reopened, archived, and restored states.\n\n## Resolution State\nResolution state records selected strategy, resolution candidate, decision evidence, operator, reason, prior state, next state, timestamp, and correlation identifier.\n\n## Deterministic Transition Rules\nTransitions must remain deterministic, idempotent, permission-aware, tenant-safe, and compatible with historical replay and audit compatibility.\n",
+  "bodyMarkdown": "# Goal Conflict Lifecycle and State\r\n\r\n## Purpose\r\nThis split document isolates Goal Conflict lifecycle, status, state machine, deterministic transition rules, and resolution state from the parent Goal Conflict Resolution specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\r\n\r\n## Conflict Status and Lifecycle\r\nGoal Conflict lifecycle covers detection, reevaluation, proposal, selection, acceptance, rejection, override, deferral, escalation, resolution, reopen, archive, and restore behavior.\r\n\r\n## State Machine\r\nThe state machine preserves GoalPlan-owned conflict state and supports auditable transitions across open, proposed, selected, accepted, rejected, overridden, deferred, escalated, resolved, reopened, archived, and restored states.\r\n\r\n## Resolution State\r\nResolution state records selected strategy, resolution candidate, decision evidence, operator, reason, prior state, next state, timestamp, and correlation identifier.\r\n\r\n## Deterministic Transition Rules\r\nTransitions must remain deterministic, idempotent, permission-aware, tenant-safe, and compatible with historical replay and audit compatibility.\r\n",
   "references": []
 }

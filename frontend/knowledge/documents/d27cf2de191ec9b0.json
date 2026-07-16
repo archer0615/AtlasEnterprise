@@ -3,7 +3,7 @@
   "title": "Decision Analytics Pipeline and Reporting",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-analytics/pipeline-and-reporting.md",
-  "sourceHash": "85b2925edb5de0cd26f9a02def8eac694a5e8033a22d93877d6790e67c25c58e",
+  "sourceHash": "23b4b78be92e94b6853f623e1459c3a9447c01bc54cc433ca19b148fbcb81cab",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Pipeline"
     }
   ],
-  "bodyMarkdown": "# Decision Analytics Pipeline and Reporting\n\n## Purpose\nThis split document isolates Decision Analytics data pipeline, aggregation, calculation, reporting, caching, and visualization behavior from the parent Decision Analytics specification.\n\n## Source\n- Parent specification: [Decision Analytics](../decision-analytics.md)\n\n## Pipeline\nPipeline stages collect decision history, normalize metrics, aggregate by scope, calculate indicators, generate reports, and refresh dashboard projections.\n\n",
+  "bodyMarkdown": "# Decision Analytics Pipeline and Reporting\r\n\r\n## Purpose\r\nThis split document isolates Decision Analytics data pipeline, aggregation, calculation, reporting, caching, and visualization behavior from the parent Decision Analytics specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Analytics](../decision-analytics.md)\r\n\r\n## Pipeline\r\nPipeline stages collect decision history, normalize metrics, aggregate by scope, calculate indicators, generate reports, and refresh dashboard projections.\r\n\r\n",
   "references": []
 }

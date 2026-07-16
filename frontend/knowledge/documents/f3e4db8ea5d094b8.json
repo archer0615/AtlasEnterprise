@@ -3,7 +3,7 @@
   "title": "API Governance Resource Catalog",
   "category": "api",
   "canonicalPath": "knowledge/api/api-governance/resource-catalog.md",
-  "sourceHash": "1d6f3cfe4c412aa248f9bd114c97e545cba3613e35c64b5a377ed7be4209e195",
+  "sourceHash": "3947c5248792e42be5140eab52ffe51adc0310dfe72117e48af7209fe2394843",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Catalog Rules"
     }
   ],
-  "bodyMarkdown": "# API Governance Resource Catalog\n\n## Purpose\nThis split document isolates the complete API resource catalog from the parent API Governance Framework.\n\n## Source\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\n\n## Resource Groups\n- Users API\n- Households API\n- Blueprint API\n- Goals API\n- Portfolios API\n- Loans API\n- Properties API\n- Scenarios API\n- Decisions API\n- Recommendations API\n- Policies API\n- Dashboard API\n- Notifications API\n- Reports API\n- Administration API\n- Audit API\n\n## Catalog Rules\nEach resource group must define route, application service, domain service, aggregate, commands, queries, DTO, repository, domain events, permissions, audit requirement, idempotency requirement, and error catalog references.\n\n",
+  "bodyMarkdown": "# API Governance Resource Catalog\r\n\r\n## Purpose\r\nThis split document isolates the complete API resource catalog from the parent API Governance Framework.\r\n\r\n## Source\r\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\r\n\r\n## Resource Groups\r\n- Users API\r\n- Households API\r\n- Blueprint API\r\n- Goals API\r\n- Portfolios API\r\n- Loans API\r\n- Properties API\r\n- Scenarios API\r\n- Decisions API\r\n- Recommendations API\r\n- Policies API\r\n- Dashboard API\r\n- Notifications API\r\n- Reports API\r\n- Administration API\r\n- Audit API\r\n\r\n## Catalog Rules\r\nEach resource group must define route, application service, domain service, aggregate, commands, queries, DTO, repository, domain events, permissions, audit requirement, idempotency requirement, and error catalog references.\r\n\r\n",
   "references": []
 }

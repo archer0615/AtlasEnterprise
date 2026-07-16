@@ -1,3 +1,9 @@
+# Legacy Reference
+
+- Status: Legacy reference only; do not treat this document as canonical.
+- Canonical source: [knowledge/entity/Mortgage.md](../../../knowledge/entity/Mortgage.md).
+- Retirement note: keep this file intact for historical lookup until legacy docs are retired.
+
 # Mortgage Entity Specification
 
 # Entity Overview

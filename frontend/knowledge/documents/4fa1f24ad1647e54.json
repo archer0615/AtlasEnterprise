@@ -3,7 +3,7 @@
   "title": "Scenario Governance and Testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/scenario/governance-and-testing.md",
-  "sourceHash": "c11a04b074d97d2d6e8668864cff772c15616db2ad692959dddd110295876817",
+  "sourceHash": "4bc904742f55fb71f703b4e96253fc742b2b0db2c42615bde0737b11bf78046e",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Scenario Governance and Testing\n\n## Purpose\nThis split document isolates Scenario security, audit, performance, examples, diagrams, testing, edge cases, and consistency checks from the parent Scenario Entity Specification.\n\n## Source\n- Parent specification: [Scenario Entity Specification](../Scenario.md)\n\n## Testing\nTesting covers scenario creation, assumption validation, evaluation, comparison, archive, restore, cache invalidation, concurrency, and edge cases.\n\n",
+  "bodyMarkdown": "# Scenario Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Scenario security, audit, performance, examples, diagrams, testing, edge cases, and consistency checks from the parent Scenario Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Scenario Entity Specification](../Scenario.md)\r\n\r\n## Testing\r\nTesting covers scenario creation, assumption validation, evaluation, comparison, archive, restore, cache invalidation, concurrency, and edge cases.\r\n\r\n",
   "references": []
 }

@@ -37,6 +37,12 @@ Related Specifications:
 - knowledge/decision-execution.md
 - knowledge/recommendation-execution.md
 
+# Split Navigation
+
+- [Identity and Execution Scope](action-plan/identity-and-execution-scope.md)
+- [Commands and Workflow](action-plan/commands-and-workflow.md)
+- [Governance and Testing](action-plan/governance-and-testing.md)
+
 # Entity Overview
 
 Purpose: ActionPlan represents one executable, measurable, auditable action inside an ExecutionPlan.

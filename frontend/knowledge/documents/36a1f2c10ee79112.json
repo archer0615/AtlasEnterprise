@@ -3,7 +3,7 @@
   "title": "Mortgage Persistence and API",
   "category": "entity",
   "canonicalPath": "knowledge/entity/mortgage/persistence-and-api.md",
-  "sourceHash": "1df7957890253a6311d56f8700b74c2f2229861411aed57207806da6380dd3ea",
+  "sourceHash": "90c70e35a9379d734d5693e000fcbca1c68ba398c71ebc54540b8e66580a3add",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "# Mortgage Persistence and API\n\n## Purpose\nThis split document isolates Mortgage commands, events, repository, services, REST API, DTO, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Mortgage Entity Specification.\n\n## Source\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\n\n## Commands and Events\nMortgage commands and events must align with Loan aggregate ownership and preserve payment, refinance, close, archive, restore, and replay behavior.\n\n## API\nMortgage API behavior is exposed through loan-aligned routes and must preserve permissions, idempotency, error handling, and audit evidence.\n\n## Persistence\nPersistence includes mortgage or loan-backed tables, repository query methods, EF Core mapping, amortization cache invalidation, and consistency verification.\n\n",
+  "bodyMarkdown": "# Mortgage Persistence and API\r\n\r\n## Purpose\r\nThis split document isolates Mortgage commands, events, repository, services, REST API, DTO, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Mortgage Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\r\n\r\n## Commands and Events\r\nMortgage commands and events must align with Loan aggregate ownership and preserve payment, refinance, close, archive, restore, and replay behavior.\r\n\r\n## API\r\nMortgage API behavior is exposed through loan-aligned routes and must preserve permissions, idempotency, error handling, and audit evidence.\r\n\r\n## Persistence\r\nPersistence includes mortgage or loan-backed tables, repository query methods, EF Core mapping, amortization cache invalidation, and consistency verification.\r\n\r\n",
   "references": []
 }

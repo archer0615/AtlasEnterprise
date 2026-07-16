@@ -1,0 +1,27 @@
+{
+  "id": "d895210dc529a31a",
+  "title": "Goal Execution Workflow and Policies",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/goal-execution/workflow-and-policies.md",
+  "sourceHash": "1fdc1872783df1c3e2cceec58eb114cf6ab2084b9430d255f6dd9ae079350eab",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Execution Workflow and Policies"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Workflow Rules"
+    }
+  ],
+  "bodyMarkdown": "# Goal Execution Workflow and Policies\n\n## Purpose\n\nThis split document isolates Goal Execution phases, modes, policies, monitoring, state machine, commands, and domain events from the canonical `knowledge/framework/goal-execution-framework.md` parent.\n\n## Covered Sections\n\n- Execution Phases\n- Execution Modes\n- Execution Policies\n- Execution Monitoring\n- Validation Rules\n- Business Rules\n- State Machine\n- Commands\n- Domain Events\n\n## Workflow Rules\n\n- Execution phases must preserve preparation, validation, scheduling, execution, monitoring, verification, completion, rollback, retry, and archive evidence.\n- Manual, automatic, scheduled, event-driven, workflow-driven, simulation, dry-run, batch, parallel, and incremental modes must enforce the same authorization and audit boundaries.\n- Retry, timeout, cancellation, rollback, compensation, and approval policies must be explicit in execution events.\n",
+  "references": []
+}

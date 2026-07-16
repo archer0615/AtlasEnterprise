@@ -1,0 +1,27 @@
+{
+  "id": "52ddd3ad1f31876d",
+  "title": "Decision Reporting Governance and Testing",
+  "category": "reporting",
+  "canonicalPath": "knowledge/reporting/decision-reporting/governance-and-testing.md",
+  "sourceHash": "94332c5ed9c8f3ceef193e598cc68180abe484b69266e793f3588a4313275153",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Decision Reporting Governance and Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Covered Sections"
+    },
+    {
+      "level": 2,
+      "text": "Governance Rules"
+    }
+  ],
+  "bodyMarkdown": "# Decision Reporting Governance and Testing\n\n## Purpose\n\nThis split document isolates Decision Reporting validation, business rules, repository, services, API, persistence, cache, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/reporting/decision-reporting.md` parent.\n\n## Covered Sections\n\n- Validation Rules\n- Business Rules\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n\n## Governance Rules\n\n- Decision report access must enforce permission and audit controls before rendering, exporting, sharing, or scheduling.\n- Report cache invalidation must preserve decision evidence freshness.\n- Retention and versioning must keep historical reports reproducible.\n- Testing must include export, schedule, concurrency, permission, performance, and stress coverage.\n",
+  "references": []
+}
