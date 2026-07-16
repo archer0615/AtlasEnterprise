@@ -11,6 +11,8 @@ const APP_SHELL = [
   "/src/styles.css",
   "/fixtures/dashboard-snapshot.json",
   "/fixtures/dashboard-snapshots.json",
+  "/fixtures/dashboard-runtime-snapshots.json",
+  "/fixtures/generated-fixture-cache-policy.json",
   "/knowledge/index.json",
   "/knowledge/search-index.json",
   "/knowledge/document-assets.json",

@@ -29,6 +29,9 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Score policy migration is recorded in `simulator/config/score-policy-migration.json`.
 - Generated fixture cache policy is recorded in `frontend/fixtures/generated-fixture-cache-policy.json`.
 - Reserved dashboard projection API contract is documented in `backend/dashboard-projection-api.md`.
+- Dashboard projection service scaffold is implemented in `backend/dashboard-projection-service.mjs`.
+- Cache invalidation validation is covered by `npm run validate:cache-invalidation`.
+- Deployment validation hook is covered by `npm run validate:deployment`.
 
 ## Validation
 
@@ -44,3 +47,4 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Score evaluation remains deterministic until production scoring policy is backed by persisted configuration.
 - Runtime dashboard binding is fixture-backed until a service endpoint owns dashboard projection generation.
 - Projection API remains contract-only until backend services are activated.
+- Projection service remains fixture-backed until backend runtime activation.

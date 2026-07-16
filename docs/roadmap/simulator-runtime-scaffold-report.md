@@ -20,6 +20,8 @@ This report records the first simulator runtime scaffold.
 - Generates dashboard runtime bindings from simulator output.
 - Records score policy migration metadata.
 - Validates generated fixture cache policy and dashboard projection API contract.
+- Exposes fixture-backed dashboard projections through a backend service scaffold.
+- Validates cache invalidation and deployment readiness hooks.
 
 ## Command
 
@@ -38,6 +40,7 @@ This report records the first simulator runtime scaffold.
 - Score output must carry the active score policy version.
 - Runtime dashboard bindings must preserve source fixture, score, status, formula IDs, and score policy version.
 - Projection API contracts must preserve runtime binding fields.
+- Deployment validation must remain part of the root validation pipeline.
 
 ## Follow-up
 
@@ -47,3 +50,4 @@ This report records the first simulator runtime scaffold.
 - Replace module-based score policy with persisted configuration when the calculation service is introduced.
 - Replace runtime dashboard fixture generation with the production dashboard projection service.
 - Move cache policy enforcement into deployment validation when hosting is introduced.
+- Replace fixture-backed projection service with an application service when backend runtime is activated.

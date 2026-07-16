@@ -28,6 +28,8 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Runtime bindings must include source fixture ID, score, status, formula IDs, and score policy version.
 - Generated fixture cache policy must reference existing generated artifacts.
 - Dashboard projection API validation must confirm runtime projection fields.
+- Offline cache validation must include generated runtime dashboard artifacts.
+- Cache invalidation validation must confirm stale cache deletion behavior.
 
 ## Validation
 
@@ -41,3 +43,4 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Add generator drift checks if dashboard fixtures become edited by multiple tooling paths.
 - Replace runtime fixture file generation with service-backed projection generation when available.
 - Add cache invalidation tests when generated artifacts are consumed by a service worker runtime cache.
+- Extend deployment validation when hosting configuration is introduced.
