@@ -1,0 +1,46 @@
+{
+  "fixtureId": "loan-refinancing-fee-breakdown",
+  "name": "Loan refinancing fee breakdown",
+  "asOfDate": "2026-07-17",
+  "assumptionVersion": "taiwan-financial-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Does refinance break-even use the full fee stack instead of one aggregate fee?",
+  "inputs": {
+    "currency": "TWD",
+    "loanBalance": 3200000,
+    "resetRate": 0.029,
+    "refinanceRate": 0.024,
+    "remainingMonths": 180,
+    "originationFee": 48000,
+    "appraisalFee": 6000,
+    "adminFee": 12000,
+    "registrationFee": 8000,
+    "prepaymentPenalty": 22000
+  },
+  "expected": {
+    "metrics": {
+      "totalRefinanceCost": 96000,
+      "monthlyPaymentSavingsAfterReset": 758.09,
+      "refinanceFeeRecoveryMonths": 126.63
+    },
+    "warnings": [
+      "fee-stack-extends-break-even"
+    ],
+    "recommendation": {
+      "status": "conditional",
+      "score": 58,
+      "explanation": "Refinancing remains conditional because full fee recovery is longer than the aggregate-fee scenario.",
+      "warningReferences": [
+        "fee-stack-extends-break-even"
+      ]
+    }
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/entity/loan/refinancing-break-even-spec.md",
+    "knowledge/catalog/financial-formula-catalog.md"
+  ]
+}

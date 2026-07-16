@@ -1,0 +1,47 @@
+{
+  "fixtureId": "portfolio-drawdown-attribution-stress",
+  "name": "Portfolio drawdown attribution stress",
+  "asOfDate": "2026-07-17",
+  "assumptionVersion": "market-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Which asset bucket explains the stressed portfolio drawdown?",
+  "inputs": {
+    "currency": "TWD",
+    "portfolioValue": 6800000,
+    "equityWeight": 0.55,
+    "bondWeight": 0.25,
+    "cashWeight": 0.2,
+    "equityDrawdownRate": 0.22,
+    "bondDrawdownRate": 0.07,
+    "cashDrawdownRate": 0
+  },
+  "expected": {
+    "metrics": {
+      "equityLoss": 822800,
+      "bondLoss": 119000,
+      "cashLoss": 0,
+      "totalDrawdownAmount": 941800,
+      "stressedPortfolioValue": 5858200,
+      "drawdownRate": 0.1385
+    },
+    "warnings": [
+      "equity-dominates-drawdown"
+    ],
+    "recommendation": {
+      "status": "monitor",
+      "score": 64,
+      "explanation": "Equity exposure explains most drawdown risk and should drive mitigation planning.",
+      "warningReferences": [
+        "equity-dominates-drawdown"
+      ]
+    }
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/product/portfolio-drawdown-attribution.md",
+    "knowledge/catalog/financial-formula-catalog.md"
+  ]
+}

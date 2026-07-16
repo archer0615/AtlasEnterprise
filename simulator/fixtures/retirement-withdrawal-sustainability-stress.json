@@ -1,0 +1,46 @@
+{
+  "fixtureId": "retirement-withdrawal-sustainability-stress",
+  "name": "Retirement withdrawal sustainability stress",
+  "asOfDate": "2026-07-17",
+  "assumptionVersion": "market-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Does retirement withdrawal remain sustainable after portfolio stress?",
+  "inputs": {
+    "currency": "TWD",
+    "portfolioValue": 9800000,
+    "monthlyRetirementExpense": 80000,
+    "safeWithdrawalRate": 0.04,
+    "portfolioStressRate": 0.1
+  },
+  "expected": {
+    "metrics": {
+      "annualWithdrawalNeed": 960000,
+      "withdrawalRate": 0.098,
+      "stressedPortfolioValue": 8820000,
+      "stressedWithdrawalRate": 0.1088,
+      "sustainableAnnualWithdrawal": 392000,
+      "annualWithdrawalGap": 568000
+    },
+    "warnings": [
+      "withdrawal-rate-above-safe-threshold",
+      "stress-withdrawal-gap"
+    ],
+    "recommendation": {
+      "status": "at-risk",
+      "score": 42,
+      "explanation": "Withdrawal need materially exceeds the safe withdrawal threshold under baseline and stress views.",
+      "warningReferences": [
+        "withdrawal-rate-above-safe-threshold",
+        "stress-withdrawal-gap"
+      ]
+    }
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/product/retirement-withdrawal-sustainability.md",
+    "knowledge/catalog/financial-formula-catalog.md"
+  ]
+}

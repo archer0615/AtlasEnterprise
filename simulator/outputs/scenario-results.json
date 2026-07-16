@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T06:08:01.175Z",
+  "generatedAt": "2026-07-16T16:05:08.622Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -26,6 +26,38 @@
       "metrics": {
         "stressedPortfolioValue": 5304000,
         "reserveMonths": 13.04
+      },
+      "generatedFrom": "fixture-runtime-formula"
+    },
+    {
+      "fixtureId": "loan-amortization-schedule-baseline",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "pass",
+      "score": 88,
+      "warningCount": 0,
+      "metrics": {
+        "monthlyPayment": 20739.96,
+        "firstMonthInterest": 5600,
+        "firstMonthPrincipal": 15139.96,
+        "endingBalanceAfterFirstMonth": 3184860.04,
+        "totalInterest": 533192.8
+      },
+      "generatedFrom": "fixture-runtime-formula"
+    },
+    {
+      "fixtureId": "loan-refinancing-fee-breakdown",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "conditional",
+      "score": 58,
+      "warningCount": 1,
+      "metrics": {
+        "totalRefinanceCost": 96000,
+        "monthlyPaymentSavingsAfterReset": 758.09,
+        "refinanceFeeRecoveryMonths": 126.63
       },
       "generatedFrom": "fixture-runtime-formula"
     },
@@ -61,6 +93,24 @@
       "generatedFrom": "fixture-runtime-formula"
     },
     {
+      "fixtureId": "portfolio-drawdown-attribution-stress",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "market-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "monitor",
+      "score": 64,
+      "warningCount": 1,
+      "metrics": {
+        "equityLoss": 822800,
+        "bondLoss": 119000,
+        "cashLoss": 0,
+        "totalDrawdownAmount": 941800,
+        "stressedPortfolioValue": 5858200,
+        "drawdownRate": 0.1385
+      },
+      "generatedFrom": "fixture-runtime-formula"
+    },
+    {
       "fixtureId": "retirement-readiness-stress",
       "asOfDate": "2026-07-15",
       "assumptionVersion": "market-assumptions.v1",
@@ -70,6 +120,24 @@
       "warningCount": 1,
       "metrics": {},
       "generatedFrom": "fixture-expected-output"
+    },
+    {
+      "fixtureId": "retirement-withdrawal-sustainability-stress",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "market-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "at-risk",
+      "score": 42,
+      "warningCount": 2,
+      "metrics": {
+        "annualWithdrawalNeed": 960000,
+        "withdrawalRate": 0.098,
+        "stressedPortfolioValue": 8820000,
+        "stressedWithdrawalRate": 0.1088,
+        "sustainableAnnualWithdrawal": 392000,
+        "annualWithdrawalGap": 568000
+      },
+      "generatedFrom": "fixture-runtime-formula"
     }
   ]
 }

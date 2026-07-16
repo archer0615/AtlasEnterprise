@@ -54,6 +54,46 @@ function computeMetrics(fixture) {
     };
   }
 
+  if (fixture.fixtureId === "loan-amortization-schedule-baseline") {
+    const monthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.annualRate, fixture.inputs.remainingMonths);
+    const firstMonthInterest = round(fixture.inputs.loanBalance * fixture.inputs.annualRate / 12, 2);
+    const firstMonthPrincipal = round(monthlyPayment - firstMonthInterest, 2);
+    const endingBalanceAfterFirstMonth = round(fixture.inputs.loanBalance - firstMonthPrincipal, 2);
+    const totalInterest = round(monthlyPayment * fixture.inputs.remainingMonths - fixture.inputs.loanBalance, 2);
+    return { monthlyPayment, firstMonthInterest, firstMonthPrincipal, endingBalanceAfterFirstMonth, totalInterest };
+  }
+
+  if (fixture.fixtureId === "loan-refinancing-fee-breakdown") {
+    const resetMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.resetRate, fixture.inputs.remainingMonths);
+    const refinanceMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.refinanceRate, fixture.inputs.remainingMonths);
+    const totalRefinanceCost = fixture.inputs.originationFee + fixture.inputs.appraisalFee + fixture.inputs.adminFee + fixture.inputs.registrationFee + fixture.inputs.prepaymentPenalty;
+    const monthlyPaymentSavingsAfterReset = round(resetMonthlyPayment - refinanceMonthlyPayment, 2);
+    const refinanceFeeRecoveryMonths = monthlyPaymentSavingsAfterReset > 0
+      ? round(totalRefinanceCost / monthlyPaymentSavingsAfterReset, 2)
+      : null;
+    return { totalRefinanceCost, monthlyPaymentSavingsAfterReset, refinanceFeeRecoveryMonths };
+  }
+
+  if (fixture.fixtureId === "portfolio-drawdown-attribution-stress") {
+    const equityLoss = Math.round(fixture.inputs.portfolioValue * fixture.inputs.equityWeight * fixture.inputs.equityDrawdownRate);
+    const bondLoss = Math.round(fixture.inputs.portfolioValue * fixture.inputs.bondWeight * fixture.inputs.bondDrawdownRate);
+    const cashLoss = Math.round(fixture.inputs.portfolioValue * fixture.inputs.cashWeight * fixture.inputs.cashDrawdownRate);
+    const totalDrawdownAmount = equityLoss + bondLoss + cashLoss;
+    const stressedPortfolioValue = fixture.inputs.portfolioValue - totalDrawdownAmount;
+    const drawdownRate = round(totalDrawdownAmount / fixture.inputs.portfolioValue, 4);
+    return { equityLoss, bondLoss, cashLoss, totalDrawdownAmount, stressedPortfolioValue, drawdownRate };
+  }
+
+  if (fixture.fixtureId === "retirement-withdrawal-sustainability-stress") {
+    const annualWithdrawalNeed = fixture.inputs.monthlyRetirementExpense * 12;
+    const withdrawalRate = round(annualWithdrawalNeed / fixture.inputs.portfolioValue, 4);
+    const stressedPortfolioValue = Math.round(fixture.inputs.portfolioValue * (1 - fixture.inputs.portfolioStressRate));
+    const stressedWithdrawalRate = round(annualWithdrawalNeed / stressedPortfolioValue, 4);
+    const sustainableAnnualWithdrawal = Math.round(fixture.inputs.portfolioValue * fixture.inputs.safeWithdrawalRate);
+    const annualWithdrawalGap = annualWithdrawalNeed - sustainableAnnualWithdrawal;
+    return { annualWithdrawalNeed, withdrawalRate, stressedPortfolioValue, stressedWithdrawalRate, sustainableAnnualWithdrawal, annualWithdrawalGap };
+  }
+
   if (fixture.fixtureId === "home-upgrade-2031-baseline") {
     const transactionCostEstimate = Math.round(fixture.inputs.targetHomeEstimatedValue * fixture.inputs.transactionCostRate);
     return { transactionCostEstimate };

@@ -30,7 +30,7 @@ for (const result of output.results) {
   if (result.metrics?.postPrepaymentReserveMonths !== undefined) {
     assert(Math.abs(result.metrics.postPrepaymentReserveMonths - fixture.expected.metrics.postPrepaymentReserveMonths) <= 0.01, `${result.fixtureId} postPrepaymentReserveMonths outside tolerance`);
   }
-  for (const metric of ["monthlyMortgagePayment", "currentMonthlyPayment", "resetMonthlyPayment", "refinanceMonthlyPayment", "monthlyPaymentSavingsAfterReset", "refinanceFeeRecoveryMonths"]) {
+  for (const metric of ["monthlyMortgagePayment", "currentMonthlyPayment", "resetMonthlyPayment", "refinanceMonthlyPayment", "monthlyPaymentSavingsAfterReset", "refinanceFeeRecoveryMonths", "monthlyPayment", "firstMonthInterest", "firstMonthPrincipal", "endingBalanceAfterFirstMonth", "totalInterest", "totalRefinanceCost", "equityLoss", "bondLoss", "cashLoss", "totalDrawdownAmount", "stressedPortfolioValue", "annualWithdrawalNeed", "sustainableAnnualWithdrawal", "annualWithdrawalGap"]) {
     if (result.metrics?.[metric] !== undefined && fixture.expected.metrics?.[metric] !== undefined) {
       assert(Math.abs(result.metrics[metric] - fixture.expected.metrics[metric]) <= fixture.tolerances.currency, `${result.fixtureId} ${metric} outside tolerance`);
     }
@@ -43,6 +43,11 @@ for (const result of output.results) {
   }
   if (result.metrics?.reserveMonths !== undefined) {
     assert(Math.abs(result.metrics.reserveMonths - fixture.expected.metrics.reserveMonths) <= 0.01, `${result.fixtureId} reserveMonths outside tolerance`);
+  }
+  for (const metric of ["drawdownRate", "withdrawalRate", "stressedWithdrawalRate"]) {
+    if (result.metrics?.[metric] !== undefined && fixture.expected.metrics?.[metric] !== undefined) {
+      assert(Math.abs(result.metrics[metric] - fixture.expected.metrics[metric]) <= fixture.tolerances.ratio, `${result.fixtureId} ${metric} outside tolerance`);
+    }
   }
 }
 

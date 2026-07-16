@@ -1,0 +1,38 @@
+{
+  "fixtureId": "loan-amortization-schedule-baseline",
+  "name": "Loan amortization schedule baseline",
+  "asOfDate": "2026-07-17",
+  "assumptionVersion": "taiwan-financial-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Does the loan schedule expose principal, interest, and ending-balance values?",
+  "inputs": {
+    "currency": "TWD",
+    "loanBalance": 3200000,
+    "annualRate": 0.021,
+    "remainingMonths": 180
+  },
+  "expected": {
+    "metrics": {
+      "monthlyPayment": 20739.96,
+      "firstMonthInterest": 5600,
+      "firstMonthPrincipal": 15139.96,
+      "endingBalanceAfterFirstMonth": 3184860.04,
+      "totalInterest": 533192.8
+    },
+    "warnings": [],
+    "recommendation": {
+      "status": "pass",
+      "score": 88,
+      "explanation": "Schedule math is stable for monthly payment, first-period split, and remaining balance.",
+      "warningReferences": []
+    }
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/entity/loan/amortization-spec.md",
+    "knowledge/catalog/financial-formula-catalog.md"
+  ]
+}
