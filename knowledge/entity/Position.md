@@ -4,6 +4,8 @@
 - [Position API and persistence](position/api-and-persistence.md)
 - [Position governance and testing](position/governance-and-testing.md)
 - [Position rules and state](position/rules-and-state.md)
+- [Position commands and events](position/commands-and-events.md)
+- [Position service projections and operations](position/service-projections-and-operations.md)
 # Document Control
 | Field | Value |
 |---|---|

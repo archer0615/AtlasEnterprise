@@ -1,0 +1,39 @@
+{
+  "id": "c45bf76e9e25646a",
+  "title": "Domain Service Error, Security, Audit, and Performance",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-service/error-security-audit-and-performance.md",
+  "sourceHash": "a7982b74b34f8b8b8d20e2d346d3867dc308e1bea56ea122451cf5b44e51d2a8",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Service Error, Security, Audit, and Performance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Error Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Performance"
+    }
+  ],
+  "bodyMarkdown": "# Domain Service Error, Security, Audit, and Performance\n\n## Purpose\nThis split document isolates Domain Service error handling, caller-provided security context, audit capture, and deterministic performance constraints from the parent Domain Service Catalog.\n\n## Source\n- Parent specification: [Domain Service Catalog](../domain-service-catalog.md)\n\n## Error Catalog Scope\nDomain Service errors cover validation, rule mapping, engine dependency, aggregate snapshot, authorization context, deterministic calculation, timeout, cache, concurrency, or audit failure.\n\n| Error Code Range | Meaning | Blocking | Retry |\n|---|---|---|---|\n| DS-ERR-001 through DS-ERR-040 | Domain Service errors covering validation, rule mapping, engine dependency, aggregate snapshot, authorization context, deterministic calculation, timeout, cache, concurrency, or audit failure. | Yes | Retry only when input snapshot and version context are unchanged. |\n\n## Security\n- Authorization is provided by caller and preserved through service execution, logging, caching, and audit metadata.\n- Permission is provided by caller and preserved through service execution, logging, caching, and audit metadata.\n- Tenant Isolation is provided by caller and preserved through service execution, logging, caching, and audit metadata.\n- Household Isolation is provided by caller and preserved through service execution, logging, caching, and audit metadata.\n\n## Audit\n- Invocation is mandatory in event publishing and consumption audit records.\n- CorrelationId is captured by caller with service name, input hash, output hash, rule version, formula version, assumption version, and execution time.\n- CausationId is captured by caller with service name, input hash, output hash, rule version, formula version, assumption version, and execution time.\n- Version is captured by caller with service name, input hash, output hash, rule version, formula version, assumption version, and execution time.\n- History is captured by caller with service name, input hash, output hash, rule version, formula version, assumption version, and execution time.\n\n## Performance\n- Latency uses deterministic input hashes, bounded calculations, versioned rules, local caching when permitted, and observable execution metrics.\n- Throughput uses deterministic input hashes, bounded calculations, versioned rules, local caching when permitted, and observable execution metrics.\n- Caching uses deterministic input hashes, bounded calculations, versioned rules, local caching when permitted, and observable execution metrics.\n- Parallel Execution uses deterministic input hashes, bounded calculations, versioned rules, local caching when permitted, and observable execution metrics.\n- Retry uses deterministic input hashes, bounded calculations, versioned rules, local caching when permitted, and observable execution metrics.\n",
+  "references": []
+}

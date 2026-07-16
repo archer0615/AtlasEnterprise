@@ -5,6 +5,7 @@
 - [System module dependencies](system-module/dependencies.md)
 - [System module governance and testing](system-module/governance-and-testing.md)
 - [System module relationship matrices](system-module/relationship-matrices.md)
+- [System module diagrams, testing, and edge cases](system-module/diagrams-testing-edge-cases.md)
 
 # Document Control
 

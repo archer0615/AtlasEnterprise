@@ -1,0 +1,39 @@
+{
+  "id": "5b32d928e3c38273",
+  "title": "Domain Event Error, Security, Audit, and Performance",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-event/error-security-audit-and-performance.md",
+  "sourceHash": "3322631b6ca55abf79ea35ff10cc937cc59b6d3dab25b69b564e5db2497f0a21",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Event Error, Security, Audit, and Performance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Error Handling"
+    },
+    {
+      "level": 2,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Performance"
+    }
+  ],
+  "bodyMarkdown": "# Domain Event Error, Security, Audit, and Performance\n\n## Purpose\nThis split document isolates Domain Event error handling, payload exposure controls, audit requirements, and delivery performance constraints from the parent Domain Event Catalog.\n\n## Source\n- Parent specification: [Domain Event Catalog](../domain-event-catalog.md)\n\n## Error Handling\n- Poison Message handling must preserve EventId, CorrelationId, CausationId, consumer name, retry count, error code, and audit trail.\n- Dead Letter Queue handling must preserve EventId, CorrelationId, CausationId, consumer name, retry count, error code, and audit trail.\n- Retry handling must preserve EventId, CorrelationId, CausationId, consumer name, retry count, error code, and audit trail.\n- Replay handling must preserve EventId, CorrelationId, CausationId, consumer name, retry count, error code, and audit trail.\n- Duplicate Detection handling must preserve EventId, CorrelationId, CausationId, consumer name, retry count, error code, and audit trail.\n- Outbox Failure handling must preserve EventId, CorrelationId, CausationId, consumer name, retry count, error code, and audit trail.\n- Inbox Failure handling must preserve EventId, CorrelationId, CausationId, consumer name, retry count, error code, and audit trail.\n\n## Security\n- Authorization is enforced before event payload is exposed to a consumer, read model, notification, automation, or external message.\n- Tenant Isolation is enforced before event payload is exposed to a consumer, read model, notification, automation, or external message.\n- Household Isolation is enforced before event payload is exposed to a consumer, read model, notification, automation, or external message.\n- PII is enforced before event payload is exposed to a consumer, read model, notification, automation, or external message.\n- Encryption is enforced before event payload is exposed to a consumer, read model, notification, automation, or external message.\n\n## Audit\n- CorrelationId is mandatory in event publishing and consumption audit records.\n- CausationId is mandatory in event publishing and consumption audit records.\n- Version is mandatory in event publishing and consumption audit records.\n- Publisher is mandatory in event publishing and consumption audit records.\n- Consumer is mandatory in event publishing and consumption audit records.\n- History is mandatory in event publishing and consumption audit records.\n\n## Performance\n- Event Throughput uses batching, partitioning by AggregateId or HouseholdId, deterministic ordering, idempotent processing, and observable lag metrics.\n- Ordering uses batching, partitioning by AggregateId or HouseholdId, deterministic ordering, idempotent processing, and observable lag metrics.\n- Latency uses batching, partitioning by AggregateId or HouseholdId, deterministic ordering, idempotent processing, and observable lag metrics.\n- Projection Delay uses batching, partitioning by AggregateId or HouseholdId, deterministic ordering, idempotent processing, and observable lag metrics.\n- Cache Update uses batching, partitioning by AggregateId or HouseholdId, deterministic ordering, idempotent processing, and observable lag metrics.\n",
+  "references": []
+}

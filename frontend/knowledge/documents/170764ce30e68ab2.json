@@ -1,0 +1,39 @@
+{
+  "id": "170764ce30e68ab2",
+  "title": "Portfolio Commands and Events",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/portfolio-entity/commands-and-events.md",
+  "sourceHash": "f70954e48143933188609eb113c2795b82baabf4b29525b29f66eef36fda7787",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Commands and Events"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "Domain Events"
+    },
+    {
+      "level": 2,
+      "text": "Repository Boundary"
+    },
+    {
+      "level": 2,
+      "text": "Query Methods"
+    },
+    {
+      "level": 2,
+      "text": "Specification Pattern"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Commands and Events\n\n## Purpose\n\nThis split document summarizes the command, event, and repository execution boundaries for Portfolio. Portfolio remains owned inside AssetPortfolio, and the parent specification remains the source of truth.\n\n## Commands\n\n| Command or Use Case | Catalog Status | Handler Boundary | Repository | Events | Notes |\n|---|---|---|---|---|---|\n| CreatePortfolio | Catalog Command | CreatePortfolioCommandHandler; PortfolioApplicationService | PortfolioRepository | PortfolioCreated | Mutates AssetPortfolio only |\n| BuySecurity | Catalog Command | PortfolioApplicationService | PortfolioRepository | SecurityPurchased | Mutates Holding |\n| SellSecurity | Catalog Command | PortfolioApplicationService | PortfolioRepository | SecuritySold | Mutates Holding |\n| RebalancePortfolio | Catalog Command | PortfolioApplicationService; AllocationService | PortfolioRepository | PortfolioRebalanced | Updates allocation and holdings |\n| ArchivePortfolio | Catalog Gap | PortfolioApplicationService | PortfolioRepository | None | API use case only |\n| RestorePortfolio | Catalog Gap | PortfolioApplicationService | PortfolioRepository | None | Audit only |\n| ActivatePortfolio | Catalog Gap | PortfolioApplicationService | PortfolioRepository | None | API use case |\n| DeactivatePortfolio | Catalog Gap | PortfolioApplicationService | PortfolioRepository | None | API use case |\n| AssignAsset | Catalog Gap unless mapped to BuySecurity or Holding command | PortfolioApplicationService | PortfolioRepository | SecurityPurchased when buy | Do not create new Domain Command |\n| RemoveAsset | Catalog Gap unless mapped to SellSecurity | PortfolioApplicationService | PortfolioRepository | SecuritySold when sell | Do not create new Domain Command |\n\n## Domain Events\n\n| Event | Catalog Status | Producer | Consumer | Portfolio Impact |\n|---|---|---|---|---|\n| PortfolioCreated | Catalog Event | CreatePortfolio | Decision, Dashboard | Portfolio exists. |\n| SecurityPurchased | Catalog Event | BuySecurity | Decision, Dashboard | Holding quantity increases. |\n| SecuritySold | Catalog Event | SellSecurity | Decision, Dashboard | Holding quantity decreases. |\n| PortfolioRebalanced | Catalog Event | RebalancePortfolio | Decision, Dashboard | Allocation changed. |\n| DividendDistributed | Catalog Event | PortfolioApplicationService | Cash Flow, Dashboard | Income projection updates. |\n| PortfolioUpdated | Catalog Gap | None | None | Use audit. |\n| PortfolioArchived | Catalog Gap | None | None | Use audit. |\n| PortfolioDeleted | Catalog Gap | None | None | Use audit. |\n\n## Repository Boundary\n\n```csharp\npublic interface IPortfolioRepository\n{\n    Task<AssetPortfolio?> GetAssetPortfolioAsync(Guid tenantId, Guid householdId, Guid assetPortfolioId, CancellationToken cancellationToken);\n    Task<Portfolio?> GetPortfolioAsync(Guid tenantId, Guid householdId, Guid portfolioId, CancellationToken cancellationToken);\n    Task<bool> ExistsPortfolioAsync(Guid tenantId, Guid householdId, Guid portfolioId, CancellationToken cancellationToken);\n    Task<bool> ExistsNumberAsync(Guid tenantId, string portfolioNumber, CancellationToken cancellationToken);\n    Task<PagedResult<Portfolio>> ListPortfoliosAsync(PortfolioSearchSpecification specification, CancellationToken cancellationToken);\n    Task AddAsync(AssetPortfolio assetPortfolio, CancellationToken cancellationToken);\n    Task UpdateAsync(AssetPortfolio assetPortfolio, CancellationToken cancellationToken);\n    Task SaveChangesAsync(CancellationToken cancellationToken);\n}\n```\n\n## Query Methods\n\n| Query | Filters | Sorts | Index Used |\n|---|---|---|---|\n| Search portfolios | tenantId, householdId, ownerUserId, status, portfolioType | portfolioName, updatedAt, totalMarketValue | tenant-household indexes |\n| Active portfolios | tenantId, householdId, status Active | portfolioName | status index |\n| Archived portfolios | tenantId, householdId, isArchived | archivedAt | archive index |\n| Owner portfolios | tenantId, ownerUserId | portfolioName | owner index |\n\n## Specification Pattern\n\nSpecifications describe persistence filters only. They do not calculate performance, market value, risk, allocation optimization, authorization, or recommendations.\n\n",
+  "references": []
+}

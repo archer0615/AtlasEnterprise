@@ -6,6 +6,7 @@
 - [Command execution controls](command/execution-controls.md)
 - [Command API, workflow, and automation mapping](command/api-workflow-and-automation-mapping.md)
 - [Command authorization, validation, and errors](command/authorization-validation-and-errors.md)
+- [Command flows and diagrams](command/flows-and-diagrams.md)
 
 # Document Control
 

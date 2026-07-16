@@ -1,0 +1,39 @@
+{
+  "id": "287ba2ae102d54f3",
+  "title": "Service Catalog Diagrams, Testing, and Edge Cases",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/service-catalog/diagrams-testing-edge-cases.md",
+  "sourceHash": "87df1360c99cc62cb889d28aaecdd02998a59fa078bc4c230440aa4501cb4fa7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Service Catalog Diagrams, Testing, and Edge Cases"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source Sections"
+    },
+    {
+      "level": 2,
+      "text": "Diagrams"
+    },
+    {
+      "level": 2,
+      "text": "Testing Coverage"
+    },
+    {
+      "level": 2,
+      "text": "Edge Case Model"
+    },
+    {
+      "level": 2,
+      "text": "Final Consistency Matrix"
+    }
+  ],
+  "bodyMarkdown": "# Service Catalog Diagrams, Testing, and Edge Cases\n\nDocument Path: knowledge/catalog/service-catalog/diagrams-testing-edge-cases.md\n\nParent Specification: knowledge/catalog/service-catalog.md\n\n## Purpose\n\nThis split document groups Service Catalog diagrams, verification coverage, edge cases, and final consistency checks for independent review.\n\n## Source Sections\n\n- Mermaid\n- Testing\n- Edge Cases\n- Final Consistency Matrix\n\n## Diagrams\n\n| Diagram | Coverage |\n| --- | --- |\n| Service Landscape | Application, domain, infrastructure, and integration service grouping. |\n| Layer Diagram | API, application service, domain service, repository, and infrastructure service layering. |\n| Dependency Diagram | Service-to-service dependency relationships. |\n| Communication Diagram | Service request, response, and event communication paths. |\n| Workflow Diagram | Workflow coordination through catalog services. |\n| Integration Diagram | External integration through service boundaries. |\n\n## Testing Coverage\n\n| Test Group | Required Coverage |\n| --- | --- |\n| Unit Test | Service behavior in isolation with classification, dependency, aggregate, repository, command, event, workflow, background job, scheduler, automation, integration, capability, communication, transaction, security, audit, performance, and SLA mapping. |\n| Integration Test | Service dependencies, repositories, events, workflows, schedulers, automation, and external integration boundaries. |\n| Contract Test | Service API, command, event, communication, and transaction contracts. |\n| Performance Test | Performance and SLA expectations across service capability and dependency mappings. |\n| Security Test | Security and audit behavior for service boundaries. |\n| Workflow Test | Workflow, background job, scheduler, and automation service coordination. |\n\n## Edge Case Model\n\nThe parent catalog enumerates service edge cases for incomplete or conflicting service name, classification, owner, dependency, aggregate, repository, domain service, application service, command, domain event, workflow, background job, scheduler, automation, external integration, capability, communication, transaction, security, audit, performance, or SLA mapping.\n\n## Final Consistency Matrix\n\nThe final matrix validates service catalog consistency across complete catalog entries, dependency and capability matrices, aggregate, repository, domain service, application service, command, event, workflow, background job, scheduler, automation, external integration, communication, transaction, validation, business rules, security, audit, performance, diagrams, tests, edge cases, and completion checklist coverage.\n\n",
+  "references": []
+}

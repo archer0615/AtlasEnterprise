@@ -1,0 +1,47 @@
+{
+  "id": "30c7b0743b2d88be",
+  "title": "Portfolio Service Projections and Operations",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/portfolio-entity/service-projections-and-operations.md",
+  "sourceHash": "75b95a1edcbd83c172d73277c0a50ef82d088c21a0f82a0e9cc691b83478e488",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Service Projections and Operations"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Domain Service Interaction"
+    },
+    {
+      "level": 2,
+      "text": "Application Service Interaction"
+    },
+    {
+      "level": 2,
+      "text": "Cache Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Observability"
+    },
+    {
+      "level": 2,
+      "text": "Performance"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Service Projections and Operations\n\n## Purpose\n\nThis split document summarizes how Portfolio interacts with services, application services, caches, security, audit, observability, and performance controls. It preserves the parent specification behavior and does not add new product behavior.\n\n## Domain Service Interaction\n\n| Service | Catalog Status | Portfolio Interaction |\n|---|---|---|\n| PortfolioService | Catalog-aligned | Calculates portfolio value, allocation analysis, and projection input outside repository. |\n| AllocationService | Catalog-aligned | Validates target allocation and supports RebalancePortfolio. |\n| RiskService | Catalog-aligned | Consumes portfolio data for risk analysis. |\n| ScenarioService | Catalog-aligned | Uses portfolio snapshot as scenario input. |\n| DecisionService | Catalog-aligned | Uses portfolio projections for decision analysis. |\n| RecommendationService | Catalog-aligned | Uses projections outside Portfolio. |\n| Calculation Engine | Catalog-aligned capability | Performs formulas for services. |\n| Projection Engine | Catalog-aligned capability | Builds read models, never writes aggregate. |\n\n## Application Service Interaction\n\n| Application Service | Catalog Status | Portfolio Responsibility |\n|---|---|---|\n| PortfolioApplicationService | Catalog-aligned | Handles CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio, and API use cases. |\n| DashboardApplicationService | Catalog-aligned | Reads valuation and allocation projections. |\n| ScenarioApplicationService | Catalog-aligned where present | Uses portfolio snapshots. |\n| DecisionApplicationService | Catalog-aligned where present | Uses portfolio projections. |\n| RecommendationApplicationService | Catalog-aligned where present | Reads projections. |\n| ReportApplicationService | Catalog-aligned | Investment reports and audit explanations. |\n| AdministrationApplicationService | Catalog-aligned | Audit and operational queries. |\n\n## Cache Strategy\n\n| Cache | Key | Invalidation | Source of Truth |\n|---|---|---|---|\n| Portfolio detail | tenant:{tenantId}:household:{householdId}:portfolio:{portfolioId}:v{version} | Any AssetPortfolio write | PortfolioRepository |\n| Portfolio valuation | tenant:{tenantId}:portfolio:{portfolioId}:valuation:{hash} | Holding, market data, valuation source change | Projection |\n| Allocation summary | tenant:{tenantId}:portfolio:{portfolioId}:allocation:{hash} | Holding or target allocation change | AllocationService output |\n| Performance summary | tenant:{tenantId}:portfolio:{portfolioId}:performance:{hash} | Holding, transaction, market source change | Projection |\n| Search cache | tenant:{tenantId}:portfolios:search:{hash} | Any portfolio write in tenant | PortfolioRepository |\n\n## Security\n\n| Area | Rule |\n|---|---|\n| Authorization | Actor must have TenantId, HouseholdId, and permission before repository access. |\n| Permission | Asset:Read, Asset:Create, Asset:Update, Asset:Archive, Asset:Restore, Asset:Delete map to portfolio operations. |\n| Data Masking | PortfolioName, AccountReference, value fields, and owner references are masked in low-trust logs. |\n| Encryption | AccountReference is encrypted at rest. |\n| Tenant Isolation | TenantId comes from trusted context. |\n| Household Isolation | HouseholdId required on every command and query. |\n| Market Data | External market data cannot be persisted as aggregate fact without approved import. |\n\n## Audit\n\n| Audit Requirement | Implementation |\n|---|---|\n| Command trace | Capture CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio and idempotency. |\n| Write trace | Capture before and after values for portfolio metadata and lifecycle fields. |\n| Actor trace | Capture CreatedBy, UpdatedBy, ArchivedBy, DeletedBy. |\n| Scope trace | Capture TenantId, HouseholdId, AssetPortfolioId, PortfolioId. |\n| Allocation trace | Capture target allocation and rebalance policy changes. |\n| Event trace | Link catalog events to command and transaction. |\n| Retention | Audit retained after archive and soft delete. |\n\n## Observability\n\n| Signal | Metric or Log |\n|---|---|\n| API latency | portfolio.api.duration |\n| Command latency | portfolio.command.duration |\n| Repository latency | portfolio.repository.duration |\n| PortfolioService latency | portfolio.service.duration |\n| AllocationService latency | portfolio.allocation.duration |\n| RiskService latency | portfolio.risk.duration |\n| Concurrency conflicts | portfolio.concurrency.conflict.count |\n| Projection lag | portfolio.projection.lag.seconds |\n| Audit failure | portfolio.audit.failure.count |\n\n## Performance\n\n| Concern | Strategy |\n|---|---|\n| Index Strategy | Tenant, household, status, type, owner, and market value indexes. |\n| Caching | Versioned detail cache and hash-based valuation/allocation/performance caches. |\n| Optimistic Concurrency | Version and ConcurrencyToken on all writes. |\n| Batch Calculation | Performance, NAV, market value, risk, and allocation projections calculated in service batches. |\n| Partition Strategy | Partition by tenant_id for high-volume tenants. |\n| Event Processing | Idempotent consumers by event id and aggregate version. |\n\n",
+  "references": []
+}

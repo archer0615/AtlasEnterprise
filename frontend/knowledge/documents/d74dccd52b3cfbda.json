@@ -1,0 +1,43 @@
+{
+  "id": "d74dccd52b3cfbda",
+  "title": "Position Service Projections and Operations",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/position/service-projections-and-operations.md",
+  "sourceHash": "90d0626326ff7e7100b622eaae8b90799a1ddb2ddad09ec33ff104c61ded0cc4",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Position Service Projections and Operations"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Domain Service Interaction"
+    },
+    {
+      "level": 2,
+      "text": "Application Service Interaction"
+    },
+    {
+      "level": 2,
+      "text": "Cache Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Observability"
+    }
+  ],
+  "bodyMarkdown": "# Position Service Projections and Operations\n\n## Purpose\n\nThis split document summarizes how Position/Holding interacts with services, application services, caches, security, audit, observability, and performance controls. It does not introduce behavior beyond the parent Position specification.\n\n## Domain Service Interaction\n\n| Service | Catalog Status | Position Interaction |\n|---|---|---|\n| PortfolioService | Catalog-aligned | Calculates valuation and projection input from holdings. |\n| AllocationService | Catalog-aligned | Validates allocation and supports RebalancePortfolio. |\n| RiskService | Catalog-aligned | Consumes holding projections for risk analysis. |\n| ScenarioService | Catalog-aligned | Uses holding snapshots as scenario input. |\n| DecisionService | Catalog-aligned | Uses holding projections for decisions. |\n| RecommendationService | Catalog-aligned | Uses projections outside Holding. |\n| Calculation Engine | Catalog-aligned capability | Performs formulas for services. |\n| Projection Engine | Catalog-aligned capability | Builds read models, never writes aggregate. |\n\n## Application Service Interaction\n\n| Application Service | Catalog Status | Position Responsibility |\n|---|---|---|\n| PortfolioApplicationService | Catalog-aligned | Handles BuySecurity, SellSecurity, RebalancePortfolio, and holding API use cases. |\n| DashboardApplicationService | Catalog-aligned | Reads holding valuation projections. |\n| ScenarioApplicationService | Catalog-aligned where present | Uses holding snapshots. |\n| DecisionApplicationService | Catalog-aligned where present | Uses holding projections. |\n| RecommendationApplicationService | Catalog-aligned where present | Reads projections. |\n| ReportApplicationService | Catalog-aligned | Position reports and audit explanations. |\n| AdministrationApplicationService | Catalog-aligned | Audit and operational queries. |\n\n## Cache Strategy\n\n| Cache | Key | Invalidation | Source of Truth |\n|---|---|---|---|\n| Position detail | tenant:{tenantId}:portfolio:{portfolioId}:holding:{holdingId}:v{version} | Any Holding write | PortfolioRepository |\n| Holding valuation | tenant:{tenantId}:holding:{holdingId}:valuation:{hash} | Market source, quantity, cost change | Projection |\n| Portfolio allocation | tenant:{tenantId}:portfolio:{portfolioId}:allocation:{hash} | Holding quantity/cost change | AllocationService output |\n| Search cache | tenant:{tenantId}:holdings:search:{hash} | Any holding write in tenant | PortfolioRepository |\n\n## Security\n\n| Area | Rule |\n|---|---|\n| Authorization | Actor must have TenantId, HouseholdId, PortfolioId, and permission before repository access. |\n| Permission | Asset:Read, Asset:Update, Asset:Archive, Asset:Restore, Asset:Delete map to Holding operations. |\n| Data Masking | SecurityIdentifier, PositionName, quantity, cost, and valuation data are masked in low-trust logs. |\n| Encryption | No field encrypted by default; policy may encrypt account-linked fields outside Holding. |\n| Tenant Isolation | TenantId comes from trusted context. |\n| Household Isolation | HouseholdId required on every command and query. |\n| Market Data | Market data cannot overwrite quantity or cost source fields. |\n\n## Audit\n\n| Audit Requirement | Implementation |\n|---|---|\n| Command trace | Capture BuySecurity, SellSecurity, RebalancePortfolio, idempotency key, handler. |\n| Write trace | Capture before and after values for quantity, cost, asset reference, status. |\n| Actor trace | Capture CreatedBy, UpdatedBy, ArchivedBy, DeletedBy. |\n| Scope trace | Capture TenantId, HouseholdId, AssetPortfolioId, PortfolioId, HoldingId. |\n| Quantity trace | Capture quantity, available, locked, reserved changes. |\n| Cost trace | Capture average, total, acquisition, book, base currency cost changes. |\n| Projection trace | Capture valuation source and timestamp when returned, not as source. |\n| Retention | Audit retained after close, archive, and soft delete. |\n\n## Observability\n\n| Signal | Metric or Log |\n|---|---|\n| API latency | position.api.duration |\n| Command latency | position.command.duration |\n| Repository latency | position.repository.duration |\n| Projection latency | position.projection.duration |\n| Concurrency conflicts | position.concurrency.conflict.count |\n| Quantity updates | position.quantity.update.count |\n| Cost updates | position.cost.update.count |\n| Projection lag | position.projection.lag.seconds |\n| Audit failure | position.audit.failure.count |\n\n",
+  "references": []
+}

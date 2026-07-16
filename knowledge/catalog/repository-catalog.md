@@ -4,6 +4,7 @@
 - [Repository method catalog](repository/method-catalog.md)
 - [Repository ownership and integration matrices](repository/ownership-and-integration-matrices.md)
 - [Repository query and persistence rules](repository/query-and-persistence-rules.md)
+- [Repository specification patterns and executable addendum](repository/specification-patterns-and-executable-addendum.md)
 - [Repository governance and testing](repository/governance-and-testing.md)
 
 # Document Control

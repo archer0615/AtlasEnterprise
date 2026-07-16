@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T08:16:03.116Z",
-  "buildId": "c0c28fd22325",
+  "generatedAt": "2026-07-16T08:34:07.199Z",
+  "buildId": "57be3c802176",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -246,7 +246,7 @@
       "title": "Command Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/command-catalog.md",
-      "sourceHash": "f1af74e82d4035649fc2888e38cecce0ec3b025e6f9b46e82628731ab920620f",
+      "sourceHash": "bae58904e19ce08f09da5b82c1bf71e6d803cc9a4a8c08f0dd2a39b8c4615131",
       "summary": "# Command Catalog ## Split Navigation - [Command catalog entries](command/catalog-entries.md) - [Command ownership and routing](command/ownership-and-routing.md) - [Command governance and testing](command/governance-and-testing.md) - [Comma"
     },
     {
@@ -282,6 +282,14 @@
       "summary": "# Command Execution Controls ## Purpose This split document isolates Command execution control guidance from the parent Command Catalog while preserving the parent as the canonical source of truth. ## Source - Parent specification: [Comma"
     },
     {
+      "id": "c9c32195ddb44c7f",
+      "title": "Command Flows and Diagrams",
+      "category": "catalog",
+      "path": "knowledge/catalog/command/flows-and-diagrams.md",
+      "sourceHash": "bdb245d8a718da9984ac3503c06215842217430891f380da33ddb3c1c9d5dd2f",
+      "summary": "# Command Flows and Diagrams Document Path: knowledge/catalog/command/flows-and-diagrams.md Parent Specification: knowledge/catalog/command-catalog.md ## Purpose This split document isolates the command flow diagrams from the parent Com"
+    },
+    {
       "id": "2021e0260522083e",
       "title": "Command Governance and Testing",
       "category": "catalog",
@@ -310,7 +318,7 @@
       "title": "Domain Event Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/domain-event-catalog.md",
-      "sourceHash": "09d452ed557d4ff82606fd44bd4eed37bf4c64afa352c7d042e610a50593077b",
+      "sourceHash": "0849a67d89426b6092da214f2b18e6c9593bad9fd66705f29c4bc7d03128802f",
       "summary": "# Domain Event Catalog ## Split Navigation - [Domain event catalog entries](domain-event/catalog-entries.md) - [Domain event matrices and delivery](domain-event/matrices-and-delivery.md) - [Domain event operation rules](domain-event/operati"
     },
     {
@@ -328,6 +336,14 @@
       "path": "knowledge/catalog/domain-event/delivery-integration-matrices.md",
       "sourceHash": "764579ce4f97a1393614f5b8005b9e5bc710f9710a017b5944e33d5d16309edf",
       "summary": "# Domain Event Delivery Integration Matrices Source: ../domain-event-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # Noti"
+    },
+    {
+      "id": "5b32d928e3c38273",
+      "title": "Domain Event Error, Security, Audit, and Performance",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-event/error-security-audit-and-performance.md",
+      "sourceHash": "3322631b6ca55abf79ea35ff10cc937cc59b6d3dab25b69b564e5db2497f0a21",
+      "summary": "# Domain Event Error, Security, Audit, and Performance ## Purpose This split document isolates Domain Event error handling, payload exposure controls, audit requirements, and delivery performance constraints from the parent Domain Event Ca"
     },
     {
       "id": "ccb63bb34f63bed5",
@@ -422,7 +438,7 @@
       "title": "Domain Service Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/domain-service-catalog.md",
-      "sourceHash": "145d174402f40b2d4bb9824d107194b94cf280cfecd24a85e0a263c47382e27f",
+      "sourceHash": "95cfa4a20d813b77a0b41778a2be57c10ea1c52197c136515c34fa6b855c919a",
       "summary": "# Domain Service Catalog ## Split Navigation - [Domain service catalog entries](domain-service/catalog-entries.md) - [Domain service capability and calculation matrices](domain-service/capability-and-calculation-matrices.md) - [Domain servi"
     },
     {
@@ -440,6 +456,14 @@
       "path": "knowledge/catalog/domain-service/catalog-entries.md",
       "sourceHash": "feaa06699f848e80d07097ccb0d3eefa37c8572e50aec891f56deabd68170de1",
       "summary": "# Domain Service Catalog Entries ## Purpose This split document isolates domain service definitions from the parent Domain Service Catalog. ## Source - Parent specification: [Domain Service Catalog](../domain-service-catalog.md) ## Servi"
+    },
+    {
+      "id": "c45bf76e9e25646a",
+      "title": "Domain Service Error, Security, Audit, and Performance",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-service/error-security-audit-and-performance.md",
+      "sourceHash": "a7982b74b34f8b8b8d20e2d346d3867dc308e1bea56ea122451cf5b44e51d2a8",
+      "summary": "# Domain Service Error, Security, Audit, and Performance ## Purpose This split document isolates Domain Service error handling, caller-provided security context, audit capture, and deterministic performance constraints from the parent Doma"
     },
     {
       "id": "8ef30a296d36b594",
@@ -630,7 +654,7 @@
       "title": "Repository Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/repository-catalog.md",
-      "sourceHash": "d451a7afbd35c82283264a05af3c20fdddc40acd8a8db5c3aa62ddfa9a120cdf",
+      "sourceHash": "93a7e015a566a43ecb57af1f163056dad000a73be8007554317509dc5ac79b6f",
       "summary": "# Repository Catalog ## Split Navigation - [Repository catalog entries](repository/catalog-entries.md) - [Repository method catalog](repository/method-catalog.md) - [Repository ownership and integration matrices](repository/ownership-and-in"
     },
     {
@@ -674,11 +698,19 @@
       "summary": "# Repository Query and Persistence Rules ## Purpose This split document isolates repository query, persistence, specification, filtering, sorting, aggregation, projection, and concurrency rules from the parent Repository Catalog. ## Sourc"
     },
     {
+      "id": "c6db87bdc630c9c9",
+      "title": "Repository Specification Patterns and Executable Addendum",
+      "category": "catalog",
+      "path": "knowledge/catalog/repository/specification-patterns-and-executable-addendum.md",
+      "sourceHash": "b8ea47cf7cf706b99ccbf9d2e44c1d1e7773881ea37143ff0fe6b82e145bbcb7",
+      "summary": "# Repository Specification Patterns and Executable Addendum ## Purpose This split document isolates repository specification patterns and the Phase 2 executable specification addendum from the parent Repository Catalog. ## Source - Parent"
+    },
+    {
       "id": "61bdd535f02a5191",
       "title": "Service Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/service-catalog.md",
-      "sourceHash": "ad22fec228a239a51bc41b862ddfa86e2aac10baffc5b50338dfa106b594fe2f",
+      "sourceHash": "c4c51a64d2a1350ef86387f38c72175302d4c04bbbe0175e0f3686763184514d",
       "summary": "# Service Catalog ## Split Navigation - [Service catalog application services](service-catalog/application-services.md) - [Service catalog domain services](service-catalog/domain-services.md) - [Service catalog governance](service-catalog/g"
     },
     {
@@ -696,6 +728,14 @@
       "path": "knowledge/catalog/service-catalog/communication-and-transactions.md",
       "sourceHash": "4696e44a3725ad917f1710f10689fad9be6d8556ceddb19079d07c40037f2a4b",
       "summary": "# Service Catalog Communication and Transactions Document Path: knowledge/catalog/service-catalog/communication-and-transactions.md Parent Specification: knowledge/catalog/service-catalog.md # Purpose This split document summarizes the"
+    },
+    {
+      "id": "287ba2ae102d54f3",
+      "title": "Service Catalog Diagrams, Testing, and Edge Cases",
+      "category": "catalog",
+      "path": "knowledge/catalog/service-catalog/diagrams-testing-edge-cases.md",
+      "sourceHash": "87df1360c99cc62cb889d28aaecdd02998a59fa078bc4c230440aa4501cb4fa7",
+      "summary": "# Service Catalog Diagrams, Testing, and Edge Cases Document Path: knowledge/catalog/service-catalog/diagrams-testing-edge-cases.md Parent Specification: knowledge/catalog/service-catalog.md ## Purpose This split document groups Service"
     },
     {
       "id": "98dc393437276528",
@@ -974,7 +1014,7 @@
       "title": "System Module Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/system-module-catalog.md",
-      "sourceHash": "f55422dcd0c9d7e4ceed7e89bb2717c1481e92e8f3547b5feaa640b3f5b7fa3e",
+      "sourceHash": "35b5b1e73c9fa5f95abb03d1a23abd71ec04dc7b8505f9e2b59e434372a03b0a",
       "summary": "# System Module Catalog ## Split Navigation - [System module catalog entries](system-module/catalog-entries.md) - [System module definition standard](system-module/definition-standard.md) - [System module dependencies](system-module/depende"
     },
     {
@@ -1000,6 +1040,14 @@
       "path": "knowledge/catalog/system-module/dependencies.md",
       "sourceHash": "8c72b27423fd3e771dd16bdd2625ad555df1905bef1a892d102df131a8d52fce",
       "summary": "# System Module Dependencies ## Purpose This split document isolates system module dependency mapping from the parent System Module Catalog. ## Source - Parent specification: [System Module Catalog](../system-module-catalog.md) ## Depend"
+    },
+    {
+      "id": "300ec9f0cb69c997",
+      "title": "System Module Diagrams, Testing, and Edge Cases",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-module/diagrams-testing-edge-cases.md",
+      "sourceHash": "b57df123b297d7e0b8657454b6bab71135c25494962d3e9d896a68dd69396db3",
+      "summary": "# System Module Diagrams, Testing, and Edge Cases Document Path: knowledge/catalog/system-module/diagrams-testing-edge-cases.md Parent Specification: knowledge/catalog/system-module-catalog.md ## Purpose This split document groups the S"
     },
     {
       "id": "169e6774693ed7e2",
@@ -1182,7 +1230,7 @@
       "title": "Value Object Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/value-object-catalog.md",
-      "sourceHash": "0b8e12c2ee2b489e7657e1cf79d746cff8ff4d6e43445699641b41aa9b0b2dce",
+      "sourceHash": "aaa0289c30f5a62f38129bad34aa484c39a0bb0b76c7969b0d3d1080344a76e2",
       "summary": "# Value Object Catalog ## Split Navigation - [Value object catalog entries](value-object/catalog-entries.md) - [Value object validation and mapping](value-object/validation-and-mapping.md) - [Value object lifecycle and mapping rules](value-"
     },
     {
@@ -1224,6 +1272,14 @@
       "path": "knowledge/catalog/value-object/property-and-ownership.md",
       "sourceHash": "ded4b8ea9f3eb21175aab4c8d927472706050ec66d1d8466e81190adfa4b61b4",
       "summary": "# Value Object Property and Ownership Source: ../value-object-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # Property Ca"
+    },
+    {
+      "id": "d85d2ecc74f86ab5",
+      "title": "Value Object Security, Audit, and Performance",
+      "category": "catalog",
+      "path": "knowledge/catalog/value-object/security-audit-and-performance.md",
+      "sourceHash": "94b1acfc012f5389dc686fd15dc61b454521d8a216d5b846da81a97b30902c8b",
+      "summary": "# Value Object Security, Audit, and Performance ## Purpose This split document isolates Value Object security, audit, and performance guidance from the parent Value Object Catalog. ## Source - Parent specification: [Value Object Catalog]("
     },
     {
       "id": "d6ce5ff412769f19",
@@ -1666,6 +1722,14 @@
       "summary": "# Portfolio API and Persistence ## Purpose This split document isolates Portfolio commands, events, repository, services, REST API, DTOs, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Portfolio Entit"
     },
     {
+      "id": "170764ce30e68ab2",
+      "title": "Portfolio Commands and Events",
+      "category": "entity",
+      "path": "knowledge/entity/portfolio-entity/commands-and-events.md",
+      "sourceHash": "f70954e48143933188609eb113c2795b82baabf4b29525b29f66eef36fda7787",
+      "summary": "# Portfolio Commands and Events ## Purpose This split document summarizes the command, event, and repository execution boundaries for Portfolio. Portfolio remains owned inside AssetPortfolio, and the parent specification remains the sourc"
+    },
+    {
       "id": "33dc41531fab30a7",
       "title": "Portfolio Governance and Testing",
       "category": "entity",
@@ -1690,11 +1754,19 @@
       "summary": "# Portfolio Rules and State ## Purpose This split document isolates Portfolio validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Portfolio Entity Specification. ##"
     },
     {
+      "id": "30c7b0743b2d88be",
+      "title": "Portfolio Service Projections and Operations",
+      "category": "entity",
+      "path": "knowledge/entity/portfolio-entity/service-projections-and-operations.md",
+      "sourceHash": "75b95a1edcbd83c172d73277c0a50ef82d088c21a0f82a0e9cc691b83478e488",
+      "summary": "# Portfolio Service Projections and Operations ## Purpose This split document summarizes how Portfolio interacts with services, application services, caches, security, audit, observability, and performance controls. It preserves the paren"
+    },
+    {
       "id": "cb7961c60679be71",
       "title": "Portfolio Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Portfolio.md",
-      "sourceHash": "a3480af4c9475842deeb12b3228b6723ecd4585049560aae825ae8a8db03c582",
+      "sourceHash": "7e39ab1783f734f7c95d4d19d311b4477c41be73d9a7b8d5f4db122a916950c7",
       "summary": "# Portfolio Entity Specification ## Split Navigation - [Portfolio identity and semantics](portfolio-entity/identity-and-semantics.md) - [Portfolio API and persistence](portfolio-entity/api-and-persistence.md) - [Portfolio governance and tes"
     },
     {
@@ -1702,7 +1774,7 @@
       "title": "Position Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Position.md",
-      "sourceHash": "188945a9b4ab3a1c4283f61c2303a14d361512a0287be58679301f4f698a551b",
+      "sourceHash": "a6058084424d2d0f2fe0dd8286b5b2f2c40eb152b9ea445f191cf1294fae4f97",
       "summary": "# Position Entity Specification ## Split Navigation - [Position identity and valuation](position/identity-and-valuation.md) - [Position API and persistence](position/api-and-persistence.md) - [Position governance and testing](position/gover"
     },
     {
@@ -1712,6 +1784,14 @@
       "path": "knowledge/entity/position/api-and-persistence.md",
       "sourceHash": "520731121430f7fa154319ef45797d1d84436c537c9effeeb82c87e35fd341bb",
       "summary": "# Position API and Persistence ## Purpose This split document isolates Position commands, events, repository, services, REST API, DTOs, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Position Entity S"
+    },
+    {
+      "id": "a824f2da5f7eb879",
+      "title": "Position Commands and Events",
+      "category": "entity",
+      "path": "knowledge/entity/position/commands-and-events.md",
+      "sourceHash": "e3fba0c789ca83f78fc897ed56707460b2bbb6f66c8b3e5047bb84083f6efffd",
+      "summary": "# Position Commands and Events ## Purpose This split document summarizes the command, event, and repository execution boundaries for Position. Position is the business/API synonym for the cataloged Holding entity inside AssetPortfolio. Th"
     },
     {
       "id": "89e2483fb85e1eb7",
@@ -1736,6 +1816,14 @@
       "path": "knowledge/entity/position/rules-and-state.md",
       "sourceHash": "9e19f0f29fa31be10b972b49ae833c6fabc41fc465965343657dc42b556bab6a",
       "summary": "# Position Rules and State ## Purpose This split document isolates Position/Holding validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Position Entity Specification."
+    },
+    {
+      "id": "d74dccd52b3cfbda",
+      "title": "Position Service Projections and Operations",
+      "category": "entity",
+      "path": "knowledge/entity/position/service-projections-and-operations.md",
+      "sourceHash": "90d0626326ff7e7100b622eaae8b90799a1ddb2ddad09ec33ff104c61ded0cc4",
+      "summary": "# Position Service Projections and Operations ## Purpose This split document summarizes how Position/Holding interacts with services, application services, caches, security, audit, observability, and performance controls. It does not intr"
     },
     {
       "id": "eb0e81fa13800bfd",

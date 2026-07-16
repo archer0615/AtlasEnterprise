@@ -1,0 +1,47 @@
+{
+  "id": "c9c32195ddb44c7f",
+  "title": "Command Flows and Diagrams",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/command/flows-and-diagrams.md",
+  "sourceHash": "bdb245d8a718da9984ac3503c06215842217430891f380da33ddb3c1c9d5dd2f",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Command Flows and Diagrams"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source Sections"
+    },
+    {
+      "level": 2,
+      "text": "Command Flow"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate Command Ownership"
+    },
+    {
+      "level": 2,
+      "text": "Application Service Flow"
+    },
+    {
+      "level": 2,
+      "text": "Transaction Flow"
+    },
+    {
+      "level": 2,
+      "text": "Saga Flow"
+    },
+    {
+      "level": 2,
+      "text": "Workflow Flow"
+    }
+  ],
+  "bodyMarkdown": "# Command Flows and Diagrams\n\nDocument Path: knowledge/catalog/command/flows-and-diagrams.md\n\nParent Specification: knowledge/catalog/command-catalog.md\n\n## Purpose\n\nThis split document isolates the command flow diagrams from the parent Command Catalog so command request handling, ownership, transaction, saga, and workflow paths can be read independently.\n\n## Source Sections\n\n- Mermaid\n- Command Flow\n- Aggregate Command Ownership\n- Application Service Flow\n- Transaction Flow\n- Saga Flow\n- Workflow Flow\n\n## Command Flow\n\n```mermaid\nflowchart TD\n  A[Command Request] --> B[Authorization]\n  B --> C[Validation]\n  C --> D[Idempotency Check]\n  D --> E[Load Aggregate]\n  E --> F[Execute Handler]\n  F --> G[Persist Transaction]\n  G --> H[Publish Domain Events]\n  H --> I[Audit Command Result]\n```\n\n## Aggregate Command Ownership\n\n```mermaid\nclassDiagram\n  class RecordIncome\n  class Household\n  RecordIncome --> Household : mutates\n  class RecordExpense\n  RecordExpense --> Household : mutates\n  class CreatePortfolio\n  class AssetPortfolio\n  CreatePortfolio --> AssetPortfolio : mutates\n  class BuySecurity\n  BuySecurity --> AssetPortfolio : mutates\n  class SellSecurity\n  SellSecurity --> AssetPortfolio : mutates\n  class RebalancePortfolio\n  RebalancePortfolio --> AssetPortfolio : mutates\n  class CreateLoan\n  class Loan\n  CreateLoan --> Loan : mutates\n  class RecordLoanPayment\n  RecordLoanPayment --> Loan : mutates\n  class RefinanceLoan\n  RefinanceLoan --> Loan : mutates\n  class PurchaseHome\n  class Property\n  PurchaseHome --> Property : mutates\n  class SellHome\n  SellHome --> Property : mutates\n  class UpdatePropertyValue\n  UpdatePropertyValue --> Property : mutates\n  class IssuePolicy\n  class Policy\n  IssuePolicy --> Policy : mutates\n  class PayPremium\n  PayPremium --> Policy : mutates\n  class UpdateRetirementPlan\n  class RetirementPlan\n  UpdateRetirementPlan --> RetirementPlan : mutates\n  class EvaluateScenario\n  class Scenario\n  EvaluateScenario --> Scenario : mutates\n  class AcceptRecommendation\n  class DecisionSession\n  AcceptRecommendation --> DecisionSession : mutates\n  class RejectRecommendation\n  RejectRecommendation --> DecisionSession : mutates\n  class ReplayScenario\n  ReplayScenario --> Scenario : mutates\n```\n\n## Application Service Flow\n\n```mermaid\nflowchart LR\n  UI[UI or API] --> APP[Application Service]\n  APP --> CMD[Command Handler]\n  CMD --> DS[Domain Service]\n  CMD --> REPO[Repository]\n  REPO --> EVT[Domain Events]\n```\n\n## Transaction Flow\n\n```mermaid\nsequenceDiagram\n  participant Client\n  participant Handler\n  participant Repository\n  participant EventStore\n  Client->>Handler: Submit command\n  Handler->>Repository: Load aggregate\n  Handler->>Repository: Save aggregate\n  Handler->>EventStore: Persist events\n  Handler-->>Client: CommandResult\n```\n\n## Saga Flow\n\n```mermaid\nflowchart TD\n  S[Saga Step] --> C[Catalog Command]\n  C --> E[Domain Event]\n  E --> N[Next Saga Step]\n  C --> X[Compensation When Catalog Defined]\n```\n\n## Workflow Flow\n\n```mermaid\nflowchart TD\n  W[Workflow] --> A[Authorize]\n  A --> V[Validate]\n  V --> H[Command Handler]\n  H --> R[Result]\n  R --> W2[Workflow State]\n```\n\n",
+  "references": []
+}

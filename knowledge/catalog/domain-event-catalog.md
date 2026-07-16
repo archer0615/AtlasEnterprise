@@ -6,6 +6,7 @@
 - [Domain event governance and testing](domain-event/governance-and-testing.md)
 - [Domain event delivery integration matrices](domain-event/delivery-integration-matrices.md)
 - [Domain event ordering, replay, and versioning](domain-event/ordering-replay-and-versioning.md)
+- [Domain event error, security, audit, and performance](domain-event/error-security-audit-and-performance.md)
 
 # Document Control
 

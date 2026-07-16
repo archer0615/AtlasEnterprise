@@ -4,6 +4,8 @@
 - [Portfolio API and persistence](portfolio-entity/api-and-persistence.md)
 - [Portfolio governance and testing](portfolio-entity/governance-and-testing.md)
 - [Portfolio rules and state](portfolio-entity/rules-and-state.md)
+- [Portfolio commands and events](portfolio-entity/commands-and-events.md)
+- [Portfolio service projections and operations](portfolio-entity/service-projections-and-operations.md)
 # Document Control
 | Field | Value |
 |---|---|

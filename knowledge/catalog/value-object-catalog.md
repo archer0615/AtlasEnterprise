@@ -6,6 +6,7 @@
 - [Value object governance and testing](value-object/governance-and-testing.md)
 - [Value object property and ownership](value-object/property-and-ownership.md)
 - [Value object identity, construction, and serialization](value-object/identity-construction-and-serialization.md)
+- [Value object security, audit, and performance](value-object/security-audit-and-performance.md)
 
 # Document Control
 

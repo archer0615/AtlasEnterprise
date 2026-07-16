@@ -1,0 +1,67 @@
+{
+  "id": "c6db87bdc630c9c9",
+  "title": "Repository Specification Patterns and Executable Addendum",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/repository/specification-patterns-and-executable-addendum.md",
+  "sourceHash": "b8ea47cf7cf706b99ccbf9d2e44c1d1e7773881ea37143ff0fe6b82e145bbcb7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Repository Specification Patterns and Executable Addendum"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Specification Pattern Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Search Specification"
+    },
+    {
+      "level": 2,
+      "text": "Filter Specification"
+    },
+    {
+      "level": 2,
+      "text": "Sorting Specification"
+    },
+    {
+      "level": 2,
+      "text": "Paging Specification"
+    },
+    {
+      "level": 2,
+      "text": "Composite Specification"
+    },
+    {
+      "level": 2,
+      "text": "Business Specification"
+    },
+    {
+      "level": 2,
+      "text": "Repository Operation Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Commands"
+    },
+    {
+      "level": 2,
+      "text": "Addendum Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Addendum Testing Matrix"
+    }
+  ],
+  "bodyMarkdown": "# Repository Specification Patterns and Executable Addendum\n\n## Purpose\nThis split document isolates repository specification patterns and the Phase 2 executable specification addendum from the parent Repository Catalog.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Specification Pattern Catalog\nRepository specifications keep query behavior bounded, indexed, authorized, deterministic, and aligned with Aggregate ownership.\n\n## Search Specification\n- Search specifications must keep repository queries bounded, indexed, authorized, deterministic, and aligned with Aggregate ownership.\n- Search specifications belong to query behavior and must not own business decision logic.\n\n## Filter Specification\n- Filter specifications must preserve authorized tenant and household scope where applicable.\n- Filter specifications must remain aligned with Aggregate ownership and repository query boundaries.\n\n## Sorting Specification\n- Sorting specifications must keep query order deterministic.\n- Sorting specifications must remain bounded by indexed repository query paths.\n\n## Paging Specification\n- Paging specifications must keep result windows bounded and deterministic.\n- Paging specifications must preserve authorization and Aggregate ownership boundaries.\n\n## Composite Specification\n- Composite specifications combine approved query predicates without bypassing repository ownership.\n- Composite specifications must remain deterministic and authorized.\n\n## Business Specification\n- Business specifications may shape query eligibility but must not move domain decision ownership into repositories.\n- Business specifications must preserve Aggregate ownership, authorization, indexing, and determinism.\n\n## Repository Operation Contract\n| Field | Requirement |\n|---|---|\n| Aggregate | RepositoryOperation |\n| Identity | operationId |\n| Scope | repositoryName, tenantId optional, householdId optional |\n| Inputs | repositoryContext, specification, unitOfWork, transactionPolicy, authorizationContext |\n| Outputs | persistedState, queryResult, concurrencyResult, auditReference, cacheInvalidation |\n| Boundary | Repositories persist and query data but do not own business decision logic. |\n\n## Required Commands\n| Command | Purpose |\n|---|---|\n| ValidateRepositoryContract | Validate repository catalog entry completeness. |\n| ExecuteRepositoryQuery | Execute authorized specification-based query. |\n| PersistAggregateChanges | Save aggregate changes within unit of work. |\n| ArchiveRepositoryRecord | Archive record through catalog policy. |\n| RestoreRepositoryRecord | Restore archived record through catalog policy. |\n| InvalidateRepositoryCache | Invalidate cache keys after write or projection change. |\n| ReplayRepositoryOperation | Rebuild operation behavior from audit and unit-of-work evidence. |\n\n## Addendum Validation Rules\n1. Repository entry must define aggregate, persistence owner, unit of work, transaction boundary, authorization, audit, and performance target.\n2. Write repositories must enforce optimistic concurrency unless stricter locking is catalog-approved.\n3. Query operations must use specifications with tenant and household filters where applicable.\n4. Cache keys must include repository, aggregate identity, projection version, and scope.\n5. Replay must preserve original authorization context, correlation id, causation id, and transaction evidence.\n\n## Addendum Testing Matrix\n| Scenario | Expected Result |\n|---|---|\n| Missing tenant filter on tenant-scoped query | Validation fails. |\n| Optimistic concurrency conflict | Controlled conflict result is returned. |\n| Archive record | Archive audit and cache invalidation are recorded. |\n| Unauthorized repository query | Access is denied before query execution. |\n| Replay operation | Persisted state or query result evidence matches original operation. |\n",
+  "references": []
+}
