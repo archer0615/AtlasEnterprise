@@ -1,6 +1,7 @@
 # System Module Catalog
 ## Split Navigation
 - [System module catalog entries](system-module/catalog-entries.md)
+- [System module definition standard](system-module/definition-standard.md)
 - [System module dependencies](system-module/dependencies.md)
 - [System module governance and testing](system-module/governance-and-testing.md)
 - [System module relationship matrices](system-module/relationship-matrices.md)

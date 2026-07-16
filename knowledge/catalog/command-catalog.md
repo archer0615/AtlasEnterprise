@@ -4,6 +4,8 @@
 - [Command ownership and routing](command/ownership-and-routing.md)
 - [Command governance and testing](command/governance-and-testing.md)
 - [Command execution controls](command/execution-controls.md)
+- [Command API, workflow, and automation mapping](command/api-workflow-and-automation-mapping.md)
+- [Command authorization, validation, and errors](command/authorization-validation-and-errors.md)
 
 # Document Control
 

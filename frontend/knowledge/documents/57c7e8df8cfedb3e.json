@@ -1,0 +1,43 @@
+{
+  "id": "57c7e8df8cfedb3e",
+  "title": "Scheduler Timing and Concurrency Policies",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/scheduler/timing-and-concurrency-policies.md",
+  "sourceHash": "14c74c28f3d3a197cb9d8d26908d90e765bd9c454949cc17db7d9edec88a7d4d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scheduler Timing and Concurrency Policies"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Cron Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Calendar Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Retry Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Misfire Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Catch-up Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Concurrency Strategy"
+    }
+  ],
+  "bodyMarkdown": "# Scheduler Timing and Concurrency Policies\n\nDocument Path: knowledge/framework/scheduler/timing-and-concurrency-policies.md\n\nParent Specification: knowledge/framework/scheduler-framework.md\n\n# Purpose\n\nThis split document summarizes Scheduler Framework policies for cron, calendar, retry, misfire, catch-up, and concurrency behavior.\n\n# Cron Strategy\n\n- Every scheduler has a trigger and schedule rule.\n- Scheduler rules must define timezone, retry, timeout, audit, and metrics behavior.\n- Cron-based scheduling must create deterministic execution opportunities and must start catalog-approved jobs or service operations only.\n\n# Calendar Strategy\n\n- Calendar scheduling follows explicit schedule rules and timezone behavior.\n- Calendar-triggered execution ownership remains with the scheduled job or service.\n- Calendar rules must preserve auditability and deterministic catch-up behavior.\n\n# Retry Strategy\n\n- Retry behavior is part of the scheduler contract.\n- Scheduled retries must remain deterministic, locked, audited, and retry-safe.\n- Retry execution must not bypass Application Service, Domain Service, Command, Repository, or Message Contract boundaries.\n\n# Misfire Strategy\n\n- Misfire behavior must be deterministic and auditable.\n- Misfire handling must follow the scheduler and job lock strategy.\n- Missed execution opportunities must not create uncontrolled duplicate work.\n\n# Catch-up Strategy\n\n- Catch-up behavior must be deterministic and auditable.\n- Catch-up execution must preserve the same ownership boundaries as the scheduled job or service.\n- Catch-up processing must remain consistent with retry, timeout, concurrency, lock, audit, and metrics behavior.\n\n# Concurrency Strategy\n\n- Concurrent runs are controlled by scheduler and job lock strategy.\n- Scheduler execution must define concurrency and lock behavior.\n- Concurrent execution must not bypass catalog-approved Background Jobs or service operations.\n",
+  "references": []
+}

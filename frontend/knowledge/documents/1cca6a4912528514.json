@@ -1,0 +1,39 @@
+{
+  "id": "1cca6a4912528514",
+  "title": "Automation Recovery and Approvals",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/automation/recovery-and-approvals.md",
+  "sourceHash": "28b2170f0dcbacf465367e7571aa625f5f064c4b6df337ccddead44f80ccf999",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Automation Recovery and Approvals"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Retry Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Compensation Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Escalation Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Approval Strategy"
+    },
+    {
+      "level": 1,
+      "text": "Failure Recovery Strategy"
+    }
+  ],
+  "bodyMarkdown": "# Automation Recovery and Approvals\n\nDocument Path: knowledge/framework/automation/recovery-and-approvals.md\n\nParent Specification: knowledge/framework/automation-framework.md\n\n# Purpose\n\nThis split document summarizes the Automation Framework sections for retry, compensation, escalation, approval, and failure recovery. It keeps operational recovery behavior readable without changing the parent framework.\n\n# Retry Strategy\n\n- Automation retry must be deterministic for the same trigger, input, rule version, and configuration.\n- Retry execution must preserve catalog boundaries for Aggregate, Command, Repository, Service, Workflow, Scheduler, and Background Job.\n- Retry behavior must remain visible, auditable, and recoverable.\n- Retry-safe automation must be authorized and must not bypass service or security boundaries.\n\n# Compensation Strategy\n\n- Automation compensation is used when an action cannot complete successfully and requires a catalog-approved recovery path.\n- Compensation must use approved workflows, commands, services, events, message contracts, projections, notifications, or integrations.\n- Compensation must record audit history and keep failure state visible.\n\n# Escalation Strategy\n\n- Failed automation can be escalated according to catalog rules.\n- High-impact automation requires an approval strategy before execution or recovery.\n- Escalation must preserve audit, security, and performance requirements.\n\n# Approval Strategy\n\n- High-impact automation requires approval strategy.\n- Automation can be suspended, resumed, cancelled, or escalated through catalog rules.\n- Approval decisions must be auditable and aligned with automation conditions and actions.\n\n# Failure Recovery Strategy\n\n- Failed automation is visible, auditable, and recoverable.\n- Recovery must not bypass Aggregate, Command, Repository, Service, Security, Workflow, Scheduler, or Background Job boundaries.\n- Recovery paths must keep trigger, condition, action, retry, timeout, escalation, audit, and performance targets intact.\n",
+  "references": []
+}

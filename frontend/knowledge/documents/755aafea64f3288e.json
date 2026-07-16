@@ -1,0 +1,55 @@
+{
+  "id": "755aafea64f3288e",
+  "title": "Repository Ownership and Integration Matrices",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/repository/ownership-and-integration-matrices.md",
+  "sourceHash": "b288ea62b318cfe62e3cf9b4fb5a9f9a67c60d2d5af28157a0eb4c39e2cddf23",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Repository Ownership and Integration Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Split Scope"
+    },
+    {
+      "level": 2,
+      "text": "Ownership and Persistence"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate, Entity, and Database Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Service Integration"
+    },
+    {
+      "level": 2,
+      "text": "Command and Event Integration"
+    },
+    {
+      "level": 2,
+      "text": "API, Cache, and Projection Control"
+    },
+    {
+      "level": 2,
+      "text": "Extraction Rationale"
+    },
+    {
+      "level": 2,
+      "text": "Preservation Rule"
+    }
+  ],
+  "bodyMarkdown": "# Repository Ownership and Integration Matrices\n\n## Purpose\nThis split document isolates repository ownership, persistence mapping, service integration, command, event, API, cache, and projection matrices from the parent Repository Catalog while preserving the parent as the canonical full specification.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Split Scope\n- Repository Ownership Matrix\n- Aggregate Repository Matrix\n- Entity Repository Matrix\n- Repository Database Matrix\n- Repository EF Entity Matrix\n- Repository Application Service Matrix\n- Repository Domain Service Matrix\n- Repository Command Matrix\n- Repository Domain Event Matrix\n- Repository API Matrix\n- Repository Cache Matrix\n- Repository Projection Matrix\n\n## Ownership and Persistence\n\n| Repository | Aggregate | Persistence Owner | Unit of Work |\n|---|---|---|---|\n| UserRepository | User | User | Required |\n| HouseholdRepository | Household | Household | Required |\n| AssetRepository | AssetPortfolio | AssetPortfolio | Required |\n| LiabilityRepository | LiabilityPortfolio | LiabilityPortfolio | Required |\n| GoalRepository | GoalPlan | GoalPlan | Required |\n| PortfolioRepository | AssetPortfolio | AssetPortfolio | Required |\n| LoanRepository | Loan | Loan | Required |\n| PropertyRepository | Property | Property | Required |\n| ScenarioRepository | Scenario | Scenario | Required |\n| DecisionRepository | DecisionSession | DecisionSession | Required |\n| NotificationRepository | Notification | Notification | Required |\n| AuditRepository | Audit | Audit | Required |\n\n## Aggregate, Entity, and Database Mapping\n\n| Repository | Aggregate | Entity | Tables |\n|---|---|---|---|\n| UserRepository | User | User | users |\n| HouseholdRepository | Household | Household | households |\n| AssetRepository | AssetPortfolio | Asset | assets |\n| LiabilityRepository | LiabilityPortfolio | Liability | liabilities |\n| GoalRepository | GoalPlan | Goal | goals |\n| PortfolioRepository | AssetPortfolio | Portfolio, Holding | portfolios, holdings |\n| LoanRepository | Loan | Mortgage | loans, loan_payments |\n| PropertyRepository | Property | Property | properties, property_valuations |\n| ScenarioRepository | Scenario | Scenario | scenarios, scenario_results |\n| DecisionRepository | DecisionSession | Decision, Recommendation | decisions, recommendations |\n| NotificationRepository | Notification | Notification | notifications |\n| AuditRepository | Audit | Audit | audit_log, command_history, event_history |\n\nAll repository database mappings target PostgreSQL in the `atlas` schema. EF entity mappings align with the aggregate/entity rows above.\n\n## Service Integration\n\n| Repository | Application Service | Domain Service |\n|---|---|---|\n| UserRepository | UserApplicationService | DecisionService |\n| HouseholdRepository | BlueprintApplicationService | CashFlowService |\n| AssetRepository | PortfolioApplicationService | PortfolioService |\n| LiabilityRepository | LoanApplicationService | LoanService |\n| GoalRepository | BlueprintApplicationService | RetirementService |\n| PortfolioRepository | PortfolioApplicationService | AllocationService |\n| LoanRepository | LoanApplicationService | LoanService |\n| PropertyRepository | BlueprintApplicationService | PortfolioService |\n| ScenarioRepository | ScenarioApplicationService | ScenarioService |\n| DecisionRepository | DecisionApplicationService | DecisionService |\n| NotificationRepository | NotificationApplicationService | ExplainabilityService |\n| AuditRepository | AdministrationApplicationService | ExplainabilityService |\n\n## Command and Event Integration\n\n| Repository | Commands | Domain Events |\n|---|---|---|\n| UserRepository | User, Household commands through ownership validation | Identity and ownership events |\n| HouseholdRepository | RecordIncome, RecordExpense | SalaryReceived, BonusReceived, ExpenseRecorded, PassiveIncomeReceived |\n| AssetRepository | CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio | PortfolioCreated, SecurityPurchased, SecuritySold, PortfolioRebalanced, DividendDistributed |\n| LiabilityRepository | CreateLoan, RecordLoanPayment, RefinanceLoan | LoanCreated, LoanPaymentMade, LoanRefinanced, LoanClosed |\n| GoalRepository | UpdateRetirementPlan | RetirementPlanUpdated, RetirementGoalReached, RetirementWithdrawalStarted |\n| PortfolioRepository | CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio | PortfolioCreated, SecurityPurchased, SecuritySold, PortfolioRebalanced, DividendDistributed |\n| LoanRepository | CreateLoan, RecordLoanPayment, RefinanceLoan | LoanCreated, LoanPaymentMade, LoanRefinanced, LoanClosed |\n| PropertyRepository | PurchaseHome, SellHome, UpdatePropertyValue | HomePurchased, HomeSold, HomeValueUpdated, HomeUpgradeStarted, HomeUpgradeCompleted |\n| ScenarioRepository | EvaluateScenario, ReplayScenario | ScenarioEvaluated, RuleEvaluated, HardConstraintTriggered, ScoreAdjusted, SnapshotCreated, AssumptionVersionLoaded, FormulaVersionLoaded, ReplayCompleted |\n| DecisionRepository | AcceptRecommendation, RejectRecommendation | RecommendationGenerated, DecisionAccepted, DecisionRejected |\n| NotificationRepository | Notification delivery commands from catalog-aligned handlers | DecisionAccepted, DecisionRejected, RecommendationGenerated |\n| AuditRepository | All catalog commands | All catalog domain events |\n\n## API, Cache, and Projection Control\nRepository API, cache, and projection matrices are catalog-aligned for every repository. Each repository requires Household scope, authorization, cache, projection, and audit control.\n\n## Extraction Rationale\nThis split separates integration-heavy repository matrices from method definitions and persistence rules. Readers can identify repository ownership, table mapping, service dependencies, command handling, event relationships, and API/cache/projection controls without scanning the full method catalog.\n\n## Preservation Rule\nDo not remove or rewrite the parent Repository Catalog body from this split. This child document is a navigation and ownership slice for the existing canonical content.\n",
+  "references": []
+}

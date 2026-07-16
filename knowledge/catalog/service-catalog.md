@@ -5,6 +5,7 @@
 - [Service catalog governance](service-catalog/governance.md)
 - [Service catalog relationship matrices](service-catalog/relationship-matrices.md)
 - [Service catalog execution controls](service-catalog/execution-controls.md)
+- [Service catalog communication and transactions](service-catalog/communication-and-transactions.md)
 
 # Document Control
 

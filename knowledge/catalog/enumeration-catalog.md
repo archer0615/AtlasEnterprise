@@ -4,6 +4,8 @@
 - [Enumeration mapping and compatibility](enumeration/mapping-and-compatibility.md)
 - [Enumeration state and rule model](enumeration/state-and-rule-model.md)
 - [Enumeration governance and testing](enumeration/governance-and-testing.md)
+- [Enumeration value usage and reference](enumeration/value-usage-and-reference.md)
+- [Enumeration database, API, and validation](enumeration/database-api-and-validation.md)
 
 # Document Control
 

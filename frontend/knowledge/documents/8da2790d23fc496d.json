@@ -1,0 +1,35 @@
+{
+  "id": "8da2790d23fc496d",
+  "title": "System Module Definition Standard",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/system-module/definition-standard.md",
+  "sourceHash": "59d81be1c27b6a3c4192bc0cbeff55a1951bb414c24d4bfcc79b7bdbd02ebffe",
+  "headings": [
+    {
+      "level": 1,
+      "text": "System Module Definition Standard"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Scope"
+    },
+    {
+      "level": 1,
+      "text": "Module Definition Standard"
+    },
+    {
+      "level": 1,
+      "text": "Classification Use"
+    },
+    {
+      "level": 1,
+      "text": "Boundary Control"
+    }
+  ],
+  "bodyMarkdown": "# System Module Definition Standard\n\nDocument Path: knowledge/catalog/system-module/definition-standard.md\n\nParent Specification: knowledge/catalog/system-module-catalog.md\n\n# Purpose\n\nThis split document summarizes the module definition contract from the System Module Catalog. It is intended for readers who need the module classification and required entry fields without scanning the full module matrix inventory.\n\n# Scope\n\n- System Module\n- Business Module\n- Core Module\n- Supporting Module\n- Infrastructure Module\n- Shared Module\n- Module Boundary\n- Module Responsibility\n- Module Dependency\n- Module Contract\n- Module Ownership\n- Module Lifecycle\n\n# Module Definition Standard\n\nEvery Module entry uses the following complete Enterprise contract.\n\n- Module Name\n- Display Name\n- Category\n- Domain\n- Subdomain\n- Bounded Context\n- Purpose\n- Business Meaning\n- Description\n- Responsibilities\n- Non Responsibilities\n- Owned Aggregates\n- Owned Entities\n- Owned Value Objects\n- Owned Enumerations\n- Owned Repositories\n- Owned Commands\n- Owned Domain Events\n- Owned Application Services\n- Owned Domain Services\n- Owned APIs\n- Owned Workflows\n- Owned Schedulers\n- Owned Automations\n- Owned Background Jobs\n- Owned Integrations\n- Owned Database Objects\n- Owned Engines\n- Inbound Dependencies\n- Outbound Dependencies\n- Published Events\n- Consumed Events\n- Security Boundary\n- Authorization\n- Audit\n- Performance\n- Availability\n- Scalability\n- Version\n- Example\n\n# Classification Use\n\nThe catalog uses the definition standard to keep module ownership comparable across Domain, Bounded Context, Aggregate, Entity, Repository, Command, Domain Event, Application Service, Domain Service, Workflow, API, Integration, Database, Scheduler, Automation, Background Job, and Engine concerns.\n\n# Boundary Control\n\nEach module definition must preserve clear module responsibility, non-responsibility, dependency, contract, lifecycle, security, audit, performance, availability, and scalability boundaries. Module entries are expected to align with the relationship matrices and governance rules retained in the parent catalog.\n",
+  "references": []
+}

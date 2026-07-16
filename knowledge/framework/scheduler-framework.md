@@ -2,6 +2,7 @@
 ## Split Navigation
 - [Scheduler catalog and timing](scheduler/catalog-and-timing.md)
 - [Scheduler execution strategies](scheduler/execution-strategies.md)
+- [Scheduler timing and concurrency policies](scheduler/timing-and-concurrency-policies.md)
 - [Scheduler matrices and controls](scheduler/matrices-and-controls.md)
 - [Scheduler governance and testing](scheduler/governance-and-testing.md)
 

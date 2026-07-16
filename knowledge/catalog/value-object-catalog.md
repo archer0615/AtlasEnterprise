@@ -4,6 +4,8 @@
 - [Value object validation and mapping](value-object/validation-and-mapping.md)
 - [Value object lifecycle and mapping rules](value-object/lifecycle-and-mapping-rules.md)
 - [Value object governance and testing](value-object/governance-and-testing.md)
+- [Value object property and ownership](value-object/property-and-ownership.md)
+- [Value object identity, construction, and serialization](value-object/identity-construction-and-serialization.md)
 
 # Document Control
 

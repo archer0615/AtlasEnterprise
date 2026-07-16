@@ -4,6 +4,8 @@
 - [Domain event matrices and delivery](domain-event/matrices-and-delivery.md)
 - [Domain event operation rules](domain-event/operation-rules.md)
 - [Domain event governance and testing](domain-event/governance-and-testing.md)
+- [Domain event delivery integration matrices](domain-event/delivery-integration-matrices.md)
+- [Domain event ordering, replay, and versioning](domain-event/ordering-replay-and-versioning.md)
 
 # Document Control
 

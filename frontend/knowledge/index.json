@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T07:36:38.139Z",
-  "buildId": "334484cb1c6f",
+  "generatedAt": "2026-07-16T07:57:22.430Z",
+  "buildId": "fa01994840ea",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -214,8 +214,24 @@
       "title": "Command Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/command-catalog.md",
-      "sourceHash": "c9f7c28de8079652fde569363bccd39bfe5d8a71ac046026a0b70d34043e83f9",
+      "sourceHash": "f1af74e82d4035649fc2888e38cecce0ec3b025e6f9b46e82628731ab920620f",
       "summary": "# Command Catalog ## Split Navigation - [Command catalog entries](command/catalog-entries.md) - [Command ownership and routing](command/ownership-and-routing.md) - [Command governance and testing](command/governance-and-testing.md) - [Comma"
+    },
+    {
+      "id": "ae3a992bfef2e6d7",
+      "title": "Command API, Workflow, and Automation Mapping",
+      "category": "catalog",
+      "path": "knowledge/catalog/command/api-workflow-and-automation-mapping.md",
+      "sourceHash": "2a03926609f96d9fdb6ea111055d11008cfdbd19703b121e6f1e462b137c094a",
+      "summary": "# Command API, Workflow, and Automation Mapping Source: ../command-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # API Ma"
+    },
+    {
+      "id": "320d8c2b87679471",
+      "title": "Command Authorization, Validation, and Errors",
+      "category": "catalog",
+      "path": "knowledge/catalog/command/authorization-validation-and-errors.md",
+      "sourceHash": "a165b8b386338d5e80e0b69927560bfdb9a325152199721ac6c761f948af8a28",
+      "summary": "# Command Authorization, Validation, and Errors Source: ../command-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # Author"
     },
     {
       "id": "a45e1a3485ad8fce",
@@ -262,7 +278,7 @@
       "title": "Domain Event Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/domain-event-catalog.md",
-      "sourceHash": "718f0107f5c40dc676b65bb7bf1b28b44b1befa0f2c5d42a56041da0bbbe7351",
+      "sourceHash": "09d452ed557d4ff82606fd44bd4eed37bf4c64afa352c7d042e610a50593077b",
       "summary": "# Domain Event Catalog ## Split Navigation - [Domain event catalog entries](domain-event/catalog-entries.md) - [Domain event matrices and delivery](domain-event/matrices-and-delivery.md) - [Domain event operation rules](domain-event/operati"
     },
     {
@@ -272,6 +288,14 @@
       "path": "knowledge/catalog/domain-event/catalog-entries.md",
       "sourceHash": "7442253bd3695e890492cfeba6b445fd39fb16e457e5844e7b64765ced99e710",
       "summary": "# Domain Event Catalog Entries ## Purpose This split document isolates domain event definitions from the parent Domain Event Catalog. ## Source - Parent specification: [Domain Event Catalog](../domain-event-catalog.md) ## Event Groups Do"
+    },
+    {
+      "id": "6366e4b4e3c883cf",
+      "title": "Domain Event Delivery Integration Matrices",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-event/delivery-integration-matrices.md",
+      "sourceHash": "764579ce4f97a1393614f5b8005b9e5bc710f9710a017b5944e33d5d16309edf",
+      "summary": "# Domain Event Delivery Integration Matrices Source: ../domain-event-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # Noti"
     },
     {
       "id": "ccb63bb34f63bed5",
@@ -296,6 +320,14 @@
       "path": "knowledge/catalog/domain-event/operation-rules.md",
       "sourceHash": "b2b146d6dcc14523cc531c70cd14bc5e49a2a01d3fb4f99ed3f06e4586eb9104",
       "summary": "# Domain Event Operation Rules ## Purpose This split document isolates operational Domain Event rules from the parent Domain Event Catalog. ## Source - Parent specification: [Domain Event Catalog](../domain-event-catalog.md) ## Rule Scop"
+    },
+    {
+      "id": "eeebd0d375fa5c05",
+      "title": "Domain Event Ordering, Replay, and Versioning",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-event/ordering-replay-and-versioning.md",
+      "sourceHash": "4b58991f966cb7760120abc1ee63715d0e67d7e4d0b7d5257034f01929887d7d",
+      "summary": "# Domain Event Ordering, Replay, and Versioning Source: ../domain-event-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # O"
     },
     {
       "id": "4642ddd37cc96182",
@@ -350,8 +382,16 @@
       "title": "Domain Service Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/domain-service-catalog.md",
-      "sourceHash": "66df978503764634d41d2c375d365a0b40703076b85075fc2e3c6fb1aa8d2e0c",
-      "summary": "# Domain Service Catalog ## Split Navigation - [Domain service catalog entries](domain-service/catalog-entries.md) - [Domain service matrices and dependencies](domain-service/matrices-and-dependencies.md) - [Domain service rules and executi"
+      "sourceHash": "145d174402f40b2d4bb9824d107194b94cf280cfecd24a85e0a263c47382e27f",
+      "summary": "# Domain Service Catalog ## Split Navigation - [Domain service catalog entries](domain-service/catalog-entries.md) - [Domain service capability and calculation matrices](domain-service/capability-and-calculation-matrices.md) - [Domain servi"
+    },
+    {
+      "id": "283df2955703854c",
+      "title": "Domain Service Capability and Calculation Matrices",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-service/capability-and-calculation-matrices.md",
+      "sourceHash": "6eb0ef69411ab76dd2f0def9b71476591b9cc6404d44fee21acf1c0bb43f5d7b",
+      "summary": "# Domain Service Capability and Calculation Matrices ## Purpose This split document isolates the business capability, calculation, validation, decision, projection, optimization, and simulation matrices from the parent Domain Service Catal"
     },
     {
       "id": "5ccb840d8c85b668",
@@ -422,7 +462,7 @@
       "title": "Enumeration Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/enumeration-catalog.md",
-      "sourceHash": "e9fb140bfd0d9a1343135e8ca04f37a791052c609545ee977fd8cb68220d2dd4",
+      "sourceHash": "91c506cb48667815792635844ee5e695f303253505db5201a0ddcf78b841cc0a",
       "summary": "# Enumeration Catalog ## Split Navigation - [Enumeration catalog entries](enumeration/catalog-entries.md) - [Enumeration mapping and compatibility](enumeration/mapping-and-compatibility.md) - [Enumeration state and rule model](enumeration/s"
     },
     {
@@ -432,6 +472,14 @@
       "path": "knowledge/catalog/enumeration/catalog-entries.md",
       "sourceHash": "9e760c046545c5082249435ca341ccb860c2c62845d4dcb6b043ab0cd57d2746",
       "summary": "# Enumeration Catalog Entries ## Purpose This split document isolates enumeration definitions from the parent Enumeration Catalog. ## Source - Parent specification: [Enumeration Catalog](../enumeration-catalog.md) ## Catalog Scope Enumer"
+    },
+    {
+      "id": "45c3bd82370d6988",
+      "title": "Enumeration Database, API, and Validation",
+      "category": "catalog",
+      "path": "knowledge/catalog/enumeration/database-api-and-validation.md",
+      "sourceHash": "53392b6ada8a938b09af1980095ec7131f72447f57d0ee9a999f126e606d04a4",
+      "summary": "# Enumeration Database, API, and Validation Source: ../enumeration-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # Databa"
     },
     {
       "id": "0bea71ac86cdbae5",
@@ -458,6 +506,14 @@
       "summary": "# Enumeration State and Rule Model ## Purpose This split document isolates state, lifecycle, category, mapping, validation, and business rule groups from the parent Enumeration Catalog. ## Source - Parent specification: [Enumeration Catal"
     },
     {
+      "id": "4fd7d909a8bfbef7",
+      "title": "Enumeration Value Usage and Reference",
+      "category": "catalog",
+      "path": "knowledge/catalog/enumeration/value-usage-and-reference.md",
+      "sourceHash": "159634b9435ec0106b736d1bc32b30d01fd7dc527cf70a8d477eca6f6940766a",
+      "summary": "# Enumeration Value Usage and Reference Source: ../enumeration-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # Enumeratio"
+    },
+    {
       "id": "daa8c104d9d83abc",
       "title": "Financial Formula Catalog",
       "category": "catalog",
@@ -470,7 +526,7 @@
       "title": "Message Contract Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/message-contract-catalog.md",
-      "sourceHash": "261de566df3317ae9ea4bdb40381606ac62dab5cdb60312aaf0691868692c72c",
+      "sourceHash": "48288eb364cd08e6f3d84e21c67c7f95cc6dd470fb574edd79c2fab7b7653d66",
       "summary": "# Message Contract Catalog ## Split Navigation - [Message contract catalog entries](message-contract/catalog-entries.md) - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md) - [Message contract gov"
     },
     {
@@ -506,12 +562,20 @@
       "summary": "# Message Contract Matrices and Execution ## Purpose This split document isolates message classification, producer consumer, command message, event message, workflow message, saga message, automation message, scheduler message, notificatio"
     },
     {
+      "id": "e3a9d1e9930e2073",
+      "title": "Message Contract Schema Evolution and Validation",
+      "category": "catalog",
+      "path": "knowledge/catalog/message-contract/schema-evolution-and-validation.md",
+      "sourceHash": "af271bf9e9d5fcb44fcf25854c348e6f76844a268456ae17040b38ae4e4144a4",
+      "summary": "# Message Contract Schema Evolution and Validation ## Purpose This split document isolates schema evolution, serialization, and validation requirements from the parent Message Contract Catalog while preserving the parent as the canonical f"
+    },
+    {
       "id": "8866c9a7f3e1f7b4",
       "title": "Repository Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/repository-catalog.md",
-      "sourceHash": "44fccf28b46996615d76ef0ec13881e98c33a032be614aade31dea838b3640ac",
-      "summary": "# Repository Catalog ## Split Navigation - [Repository catalog entries](repository/catalog-entries.md) - [Repository method catalog](repository/method-catalog.md) - [Repository query and persistence rules](repository/query-and-persistence-r"
+      "sourceHash": "d451a7afbd35c82283264a05af3c20fdddc40acd8a8db5c3aa62ddfa9a120cdf",
+      "summary": "# Repository Catalog ## Split Navigation - [Repository catalog entries](repository/catalog-entries.md) - [Repository method catalog](repository/method-catalog.md) - [Repository ownership and integration matrices](repository/ownership-and-in"
     },
     {
       "id": "4e898587c986dafc",
@@ -538,6 +602,14 @@
       "summary": "# Repository Method Catalog ## Purpose This split document isolates the Complete Repository Methods section from the parent Repository Catalog while preserving the parent document as the canonical full specification. ## Source - Parent sp"
     },
     {
+      "id": "755aafea64f3288e",
+      "title": "Repository Ownership and Integration Matrices",
+      "category": "catalog",
+      "path": "knowledge/catalog/repository/ownership-and-integration-matrices.md",
+      "sourceHash": "b288ea62b318cfe62e3cf9b4fb5a9f9a67c60d2d5af28157a0eb4c39e2cddf23",
+      "summary": "# Repository Ownership and Integration Matrices ## Purpose This split document isolates repository ownership, persistence mapping, service integration, command, event, API, cache, and projection matrices from the parent Repository Catalog"
+    },
+    {
       "id": "772d3531313ae952",
       "title": "Repository Query and Persistence Rules",
       "category": "catalog",
@@ -550,7 +622,7 @@
       "title": "Service Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/service-catalog.md",
-      "sourceHash": "58fa8d837be1598ae09f0e6ebaec667c527bee62f17174439713e4f25c4958c1",
+      "sourceHash": "ad22fec228a239a51bc41b862ddfa86e2aac10baffc5b50338dfa106b594fe2f",
       "summary": "# Service Catalog ## Split Navigation - [Service catalog application services](service-catalog/application-services.md) - [Service catalog domain services](service-catalog/domain-services.md) - [Service catalog governance](service-catalog/g"
     },
     {
@@ -560,6 +632,14 @@
       "path": "knowledge/catalog/service-catalog/application-services.md",
       "sourceHash": "7d3605de0c1841fad6bc57efa0af60f6254aae038f6c5d2a6cbdc6c987ff1305",
       "summary": "# Service Catalog Application Services ## Purpose This split document isolates application service entries from the parent Service Catalog. ## Source - Parent specification: [Service Catalog](../service-catalog.md) ## Application Service"
+    },
+    {
+      "id": "e0fb9e3532c39898",
+      "title": "Service Catalog Communication and Transactions",
+      "category": "catalog",
+      "path": "knowledge/catalog/service-catalog/communication-and-transactions.md",
+      "sourceHash": "4696e44a3725ad917f1710f10689fad9be6d8556ceddb19079d07c40037f2a4b",
+      "summary": "# Service Catalog Communication and Transactions Document Path: knowledge/catalog/service-catalog/communication-and-transactions.md Parent Specification: knowledge/catalog/service-catalog.md # Purpose This split document summarizes the"
     },
     {
       "id": "98dc393437276528",
@@ -838,8 +918,8 @@
       "title": "System Module Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/system-module-catalog.md",
-      "sourceHash": "6fd4c97c1013ad6edb3e08df5bbb21be2adb4b543aac9efaa7386fe4faa7c7c2",
-      "summary": "# System Module Catalog ## Split Navigation - [System module catalog entries](system-module/catalog-entries.md) - [System module dependencies](system-module/dependencies.md) - [System module governance and testing](system-module/governance-"
+      "sourceHash": "f55422dcd0c9d7e4ceed7e89bb2717c1481e92e8f3547b5feaa640b3f5b7fa3e",
+      "summary": "# System Module Catalog ## Split Navigation - [System module catalog entries](system-module/catalog-entries.md) - [System module definition standard](system-module/definition-standard.md) - [System module dependencies](system-module/depende"
     },
     {
       "id": "efa566aceaad13b9",
@@ -848,6 +928,14 @@
       "path": "knowledge/catalog/system-module/catalog-entries.md",
       "sourceHash": "04787b89e1a11f2abf631f95354dc27f41fb3aa226fe4575e1ceb63b048411a9",
       "summary": "# System Module Catalog Entries ## Purpose This split document isolates system module definitions from the parent System Module Catalog. ## Source - Parent specification: [System Module Catalog](../system-module-catalog.md) ## Module Sco"
+    },
+    {
+      "id": "8da2790d23fc496d",
+      "title": "System Module Definition Standard",
+      "category": "catalog",
+      "path": "knowledge/catalog/system-module/definition-standard.md",
+      "sourceHash": "59d81be1c27b6a3c4192bc0cbeff55a1951bb414c24d4bfcc79b7bdbd02ebffe",
+      "summary": "# System Module Definition Standard Document Path: knowledge/catalog/system-module/definition-standard.md Parent Specification: knowledge/catalog/system-module-catalog.md # Purpose This split document summarizes the module definition co"
     },
     {
       "id": "1526dd80466ca794",
@@ -1038,7 +1126,7 @@
       "title": "Value Object Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/value-object-catalog.md",
-      "sourceHash": "52c124dd33b7f68779012900b4aabd4b53869ecf7b2f3b0e39515747656dc1cb",
+      "sourceHash": "0b8e12c2ee2b489e7657e1cf79d746cff8ff4d6e43445699641b41aa9b0b2dce",
       "summary": "# Value Object Catalog ## Split Navigation - [Value object catalog entries](value-object/catalog-entries.md) - [Value object validation and mapping](value-object/validation-and-mapping.md) - [Value object lifecycle and mapping rules](value-"
     },
     {
@@ -1058,12 +1146,28 @@
       "summary": "# Value Object Governance and Testing ## Purpose This split document isolates value object governance, security, audit, performance, testing, edge cases, and consistency checks from the parent Value Object Catalog. ## Source - Parent spec"
     },
     {
+      "id": "4b9af99333b877d6",
+      "title": "Value Object Identity, Construction, and Serialization",
+      "category": "catalog",
+      "path": "knowledge/catalog/value-object/identity-construction-and-serialization.md",
+      "sourceHash": "5243832f406bfb858e624ebb62d96ab99790bc537cdddcd52542d61846ee6de8",
+      "summary": "# Value Object Identity, Construction, and Serialization Source: ../value-object-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of recor"
+    },
+    {
       "id": "d150f2a8f8df5e02",
       "title": "Value Object Lifecycle and Mapping Rules",
       "category": "catalog",
       "path": "knowledge/catalog/value-object/lifecycle-and-mapping-rules.md",
       "sourceHash": "06dd6a5aaccebbb1e289f0c87c33071e0e1cb76e4eca554bf30c98b22d188fc5",
       "summary": "# Value Object Lifecycle and Mapping Rules ## Purpose This split document isolates the Value Object lifecycle, construction, validation, serialization, and mapping rule groups from the parent Value Object Catalog. ## Source - Parent speci"
+    },
+    {
+      "id": "9218044a12a05e25",
+      "title": "Value Object Property and Ownership",
+      "category": "catalog",
+      "path": "knowledge/catalog/value-object/property-and-ownership.md",
+      "sourceHash": "ded4b8ea9f3eb21175aab4c8d927472706050ec66d1d8466e81190adfa4b61b4",
+      "summary": "# Value Object Property and Ownership Source: ../value-object-catalog.md This split document preserves the canonical content from the parent catalog for focused review. The parent catalog remains the source of record. # Property Ca"
     },
     {
       "id": "d6ce5ff412769f19",
@@ -1678,8 +1782,8 @@
       "title": "Automation Framework",
       "category": "framework",
       "path": "knowledge/framework/automation-framework.md",
-      "sourceHash": "d8f7549adf42c2de0b4ab9725b8b611861ef0beb52c90f87b176474b21b20002",
-      "summary": "# Automation Framework ## Split Navigation - [Automation catalog and triggers](automation/catalog-and-triggers.md) - [Automation execution strategies](automation/execution-strategies.md) - [Automation matrices and controls](automation/matri"
+      "sourceHash": "8e289d5a376baf8662ee5f373a1684d8c180c2dfb30369838050075373a4c819",
+      "summary": "# Automation Framework ## Split Navigation - [Automation catalog and triggers](automation/catalog-and-triggers.md) - [Automation execution strategies](automation/execution-strategies.md) - [Automation recovery and approvals](automation/reco"
     },
     {
       "id": "f156abf17b561731",
@@ -1712,6 +1816,14 @@
       "path": "knowledge/framework/automation/matrices-and-controls.md",
       "sourceHash": "18269269a811a3db1af38151bcc4f9bcd7140dee4ec091ad1e3ba49d15193301",
       "summary": "# Automation Matrices and Controls ## Purpose This split document preserves automation mapping matrices, retry/compensation/escalation/approval/failure strategies, validation rules, business rules, and operational controls from the pare"
+    },
+    {
+      "id": "1cca6a4912528514",
+      "title": "Automation Recovery and Approvals",
+      "category": "framework",
+      "path": "knowledge/framework/automation/recovery-and-approvals.md",
+      "sourceHash": "28b2170f0dcbacf465367e7571aa625f5f064c4b6df337ccddead44f80ccf999",
+      "summary": "# Automation Recovery and Approvals Document Path: knowledge/framework/automation/recovery-and-approvals.md Parent Specification: knowledge/framework/automation-framework.md # Purpose This split document summarizes the Automation Framew"
     },
     {
       "id": "f218ebbbec51ce5f",
@@ -2542,8 +2654,8 @@
       "title": "Scheduler Framework",
       "category": "framework",
       "path": "knowledge/framework/scheduler-framework.md",
-      "sourceHash": "96eda90ab72b83fdda1fc9b2f5b9749dd32ab44d924e2472b79ff548affab176",
-      "summary": "# Scheduler Framework ## Split Navigation - [Scheduler catalog and timing](scheduler/catalog-and-timing.md) - [Scheduler execution strategies](scheduler/execution-strategies.md) - [Scheduler matrices and controls](scheduler/matrices-and-con"
+      "sourceHash": "6eb51af9883e46dca21c1508d0df11b5aad93ea3a2b2d71a235c6a5a084b522c",
+      "summary": "# Scheduler Framework ## Split Navigation - [Scheduler catalog and timing](scheduler/catalog-and-timing.md) - [Scheduler execution strategies](scheduler/execution-strategies.md) - [Scheduler timing and concurrency policies](scheduler/timing"
     },
     {
       "id": "c62005a471ab1911",
@@ -2576,6 +2688,14 @@
       "path": "knowledge/framework/scheduler/matrices-and-controls.md",
       "sourceHash": "872cf4824326c2f7ddc1cc637dd69f86bb552f7d088121399974112991732e1e",
       "summary": "# Scheduler Matrices and Controls ## Purpose This split document preserves scheduler mapping matrices, cron/calendar/retry/misfire/catch-up/concurrency strategies, validation rules, business rules, and operational controls from the pare"
+    },
+    {
+      "id": "57c7e8df8cfedb3e",
+      "title": "Scheduler Timing and Concurrency Policies",
+      "category": "framework",
+      "path": "knowledge/framework/scheduler/timing-and-concurrency-policies.md",
+      "sourceHash": "14c74c28f3d3a197cb9d8d26908d90e765bd9c454949cc17db7d9edec88a7d4d",
+      "summary": "# Scheduler Timing and Concurrency Policies Document Path: knowledge/framework/scheduler/timing-and-concurrency-policies.md Parent Specification: knowledge/framework/scheduler-framework.md # Purpose This split document summarizes Schedu"
     },
     {
       "id": "ad89f85d16bac309",

@@ -4,6 +4,7 @@
 - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md)
 - [Message contract governance and testing](message-contract/governance-and-testing.md)
 - [Message contract matrices and execution](message-contract/matrices-and-execution.md)
+- [Message contract schema evolution and validation](message-contract/schema-evolution-and-validation.md)
 
 # Document Control
 

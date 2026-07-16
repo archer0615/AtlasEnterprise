@@ -1,6 +1,7 @@
 # Domain Service Catalog
 ## Split Navigation
 - [Domain service catalog entries](domain-service/catalog-entries.md)
+- [Domain service capability and calculation matrices](domain-service/capability-and-calculation-matrices.md)
 - [Domain service matrices and dependencies](domain-service/matrices-and-dependencies.md)
 - [Domain service rules and execution flows](domain-service/rules-and-execution-flows.md)
 - [Domain service governance and testing](domain-service/governance-and-testing.md)
