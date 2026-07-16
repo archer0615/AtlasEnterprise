@@ -22,6 +22,8 @@ This report records the first simulator runtime scaffold.
 - Validates generated fixture cache policy and dashboard projection API contract.
 - Exposes fixture-backed dashboard projections through a backend service scaffold.
 - Validates cache invalidation and deployment readiness hooks.
+- Tests projection service collection, default snapshot lookup, and missing snapshot behavior.
+- Validates deployment artifact manifest existence.
 
 ## Command
 
@@ -41,6 +43,7 @@ This report records the first simulator runtime scaffold.
 - Runtime dashboard bindings must preserve source fixture, score, status, formula IDs, and score policy version.
 - Projection API contracts must preserve runtime binding fields.
 - Deployment validation must remain part of the root validation pipeline.
+- Cache policy version changes must remain synchronized with deployment validation.
 
 ## Follow-up
 
@@ -51,3 +54,4 @@ This report records the first simulator runtime scaffold.
 - Replace runtime dashboard fixture generation with the production dashboard projection service.
 - Move cache policy enforcement into deployment validation when hosting is introduced.
 - Replace fixture-backed projection service with an application service when backend runtime is activated.
+- Replace static artifact manifest with build-generated manifest when deployment packaging exists.

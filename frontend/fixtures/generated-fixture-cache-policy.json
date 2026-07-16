@@ -1,5 +1,5 @@
 {
-  "policyVersion": "generated-fixture-cache-policy.v1",
+  "policyVersion": "generated-fixture-cache-policy.v2",
   "artifacts": [
     {
       "path": "frontend/fixtures/dashboard-snapshots.json",

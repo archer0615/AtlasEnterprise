@@ -32,6 +32,9 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Dashboard projection service scaffold is implemented in `backend/dashboard-projection-service.mjs`.
 - Cache invalidation validation is covered by `npm run validate:cache-invalidation`.
 - Deployment validation hook is covered by `npm run validate:deployment`.
+- Dashboard projection service tests are covered by `npm run test:dashboard-projection`.
+- Generated fixture cache policy is now versioned as `generated-fixture-cache-policy.v2`.
+- Deployment artifact manifest is recorded in `deployment/artifact-manifest.json`.
 
 ## Validation
 
@@ -48,3 +51,4 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Runtime dashboard binding is fixture-backed until a service endpoint owns dashboard projection generation.
 - Projection API remains contract-only until backend services are activated.
 - Projection service remains fixture-backed until backend runtime activation.
+- Deployment artifact manifest remains static until hosting output paths are generated.

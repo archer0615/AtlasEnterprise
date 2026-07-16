@@ -8,7 +8,7 @@ function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
-assert(policy.policyVersion === "generated-fixture-cache-policy.v1", "generated fixture cache policy version mismatch");
+assert(policy.policyVersion === "generated-fixture-cache-policy.v2", "generated fixture cache policy version mismatch");
 assert(Array.isArray(policy.artifacts) && policy.artifacts.length > 0, "generated fixture cache policy missing artifacts");
 
 for (const artifact of policy.artifacts) {

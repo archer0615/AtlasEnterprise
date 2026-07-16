@@ -30,6 +30,8 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Dashboard projection API validation must confirm runtime projection fields.
 - Offline cache validation must include generated runtime dashboard artifacts.
 - Cache invalidation validation must confirm stale cache deletion behavior.
+- Deployment validation must verify all artifact manifest paths exist.
+- Projection service tests must cover default and missing snapshot lookup.
 
 ## Validation
 
@@ -44,3 +46,4 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Replace runtime fixture file generation with service-backed projection generation when available.
 - Add cache invalidation tests when generated artifacts are consumed by a service worker runtime cache.
 - Extend deployment validation when hosting configuration is introduced.
+- Generate deployment artifact manifests from build output when hosting is introduced.

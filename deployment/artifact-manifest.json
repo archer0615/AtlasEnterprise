@@ -1,0 +1,18 @@
+{
+  "manifestVersion": "deployment-artifact-manifest.v1",
+  "artifacts": [
+    "frontend/index.html",
+    "frontend/manifest.webmanifest",
+    "frontend/sw.js",
+    "frontend/sw-version.js",
+    "frontend/fixtures/dashboard-snapshot.json",
+    "frontend/fixtures/dashboard-snapshots.json",
+    "frontend/fixtures/dashboard-runtime-snapshots.json",
+    "frontend/fixtures/generated-fixture-cache-policy.json",
+    "frontend/knowledge/index.json",
+    "frontend/knowledge/search-index.json",
+    "frontend/knowledge/document-assets.json",
+    "simulator/outputs/scenario-results.json",
+    "simulator/config/score-policy.json"
+  ]
+}
