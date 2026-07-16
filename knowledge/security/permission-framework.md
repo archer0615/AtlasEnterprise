@@ -1,4 +1,8 @@
-﻿# Permission Framework
+# Permission Framework
+## Split Navigation
+- [Permission catalog](permission-framework/permission-catalog.md)
+- [Role and matrix catalog](permission-framework/role-and-matrix-catalog.md)
+- [Permission governance and testing](permission-framework/permission-governance-and-testing.md)
 
 ## Document Control
 

@@ -1,0 +1,59 @@
+{
+  "id": "7b1b60fad24ce337",
+  "title": "Optimization Engine Catalog and Matrices",
+  "category": "engine",
+  "canonicalPath": "knowledge/engine/optimization-engine/catalog-and-matrices.md",
+  "sourceHash": "9a529ec889fd940b3ed3df129350858f5787c767829b7b30bebb2861ef2c6c94",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Optimization Engine Catalog and Matrices"
+    },
+    {
+      "level": 1,
+      "text": "Complete Optimization Catalog"
+    },
+    {
+      "level": 1,
+      "text": "Optimization Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Objective Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Constraint Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Variable Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Scenario Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Simulation Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Calculation Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Projection Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Decision Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Trade-off Matrix"
+    }
+  ],
+  "bodyMarkdown": "# Optimization Engine Catalog and Matrices\r\n\r\nSource: ../optimization-engine-framework.md\r\n\r\n# Complete Optimization Catalog\r\n\r\nEvery optimization capability must use this Enterprise contract.\r\n\r\n| Field | Requirement |\r\n| --- | --- |\r\n| Optimization Name | Stable PascalCase name ending with Optimization. |\r\n| Display Name | Human-readable label. |\r\n| Category | Portfolio, GoalFunding, DebtPaydown, CashReserve, TaxAware, RiskReduction, CashFlow, ScenarioRanking, RecommendationRanking, MultiObjective, Operational. |\r\n| Purpose | Why the optimization exists. |\r\n| Business Meaning | Business, financial, decision, recommendation, reporting, or operational meaning. |\r\n| Description | Exact optimized behavior. |\r\n| Objective | Target outcome and objective direction. |\r\n| Objective Function | Formula, scoring model, or ranking expression and version. |\r\n| Optimization Variables | Variables, bounds, units, granularity, and ownership. |\r\n| Constraints | Full constraint set. |\r\n| Hard Constraints | Mandatory constraints that candidate solutions must satisfy. |\r\n| Soft Constraints | Preferred constraints scored through penalties or trade-offs. |\r\n| Penalty Rules | Penalty formulas, weights, and thresholds. |\r\n| Priority Rules | Priority model, ranking rule, and tie-breakers. |\r\n| Inputs | Required source values, units, scope, and classification. |\r\n| Outputs | Selected solution, ranked candidates, scores, classification, and consumers. |\r\n| Scenario Dependency | Scenario id, version, lifecycle, and compatibility. |\r\n| Simulation Dependency | Simulation id, version, generated time, and confidence when used. |\r\n| Calculation Dependency | Calculation names, versions, inputs, and outputs used. |\r\n| Projection Dependency | Projection names, versions, generated time, and staleness. |\r\n| Decision Dependency | Decision state, rule result, or recommendation dependency when used. |\r\n| Rule Engine Dependency | Rule ids, versions, inputs, and outcomes. |\r\n| Repository | Repository reads needed for source data. |\r\n| Application Service | Service orchestrating optimization. |\r\n| Domain Service | Domain service owning domain optimization behavior. |\r\n| Workflow | Workflow dependency or optimization step. |\r\n| Automation | Automation trigger or action using optimization. |\r\n| Scheduler | Scheduled optimization or refresh. |\r\n| Background Job | Async, batch, replay, or long-running worker. |\r\n| API | API route or DTO exposing optimization. |\r\n| Execution Strategy | Synchronous, asynchronous, batch, scheduled, parallel, deterministic, heuristic, or interactive. |\r\n| Solver Strategy | Exact solver algorithm, version, and deterministic policy. |\r\n| Search Strategy | Exhaustive, greedy, branch-and-bound, dynamic programming, heuristic, stochastic, rule-guided, or multi-pass. |\r\n| Termination Criteria | Iteration limit, time limit, convergence, candidate exhaustion, feasibility, or threshold. |\r\n| Convergence Criteria | Score tolerance, stability window, improvement threshold, or not applicable. |\r\n| Validation | Input, objective, variable, constraint, dependency, output, feasibility, and tolerance validation. |\r\n| Business Rules | Behavioral rules and invariants. |\r\n| Version | Engine, model, objective, solver, constraint, input schema, output schema, and scoring versions. |\r\n| Replay | Snapshot, seed if applicable, dependency versions, and result comparison behavior. |\r\n| Traceability | Trace fields, candidates, scores, penalties, constraint outcomes, and explanation references. |\r\n| Audit | Audit record requirements. |\r\n| Performance | SLA, parallelism, memory, CPU, timeout, progress, and cancellation. |\r\n| Security | Authorization, tenant, household, masking, classification, and result access. |\r\n| Example | Minimal valid optimization scenario. |\r\n\r\n# Optimization Matrix\r\n\r\n| Optimization Category | Primary Objective | Required Governance |\r\n| --- | --- | --- |\r\n| Portfolio | Balance return, risk, allocation, and constraints. | Objective version, allocation bounds, risk model, solver trace. |\r\n| GoalFunding | Achieve goals within capacity and priority. | Goal priority, contribution capacity, constraints, recommendation trace. |\r\n| DebtPaydown | Minimize interest or payoff time. | Loan terms, cashflow constraints, strategy, calculation trace. |\r\n| CashReserve | Balance liquidity and opportunity cost. | Reserve policy, risk boundary, household context, trade-off trace. |\r\n| TaxAware | Reduce tax impact under policy constraints. | Jurisdiction, tax rule version, assumption version, trace. |\r\n| RiskReduction | Reduce risk while preserving goal feasibility. | Risk model, thresholds, constraints, explanation. |\r\n| CashFlow | Improve surplus, stability, or runway. | Cashflow projection, constraints, assumptions, scenario. |\r\n| ScenarioRanking | Rank scenarios by objective and policy. | Comparable scenarios, scoring method, tie-breakers. |\r\n| RecommendationRanking | Rank recommendations by impact and priority. | Priority model, confidence, explanation, audit. |\r\n| MultiObjective | Balance competing objectives. | Weighting, trade-off matrix, penalty rules, explainability. |\r\n\r\n# Objective Matrix\r\n\r\n| Objective | Direction | Required Metadata |\r\n| --- | --- | --- |\r\n| Maximize Net Worth | Maximize | Time horizon, valuation method, assumptions, currency. |\r\n| Improve Cash Flow | Maximize | Period, income, expense, recurring obligations, volatility. |\r\n| Minimize Interest | Minimize | Loan terms, payoff strategy, cashflow capacity, fees. |\r\n| Reduce Risk | Minimize | Risk model, thresholds, score version, constraints. |\r\n| Achieve Goals Sooner | Minimize time | Goal targets, priority, contribution capacity, dependencies. |\r\n| Maximize Recommendation Utility | Maximize | Priority score, confidence, impact, effort, risk. |\r\n| Balance Liquidity | Multi-objective | Reserve target, opportunity cost, risk tolerance. |\r\n\r\n# Constraint Matrix\r\n\r\n| Constraint Type | Behavior | Required Control |\r\n| --- | --- | --- |\r\n| Hard Constraint | Candidate must satisfy. | Violation makes candidate infeasible. |\r\n| Soft Constraint | Candidate may violate with penalty. | Penalty rule and weight required. |\r\n| Budget Constraint | Limits contribution, payment, allocation, or spending. | Currency, period, and source required. |\r\n| Risk Constraint | Limits volatility, drawdown, concentration, or score. | Risk model and threshold required. |\r\n| Time Constraint | Limits horizon, deadline, or execution time. | Date boundary and timezone policy required. |\r\n| Policy Constraint | Enforces business or governance rule. | Rule id and version required. |\r\n| Tenant Constraint | Enforces tenant scope. | TenantId required. |\r\n| Household Constraint | Enforces household scope. | HouseholdId required. |\r\n\r\n# Variable Matrix\r\n\r\n| Variable Type | Required Control |\r\n| --- | --- |\r\n| Allocation Variable | Asset class, min, max, step, current value, and constraint set. |\r\n| Contribution Variable | Goal, amount range, cadence, capacity, and priority. |\r\n| Payment Variable | Liability, amount range, cadence, interest, and payoff rule. |\r\n| Reserve Variable | Target level, min, max, liquidity class, and risk boundary. |\r\n| Scenario Variable | Scenario delta, unit, range, and compatibility. |\r\n| Recommendation Variable | Action candidate, impact, effort, confidence, and suppression rule. |\r\n\r\n# Scenario Matrix\r\n\r\n| Scenario Dependency | Optimization Requirement |\r\n| --- | --- |\r\n| Baseline Scenario | Uses current approved assumptions and current household state. |\r\n| Alternative Scenario | Records delta, objective effect, and comparison target. |\r\n| Stress Scenario | Applies hard safety constraints and risk thresholds. |\r\n| Goal Scenario | Uses target, deadline, priority, and contribution capacity. |\r\n| Portfolio Scenario | Uses allocation, risk, return, constraints, and market assumptions. |\r\n\r\n# Simulation Matrix\r\n\r\n| Simulation Dependency | Optimization Requirement |\r\n| --- | --- |\r\n| Monte Carlo Result | Confidence, percentile, seed, model version, and outcome distribution. |\r\n| Stress Test Result | Failure threshold, downside metric, and risk classification. |\r\n| Sensitivity Result | Variable sensitivity, output range, and robustness signal. |\r\n| Scenario Comparison | Comparable results, ranking method, and confidence. |\r\n\r\n# Calculation Matrix\r\n\r\n| Calculation Dependency | Optimization Requirement |\r\n| --- | --- |\r\n| Financial Formula | Formula id, version, precision, rounding, and trace. |\r\n| Score Calculation | Score model version, weights, thresholds, and explanation. |\r\n| Cash Flow Calculation | Period, currency, surplus, obligations, and tolerance. |\r\n| Risk Calculation | Risk model, thresholds, inputs, and score version. |\r\n| Goal Funding Calculation | Target, contribution, horizon, and assumptions. |\r\n\r\n# Projection Matrix\r\n\r\n| Projection Dependency | Optimization Requirement |\r\n| --- | --- |\r\n| Cash Flow Projection | Time series, generated time, assumptions, and staleness. |\r\n| Net Worth Projection | Asset and liability trajectory, valuation method, and scenario. |\r\n| Portfolio Projection | Return path, allocation, risk, and market data version. |\r\n| Goal Projection | Goal progress, funding gap, deadline, and contribution path. |\r\n\r\n# Decision Matrix\r\n\r\n| Decision Dependency | Optimization Requirement |\r\n| --- | --- |\r\n| Eligibility Decision | Hard constraint source and rule trace. |\r\n| Recommendation Decision | Ranking objective, priority score, confidence, and explanation. |\r\n| Risk Decision | Risk threshold, score, and override policy. |\r\n| Scenario Decision | Scenario ranking and tie-breaker. |\r\n\r\n# Trade-off Matrix\r\n\r\n| Trade-off | Required Explanation |\r\n| --- | --- |\r\n| Return vs Risk | Expected return change, risk score change, constraint effect. |\r\n| Liquidity vs Investment | Reserve change, opportunity cost, risk effect. |\r\n| Debt Paydown vs Goal Funding | Interest saved, goal delay or acceleration, cashflow effect. |\r\n| Short Term Cash Flow vs Long Term Net Worth | Period surplus, long-term value, confidence. |\r\n| Optimal Score vs Constraint Violation | Penalty, violated soft constraint, alternative candidate. |\r\n",
+  "references": []
+}

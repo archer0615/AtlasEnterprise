@@ -1,4 +1,8 @@
 # Goal Prioritization
+## Split Navigation
+- [Goal prioritization inputs and scoring](goal-prioritization/inputs-and-scoring.md)
+- [Goal prioritization conflicts and recommendations](goal-prioritization/conflicts-and-recommendations.md)
+- [Goal prioritization governance and operations](goal-prioritization/governance-and-operations.md)
 
 Version: 1.0
 Status: Enterprise Specification

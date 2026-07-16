@@ -1,0 +1,35 @@
+{
+  "id": "f733185fc2d06f24",
+  "title": "Goal dependency resolution and graph",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-dependency/resolution-and-graph.md",
+  "sourceHash": "c4b66388c89e43c2e623559ef33824ff9941d1e011a533ed234442699d47c022",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal dependency resolution and graph"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Resolution"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Conflict"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Cycle Detection"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Graph"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Ordering"
+    }
+  ],
+  "bodyMarkdown": "# Goal dependency resolution and graph\r\n# Dependency Resolution\r\n\r\nAllowed resolution outcomes:\r\n\r\n1. Satisfied\r\n2. Blocked\r\n3. Deferred\r\n4. Override\r\n5. Rejected\r\n6. Resolved\r\n\r\nResolution formula:\r\n\r\n```text\r\nDependency Resolution =\r\nif InvalidDependency then Rejected\r\nelse if CircularDependency then Rejected\r\nelse if HardDependency and DependencyReadinessScore < 75 then Blocked\r\nelse if SoftDependency and DependencyReadinessScore < 60 then Deferred\r\nelse if AllowedOverride and OverrideReason exists then Override\r\nelse if DependencyReadinessScore >= 75 then Satisfied\r\nelse Deferred\r\n```\r\n\r\nResolution rules:\r\n\r\n1. Rejected dependencies are not part of active graph.\r\n2. Blocked dependencies stop child Goal funding and execution.\r\n3. Deferred dependencies postpone child Goal ranking and allocation.\r\n4. Override dependencies require reason, actor, and audit.\r\n5. Resolved dependencies preserve final state for history.\r\n\r\n\r\n# Dependency Conflict\r\n\r\nDependency conflict occurs when dependency order conflicts with Goal Priority, Recommendation Score, Decision Score, Scenario Score, Execution Score, resource allocation, or user preference.\r\n\r\nExamples:\r\n\r\n| Conflict | Resolution |\r\n|---|---|\r\n| Education vs Retirement | Education with fixed deadline can proceed if Retirement remains above policy; otherwise split funding by Priority Score and readiness. |\r\n| Housing vs Investment | Housing is blocked when affordability or cashflow dependency fails; Investment proceeds only after liquidity and debt rules pass. |\r\n| Insurance vs Lifestyle | Insurance blocks Lifestyle when coverage gap is material and dependents exist. |\r\n| Debt vs Investment | Debt blocks Investment when Loan Interest exceeds risk-adjusted Expected ROI and liquidity is not impaired. |\r\n| Tax vs Dream | Tax blocks Dream when legal or tax deadline exists. |\r\n| Emergency vs Housing | Emergency Fund blocks Housing upgrade until minimum reserve is satisfied. |\r\n\r\n\r\n# Dependency Cycle Detection\r\n\r\nGoal Dependency must reject:\r\n\r\n1. Cycle Detection positive result.\r\n2. Loop Detection positive result.\r\n3. Invalid Dependency.\r\n4. Circular Dependency.\r\n5. Self Dependency.\r\n6. Duplicate Dependency.\r\n\r\nCycle detection rules:\r\n\r\n1. ParentGoalId must not equal ChildGoalId.\r\n2. Duplicate active edge with same ParentGoalId, ChildGoalId, and DependencyType is rejected.\r\n3. Any new edge that creates a path from ChildGoalId back to ParentGoalId is rejected.\r\n4. Cancelled and Completed dependencies are excluded from active cycle checks unless historical replay is requested.\r\n5. Bidirectional dependencies require explicit two-edge validation and must not create execution deadlock.\r\n\r\n\r\n# Dependency Graph\r\n\r\nThe active Goal Dependency Graph must be a directed acyclic graph.\r\n\r\n```text\r\nGoalDependencyGraph = Goals + ActiveGoalDependencyEdges\r\n```\r\n\r\nGraph requirements:\r\n\r\n1. It must support Topological Sort.\r\n2. It must support Dependency Traversal.\r\n3. It must support Execution Ordering.\r\n4. It must support upstream lookup.\r\n5. It must support downstream lookup.\r\n6. It must support blocking dependency detection.\r\n7. It must support graph rebuild.\r\n8. It must support graph cache invalidation.\r\n\r\nCanonical Dependency Graph:\r\n\r\n```mermaid\r\ngraph TD\r\n  A[\"Emergency Fund\"] --> B[\"Insurance\"]\r\n  B --> C[\"Debt\"]\r\n  C --> D[\"Cashflow\"]\r\n  D --> E[\"Investment\"]\r\n  E --> F[\"Housing\"]\r\n  E --> G[\"Education\"]\r\n  E --> H[\"Retirement\"]\r\n  F --> I[\"Family\"]\r\n  G --> I\r\n  H --> J[\"Tax\"]\r\n  I --> J\r\n  J --> K[\"Estate\"]\r\n  K --> L[\"Lifestyle\"]\r\n  L --> M[\"Dream\"]\r\n```\r\n\r\n\r\n# Dependency Ordering\r\n\r\nDependency Ordering uses topological sort and then applies Goal Prioritization tie-breakers.\r\n\r\nOrdering algorithm:\r\n\r\n```text\r\n1. Load active Goals.\r\n2. Load active dependencies.\r\n3. Remove Cancelled, Completed, and Expired edges from active graph.\r\n4. Validate graph.\r\n5. Detect cycles.\r\n6. Calculate Dependency Weight.\r\n7. Calculate Dependency Readiness Score.\r\n8. Topologically sort by prerequisite direction.\r\n9. Apply Goal Priority within same dependency level.\r\n10. Apply Deadline Pressure within same priority band.\r\n11. Apply stable GoalId tie-breaker.\r\n```\r\n\r\nExecution Ordering:\r\n\r\n```mermaid\r\nflowchart TD\r\n  A[\"Load Goal Dependency Graph\"] --> B[\"Validate dependencies\"]\r\n  B --> C[\"Detect cycles\"]\r\n  C --> D{\"Cycle found?\"}\r\n  D -- Yes --> E[\"Reject graph rebuild\"]\r\n  D -- No --> F[\"Calculate readiness\"]\r\n  F --> G[\"Topological sort\"]\r\n  G --> H[\"Apply Goal Priority tie-breakers\"]\r\n  H --> I[\"Create execution ordering\"]\r\n  I --> J[\"Publish DependencyGraphRebuilt\"]\r\n```\r\n\r\n",
+  "references": []
+}

@@ -1,0 +1,127 @@
+{
+  "id": "06a70565057b7324",
+  "title": "Optimization Engine Operations and Verification",
+  "category": "engine",
+  "canonicalPath": "knowledge/engine/optimization-engine/operations-and-verification.md",
+  "sourceHash": "67b997a1bd3cb79514ca3e45b07c14f1dfef1c8ed7a621ab7bdcd091f24eeaa7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Optimization Engine Operations and Verification"
+    },
+    {
+      "level": 1,
+      "text": "Performance"
+    },
+    {
+      "level": 1,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Optimization History"
+    },
+    {
+      "level": 2,
+      "text": "Replay History"
+    },
+    {
+      "level": 2,
+      "text": "CorrelationId"
+    },
+    {
+      "level": 2,
+      "text": "Optimization Trace"
+    },
+    {
+      "level": 1,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Authorization"
+    },
+    {
+      "level": 2,
+      "text": "Tenant Isolation"
+    },
+    {
+      "level": 2,
+      "text": "Optimization Isolation"
+    },
+    {
+      "level": 1,
+      "text": "Mermaid"
+    },
+    {
+      "level": 2,
+      "text": "Optimization Architecture"
+    },
+    {
+      "level": 2,
+      "text": "Optimization Flow"
+    },
+    {
+      "level": 2,
+      "text": "Constraint Graph"
+    },
+    {
+      "level": 2,
+      "text": "Optimization Dependency Graph"
+    },
+    {
+      "level": 2,
+      "text": "Solver Flow"
+    },
+    {
+      "level": 2,
+      "text": "Trade-off Diagram"
+    },
+    {
+      "level": 1,
+      "text": "Testing"
+    },
+    {
+      "level": 1,
+      "text": "Edge Cases"
+    },
+    {
+      "level": 1,
+      "text": "Final Consistency Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Completion Checklist"
+    },
+    {
+      "level": 1,
+      "text": "Version History"
+    },
+    {
+      "level": 2,
+      "text": "Phase 2 Executable Specification Addendum"
+    },
+    {
+      "level": 3,
+      "text": "Optimization Execution Contract"
+    },
+    {
+      "level": 3,
+      "text": "Required Commands"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Validation Rules"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Testing Matrix"
+    },
+    {
+      "level": 3,
+      "text": "Addendum Version History"
+    }
+  ],
+  "bodyMarkdown": "# Optimization Engine Operations and Verification\r\n\r\nSource: ../optimization-engine-framework.md\r\n\r\n# Performance\r\n\r\n| Area | Requirement |\r\n| --- | --- |\r\n| Optimization SLA | Each optimization must define latency, timeout, throughput, progress, and fallback expectation. |\r\n| Parallel Optimization | Parallel search must preserve deterministic behavior when required and must honor constraint boundaries. |\r\n| Solver Performance | Solver runtime, candidate count, convergence, infeasibility, and score improvement must be measured. |\r\n| Memory Usage | Large candidate search, multi-objective ranking, and batch optimization must declare memory bounds. |\r\n\r\n# Audit\r\n\r\n## Optimization History\r\n\r\n- Optimization records must include optimization name, version, objective, actor, TenantId, HouseholdId when applicable, input snapshot reference, output reference, duration, warnings, infeasibility state, and outcome.\r\n\r\n## Replay History\r\n\r\n- Replay records must include actor, reason, source snapshot, version availability, seed when applicable, result comparison, differences, and outcome.\r\n\r\n## CorrelationId\r\n\r\n- CorrelationId is required for every governed optimization.\r\n- Child calculations, simulations, and projections must inherit parent CorrelationId.\r\n\r\n## Optimization Trace\r\n\r\n- Trace must include objective, variables, constraints, candidates, scores, penalties, solver status, dependencies, selected result, rejected candidates when required, warnings, and validation outcomes.\r\n\r\n# Security\r\n\r\n## Authorization\r\n\r\n- Protected optimization inputs require authorization before read.\r\n- Protected optimization outputs require authorization before display, export, cache, report, dashboard, analytics, recommendation, or notification use.\r\n\r\n## Tenant Isolation\r\n\r\n- Tenant-scoped optimizations must include TenantId in context, snapshot, trace, cache, audit, and output.\r\n- Cross-tenant optimizations require explicit administrative permission and approved aggregation or anonymization.\r\n\r\n## Optimization Isolation\r\n\r\n- Optimization sessions must isolate inputs, snapshots, intermediate candidates, solver state, and outputs from unrelated sessions.\r\n- Shared workers must not mix scoped data.\r\n\r\n# Mermaid\r\n\r\n## Optimization Architecture\r\n\r\n```mermaid\r\nflowchart LR\r\n  Caller[API, Workflow, Job, or Service] --> Context[Optimization Context]\r\n  Context --> Objective[Objective Function]\r\n  Context --> Constraints[Constraints]\r\n  Objective --> Solver[Optimization Solver]\r\n  Constraints --> Solver\r\n  Calc[Calculation Engine] --> Solver\r\n  Sim[Simulation Engine] --> Solver\r\n  Proj[Projection Engine] --> Solver\r\n  Solver --> Result[Optimization Result]\r\n  Result --> Trace[Trace and Audit]\r\n```\r\n\r\n## Optimization Flow\r\n\r\n```mermaid\r\nsequenceDiagram\r\n  participant C as Caller\r\n  participant O as Optimization Engine\r\n  participant D as Dependency Resolver\r\n  participant S as Solver\r\n  participant A as Audit\r\n  C->>O: Optimization request\r\n  O->>O: Validate objective, variables, constraints\r\n  O->>D: Resolve dependencies\r\n  D-->>O: Versioned dependencies\r\n  O->>S: Search candidates\r\n  S-->>O: Result or infeasible state\r\n  O->>A: Record trace and outcome\r\n  O-->>C: Optimization result\r\n```\r\n\r\n## Constraint Graph\r\n\r\n```mermaid\r\nflowchart TD\r\n  Variables[Variables] --> Hard[Hard Constraints]\r\n  Variables --> Soft[Soft Constraints]\r\n  Hard --> Feasible[Feasible Candidates]\r\n  Soft --> Penalty[Penalty Score]\r\n  Feasible --> Objective[Objective Function]\r\n  Penalty --> Objective\r\n```\r\n\r\n## Optimization Dependency Graph\r\n\r\n```mermaid\r\nflowchart LR\r\n  Scenario[Scenario] --> Optimization[Optimization]\r\n  Assumptions[Assumptions] --> Optimization\r\n  Calculation[Calculation Engine] --> Optimization\r\n  Simulation[Simulation Engine] --> Optimization\r\n  Projection[Projection Engine] --> Optimization\r\n  Rules[Rule Engine] --> Optimization\r\n  Optimization --> Decision[Decision Engine]\r\n  Optimization --> Recommendation[Recommendation Engine]\r\n```\r\n\r\n## Solver Flow\r\n\r\n```mermaid\r\nflowchart TD\r\n  Start[Start Solver] --> Generate[Generate Candidate]\r\n  Generate --> Validate[Validate Hard Constraints]\r\n  Validate -->|Invalid| Reject[Reject Candidate]\r\n  Validate -->|Valid| Score[Score Objective and Penalties]\r\n  Score --> Compare[Compare Best Candidate]\r\n  Compare --> Stop{Termination Met}\r\n  Stop -->|No| Generate\r\n  Stop -->|Yes| Result[Return Result]\r\n```\r\n\r\n## Trade-off Diagram\r\n\r\n```mermaid\r\nflowchart LR\r\n  CandidateA[Candidate A] --> Tradeoff[Trade-off Evaluation]\r\n  CandidateB[Candidate B] --> Tradeoff\r\n  Tradeoff --> Risk[Risk Impact]\r\n  Tradeoff --> Return[Return Impact]\r\n  Tradeoff --> Liquidity[Liquidity Impact]\r\n  Tradeoff --> Recommendation[Recommended Option]\r\n```\r\n\r\n# Testing\r\n\r\n| Test Type | Required Coverage |\r\n| --- | --- |\r\n| Optimization Test | Objective, variables, constraints, dependencies, solver execution, result, score, and trace. |\r\n| Constraint Test | Hard constraints, soft constraints, penalties, priority rules, infeasibility, and compatibility. |\r\n| Solver Test | Determinism, convergence, termination, candidate generation, tie-breaker, and failure behavior. |\r\n| Replay Test | Snapshot replay, version availability, deterministic result, difference detection, and replay audit. |\r\n| Performance Test | SLA, timeout, throughput, parallel execution, solver runtime, memory, CPU, progress, and cancellation. |\r\n| Consistency Test | Same deterministic input produces same output, constraint handling is stable, and dependency versions remain stable. |\r\n\r\n# Edge Cases\r\n\r\n- Objective is missing.\r\n- Objective function version is missing.\r\n- Objective direction is invalid.\r\n- Variable bounds are invalid.\r\n- Variable step size is zero.\r\n- Hard constraints conflict.\r\n- Soft constraints have no penalty rule.\r\n- Penalty weight is negative.\r\n- Priority rule is missing tie-breaker.\r\n- Candidate set is empty.\r\n- Solver finds no feasible solution.\r\n- Solver does not converge.\r\n- Solver exceeds time limit.\r\n- Solver exceeds memory limit.\r\n- Solver returns result that violates hard constraint.\r\n- Solver score is not reproducible.\r\n- Parallel search changes deterministic result.\r\n- Calculation dependency is unavailable.\r\n- Simulation dependency is stale.\r\n- Projection dependency is stale.\r\n- Rule dependency changes during run.\r\n- Scenario is incompatible with objective.\r\n- Market assumption is stale.\r\n- Assumption version is missing.\r\n- Optimization model version is retired.\r\n- Output schema is incompatible with API.\r\n- Replay cannot find historical solver version.\r\n- Replay cannot find historical constraint version.\r\n- Replay result differs from original.\r\n- TenantId is missing from scoped optimization.\r\n- HouseholdId is missing from household optimization.\r\n- Authorization changes during long-running run.\r\n- Cache key omits optimization version.\r\n- Cache returns another household result.\r\n- Dashboard displays result without generated time.\r\n- Report uses result without lineage.\r\n- Analytics mixes incompatible objective versions.\r\n- Recommendation uses stale optimization result.\r\n- Decision consumes optimization without trace.\r\n- Sensitive input appears in trace.\r\n- Raw PII appears in audit detail.\r\n- CorrelationId is missing.\r\n- CausationId references missing parent.\r\n- Scheduler starts overlapping optimization run.\r\n- Background job retries with same idempotency key.\r\n- Workflow compensation needs prior optimization snapshot.\r\n- Automation triggers optimization on stale data.\r\n- Explainability references missing candidate comparison.\r\n- Trade-off explanation omits rejected constraint.\r\n- Infeasibility explanation exposes protected data.\r\n- Local date boundary conflicts with UTC timestamp.\r\n\r\n# Final Consistency Matrix\r\n\r\n| Area | Required Optimization Alignment |\r\n| --- | --- |\r\n| Optimization | Uses this framework as canonical source of truth. |\r\n| Objective | Objective function, direction, score, and version are mapped. |\r\n| Constraint | Hard constraints, soft constraints, penalties, and priority rules are mapped. |\r\n| Scenario | Scenario id, version, lifecycle, variables, and compatibility are mapped. |\r\n| Simulation | Simulation outputs, versions, confidence, and trace are mapped. |\r\n| Calculation | Formula outputs, versions, precision, and trace are mapped. |\r\n| Projection | Projection dependencies, versions, generated time, and staleness are mapped. |\r\n| Decision | Rule version, optimization output, rationale, and audit are mapped. |\r\n| Rule Engine | Rule ids, versions, inputs, outcomes, and priority are mapped. |\r\n| Repository | Source data, query, snapshot time, tenant, household, and lineage are mapped. |\r\n| Application Service | Orchestration, authorization, DTO, audit, and workflow behavior are mapped. |\r\n| Domain Service | Domain-specific optimization rules, invariants, and business rules are mapped. |\r\n| API | Input DTO, output DTO, validation, timeout, authorization, and trace exposure are mapped. |\r\n\r\n# Completion Checklist\r\n\r\n- Optimization objective requirement is defined.\r\n- Optimization constraint requirement is defined.\r\n- Optimization variable requirement is defined.\r\n- Optimization solver strategy is defined.\r\n- Optimization search strategy is defined.\r\n- Optimization convergence strategy is defined.\r\n- Optimization replay requirement is defined.\r\n- Optimization traceability requirement is defined.\r\n- Optimization validation requirement is defined.\r\n- Optimization audit requirement is defined.\r\n- Objective mapping is defined.\r\n- Constraint mapping is defined.\r\n- Variable mapping is defined.\r\n- Scenario mapping is defined.\r\n- Simulation mapping is defined.\r\n- Calculation mapping is defined.\r\n- Projection mapping is defined.\r\n- Decision mapping is defined.\r\n- Trade-off matrix is defined.\r\n- Validation rules are complete.\r\n- Business rules are complete.\r\n- Mermaid diagrams are syntactically valid.\r\n- Markdown structure is valid.\r\n- No placeholder terms are present.\r\n- No draft-only status is present.\r\n- No temporary catalog entries are present.\r\n\r\n# Version History\r\n\r\n| Version | Date | Description |\r\n| --- | --- | --- |\r\n| 1.0 | 2026-07-13 | Atlas Enterprise Canonical Optimization Engine Specification. |\r\n\r\n## Phase 2 Executable Specification Addendum\r\n\r\n### Optimization Execution Contract\r\n\r\n| Field | Requirement |\r\n|---|---|\r\n| Aggregate | OptimizationSession |\r\n| Identity | optimizationSessionId |\r\n| Scope | tenantId, householdId, scenarioId optional |\r\n| Required State | objectiveVersion, modelVersion, solverVersion, inputSnapshot, constraints, variables, executionPolicy |\r\n| Outputs | selectedCandidate, infeasibilityState, rankedCandidates, score, traceReference, auditReference |\r\n| Determinism | Identical inputs, versions, solver policy, and seed must produce reproducible results. |\r\n\r\n### Required Commands\r\n\r\n| Command | Purpose |\r\n|---|---|\r\n| StartOptimizationSession | Create and validate an optimization execution context. |\r\n| ExecuteOptimization | Run solver and produce result or infeasibility evidence. |\r\n| CancelOptimizationSession | Stop a long-running optimization safely. |\r\n| PublishOptimizationResult | Freeze selected result for downstream consumers. |\r\n| ReplayOptimizationSession | Re-execute from captured snapshot and versions. |\r\n\r\n### Addendum Validation Rules\r\n\r\n1. Objective, variables, constraints, solver strategy, and termination criteria are required before execution.\r\n2. Hard-constraint violations must make a candidate infeasible.\r\n3. Soft-constraint violations must produce penalty and trade-off evidence.\r\n4. Published results must include traceReference and version metadata.\r\n5. Replay must fail when required historical versions are unavailable.\r\n\r\n### Addendum Testing Matrix\r\n\r\n| Scenario | Expected Result |\r\n|---|---|\r\n| Conflicting hard constraints | Controlled infeasibility result is returned. |\r\n| Solver timeout | Session ends with controlled non-converged state. |\r\n| Deterministic replay | Result and score match original execution. |\r\n| Missing objective version | Validation fails. |\r\n| Candidate violates hard constraint | Candidate is rejected. |\r\n\r\n### Addendum Version History\r\n\r\n| Version | Date | Description |\r\n|---|---|---|\r\n| 1.0-p2 | 2026-07-15 | Phase 2 executable addendum added. |\r\n",
+  "references": []
+}

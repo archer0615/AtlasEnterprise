@@ -1,0 +1,55 @@
+{
+  "id": "f831d0e981442d12",
+  "title": "Simulation Engine Catalog and Matrices",
+  "category": "engine",
+  "canonicalPath": "knowledge/engine/simulation-engine/catalog-and-matrices.md",
+  "sourceHash": "c8297a8a529752ae8f9e500082f8c8720ebc2cb92beabd24feadd56e12b561b7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Simulation Engine Catalog and Matrices"
+    },
+    {
+      "level": 1,
+      "text": "Complete Simulation Catalog"
+    },
+    {
+      "level": 1,
+      "text": "Simulation Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Scenario Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Parameter Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Assumption Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Projection Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Calculation Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Optimization Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Decision Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Comparison Matrix"
+    }
+  ],
+  "bodyMarkdown": "# Simulation Engine Catalog and Matrices\r\n\r\nSource: ../simulation-engine-framework.md\r\n\r\n# Complete Simulation Catalog\r\n\r\nEvery simulation capability must use this Enterprise contract.\r\n\r\n| Field | Requirement |\r\n| --- | --- |\r\n| Simulation Name | Stable PascalCase name ending with Simulation. |\r\n| Display Name | Human-readable label. |\r\n| Category | Baseline, BestCase, WorstCase, WhatIf, StressTest, MonteCarlo, Sensitivity, ScenarioComparison, Forecast, OptimizationInput, DecisionSupport. |\r\n| Purpose | Why the simulation exists. |\r\n| Business Meaning | Business, financial, decision, recommendation, reporting, or operational meaning. |\r\n| Description | Exact modeled behavior. |\r\n| Inputs | Required source values, units, scope, and classification. |\r\n| Outputs | Result metrics, distributions, comparisons, classification, and consumers. |\r\n| Scenario | Scenario id, version, type, owner, and lifecycle state. |\r\n| Variables | Variable names, ranges, units, distributions, and validation. |\r\n| Parameters | Model parameters, defaults, limits, and version. |\r\n| Assumptions | Assumption set and version. |\r\n| Market Assumptions | Market data, source, time, and version. |\r\n| Calculation Dependency | Calculation names, versions, inputs, and outputs used. |\r\n| Projection Dependency | Projection names, versions, generated time, and staleness. |\r\n| Optimization Dependency | Optimization objective, constraints, solver version, and result status when used. |\r\n| Decision Dependency | Decision state, rule result, or recommendation dependency when used. |\r\n| Rule Engine Dependency | Rule ids, versions, inputs, and outcomes. |\r\n| Repository | Repository reads needed for source data. |\r\n| Application Service | Service orchestrating simulation. |\r\n| Domain Service | Domain service owning domain model behavior. |\r\n| Workflow | Workflow dependency or simulation step. |\r\n| Automation | Automation trigger or action using simulation. |\r\n| Scheduler | Scheduled simulation or refresh. |\r\n| Background Job | Async, batch, replay, or long-running worker. |\r\n| API | API route or DTO exposing simulation. |\r\n| Execution Strategy | Synchronous, asynchronous, batch, scheduled, parallel, deterministic, stochastic, or streaming. |\r\n| Iterations | Iteration count, convergence rule, and sampling method when applicable. |\r\n| Random Seed Strategy | Fixed seed, generated seed, user-supplied seed, or not applicable. |\r\n| Deterministic Mode | Required behavior for replayable runs. |\r\n| Replay Strategy | Snapshot, seed, dependency versions, and comparison behavior. |\r\n| Traceability | Trace fields, intermediate values, iteration summaries, and explanation references. |\r\n| Validation | Input, scenario, parameter, dependency, output, convergence, and tolerance validation. |\r\n| Business Rules | Behavioral rules and invariants. |\r\n| Version | Engine, model, scenario, input schema, output schema, and dependency versions. |\r\n| Audit | Audit record requirements. |\r\n| Performance | SLA, parallelism, memory, CPU, timeout, progress, and cancellation. |\r\n| Security | Authorization, tenant, household, masking, classification, and result access. |\r\n| Example | Minimal valid simulation scenario. |\r\n\r\n# Simulation Matrix\r\n\r\n| Simulation Category | Primary Purpose | Required Governance |\r\n| --- | --- | --- |\r\n| Baseline | Establish expected outcome from current assumptions. | Scenario version, assumption version, calculation trace. |\r\n| BestCase | Evaluate optimistic assumptions. | Variable bounds, assumption rationale, comparison trace. |\r\n| WorstCase | Evaluate downside assumptions. | Stress parameters, risk thresholds, decision impact. |\r\n| WhatIf | Evaluate user-selected changes. | Input validation, scenario delta, replay snapshot. |\r\n| StressTest | Test adverse financial or market conditions. | Stress definition, threshold, failure classification. |\r\n| MonteCarlo | Evaluate probabilistic outcome distribution. | Seed, distribution model, iteration count, confidence. |\r\n| Sensitivity | Evaluate output response to variable ranges. | Variable ranges, baseline, comparison metrics. |\r\n| ScenarioComparison | Rank multiple scenarios. | Compatibility rules, scoring method, explanation. |\r\n| Forecast | Produce time-based modeled outcomes. | Projection dependency, assumptions, horizon, generated time. |\r\n\r\n# Scenario Matrix\r\n\r\n| Scenario Type | Simulation Requirement |\r\n| --- | --- |\r\n| Baseline Scenario | Uses current approved assumptions, current household state, and default model version. |\r\n| Alternative Scenario | Records delta from baseline, owner, version, and comparison target. |\r\n| Stress Scenario | Defines adverse variables, thresholds, and failure classification. |\r\n| Goal Scenario | Defines goal target, time horizon, contribution path, and dependency calculations. |\r\n| Retirement Scenario | Defines retirement age, withdrawal policy, return assumptions, and inflation. |\r\n| Housing Scenario | Defines property cost, loan terms, cash reserve, taxes, and risk assumptions. |\r\n| Portfolio Scenario | Defines allocation, return assumptions, volatility, rebalancing, and constraints. |\r\n\r\n# Parameter Matrix\r\n\r\n| Parameter Type | Required Control |\r\n| --- | --- |\r\n| Time Horizon | Start date, end date, period granularity, and boundary policy. |\r\n| Iteration Count | Minimum, maximum, convergence requirement, and performance limit. |\r\n| Random Seed | Seed source, storage, replay policy, and visibility. |\r\n| Distribution | Distribution type, parameters, source, and version. |\r\n| Confidence Level | Confidence metric, percentile, and interpretation. |\r\n| Stress Level | Severity, variable mapping, and threshold. |\r\n| Sensitivity Range | Min, max, step, and unit. |\r\n| Scenario Weight | Ranking weight, source, and validation. |\r\n\r\n# Assumption Matrix\r\n\r\n| Assumption Type | Simulation Requirement |\r\n| --- | --- |\r\n| Inflation | Source, effective date, version, scenario mapping, and stress override. |\r\n| Return Rate | Asset class, horizon, market source, version, distribution, and confidence. |\r\n| Volatility | Asset class, source, model version, and distribution. |\r\n| Salary Growth | Household context, scenario, version, and sensitivity range. |\r\n| Expense Growth | Category, inflation mapping, scenario, and version. |\r\n| Tax | Jurisdiction, effective date, rule version, and scenario impact. |\r\n| Life Stage | Model version, household profile, and decision context. |\r\n\r\n# Projection Matrix\r\n\r\n| Projection Dependency | Simulation Requirement |\r\n| --- | --- |\r\n| Cash Flow Projection | Scenario cashflow path, time series, assumption version, and generated time. |\r\n| Net Worth Projection | Asset and liability path, valuation rules, and scenario version. |\r\n| Portfolio Projection | Allocation, return assumptions, volatility, and market data version. |\r\n| Loan Projection | Amortization, rate path, payment schedule, and scenario inputs. |\r\n| Retirement Projection | Contribution, withdrawal, inflation, and success probability. |\r\n\r\n# Calculation Matrix\r\n\r\n| Calculation Dependency | Simulation Requirement |\r\n| --- | --- |\r\n| Financial Formula | Formula id, version, precision, rounding, and trace. |\r\n| Score Calculation | Score model version, weights, thresholds, and explanation. |\r\n| Ratio Calculation | Ratio definition, inputs, units, and tolerance. |\r\n| Cash Reserve Calculation | Liquidity target, household context, and risk policy. |\r\n| Goal Funding Calculation | Target amount, contribution path, time horizon, and assumptions. |\r\n\r\n# Optimization Matrix\r\n\r\n| Optimization Dependency | Simulation Requirement |\r\n| --- | --- |\r\n| Portfolio Optimization | Objective, constraints, solver version, and output allocation. |\r\n| Goal Funding Optimization | Objective, constraints, contribution capacity, and goal priority. |\r\n| Debt Paydown Optimization | Payoff strategy, interest rates, cashflow constraint, and ranking. |\r\n| Cash Reserve Optimization | Liquidity target, opportunity cost, and risk boundary. |\r\n\r\n# Decision Matrix\r\n\r\n| Decision Dependency | Simulation Requirement |\r\n| --- | --- |\r\n| Scenario Decision | Uses compatible scenario results, comparison metrics, and ranking logic. |\r\n| Recommendation Decision | Uses simulation outcomes, confidence, priority score, and explanation. |\r\n| Risk Decision | Uses stress outcomes, thresholds, score model, and rule version. |\r\n| Eligibility Decision | Uses rule outcomes and simulation-dependent thresholds. |\r\n\r\n# Comparison Matrix\r\n\r\n| Comparison Type | Required Control |\r\n| --- | --- |\r\n| Baseline vs Alternative | Same time horizon, model version, metric definitions, and assumption compatibility. |\r\n| Best vs Worst | Explicit variable bounds, stress rationale, and output deltas. |\r\n| Multi-Scenario Ranking | Ranking method, weights, tie-breaker, and explainability. |\r\n| Before vs After Recommendation | Source decision, recommendation id, expected impact, and confidence. |\r\n| Simulation vs Actual | Actual source, period alignment, variance, and accuracy review. |\r\n",
+  "references": []
+}

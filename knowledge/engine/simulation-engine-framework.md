@@ -1,4 +1,9 @@
 # Simulation Engine Framework
+## Split Navigation
+
+- [Simulation engine catalog and matrices](simulation-engine/catalog-and-matrices.md)
+- [Simulation engine replay and validation](simulation-engine/replay-and-validation.md)
+- [Simulation engine operations and verification](simulation-engine/operations-and-verification.md)
 
 # Document Control
 

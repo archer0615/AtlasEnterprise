@@ -1,4 +1,9 @@
 # Optimization Engine Framework
+## Split Navigation
+
+- [Optimization engine catalog and matrices](optimization-engine/catalog-and-matrices.md)
+- [Optimization engine solver and validation](optimization-engine/solver-and-validation.md)
+- [Optimization engine operations and verification](optimization-engine/operations-and-verification.md)
 
 # Document Control
 

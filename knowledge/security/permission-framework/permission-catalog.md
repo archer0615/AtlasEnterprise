@@ -1,0 +1,2976 @@
+# Permission Catalog
+
+Source: [permission-framework.md](../permission-framework.md)
+
+## Complete Permission Catalog
+
+### Permission: Dashboard:Create
+- Permission Name: Dashboard:Create
+- Display Name: Dashboard Create Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Create on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Create protects the Atlas Dashboard resource for the Create operation.
+- Description: Dashboard:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: UserApplicationService
+- Domain Service: DecisionService
+- Repository: UserRepository
+- Command: RecordIncome
+- Domain Event: SalaryReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/users
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Create may perform Create on authorized Dashboard records only.
+
+### Permission: Dashboard:Read
+- Permission Name: Dashboard:Read
+- Display Name: Dashboard Read Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Read on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Read protects the Atlas Dashboard resource for the Read operation.
+- Description: Dashboard:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: BlueprintApplicationService
+- Domain Service: CashFlowService
+- Repository: HouseholdRepository
+- Command: RecordExpense
+- Domain Event: BonusReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/households
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Read may perform Read on authorized Dashboard records only.
+
+### Permission: Dashboard:Update
+- Permission Name: Dashboard:Update
+- Display Name: Dashboard Update Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Update on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Update protects the Atlas Dashboard resource for the Update operation.
+- Description: Dashboard:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: IPSApplicationService
+- Domain Service: PortfolioService
+- Repository: AssetRepository
+- Command: CreatePortfolio
+- Domain Event: ExpenseRecorded
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/blueprint
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Update may perform Update on authorized Dashboard records only.
+
+### Permission: Dashboard:Delete
+- Permission Name: Dashboard:Delete
+- Display Name: Dashboard Delete Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Delete on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Delete protects the Atlas Dashboard resource for the Delete operation.
+- Description: Dashboard:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DecisionApplicationService
+- Domain Service: LoanService
+- Repository: LiabilityRepository
+- Command: BuySecurity
+- Domain Event: PortfolioCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/goals
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Delete may perform Delete on authorized Dashboard records only.
+
+### Permission: Dashboard:Execute
+- Permission Name: Dashboard:Execute
+- Display Name: Dashboard Execute Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Execute on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Execute protects the Atlas Dashboard resource for the Execute operation.
+- Description: Dashboard:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ScenarioApplicationService
+- Domain Service: RetirementService
+- Repository: GoalRepository
+- Command: SellSecurity
+- Domain Event: SecurityPurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/portfolios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Execute may perform Execute on authorized Dashboard records only.
+
+### Permission: Dashboard:Approve
+- Permission Name: Dashboard:Approve
+- Display Name: Dashboard Approve Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Approve on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Approve protects the Atlas Dashboard resource for the Approve operation.
+- Description: Dashboard:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DashboardApplicationService
+- Domain Service: ScenarioService
+- Repository: PortfolioRepository
+- Command: RebalancePortfolio
+- Domain Event: LoanCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/loans
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Approve may perform Approve on authorized Dashboard records only.
+
+### Permission: Dashboard:Export
+- Permission Name: Dashboard:Export
+- Display Name: Dashboard Export Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Export on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Export protects the Atlas Dashboard resource for the Export operation.
+- Description: Dashboard:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: NotificationApplicationService
+- Domain Service: ScoringService
+- Repository: LoanRepository
+- Command: CreateLoan
+- Domain Event: LoanPaymentMade
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/properties
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Export may perform Export on authorized Dashboard records only.
+
+### Permission: Dashboard:Share
+- Permission Name: Dashboard:Share
+- Display Name: Dashboard Share Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Share on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Share protects the Atlas Dashboard resource for the Share operation.
+- Description: Dashboard:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ReportApplicationService
+- Domain Service: ExplainabilityService
+- Repository: PropertyRepository
+- Command: RecordLoanPayment
+- Domain Event: HomePurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/scenarios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Share may perform Share on authorized Dashboard records only.
+
+### Permission: Dashboard:Restore
+- Permission Name: Dashboard:Restore
+- Display Name: Dashboard Restore Permission
+- Category: Dashboard
+- Purpose: allow authorized Principal to perform Restore on Dashboard according to Atlas permission governance.
+- Business Meaning: Dashboard:Restore protects the Atlas Dashboard resource for the Restore operation.
+- Description: Dashboard:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Dashboard
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: AdministrationApplicationService
+- Domain Service: RiskService
+- Repository: ScenarioRepository
+- Command: RefinanceLoan
+- Domain Event: PolicyIssued
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/decisions
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Dashboard data without Dashboard:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Dashboard:Restore may perform Restore on authorized Dashboard records only.
+
+### Permission: Goal:Create
+- Permission Name: Goal:Create
+- Display Name: Goal Create Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Create on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Create protects the Atlas Goal resource for the Create operation.
+- Description: Goal:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: GoalApplicationService
+- Domain Service: AllocationService
+- Repository: DecisionRepository
+- Command: PurchaseHome
+- Domain Event: PremiumPaid
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/recommendations
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Create may perform Create on authorized Goal records only.
+
+### Permission: Goal:Read
+- Permission Name: Goal:Read
+- Display Name: Goal Read Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Read on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Read protects the Atlas Goal resource for the Read operation.
+- Description: Goal:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: PortfolioApplicationService
+- Domain Service: DecisionService
+- Repository: NotificationRepository
+- Command: SellHome
+- Domain Event: ScenarioEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/policies
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Read may perform Read on authorized Goal records only.
+
+### Permission: Goal:Update
+- Permission Name: Goal:Update
+- Display Name: Goal Update Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Update on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Update protects the Atlas Goal resource for the Update operation.
+- Description: Goal:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: LoanApplicationService
+- Domain Service: CashFlowService
+- Repository: AuditRepository
+- Command: UpdatePropertyValue
+- Domain Event: RecommendationGenerated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/dashboard
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Update may perform Update on authorized Goal records only.
+
+### Permission: Goal:Delete
+- Permission Name: Goal:Delete
+- Display Name: Goal Delete Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Delete on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Delete protects the Atlas Goal resource for the Delete operation.
+- Description: Goal:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: UserApplicationService
+- Domain Service: PortfolioService
+- Repository: UserRepository
+- Command: IssuePolicy
+- Domain Event: DecisionAccepted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/notifications
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Delete may perform Delete on authorized Goal records only.
+
+### Permission: Goal:Execute
+- Permission Name: Goal:Execute
+- Display Name: Goal Execute Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Execute on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Execute protects the Atlas Goal resource for the Execute operation.
+- Description: Goal:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: BlueprintApplicationService
+- Domain Service: LoanService
+- Repository: HouseholdRepository
+- Command: PayPremium
+- Domain Event: DecisionRejected
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/reports
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Execute may perform Execute on authorized Goal records only.
+
+### Permission: Goal:Approve
+- Permission Name: Goal:Approve
+- Display Name: Goal Approve Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Approve on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Approve protects the Atlas Goal resource for the Approve operation.
+- Description: Goal:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: IPSApplicationService
+- Domain Service: RetirementService
+- Repository: AssetRepository
+- Command: UpdateRetirementPlan
+- Domain Event: RuleEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/administration
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Approve may perform Approve on authorized Goal records only.
+
+### Permission: Goal:Export
+- Permission Name: Goal:Export
+- Display Name: Goal Export Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Export on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Export protects the Atlas Goal resource for the Export operation.
+- Description: Goal:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DecisionApplicationService
+- Domain Service: ScenarioService
+- Repository: LiabilityRepository
+- Command: EvaluateScenario
+- Domain Event: ReplayCompleted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/audit
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Export may perform Export on authorized Goal records only.
+
+### Permission: Goal:Share
+- Permission Name: Goal:Share
+- Display Name: Goal Share Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Share on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Share protects the Atlas Goal resource for the Share operation.
+- Description: Goal:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ScenarioApplicationService
+- Domain Service: ScoringService
+- Repository: GoalRepository
+- Command: AcceptRecommendation
+- Domain Event: SalaryReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/users
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Share may perform Share on authorized Goal records only.
+
+### Permission: Goal:Restore
+- Permission Name: Goal:Restore
+- Display Name: Goal Restore Permission
+- Category: Goal
+- Purpose: allow authorized Principal to perform Restore on Goal according to Atlas permission governance.
+- Business Meaning: Goal:Restore protects the Atlas Goal resource for the Restore operation.
+- Description: Goal:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Goal
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DashboardApplicationService
+- Domain Service: ExplainabilityService
+- Repository: PortfolioRepository
+- Command: RejectRecommendation
+- Domain Event: BonusReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/households
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Goal data without Goal:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Goal:Restore may perform Restore on authorized Goal records only.
+
+### Permission: Asset:Create
+- Permission Name: Asset:Create
+- Display Name: Asset Create Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Create on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Create protects the Atlas Asset resource for the Create operation.
+- Description: Asset:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: NotificationApplicationService
+- Domain Service: RiskService
+- Repository: LoanRepository
+- Command: ReplayScenario
+- Domain Event: ExpenseRecorded
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/blueprint
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Create may perform Create on authorized Asset records only.
+
+### Permission: Asset:Read
+- Permission Name: Asset:Read
+- Display Name: Asset Read Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Read on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Read protects the Atlas Asset resource for the Read operation.
+- Description: Asset:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ReportApplicationService
+- Domain Service: AllocationService
+- Repository: PropertyRepository
+- Command: RecordIncome
+- Domain Event: PortfolioCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/goals
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Read may perform Read on authorized Asset records only.
+
+### Permission: Asset:Update
+- Permission Name: Asset:Update
+- Display Name: Asset Update Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Update on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Update protects the Atlas Asset resource for the Update operation.
+- Description: Asset:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: AdministrationApplicationService
+- Domain Service: DecisionService
+- Repository: ScenarioRepository
+- Command: RecordExpense
+- Domain Event: SecurityPurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/portfolios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Update may perform Update on authorized Asset records only.
+
+### Permission: Asset:Delete
+- Permission Name: Asset:Delete
+- Display Name: Asset Delete Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Delete on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Delete protects the Atlas Asset resource for the Delete operation.
+- Description: Asset:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: GoalApplicationService
+- Domain Service: CashFlowService
+- Repository: DecisionRepository
+- Command: CreatePortfolio
+- Domain Event: LoanCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/loans
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Delete may perform Delete on authorized Asset records only.
+
+### Permission: Asset:Execute
+- Permission Name: Asset:Execute
+- Display Name: Asset Execute Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Execute on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Execute protects the Atlas Asset resource for the Execute operation.
+- Description: Asset:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: PortfolioApplicationService
+- Domain Service: PortfolioService
+- Repository: NotificationRepository
+- Command: BuySecurity
+- Domain Event: LoanPaymentMade
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/properties
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Execute may perform Execute on authorized Asset records only.
+
+### Permission: Asset:Approve
+- Permission Name: Asset:Approve
+- Display Name: Asset Approve Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Approve on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Approve protects the Atlas Asset resource for the Approve operation.
+- Description: Asset:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: LoanApplicationService
+- Domain Service: LoanService
+- Repository: AuditRepository
+- Command: SellSecurity
+- Domain Event: HomePurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/scenarios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Approve may perform Approve on authorized Asset records only.
+
+### Permission: Asset:Export
+- Permission Name: Asset:Export
+- Display Name: Asset Export Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Export on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Export protects the Atlas Asset resource for the Export operation.
+- Description: Asset:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: UserApplicationService
+- Domain Service: RetirementService
+- Repository: UserRepository
+- Command: RebalancePortfolio
+- Domain Event: PolicyIssued
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/decisions
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Export may perform Export on authorized Asset records only.
+
+### Permission: Asset:Share
+- Permission Name: Asset:Share
+- Display Name: Asset Share Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Share on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Share protects the Atlas Asset resource for the Share operation.
+- Description: Asset:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: BlueprintApplicationService
+- Domain Service: ScenarioService
+- Repository: HouseholdRepository
+- Command: CreateLoan
+- Domain Event: PremiumPaid
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/recommendations
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Share may perform Share on authorized Asset records only.
+
+### Permission: Asset:Restore
+- Permission Name: Asset:Restore
+- Display Name: Asset Restore Permission
+- Category: Asset
+- Purpose: allow authorized Principal to perform Restore on Asset according to Atlas permission governance.
+- Business Meaning: Asset:Restore protects the Atlas Asset resource for the Restore operation.
+- Description: Asset:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Asset
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: IPSApplicationService
+- Domain Service: ScoringService
+- Repository: AssetRepository
+- Command: RecordLoanPayment
+- Domain Event: ScenarioEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/policies
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Asset data without Asset:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Asset:Restore may perform Restore on authorized Asset records only.
+
+### Permission: Liability:Create
+- Permission Name: Liability:Create
+- Display Name: Liability Create Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Create on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Create protects the Atlas Liability resource for the Create operation.
+- Description: Liability:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DecisionApplicationService
+- Domain Service: ExplainabilityService
+- Repository: LiabilityRepository
+- Command: RefinanceLoan
+- Domain Event: RecommendationGenerated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/dashboard
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Create may perform Create on authorized Liability records only.
+
+### Permission: Liability:Read
+- Permission Name: Liability:Read
+- Display Name: Liability Read Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Read on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Read protects the Atlas Liability resource for the Read operation.
+- Description: Liability:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ScenarioApplicationService
+- Domain Service: RiskService
+- Repository: GoalRepository
+- Command: PurchaseHome
+- Domain Event: DecisionAccepted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/notifications
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Read may perform Read on authorized Liability records only.
+
+### Permission: Liability:Update
+- Permission Name: Liability:Update
+- Display Name: Liability Update Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Update on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Update protects the Atlas Liability resource for the Update operation.
+- Description: Liability:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DashboardApplicationService
+- Domain Service: AllocationService
+- Repository: PortfolioRepository
+- Command: SellHome
+- Domain Event: DecisionRejected
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/reports
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Update may perform Update on authorized Liability records only.
+
+### Permission: Liability:Delete
+- Permission Name: Liability:Delete
+- Display Name: Liability Delete Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Delete on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Delete protects the Atlas Liability resource for the Delete operation.
+- Description: Liability:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: NotificationApplicationService
+- Domain Service: DecisionService
+- Repository: LoanRepository
+- Command: UpdatePropertyValue
+- Domain Event: RuleEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/administration
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Delete may perform Delete on authorized Liability records only.
+
+### Permission: Liability:Execute
+- Permission Name: Liability:Execute
+- Display Name: Liability Execute Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Execute on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Execute protects the Atlas Liability resource for the Execute operation.
+- Description: Liability:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ReportApplicationService
+- Domain Service: CashFlowService
+- Repository: PropertyRepository
+- Command: IssuePolicy
+- Domain Event: ReplayCompleted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/audit
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Execute may perform Execute on authorized Liability records only.
+
+### Permission: Liability:Approve
+- Permission Name: Liability:Approve
+- Display Name: Liability Approve Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Approve on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Approve protects the Atlas Liability resource for the Approve operation.
+- Description: Liability:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: AdministrationApplicationService
+- Domain Service: PortfolioService
+- Repository: ScenarioRepository
+- Command: PayPremium
+- Domain Event: SalaryReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/users
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Approve may perform Approve on authorized Liability records only.
+
+### Permission: Liability:Export
+- Permission Name: Liability:Export
+- Display Name: Liability Export Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Export on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Export protects the Atlas Liability resource for the Export operation.
+- Description: Liability:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: GoalApplicationService
+- Domain Service: LoanService
+- Repository: DecisionRepository
+- Command: UpdateRetirementPlan
+- Domain Event: BonusReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/households
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Export may perform Export on authorized Liability records only.
+
+### Permission: Liability:Share
+- Permission Name: Liability:Share
+- Display Name: Liability Share Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Share on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Share protects the Atlas Liability resource for the Share operation.
+- Description: Liability:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: PortfolioApplicationService
+- Domain Service: RetirementService
+- Repository: NotificationRepository
+- Command: EvaluateScenario
+- Domain Event: ExpenseRecorded
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/blueprint
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Share may perform Share on authorized Liability records only.
+
+### Permission: Liability:Restore
+- Permission Name: Liability:Restore
+- Display Name: Liability Restore Permission
+- Category: Liability
+- Purpose: allow authorized Principal to perform Restore on Liability according to Atlas permission governance.
+- Business Meaning: Liability:Restore protects the Atlas Liability resource for the Restore operation.
+- Description: Liability:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Liability
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: LoanApplicationService
+- Domain Service: ScenarioService
+- Repository: AuditRepository
+- Command: AcceptRecommendation
+- Domain Event: PortfolioCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/goals
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Liability data without Liability:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Liability:Restore may perform Restore on authorized Liability records only.
+
+### Permission: Scenario:Create
+- Permission Name: Scenario:Create
+- Display Name: Scenario Create Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Create on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Create protects the Atlas Scenario resource for the Create operation.
+- Description: Scenario:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: UserApplicationService
+- Domain Service: ScoringService
+- Repository: UserRepository
+- Command: RejectRecommendation
+- Domain Event: SecurityPurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/portfolios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Create may perform Create on authorized Scenario records only.
+
+### Permission: Scenario:Read
+- Permission Name: Scenario:Read
+- Display Name: Scenario Read Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Read on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Read protects the Atlas Scenario resource for the Read operation.
+- Description: Scenario:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: BlueprintApplicationService
+- Domain Service: ExplainabilityService
+- Repository: HouseholdRepository
+- Command: ReplayScenario
+- Domain Event: LoanCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/loans
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Read may perform Read on authorized Scenario records only.
+
+### Permission: Scenario:Update
+- Permission Name: Scenario:Update
+- Display Name: Scenario Update Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Update on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Update protects the Atlas Scenario resource for the Update operation.
+- Description: Scenario:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: IPSApplicationService
+- Domain Service: RiskService
+- Repository: AssetRepository
+- Command: RecordIncome
+- Domain Event: LoanPaymentMade
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/properties
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Update may perform Update on authorized Scenario records only.
+
+### Permission: Scenario:Delete
+- Permission Name: Scenario:Delete
+- Display Name: Scenario Delete Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Delete on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Delete protects the Atlas Scenario resource for the Delete operation.
+- Description: Scenario:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DecisionApplicationService
+- Domain Service: AllocationService
+- Repository: LiabilityRepository
+- Command: RecordExpense
+- Domain Event: HomePurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/scenarios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Delete may perform Delete on authorized Scenario records only.
+
+### Permission: Scenario:Execute
+- Permission Name: Scenario:Execute
+- Display Name: Scenario Execute Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Execute on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Execute protects the Atlas Scenario resource for the Execute operation.
+- Description: Scenario:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ScenarioApplicationService
+- Domain Service: DecisionService
+- Repository: GoalRepository
+- Command: CreatePortfolio
+- Domain Event: PolicyIssued
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/decisions
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Execute may perform Execute on authorized Scenario records only.
+
+### Permission: Scenario:Approve
+- Permission Name: Scenario:Approve
+- Display Name: Scenario Approve Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Approve on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Approve protects the Atlas Scenario resource for the Approve operation.
+- Description: Scenario:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DashboardApplicationService
+- Domain Service: CashFlowService
+- Repository: PortfolioRepository
+- Command: BuySecurity
+- Domain Event: PremiumPaid
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/recommendations
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Approve may perform Approve on authorized Scenario records only.
+
+### Permission: Scenario:Export
+- Permission Name: Scenario:Export
+- Display Name: Scenario Export Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Export on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Export protects the Atlas Scenario resource for the Export operation.
+- Description: Scenario:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: NotificationApplicationService
+- Domain Service: PortfolioService
+- Repository: LoanRepository
+- Command: SellSecurity
+- Domain Event: ScenarioEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/policies
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Export may perform Export on authorized Scenario records only.
+
+### Permission: Scenario:Share
+- Permission Name: Scenario:Share
+- Display Name: Scenario Share Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Share on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Share protects the Atlas Scenario resource for the Share operation.
+- Description: Scenario:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ReportApplicationService
+- Domain Service: LoanService
+- Repository: PropertyRepository
+- Command: RebalancePortfolio
+- Domain Event: RecommendationGenerated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/dashboard
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Share may perform Share on authorized Scenario records only.
+
+### Permission: Scenario:Restore
+- Permission Name: Scenario:Restore
+- Display Name: Scenario Restore Permission
+- Category: Scenario
+- Purpose: allow authorized Principal to perform Restore on Scenario according to Atlas permission governance.
+- Business Meaning: Scenario:Restore protects the Atlas Scenario resource for the Restore operation.
+- Description: Scenario:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Scenario
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: AdministrationApplicationService
+- Domain Service: RetirementService
+- Repository: ScenarioRepository
+- Command: CreateLoan
+- Domain Event: DecisionAccepted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/notifications
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Scenario data without Scenario:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Scenario:Restore may perform Restore on authorized Scenario records only.
+
+### Permission: Decision:Create
+- Permission Name: Decision:Create
+- Display Name: Decision Create Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Create on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Create protects the Atlas Decision resource for the Create operation.
+- Description: Decision:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: GoalApplicationService
+- Domain Service: ScenarioService
+- Repository: DecisionRepository
+- Command: RecordLoanPayment
+- Domain Event: DecisionRejected
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/reports
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Create may perform Create on authorized Decision records only.
+
+### Permission: Decision:Read
+- Permission Name: Decision:Read
+- Display Name: Decision Read Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Read on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Read protects the Atlas Decision resource for the Read operation.
+- Description: Decision:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: PortfolioApplicationService
+- Domain Service: ScoringService
+- Repository: NotificationRepository
+- Command: RefinanceLoan
+- Domain Event: RuleEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/administration
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Read may perform Read on authorized Decision records only.
+
+### Permission: Decision:Update
+- Permission Name: Decision:Update
+- Display Name: Decision Update Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Update on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Update protects the Atlas Decision resource for the Update operation.
+- Description: Decision:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: LoanApplicationService
+- Domain Service: ExplainabilityService
+- Repository: AuditRepository
+- Command: PurchaseHome
+- Domain Event: ReplayCompleted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/audit
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Update may perform Update on authorized Decision records only.
+
+### Permission: Decision:Delete
+- Permission Name: Decision:Delete
+- Display Name: Decision Delete Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Delete on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Delete protects the Atlas Decision resource for the Delete operation.
+- Description: Decision:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: UserApplicationService
+- Domain Service: RiskService
+- Repository: UserRepository
+- Command: SellHome
+- Domain Event: SalaryReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/users
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Delete may perform Delete on authorized Decision records only.
+
+### Permission: Decision:Execute
+- Permission Name: Decision:Execute
+- Display Name: Decision Execute Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Execute on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Execute protects the Atlas Decision resource for the Execute operation.
+- Description: Decision:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: BlueprintApplicationService
+- Domain Service: AllocationService
+- Repository: HouseholdRepository
+- Command: UpdatePropertyValue
+- Domain Event: BonusReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/households
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Execute may perform Execute on authorized Decision records only.
+
+### Permission: Decision:Approve
+- Permission Name: Decision:Approve
+- Display Name: Decision Approve Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Approve on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Approve protects the Atlas Decision resource for the Approve operation.
+- Description: Decision:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: IPSApplicationService
+- Domain Service: DecisionService
+- Repository: AssetRepository
+- Command: IssuePolicy
+- Domain Event: ExpenseRecorded
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/blueprint
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Approve may perform Approve on authorized Decision records only.
+
+### Permission: Decision:Export
+- Permission Name: Decision:Export
+- Display Name: Decision Export Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Export on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Export protects the Atlas Decision resource for the Export operation.
+- Description: Decision:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DecisionApplicationService
+- Domain Service: CashFlowService
+- Repository: LiabilityRepository
+- Command: PayPremium
+- Domain Event: PortfolioCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/goals
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Export may perform Export on authorized Decision records only.
+
+### Permission: Decision:Share
+- Permission Name: Decision:Share
+- Display Name: Decision Share Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Share on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Share protects the Atlas Decision resource for the Share operation.
+- Description: Decision:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ScenarioApplicationService
+- Domain Service: PortfolioService
+- Repository: GoalRepository
+- Command: UpdateRetirementPlan
+- Domain Event: SecurityPurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/portfolios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Share may perform Share on authorized Decision records only.
+
+### Permission: Decision:Restore
+- Permission Name: Decision:Restore
+- Display Name: Decision Restore Permission
+- Category: Decision
+- Purpose: allow authorized Principal to perform Restore on Decision according to Atlas permission governance.
+- Business Meaning: Decision:Restore protects the Atlas Decision resource for the Restore operation.
+- Description: Decision:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Decision
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DashboardApplicationService
+- Domain Service: LoanService
+- Repository: PortfolioRepository
+- Command: EvaluateScenario
+- Domain Event: LoanCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/loans
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Decision data without Decision:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Decision:Restore may perform Restore on authorized Decision records only.
+
+### Permission: Policy:Create
+- Permission Name: Policy:Create
+- Display Name: Policy Create Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Create on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Create protects the Atlas Policy resource for the Create operation.
+- Description: Policy:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: NotificationApplicationService
+- Domain Service: RetirementService
+- Repository: LoanRepository
+- Command: AcceptRecommendation
+- Domain Event: LoanPaymentMade
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/properties
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Create may perform Create on authorized Policy records only.
+
+### Permission: Policy:Read
+- Permission Name: Policy:Read
+- Display Name: Policy Read Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Read on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Read protects the Atlas Policy resource for the Read operation.
+- Description: Policy:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ReportApplicationService
+- Domain Service: ScenarioService
+- Repository: PropertyRepository
+- Command: RejectRecommendation
+- Domain Event: HomePurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/scenarios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Read may perform Read on authorized Policy records only.
+
+### Permission: Policy:Update
+- Permission Name: Policy:Update
+- Display Name: Policy Update Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Update on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Update protects the Atlas Policy resource for the Update operation.
+- Description: Policy:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: AdministrationApplicationService
+- Domain Service: ScoringService
+- Repository: ScenarioRepository
+- Command: ReplayScenario
+- Domain Event: PolicyIssued
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/decisions
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Update may perform Update on authorized Policy records only.
+
+### Permission: Policy:Delete
+- Permission Name: Policy:Delete
+- Display Name: Policy Delete Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Delete on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Delete protects the Atlas Policy resource for the Delete operation.
+- Description: Policy:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: GoalApplicationService
+- Domain Service: ExplainabilityService
+- Repository: DecisionRepository
+- Command: RecordIncome
+- Domain Event: PremiumPaid
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/recommendations
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Delete may perform Delete on authorized Policy records only.
+
+### Permission: Policy:Execute
+- Permission Name: Policy:Execute
+- Display Name: Policy Execute Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Execute on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Execute protects the Atlas Policy resource for the Execute operation.
+- Description: Policy:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: PortfolioApplicationService
+- Domain Service: RiskService
+- Repository: NotificationRepository
+- Command: RecordExpense
+- Domain Event: ScenarioEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/policies
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Execute may perform Execute on authorized Policy records only.
+
+### Permission: Policy:Approve
+- Permission Name: Policy:Approve
+- Display Name: Policy Approve Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Approve on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Approve protects the Atlas Policy resource for the Approve operation.
+- Description: Policy:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: LoanApplicationService
+- Domain Service: AllocationService
+- Repository: AuditRepository
+- Command: CreatePortfolio
+- Domain Event: RecommendationGenerated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/dashboard
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Approve may perform Approve on authorized Policy records only.
+
+### Permission: Policy:Export
+- Permission Name: Policy:Export
+- Display Name: Policy Export Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Export on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Export protects the Atlas Policy resource for the Export operation.
+- Description: Policy:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: UserApplicationService
+- Domain Service: DecisionService
+- Repository: UserRepository
+- Command: BuySecurity
+- Domain Event: DecisionAccepted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/notifications
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Export may perform Export on authorized Policy records only.
+
+### Permission: Policy:Share
+- Permission Name: Policy:Share
+- Display Name: Policy Share Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Share on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Share protects the Atlas Policy resource for the Share operation.
+- Description: Policy:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: BlueprintApplicationService
+- Domain Service: CashFlowService
+- Repository: HouseholdRepository
+- Command: SellSecurity
+- Domain Event: DecisionRejected
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/reports
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Share may perform Share on authorized Policy records only.
+
+### Permission: Policy:Restore
+- Permission Name: Policy:Restore
+- Display Name: Policy Restore Permission
+- Category: Policy
+- Purpose: allow authorized Principal to perform Restore on Policy according to Atlas permission governance.
+- Business Meaning: Policy:Restore protects the Atlas Policy resource for the Restore operation.
+- Description: Policy:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Policy
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: IPSApplicationService
+- Domain Service: PortfolioService
+- Repository: AssetRepository
+- Command: RebalancePortfolio
+- Domain Event: RuleEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/administration
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Policy data without Policy:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Policy:Restore may perform Restore on authorized Policy records only.
+
+### Permission: Configuration:Create
+- Permission Name: Configuration:Create
+- Display Name: Configuration Create Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Create on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Create protects the Atlas Configuration resource for the Create operation.
+- Description: Configuration:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DecisionApplicationService
+- Domain Service: LoanService
+- Repository: LiabilityRepository
+- Command: CreateLoan
+- Domain Event: ReplayCompleted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/audit
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Create may perform Create on authorized Configuration records only.
+
+### Permission: Configuration:Read
+- Permission Name: Configuration:Read
+- Display Name: Configuration Read Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Read on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Read protects the Atlas Configuration resource for the Read operation.
+- Description: Configuration:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ScenarioApplicationService
+- Domain Service: RetirementService
+- Repository: GoalRepository
+- Command: RecordLoanPayment
+- Domain Event: SalaryReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/users
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Read may perform Read on authorized Configuration records only.
+
+### Permission: Configuration:Update
+- Permission Name: Configuration:Update
+- Display Name: Configuration Update Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Update on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Update protects the Atlas Configuration resource for the Update operation.
+- Description: Configuration:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DashboardApplicationService
+- Domain Service: ScenarioService
+- Repository: PortfolioRepository
+- Command: RefinanceLoan
+- Domain Event: BonusReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/households
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Update may perform Update on authorized Configuration records only.
+
+### Permission: Configuration:Delete
+- Permission Name: Configuration:Delete
+- Display Name: Configuration Delete Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Delete on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Delete protects the Atlas Configuration resource for the Delete operation.
+- Description: Configuration:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: NotificationApplicationService
+- Domain Service: ScoringService
+- Repository: LoanRepository
+- Command: PurchaseHome
+- Domain Event: ExpenseRecorded
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/blueprint
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Delete may perform Delete on authorized Configuration records only.
+
+### Permission: Configuration:Execute
+- Permission Name: Configuration:Execute
+- Display Name: Configuration Execute Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Execute on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Execute protects the Atlas Configuration resource for the Execute operation.
+- Description: Configuration:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ReportApplicationService
+- Domain Service: ExplainabilityService
+- Repository: PropertyRepository
+- Command: SellHome
+- Domain Event: PortfolioCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/goals
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Execute may perform Execute on authorized Configuration records only.
+
+### Permission: Configuration:Approve
+- Permission Name: Configuration:Approve
+- Display Name: Configuration Approve Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Approve on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Approve protects the Atlas Configuration resource for the Approve operation.
+- Description: Configuration:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: AdministrationApplicationService
+- Domain Service: RiskService
+- Repository: ScenarioRepository
+- Command: UpdatePropertyValue
+- Domain Event: SecurityPurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/portfolios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Approve may perform Approve on authorized Configuration records only.
+
+### Permission: Configuration:Export
+- Permission Name: Configuration:Export
+- Display Name: Configuration Export Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Export on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Export protects the Atlas Configuration resource for the Export operation.
+- Description: Configuration:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: GoalApplicationService
+- Domain Service: AllocationService
+- Repository: DecisionRepository
+- Command: IssuePolicy
+- Domain Event: LoanCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/loans
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Export may perform Export on authorized Configuration records only.
+
+### Permission: Configuration:Share
+- Permission Name: Configuration:Share
+- Display Name: Configuration Share Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Share on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Share protects the Atlas Configuration resource for the Share operation.
+- Description: Configuration:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: PortfolioApplicationService
+- Domain Service: DecisionService
+- Repository: NotificationRepository
+- Command: PayPremium
+- Domain Event: LoanPaymentMade
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/properties
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Share may perform Share on authorized Configuration records only.
+
+### Permission: Configuration:Restore
+- Permission Name: Configuration:Restore
+- Display Name: Configuration Restore Permission
+- Category: Configuration
+- Purpose: allow authorized Principal to perform Restore on Configuration according to Atlas permission governance.
+- Business Meaning: Configuration:Restore protects the Atlas Configuration resource for the Restore operation.
+- Description: Configuration:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Configuration
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: LoanApplicationService
+- Domain Service: CashFlowService
+- Repository: AuditRepository
+- Command: UpdateRetirementPlan
+- Domain Event: HomePurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/scenarios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Configuration data without Configuration:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Configuration:Restore may perform Restore on authorized Configuration records only.
+
+### Permission: Report:Create
+- Permission Name: Report:Create
+- Display Name: Report Create Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Create on Report according to Atlas permission governance.
+- Business Meaning: Report:Create protects the Atlas Report resource for the Create operation.
+- Description: Report:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: UserApplicationService
+- Domain Service: PortfolioService
+- Repository: UserRepository
+- Command: EvaluateScenario
+- Domain Event: PolicyIssued
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/decisions
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Create may perform Create on authorized Report records only.
+
+### Permission: Report:Read
+- Permission Name: Report:Read
+- Display Name: Report Read Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Read on Report according to Atlas permission governance.
+- Business Meaning: Report:Read protects the Atlas Report resource for the Read operation.
+- Description: Report:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: BlueprintApplicationService
+- Domain Service: LoanService
+- Repository: HouseholdRepository
+- Command: AcceptRecommendation
+- Domain Event: PremiumPaid
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/recommendations
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Read may perform Read on authorized Report records only.
+
+### Permission: Report:Update
+- Permission Name: Report:Update
+- Display Name: Report Update Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Update on Report according to Atlas permission governance.
+- Business Meaning: Report:Update protects the Atlas Report resource for the Update operation.
+- Description: Report:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: IPSApplicationService
+- Domain Service: RetirementService
+- Repository: AssetRepository
+- Command: RejectRecommendation
+- Domain Event: ScenarioEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/policies
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Update may perform Update on authorized Report records only.
+
+### Permission: Report:Delete
+- Permission Name: Report:Delete
+- Display Name: Report Delete Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Delete on Report according to Atlas permission governance.
+- Business Meaning: Report:Delete protects the Atlas Report resource for the Delete operation.
+- Description: Report:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DecisionApplicationService
+- Domain Service: ScenarioService
+- Repository: LiabilityRepository
+- Command: ReplayScenario
+- Domain Event: RecommendationGenerated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/dashboard
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Delete may perform Delete on authorized Report records only.
+
+### Permission: Report:Execute
+- Permission Name: Report:Execute
+- Display Name: Report Execute Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Execute on Report according to Atlas permission governance.
+- Business Meaning: Report:Execute protects the Atlas Report resource for the Execute operation.
+- Description: Report:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ScenarioApplicationService
+- Domain Service: ScoringService
+- Repository: GoalRepository
+- Command: RecordIncome
+- Domain Event: DecisionAccepted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/notifications
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Execute may perform Execute on authorized Report records only.
+
+### Permission: Report:Approve
+- Permission Name: Report:Approve
+- Display Name: Report Approve Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Approve on Report according to Atlas permission governance.
+- Business Meaning: Report:Approve protects the Atlas Report resource for the Approve operation.
+- Description: Report:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DashboardApplicationService
+- Domain Service: ExplainabilityService
+- Repository: PortfolioRepository
+- Command: RecordExpense
+- Domain Event: DecisionRejected
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/reports
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Approve may perform Approve on authorized Report records only.
+
+### Permission: Report:Export
+- Permission Name: Report:Export
+- Display Name: Report Export Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Export on Report according to Atlas permission governance.
+- Business Meaning: Report:Export protects the Atlas Report resource for the Export operation.
+- Description: Report:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: NotificationApplicationService
+- Domain Service: RiskService
+- Repository: LoanRepository
+- Command: CreatePortfolio
+- Domain Event: RuleEvaluated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/administration
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Export may perform Export on authorized Report records only.
+
+### Permission: Report:Share
+- Permission Name: Report:Share
+- Display Name: Report Share Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Share on Report according to Atlas permission governance.
+- Business Meaning: Report:Share protects the Atlas Report resource for the Share operation.
+- Description: Report:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ReportApplicationService
+- Domain Service: AllocationService
+- Repository: PropertyRepository
+- Command: BuySecurity
+- Domain Event: ReplayCompleted
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/audit
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Share may perform Share on authorized Report records only.
+
+### Permission: Report:Restore
+- Permission Name: Report:Restore
+- Display Name: Report Restore Permission
+- Category: Report
+- Purpose: allow authorized Principal to perform Restore on Report according to Atlas permission governance.
+- Business Meaning: Report:Restore protects the Atlas Report resource for the Restore operation.
+- Description: Report:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Report
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: AdministrationApplicationService
+- Domain Service: DecisionService
+- Repository: ScenarioRepository
+- Command: SellSecurity
+- Domain Event: SalaryReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/users
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Report data without Report:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Report:Restore may perform Restore on authorized Report records only.
+
+### Permission: Administration:Create
+- Permission Name: Administration:Create
+- Display Name: Administration Create Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Create on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Create protects the Atlas Administration resource for the Create operation.
+- Description: Administration:Create requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Create
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: GoalApplicationService
+- Domain Service: CashFlowService
+- Repository: DecisionRepository
+- Command: RebalancePortfolio
+- Domain Event: BonusReceived
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/households
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Create.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Create may perform Create on authorized Administration records only.
+
+### Permission: Administration:Read
+- Permission Name: Administration:Read
+- Display Name: Administration Read Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Read on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Read protects the Atlas Administration resource for the Read operation.
+- Description: Administration:Read requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Read
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User, Read-only Auditor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: PortfolioApplicationService
+- Domain Service: PortfolioService
+- Repository: NotificationRepository
+- Command: CreateLoan
+- Domain Event: ExpenseRecorded
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/blueprint
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Read.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Read may perform Read on authorized Administration records only.
+
+### Permission: Administration:Update
+- Permission Name: Administration:Update
+- Display Name: Administration Update Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Update on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Update protects the Atlas Administration resource for the Update operation.
+- Description: Administration:Update requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Update
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: LoanApplicationService
+- Domain Service: LoanService
+- Repository: AuditRepository
+- Command: RecordLoanPayment
+- Domain Event: PortfolioCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/goals
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Update.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Update may perform Update on authorized Administration records only.
+
+### Permission: Administration:Delete
+- Permission Name: Administration:Delete
+- Display Name: Administration Delete Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Delete on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Delete protects the Atlas Administration resource for the Delete operation.
+- Description: Administration:Delete requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Delete
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: UserApplicationService
+- Domain Service: RetirementService
+- Repository: UserRepository
+- Command: RefinanceLoan
+- Domain Event: SecurityPurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/portfolios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Delete.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Delete may perform Delete on authorized Administration records only.
+
+### Permission: Administration:Execute
+- Permission Name: Administration:Execute
+- Display Name: Administration Execute Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Execute on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Execute protects the Atlas Administration resource for the Execute operation.
+- Description: Administration:Execute requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Execute
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: BlueprintApplicationService
+- Domain Service: ScenarioService
+- Repository: HouseholdRepository
+- Command: PurchaseHome
+- Domain Event: LoanCreated
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/loans
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Execute.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Execute may perform Execute on authorized Administration records only.
+
+### Permission: Administration:Approve
+- Permission Name: Administration:Approve
+- Display Name: Administration Approve Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Approve on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Approve protects the Atlas Administration resource for the Approve operation.
+- Description: Administration:Approve requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Approve
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: IPSApplicationService
+- Domain Service: ScoringService
+- Repository: AssetRepository
+- Command: SellHome
+- Domain Event: LoanPaymentMade
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/properties
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Approve.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Approve may perform Approve on authorized Administration records only.
+
+### Permission: Administration:Export
+- Permission Name: Administration:Export
+- Display Name: Administration Export Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Export on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Export protects the Atlas Administration resource for the Export operation.
+- Description: Administration:Export requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Export
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DecisionApplicationService
+- Domain Service: ExplainabilityService
+- Repository: LiabilityRepository
+- Command: UpdatePropertyValue
+- Domain Event: HomePurchased
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/scenarios
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Export.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Export may perform Export on authorized Administration records only.
+
+### Permission: Administration:Share
+- Permission Name: Administration:Share
+- Display Name: Administration Share Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Share on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Share protects the Atlas Administration resource for the Share operation.
+- Description: Administration:Share requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Share
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor, Standard User
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: ScenarioApplicationService
+- Domain Service: RiskService
+- Repository: GoalRepository
+- Command: IssuePolicy
+- Domain Event: PolicyIssued
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/decisions
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Share.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Share may perform Share on authorized Administration records only.
+
+### Permission: Administration:Restore
+- Permission Name: Administration:Restore
+- Display Name: Administration Restore Permission
+- Category: Administration
+- Purpose: allow authorized Principal to perform Restore on Administration according to Atlas permission governance.
+- Business Meaning: Administration:Restore protects the Atlas Administration resource for the Restore operation.
+- Description: Administration:Restore requires authentication, authorization, explicit scope, tenant isolation, household isolation when applicable, and audit evidence.
+- Resource: Administration
+- Operation: Restore
+- Scope: Global, Tenant, User Group, User, Household where applicable.
+- Role Mapping: System Administrator, Tenant Administrator, Financial Advisor
+- Policy Mapping: resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, default deny.
+- Application Service: DashboardApplicationService
+- Domain Service: AllocationService
+- Repository: PortfolioRepository
+- Command: PayPremium
+- Domain Event: PremiumPaid
+- Workflow: Workflow Engine Framework governed step.
+- Scheduler: Scheduler Framework governed execution.
+- Automation: Automation Framework governed action.
+- Background Job: Background Job Framework governed worker.
+- API: /api/v1/recommendations
+- UI: UI action must request this permission before protected operation rendering.
+- Notification: Notification action must avoid exposing protected Administration data without Administration:Restore.
+- Audit: authorization result and permission decision are recorded.
+- Dependencies: Security Framework, API Governance Framework, Permission Cache, Audit.
+- Authorization Strategy: evaluate explicit deny, explicit allow, role inheritance, scope, ownership, tenant, household, and default deny.
+- Permission Evaluation: deterministic and replayable from claims, role assignment, policy version, and resource scope.
+- Cache Strategy: cache by PrincipalId, TenantId, HouseholdId, Permission, Resource, Operation, RoleVersion, PolicyVersion.
+- Security: least privilege, privilege escalation prevention, tenant isolation, household isolation.
+- Performance: authorization decision must use valid cache where policy and role versions match.
+- Example: Principal with Administration:Restore may perform Restore on authorized Administration records only.
+

@@ -1,476 +1,4 @@
-# Goal Dependency
-## Split Navigation
-- [Goal dependency model and calculation](goal-dependency/model-and-calculation.md)
-- [Goal dependency resolution and graph](goal-dependency/resolution-and-graph.md)
-- [Goal dependency governance and operations](goal-dependency/governance-and-operations.md)
-
-Version: 1.0
-Status: Enterprise Specification
-Owner: Project Atlas
-
-# Purpose
-
-Goal Dependency defines the canonical domain specification for relationships between Goals in Atlas Goal Engine.
-
-It is not a Goal because it does not represent a user objective, target amount, target date, progress, or owner.
-
-It is not a Workflow because it does not execute actions or manage task state.
-
-It is not a Recommendation because it does not advise the user to take an action.
-
-It records, validates, resolves, orders, explains, and audits the dependency structure between Goals so Goal Engine, Recommendation Engine, Decision Engine, Scenario Engine, Projection Engine, Optimization Engine, Execution Plan Engine, and Workflow Engine can reason over prerequisite Goals, downstream Goals, blocking Goals, and execution order.
-
-# Reference Alignment
-
-Goal Dependency must remain consistent with:
-
-1. goal.md
-2. goal-prioritization.md
-3. life-goals.md
-4. decision-principles.md
-5. decision-rule-catalog.md
-6. constraint-rules.md
-7. scoring-model.md
-8. recommendation-priority-framework.md
-9. execution-plan-framework.md
-10. action-planning-framework.md
-11. scenario-framework.md
-12. optimization-engine-framework.md
-13. projection-engine-framework.md
-
-# Responsibilities
-
-1. Dependency Definition: define directed relationships between Goals.
-2. Dependency Validation: reject invalid, duplicate, circular, unauthorized, or unsupported dependencies.
-3. Dependency Resolution: determine whether a dependency is Satisfied, Blocked, Deferred, Override, Rejected, or Resolved.
-4. Dependency Ordering: produce prerequisite order for Goal funding and execution.
-5. Dependency Graph: maintain a directed acyclic graph for Goal relationships.
-6. Dependency Traversal: traverse upstream and downstream relationships deterministically.
-7. Dependency Weight: quantify dependency strength from 0 to 100.
-8. Dependency Priority: influence Goal Priority, Recommendation Score, Decision Score, Scenario Score, and Execution Score.
-9. Dependency Readiness: calculate whether a dependent Goal is ready to proceed.
-10. Dependency Blocking: identify Goals that cannot proceed because prerequisites are not satisfied.
-11. Dependency Explanation: expose reason codes and plain-language explanations for ranking and execution surfaces.
-12. Dependency Audit: preserve historical dependency decisions and graph rebuilds.
-
-# Non-Responsibilities
-
-1. Goal Dependency does not create Goals.
-2. Goal Dependency does not approve Recommendations.
-3. Goal Dependency does not execute ExecutionPlans.
-4. Goal Dependency does not override Constraint Rules.
-5. Goal Dependency does not invent assumptions.
-6. Goal Dependency does not replace Goal Prioritization.
-7. Goal Dependency does not replace Scenario comparison.
-8. Goal Dependency does not replace Decision Rule Catalog.
-9. Goal Dependency does not store Workflow task details.
-10. Goal Dependency does not introduce new Atlas Business Concepts.
-
-# Domain Model
-
-## Entity
-
-GoalDependency is the entity that links one Goal to another Goal.
-
-Required fields:
-
-| Field | Required | Description |
-|---|---:|---|
-| GoalDependencyId | Yes | Stable dependency identifier. |
-| HouseholdId | Yes | Owner Household. |
-| ParentGoalId | Yes | Upstream or prerequisite Goal. |
-| ChildGoalId | Yes | Downstream or dependent Goal. |
-| DependencyType | Yes | Type from Dependency Types. |
-| DependencyStatus | Yes | Status from Dependency Status. |
-| DependencyDirection | Yes | Direction semantics. |
-| DependencyWeight | Yes | Strength from 0 to 100. |
-| DependencyReadinessScore | Yes | Readiness from 0 to 100. |
-| ReasonCode | Yes | Cataloged explanation code. |
-| Version | Yes | Entity version. |
-| CreatedAt | Yes | Creation timestamp. |
-| UpdatedAt | Yes | Last update timestamp. |
-
-## Value Object
-
-GoalDependencyEdge:
-
-```text
-GoalDependencyEdge =
-ParentGoalId
-+ ChildGoalId
-+ DependencyType
-+ DependencyWeight
-+ DependencyStatus
-```
-
-DependencyScoreBreakdown:
-
-```text
-DependencyScoreBreakdown =
-DependencyWeight
-+ DependencyReadinessScore
-+ DependencyImpact
-+ DependencyRisk
-+ DependencyConfidence
-```
-
-# Dependency Types
-
-| Type | Definition |
-|---|---|
-| Hard Dependency | Child Goal cannot proceed until Parent Goal is satisfied. |
-| Soft Dependency | Child Goal may proceed with warning, penalty, or lower readiness. |
-| Financial Dependency | Child Goal depends on funding, savings, income, asset, or liability condition. |
-| Execution Dependency | Child ExecutionPlan or action depends on parent completion. |
-| Temporal Dependency | Child Goal depends on dates, windows, sequence, or lead time. |
-| Scenario Dependency | Child Goal depends on Scenario output, simulation result, or risk timeline. |
-| Recommendation Dependency | Recommendation requires another Goal or recommendation result first. |
-| Decision Dependency | Decision Score or decision feasibility depends on Goal state. |
-| Resource Dependency | Child Goal depends on shared scarce resources. |
-| Budget Dependency | Child Goal depends on available Budget. |
-| CashFlow Dependency | Child Goal depends on Monthly Net Cashflow or cashflow stability. |
-| Risk Dependency | Child Goal depends on risk reduction or risk threshold. |
-| Portfolio Dependency | Child Goal depends on Portfolio allocation, concentration, or liquidity. |
-| Insurance Dependency | Child Goal depends on Insurance coverage sufficiency. |
-| Loan Dependency | Child Goal depends on debt, Loan Interest, DTI, or repayment state. |
-| Housing Dependency | Child Goal depends on Housing affordability, sale, purchase, or rental state. |
-| Education Dependency | Child Goal depends on Education funding, date, or Family requirement. |
-| Retirement Dependency | Child Goal depends on Retirement readiness or retirement capital. |
-| Family Dependency | Child Goal depends on Family obligation, dependents, or Parent Support. |
-| Tax Dependency | Child Goal depends on tax deadline, tax saving, or compliance. |
-| Estate Dependency | Child Goal depends on Estate planning readiness. |
-| Lifestyle Dependency | Child Goal depends on discretionary capacity after mandatory Goals. |
-
-# Dependency Status
-
-| Status | Meaning |
-|---|---|
-| Pending | Dependency exists but has not been evaluated for current snapshot. |
-| Satisfied | Parent requirement is met. |
-| Unsatisfied | Parent requirement is not met. |
-| Blocked | Child Goal cannot proceed because dependency is unsatisfied. |
-| Deferred | Child Goal is intentionally postponed due to dependency state. |
-| Expired | Dependency is no longer valid because time window or source condition expired. |
-| Cancelled | Dependency was cancelled and is excluded from active graph. |
-| Completed | Dependency reached final successful state and is retained for audit. |
-
-# Dependency Direction
-
-| Direction | Meaning |
-|---|---|
-| Parent | Upstream Goal that must be considered first. |
-| Child | Downstream Goal affected by parent state. |
-| Prerequisite | Parent must be satisfied before child can proceed. |
-| Downstream | Goals affected by a parent Goal. |
-| Upstream | Goals that affect a child Goal. |
-| Bidirectional | Two Goals influence each other and must be represented as two directed dependencies with explicit reason codes. |
-
-Bidirectional dependencies are not stored as a single graph edge. They must be modeled as two directed edges and validated for cycle safety.
-
-# Dependency Weight
-
-Dependency Weight is a normalized 0 to 100 measure of how strongly the Parent Goal affects the Child Goal.
-
-```text
-Dependency Weight = clamp(
-    0.30 * Constraint Strength
-  + 0.25 * Financial Coupling
-  + 0.20 * Execution Coupling
-  + 0.15 * Risk Coupling
-  + 0.10 * Time Coupling,
-  0,
-  100
-)
-```
-
-Weight definitions:
-
-1. Constraint Strength measures Hard, Soft, Advisory, Regulatory, and Data Integrity pressure.
-2. Financial Coupling measures shared funding, Budget, CashFlow, Loan, Portfolio, or Insurance dependency.
-3. Execution Coupling measures whether ExecutionPlan sequence is blocked.
-4. Risk Coupling measures risk introduced when the child proceeds too early.
-5. Time Coupling measures deadline, lead time, or sequencing dependency.
-
-# Dependency Readiness
-
-Dependency Readiness Score is a normalized 0 to 100 measure of whether the Child Goal can proceed.
-
-```text
-Dependency Readiness Score = clamp(
-    0.35 * Parent Satisfaction
-  + 0.20 * Resource Availability
-  + 0.15 * Constraint Clearance
-  + 0.15 * Scenario Readiness
-  + 0.10 * Execution Readiness
-  + 0.05 * Dependency Confidence,
-  0,
-  100
-)
-```
-
-Readiness interpretation:
-
-| Score | Meaning |
-|---:|---|
-| 90 to 100 | Ready; dependency should not block child. |
-| 75 to 89 | Mostly ready; proceed with monitoring. |
-| 60 to 74 | Conditionally ready; warning required. |
-| 40 to 59 | Weak readiness; child should normally be deferred. |
-| 0 to 39 | Not ready; child is blocked unless allowed override exists. |
-
-# Dependency Priority
-
-Dependency Priority determines how dependencies affect ranking and downstream scores.
-
-Goal Priority:
-
-```text
-Goal Priority Adjustment = Dependency Weight * (100 - Dependency Readiness Score) / 100
-```
-
-Recommendation Score:
-
-```text
-Recommendation Dependency Penalty = clamp(
-    BlockingDependencyCount * 8
-  + CriticalUnsatisfiedDependencyCount * 15
-  + AverageDependencyPriorityPenalty,
-  0,
-  40
-)
-```
-
-Decision Score:
-
-```text
-Decision Dependency Adjustment = clamp(
-    SatisfiedCriticalDependencies * 5
-  - UnsatisfiedCriticalDependencies * 12
-  - CircularDependencyPenalty,
-  -40,
-  20
-)
-```
-
-Scenario Score:
-
-```text
-Scenario Dependency Score = clamp(
-    0.60 * GoalAchievementRatioOfPrerequisites
-  + 0.25 * ScenarioReadiness
-  + 0.15 * DependencyConfidence,
-  0,
-  100
-)
-```
-
-Execution Score:
-
-```text
-Execution Dependency Score = clamp(
-    0.50 * CompletedPrerequisiteActions
-  + 0.30 * DependencyReadinessScore
-  + 0.20 * ExecutionPlanReadiness,
-  0,
-  100
-)
-```
-
-# Dependency Resolution
-
-Allowed resolution outcomes:
-
-1. Satisfied
-2. Blocked
-3. Deferred
-4. Override
-5. Rejected
-6. Resolved
-
-Resolution formula:
-
-```text
-Dependency Resolution =
-if InvalidDependency then Rejected
-else if CircularDependency then Rejected
-else if HardDependency and DependencyReadinessScore < 75 then Blocked
-else if SoftDependency and DependencyReadinessScore < 60 then Deferred
-else if AllowedOverride and OverrideReason exists then Override
-else if DependencyReadinessScore >= 75 then Satisfied
-else Deferred
-```
-
-Resolution rules:
-
-1. Rejected dependencies are not part of active graph.
-2. Blocked dependencies stop child Goal funding and execution.
-3. Deferred dependencies postpone child Goal ranking and allocation.
-4. Override dependencies require reason, actor, and audit.
-5. Resolved dependencies preserve final state for history.
-
-# Dependency Conflict
-
-Dependency conflict occurs when dependency order conflicts with Goal Priority, Recommendation Score, Decision Score, Scenario Score, Execution Score, resource allocation, or user preference.
-
-Examples:
-
-| Conflict | Resolution |
-|---|---|
-| Education vs Retirement | Education with fixed deadline can proceed if Retirement remains above policy; otherwise split funding by Priority Score and readiness. |
-| Housing vs Investment | Housing is blocked when affordability or cashflow dependency fails; Investment proceeds only after liquidity and debt rules pass. |
-| Insurance vs Lifestyle | Insurance blocks Lifestyle when coverage gap is material and dependents exist. |
-| Debt vs Investment | Debt blocks Investment when Loan Interest exceeds risk-adjusted Expected ROI and liquidity is not impaired. |
-| Tax vs Dream | Tax blocks Dream when legal or tax deadline exists. |
-| Emergency vs Housing | Emergency Fund blocks Housing upgrade until minimum reserve is satisfied. |
-
-# Dependency Cycle Detection
-
-Goal Dependency must reject:
-
-1. Cycle Detection positive result.
-2. Loop Detection positive result.
-3. Invalid Dependency.
-4. Circular Dependency.
-5. Self Dependency.
-6. Duplicate Dependency.
-
-Cycle detection rules:
-
-1. ParentGoalId must not equal ChildGoalId.
-2. Duplicate active edge with same ParentGoalId, ChildGoalId, and DependencyType is rejected.
-3. Any new edge that creates a path from ChildGoalId back to ParentGoalId is rejected.
-4. Cancelled and Completed dependencies are excluded from active cycle checks unless historical replay is requested.
-5. Bidirectional dependencies require explicit two-edge validation and must not create execution deadlock.
-
-# Dependency Graph
-
-The active Goal Dependency Graph must be a directed acyclic graph.
-
-```text
-GoalDependencyGraph = Goals + ActiveGoalDependencyEdges
-```
-
-Graph requirements:
-
-1. It must support Topological Sort.
-2. It must support Dependency Traversal.
-3. It must support Execution Ordering.
-4. It must support upstream lookup.
-5. It must support downstream lookup.
-6. It must support blocking dependency detection.
-7. It must support graph rebuild.
-8. It must support graph cache invalidation.
-
-Canonical Dependency Graph:
-
-```mermaid
-graph TD
-  A["Emergency Fund"] --> B["Insurance"]
-  B --> C["Debt"]
-  C --> D["Cashflow"]
-  D --> E["Investment"]
-  E --> F["Housing"]
-  E --> G["Education"]
-  E --> H["Retirement"]
-  F --> I["Family"]
-  G --> I
-  H --> J["Tax"]
-  I --> J
-  J --> K["Estate"]
-  K --> L["Lifestyle"]
-  L --> M["Dream"]
-```
-
-# Dependency Ordering
-
-Dependency Ordering uses topological sort and then applies Goal Prioritization tie-breakers.
-
-Ordering algorithm:
-
-```text
-1. Load active Goals.
-2. Load active dependencies.
-3. Remove Cancelled, Completed, and Expired edges from active graph.
-4. Validate graph.
-5. Detect cycles.
-6. Calculate Dependency Weight.
-7. Calculate Dependency Readiness Score.
-8. Topologically sort by prerequisite direction.
-9. Apply Goal Priority within same dependency level.
-10. Apply Deadline Pressure within same priority band.
-11. Apply stable GoalId tie-breaker.
-```
-
-Execution Ordering:
-
-```mermaid
-flowchart TD
-  A["Load Goal Dependency Graph"] --> B["Validate dependencies"]
-  B --> C["Detect cycles"]
-  C --> D{"Cycle found?"}
-  D -- Yes --> E["Reject graph rebuild"]
-  D -- No --> F["Calculate readiness"]
-  F --> G["Topological sort"]
-  G --> H["Apply Goal Priority tie-breakers"]
-  H --> I["Create execution ordering"]
-  I --> J["Publish DependencyGraphRebuilt"]
-```
-
-# Dependency Formula
-
-Dependency Score:
-
-```text
-Dependency Score = clamp(
-    0.30 * Dependency Weight
-  + 0.25 * Dependency Impact
-  + 0.20 * Dependency Risk
-  + 0.15 * (100 - Dependency Readiness Score)
-  + 0.10 * Dependency Confidence,
-  0,
-  100
-)
-```
-
-Dependency Impact:
-
-```text
-Dependency Impact = max(
-    FinancialImpact,
-    CashFlowImpact,
-    RiskReductionImpact,
-    GoalPriorityImpact,
-    ExecutionImpact
-)
-```
-
-Dependency Risk:
-
-```text
-Dependency Risk = max(
-    ConstraintRisk,
-    LiquidityRisk,
-    DebtRisk,
-    InsuranceGapRisk,
-    RetirementRisk,
-    HousingRisk,
-    ScenarioRisk
-)
-```
-
-Dependency Confidence:
-
-```text
-Dependency Confidence = clamp(
-    0.40 * DataCompleteness
-  + 0.25 * ScenarioFreshness
-  + 0.20 * RuleVersionValidity
-  + 0.15 * AuditTraceability,
-  0,
-  100
-)
-```
-
+# Goal dependency governance and operations
 # Commands
 
 ## CreateGoalDependency
@@ -509,6 +37,7 @@ Rebuilds the active Goal Dependency Graph for a Household.
 
 Detects self-dependency, circular dependency, duplicate dependency, and invalid dependency graph state.
 
+
 # Domain Events
 
 1. GoalDependencyCreated
@@ -523,6 +52,7 @@ Detects self-dependency, circular dependency, duplicate dependency, and invalid 
 10. GoalDependencyReadinessCalculated
 11. GoalDependencyScoreCalculated
 12. GoalDependencyOverrideApplied
+
 
 # Aggregate Interaction
 
@@ -539,6 +69,7 @@ Detects self-dependency, circular dependency, duplicate dependency, and invalid 
 | Budget | Supplies Budget availability and funding dependency state. |
 | CashFlow | Supplies Monthly Net Cashflow, cashflow stability, and funding capacity. |
 | Household | Supplies ownership and authorization boundary. |
+
 
 # Business Rules
 
@@ -643,6 +174,7 @@ Detects self-dependency, circular dependency, duplicate dependency, and invalid 
 99. Idempotent command retry must not duplicate events.
 100. Unauthorized actor must not read or mutate dependencies.
 
+
 # Validation
 
 Structural validation:
@@ -697,6 +229,7 @@ Command validation:
 9. CalculateDependencyScore includes formula version.
 10. CalculateDependencyReadiness includes readiness input snapshot.
 
+
 # Transaction Boundary
 
 CreateGoalDependency transaction:
@@ -735,6 +268,7 @@ Graph rebuild transaction:
 7. Invalidate previous graph cache.
 8. Emit DependencyGraphRebuilt.
 
+
 # Error Handling
 
 | Error | Handling |
@@ -751,6 +285,7 @@ Graph rebuild transaction:
 | Graph rebuild failure | Keep previous valid graph cache. |
 | Idempotency conflict | Return original result when same payload; reject when payload differs. |
 | Version conflict | Reject mutation and request refreshed dependency state. |
+
 
 # Idempotency
 
@@ -774,6 +309,7 @@ Rules:
 5. Cycle detection with same candidate edge returns same result.
 6. DeleteGoalDependency is idempotent when dependency is already Cancelled.
 
+
 # Security
 
 1. Actor must be authorized for HouseholdId.
@@ -786,6 +322,7 @@ Rules:
 8. Bulk dependency validation must not cross Household boundary.
 9. Sensitive financial fields must follow Atlas data protection rules.
 10. Unauthorized access must be audited.
+
 
 # Audit
 
@@ -820,6 +357,7 @@ Audit rules:
 3. Historical replay must use original dependency state.
 4. Override must include reason.
 5. Rejected dependency must include rejection reason.
+
 
 # Performance
 
@@ -876,6 +414,7 @@ Complexity Analysis:
 | Downstream traversal | O(G + E) worst case. |
 | Bulk validation | O(G + E + R). |
 
+
 # Example
 
 1. Emergency Fund must be satisfied before Lifestyle expansion.
@@ -898,6 +437,7 @@ Complexity Analysis:
 18. Housing Goal depends on CashFlow and Loan affordability.
 19. Investment Goal depends on Emergency Fund and risk tolerance.
 20. Dream Goal depends on mandatory Goals being satisfied.
+
 
 # Mermaid
 
@@ -931,6 +471,7 @@ flowchart TD
   G -- Yes --> H["Duplicate Dependency rejected"]
   G -- No --> I["Edge accepted"]
 ```
+
 
 # Testing
 
@@ -1055,6 +596,7 @@ flowchart TD
 119. Child Goal cancellation cancels active dependencies.
 120. Parent Goal cancellation blocks or rejects child dependencies.
 
+
 # Edge Cases
 
 1. Parent Goal is missing.
@@ -1118,104 +660,3 @@ flowchart TD
 59. Topological Sort receives disconnected graph.
 60. Dependency traversal exceeds configured depth.
 
-# Version History
-
-| Version | Date | Notes |
-|---|---|---|
-| v1.0 | 2026-07-11 | Enterprise Specification for Atlas Goal Dependency. |
-
-## Phase 2 Executable Specification Addendum
-
-### Dependency Graph Execution Contract
-
-| Field | Required | Description |
-|---|---|---|
-| DependencyGraphExecutionId | Yes | Stable graph calculation identifier |
-| HouseholdId | Yes | Household scope |
-| GraphVersion | Yes | Generated dependency graph version |
-| DependencyIds | Yes | Dependency edges included |
-| SourceSnapshotId | Yes | Source goal and financial snapshot |
-| FormulaVersionSet | Yes | Dependency score and readiness formulas |
-| RuleVersionSet | Yes | Dependency and constraint rules |
-| TopologicalOrderHash | Yes | Deterministic ordering hash |
-| CorrelationId | Yes | Audit correlation |
-
-### Required Commands
-
-| Command | Actor | Output |
-|---|---|---|
-| ExecuteDependencyGraphRebuild | GoalDependencyApplicationService | DependencyGraphRebuilt |
-| ExecuteDependencyReadinessEvaluation | GoalDependencyApplicationService | GoalDependencyReadinessCalculated |
-| ExecuteDependencyCycleValidation | GoalDependencyApplicationService | DependencyCycleValidationCompleted |
-| ReplayDependencyGraph | AdministrationApplicationService | DependencyGraphReplayed |
-
-### Addendum Validation Rules
-
-| Rule ID | Rule | Failure |
-|---|---|---|
-| GDP-P2-VR-001 | Graph rebuild must include source snapshot, formula versions, and rule versions. | Reject rebuild |
-| GDP-P2-VR-002 | Topological order must be deterministic for identical graph input. | Reject graph |
-| GDP-P2-VR-003 | Replay must use original graph version and dependency states. | Reject replay |
-| GDP-P2-VR-004 | Active cycle validation must exclude cancelled, completed, and expired edges. | Reject validation |
-
-### Addendum Testing Matrix
-
-| Test | Expected Result |
-|---|---|
-| Same graph input | Same topological order hash |
-| Cancelled edge in cycle path | Edge is excluded from active cycle check |
-| Missing formula version | Graph rebuild fails |
-| Historical replay | Original graph version reproduces |
-| Source goal status changed | Readiness recalculates |
-
-| Version | Date | Notes |
-|---|---|---|
-| v1.0-p2 | 2026-07-15 | Phase 2 executable addendum added. |
-
-## Phase 2 Executable Specification Addendum
-
-### Dependency Graph Execution Contract
-
-| Field | Required | Description |
-|---|---|---|
-| DependencyGraphExecutionId | Yes | Stable graph calculation identifier |
-| HouseholdId | Yes | Household scope |
-| GraphVersion | Yes | Generated dependency graph version |
-| DependencyIds | Yes | Dependency edges included |
-| SourceSnapshotId | Yes | Source goal and financial snapshot |
-| FormulaVersionSet | Yes | Dependency score and readiness formulas |
-| RuleVersionSet | Yes | Dependency and constraint rules |
-| TopologicalOrderHash | Yes | Deterministic ordering hash |
-| CorrelationId | Yes | Audit correlation |
-
-### Required Commands
-
-| Command | Actor | Output |
-|---|---|---|
-| ExecuteDependencyGraphRebuild | GoalDependencyApplicationService | DependencyGraphRebuilt |
-| ExecuteDependencyReadinessEvaluation | GoalDependencyApplicationService | GoalDependencyReadinessCalculated |
-| ExecuteDependencyCycleValidation | GoalDependencyApplicationService | DependencyCycleValidationCompleted |
-| ReplayDependencyGraph | AdministrationApplicationService | DependencyGraphReplayed |
-
-### Addendum Validation Rules
-
-| Rule ID | Rule | Failure |
-|---|---|---|
-| GDP-P2-VR-001 | Graph rebuild must include source snapshot, formula versions, and rule versions. | Reject rebuild |
-| GDP-P2-VR-002 | Topological order must be deterministic for identical graph input. | Reject graph |
-| GDP-P2-VR-003 | Replay must use original graph version and dependency states. | Reject replay |
-| GDP-P2-VR-004 | Active cycle validation must exclude cancelled, completed, and expired edges. | Reject validation |
-
-### Addendum Testing Matrix
-
-| Test | Expected Result |
-|---|---|
-| Same graph input | Same topological order hash |
-| Cancelled edge in cycle path | Edge is excluded from active cycle check |
-| Missing formula version | Graph rebuild fails |
-| Historical replay | Original graph version reproduces |
-| Source goal status changed | Readiness recalculates |
-
-| Version | Date | Notes |
-|---|---|---|
-| v1.0-p2 | 2026-07-15 | Phase 2 executable addendum added. |

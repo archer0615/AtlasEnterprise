@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T06:15:26.846Z",
-  "buildId": "cabe2bb3c33b",
+  "generatedAt": "2026-07-16T06:24:58.207Z",
+  "buildId": "fdf539bc5986",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -934,8 +934,32 @@
       "title": "Optimization Engine Framework",
       "category": "engine",
       "path": "knowledge/engine/optimization-engine-framework.md",
-      "sourceHash": "411a25773d93cc9ce70d885be888ede88810333e655ea9ea75467c87f55262a6",
-      "summary": "# Optimization Engine Framework # Document Control Document Name: Optimization Engine Framework Document Path: knowledge/optimization-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status:"
+      "sourceHash": "e587f43f87c983d7400432ddd0f5cdde826aa8728aadc92d01e6f262fa67e2ca",
+      "summary": "# Optimization Engine Framework ## Split Navigation - [Optimization engine catalog and matrices](optimization-engine/catalog-and-matrices.md) - [Optimization engine solver and validation](optimization-engine/solver-and-validation.md)"
+    },
+    {
+      "id": "7b1b60fad24ce337",
+      "title": "Optimization Engine Catalog and Matrices",
+      "category": "engine",
+      "path": "knowledge/engine/optimization-engine/catalog-and-matrices.md",
+      "sourceHash": "9a529ec889fd940b3ed3df129350858f5787c767829b7b30bebb2861ef2c6c94",
+      "summary": "# Optimization Engine Catalog and Matrices Source: ../optimization-engine-framework.md # Complete Optimization Catalog Every optimization capability must use this Enterprise contract. | Field | Requirement | | --- | --- | | Op"
+    },
+    {
+      "id": "06a70565057b7324",
+      "title": "Optimization Engine Operations and Verification",
+      "category": "engine",
+      "path": "knowledge/engine/optimization-engine/operations-and-verification.md",
+      "sourceHash": "67b997a1bd3cb79514ca3e45b07c14f1dfef1c8ed7a621ab7bdcd091f24eeaa7",
+      "summary": "# Optimization Engine Operations and Verification Source: ../optimization-engine-framework.md # Performance | Area | Requirement | | --- | --- | | Optimization SLA | Each optimization must define latency, timeout, throughput, pro"
+    },
+    {
+      "id": "d906f0b0ff30ee0c",
+      "title": "Optimization Engine Solver and Validation",
+      "category": "engine",
+      "path": "knowledge/engine/optimization-engine/solver-and-validation.md",
+      "sourceHash": "fa4c6a8bffa82360ef823d02e04a5057f25bda3985a160f7d7d79c07f6acd80f",
+      "summary": "# Optimization Engine Solver and Validation Source: ../optimization-engine-framework.md # Solver Strategy - Solver selection must match objective shape, constraint type, variable count, and performance target. - Deterministic solv"
     },
     {
       "id": "2549a9b1f35dfdbe",
@@ -958,8 +982,32 @@
       "title": "Simulation Engine Framework",
       "category": "engine",
       "path": "knowledge/engine/simulation-engine-framework.md",
-      "sourceHash": "62280a71b9eb8045a63faf7dfc385805702d8b2fa7adbe685b51b52cbcd9b9bc",
-      "summary": "# Simulation Engine Framework # Document Control Document Name: Simulation Engine Framework Document Path: knowledge/simulation-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canon"
+      "sourceHash": "93c4fd238c1567d3ffcf442bbb299aad75ed0029e8f884ec142531778a47bfb8",
+      "summary": "# Simulation Engine Framework ## Split Navigation - [Simulation engine catalog and matrices](simulation-engine/catalog-and-matrices.md) - [Simulation engine replay and validation](simulation-engine/replay-and-validation.md) - [Simulat"
+    },
+    {
+      "id": "f831d0e981442d12",
+      "title": "Simulation Engine Catalog and Matrices",
+      "category": "engine",
+      "path": "knowledge/engine/simulation-engine/catalog-and-matrices.md",
+      "sourceHash": "c8297a8a529752ae8f9e500082f8c8720ebc2cb92beabd24feadd56e12b561b7",
+      "summary": "# Simulation Engine Catalog and Matrices Source: ../simulation-engine-framework.md # Complete Simulation Catalog Every simulation capability must use this Enterprise contract. | Field | Requirement | | --- | --- | | Simulation"
+    },
+    {
+      "id": "b748d669203c4841",
+      "title": "Simulation Engine Operations and Verification",
+      "category": "engine",
+      "path": "knowledge/engine/simulation-engine/operations-and-verification.md",
+      "sourceHash": "8e05dc73502b0aecca6d90305ff01bcd75a7d32e6e9782d7f915f94e338f6253",
+      "summary": "# Simulation Engine Operations and Verification Source: ../simulation-engine-framework.md # Performance | Area | Requirement | | --- | --- | | Simulation SLA | Each simulation must define latency, timeout, throughput, progress, a"
+    },
+    {
+      "id": "0d6de17520512a89",
+      "title": "Simulation Engine Replay and Validation",
+      "category": "engine",
+      "path": "knowledge/engine/simulation-engine/replay-and-validation.md",
+      "sourceHash": "ed0512754822753bb9acc3a1671f4c1b3cce1c7302542addeb6f6f8bfaad9e95",
+      "summary": "# Simulation Engine Replay and Validation Source: ../simulation-engine-framework.md # Replay Strategy - Replay must use captured Simulation Snapshot. - Replay must use the same simulation model version. - Replay must use the same"
     },
     {
       "id": "81bb1629a1c9fc75",
@@ -2547,19 +2595,67 @@
     },
     {
       "id": "6d3d8c9d98a96ef1",
-      "title": "permission-framework",
+      "title": "Permission Framework",
       "category": "security",
       "path": "knowledge/security/permission-framework.md",
-      "sourceHash": "1797bc28992f110f392b0069857946c71366c4a0a9f10aea023bb0f795882667",
-      "summary": "# Permission Framework ## Document Control | Field | Value | | --- | --- | | Document | Permission Framework | | Classification | Atlas Enterprise Canonical Specification | | Source of Truth | Permission, Role, Policy, Claim, Pri"
+      "sourceHash": "f80aa01b74dca47477233ab8aedca12978ac5148fa27a089c160b537ba03c403",
+      "summary": "# Permission Framework ## Split Navigation - [Permission catalog](permission-framework/permission-catalog.md) - [Role and matrix catalog](permission-framework/role-and-matrix-catalog.md) - [Permission governance and testing](permission-"
+    },
+    {
+      "id": "cac2f0201bee3b6d",
+      "title": "Permission Catalog",
+      "category": "security",
+      "path": "knowledge/security/permission-framework/permission-catalog.md",
+      "sourceHash": "24f0be5aef5ebc2a6817f6b66ba5a6fa97b826d18c93d172bc4e0608dfd37ba0",
+      "summary": "# Permission Catalog Source: [permission-framework.md](../permission-framework.md) ## Complete Permission Catalog ### Permission: Dashboard:Create - Permission Name: Dashboard:Create - Display Name: Dashboard Create Permission -"
+    },
+    {
+      "id": "594e25a6ccad5a03",
+      "title": "Permission Governance and Testing",
+      "category": "security",
+      "path": "knowledge/security/permission-framework/permission-governance-and-testing.md",
+      "sourceHash": "4bc464b792232ddbcdf1f8a44191fcd2081c63da88a4c1a80092696acbfdaaa6",
+      "summary": "# Permission Governance and Testing Source: [permission-framework.md](../permission-framework.md) ## Permission Resolution Strategy - Permission Resolution Strategy rule {0:D2}: resolve explicit deny, explicit allow, role inheritan"
+    },
+    {
+      "id": "98a7bf9f2fc522f3",
+      "title": "Role and Matrix Catalog",
+      "category": "security",
+      "path": "knowledge/security/permission-framework/role-and-matrix-catalog.md",
+      "sourceHash": "7fd9da5e49366afd2eb42d03302a2e53a3c9ebd4bdc0989d226aea2441454999",
+      "summary": "# Role and Matrix Catalog Source: [permission-framework.md](../permission-framework.md) ## Role Catalog ### Role: System Administrator - Purpose: provide catalog-approved permission grouping for System Administrator. - Permission"
     },
     {
       "id": "0937717fd5ec86c4",
-      "title": "security-framework",
+      "title": "Security Framework",
       "category": "security",
       "path": "knowledge/security/security-framework.md",
-      "sourceHash": "77417f32f466dfce105c2840b415a07606fe51b2c3c2e7ea4949efa16375286a",
-      "summary": "# Security Framework ## Document Control | Field | Value | | --- | --- | | Document | Security Framework | | Classification | Atlas Enterprise Canonical Specification | | Source of Truth | Security controls for Authentication, Au"
+      "sourceHash": "30888c840b127e595d0e678b5d88fa6a4460ae487c5a8aa97412d0dd8b782383",
+      "summary": "# Security Framework ## Split Navigation - [Security architecture](security-framework/security-architecture.md) - [Authentication flows and events](security-framework/authentication-flows-and-events.md) - [Security governance and testin"
+    },
+    {
+      "id": "203cb816298a0941",
+      "title": "Authentication Flows and Events",
+      "category": "security",
+      "path": "knowledge/security/security-framework/authentication-flows-and-events.md",
+      "sourceHash": "06e962990fefacda4f791ca9fc7bb3cf9ffd910edda0ff5cc4fe43d20c9ccc02",
+      "summary": "# Authentication Flows and Events Source: [security-framework.md](../security-framework.md) ## Authentication Flows ### Authentication Flow: ApiBearerTokenFlow - Purpose: authenticate the Principal before protected Atlas access."
+    },
+    {
+      "id": "607bb55fb266436d",
+      "title": "Security Architecture",
+      "category": "security",
+      "path": "knowledge/security/security-framework/security-architecture.md",
+      "sourceHash": "4e1200399ea20e008071a8cba65532917d36b28cf212b72bdee69f7ccf2ef058",
+      "summary": "# Security Architecture Source: [security-framework.md](../security-framework.md) ## Authentication Architecture Authentication Architecture defines mandatory controls for Atlas components that depend on identity, permission, data"
+    },
+    {
+      "id": "3a3afa7eca1a8e8c",
+      "title": "Security Governance and Testing",
+      "category": "security",
+      "path": "knowledge/security/security-framework/security-governance-and-testing.md",
+      "sourceHash": "24925129862cebf7cab2c0770e791527cd9d93f146058c2413a43682ac551152",
+      "summary": "# Security Governance and Testing Source: [security-framework.md](../security-framework.md) ## Validation Rules | Rule ID | Rule | | --- | --- | | SEC-VR-001 | Security validation 1 requires non-empty authenticated Principal, val"
     },
     {
       "id": "a4132866965d02b3",
@@ -3022,8 +3118,32 @@
       "title": "Goal Dependency",
       "category": "supporting",
       "path": "knowledge/supporting/goal-dependency.md",
-      "sourceHash": "8d3a2a1e50acc5e3cc27afe60f72bf9601de19abcf085e1ae97ac3d19c2f2882",
-      "summary": "# Goal Dependency Version: 1.0 Status: Enterprise Specification Owner: Project Atlas # Purpose Goal Dependency defines the canonical domain specification for relationships between Goals in Atlas Goal Engine. It is not a Goal b"
+      "sourceHash": "970d25909bf37433782332afbbab02fb01eff38e4b36f2b3f0254798a491f2e7",
+      "summary": "# Goal Dependency ## Split Navigation - [Goal dependency model and calculation](goal-dependency/model-and-calculation.md) - [Goal dependency resolution and graph](goal-dependency/resolution-and-graph.md) - [Goal dependency governance and op"
+    },
+    {
+      "id": "11a652ac5ef61572",
+      "title": "Goal dependency governance and operations",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-dependency/governance-and-operations.md",
+      "sourceHash": "bc05d963dab515cb4d4371118379e9709a54869758d31492dccc9f6f425f6646",
+      "summary": "# Goal dependency governance and operations # Commands ## CreateGoalDependency Creates a dependency edge between ParentGoalId and ChildGoalId. ## UpdateGoalDependency Updates type, status, weight, readiness, or reason code for"
+    },
+    {
+      "id": "bd2f4dede197c028",
+      "title": "Goal dependency model and calculation",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-dependency/model-and-calculation.md",
+      "sourceHash": "25d407341cfb4a953691f688d78240793328ad882ef70ffafa2be3bceda55f79",
+      "summary": "# Goal dependency model and calculation # Domain Model ## Entity GoalDependency is the entity that links one Goal to another Goal. Required fields: | Field | Required | Description | |---|---:|---| | GoalDependencyId | Yes |"
+    },
+    {
+      "id": "f733185fc2d06f24",
+      "title": "Goal dependency resolution and graph",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-dependency/resolution-and-graph.md",
+      "sourceHash": "c4b66388c89e43c2e623559ef33824ff9941d1e011a533ed234442699d47c022",
+      "summary": "# Goal dependency resolution and graph # Dependency Resolution Allowed resolution outcomes: 1. Satisfied 2. Blocked 3. Deferred 4. Override 5. Rejected 6. Resolved Resolution formula: ```text Dependency Resolution = if I"
     },
     {
       "id": "840a59015876b930",
@@ -3190,8 +3310,32 @@
       "title": "Goal Prioritization",
       "category": "supporting",
       "path": "knowledge/supporting/goal-prioritization.md",
-      "sourceHash": "0eab72c72e2bc227f6c657c08f96a48274d7f2d383fc2ba31bd1109876bec3b1",
-      "summary": "# Goal Prioritization Version: 1.0 Status: Enterprise Specification Owner: Project Atlas # Purpose Goal Prioritization defines the canonical decision layer that ranks all Goals in Atlas Goal Engine. It is not a Goal because it"
+      "sourceHash": "d1df01905722cb9c669abb1b62bcb54ca3d239fe1acd751235cc3f7e6132c201",
+      "summary": "# Goal Prioritization ## Split Navigation - [Goal prioritization inputs and scoring](goal-prioritization/inputs-and-scoring.md) - [Goal prioritization conflicts and recommendations](goal-prioritization/conflicts-and-recommendations.md) - [G"
+    },
+    {
+      "id": "a97824a4b24d235a",
+      "title": "Goal prioritization conflicts and recommendations",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-prioritization/conflicts-and-recommendations.md",
+      "sourceHash": "b253e4bf183461aa90d3a9dcf7ad70eceb8b5d7d4870deb515adca7afec5f6af",
+      "summary": "# Goal prioritization conflicts and recommendations # Goal Conflict Goal Conflict occurs when two or more Goals compete for the same budget, time window, income capacity, liquidity reserve, debt capacity, risk capacity, or execution att"
+    },
+    {
+      "id": "17c1ae9bac179096",
+      "title": "Goal prioritization governance and operations",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-prioritization/governance-and-operations.md",
+      "sourceHash": "e05d0e5d87880b14023dbf6614d7764e1199eff1de26f801b7cc79df4b45154f",
+      "summary": "# Goal prioritization governance and operations # Commands ## CalculateGoalPriority Calculates Priority Score for one Goal. Required input: 1. GoalId 2. HouseholdId 3. Goal version 4. Financial snapshot 5. Assumption versio"
+    },
+    {
+      "id": "9c703c02f10576bd",
+      "title": "Goal prioritization inputs and scoring",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-prioritization/inputs-and-scoring.md",
+      "sourceHash": "86f184070e25fb257b957acc038a190091fee05ba98852c5368142bc1d507543",
+      "summary": "# Goal prioritization inputs and scoring # Enterprise Inputs Priority calculation consumes: 1. Goal 2. Life Goals 3. Decision Principles 4. Decision Rule Catalog 5. Scoring Model 6. Recommendation Priority Framework 7. Constrai"
     },
     {
       "id": "9f9e6315a6161340",

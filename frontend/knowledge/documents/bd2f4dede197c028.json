@@ -1,0 +1,55 @@
+{
+  "id": "bd2f4dede197c028",
+  "title": "Goal dependency model and calculation",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-dependency/model-and-calculation.md",
+  "sourceHash": "25d407341cfb4a953691f688d78240793328ad882ef70ffafa2be3bceda55f79",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal dependency model and calculation"
+    },
+    {
+      "level": 1,
+      "text": "Domain Model"
+    },
+    {
+      "level": 2,
+      "text": "Entity"
+    },
+    {
+      "level": 2,
+      "text": "Value Object"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Types"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Status"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Direction"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Weight"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Readiness"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Priority"
+    },
+    {
+      "level": 1,
+      "text": "Dependency Formula"
+    }
+  ],
+  "bodyMarkdown": "# Goal dependency model and calculation\r\n# Domain Model\r\n\r\n## Entity\r\n\r\nGoalDependency is the entity that links one Goal to another Goal.\r\n\r\nRequired fields:\r\n\r\n| Field | Required | Description |\r\n|---|---:|---|\r\n| GoalDependencyId | Yes | Stable dependency identifier. |\r\n| HouseholdId | Yes | Owner Household. |\r\n| ParentGoalId | Yes | Upstream or prerequisite Goal. |\r\n| ChildGoalId | Yes | Downstream or dependent Goal. |\r\n| DependencyType | Yes | Type from Dependency Types. |\r\n| DependencyStatus | Yes | Status from Dependency Status. |\r\n| DependencyDirection | Yes | Direction semantics. |\r\n| DependencyWeight | Yes | Strength from 0 to 100. |\r\n| DependencyReadinessScore | Yes | Readiness from 0 to 100. |\r\n| ReasonCode | Yes | Cataloged explanation code. |\r\n| Version | Yes | Entity version. |\r\n| CreatedAt | Yes | Creation timestamp. |\r\n| UpdatedAt | Yes | Last update timestamp. |\r\n\r\n## Value Object\r\n\r\nGoalDependencyEdge:\r\n\r\n```text\r\nGoalDependencyEdge =\r\nParentGoalId\r\n+ ChildGoalId\r\n+ DependencyType\r\n+ DependencyWeight\r\n+ DependencyStatus\r\n```\r\n\r\nDependencyScoreBreakdown:\r\n\r\n```text\r\nDependencyScoreBreakdown =\r\nDependencyWeight\r\n+ DependencyReadinessScore\r\n+ DependencyImpact\r\n+ DependencyRisk\r\n+ DependencyConfidence\r\n```\r\n\r\n\r\n# Dependency Types\r\n\r\n| Type | Definition |\r\n|---|---|\r\n| Hard Dependency | Child Goal cannot proceed until Parent Goal is satisfied. |\r\n| Soft Dependency | Child Goal may proceed with warning, penalty, or lower readiness. |\r\n| Financial Dependency | Child Goal depends on funding, savings, income, asset, or liability condition. |\r\n| Execution Dependency | Child ExecutionPlan or action depends on parent completion. |\r\n| Temporal Dependency | Child Goal depends on dates, windows, sequence, or lead time. |\r\n| Scenario Dependency | Child Goal depends on Scenario output, simulation result, or risk timeline. |\r\n| Recommendation Dependency | Recommendation requires another Goal or recommendation result first. |\r\n| Decision Dependency | Decision Score or decision feasibility depends on Goal state. |\r\n| Resource Dependency | Child Goal depends on shared scarce resources. |\r\n| Budget Dependency | Child Goal depends on available Budget. |\r\n| CashFlow Dependency | Child Goal depends on Monthly Net Cashflow or cashflow stability. |\r\n| Risk Dependency | Child Goal depends on risk reduction or risk threshold. |\r\n| Portfolio Dependency | Child Goal depends on Portfolio allocation, concentration, or liquidity. |\r\n| Insurance Dependency | Child Goal depends on Insurance coverage sufficiency. |\r\n| Loan Dependency | Child Goal depends on debt, Loan Interest, DTI, or repayment state. |\r\n| Housing Dependency | Child Goal depends on Housing affordability, sale, purchase, or rental state. |\r\n| Education Dependency | Child Goal depends on Education funding, date, or Family requirement. |\r\n| Retirement Dependency | Child Goal depends on Retirement readiness or retirement capital. |\r\n| Family Dependency | Child Goal depends on Family obligation, dependents, or Parent Support. |\r\n| Tax Dependency | Child Goal depends on tax deadline, tax saving, or compliance. |\r\n| Estate Dependency | Child Goal depends on Estate planning readiness. |\r\n| Lifestyle Dependency | Child Goal depends on discretionary capacity after mandatory Goals. |\r\n\r\n\r\n# Dependency Status\r\n\r\n| Status | Meaning |\r\n|---|---|\r\n| Pending | Dependency exists but has not been evaluated for current snapshot. |\r\n| Satisfied | Parent requirement is met. |\r\n| Unsatisfied | Parent requirement is not met. |\r\n| Blocked | Child Goal cannot proceed because dependency is unsatisfied. |\r\n| Deferred | Child Goal is intentionally postponed due to dependency state. |\r\n| Expired | Dependency is no longer valid because time window or source condition expired. |\r\n| Cancelled | Dependency was cancelled and is excluded from active graph. |\r\n| Completed | Dependency reached final successful state and is retained for audit. |\r\n\r\n\r\n# Dependency Direction\r\n\r\n| Direction | Meaning |\r\n|---|---|\r\n| Parent | Upstream Goal that must be considered first. |\r\n| Child | Downstream Goal affected by parent state. |\r\n| Prerequisite | Parent must be satisfied before child can proceed. |\r\n| Downstream | Goals affected by a parent Goal. |\r\n| Upstream | Goals that affect a child Goal. |\r\n| Bidirectional | Two Goals influence each other and must be represented as two directed dependencies with explicit reason codes. |\r\n\r\nBidirectional dependencies are not stored as a single graph edge. They must be modeled as two directed edges and validated for cycle safety.\r\n\r\n\r\n# Dependency Weight\r\n\r\nDependency Weight is a normalized 0 to 100 measure of how strongly the Parent Goal affects the Child Goal.\r\n\r\n```text\r\nDependency Weight = clamp(\r\n    0.30 * Constraint Strength\r\n  + 0.25 * Financial Coupling\r\n  + 0.20 * Execution Coupling\r\n  + 0.15 * Risk Coupling\r\n  + 0.10 * Time Coupling,\r\n  0,\r\n  100\r\n)\r\n```\r\n\r\nWeight definitions:\r\n\r\n1. Constraint Strength measures Hard, Soft, Advisory, Regulatory, and Data Integrity pressure.\r\n2. Financial Coupling measures shared funding, Budget, CashFlow, Loan, Portfolio, or Insurance dependency.\r\n3. Execution Coupling measures whether ExecutionPlan sequence is blocked.\r\n4. Risk Coupling measures risk introduced when the child proceeds too early.\r\n5. Time Coupling measures deadline, lead time, or sequencing dependency.\r\n\r\n\r\n# Dependency Readiness\r\n\r\nDependency Readiness Score is a normalized 0 to 100 measure of whether the Child Goal can proceed.\r\n\r\n```text\r\nDependency Readiness Score = clamp(\r\n    0.35 * Parent Satisfaction\r\n  + 0.20 * Resource Availability\r\n  + 0.15 * Constraint Clearance\r\n  + 0.15 * Scenario Readiness\r\n  + 0.10 * Execution Readiness\r\n  + 0.05 * Dependency Confidence,\r\n  0,\r\n  100\r\n)\r\n```\r\n\r\nReadiness interpretation:\r\n\r\n| Score | Meaning |\r\n|---:|---|\r\n| 90 to 100 | Ready; dependency should not block child. |\r\n| 75 to 89 | Mostly ready; proceed with monitoring. |\r\n| 60 to 74 | Conditionally ready; warning required. |\r\n| 40 to 59 | Weak readiness; child should normally be deferred. |\r\n| 0 to 39 | Not ready; child is blocked unless allowed override exists. |\r\n\r\n\r\n# Dependency Priority\r\n\r\nDependency Priority determines how dependencies affect ranking and downstream scores.\r\n\r\nGoal Priority:\r\n\r\n```text\r\nGoal Priority Adjustment = Dependency Weight * (100 - Dependency Readiness Score) / 100\r\n```\r\n\r\nRecommendation Score:\r\n\r\n```text\r\nRecommendation Dependency Penalty = clamp(\r\n    BlockingDependencyCount * 8\r\n  + CriticalUnsatisfiedDependencyCount * 15\r\n  + AverageDependencyPriorityPenalty,\r\n  0,\r\n  40\r\n)\r\n```\r\n\r\nDecision Score:\r\n\r\n```text\r\nDecision Dependency Adjustment = clamp(\r\n    SatisfiedCriticalDependencies * 5\r\n  - UnsatisfiedCriticalDependencies * 12\r\n  - CircularDependencyPenalty,\r\n  -40,\r\n  20\r\n)\r\n```\r\n\r\nScenario Score:\r\n\r\n```text\r\nScenario Dependency Score = clamp(\r\n    0.60 * GoalAchievementRatioOfPrerequisites\r\n  + 0.25 * ScenarioReadiness\r\n  + 0.15 * DependencyConfidence,\r\n  0,\r\n  100\r\n)\r\n```\r\n\r\nExecution Score:\r\n\r\n```text\r\nExecution Dependency Score = clamp(\r\n    0.50 * CompletedPrerequisiteActions\r\n  + 0.30 * DependencyReadinessScore\r\n  + 0.20 * ExecutionPlanReadiness,\r\n  0,\r\n  100\r\n)\r\n```\r\n\r\n\r\n# Dependency Formula\r\n\r\nDependency Score:\r\n\r\n```text\r\nDependency Score = clamp(\r\n    0.30 * Dependency Weight\r\n  + 0.25 * Dependency Impact\r\n  + 0.20 * Dependency Risk\r\n  + 0.15 * (100 - Dependency Readiness Score)\r\n  + 0.10 * Dependency Confidence,\r\n  0,\r\n  100\r\n)\r\n```\r\n\r\nDependency Impact:\r\n\r\n```text\r\nDependency Impact = max(\r\n    FinancialImpact,\r\n    CashFlowImpact,\r\n    RiskReductionImpact,\r\n    GoalPriorityImpact,\r\n    ExecutionImpact\r\n)\r\n```\r\n\r\nDependency Risk:\r\n\r\n```text\r\nDependency Risk = max(\r\n    ConstraintRisk,\r\n    LiquidityRisk,\r\n    DebtRisk,\r\n    InsuranceGapRisk,\r\n    RetirementRisk,\r\n    HousingRisk,\r\n    ScenarioRisk\r\n)\r\n```\r\n\r\nDependency Confidence:\r\n\r\n```text\r\nDependency Confidence = clamp(\r\n    0.40 * DataCompleteness\r\n  + 0.25 * ScenarioFreshness\r\n  + 0.20 * RuleVersionValidity\r\n  + 0.15 * AuditTraceability,\r\n  0,\r\n  100\r\n)\r\n```\r\n\r\n",
+  "references": []
+}
