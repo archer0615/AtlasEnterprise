@@ -4,6 +4,8 @@ Version: 1.0
 - [Goal insights generation](goal-insights/generation.md)
 - [Goal insights dashboard and actions](goal-insights/dashboard-and-actions.md)
 - [Goal insights governance and testing](goal-insights/governance-and-testing.md)
+- [Goal insights categories and models](goal-insights/categories-and-models.md)
+- [Goal insights contracts and persistence](goal-insights/contracts-and-persistence.md)
 Status: Enterprise Specification
 Owner: Project Atlas
 Source of Truth: Atlas Goal Insights Specification

@@ -1,0 +1,47 @@
+{
+  "id": "0d195971f45d1805",
+  "title": "Entity Security, Audit, and Performance",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/entity/security-audit-performance.md",
+  "sourceHash": "e9c79c8537a2f4622cbb420b8303be74e4019ce5aa52396cff58eb166641f841",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Entity Security, Audit, and Performance"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Security Rules"
+    },
+    {
+      "level": 2,
+      "text": "Audit Rules"
+    },
+    {
+      "level": 2,
+      "text": "Performance and Concurrency"
+    },
+    {
+      "level": 2,
+      "text": "Validation and Business Rules"
+    },
+    {
+      "level": 2,
+      "text": "Testing and Edge Cases"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Entity Security, Audit, and Performance\n\n## Purpose\n\nThis split document isolates Entity Catalog rules for security, audit, performance, validation, business rules, testing, and edge cases.\n\n## Source\n\n- Parent specification: [Entity Catalog](../entity-catalog.md)\n\n## Security Rules\n\n- Entity access must respect aggregate ownership and the household or tenant boundary defined by the owning aggregate.\n- Navigation properties do not grant authorization and do not change ownership.\n- Cross-entity reads must be mediated by the appropriate repository, application service, projection, or API boundary.\n- Entity mutation commands must validate actor permissions before state changes are persisted.\n- Sensitive financial, identity, policy, and configuration entities require traceable authorization decisions.\n\n## Audit Rules\n\n- Auditable entity changes must capture the owning aggregate, entity identity, actor, timestamp, command or service cause, and material state transition.\n- Audit ownership follows the aggregate boundary, not UI workflow convenience.\n- Projection refresh, scenario simulation, and recommendation generation may be recorded as derived activity but must not replace aggregate event history.\n- Delete, archive, restore, and policy/configuration changes require explicit audit records.\n\n## Performance and Concurrency\n\n- Entity writes use the owning aggregate as the concurrency boundary.\n- Read models may denormalize entity data for dashboards, reports, projections, and scenario analysis.\n- Denormalized reads must not become the source of truth for entity mutation.\n- Navigation loading must avoid implicit ownership assumptions and uncontrolled aggregate traversal.\n- Cache entries must be invalidated or refreshed from aggregate-owned changes.\n\n## Validation and Business Rules\n\n- Entity validation must enforce identity, lifecycle state, ownership, persistence mapping, API mapping, and command/event alignment.\n- Business rules must not create entities, aggregate roots, commands, events, repositories, or bounded contexts not present in the catalogs.\n- Entity relationships are catalog-controlled and must not be inferred from DTO shape, table joins, or navigation convenience.\n- Implementation gaps should be marked as catalog gaps instead of adding product behavior.\n\n## Testing and Edge Cases\n\n- Tests must cover ownership boundaries, command routing, event mapping, persistence mapping, authorization, audit, and concurrency behavior.\n- Edge cases include stale projections, invalid cross-aggregate navigation, deleted owners, archived entities, duplicate identity, unsupported status values, and missing catalog mappings.\n- Consistency tests should verify that Entity Catalog, Aggregate Catalog, Repository Catalog, Command Catalog, Domain Event Catalog, API mapping, and database mapping remain aligned.\n\n## Related References\n\n- [Entity Catalog](../entity-catalog.md)\n- [Entity relationships and ownership](../entity-catalog/relationships-and-ownership.md)\n- [Entity governance and testing](../entity-catalog/governance-and-testing.md)\n",
+  "references": []
+}

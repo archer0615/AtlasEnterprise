@@ -5,6 +5,8 @@
 - [Goal conflict lifecycle and state](goal-conflict-resolution/lifecycle-and-state.md)
 - [Goal conflict contracts and persistence](goal-conflict-resolution/contracts-and-persistence.md)
 - [Goal conflict governance and testing](goal-conflict-resolution/governance-and-testing.md)
+- [Goal conflict evaluation and tie-breaking](goal-conflict-resolution/evaluation-and-tie-breaking.md)
+- [Goal conflict operations and observability](goal-conflict-resolution/operations-and-observability.md)
 
 ## Document Control
 

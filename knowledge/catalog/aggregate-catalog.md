@@ -3,6 +3,7 @@
 - [Aggregate core catalog](aggregate-catalog/core-aggregates.md)
 - [Aggregate ownership mapping](aggregate-catalog/ownership-mapping.md)
 - [Aggregate governance and testing](aggregate-catalog/governance-and-testing.md)
+- [Aggregate cross-boundary rules](aggregate/cross-boundary-rules.md)
 
 # Document Control
 

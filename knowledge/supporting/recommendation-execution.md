@@ -9,6 +9,8 @@ Last Updated: 2026-07-13
 - [Recommendation execution policies and monitoring](recommendation-execution/policies-and-monitoring.md)
 - [Recommendation execution contracts and persistence](recommendation-execution/contracts-and-persistence.md)
 - [Recommendation execution recovery](recommendation-execution/recovery-and-audit.md)
+- [Recommendation execution modes and scheduling](recommendation-execution/modes-and-scheduling.md)
+- [Recommendation execution integration boundaries](recommendation-execution/integration-boundaries.md)
 
 ## Purpose
 Recommendation Execution defines governed execution for existing Recommendations in Atlas, preserving existing Domain ownership, Catalog naming, validation, audit, security, lifecycle, and execution evidence.

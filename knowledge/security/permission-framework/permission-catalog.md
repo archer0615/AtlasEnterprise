@@ -1,5 +1,8 @@
 # Permission Catalog
 
+## Split Navigation
+- [Permission resource operation summary](permission-resource-operation-summary.md)
+
 Source: [permission-framework.md](../permission-framework.md)
 
 ## Complete Permission Catalog

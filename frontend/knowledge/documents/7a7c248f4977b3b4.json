@@ -1,0 +1,47 @@
+{
+  "id": "7a7c248f4977b3b4",
+  "title": "Goal Conflict Operations and Observability",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-conflict-resolution/operations-and-observability.md",
+  "sourceHash": "c17fc1b94bff547fa812647dc498780539c8325c513771b9eb67076e0350583c",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Conflict Operations and Observability"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Security"
+    },
+    {
+      "level": 2,
+      "text": "Audit and Explainability"
+    },
+    {
+      "level": 2,
+      "text": "Observability"
+    },
+    {
+      "level": 2,
+      "text": "Performance"
+    },
+    {
+      "level": 2,
+      "text": "Concurrency and Idempotency"
+    },
+    {
+      "level": 2,
+      "text": "Retention and Edge Cases"
+    }
+  ],
+  "bodyMarkdown": "# Goal Conflict Operations and Observability\n\n## Purpose\nThis split document isolates goal conflict security, audit, explainability, observability, performance, concurrency, retention, edge cases, and operational testing from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Security\nGoal conflict views and actions are permission-aware. Users may only see conflicts, evidence, related goals, recommendation links, decision links, and scenario references they are authorized to access. Masking must not change conflict facts or audit history.\n\n## Audit and Explainability\nEvery detection, reevaluation, proposal, selection, acceptance, rejection, override, deferral, escalation, resolution, reopen, archive, and restore action records operator, timestamp, reason, prior state, next state, correlation identifier, and evidence references. Explainability summarizes which goals conflict, why the conflict matters, which evidence was used, and why a candidate was recommended.\n\n## Observability\nOperational telemetry tracks detection counts, active conflicts, severity distribution, resolution latency, stale conflicts, override rates, retry counts, error counts, and projection freshness. Logs must preserve correlation identifiers without exposing unauthorized fields.\n\n## Performance\nConflict detection and read-model projection should use stable filters, indexes, cache strategy, and incremental recalculation where available. Large related-goal sets must respect configured limits and avoid expanding unauthorized data.\n\n## Concurrency and Idempotency\nCommands must be idempotent by correlation identifier and source version. Concurrent updates must not produce duplicate active conflicts for the same household, primary goal, related goals, conflict type, and scenario context.\n\n## Retention and Edge Cases\nResolved and archived conflicts remain auditable according to retention policy. Edge cases include deleted goals, restored goals, stale recommendations, scenario version drift, duplicate conflict sets, circular dependencies, and permission changes after detection.\n",
+  "references": []
+}

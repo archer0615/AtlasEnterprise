@@ -1,0 +1,39 @@
+{
+  "id": "28876c6b366e8128",
+  "title": "Role Matrix Boundary Summary",
+  "category": "security",
+  "canonicalPath": "knowledge/security/permission-framework/role-matrix-boundary-summary.md",
+  "sourceHash": "29cabb4a1f03548149aa58b44ed69e0baa8570d10663b74319ad498371d7e86b",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Role Matrix Boundary Summary"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Role Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Role Boundary Rules"
+    },
+    {
+      "level": 2,
+      "text": "Permission Matrix Semantics"
+    },
+    {
+      "level": 2,
+      "text": "Execution Boundary Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Requirement"
+    }
+  ],
+  "bodyMarkdown": "# Role Matrix Boundary Summary\n\nSource: [role-and-matrix-catalog.md](role-and-matrix-catalog.md)\n\n## Purpose\n\nThis split document summarizes role boundaries, permission matrix semantics, and execution boundary mappings from the parent Role and Matrix Catalog while preserving the parent as the exhaustive matrix source.\n\n## Role Catalog\n\n| Role | Purpose | Scope |\n| --- | --- | --- |\n| System Administrator | Catalog-approved permission grouping for System Administrator. | Global, Tenant, User Group, User, and Household where applicable. |\n| Tenant Administrator | Catalog-approved permission grouping for Tenant Administrator. | Global, Tenant, User Group, User, and Household where applicable. |\n| Financial Advisor | Catalog-approved permission grouping for Financial Advisor. | Global, Tenant, User Group, User, and Household where applicable. |\n| Standard User | Catalog-approved permission grouping for Standard User. | Global, Tenant, User Group, User, and Household where applicable. |\n| Read-only Auditor | Catalog-approved permission grouping for Read-only Auditor. | Global, Tenant, User Group, User, and Household where applicable. |\n\n## Role Boundary Rules\n\n- Permission Boundary follows least privilege and does not bypass Permission Evaluation.\n- Assignment Audit is required for grant, revoke, and role change.\n- Role Mapping remains catalog-controlled and is evaluated with policy version, scope, and audit requirements.\n- Read-only Auditor appears on read-oriented mappings in the parent catalog and does not appear on create, update, delete, execute, approve, export, share, or restore rows.\n\n## Permission Matrix Semantics\n\nThe parent Permission Matrix maps each permission to:\n- Mapping ID.\n- Permission.\n- Resource.\n- Operation.\n- Role Mapping.\n- Policy Mapping.\n\nPolicy Mapping consistently requires ownership, scope, tenant, household, and deny-before-allow evaluation.\n\n## Execution Boundary Matrices\n\nThe parent catalog includes dedicated matrices for these execution boundaries:\n- Permission Resource Matrix maps permissions to protected resources.\n- Permission API Matrix maps permissions to protected API boundaries.\n- Permission Command Matrix maps permissions to protected commands.\n- Permission Repository Matrix maps permissions to protected repositories.\n- Permission Workflow Matrix maps permissions to workflow-governed steps.\n- Permission Scheduler Matrix maps permissions to scheduler-governed executions.\n- Permission Automation Matrix maps permissions to automation-governed actions.\n\n## Evaluation Requirement\n\nRole Permission Matrix rows require authenticated Principal, policy version, scope, and audit. These requirements preserve the Security Framework and Permission Framework rule that roles group permissions but never bypass authorization decisions.\n",
+  "references": []
+}

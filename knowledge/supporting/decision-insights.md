@@ -6,6 +6,8 @@ Last Updated: 2026-07-13
 - [Decision insight categories and rules](decision-insights/categories-and-rules.md)
 - [Decision insight contracts and persistence](decision-insights/contracts-and-persistence.md)
 - [Decision insights execution and reporting](decision-insights/execution-and-reporting.md)
+- [Decision insights scoring and evidence](decision-insights/scoring-and-evidence.md)
+- [Decision insights security and performance](decision-insights/security-and-performance.md)
 ## Purpose
 Decision Insights defines how Atlas detects, explains, ranks, and governs business insights related to Decision behavior. It converts Decision, Recommendation, Goal, Scenario, Portfolio, CashFlow, Risk, Simulation, Workflow, Automation, Notification, Business Calendar, and User signals into auditable insight records. It supports decision quality improvement, execution monitoring, risk awareness, opportunity discovery, and governance visibility without changing existing Atlas domains.
 ## Business Meaning

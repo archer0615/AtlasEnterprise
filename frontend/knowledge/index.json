@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T07:57:22.430Z",
-  "buildId": "fa01994840ea",
+  "generatedAt": "2026-07-16T08:06:46.719Z",
+  "buildId": "a4ef3012fdb5",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -86,7 +86,7 @@
       "title": "Aggregate Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/aggregate-catalog.md",
-      "sourceHash": "88eddf464e1b13c1eaa4dbf16a86247f8080933532be6ec621075441238d2319",
+      "sourceHash": "95258fe70b9c8edb45d0ac8ed0959a0fb62ee8c6a34f6163dacdb2d2010e3ca6",
       "summary": "# Aggregate Catalog ## Split Navigation - [Aggregate core catalog](aggregate-catalog/core-aggregates.md) - [Aggregate ownership mapping](aggregate-catalog/ownership-mapping.md) - [Aggregate governance and testing](aggregate-catalog/governan"
     },
     {
@@ -112,6 +112,14 @@
       "path": "knowledge/catalog/aggregate-catalog/ownership-mapping.md",
       "sourceHash": "075894a1fa0dbbecab972f5e293e53f6aa0e59cf62e05b500bd68077ee4b29e8",
       "summary": "# Aggregate Catalog Ownership Mapping ## Purpose This split document isolates ownership matrices and cross-aggregate mappings from the parent Aggregate Catalog. ## Source - Parent specification: [Aggregate Catalog](../aggregate-catalog.md"
+    },
+    {
+      "id": "897cd715d74db6a1",
+      "title": "Aggregate Cross-Boundary Rules",
+      "category": "catalog",
+      "path": "knowledge/catalog/aggregate/cross-boundary-rules.md",
+      "sourceHash": "dcad486671b632676f4d2c0225517050243e70c22a45c710ad2d49807535a5ee",
+      "summary": "# Aggregate Cross-Boundary Rules ## Purpose This split document isolates cross-aggregate interaction, lifecycle, repository, command, event, persistence, API, security, audit, performance, and concurrency rules from the larger Aggregate C"
     },
     {
       "id": "9624f4ba01322a64",
@@ -430,7 +438,7 @@
       "title": "Entity Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/entity-catalog.md",
-      "sourceHash": "2baef4dae4aa00d7541a464ce04f5777922e72fc29a99db8a0c6ab727621b9c7",
+      "sourceHash": "2ec69678a1c05c11a52ad385b687fecd4a76860696208e654fcac89182fd7518",
       "summary": "# Entity Catalog ## Split Navigation - [Entity catalog entries](entity-catalog/catalog-entries.md) - [Entity relationships and ownership](entity-catalog/relationships-and-ownership.md) - [Entity governance and testing](entity-catalog/govern"
     },
     {
@@ -456,6 +464,14 @@
       "path": "knowledge/catalog/entity-catalog/relationships-and-ownership.md",
       "sourceHash": "f1cc05213a4052e12dff636db0f03ebb0bb99e243910bff05f37ce35b8509243",
       "summary": "# Entity Relationships and Ownership ## Purpose This split document isolates entity ownership and relationship matrices from the parent Entity Catalog. ## Source - Parent specification: [Entity Catalog](../entity-catalog.md) ## Matrices"
+    },
+    {
+      "id": "0d195971f45d1805",
+      "title": "Entity Security, Audit, and Performance",
+      "category": "catalog",
+      "path": "knowledge/catalog/entity/security-audit-performance.md",
+      "sourceHash": "e9c79c8537a2f4622cbb420b8303be74e4019ce5aa52396cff58eb166641f841",
+      "summary": "# Entity Security, Audit, and Performance ## Purpose This split document isolates Entity Catalog rules for security, audit, performance, validation, business rules, testing, and edge cases. ## Source - Parent specification: [Entity Cata"
     },
     {
       "id": "8adc68c015c0c85b",
@@ -1518,8 +1534,16 @@
       "title": "Mortgage Entity Specification",
       "category": "entity",
       "path": "knowledge/entity/Mortgage.md",
-      "sourceHash": "8bac2c4f5dbd28a1da677cd6df25b966bc66b807429ddaa454f27e65d47f36f7",
+      "sourceHash": "37cd644ad800897a94223537593d42ecce9c1c1bb5f6a757ff2c33b2fe4ff043",
       "summary": "# Mortgage Entity Specification ## Split Navigation - [Mortgage identity and repayment](mortgage/identity-and-repayment.md) - [Mortgage persistence and API](mortgage/persistence-and-api.md) - [Mortgage governance and testing](mortgage/gover"
+    },
+    {
+      "id": "ae12b5161726cf23",
+      "title": "Mortgage Error, Migration, and Consistency",
+      "category": "entity",
+      "path": "knowledge/entity/mortgage/error-migration-consistency.md",
+      "sourceHash": "ae8b7c09e5b73f624ec70c32b4b908d1e0f94f57e720f2d59f23aa663491a9ca",
+      "summary": "# Mortgage Error, Migration, and Consistency ## Purpose This split document isolates Mortgage error handling, data migration, consistency verification, completion checklist, and final consistency matrix content from the larger Mortgage en"
     },
     {
       "id": "0b8d7ddf4a2e67d8",
@@ -3038,8 +3062,8 @@
       "title": "Permission Catalog",
       "category": "security",
       "path": "knowledge/security/permission-framework/permission-catalog.md",
-      "sourceHash": "24f0be5aef5ebc2a6817f6b66ba5a6fa97b826d18c93d172bc4e0608dfd37ba0",
-      "summary": "# Permission Catalog Source: [permission-framework.md](../permission-framework.md) ## Complete Permission Catalog ### Permission: Dashboard:Create - Permission Name: Dashboard:Create - Display Name: Dashboard Create Permission -"
+      "sourceHash": "ebbfdd682e67132487334358d1d5a6098cd11c328193b3b2ce65196b91adf389",
+      "summary": "# Permission Catalog ## Split Navigation - [Permission resource operation summary](permission-resource-operation-summary.md) Source: [permission-framework.md](../permission-framework.md) ## Complete Permission Catalog ### Permission:"
     },
     {
       "id": "594e25a6ccad5a03",
@@ -3050,20 +3074,36 @@
       "summary": "# Permission Governance and Testing Source: [permission-framework.md](../permission-framework.md) ## Permission Resolution Strategy - Permission Resolution Strategy rule {0:D2}: resolve explicit deny, explicit allow, role inheritan"
     },
     {
+      "id": "5c83baf6398bec68",
+      "title": "Permission Resource Operation Summary",
+      "category": "security",
+      "path": "knowledge/security/permission-framework/permission-resource-operation-summary.md",
+      "sourceHash": "d03fcebdfedf2b7b2a27d69cecc0e3ed655197eeaadea03e2dbfcb79a59c9448",
+      "summary": "# Permission Resource Operation Summary Source: [permission-catalog.md](permission-catalog.md) ## Purpose This split document summarizes the complete permission naming surface from the parent Permission Catalog by resource and operation"
+    },
+    {
       "id": "98a7bf9f2fc522f3",
       "title": "Role and Matrix Catalog",
       "category": "security",
       "path": "knowledge/security/permission-framework/role-and-matrix-catalog.md",
-      "sourceHash": "7fd9da5e49366afd2eb42d03302a2e53a3c9ebd4bdc0989d226aea2441454999",
-      "summary": "# Role and Matrix Catalog Source: [permission-framework.md](../permission-framework.md) ## Role Catalog ### Role: System Administrator - Purpose: provide catalog-approved permission grouping for System Administrator. - Permission"
+      "sourceHash": "f0dba95a135e605bf76a9c16bd567127bf029d5cdf9bf7117078597560f2f284",
+      "summary": "# Role and Matrix Catalog ## Split Navigation - [Role matrix boundary summary](role-matrix-boundary-summary.md) Source: [permission-framework.md](../permission-framework.md) ## Role Catalog ### Role: System Administrator - Purpose:"
+    },
+    {
+      "id": "28876c6b366e8128",
+      "title": "Role Matrix Boundary Summary",
+      "category": "security",
+      "path": "knowledge/security/permission-framework/role-matrix-boundary-summary.md",
+      "sourceHash": "29cabb4a1f03548149aa58b44ed69e0baa8570d10663b74319ad498371d7e86b",
+      "summary": "# Role Matrix Boundary Summary Source: [role-and-matrix-catalog.md](role-and-matrix-catalog.md) ## Purpose This split document summarizes role boundaries, permission matrix semantics, and execution boundary mappings from the parent Role"
     },
     {
       "id": "0937717fd5ec86c4",
       "title": "Security Framework",
       "category": "security",
       "path": "knowledge/security/security-framework.md",
-      "sourceHash": "30888c840b127e595d0e678b5d88fa6a4460ae487c5a8aa97412d0dd8b782383",
-      "summary": "# Security Framework ## Split Navigation - [Security architecture](security-framework/security-architecture.md) - [Authentication flows and events](security-framework/authentication-flows-and-events.md) - [Security governance and testin"
+      "sourceHash": "94e051bc0e9bc1470141f2698fa8c8bafc3cdb1d60b84633e50f0f4c88973cc2",
+      "summary": "# Security Framework ## Split Navigation - [Security architecture](security-framework/security-architecture.md) - [Authentication flows and events](security-framework/authentication-flows-and-events.md) - [Security governance and testing]"
     },
     {
       "id": "203cb816298a0941",
@@ -3072,6 +3112,14 @@
       "path": "knowledge/security/security-framework/authentication-flows-and-events.md",
       "sourceHash": "06e962990fefacda4f791ca9fc7bb3cf9ffd910edda0ff5cc4fe43d20c9ccc02",
       "summary": "# Authentication Flows and Events Source: [security-framework.md](../security-framework.md) ## Authentication Flows ### Authentication Flow: ApiBearerTokenFlow - Purpose: authenticate the Principal before protected Atlas access."
+    },
+    {
+      "id": "82d7480c0dd9b611",
+      "title": "Data Protection and Isolation",
+      "category": "security",
+      "path": "knowledge/security/security-framework/data-protection-and-isolation.md",
+      "sourceHash": "ecf855389384985d4d4349bd910fd18baa5738d3e1a183311dcb733a0ace4cee",
+      "summary": "# Data Protection and Isolation Source: [security-framework.md](../security-framework.md) ## Purpose This split document isolates Atlas data protection, storage security, tenant isolation, household isolation, PII protection, data maskin"
     },
     {
       "id": "607bb55fb266436d",
@@ -3088,6 +3136,14 @@
       "path": "knowledge/security/security-framework/security-governance-and-testing.md",
       "sourceHash": "24925129862cebf7cab2c0770e791527cd9d93f146058c2413a43682ac551152",
       "summary": "# Security Governance and Testing Source: [security-framework.md](../security-framework.md) ## Validation Rules | Rule ID | Rule | | --- | --- | | SEC-VR-001 | Security validation 1 requires non-empty authenticated Principal, val"
+    },
+    {
+      "id": "2656b93201d52619",
+      "title": "Threat Validation and Runtime Controls",
+      "category": "security",
+      "path": "knowledge/security/security-framework/threat-validation-and-runtime-controls.md",
+      "sourceHash": "28b19be39fa61c63fc8b13d0e9a7b4f4741a79341a65f28a65d076b430067719",
+      "summary": "# Threat Validation and Runtime Controls Source: [security-framework.md](../security-framework.md) ## Purpose This split document isolates threat model, validation, business rules, runtime performance controls, edge cases, and consistenc"
     },
     {
       "id": "a4132866965d02b3",
@@ -3262,7 +3318,7 @@
       "title": "Insight Architecture",
       "category": "supporting",
       "path": "knowledge/supporting/decision-insights.md",
-      "sourceHash": "2766fa484301dc255a1cb5f331ee24e70c926bcb6b0b89d81674fb2daac05114",
+      "sourceHash": "de1f98c90ae8c7389202a99ff69cfc740c1416f87bf8cb21a0112947192acd08",
       "summary": "# Decision Insights Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Decision Domain Source of Truth: Decision Catalog Last Updated: 2026-07-13 ## Split Navigation - [Decision insights generation](decision-insights/g"
     },
     {
@@ -3304,6 +3360,22 @@
       "path": "knowledge/supporting/decision-insights/insight-generation.md",
       "sourceHash": "a8f11f677024e582c6ddda7a4f8e42a779da52df54969e5b5900722a27ef725f",
       "summary": "# Decision Insight Generation ## Purpose This split document isolates insight generation rules from the larger Decision Insights overview. ## Source - Parent specification: [Decision Insights Overview](../decision-insights.md)"
+    },
+    {
+      "id": "068de28e68db24b3",
+      "title": "Decision Insights Scoring and Evidence",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-insights/scoring-and-evidence.md",
+      "sourceHash": "373ce814e24e54ac56d66f2d51d3a512b87077cea26bb9d0f47dae8dc8ff1360",
+      "summary": "# Decision Insights Scoring and Evidence ## Purpose This split document isolates Decision Insight scoring, ranking, evidence collection, recommendation mapping, risk discovery, opportunity discovery, and explainability concerns from the pa"
+    },
+    {
+      "id": "25ff62b0ddd1b8d4",
+      "title": "Decision Insights Security and Performance",
+      "category": "supporting",
+      "path": "knowledge/supporting/decision-insights/security-and-performance.md",
+      "sourceHash": "71c43f65cd9293aa39bd9bb3404dba164fb556478a570362c7b3b496b6f94185",
+      "summary": "# Decision Insights Security and Performance ## Purpose This split document isolates Decision Insight authorization, field-level security, masking, audit, cache strategy, performance, edge cases, and operational testing from the parent Dec"
     },
     {
       "id": "d467f25ba375c6aa",
@@ -3558,7 +3630,7 @@
       "title": "Goal Conflict Resolution",
       "category": "supporting",
       "path": "knowledge/supporting/goal-conflict-resolution.md",
-      "sourceHash": "9e575b5d64c5e73ee914420460993012e99046119db5b3d7ec791511f34033ed",
+      "sourceHash": "db8730eef33893c38b3d0a6739efea4d407257412a848f76ad786df7ad091942",
       "summary": "# Goal Conflict Resolution ## Split Navigation - [Goal conflict detection](goal-conflict-resolution/detection-and-classification.md) - [Goal conflict resolution workflow](goal-conflict-resolution/resolution-workflow.md) - [Goal conflict lif"
     },
     {
@@ -3578,6 +3650,14 @@
       "summary": "# Goal Conflict Detection and Classification ## Purpose This split document isolates goal conflict detection inputs, classification, severity, and impact analysis from the parent Goal Conflict Resolution specification. ## Source - Parent"
     },
     {
+      "id": "23c41be137ca9aad",
+      "title": "Goal Conflict Evaluation and Tie-Breaking",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-conflict-resolution/evaluation-and-tie-breaking.md",
+      "sourceHash": "5cd61ba4db8b48d9178c68f0c770012de1c33ca4ab4f2c35155452b4754c84fb",
+      "summary": "# Goal Conflict Evaluation and Tie-Breaking ## Purpose This split document isolates conflict severity, resolution evaluation, decision matrix behavior, deterministic tie-breaking, and validation rules from the parent Goal Conflict Resoluti"
+    },
+    {
       "id": "116f7c6499c3334d",
       "title": "Goal Conflict Governance and Testing",
       "category": "supporting",
@@ -3592,6 +3672,14 @@
       "path": "knowledge/supporting/goal-conflict-resolution/lifecycle-and-state.md",
       "sourceHash": "4b954c5ec08114eaf2a18e3963a6dd0e7b3c96c9327501141e732e64b8350448",
       "summary": "# Goal Conflict Lifecycle and State ## Purpose This split document isolates Goal Conflict lifecycle, status, state machine, deterministic transition rules, and resolution state from the parent Goal Conflict Resolution specification. ## So"
+    },
+    {
+      "id": "7a7c248f4977b3b4",
+      "title": "Goal Conflict Operations and Observability",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-conflict-resolution/operations-and-observability.md",
+      "sourceHash": "c17fc1b94bff547fa812647dc498780539c8325c513771b9eb67076e0350583c",
+      "summary": "# Goal Conflict Operations and Observability ## Purpose This split document isolates goal conflict security, audit, explainability, observability, performance, concurrency, retention, edge cases, and operational testing from the parent Goa"
     },
     {
       "id": "86865c3993dcf7d8",
@@ -3670,8 +3758,24 @@
       "title": "Goal Insights Overview",
       "category": "supporting",
       "path": "knowledge/supporting/goal-insights.md",
-      "sourceHash": "7398c12875083be9a02ac1072ace982e031a50fde6f921cdc11872dd40b04b98",
+      "sourceHash": "efbf57a0c557dd5245485ee0a047e0de78fc7514bf4efce0561bc9122cea7df5",
       "summary": "# Goal Insights Version: 1.0 ## Split Navigation - [Goal insights generation](goal-insights/generation.md) - [Goal insights dashboard and actions](goal-insights/dashboard-and-actions.md) - [Goal insights governance and testing](goal-insig"
+    },
+    {
+      "id": "e4f38c4f67ef04c3",
+      "title": "Goal Insights Categories and Models",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-insights/categories-and-models.md",
+      "sourceHash": "ba62916ad661206e1ccc3de602dc1867307139ec5fd99e3c4625a3ab6b78eafe",
+      "summary": "# Goal Insights Categories and Models ## Purpose This split document isolates Goal Insight categories and model fields from the parent Goal Insights specification. ## Source - Parent specification: [Goal Insights](../goal-insights.md) ##"
+    },
+    {
+      "id": "81bd91337f6fdfe7",
+      "title": "Goal Insights Contracts and Persistence",
+      "category": "supporting",
+      "path": "knowledge/supporting/goal-insights/contracts-and-persistence.md",
+      "sourceHash": "b9c54c27e54255d384c40375f6329ad4d0cb639463f5b1cca74430775f632c1e",
+      "summary": "# Goal Insights Contracts and Persistence ## Purpose This split document isolates Goal Insight commands, events, repository behavior, API, DTO, database mapping, EF Core mapping, cache, and example contract concerns from the parent Goal In"
     },
     {
       "id": "bfb36ff16b852ed3",
@@ -4086,7 +4190,7 @@
       "title": "Execution Architecture",
       "category": "supporting",
       "path": "knowledge/supporting/recommendation-execution.md",
-      "sourceHash": "ccdda04a1b4a2bcd5c8d42a02c6d7f451eced14191b2326eff28a9c83283713e",
+      "sourceHash": "1bb0a1fa497b24236de500d99da2579b76b2bfd3f501ea1c3b06c004a10d7cb9",
       "summary": "# Recommendation Execution Overview Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Recommendation Domain Source of Truth: Recommendation Catalog Last Updated: 2026-07-13 ## Split Navigation - [Recommendation execution pl"
     },
     {
@@ -4104,6 +4208,22 @@
       "path": "knowledge/supporting/recommendation-execution/execution-planning.md",
       "sourceHash": "0b5f12bc37d6160dd131f77cb7421f45423618ffd6cd6374aa759714c7b0f5ed",
       "summary": "# Recommendation Execution Planning ## Purpose This split document isolates execution planning rules from the larger Recommendation Execution overview. ## Source - Parent specification: [Recommendation Execution Overview](../rec"
+    },
+    {
+      "id": "f2c35cbde1fe584f",
+      "title": "Recommendation Execution Integration Boundaries",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-execution/integration-boundaries.md",
+      "sourceHash": "10c4fbd8401e5d069dcfb94303fcbdeae171e87e519de93c0bbf11f9687ef09e",
+      "summary": "# Recommendation Execution Integration Boundaries ## Purpose This split document isolates Recommendation Execution relationships, domain-service collaboration, application-service coordination, and cross-domain command boundaries from the"
+    },
+    {
+      "id": "e09a64ede2ee6000",
+      "title": "Recommendation Execution Modes and Scheduling",
+      "category": "supporting",
+      "path": "knowledge/supporting/recommendation-execution/modes-and-scheduling.md",
+      "sourceHash": "b2ae53d1109c346acd4c931808d549a78efbac3a35220b9f7043c4d03e25e7ac",
+      "summary": "# Recommendation Execution Modes and Scheduling ## Purpose This split document isolates execution modes, scheduling behavior, resource checks, progress tracking, verification, and completion from the parent Recommendation Execution specifi"
     },
     {
       "id": "f71c25b8cf50aadb",

@@ -1,0 +1,43 @@
+{
+  "id": "f2c35cbde1fe584f",
+  "title": "Recommendation Execution Integration Boundaries",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-execution/integration-boundaries.md",
+  "sourceHash": "10c4fbd8401e5d069dcfb94303fcbdeae171e87e519de93c0bbf11f9687ef09e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Execution Integration Boundaries"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Ownership Boundary"
+    },
+    {
+      "level": 2,
+      "text": "Domain Service Interaction"
+    },
+    {
+      "level": 2,
+      "text": "Application Service Coordination"
+    },
+    {
+      "level": 2,
+      "text": "Cross-Domain Commands"
+    },
+    {
+      "level": 2,
+      "text": "Integration Safety"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Execution Integration Boundaries\n\n## Purpose\nThis split document isolates Recommendation Execution relationships, domain-service collaboration, application-service coordination, and cross-domain command boundaries from the parent Recommendation Execution specification.\n\n## Source\n- Parent specification: [Recommendation Execution Overview](../recommendation-execution.md)\n\n## Ownership Boundary\nRecommendation Execution coordinates governed execution for existing Recommendations. It references Recommendation, Recommendation Lifecycle, Recommendation Evaluation, Recommendation Priority, Decision, Decision Execution, Goal, Scenario, Portfolio, CashFlow, Risk, Optimization, Simulation, Workflow, Automation, Business Calendar, Notification, and User through existing Atlas contracts.\n\n## Domain Service Interaction\nExecution may call validation, approval, scheduling, monitoring, recovery, rollback, audit, notification, risk, scoring, scenario, optimization, simulation, workflow, and automation services where those services already exist. Service calls must preserve domain ownership and record evidence rather than duplicating source state.\n\n## Application Service Coordination\nThe execution application service owns use-case orchestration, authorization, validation, idempotency, state transition, event publication, and audit capture for execution records. Commands that affect another domain must be routed to that domain's application service.\n\n## Cross-Domain Commands\nCreateRecommendation, EvaluateRecommendation, PrioritizeRecommendation, PublishRecommendation, AcceptRecommendation, DeclineRecommendation, CreateDecision, ExecuteDecision, UpdateGoal, RunScenario, UpdatePortfolio, UpdateCashFlow, AssessRisk, RunOptimization, RunSimulation, StartWorkflow, TriggerAutomation, ResolveBusinessCalendar, and CreateNotification remain owned by their respective domains.\n\n## Integration Safety\nExecution links must carry identifiers, source versions, correlation identifiers, and masking state where required. Integration failures must be recoverable, auditable, and visible in execution status without fabricating downstream success.\n",
+  "references": []
+}

@@ -3,6 +3,7 @@
 - [Entity catalog entries](entity-catalog/catalog-entries.md)
 - [Entity relationships and ownership](entity-catalog/relationships-and-ownership.md)
 - [Entity governance and testing](entity-catalog/governance-and-testing.md)
+- [Entity security, audit, and performance](entity/security-audit-performance.md)
 
 # Document Control
 

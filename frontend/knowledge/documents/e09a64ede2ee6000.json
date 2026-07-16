@@ -1,0 +1,43 @@
+{
+  "id": "e09a64ede2ee6000",
+  "title": "Recommendation Execution Modes and Scheduling",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/recommendation-execution/modes-and-scheduling.md",
+  "sourceHash": "b2ae53d1109c346acd4c931808d549a78efbac3a35220b9f7043c4d03e25e7ac",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Recommendation Execution Modes and Scheduling"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Execution Modes"
+    },
+    {
+      "level": 2,
+      "text": "Scheduling"
+    },
+    {
+      "level": 2,
+      "text": "Dispatch and Progress"
+    },
+    {
+      "level": 2,
+      "text": "Verification and Completion"
+    },
+    {
+      "level": 2,
+      "text": "Dry Run and Simulation"
+    }
+  ],
+  "bodyMarkdown": "# Recommendation Execution Modes and Scheduling\n\n## Purpose\nThis split document isolates execution modes, scheduling behavior, resource checks, progress tracking, verification, and completion from the parent Recommendation Execution specification.\n\n## Source\n- Parent specification: [Recommendation Execution Overview](../recommendation-execution.md)\n\n## Execution Modes\nRecommendation Execution supports manual, automatic, scheduled, event-driven, workflow-driven, batch, parallel, incremental, simulation, dry-run, and emergency execution modes. Mode selection must preserve existing Recommendation ownership and must not imply that execution owns Recommendation content.\n\n## Scheduling\nScheduling uses business calendar resolution, dependency checks, resource checks, approval state, priority, timeout policy, and execution window constraints. Scheduled execution must remain reproducible and auditable with request time, scheduled time, actor, reason, and correlation identifier.\n\n## Dispatch and Progress\nTask dispatch follows the generated execution plan and records execution status, progress, health, metrics, errors, warnings, KPIs, forecast, timeline, and logs. Progress tracking must not mutate Goal, Decision, Portfolio, CashFlow, Scenario, Risk, Optimization, Simulation, Workflow, Automation, or Notification state unless the owning domain command is invoked.\n\n## Verification and Completion\nVerification confirms expected execution evidence, validation results, completion criteria, and result records. Completion records outcome, execution evidence, status transition, audit information, and any linked Recommendation or Decision execution references.\n\n## Dry Run and Simulation\nDry-run and simulation modes validate feasibility and expected impact without committing execution side effects. Their outputs remain execution evidence and do not replace Recommendation Evaluation or Scenario ownership.\n",
+  "references": []
+}

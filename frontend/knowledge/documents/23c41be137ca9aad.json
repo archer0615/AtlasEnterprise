@@ -1,0 +1,47 @@
+{
+  "id": "23c41be137ca9aad",
+  "title": "Goal Conflict Evaluation and Tie-Breaking",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/goal-conflict-resolution/evaluation-and-tie-breaking.md",
+  "sourceHash": "5cd61ba4db8b48d9178c68f0c770012de1c33ca4ab4f2c35155452b4754c84fb",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Conflict Evaluation and Tie-Breaking"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Evaluation Scope"
+    },
+    {
+      "level": 2,
+      "text": "Severity"
+    },
+    {
+      "level": 2,
+      "text": "Resolution Evaluation"
+    },
+    {
+      "level": 2,
+      "text": "Decision Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Deterministic Tie-Breaking"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    }
+  ],
+  "bodyMarkdown": "# Goal Conflict Evaluation and Tie-Breaking\n\n## Purpose\nThis split document isolates conflict severity, resolution evaluation, decision matrix behavior, deterministic tie-breaking, and validation rules from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Evaluation Scope\nGoal conflict evaluation compares impact on priority, deadline, funding, cash flow, dependency, risk, household preference, scenario result, decision outcome, and recommendation impact. Evaluation does not create a new Goal aggregate and does not mutate unrelated goal state.\n\n## Severity\nSeverity is derived from business impact, reversibility, time sensitivity, funding pressure, dependency criticality, risk exposure, and household preference. Severity must be reproducible for identical inputs and source versions.\n\n## Resolution Evaluation\nResolution candidates are evaluated by feasibility, policy compliance, projected goal impact, cash-flow impact, risk impact, dependency impact, scenario evidence, and audit completeness. Candidate evaluation preserves evidence and reason codes so downstream explainability can describe why one option outranked another.\n\n## Decision Matrix\nThe decision matrix ranks candidates using priority preservation, target date preservation, funding feasibility, risk reduction, dependency unblock value, recommendation alignment, and user preference where authorized. Matrix output is advisory unless a command explicitly selects or accepts a resolution.\n\n## Deterministic Tie-Breaking\nTie-breaking must be deterministic. Equal candidates are ordered by severity reduction, higher confidence, lower execution risk, earlier affected target date, stable goal identifier ordering, and creation time. The same input set must produce the same ranked order.\n\n## Validation\nValidation rejects empty related goal sets, missing household context, inconsistent conflict types, stale source versions, invalid scenario references, and candidates that cannot be traced to evidence. Validation errors must be auditable.\n",
+  "references": []
+}

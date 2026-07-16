@@ -1,0 +1,43 @@
+{
+  "id": "ae12b5161726cf23",
+  "title": "Mortgage Error, Migration, and Consistency",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/mortgage/error-migration-consistency.md",
+  "sourceHash": "ae8b7c09e5b73f624ec70c32b4b908d1e0f94f57e720f2d59f23aa663491a9ca",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Mortgage Error, Migration, and Consistency"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Error Handling"
+    },
+    {
+      "level": 2,
+      "text": "Data Migration"
+    },
+    {
+      "level": 2,
+      "text": "Consistency Verification"
+    },
+    {
+      "level": 2,
+      "text": "Completion Checklist"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Mortgage Error, Migration, and Consistency\n\n## Purpose\n\nThis split document isolates Mortgage error handling, data migration, consistency verification, completion checklist, and final consistency matrix content from the larger Mortgage entity specification.\n\n## Source\n\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\n\n## Error Handling\n\n- Mortgage validation errors must use catalog-aligned identity, ownership, monetary, interest, repayment, collateral, lifecycle, and authorization rules.\n- Unsupported subtype, status, currency, interest model, repayment model, grace period, or collateral reference values must be rejected or mapped as implementation detail according to catalog policy.\n- Repository errors must not hide aggregate ownership violations or cross-household access attempts.\n- Calculation errors from amortization, refinance, affordability, projection, or cash flow logic must remain outside Mortgage repository ownership.\n- API errors must preserve security boundaries and avoid leaking household, tenant, or collateral data.\n\n## Data Migration\n\n- Migration must preserve Mortgage identity, Loan ownership, household boundary, currency, principal values, interest model, repayment model, collateral reference, timestamps, and audit linkage.\n- Existing loan-backed mortgage rows must remain aligned with Loan aggregate ownership and Mortgage child or subtype representation.\n- Derived read models, dashboard values, amortization schedules, and projections may be rebuilt from source data and formulas.\n- Migration scripts must not create a new Mortgage aggregate root unless the catalog is changed first.\n- Historical inconsistencies should be documented as remediation items instead of silently inventing new states.\n\n## Consistency Verification\n\n- Verify Mortgage remains catalog-aligned with Entity Catalog, Aggregate Catalog, Command Catalog, Domain Event Catalog, Repository Catalog, Application Service Catalog, Service Catalog, API Governance, and database design.\n- Verify commands such as `CreateLoan`, `RecordLoanPayment`, and `RefinanceLoan` remain Loan-owned where cataloged.\n- Verify domain events such as `LoanCreated`, `LoanPaymentRecorded`, and `LoanRefinanced` remain catalog-aligned.\n- Verify Mortgage persistence, DTO, API, and EF Core mappings do not change aggregate ownership.\n- Verify scenario, affordability, refinance, and cash flow outputs remain derived or decision-support data.\n\n## Completion Checklist\n\n- Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Mortgage Monetary Semantics, Mortgage Interest Model, Mortgage Repayment Model, Grace Period Model, Collateral Reference Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, REST API, DTO, Database Mapping, PostgreSQL DDL, EF Core Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete in the parent specification.\n\n## Related References\n\n- [Mortgage Entity Specification](../Mortgage.md)\n- [Mortgage persistence and API](persistence-and-api.md)\n- [Mortgage governance and testing](governance-and-testing.md)\n- [Loan persistence and verification](../loan/persistence-and-verification.md)\n",
+  "references": []
+}

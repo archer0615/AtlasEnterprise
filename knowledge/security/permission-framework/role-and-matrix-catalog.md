@@ -1,5 +1,8 @@
 # Role and Matrix Catalog
 
+## Split Navigation
+- [Role matrix boundary summary](role-matrix-boundary-summary.md)
+
 Source: [permission-framework.md](../permission-framework.md)
 
 ## Role Catalog
