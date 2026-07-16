@@ -1,93 +1,10 @@
-# Scheduler Framework
-## Split Navigation
-- [Scheduler catalog and timing](scheduler/catalog-and-timing.md)
-- [Scheduler execution strategies](scheduler/execution-strategies.md)
-- [Scheduler matrices and controls](scheduler/matrices-and-controls.md)
-- [Scheduler governance and testing](scheduler/governance-and-testing.md)
+# Scheduler Matrices and Controls
 
-# Document Control
+## Purpose
+This split document preserves scheduler mapping matrices, cron/calendar/retry/misfire/catch-up/concurrency strategies, validation rules, business rules, and operational controls from the parent Scheduler Framework.
 
-Document Name: Scheduler Framework
-Document Path: knowledge/scheduler-framework.md
-Document Type: Atlas Enterprise Canonical Specification
-Version: 1.0
-Status: Canonical Specification
-Domain: Platform
-Bounded Context: Platform
-Owner: Project Atlas
-Source of Truth: Atlas Scheduler Source of Truth
-Last Updated: 2026-07-12
-
-Related Specifications:
-- knowledge/background-job-framework.md
-- knowledge/workflow-engine-framework.md
-- knowledge/application-service-catalog.md
-- knowledge/domain-service-catalog.md
-- knowledge/command-catalog.md
-- knowledge/domain-event-catalog.md
-- knowledge/message-contract-catalog.md
-- knowledge/event-driven-architecture.md
-- knowledge/integration-framework.md
-- knowledge/service-catalog.md
-- knowledge/system-module-catalog.md
-- knowledge/api-governance-framework.md
-- knowledge/automation-framework.md
-- knowledge/projection-engine-framework.md
-- docs/specification/04-DomainModel.md
-- docs/database/05-DatabaseDesign.md
-- docs/database/06-ERD.md
-- docs/api/07-API.md
-
-# Purpose
-
-Scheduler Framework defines approved Atlas scheduling for Background Jobs, Workflows, Automation, Application Services, Domain Services, Commands, Domain Events, Message Contracts, Notifications, Projections, Batch work, Maintenance, Cache Refresh, and Integration Polling. It is the scheduler source of truth for triggers, schedule rules, retry, misfire policy, concurrency, audit, and performance.
-
-# Scope
-
-- Scheduler
-- Recurring Scheduler
-- One Time Scheduler
-- Cron Scheduler
-- Calendar Scheduler
-- Interval Scheduler
-- Delayed Scheduler
-- Manual Scheduler
-- Maintenance Scheduler
-- Polling Scheduler
-- Retry Scheduler
-- Catch-up Scheduler
-
-# Scheduler Principles
-
-- Every scheduler has a trigger and schedule rule.
-- Every scheduler has timezone, misfire, catch-up, retry, timeout, concurrency, lock, audit, and metrics behavior.
-- Schedulers start catalog-approved Background Jobs or service operations only.
-- Schedulers do not bypass Application Service, Domain Service, Command, Repository, or Message Contract boundaries.
-- Misfire and catch-up must be deterministic and auditable.
-- Concurrent runs are controlled by scheduler and job lock strategy.
-
-# Scheduler Architecture
-
-Schedulers create deterministic execution opportunities for Background Jobs, Workflows, Automations, Projections, Imports, Exports, Maintenance, Cache Refresh, Outbox, and Inbox processing. Execution ownership remains with the scheduled job or service.
-
-# Complete Scheduler Catalog
-
-The complete per-scheduler specifications have been split into dedicated files to keep this framework navigable while preserving the canonical scheduler inventory.
-
-| Scheduler | Specification |
-|---|---|
-| ScenarioEvaluationScheduler | knowledge/framework/schedulers/scenario-evaluation-scheduler.md |
-| ScenarioReplayScheduler | knowledge/framework/schedulers/scenario-replay-scheduler.md |
-| ProjectionRefreshScheduler | knowledge/framework/schedulers/projection-refresh-scheduler.md |
-| NotificationDispatchScheduler | knowledge/framework/schedulers/notification-dispatch-scheduler.md |
-| ReportGenerationScheduler | knowledge/framework/schedulers/report-generation-scheduler.md |
-| BankingImportScheduler | knowledge/framework/schedulers/banking-import-scheduler.md |
-| BrokerageImportScheduler | knowledge/framework/schedulers/brokerage-import-scheduler.md |
-| CacheRefreshScheduler | knowledge/framework/schedulers/cache-refresh-scheduler.md |
-| OutboxPublishScheduler | knowledge/framework/schedulers/outbox-publish-scheduler.md |
-| InboxProcessScheduler | knowledge/framework/schedulers/inbox-process-scheduler.md |
-| CleanupScheduler | knowledge/framework/schedulers/cleanup-scheduler.md |
-| BackupScheduler | knowledge/framework/schedulers/backup-scheduler.md |
+## Source
+- Parent specification: [Scheduler Framework](../scheduler-framework.md)
 
 # Scheduler Matrix
 
@@ -106,6 +23,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 | CleanupScheduler | CleanupJob | Administration workflow | Maintenance automation | AdministrationApplicationService | ExplainabilityService | AuditRepository | Cleanup operation | Audit and operational events | CleanupMessage |
 | BackupScheduler | BackupJob | Administration workflow | Backup automation | AdministrationApplicationService | ExplainabilityService | AuditRepository | Backup operation | Audit and backup events | BackupCompletedMessage |
 
+
 # Background Job Matrix
 
 | Scheduler | Mapping | Owner | Control |
@@ -122,6 +40,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 | InboxProcessScheduler | InboxProcessJob; Inbox processing workflow; Inbox process operation; All consumed domain events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 | CleanupScheduler | CleanupJob; Administration workflow; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 | BackupScheduler | BackupJob; Administration workflow; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
+
 
 # Workflow Matrix
 
@@ -140,6 +59,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 | CleanupScheduler | CleanupJob; Administration workflow; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 | BackupScheduler | BackupJob; Administration workflow; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 
+
 # Automation Matrix
 
 | Scheduler | Mapping | Owner | Control |
@@ -156,6 +76,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 | InboxProcessScheduler | InboxProcessJob; Inbox processing workflow; Inbox process operation; All consumed domain events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 | CleanupScheduler | CleanupJob; Administration workflow; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 | BackupScheduler | BackupJob; Administration workflow; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
+
 
 # Command Matrix
 
@@ -174,6 +95,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 | CleanupScheduler | CleanupJob; Administration workflow; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 | BackupScheduler | BackupJob; Administration workflow; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 
+
 # Domain Event Matrix
 
 | Scheduler | Mapping | Owner | Control |
@@ -191,6 +113,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 | CleanupScheduler | CleanupJob; Administration workflow; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 | BackupScheduler | BackupJob; Administration workflow; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, locked, audited, retry-safe |
 
+
 # Cron Strategy
 
 - Cron Strategy rule 1 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
@@ -205,6 +128,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 - Cron Strategy rule 10 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Cron Strategy rule 11 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Cron Strategy rule 12 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
+
 
 # Calendar Strategy
 
@@ -221,6 +145,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 - Calendar Strategy rule 11 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Calendar Strategy rule 12 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 
+
 # Retry Strategy
 
 - Retry Strategy rule 1 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
@@ -235,6 +160,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 - Retry Strategy rule 10 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Retry Strategy rule 11 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Retry Strategy rule 12 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
+
 
 # Misfire Strategy
 
@@ -251,6 +177,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 - Misfire Strategy rule 11 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Misfire Strategy rule 12 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 
+
 # Catch-up Strategy
 
 - Catch-up Strategy rule 1 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
@@ -266,6 +193,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 - Catch-up Strategy rule 11 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Catch-up Strategy rule 12 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 
+
 # Concurrency Strategy
 
 - Concurrency Strategy rule 1 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
@@ -280,6 +208,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 - Concurrency Strategy rule 10 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Concurrency Strategy rule 11 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
 - Concurrency Strategy rule 12 preserves deterministic schedule evaluation, timezone safety, duplicate prevention, lock discipline, bounded retry, misfire handling, catch-up safety, audit, metrics, and catalog error handling.
+
 
 # Validation Rules
 
@@ -325,6 +254,7 @@ The complete per-scheduler specifications have been split into dedicated files t
 | SCH-VR-038 | Validate Scheduler requirement 38. | Schedule is created, evaluated, fired, misfired, caught up, retried, locked, queued, cancelled, or completed. | Trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, owner, job, workflow, automation, command, event, repository, idempotency, checkpoint, audit, security, and performance are checked. | Yes | SCH-ERR-038 |
 | SCH-VR-039 | Validate Scheduler requirement 39. | Schedule is created, evaluated, fired, misfired, caught up, retried, locked, queued, cancelled, or completed. | Trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, owner, job, workflow, automation, command, event, repository, idempotency, checkpoint, audit, security, and performance are checked. | Yes | SCH-ERR-039 |
 | SCH-VR-040 | Validate Scheduler requirement 40. | Schedule is created, evaluated, fired, misfired, caught up, retried, locked, queued, cancelled, or completed. | Trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, owner, job, workflow, automation, command, event, repository, idempotency, checkpoint, audit, security, and performance are checked. | Yes | SCH-ERR-040 |
+
 
 # Business Rules
 
@@ -429,12 +359,14 @@ The complete per-scheduler specifications have been split into dedicated files t
 99. SCH-BR-099 Trigger: scheduler definition, schedule evaluation, fire time, misfire, catch-up, retry, lock acquisition, job queue, workflow start, automation run, cancellation, or schedule history update. Input: scheduler name, trigger, schedule type, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution owner, job, workflow, automation, command, event, repository, lock key, scheduled time, actual time, CorrelationId, CausationId, and audit context. Logic: enforce catalog-approved scheduler, no hidden scheduler, deterministic schedule rule, timezone validity, misfire policy, catch-up safety, concurrency policy, lock strategy, idempotency, queue safety, retry limit, timeout, service boundary, repository boundary, security, logging, metrics, audit, and performance consistency. Result: schedule evaluates, queues, skips, catches up, retries, misfires, cancels, or fails with catalog error. Exception: invalid cron, duplicate active run, stale lock, unauthorized context, invalid catch-up, or dependency failure is blocked. Audit: schedule history is recorded.
 100. SCH-BR-100 Trigger: scheduler definition, schedule evaluation, fire time, misfire, catch-up, retry, lock acquisition, job queue, workflow start, automation run, cancellation, or schedule history update. Input: scheduler name, trigger, schedule type, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution owner, job, workflow, automation, command, event, repository, lock key, scheduled time, actual time, CorrelationId, CausationId, and audit context. Logic: enforce catalog-approved scheduler, no hidden scheduler, deterministic schedule rule, timezone validity, misfire policy, catch-up safety, concurrency policy, lock strategy, idempotency, queue safety, retry limit, timeout, service boundary, repository boundary, security, logging, metrics, audit, and performance consistency. Result: schedule evaluates, queues, skips, catches up, retries, misfires, cancels, or fails with catalog error. Exception: invalid cron, duplicate active run, stale lock, unauthorized context, invalid catch-up, or dependency failure is blocked. Audit: schedule history is recorded.
 
+
 # Security
 
 - Authorization is enforced before scheduler creation, update, deletion, fire, job queue, workflow start, automation run, repository access, or service invocation.
 - Permission is enforced before scheduler creation, update, deletion, fire, job queue, workflow start, automation run, repository access, or service invocation.
 - Tenant Isolation is enforced before scheduler creation, update, deletion, fire, job queue, workflow start, automation run, repository access, or service invocation.
 - Household Isolation is enforced before scheduler creation, update, deletion, fire, job queue, workflow start, automation run, repository access, or service invocation.
+
 
 # Audit
 
@@ -443,284 +375,10 @@ The complete per-scheduler specifications have been split into dedicated files t
 - CausationId is recorded with scheduler name, scheduled time, actual time, rule, lock result, queue result, retry count, misfire state, catch-up state, and error code.
 - Schedule History is recorded with scheduler name, scheduled time, actual time, rule, lock result, queue result, retry count, misfire state, catch-up state, and error code.
 
+
 # Performance
 
 - Scheduling SLA is measured per scheduler with fire time drift, queue latency, lock wait, retry count, misfire count, catch-up count, and dependency timing.
 - Execution Latency is measured per scheduler with fire time drift, queue latency, lock wait, retry count, misfire count, catch-up count, and dependency timing.
 - Queue Throughput is measured per scheduler with fire time drift, queue latency, lock wait, retry count, misfire count, catch-up count, and dependency timing.
 
-# Mermaid
-
-## Scheduler Architecture
-
-```mermaid
-flowchart TD
-  RULE[Schedule Rule] --> SCHED[Scheduler]
-  SCHED --> LOCK[Lock]
-  LOCK --> QUEUE[Job Queue]
-  QUEUE --> JOB[Background Job]
-  SCHED --> AUDIT[Schedule History]
-```
-
-## Scheduling Flow
-
-```mermaid
-flowchart TD
-  EVAL[Evaluate Schedule] --> MIS{Misfire}
-  MIS -->|No| FIRE[Fire]
-  MIS -->|Yes| POLICY[Apply Misfire Policy]
-  POLICY --> QUEUE[Queue or Skip]
-```
-
-## Execution Flow
-
-```mermaid
-sequenceDiagram
-  participant Scheduler
-  participant Lock
-  participant Queue
-  participant Job
-  Scheduler->>Lock: acquire
-  Scheduler->>Queue: enqueue job
-  Queue->>Job: execute
-  Job-->>Scheduler: status
-```
-
-## Retry Flow
-
-```mermaid
-flowchart TD
-  FAIL[Enqueue Failure] --> RETRY{Retry Allowed}
-  RETRY -->|Yes| BACKOFF[Backoff]
-  BACKOFF --> ENQUEUE[Enqueue]
-  RETRY -->|No| ERROR[Scheduler Error]
-```
-
-## Misfire Flow
-
-```mermaid
-flowchart TD
-  MISFIRE[Missed Fire Time] --> POLICY[Misfire Policy]
-  POLICY --> SKIP[Skip]
-  POLICY --> CATCHUP[Catch Up]
-  POLICY --> NEXT[Next Window]
-```
-
-## Dependency Diagram
-
-```mermaid
-flowchart TD
-  SCHED[Scheduler] --> JOB[Background Job]
-  JOB --> APP[Application Service]
-  APP --> DS[Domain Service]
-  APP --> REPO[Repository]
-  JOB --> MSG[Message Contract]
-```
-
-# Testing
-
-## Scheduler Test
-- Verify Scheduler Test Scheduler Framework behavior case 1 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 2 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 3 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 4 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 5 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 6 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 7 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 8 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 9 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 10 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 11 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 12 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 13 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 14 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 15 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 16 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Scheduler Test Scheduler Framework behavior case 17 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-
-## Cron Test
-- Verify Cron Test Scheduler Framework behavior case 1 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 2 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 3 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 4 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 5 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 6 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 7 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 8 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 9 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 10 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 11 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 12 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 13 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 14 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 15 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 16 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Cron Test Scheduler Framework behavior case 17 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-
-## Calendar Test
-- Verify Calendar Test Scheduler Framework behavior case 1 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 2 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 3 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 4 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 5 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 6 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 7 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 8 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 9 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 10 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 11 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 12 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 13 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 14 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 15 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 16 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Calendar Test Scheduler Framework behavior case 17 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-
-## Retry Test
-- Verify Retry Test Scheduler Framework behavior case 1 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 2 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 3 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 4 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 5 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 6 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 7 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 8 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 9 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 10 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 11 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 12 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 13 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 14 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 15 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 16 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Retry Test Scheduler Framework behavior case 17 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-
-## Misfire Test
-- Verify Misfire Test Scheduler Framework behavior case 1 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 2 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 3 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 4 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 5 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 6 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 7 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 8 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 9 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 10 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 11 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 12 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 13 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 14 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 15 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 16 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Misfire Test Scheduler Framework behavior case 17 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-
-## Performance Test
-- Verify Performance Test Scheduler Framework behavior case 1 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 2 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 3 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 4 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 5 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 6 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 7 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 8 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 9 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 10 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 11 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 12 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 13 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 14 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 15 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 16 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-- Verify Performance Test Scheduler Framework behavior case 17 with trigger, schedule rule, timezone, misfire, catch-up, retry, timeout, execution window, concurrency, lock, background job, workflow, automation, command, event, audit, security, and performance.
-
-# Edge Cases
-
-1. Scheduler edge case 1: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-2. Scheduler edge case 2: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-3. Scheduler edge case 3: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-4. Scheduler edge case 4: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-5. Scheduler edge case 5: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-6. Scheduler edge case 6: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-7. Scheduler edge case 7: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-8. Scheduler edge case 8: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-9. Scheduler edge case 9: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-10. Scheduler edge case 10: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-11. Scheduler edge case 11: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-12. Scheduler edge case 12: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-13. Scheduler edge case 13: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-14. Scheduler edge case 14: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-15. Scheduler edge case 15: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-16. Scheduler edge case 16: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-17. Scheduler edge case 17: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-18. Scheduler edge case 18: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-19. Scheduler edge case 19: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-20. Scheduler edge case 20: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-21. Scheduler edge case 21: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-22. Scheduler edge case 22: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-23. Scheduler edge case 23: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-24. Scheduler edge case 24: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-25. Scheduler edge case 25: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-26. Scheduler edge case 26: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-27. Scheduler edge case 27: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-28. Scheduler edge case 28: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-29. Scheduler edge case 29: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-30. Scheduler edge case 30: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-31. Scheduler edge case 31: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-32. Scheduler edge case 32: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-33. Scheduler edge case 33: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-34. Scheduler edge case 34: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-35. Scheduler edge case 35: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-36. Scheduler edge case 36: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-37. Scheduler edge case 37: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-38. Scheduler edge case 38: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-39. Scheduler edge case 39: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-40. Scheduler edge case 40: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-41. Scheduler edge case 41: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-42. Scheduler edge case 42: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-43. Scheduler edge case 43: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-44. Scheduler edge case 44: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-45. Scheduler edge case 45: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-46. Scheduler edge case 46: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-47. Scheduler edge case 47: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-48. Scheduler edge case 48: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-49. Scheduler edge case 49: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-50. Scheduler edge case 50: trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-
-# Final Consistency Matrix
-
-| Scheduler | Background Job | Workflow | Automation | Application Service | Domain Service | Repository | Command | Domain Event | Message Contract |
-|---|---|---|---|---|---|---|---|---|---|
-| ScenarioEvaluationScheduler | ScenarioEvaluationJob | Scenario workflow | Scenario automation | ScenarioApplicationService | ScenarioService | ScenarioRepository | EvaluateScenario | ScenarioEvaluated | ScenarioEvaluatedMessage |
-| ScenarioReplayScheduler | ScenarioReplayJob | Replay workflow | Administration automation | ScenarioApplicationService | ScenarioService | ScenarioRepository, AuditRepository | ReplayScenario | ReplayCompleted | ReplayCompletedMessage |
-| ProjectionRefreshScheduler | ProjectionRefreshJob | Projection workflow | Projection automation | DashboardApplicationService | ScenarioService, PortfolioService, LoanService | ScenarioRepository, PortfolioRepository, LoanRepository | Projection update commands from catalog-aligned handlers | ScenarioEvaluated, PortfolioRebalanced, LoanPaymentMade | Projection messages |
-| NotificationDispatchScheduler | NotificationDispatchJob | Notification workflow | Notification automation | NotificationApplicationService | ExplainabilityService, DecisionService | NotificationRepository | Notification delivery commands from catalog-aligned handlers | DecisionAccepted, DecisionRejected, RecommendationGenerated | NotificationRequestedMessage |
-| ReportGenerationScheduler | ReportGenerationJob | Report workflow | Report automation | ReportApplicationService | ExplainabilityService, ScenarioService, PortfolioService, LoanService | AuditRepository, ScenarioRepository, DecisionRepository | Report generation commands from catalog-aligned handlers | Report source events through read models | ReportGenerationRequestedMessage |
-| BankingImportScheduler | BankingImportJob | Cash flow workflow | Import automation | BlueprintApplicationService, DashboardApplicationService | CashFlowService | HouseholdRepository, AuditRepository | RecordIncome, RecordExpense | SalaryReceived, ExpenseRecorded | BankingTransactionImportedMessage |
-| BrokerageImportScheduler | BrokerageImportJob | Portfolio workflow | Import automation | PortfolioApplicationService | PortfolioService, AllocationService | PortfolioRepository, AssetRepository, AuditRepository | CreatePortfolio, BuySecurity, SellSecurity | PortfolioCreated, SecurityPurchased, SecuritySold | PortfolioImportedMessage |
-| CacheRefreshScheduler | CacheRefreshJob | Dashboard refresh workflow | Cache automation | DashboardApplicationService | CashFlowService, PortfolioService, LoanService | HouseholdRepository, PortfolioRepository, LoanRepository | Read cache refresh operation | SalaryReceived, ExpenseRecorded, PortfolioRebalanced | CacheRefreshMessage |
-| OutboxPublishScheduler | OutboxPublishJob | Event publishing workflow | Outbox automation | AdministrationApplicationService | ExplainabilityService | AuditRepository | Outbox publish operation | All catalog domain events | All catalog messages |
-| InboxProcessScheduler | InboxProcessJob | Inbox processing workflow | Inbox automation | AdministrationApplicationService | ScenarioService | AuditRepository | Inbox process operation | All consumed domain events | All consumed messages |
-| CleanupScheduler | CleanupJob | Administration workflow | Maintenance automation | AdministrationApplicationService | ExplainabilityService | AuditRepository | Cleanup operation | Audit and operational events | CleanupMessage |
-| BackupScheduler | BackupJob | Administration workflow | Backup automation | AdministrationApplicationService | ExplainabilityService | AuditRepository | Backup operation | Audit and backup events | BackupCompletedMessage |
-
-# Completion Checklist
-
-- Every Scheduler defines Trigger.
-- Every Scheduler defines Schedule Rule.
-- Every Scheduler defines Retry.
-- Every Scheduler defines Misfire Policy.
-- Every Scheduler defines Concurrency Strategy.
-- Every Scheduler defines Audit.
-- Every Scheduler defines Performance Target.
-- Only catalog-approved Schedulers are present.
-- No incomplete work marker is present.
-- No unresolved preparation marker is present.
-- Mermaid diagrams are present.
-- Markdown structure is complete.
-- Scheduler Framework is the scheduler source of truth.
-
-# Version History
-
-| Version | Date | Description |
-|---|---|---|
-| 1.0 | 2026-07-12 | Upgraded to Atlas Enterprise Canonical Specification and Scheduler Source of Truth. |

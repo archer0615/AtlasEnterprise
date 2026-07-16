@@ -1,0 +1,35 @@
+{
+  "id": "3b36e7722857967c",
+  "title": "Bounded Context Context Map Patterns",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/bounded-context/context-map-patterns.md",
+  "sourceHash": "4e30830a2ec2c4bf4baf2e53c894d0a0061a855948fb8cac0371e083339cb1e7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Bounded Context Context Map Patterns"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Context Map Scope"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Usage"
+    },
+    {
+      "level": 2,
+      "text": "Preservation Rule"
+    }
+  ],
+  "bodyMarkdown": "# Bounded Context Context Map Patterns\n\n## Purpose\nThis split document isolates context map relationship patterns from the parent Bounded Context Catalog.\n\n## Source\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\n\n## Context Map Scope\nContext map pattern coverage includes Shared Kernel, Anti Corruption Layer, Conformist, Customer Supplier, Open Host Service, Published Language, Partnership, Separate Ways, Context Map, Bounded Context Diagram, Domain Map, Dependency Diagram, Integration Diagram, and Ownership Diagram sections.\n\n## Catalog Usage\nUse this split document when evaluating Context Boundary, Context Owner, Context Contract, Context Integration, Context Responsibility, Context Language, Context Lifecycle, Context Isolation, Context Collaboration, ACL, Open Host Service, Published Language, and cross-context dependency decisions.\n\n## Preservation Rule\nThe parent Bounded Context Catalog remains the canonical source of truth and retains the original body. This child document provides a focused navigation surface for context map and relationship pattern references.\n",
+  "references": []
+}

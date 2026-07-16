@@ -1,106 +1,10 @@
-# Automation Framework
-## Split Navigation
-- [Automation catalog and triggers](automation/catalog-and-triggers.md)
-- [Automation execution strategies](automation/execution-strategies.md)
-- [Automation matrices and controls](automation/matrices-and-controls.md)
-- [Automation governance and testing](automation/governance-and-testing.md)
+# Automation Matrices and Controls
 
-# Document Control
+## Purpose
+This split document preserves automation mapping matrices, retry/compensation/escalation/approval/failure strategies, validation rules, business rules, and operational controls from the parent Automation Framework.
 
-Document Name: Automation Framework
-Document Path: knowledge/automation-framework.md
-Document Type: Atlas Enterprise Canonical Specification
-Version: 1.0
-Status: Canonical Specification
-Domain: Platform
-Bounded Context: Platform
-Owner: Project Atlas
-Source of Truth: Atlas Automation Source of Truth
-Last Updated: 2026-07-12
-
-Related Specifications:
-- knowledge/workflow-engine-framework.md
-- knowledge/background-job-framework.md
-- knowledge/scheduler-framework.md
-- knowledge/application-service-catalog.md
-- knowledge/domain-service-catalog.md
-- knowledge/command-catalog.md
-- knowledge/domain-event-catalog.md
-- knowledge/message-contract-catalog.md
-- knowledge/event-driven-architecture.md
-- knowledge/integration-framework.md
-- knowledge/service-catalog.md
-- knowledge/system-module-catalog.md
-- knowledge/api-governance-framework.md
-- knowledge/projection-engine-framework.md
-- knowledge/recommendation-priority-framework.md
-- knowledge/rule-engine-architecture.md
-- knowledge/calculation-engine-framework.md
-- knowledge/simulation-engine-framework.md
-- knowledge/optimization-engine-framework.md
-- docs/specification/04-DomainModel.md
-- docs/database/05-DatabaseDesign.md
-- docs/database/06-ERD.md
-- docs/api/07-API.md
-
-# Purpose
-
-Automation Framework defines approved Atlas automation across Workflow, Scheduler, Background Job, Application Service, Domain Service, Command, Domain Event, Message Contract, Notification, Decision Engine, Rule Engine, Projection Engine, Recommendation Engine, Integration, API, and Event Driven Architecture. It is the automation source of truth for triggers, conditions, actions, retry, timeout, escalation, audit, and performance.
-
-# Scope
-
-- Automation
-- Automation Rule
-- Automation Policy
-- Automation Trigger
-- Automation Condition
-- Automation Action
-- Automation Execution
-- Automation Context
-- Automation Pipeline
-- Automation State
-- Automation Retry
-- Automation Timeout
-- Automation Compensation
-- Automation Approval
-- Automation Escalation
-- Automation Cancellation
-- Automation Suspension
-- Automation Resume
-- Automation Completion
-- Automation Failure
-
-# Automation Principles
-
-- Automation never bypasses Aggregate, Command, Repository, Service, Security, Workflow, Scheduler, or Background Job boundaries.
-- Automation requires trigger, condition, action, retry, timeout, escalation, audit, and performance targets.
-- High-impact automation requires approval strategy.
-- Automation is deterministic for the same trigger, input, rule version, and configuration.
-- Failed automation is visible, auditable, and recoverable.
-- Automation can be suspended, resumed, cancelled, or escalated through catalog rules.
-
-# Automation Architecture
-
-Automation evaluates triggers and conditions, invokes rule and decision engines when required, runs catalog-approved actions through workflows, schedulers, background jobs, application services, domain services, commands, events, message contracts, projections, notifications, or integrations, and records full audit history.
-
-# Complete Automation Catalog
-
-The complete per-automation specifications have been split into dedicated files to keep this framework navigable while preserving the canonical automation inventory.
-
-| Automation | Specification |
-|---|---|
-| ScenarioRefreshAutomation | knowledge/framework/automations/scenario-refresh-automation.md |
-| RecommendationRefreshAutomation | knowledge/framework/automations/recommendation-refresh-automation.md |
-| NotificationDispatchAutomation | knowledge/framework/automations/notification-dispatch-automation.md |
-| BankingImportAutomation | knowledge/framework/automations/banking-import-automation.md |
-| BrokerageImportAutomation | knowledge/framework/automations/brokerage-import-automation.md |
-| CacheRefreshAutomation | knowledge/framework/automations/cache-refresh-automation.md |
-| OutboxPublishAutomation | knowledge/framework/automations/outbox-publish-automation.md |
-| InboxProcessAutomation | knowledge/framework/automations/inbox-process-automation.md |
-| ReportGenerationAutomation | knowledge/framework/automations/report-generation-automation.md |
-| CleanupAutomation | knowledge/framework/automations/cleanup-automation.md |
-| BackupAutomation | knowledge/framework/automations/backup-automation.md |
-| DecisionReviewAutomation | knowledge/framework/automations/decision-review-automation.md |
+## Source
+- Parent specification: [Automation Framework](../automation-framework.md)
 
 # Automation Matrix
 
@@ -119,6 +23,7 @@ The complete per-automation specifications have been split into dedicated files 
 | BackupAutomation | Administration workflow | BackupScheduler | BackupJob | AdministrationApplicationService | ExplainabilityService | Rule Engine | None | Backup operation | Audit and backup events | Escalation on failure | Audit projection | AuditRepository | BackupCompletedMessage |
 | DecisionReviewAutomation | Decision workflow | ScenarioEvaluationScheduler | ScenarioEvaluationJob | DecisionApplicationService | DecisionService, ExplainabilityService | Rule Engine | Decision Engine | AcceptRecommendation, RejectRecommendation | DecisionAccepted, DecisionRejected | Review notification | Decision projection | DecisionRepository | DecisionAcceptedMessage |
 
+
 # Trigger Matrix
 
 | Automation | Mapping | Owner | Control |
@@ -135,6 +40,7 @@ The complete per-automation specifications have been split into dedicated files 
 | CleanupAutomation | Scheduled; Administration workflow; CleanupScheduler; CleanupJob; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
+
 
 # Condition Matrix
 
@@ -153,6 +59,7 @@ The complete per-automation specifications have been split into dedicated files 
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
 
+
 # Action Matrix
 
 | Automation | Mapping | Owner | Control |
@@ -169,6 +76,7 @@ The complete per-automation specifications have been split into dedicated files 
 | CleanupAutomation | Scheduled; Administration workflow; CleanupScheduler; CleanupJob; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
+
 
 # Workflow Matrix
 
@@ -187,6 +95,7 @@ The complete per-automation specifications have been split into dedicated files 
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
 
+
 # Scheduler Matrix
 
 | Automation | Mapping | Owner | Control |
@@ -203,6 +112,7 @@ The complete per-automation specifications have been split into dedicated files 
 | CleanupAutomation | Scheduled; Administration workflow; CleanupScheduler; CleanupJob; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
+
 
 # Background Job Matrix
 
@@ -221,6 +131,7 @@ The complete per-automation specifications have been split into dedicated files 
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
 
+
 # Command Matrix
 
 | Automation | Mapping | Owner | Control |
@@ -237,6 +148,7 @@ The complete per-automation specifications have been split into dedicated files 
 | CleanupAutomation | Scheduled; Administration workflow; CleanupScheduler; CleanupJob; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
+
 
 # Domain Event Matrix
 
@@ -255,6 +167,7 @@ The complete per-automation specifications have been split into dedicated files 
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
 
+
 # Rule Engine Matrix
 
 | Automation | Mapping | Owner | Control |
@@ -271,6 +184,7 @@ The complete per-automation specifications have been split into dedicated files 
 | CleanupAutomation | Scheduled; Administration workflow; CleanupScheduler; CleanupJob; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
+
 
 # Decision Engine Matrix
 
@@ -289,6 +203,7 @@ The complete per-automation specifications have been split into dedicated files 
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
 
+
 # Projection Matrix
 
 | Automation | Mapping | Owner | Control |
@@ -305,6 +220,7 @@ The complete per-automation specifications have been split into dedicated files 
 | CleanupAutomation | Scheduled; Administration workflow; CleanupScheduler; CleanupJob; Cleanup operation; Audit and operational events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
+
 
 # Notification Matrix
 
@@ -323,6 +239,7 @@ The complete per-automation specifications have been split into dedicated files 
 | BackupAutomation | Scheduled; Administration workflow; BackupScheduler; BackupJob; Backup operation; Audit and backup events | AdministrationApplicationService | Deterministic, authorized, audited, retry-safe |
 | DecisionReviewAutomation | Domain event; Decision workflow; ScenarioEvaluationScheduler; ScenarioEvaluationJob; AcceptRecommendation, RejectRecommendation; DecisionAccepted, DecisionRejected | DecisionApplicationService | Deterministic, authorized, audited, retry-safe |
 
+
 # Retry Strategy
 
 - Retry Strategy rule 1 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
@@ -337,6 +254,7 @@ The complete per-automation specifications have been split into dedicated files 
 - Retry Strategy rule 10 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 - Retry Strategy rule 11 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 - Retry Strategy rule 12 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
+
 
 # Compensation Strategy
 
@@ -353,6 +271,7 @@ The complete per-automation specifications have been split into dedicated files 
 - Compensation Strategy rule 11 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 - Compensation Strategy rule 12 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 
+
 # Escalation Strategy
 
 - Escalation Strategy rule 1 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
@@ -367,6 +286,7 @@ The complete per-automation specifications have been split into dedicated files 
 - Escalation Strategy rule 10 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 - Escalation Strategy rule 11 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 - Escalation Strategy rule 12 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
+
 
 # Approval Strategy
 
@@ -383,6 +303,7 @@ The complete per-automation specifications have been split into dedicated files 
 - Approval Strategy rule 11 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 - Approval Strategy rule 12 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 
+
 # Failure Recovery Strategy
 
 - Failure Recovery Strategy rule 1 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
@@ -397,6 +318,7 @@ The complete per-automation specifications have been split into dedicated files 
 - Failure Recovery Strategy rule 10 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 - Failure Recovery Strategy rule 11 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
 - Failure Recovery Strategy rule 12 preserves bounded execution, deterministic state, idempotency, checkpoint safety, approval safety, escalation visibility, compensation ownership, audit, metrics, and catalog error handling.
+
 
 # Validation Rules
 
@@ -442,6 +364,7 @@ The complete per-automation specifications have been split into dedicated files 
 | AUTO-VR-038 | Validate Automation requirement 38. | Automation is created, triggered, evaluated, approved, executed, retried, compensated, escalated, suspended, resumed, cancelled, failed, or completed. | Trigger, source, condition, action, rule engine, decision engine, workflow, scheduler, background job, command, event, repository, message, notification, projection, integration, retry, timeout, escalation, approval, idempotency, audit, security, and performance are checked. | Yes | AUTO-ERR-038 |
 | AUTO-VR-039 | Validate Automation requirement 39. | Automation is created, triggered, evaluated, approved, executed, retried, compensated, escalated, suspended, resumed, cancelled, failed, or completed. | Trigger, source, condition, action, rule engine, decision engine, workflow, scheduler, background job, command, event, repository, message, notification, projection, integration, retry, timeout, escalation, approval, idempotency, audit, security, and performance are checked. | Yes | AUTO-ERR-039 |
 | AUTO-VR-040 | Validate Automation requirement 40. | Automation is created, triggered, evaluated, approved, executed, retried, compensated, escalated, suspended, resumed, cancelled, failed, or completed. | Trigger, source, condition, action, rule engine, decision engine, workflow, scheduler, background job, command, event, repository, message, notification, projection, integration, retry, timeout, escalation, approval, idempotency, audit, security, and performance are checked. | Yes | AUTO-ERR-040 |
+
 
 # Business Rules
 
@@ -546,6 +469,7 @@ The complete per-automation specifications have been split into dedicated files 
 99. AUTO-BR-099 Trigger: automation definition, trigger detection, condition evaluation, action execution, approval, retry, timeout, compensation, escalation, cancellation, suspension, resume, completion, failure, workflow step, scheduler fire, background job execution, command dispatch, event consumption, message consumption, notification, projection, or integration. Input: automation name, trigger, source, condition, rule version, decision context, action, execution context, HouseholdId, TenantId, CorrelationId, CausationId, idempotency key, checkpoint, retry count, approval state, and audit context. Logic: enforce catalog-approved automation, no hidden business concept, trigger mapping, condition mapping, action mapping, service boundary, command boundary, event boundary, message boundary, integration boundary, approval policy, retry policy, timeout policy, compensation policy, escalation policy, concurrency policy, idempotency, checkpoint, resume safety, authorization, tenant isolation, Household isolation, logging, metrics, audit, and performance consistency. Result: automation executes, waits for approval, retries, compensates, escalates, suspends, resumes, cancels, completes, or fails with catalog error. Exception: invalid trigger, invalid condition, unauthorized action, missing approval, duplicate execution, stale checkpoint, timeout, or dependency failure is blocked. Audit: automation history is recorded.
 100. AUTO-BR-100 Trigger: automation definition, trigger detection, condition evaluation, action execution, approval, retry, timeout, compensation, escalation, cancellation, suspension, resume, completion, failure, workflow step, scheduler fire, background job execution, command dispatch, event consumption, message consumption, notification, projection, or integration. Input: automation name, trigger, source, condition, rule version, decision context, action, execution context, HouseholdId, TenantId, CorrelationId, CausationId, idempotency key, checkpoint, retry count, approval state, and audit context. Logic: enforce catalog-approved automation, no hidden business concept, trigger mapping, condition mapping, action mapping, service boundary, command boundary, event boundary, message boundary, integration boundary, approval policy, retry policy, timeout policy, compensation policy, escalation policy, concurrency policy, idempotency, checkpoint, resume safety, authorization, tenant isolation, Household isolation, logging, metrics, audit, and performance consistency. Result: automation executes, waits for approval, retries, compensates, escalates, suspends, resumes, cancels, completes, or fails with catalog error. Exception: invalid trigger, invalid condition, unauthorized action, missing approval, duplicate execution, stale checkpoint, timeout, or dependency failure is blocked. Audit: automation history is recorded.
 
+
 # Security
 
 - Authorization is enforced before automation trigger processing, condition evaluation, action execution, approval, notification, projection, integration, scheduler, job, command, event, or message processing.
@@ -554,12 +478,14 @@ The complete per-automation specifications have been split into dedicated files 
 - Household Isolation is enforced before automation trigger processing, condition evaluation, action execution, approval, notification, projection, integration, scheduler, job, command, event, or message processing.
 - Automation Boundary is enforced before automation trigger processing, condition evaluation, action execution, approval, notification, projection, integration, scheduler, job, command, event, or message processing.
 
+
 # Audit
 
 - Execution History is recorded with automation name, trigger, condition, action, approval state, checkpoint, retry count, escalation state, dependency result, and error code.
 - CorrelationId is recorded with automation name, trigger, condition, action, approval state, checkpoint, retry count, escalation state, dependency result, and error code.
 - CausationId is recorded with automation name, trigger, condition, action, approval state, checkpoint, retry count, escalation state, dependency result, and error code.
 - Automation History is recorded with automation name, trigger, condition, action, approval state, checkpoint, retry count, escalation state, dependency result, and error code.
+
 
 # Performance
 
@@ -569,299 +495,3 @@ The complete per-automation specifications have been split into dedicated files 
 - Parallel Execution is measured per automation with queue delay, execution duration, approval wait, retry count, escalation count, dependency timing, and failure rate.
 - Queue Depth is measured per automation with queue delay, execution duration, approval wait, retry count, escalation count, dependency timing, and failure rate.
 
-# Mermaid
-
-## Automation Architecture
-
-```mermaid
-flowchart TD
-  TRIGGER[Trigger] --> AUTO[Automation]
-  AUTO --> CONDITION[Condition]
-  CONDITION --> ACTION[Action]
-  ACTION --> JOB[Background Job]
-  ACTION --> AUDIT[Audit]
-```
-
-## Automation Flow
-
-```mermaid
-flowchart TD
-  START[Trigger] --> CHECK[Evaluate Condition]
-  CHECK --> APPROVAL{Approval Required}
-  APPROVAL -->|Yes| WAIT[Wait Approval]
-  APPROVAL -->|No| EXEC[Execute Action]
-  WAIT --> EXEC
-  EXEC --> COMPLETE[Complete]
-```
-
-## Trigger Flow
-
-```mermaid
-flowchart LR
-  EVENT[Domain Event] --> AUTO[Automation]
-  SCHED[Scheduler] --> AUTO
-  MSG[Message] --> AUTO
-  API[API] --> AUTO
-```
-
-## Decision Flow
-
-```mermaid
-flowchart TD
-  INPUT[Automation Context] --> RULE[Rule Engine]
-  RULE --> DECISION[Decision Engine]
-  DECISION --> ACTION[Automation Action]
-```
-
-## Retry Flow
-
-```mermaid
-flowchart TD
-  FAIL[Failure] --> RETRY{Retry Allowed}
-  RETRY -->|Yes| BACKOFF[Backoff]
-  BACKOFF --> EXEC[Execute Again]
-  RETRY -->|No| ESC[Escalate]
-```
-
-## Escalation Flow
-
-```mermaid
-flowchart TD
-  BLOCK[Blocked Automation] --> ESC[Escalation]
-  ESC --> NOTIF[Notification]
-  ESC --> AUDIT[Audit]
-  ESC --> SUSPEND[Suspend or Cancel]
-```
-
-## Workflow Integration
-
-```mermaid
-flowchart LR
-  AUTO[Automation] --> WF[Workflow]
-  WF --> STEP[Step]
-  STEP --> CMD[Command]
-  CMD --> EVT[Domain Event]
-```
-
-## Scheduler Integration
-
-```mermaid
-flowchart LR
-  SCHED[Scheduler] --> AUTO[Automation]
-  AUTO --> JOB[Background Job]
-  JOB --> SERVICE[Application Service]
-```
-
-# Testing
-
-## Automation Test
-- Verify Automation Test Automation Framework behavior case 1 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 2 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 3 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 4 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 5 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 6 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 7 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 8 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 9 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 10 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 11 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 12 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 13 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 14 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Automation Test Automation Framework behavior case 15 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-
-## Trigger Test
-- Verify Trigger Test Automation Framework behavior case 1 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 2 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 3 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 4 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 5 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 6 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 7 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 8 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 9 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 10 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 11 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 12 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 13 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 14 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Trigger Test Automation Framework behavior case 15 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-
-## Condition Test
-- Verify Condition Test Automation Framework behavior case 1 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 2 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 3 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 4 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 5 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 6 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 7 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 8 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 9 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 10 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 11 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 12 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 13 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 14 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Condition Test Automation Framework behavior case 15 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-
-## Retry Test
-- Verify Retry Test Automation Framework behavior case 1 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 2 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 3 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 4 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 5 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 6 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 7 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 8 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 9 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 10 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 11 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 12 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 13 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 14 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Retry Test Automation Framework behavior case 15 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-
-## Compensation Test
-- Verify Compensation Test Automation Framework behavior case 1 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 2 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 3 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 4 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 5 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 6 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 7 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 8 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 9 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 10 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 11 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 12 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 13 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 14 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Compensation Test Automation Framework behavior case 15 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-
-## Escalation Test
-- Verify Escalation Test Automation Framework behavior case 1 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 2 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 3 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 4 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 5 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 6 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 7 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 8 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 9 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 10 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 11 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 12 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 13 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 14 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Escalation Test Automation Framework behavior case 15 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-
-## Performance Test
-- Verify Performance Test Automation Framework behavior case 1 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 2 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 3 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 4 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 5 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 6 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 7 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 8 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 9 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 10 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 11 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 12 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 13 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 14 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-- Verify Performance Test Automation Framework behavior case 15 with trigger, source, condition, action, workflow, scheduler, job, command, event, message, notification, projection, integration, retry, timeout, approval, escalation, audit, security, and performance.
-
-# Edge Cases
-
-1. Automation edge case 1: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-2. Automation edge case 2: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-3. Automation edge case 3: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-4. Automation edge case 4: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-5. Automation edge case 5: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-6. Automation edge case 6: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-7. Automation edge case 7: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-8. Automation edge case 8: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-9. Automation edge case 9: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-10. Automation edge case 10: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-11. Automation edge case 11: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-12. Automation edge case 12: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-13. Automation edge case 13: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-14. Automation edge case 14: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-15. Automation edge case 15: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-16. Automation edge case 16: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-17. Automation edge case 17: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-18. Automation edge case 18: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-19. Automation edge case 19: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-20. Automation edge case 20: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-21. Automation edge case 21: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-22. Automation edge case 22: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-23. Automation edge case 23: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-24. Automation edge case 24: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-25. Automation edge case 25: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-26. Automation edge case 26: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-27. Automation edge case 27: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-28. Automation edge case 28: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-29. Automation edge case 29: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-30. Automation edge case 30: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-31. Automation edge case 31: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-32. Automation edge case 32: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-33. Automation edge case 33: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-34. Automation edge case 34: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-35. Automation edge case 35: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-36. Automation edge case 36: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-37. Automation edge case 37: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-38. Automation edge case 38: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-39. Automation edge case 39: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-40. Automation edge case 40: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-41. Automation edge case 41: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-42. Automation edge case 42: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-43. Automation edge case 43: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-44. Automation edge case 44: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-45. Automation edge case 45: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-46. Automation edge case 46: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-47. Automation edge case 47: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-48. Automation edge case 48: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-49. Automation edge case 49: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-50. Automation edge case 50: trigger, source, condition, rule engine, decision engine, input, output, execution context, application service, domain service, workflow, scheduler, background job, command, domain event, repository, message contract, notification, projection, integration, retry, timeout, compensation, escalation, approval, concurrency, idempotency, checkpoint, resume, audit, logging, metrics, security, or performance mapping is incomplete or conflicting.
-
-# Final Consistency Matrix
-
-| Automation | Workflow | Scheduler | Background Job | Application Service | Domain Service | Rule Engine | Decision Engine | Command | Domain Event | Notification | Projection | Repository | Message Contract |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ScenarioRefreshAutomation | Scenario workflow | ScenarioEvaluationScheduler | ScenarioEvaluationJob | ScenarioApplicationService | ScenarioService, ScoringService | Rule Engine | Decision Engine | EvaluateScenario | ScenarioEvaluated | Dashboard notification | Scenario projection | ScenarioRepository | ScenarioEvaluatedMessage |
-| RecommendationRefreshAutomation | Decision workflow | ScenarioEvaluationScheduler | ScenarioEvaluationJob | DecisionApplicationService | DecisionService, ScoringService | Rule Engine | Decision Engine | EvaluateScenario | RecommendationGenerated | Recommendation notification | Recommendation projection | DecisionRepository | RecommendationGeneratedMessage |
-| NotificationDispatchAutomation | Notification workflow | NotificationDispatchScheduler | NotificationDispatchJob | NotificationApplicationService | ExplainabilityService | Rule Engine | Decision Engine | Notification delivery commands from catalog-aligned handlers | DecisionAccepted, RecommendationGenerated | Required | Notification projection | NotificationRepository | NotificationRequestedMessage |
-| BankingImportAutomation | Cash flow workflow | BankingImportScheduler | BankingImportJob | BlueprintApplicationService, DashboardApplicationService | CashFlowService | Rule Engine | None | RecordIncome, RecordExpense | SalaryReceived, ExpenseRecorded | Optional | Cash flow projection | HouseholdRepository | BankingTransactionImportedMessage |
-| BrokerageImportAutomation | Portfolio workflow | BrokerageImportScheduler | BrokerageImportJob | PortfolioApplicationService | PortfolioService, AllocationService | Rule Engine | None | CreatePortfolio, BuySecurity, SellSecurity | PortfolioCreated, SecurityPurchased, SecuritySold | Optional | Portfolio projection | PortfolioRepository, AssetRepository | PortfolioImportedMessage |
-| CacheRefreshAutomation | Dashboard refresh workflow | CacheRefreshScheduler | CacheRefreshJob | DashboardApplicationService | CashFlowService, PortfolioService, LoanService | Rule Engine | None | Read cache refresh operation | SalaryReceived, ExpenseRecorded, PortfolioRebalanced | None | Dashboard projection | HouseholdRepository, PortfolioRepository | CacheRefreshMessage |
-| OutboxPublishAutomation | Event publishing workflow | OutboxPublishScheduler | OutboxPublishJob | AdministrationApplicationService | ExplainabilityService | Rule Engine | None | Outbox publish operation | All catalog domain events | None | Event projection | AuditRepository | All catalog messages |
-| InboxProcessAutomation | Inbox processing workflow | InboxProcessScheduler | InboxProcessJob | AdministrationApplicationService | ScenarioService | Rule Engine | None | Inbox process operation | All consumed domain events | None | Projection updates | AuditRepository | All consumed messages |
-| ReportGenerationAutomation | Report workflow | ReportGenerationScheduler | ReportGenerationJob | ReportApplicationService | ExplainabilityService, ScenarioService | Rule Engine | Decision Engine | Report generation commands from catalog-aligned handlers | Report source events through read models | Optional | Report projection | AuditRepository | ReportGenerationRequestedMessage |
-| CleanupAutomation | Administration workflow | CleanupScheduler | CleanupJob | AdministrationApplicationService | ExplainabilityService | Rule Engine | None | Cleanup operation | Audit and operational events | None | Audit projection | AuditRepository | CleanupMessage |
-| BackupAutomation | Administration workflow | BackupScheduler | BackupJob | AdministrationApplicationService | ExplainabilityService | Rule Engine | None | Backup operation | Audit and backup events | Escalation on failure | Audit projection | AuditRepository | BackupCompletedMessage |
-| DecisionReviewAutomation | Decision workflow | ScenarioEvaluationScheduler | ScenarioEvaluationJob | DecisionApplicationService | DecisionService, ExplainabilityService | Rule Engine | Decision Engine | AcceptRecommendation, RejectRecommendation | DecisionAccepted, DecisionRejected | Review notification | Decision projection | DecisionRepository | DecisionAcceptedMessage |
-
-# Completion Checklist
-
-- Every Automation defines Trigger.
-- Every Automation defines Condition.
-- Every Automation defines Action.
-- Every Automation defines Retry.
-- Every Automation defines Timeout.
-- Every Automation defines Escalation.
-- Every Automation defines Audit.
-- Every Automation defines Performance Target.
-- Only catalog-approved Automations are present.
-- No incomplete work marker is present.
-- No unresolved preparation marker is present.
-- Mermaid diagrams are present.
-- Markdown structure is complete.
-- Automation Framework is the automation source of truth.
-
-# Version History
-
-| Version | Date | Description |
-|---|---|---|
-| 1.0 | 2026-07-12 | Upgraded to Atlas Enterprise Canonical Specification and Automation Source of Truth. |

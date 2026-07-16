@@ -3,6 +3,7 @@
 - [Application service command orchestration](application-service/command-orchestration.md)
 - [Application service query projection](application-service/query-projection.md)
 - [Application service governance](application-service/governance.md)
+- [Application service testing](application-service/testing.md)
 
 # Document Control
 

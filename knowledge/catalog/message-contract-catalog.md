@@ -3,6 +3,7 @@
 - [Message contract catalog entries](message-contract/catalog-entries.md)
 - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md)
 - [Message contract governance and testing](message-contract/governance-and-testing.md)
+- [Message contract matrices and execution](message-contract/matrices-and-execution.md)
 
 # Document Control
 

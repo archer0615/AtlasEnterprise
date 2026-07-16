@@ -1,0 +1,35 @@
+{
+  "id": "21cac75fc1014365",
+  "title": "Integration Matrices and Mappings",
+  "category": "integration",
+  "canonicalPath": "knowledge/integration/integration/matrices-and-mappings.md",
+  "sourceHash": "9be3f3095e13840216753df7c12fec462fe11af033c554cdbc5ab73751ad5ff6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Integration Matrices and Mappings"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Integration Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Mapping Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Covered Integrations"
+    }
+  ],
+  "bodyMarkdown": "# Integration Matrices and Mappings\n\n## Purpose\nThis split document isolates Integration Matrix, System System Matrix, Module Module Matrix, Application Service External Matrix, Domain Event External Matrix, Message External Matrix, and API External Matrix from the parent Integration Framework.\n\n## Source\n- Parent specification: [Integration Framework](../integration-framework.md)\n\n## Integration Matrix\n| Integration | Source System | Target System | Application Service | Domain Service | API | Message Contract | Domain Event |\n|---|---|---|---|---|---|---|---|\n| BankingApiIntegration | Banking API | Atlas Integration | DashboardApplicationService, BlueprintApplicationService | CashFlowService | /api/v1/integrations/banking | BankingTransactionImportedMessage | ExpenseRecorded, SalaryReceived |\n| BrokerageApiIntegration | Brokerage API | Atlas Integration | PortfolioApplicationService | PortfolioService, AllocationService | /api/v1/integrations/brokerage | PortfolioImportedMessage | PortfolioCreated, SecurityPurchased, SecuritySold |\n| MarketDataIntegration | Market Data Provider | Atlas Integration | PortfolioApplicationService, ScenarioApplicationService | PortfolioService, ScenarioService | /api/v1/integrations/market-data | MarketDataUpdatedMessage | ScoreAdjusted |\n| ExchangeRateIntegration | Exchange Rate Provider | Atlas Integration | DashboardApplicationService, ScenarioApplicationService | CashFlowService, ScenarioService | /api/v1/integrations/exchange-rates | ExchangeRateUpdatedMessage | ScenarioEvaluated |\n| GovernmentOpenDataIntegration | Government Open Data | Atlas Integration | ScenarioApplicationService, AdministrationApplicationService | ScenarioService | /api/v1/integrations/government-open-data | AssumptionVersionLoadedMessage | AssumptionVersionLoaded |\n| NotificationProviderIntegration | Notification Provider | Atlas Notification | NotificationApplicationService | ExplainabilityService | /api/v1/notifications | NotificationRequestedMessage | DecisionAccepted, RecommendationGenerated |\n| EmailIntegration | Email Provider | Atlas Notification | NotificationApplicationService | ExplainabilityService | /api/v1/notifications | NotificationRequestedMessage | DecisionAccepted, DecisionRejected |\n| SmsIntegration | SMS Provider | Atlas Notification | NotificationApplicationService | ExplainabilityService | /api/v1/notifications | NotificationRequestedMessage | DecisionAccepted |\n| PushNotificationIntegration | Push Provider | Atlas Notification | NotificationApplicationService | ExplainabilityService | /api/v1/notifications | NotificationRequestedMessage | RecommendationGenerated |\n| CalendarIntegration | Calendar Provider | Atlas Automation | NotificationApplicationService, AdministrationApplicationService | DecisionService | /api/v1/integrations/calendar | CalendarEventRequestedMessage | DecisionAccepted |\n| ReportExportIntegration | Atlas Reporting | External File Consumer | ReportApplicationService | ExplainabilityService | /api/v1/reports | ReportGenerationRequestedMessage | Report source events through read models |\n| WebhookCallbackIntegration | External System | Atlas API | AdministrationApplicationService | ScenarioService | /api/v1/integrations/webhooks | WebhookReceivedMessage | ReplayCompleted |\n\n## Mapping Matrices\n- System System Matrix preserves Catalog-aligned source, target, Adapter, retry, timeout, audit, monitoring, and security required controls.\n- Module Module Matrix preserves Catalog-aligned source, target, Adapter, retry, timeout, audit, monitoring, and security required controls.\n- Application Service External Matrix preserves Catalog-aligned source, target, Adapter, retry, timeout, audit, monitoring, and security required controls.\n- Domain Event External Matrix preserves Catalog-aligned source, target, Adapter, retry, timeout, audit, monitoring, and security required controls.\n- Message External Matrix preserves Catalog-aligned source, target, Adapter, retry, timeout, audit, monitoring, and security required controls.\n- API External Matrix preserves Catalog-aligned source, target, Adapter, retry, timeout, audit, monitoring, and security required controls.\n\n## Covered Integrations\n- BankingApiIntegration\n- BrokerageApiIntegration\n- MarketDataIntegration\n- ExchangeRateIntegration\n- GovernmentOpenDataIntegration\n- NotificationProviderIntegration\n- EmailIntegration\n- SmsIntegration\n- PushNotificationIntegration\n- CalendarIntegration\n- ReportExportIntegration\n- WebhookCallbackIntegration\n",
+  "references": []
+}

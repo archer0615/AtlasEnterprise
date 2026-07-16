@@ -1,0 +1,67 @@
+{
+  "id": "7dc7a5b53ab63f5e",
+  "title": "Event-driven Publishing and Subscription",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/event-driven-architecture/publishing-and-subscription.md",
+  "sourceHash": "03f8c0050e5e4723a4b95ec8d2b5ef9945b41f7eed84a447ed875fcf75e55c7d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Event-driven Publishing and Subscription"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Publishing Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Subscription Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Delivery Guarantee"
+    },
+    {
+      "level": 2,
+      "text": "Ordering Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Outbox Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Inbox Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Retry Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Dead Letter Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Replay Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Projection Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Read Model Strategy"
+    }
+  ],
+  "bodyMarkdown": "# Event-driven Publishing and Subscription\n\n## Purpose\nThis split document isolates publishing, subscription, delivery guarantee, ordering, Outbox, Inbox, retry, dead letter, replay, projection, and read model strategy from the parent Event Driven Architecture.\n\n## Source\n- Parent specification: [Event Driven Architecture](../event-driven-architecture.md)\n\n## Publishing Strategy\n- Publishing Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Subscription Strategy\n- Subscription Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Delivery Guarantee\n- Delivery Guarantee preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Ordering Strategy\n- Ordering Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Outbox Strategy\n- Outbox Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Inbox Strategy\n- Inbox Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Retry Strategy\n- Retry Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Dead Letter Strategy\n- Dead Letter Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Replay Strategy\n- Replay Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Projection Strategy\n- Projection Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n\n## Read Model Strategy\n- Read Model Strategy preserves catalog event mapping, message contract mapping, publisher ownership, subscriber ownership, outbox, inbox, ordering, idempotency, retry, replay, projection, read model, notification, audit, security, and observability.\n",
+  "references": []
+}

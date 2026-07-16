@@ -3,6 +3,7 @@
 - [Event-driven delivery patterns](event-driven-architecture/delivery-patterns.md)
 - [Event-driven flow catalog](event-driven-architecture/flow-catalog.md)
 - [Event-driven governance and testing](event-driven-architecture/governance-and-testing.md)
+- [Event-driven publishing and subscription](event-driven-architecture/publishing-and-subscription.md)
 
 # Document Control
 

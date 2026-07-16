@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T06:24:58.207Z",
-  "buildId": "fdf539bc5986",
+  "generatedAt": "2026-07-16T06:39:08.805Z",
+  "buildId": "e55b587c7484",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -94,7 +94,7 @@
       "title": "Application Service Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/application-service-catalog.md",
-      "sourceHash": "816667b692f4592fe02093f03d23c87c68738ba03864f65f7cbbf2591cc18d78",
+      "sourceHash": "099070c190daa90b627ccc503cdee931e8f0f763be850bdbdb8d3ba0817b160d",
       "summary": "# Application Service Catalog ## Split Navigation - [Application service command orchestration](application-service/command-orchestration.md) - [Application service query projection](application-service/query-projection.md) - [Application s"
     },
     {
@@ -122,12 +122,28 @@
       "summary": "# Application Service Query Projection ## Purpose This split document isolates query and projection responsibilities from the parent Application Service Catalog. ## Source - Parent specification: [Application Service Catalog](../applicati"
     },
     {
+      "id": "11cd1f956ac25bdd",
+      "title": "Application Service Testing",
+      "category": "catalog",
+      "path": "knowledge/catalog/application-service/testing.md",
+      "sourceHash": "6feb89a87e84d4540b94a78e58d4d0f4688b57aef3e144bbdd0fcfcc3cf52441",
+      "summary": "# Application Service Testing ## Purpose This split document isolates application-service test coverage and validation topics from the parent Application Service Catalog. ## Source - Parent specification: [Application Service Catalog](../"
+    },
+    {
       "id": "64e0dd1e15409ed1",
       "title": "Bounded Context Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/bounded-context-catalog.md",
-      "sourceHash": "128e682fa4aaef0785e9a4b9ee0f775000025e8d627dc573750ac5057047e367",
-      "summary": "# Bounded Context Catalog ## Split Navigation - [Bounded context definitions](bounded-context/definitions.md) - [Bounded context integrations](bounded-context/integrations.md) - [Bounded context governance](bounded-context/governance.md)"
+      "sourceHash": "89d3c8146117425765751d05e786fc6e5703bee86daa76fc21cdb1e0c6336cfe",
+      "summary": "# Bounded Context Catalog ## Split Navigation - [Bounded context definitions](bounded-context/definitions.md) - [Bounded context integrations](bounded-context/integrations.md) - [Bounded context governance](bounded-context/governance.md) -"
+    },
+    {
+      "id": "3b36e7722857967c",
+      "title": "Bounded Context Context Map Patterns",
+      "category": "catalog",
+      "path": "knowledge/catalog/bounded-context/context-map-patterns.md",
+      "sourceHash": "4e30830a2ec2c4bf4baf2e53c894d0a0061a855948fb8cac0371e083339cb1e7",
+      "summary": "# Bounded Context Context Map Patterns ## Purpose This split document isolates context map relationship patterns from the parent Bounded Context Catalog. ## Source - Parent specification: [Bounded Context Catalog](../bounded-context-catal"
     },
     {
       "id": "099c39e3b85b34cd",
@@ -230,8 +246,8 @@
       "title": "Domain Model Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/domain-model-catalog.md",
-      "sourceHash": "f26cbb266bd7862eb7c1b212cf0221b2b91d4ce8eaa5c089e79f40b3bc0867c8",
-      "summary": "# Domain Model Catalog ## Split Navigation - [Domain model entities](domain-model/entities.md) - [Domain model relationships](domain-model/relationships.md) - [Domain model governance](domain-model/governance.md) # Document Control Doc"
+      "sourceHash": "85a6d40124d9309b0676b46f28c803282e1fb010594346d97416cfb3ea1894cf",
+      "summary": "# Domain Model Catalog ## Split Navigation - [Domain model entities](domain-model/entities.md) - [Domain model relationships](domain-model/relationships.md) - [Domain model governance](domain-model/governance.md) - [Domain model executable"
     },
     {
       "id": "03428ea579eeb04a",
@@ -240,6 +256,14 @@
       "path": "knowledge/catalog/domain-model/entities.md",
       "sourceHash": "d478c618b1d282bd2d1ab72ec800a00b15b796e2122a78fa461154abb85e58ce",
       "summary": "# Domain Model Entities ## Purpose This split document isolates domain model entity definitions from the parent Domain Model Catalog. ## Source - Parent specification: [Domain Model Catalog](../domain-model-catalog.md) ## Entity Scope Do"
+    },
+    {
+      "id": "2ec315c4dbe06eb1",
+      "title": "Domain Model Executable Specification",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-model/executable-specification.md",
+      "sourceHash": "0f8e7f92787b03980df12e0d814c57d53fd14a7e92bd8761a8080467e8b3a645",
+      "summary": "# Domain Model Executable Specification ## Purpose This split document isolates executable specification, validation, and conformance topics from the parent Domain Model Catalog. ## Source - Parent specification: [Domain Model Catalog](.."
     },
     {
       "id": "7497739fdc11dd58",
@@ -366,7 +390,7 @@
       "title": "Message Contract Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/message-contract-catalog.md",
-      "sourceHash": "b4d2bb2418bee971180b85f29d2d5208cc06ed5214cb1c7f22c152defd9b6bde",
+      "sourceHash": "261de566df3317ae9ea4bdb40381606ac62dab5cdb60312aaf0691868692c72c",
       "summary": "# Message Contract Catalog ## Split Navigation - [Message contract catalog entries](message-contract/catalog-entries.md) - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md) - [Message contract gov"
     },
     {
@@ -392,6 +416,14 @@
       "path": "knowledge/catalog/message-contract/governance-and-testing.md",
       "sourceHash": "3277fb5dd0865cc14031ab14119aeb3f1c730617ac7becb9a6a33055beae68b7",
       "summary": "# Message Contract Governance and Testing ## Purpose This split document isolates message contract security, audit, validation, testing, edge cases, and consistency checks from the parent Message Contract Catalog. ## Source - Parent speci"
+    },
+    {
+      "id": "e244dde5c46420f1",
+      "title": "Message Contract Matrices and Execution",
+      "category": "catalog",
+      "path": "knowledge/catalog/message-contract/matrices-and-execution.md",
+      "sourceHash": "b7e7d67f553165aa0d6a2cfac88eb7d30e5c6beba9aa285b4b401c7049aaef96",
+      "summary": "# Message Contract Matrices and Execution ## Purpose This split document isolates message classification, producer consumer, command message, event message, workflow message, saga message, automation message, scheduler message, notificatio"
     },
     {
       "id": "8866c9a7f3e1f7b4",
@@ -1454,8 +1486,8 @@
       "title": "Automation Framework",
       "category": "framework",
       "path": "knowledge/framework/automation-framework.md",
-      "sourceHash": "5d62028435a9073b372c7a05ae87ecf238740fbce124a062bd5ec92e58691512",
-      "summary": "# Automation Framework ## Split Navigation - [Automation catalog and triggers](automation/catalog-and-triggers.md) - [Automation execution strategies](automation/execution-strategies.md) - [Automation governance and testing](automation/gove"
+      "sourceHash": "d8f7549adf42c2de0b4ab9725b8b611861ef0beb52c90f87b176474b21b20002",
+      "summary": "# Automation Framework ## Split Navigation - [Automation catalog and triggers](automation/catalog-and-triggers.md) - [Automation execution strategies](automation/execution-strategies.md) - [Automation matrices and controls](automation/matri"
     },
     {
       "id": "f156abf17b561731",
@@ -1480,6 +1512,14 @@
       "path": "knowledge/framework/automation/governance-and-testing.md",
       "sourceHash": "b3e03d4eea13aacbac4d889f45a9dfe3e72b6b1a39b255f404add5a5a19063fb",
       "summary": "# Automation Governance and Testing ## Purpose This split document isolates automation validation, business rules, security, audit, performance, diagrams, testing, edge cases, and consistency checks from the parent Automation Framework. #"
+    },
+    {
+      "id": "7763881da86863a2",
+      "title": "Automation Matrices and Controls",
+      "category": "framework",
+      "path": "knowledge/framework/automation/matrices-and-controls.md",
+      "sourceHash": "18269269a811a3db1af38151bcc4f9bcd7140dee4ec091ad1e3ba49d15193301",
+      "summary": "# Automation Matrices and Controls ## Purpose This split document preserves automation mapping matrices, retry/compensation/escalation/approval/failure strategies, validation rules, business rules, and operational controls from the pare"
     },
     {
       "id": "f218ebbbec51ce5f",
@@ -1870,8 +1910,8 @@
       "title": "Background Job Framework",
       "category": "framework",
       "path": "knowledge/framework/background-job-framework.md",
-      "sourceHash": "eb7fde0d31801bc045c4090178ffcd1097b98474df66280508942abf8afe798d",
-      "summary": "# Background Job Framework ## Split Navigation - [Background job catalog](background-job/catalog.md) - [Background job execution strategy](background-job/execution-strategy.md) - [Background job governance and testing](background-job/govern"
+      "sourceHash": "25f23365045686f3783b1f6fb4a4a2b6fc0b7bba13cf72dae1e6d414e990c51a",
+      "summary": "# Background Job Framework ## Split Navigation - [Background job catalog](background-job/catalog.md) - [Background job execution strategy](background-job/execution-strategy.md) - [Background job matrices and controls](background-job/matrice"
     },
     {
       "id": "fc47aec03e10cc72",
@@ -1896,6 +1936,14 @@
       "path": "knowledge/framework/background-job/governance-and-testing.md",
       "sourceHash": "233d3f750af911b8d8e6a1b523b23d4cd8288999cf15fdabb6fde489d5a4a0a3",
       "summary": "# Background Job Governance and Testing ## Purpose This split document isolates background job validation, business rules, security, audit, performance, diagrams, testing, edge cases, and consistency verification from the parent Background"
+    },
+    {
+      "id": "15d3e218060c73a5",
+      "title": "Background Job Matrices and Controls",
+      "category": "framework",
+      "path": "knowledge/framework/background-job/matrices-and-controls.md",
+      "sourceHash": "ae7789bba3fb5ae98d84c1147fa7912f49a3d5807c7ecd4057f26da7948aafbc",
+      "summary": "# Background Job Matrices and Controls ## Purpose This split document preserves the background job mapping matrices, retry/checkpoint/resume/failure strategies, validation rules, business rules, and operational controls from the parent"
     },
     {
       "id": "10bc6c6a93e4be0a",
@@ -2286,8 +2334,8 @@
       "title": "Scheduler Framework",
       "category": "framework",
       "path": "knowledge/framework/scheduler-framework.md",
-      "sourceHash": "700ab8ce342b8f2dfc60c46967ae9984ee4e61dd40b675545bce6adb2846fc54",
-      "summary": "# Scheduler Framework ## Split Navigation - [Scheduler catalog and timing](scheduler/catalog-and-timing.md) - [Scheduler execution strategies](scheduler/execution-strategies.md) - [Scheduler governance and testing](scheduler/governance-and-"
+      "sourceHash": "96eda90ab72b83fdda1fc9b2f5b9749dd32ab44d924e2472b79ff548affab176",
+      "summary": "# Scheduler Framework ## Split Navigation - [Scheduler catalog and timing](scheduler/catalog-and-timing.md) - [Scheduler execution strategies](scheduler/execution-strategies.md) - [Scheduler matrices and controls](scheduler/matrices-and-con"
     },
     {
       "id": "c62005a471ab1911",
@@ -2312,6 +2360,14 @@
       "path": "knowledge/framework/scheduler/governance-and-testing.md",
       "sourceHash": "e45a42eb1230984c1dab4142d7db9e95f16db8917f87e4b15c93fe1171e12fca",
       "summary": "# Scheduler Governance and Testing ## Purpose This split document isolates scheduler validation, business rules, security, audit, performance, diagrams, testing, edge cases, and consistency checks from the parent Scheduler Framework. ## S"
+    },
+    {
+      "id": "af845d94e7b3465c",
+      "title": "Scheduler Matrices and Controls",
+      "category": "framework",
+      "path": "knowledge/framework/scheduler/matrices-and-controls.md",
+      "sourceHash": "872cf4824326c2f7ddc1cc637dd69f86bb552f7d088121399974112991732e1e",
+      "summary": "# Scheduler Matrices and Controls ## Purpose This split document preserves scheduler mapping matrices, cron/calendar/retry/misfire/catch-up/concurrency strategies, validation rules, business rules, and operational controls from the pare"
     },
     {
       "id": "ad89f85d16bac309",
@@ -2430,7 +2486,7 @@
       "title": "Integration Framework",
       "category": "integration",
       "path": "knowledge/integration/integration-framework.md",
-      "sourceHash": "300e325f4cba680a6dfccfd63a4ab4e3c73717a9c0efd1cd54c724ed8772c2a5",
+      "sourceHash": "406c086b972b60f6fbca0f9f43f101a4747541a7db351ed3e1cb16ee4eeae725",
       "summary": "# Integration Framework ## Split Navigation - [Integration catalog](integration/catalog.md) - [Integration resilience and security](integration/resilience-and-security.md) - [Integration governance and testing](integration/governance-and-te"
     },
     {
@@ -2448,6 +2504,14 @@
       "path": "knowledge/integration/integration/governance-and-testing.md",
       "sourceHash": "b3f17cd44318391385850d181a2cc8a066f76bd1f477eeea33f17fa1af21cb86",
       "summary": "# Integration Governance and Testing ## Purpose This split document isolates integration matrices, governance, validation, audit, performance, testing, edge cases, and consistency checks from the parent Integration Framework. ## Source -"
+    },
+    {
+      "id": "21cac75fc1014365",
+      "title": "Integration Matrices and Mappings",
+      "category": "integration",
+      "path": "knowledge/integration/integration/matrices-and-mappings.md",
+      "sourceHash": "9be3f3095e13840216753df7c12fec462fe11af033c554cdbc5ab73751ad5ff6",
+      "summary": "# Integration Matrices and Mappings ## Purpose This split document isolates Integration Matrix, System System Matrix, Module Module Matrix, Application Service External Matrix, Domain Event External Matrix, Message External Matrix, and API"
     },
     {
       "id": "6d9001d6ae140cd6",
@@ -2950,7 +3014,7 @@
       "title": "Event Driven Architecture",
       "category": "supporting",
       "path": "knowledge/supporting/event-driven-architecture.md",
-      "sourceHash": "bac52d13374a7e41141cdd4e374e00ba623f507008a16075e277cda95db1d196",
+      "sourceHash": "a2f9ef9ff5ce4cf4f558b0bfc515b2e39ca71878ab151070855f20d90c582f3a",
       "summary": "# Event Driven Architecture ## Split Navigation - [Event-driven delivery patterns](event-driven-architecture/delivery-patterns.md) - [Event-driven flow catalog](event-driven-architecture/flow-catalog.md) - [Event-driven governance and testi"
     },
     {
@@ -2976,6 +3040,14 @@
       "path": "knowledge/supporting/event-driven-architecture/governance-and-testing.md",
       "sourceHash": "31d74f35f4260c6456260750b7eb854db4fc793327e0433b54fa16a496a7d23d",
       "summary": "# Event-Driven Governance and Testing ## Purpose This split document isolates event-driven security, audit, performance, validation, business rules, diagrams, testing, edge cases, and consistency verification from the parent Event Driven A"
+    },
+    {
+      "id": "7dc7a5b53ab63f5e",
+      "title": "Event-driven Publishing and Subscription",
+      "category": "supporting",
+      "path": "knowledge/supporting/event-driven-architecture/publishing-and-subscription.md",
+      "sourceHash": "03f8c0050e5e4723a4b95ec8d2b5ef9945b41f7eed84a447ed875fcf75e55c7d",
+      "summary": "# Event-driven Publishing and Subscription ## Purpose This split document isolates publishing, subscription, delivery guarantee, ordering, Outbox, Inbox, retry, dead letter, replay, projection, and read model strategy from the parent Event"
     },
     {
       "id": "823cbb10f10abf66",

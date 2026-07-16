@@ -2,6 +2,7 @@
 ## Split Navigation
 - [Background job catalog](background-job/catalog.md)
 - [Background job execution strategy](background-job/execution-strategy.md)
+- [Background job matrices and controls](background-job/matrices-and-controls.md)
 - [Background job governance and testing](background-job/governance-and-testing.md)
 
 # Document Control

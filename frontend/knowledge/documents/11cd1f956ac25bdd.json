@@ -1,0 +1,35 @@
+{
+  "id": "11cd1f956ac25bdd",
+  "title": "Application Service Testing",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/application-service/testing.md",
+  "sourceHash": "6feb89a87e84d4540b94a78e58d4d0f4688b57aef3e144bbdd0fcfcc3cf52441",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Application Service Testing"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Testing Scope"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Usage"
+    },
+    {
+      "level": 2,
+      "text": "Preservation Rule"
+    }
+  ],
+  "bodyMarkdown": "# Application Service Testing\n\n## Purpose\nThis split document isolates application-service test coverage and validation topics from the parent Application Service Catalog.\n\n## Source\n- Parent specification: [Application Service Catalog](../application-service-catalog.md)\n\n## Testing Scope\nTesting coverage includes Unit Test, Integration Test, Workflow Test, Saga Test, Authorization Test, Repository Test, DTO Mapping Test, Performance Test, and Phase 2 Executable Specification Addendum sections.\n\n## Catalog Usage\nUse this split document when validating that Application Services preserve application-layer orchestration, transaction boundaries, authorization boundaries, validation boundaries, repository coordination, domain service coordination, workflow coordination, saga coordination, DTO mapping, event publishing, outbox, idempotency, retry, timeout, compensation, audit, logging, metrics, observability, and performance targets.\n\n## Preservation Rule\nThe parent Application Service Catalog remains the canonical source of truth and retains the original body. This child document provides a focused navigation surface for test and executable specification references.\n",
+  "references": []
+}

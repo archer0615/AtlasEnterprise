@@ -3,6 +3,7 @@
 - [Bounded context definitions](bounded-context/definitions.md)
 - [Bounded context integrations](bounded-context/integrations.md)
 - [Bounded context governance](bounded-context/governance.md)
+- [Bounded context context map patterns](bounded-context/context-map-patterns.md)
 
 # Document Control
 

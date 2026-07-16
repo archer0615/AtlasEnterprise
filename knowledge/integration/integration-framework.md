@@ -3,6 +3,7 @@
 - [Integration catalog](integration/catalog.md)
 - [Integration resilience and security](integration/resilience-and-security.md)
 - [Integration governance and testing](integration/governance-and-testing.md)
+- [Integration matrices and mappings](integration/matrices-and-mappings.md)
 
 # Document Control
 
