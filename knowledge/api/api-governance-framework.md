@@ -6,6 +6,7 @@
 - [API resource catalog](api-governance/resource-catalog.md)
 - [API rule catalog and flows](api-governance/rule-catalog-and-flows.md)
 - [API security testing and operations](api-governance/security-testing-and-operations.md)
+- [API observability and runtime controls](api-governance/observability-and-runtime-controls.md)
 - [API versioning and compatibility](api-governance/versioning-and-compatibility.md)
 
 # Document Control

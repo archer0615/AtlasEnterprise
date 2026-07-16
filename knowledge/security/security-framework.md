@@ -4,6 +4,7 @@
 - [Authentication flows and events](security-framework/authentication-flows-and-events.md)
 - [Security governance and testing](security-framework/security-governance-and-testing.md)
 - [Data protection and isolation](security-framework/data-protection-and-isolation.md)
+- [Token and credential lifecycle](security-framework/token-and-credential-lifecycle.md)
 - [Threat validation and runtime controls](security-framework/threat-validation-and-runtime-controls.md)
 
 ## Document Control

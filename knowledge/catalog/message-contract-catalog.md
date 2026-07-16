@@ -6,6 +6,7 @@
 - [Message contract matrices and execution](message-contract/matrices-and-execution.md)
 - [Message contract schema evolution and validation](message-contract/schema-evolution-and-validation.md)
 - [Message contract operational controls](message-contract/operational-controls.md)
+- [Message contract diagrams and edge cases](message-contract/diagrams-and-edge-cases.md)
 
 # Document Control
 

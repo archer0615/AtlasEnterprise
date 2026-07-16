@@ -8,6 +8,7 @@
 - [Background job governance and testing](background-job/governance-and-testing.md)
 - [Background job validation and rules](background-job/validation-and-rules.md)
 - [Background job diagrams and completion](background-job/diagrams-and-completion.md)
+- [Background job maintenance jobs](background-job/maintenance-jobs.md)
 
 # Document Control
 

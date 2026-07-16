@@ -4,6 +4,7 @@
 - [Automation execution strategies](automation/execution-strategies.md)
 - [Automation recovery and approvals](automation/recovery-and-approvals.md)
 - [Automation matrices and controls](automation/matrices-and-controls.md)
+- [Automation decision projections and notifications](automation/decision-projections-and-notifications.md)
 - [Automation strategy and recovery](automation/strategy-and-recovery.md)
 - [Automation operational controls](automation/operational-controls.md)
 - [Automation governance and testing](automation/governance-and-testing.md)

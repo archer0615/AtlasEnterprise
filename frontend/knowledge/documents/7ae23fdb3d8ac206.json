@@ -1,0 +1,35 @@
+{
+  "id": "7ae23fdb3d8ac206",
+  "title": "Security Token and Credential Lifecycle",
+  "category": "security",
+  "canonicalPath": "knowledge/security/security-framework/token-and-credential-lifecycle.md",
+  "sourceHash": "e467636e24243756039f2a708f04462619a78bd4bf6a92bff5cac7a716a5c6b9",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Security Token and Credential Lifecycle"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Lifecycle Scope"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Controls"
+    },
+    {
+      "level": 2,
+      "text": "Related Parent Sections"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Security Token and Credential Lifecycle\n\n## Purpose\n\nThis split document summarizes Security Framework controls for token lifecycle, credential management, secret management, encryption strategy, and key management.\n\n## Lifecycle Scope\n\n- Token Lifecycle defines mandatory controls for components that depend on identity, permission, data protection, or audit evidence.\n- Credential Management defines mandatory controls for credential use across API, integration, scheduler, automation, message consumer, and system actor flows.\n- Secret Management keeps secret values out of payloads and supports rotation according to security rules.\n- Encryption Strategy protects sensitive data in transit and at rest where required by the Security Framework.\n- Key Management governs key ownership, rotation, and use for token, credential, signature, encryption, and integration controls.\n\n## Canonical Controls\n\n- Every protected operation must enforce authenticated Principal, authorization decision, permission ownership, household isolation, tenant isolation, audit correlation, and failure-safe denial.\n- Token, credential, secret, encryption, and key controls must align with Authentication Architecture, Authorization Architecture, Permission Model, Identity Model, API Security, Message Security, Database Security, Audit Security, and Threat Model.\n- Credential and secret material must not be embedded in DTOs, message contracts, integration payloads, audit records, or logs.\n- Rotation events and credential validation outcomes must remain auditable without exposing secret values.\n- Security failures must deny access and preserve audit evidence.\n\n## Related Parent Sections\n\n- `## Token Lifecycle`\n- `## Credential Management`\n- `## Secret Management`\n- `## Encryption Strategy`\n- `## Key Management`\n- `## Security Event Contracts`\n- `## Validation Rules`\n\n## Related References\n\n- [Security Framework](../security-framework.md)\n- [Security architecture](security-architecture.md)\n- [Data protection and isolation](data-protection-and-isolation.md)\n- [Threat validation and runtime controls](threat-validation-and-runtime-controls.md)\n",
+  "references": []
+}

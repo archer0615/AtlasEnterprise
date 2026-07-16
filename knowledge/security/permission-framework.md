@@ -4,6 +4,7 @@
 - [Permission catalog](permission-framework/permission-catalog.md)
 - [Permission evaluation and cache](permission-framework/evaluation-and-cache.md)
 - [Permission integration boundaries](permission-framework/integration-boundaries.md)
+- [Permission resolution inheritance and cache](permission-framework/resolution-inheritance-and-cache.md)
 - [Role and matrix catalog](permission-framework/role-and-matrix-catalog.md)
 - [Permission governance and testing](permission-framework/permission-governance-and-testing.md)
 

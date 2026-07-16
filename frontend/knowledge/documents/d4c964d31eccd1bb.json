@@ -1,0 +1,31 @@
+{
+  "id": "d4c964d31eccd1bb",
+  "title": "Background Job Maintenance Jobs",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/background-job/maintenance-jobs.md",
+  "sourceHash": "c45ee5ace6271e7298bc5a7148b54bdb43ed35d487206e385f1ac13239f9b202",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Background Job Maintenance Jobs"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "CleanupJob"
+    },
+    {
+      "level": 1,
+      "text": "BackupJob"
+    },
+    {
+      "level": 1,
+      "text": "Shared Execution Controls"
+    }
+  ],
+  "bodyMarkdown": "# Background Job Maintenance Jobs\n\nDocument Path: knowledge/framework/background-job/maintenance-jobs.md\n\nParent Specification: knowledge/framework/background-job-framework.md\n\n# Purpose\n\nThis split document isolates maintenance-oriented background jobs from the parent Background Job Framework. It covers CleanupJob and BackupJob because both run platform administration work with checkpointing, audit, retry, security, and recovery controls.\n\n# CleanupJob\n\n| Field | Value |\n|---|---|\n| Job Name | CleanupJob |\n| Display Name | CleanupJob |\n| Category | Cleanup Job |\n| Purpose | Clean expired temporary operational records. |\n| Business Meaning | CleanupJob performs asynchronous Atlas work without redefining domain concepts. |\n| Trigger | Maintenance schedule |\n| Schedule | Scheduled |\n| Frequency | Daily |\n| Input | CleanupInput |\n| Output | CleanupResult |\n| Execution Context | System actor or authorized actor context with CorrelationId and CausationId. |\n| Execution Owner | AdministrationApplicationService |\n| Application Service | AdministrationApplicationService |\n| Domain Service | ExplainabilityService |\n| Repositories | AuditRepository |\n| Commands | Cleanup operation |\n| Domain Events | Audit and operational events |\n| Message Contract | CleanupMessage |\n| Workflow | Administration workflow |\n| Scheduler | Scheduler Framework |\n| Automation | Maintenance automation |\n| Dependencies | AdministrationApplicationService; ExplainabilityService; AuditRepository; CleanupMessage |\n\n# BackupJob\n\n| Field | Value |\n|---|---|\n| Job Name | BackupJob |\n| Display Name | BackupJob |\n| Category | Backup Job |\n| Purpose | Create operational backup artifacts. |\n| Business Meaning | BackupJob performs asynchronous Atlas work without redefining domain concepts. |\n| Trigger | Backup schedule |\n| Schedule | Scheduled |\n| Frequency | Daily |\n| Input | BackupInput |\n| Output | BackupResult |\n| Execution Context | System actor or authorized actor context with CorrelationId and CausationId. |\n| Execution Owner | AdministrationApplicationService |\n| Application Service | AdministrationApplicationService |\n| Domain Service | ExplainabilityService |\n| Repositories | AuditRepository |\n| Commands | Backup operation |\n| Domain Events | Audit and backup events |\n| Message Contract | BackupCompletedMessage |\n| Workflow | Administration workflow |\n| Scheduler | Scheduler Framework |\n| Automation | Backup automation |\n| Dependencies | AdministrationApplicationService; ExplainabilityService; AuditRepository; BackupCompletedMessage |\n\n# Shared Execution Controls\n\n- Transaction Boundary: One checkpointed unit of work per batch item or aggregate operation.\n- Consistency Boundary: Eventual consistency is expected for projections, notifications, imports, exports, and message processing.\n- Retry Strategy: Exponential retry for transient failures with bounded attempts.\n- Timeout Strategy: Bounded execution timeout with safe cancellation and checkpoint preservation.\n- Compensation Strategy: Workflow or saga compensation only when cataloged.\n- Concurrency Strategy: Job key and scope prevent duplicate concurrent execution.\n- Lock Strategy: Distributed or scoped lock by job name, HouseholdId, aggregate id, message id, or batch id as needed.\n- Failure Handling: Retry, checkpoint, dead letter, quarantine, cancel, or fail with catalog error.\n- Idempotency: JobId plus execution scope plus input hash plus checkpoint key.\n- Checkpoint: Persisted after each successful deterministic unit.\n- Resume Strategy: Resume from last committed checkpoint and skip duplicate work.\n- Cancellation: Cooperative cancellation with audit and no partial uncheckpointed commit.\n- Audit: Execution history, CorrelationId, CausationId, retry history, checkpoint history, actor or system actor, and result.\n- Logging: Structured logs with job name, attempt, checkpoint, dependency, result, and error code.\n- Metrics: Duration, queue latency, throughput, retry count, failure rate, checkpoint lag, and resource use.\n- Security: Authorization, permission, tenant isolation, Household isolation, and service boundary protection.\n- Performance: Execution SLA, throughput, parallel execution, resource usage, and dependency latency are measured.\n\n",
+  "references": []
+}

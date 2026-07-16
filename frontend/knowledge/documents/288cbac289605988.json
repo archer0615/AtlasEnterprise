@@ -1,0 +1,59 @@
+{
+  "id": "288cbac289605988",
+  "title": "Scheduler Diagrams and Consistency",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/scheduler/diagrams-and-consistency.md",
+  "sourceHash": "8725fe12206cbd21df574c8a3c3b9357dc457801c10707b6deba2fc1f28235a1",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Scheduler Diagrams and Consistency"
+    },
+    {
+      "level": 1,
+      "text": "Purpose"
+    },
+    {
+      "level": 1,
+      "text": "Scheduler Diagrams"
+    },
+    {
+      "level": 2,
+      "text": "Scheduler Architecture"
+    },
+    {
+      "level": 2,
+      "text": "Scheduling Flow"
+    },
+    {
+      "level": 2,
+      "text": "Execution Flow"
+    },
+    {
+      "level": 2,
+      "text": "Retry Flow"
+    },
+    {
+      "level": 2,
+      "text": "Misfire Flow"
+    },
+    {
+      "level": 2,
+      "text": "Dependency Diagram"
+    },
+    {
+      "level": 1,
+      "text": "Edge Case Coverage"
+    },
+    {
+      "level": 1,
+      "text": "Final Consistency Matrix"
+    },
+    {
+      "level": 1,
+      "text": "Completion Checklist"
+    }
+  ],
+  "bodyMarkdown": "# Scheduler Diagrams and Consistency\n\nDocument Path: knowledge/framework/scheduler/diagrams-and-consistency.md\n\nParent Specification: knowledge/framework/scheduler-framework.md\n\n# Purpose\n\nThis split document isolates the Scheduler Framework diagrams, edge-case coverage, final consistency matrix, and completion checklist. It keeps scheduler flow and cross-catalog consistency readable without changing the parent framework.\n\n# Scheduler Diagrams\n\n## Scheduler Architecture\n\n```mermaid\nflowchart TD\n  RULE[Schedule Rule] --> SCHED[Scheduler]\n  SCHED --> LOCK[Lock]\n  LOCK --> QUEUE[Job Queue]\n  QUEUE --> JOB[Background Job]\n  SCHED --> AUDIT[Schedule History]\n```\n\n## Scheduling Flow\n\n```mermaid\nflowchart TD\n  EVAL[Evaluate Schedule] --> MIS{Misfire}\n  MIS -->|No| FIRE[Fire]\n  MIS -->|Yes| POLICY[Apply Misfire Policy]\n  POLICY --> QUEUE[Queue or Skip]\n```\n\n## Execution Flow\n\n```mermaid\nsequenceDiagram\n  participant Scheduler\n  participant Lock\n  participant Queue\n  participant Job\n  Scheduler->>Lock: acquire\n  Scheduler->>Queue: enqueue job\n  Queue->>Job: execute\n  Job-->>Scheduler: status\n```\n\n## Retry Flow\n\n```mermaid\nflowchart TD\n  FAIL[Enqueue Failure] --> RETRY{Retry Allowed}\n  RETRY -->|Yes| BACKOFF[Backoff]\n  BACKOFF --> ENQUEUE[Enqueue]\n  RETRY -->|No| ERROR[Scheduler Error]\n```\n\n## Misfire Flow\n\n```mermaid\nflowchart TD\n  MISFIRE[Missed Fire Time] --> POLICY[Misfire Policy]\n  POLICY --> SKIP[Skip]\n  POLICY --> CATCHUP[Catch Up]\n  POLICY --> NEXT[Next Window]\n```\n\n## Dependency Diagram\n\n```mermaid\nflowchart TD\n  SCHED[Scheduler] --> JOB[Background Job]\n  JOB --> APP[Application Service]\n  APP --> DS[Domain Service]\n  APP --> REPO[Repository]\n  JOB --> MSG[Message Contract]\n```\n\n# Edge Case Coverage\n\nScheduler edge cases cover incomplete or conflicting mappings across trigger, schedule rule, cron expression, calendar rule, interval, timezone, misfire policy, catch-up policy, retry policy, timeout policy, execution window, concurrency policy, lock strategy, execution owner, job, workflow, automation, command, domain event, repository, message contract, idempotency, checkpoint, audit, logging, metrics, security, and performance.\n\n# Final Consistency Matrix\n\n| Scheduler | Background Job | Workflow | Automation | Application Service | Domain Service | Repository | Command | Domain Event | Message Contract |\n|---|---|---|---|---|---|---|---|---|---|\n| ScenarioEvaluationScheduler | ScenarioEvaluationJob | Scenario workflow | Scenario automation | ScenarioApplicationService | ScenarioService | ScenarioRepository | EvaluateScenario | ScenarioEvaluated | ScenarioEvaluatedMessage |\n| ScenarioReplayScheduler | ScenarioReplayJob | Replay workflow | Administration automation | ScenarioApplicationService | ScenarioService | ScenarioRepository, AuditRepository | ReplayScenario | ReplayCompleted | ReplayCompletedMessage |\n| ProjectionRefreshScheduler | ProjectionRefreshJob | Projection workflow | Projection automation | DashboardApplicationService | ScenarioService, PortfolioService, LoanService | ScenarioRepository, PortfolioRepository, LoanRepository | Projection update commands from catalog-aligned handlers | ScenarioEvaluated, PortfolioRebalanced, LoanPaymentMade | Projection messages |\n| NotificationDispatchScheduler | NotificationDispatchJob | Notification workflow | Notification automation | NotificationApplicationService | ExplainabilityService, DecisionService | NotificationRepository | Notification delivery commands from catalog-aligned handlers | DecisionAccepted, DecisionRejected, RecommendationGenerated | NotificationRequestedMessage |\n| ReportGenerationScheduler | ReportGenerationJob | Report workflow | Report automation | ReportApplicationService | ExplainabilityService, ScenarioService, PortfolioService, LoanService | AuditRepository, ScenarioRepository, DecisionRepository | Report generation commands from catalog-aligned handlers | Report source events through read models | ReportGenerationRequestedMessage |\n| BankingImportScheduler | BankingImportJob | Cash flow workflow | Import automation | BlueprintApplicationService, DashboardApplicationService | CashFlowService | HouseholdRepository, AuditRepository | RecordIncome, RecordExpense | SalaryReceived, ExpenseRecorded | BankingTransactionImportedMessage |\n| BrokerageImportScheduler | BrokerageImportJob | Portfolio workflow | Import automation | PortfolioApplicationService | PortfolioService, AllocationService | PortfolioRepository, AssetRepository, AuditRepository | CreatePortfolio, BuySecurity, SellSecurity | PortfolioCreated, SecurityPurchased, SecuritySold | PortfolioImportedMessage |\n| CacheRefreshScheduler | CacheRefreshJob | Dashboard refresh workflow | Cache automation | DashboardApplicationService | CashFlowService, PortfolioService, LoanService | HouseholdRepository, PortfolioRepository, LoanRepository | Read cache refresh operation | SalaryReceived, ExpenseRecorded, PortfolioRebalanced | CacheRefreshMessage |\n| OutboxPublishScheduler | OutboxPublishJob | Event publishing workflow | Outbox automation | AdministrationApplicationService | ExplainabilityService | AuditRepository | Outbox publish operation | All catalog domain events | All catalog messages |\n| InboxProcessScheduler | InboxProcessJob | Inbox processing workflow | Inbox automation | AdministrationApplicationService | ScenarioService | AuditRepository | Inbox process operation | All consumed domain events | All consumed messages |\n| CleanupScheduler | CleanupJob | Administration workflow | Maintenance automation | AdministrationApplicationService | ExplainabilityService | AuditRepository | Cleanup operation | Audit and operational events | CleanupMessage |\n| BackupScheduler | BackupJob | Administration workflow | Backup automation | AdministrationApplicationService | ExplainabilityService | AuditRepository | Backup operation | Audit and backup events | BackupCompletedMessage |\n\n# Completion Checklist\n\n- Every Scheduler defines Trigger.\n- Every Scheduler defines Schedule Rule.\n- Every Scheduler defines Retry.\n- Every Scheduler defines Misfire Policy.\n- Every Scheduler defines Concurrency Strategy.\n- Every Scheduler defines Audit.\n- Every Scheduler defines Performance Target.\n- Only catalog-approved Schedulers are present.\n- No incomplete work marker is present.\n- No unresolved preparation marker is present.\n- Mermaid diagrams are present.\n- Markdown structure is complete.\n- Scheduler Framework is the scheduler source of truth.\n\n",
+  "references": []
+}

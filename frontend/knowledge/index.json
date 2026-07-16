@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T08:34:07.199Z",
-  "buildId": "57be3c802176",
+  "generatedAt": "2026-07-16T09:44:41.870Z",
+  "buildId": "db964f8ce976",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -22,8 +22,16 @@
       "title": "API Governance Framework",
       "category": "api",
       "path": "knowledge/api/api-governance-framework.md",
-      "sourceHash": "9bd5804c11f2bb8fd4333e8ba24bf62b5f27d28dd6a7e139b88146d29f69d6c6",
+      "sourceHash": "7b2d89e48e86b49a6f8ab5b686f38a49ea213653729421368ceb9277b7fcb747",
       "summary": "# API Governance Framework ## Split Navigation - [API resource and URI standards](api-governance/resource-and-uri-standards.md) - [API standards and contracts](api-governance/standards-and-contracts.md) - [API query and mutation controls](a"
+    },
+    {
+      "id": "1441590cb72d6f5d",
+      "title": "API Observability and Runtime Controls",
+      "category": "api",
+      "path": "knowledge/api/api-governance/observability-and-runtime-controls.md",
+      "sourceHash": "d9aca602e79f86c997444d646a6e696f1eb581ccaf4556b891d9ced30eb9d965",
+      "summary": "# API Observability and Runtime Controls ## Purpose This split document summarizes the API Governance Framework sections for audit, correlation, causation, tracing, performance, caching, rate limiting, and security headers. ## Runtime Co"
     },
     {
       "id": "2cd5d061529e7b26",
@@ -382,7 +390,7 @@
       "title": "Domain Model Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/domain-model-catalog.md",
-      "sourceHash": "37b39e2fd62fd696b4cb7c4eafe47afeadba1553a329d3a0f4c4866f3515791e",
+      "sourceHash": "b87849337eaccc11c43e14bd03d18707353ded198d76d342a4b5cc89f97c8ac4",
       "summary": "# Domain Model Catalog ## Split Navigation - [Domain model entities](domain-model/entities.md) - [Domain model relationships](domain-model/relationships.md) - [Domain model governance](domain-model/governance.md) - [Domain model executable"
     },
     {
@@ -392,6 +400,14 @@
       "path": "knowledge/catalog/domain-model/catalog-entries.md",
       "sourceHash": "40d5d972e4d5392ec3ba2844ed5c7da47d078ecb2dddfd4281d02a51debe7097",
       "summary": "# Domain Model Catalog Entries ## Purpose This split document isolates the domain model entry index from the parent Domain Model Catalog while preserving the parent as the canonical source of truth. ## Source - Parent specification: [Doma"
+    },
+    {
+      "id": "d084b75cb7747515",
+      "title": "Domain Model Diagrams and Edge Cases",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-model/diagrams-and-edge-cases.md",
+      "sourceHash": "90a463360bd4bfa73f9b792209c52775ea8368567ebaf85cc5b7f4e2c0f5cea1",
+      "summary": "# Domain Model Diagrams and Edge Cases Source: [Domain Model Catalog](../domain-model-catalog.md) This split document isolates the visual model relationships and failure conditions from the canonical domain model catalog. It preserves the"
     },
     {
       "id": "03428ea579eeb04a",
@@ -598,7 +614,7 @@
       "title": "Message Contract Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/message-contract-catalog.md",
-      "sourceHash": "1628430e5c21ea50ddff5206154b58401f9fd6a91e1dbc6a9151348f0de139d9",
+      "sourceHash": "ff23c01e0284ec7e2afea65a6e1c4ee6625bac0243ed55d26b5adfeebc1af748",
       "summary": "# Message Contract Catalog ## Split Navigation - [Message contract catalog entries](message-contract/catalog-entries.md) - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md) - [Message contract gov"
     },
     {
@@ -616,6 +632,14 @@
       "path": "knowledge/catalog/message-contract/delivery-and-compatibility.md",
       "sourceHash": "df9ff0fa03c4ba3050c8d3a7f92f955620493ebfefb470562e2cf37348d3534e",
       "summary": "# Message Contract Delivery and Compatibility ## Purpose This split document isolates message delivery, compatibility, versioning, serialization, and schema evolution from the parent Message Contract Catalog. ## Source - Parent specificat"
+    },
+    {
+      "id": "409da836be5a1b97",
+      "title": "Message Contract Diagrams and Edge Cases",
+      "category": "catalog",
+      "path": "knowledge/catalog/message-contract/diagrams-and-edge-cases.md",
+      "sourceHash": "aa25c0fc1be9c5f1968a7607b28c9ea4b68d7fc34b8fce8dfcf2941b94710612",
+      "summary": "# Message Contract Diagrams and Edge Cases Source: [Message Contract Catalog](../message-contract-catalog.md) This split document isolates message flow diagrams and message-contract failure conditions from the canonical message contract c"
     },
     {
       "id": "d507230c03c17440",
@@ -1934,7 +1958,7 @@
       "title": "Automation Framework",
       "category": "framework",
       "path": "knowledge/framework/automation-framework.md",
-      "sourceHash": "927328703aa6fb8508e1f1ef955b30a8498b5e4b9df9488fed28addbadf3dd7c",
+      "sourceHash": "b7546a4a2b1a978e31ca74104b50be433bee9f4aba0ea9bff8b336663c6c5824",
       "summary": "# Automation Framework ## Split Navigation - [Automation catalog and triggers](automation/catalog-and-triggers.md) - [Automation execution strategies](automation/execution-strategies.md) - [Automation recovery and approvals](automation/reco"
     },
     {
@@ -1944,6 +1968,14 @@
       "path": "knowledge/framework/automation/catalog-and-triggers.md",
       "sourceHash": "9c5a5608066021be2c80d2c2be69f60f9699f2c4200ecc93154d07f38013f4a1",
       "summary": "# Automation Catalog and Triggers ## Purpose This split document isolates automation catalog, trigger matrix, condition matrix, and action matrix from the parent Automation Framework. ## Source - Parent specification: [Automation Framewor"
+    },
+    {
+      "id": "c1be5723b7aa1f31",
+      "title": "Automation Decision Projections and Notifications",
+      "category": "framework",
+      "path": "knowledge/framework/automation/decision-projections-and-notifications.md",
+      "sourceHash": "3e7953621b247f51c854002e087500adae8eae08e960871bb0351ab2f6fbabbf",
+      "summary": "# Automation Decision Projections and Notifications Document Path: knowledge/framework/automation/decision-projections-and-notifications.md Parent Specification: knowledge/framework/automation-framework.md # Purpose This split document"
     },
     {
       "id": "174b8e542b0ea1e5",
@@ -2382,7 +2414,7 @@
       "title": "Background Job Framework",
       "category": "framework",
       "path": "knowledge/framework/background-job-framework.md",
-      "sourceHash": "269fd921845efba75899c30b18045e3d098caab112f87cf61ed586058073ed0d",
+      "sourceHash": "0a67d211f216c2322c1fe328e3bf5a268da19ff6328a3a02c5fd7bc685b8c9f0",
       "summary": "# Background Job Framework ## Split Navigation - [Background job catalog](background-job/catalog.md) - [Background job execution strategy](background-job/execution-strategy.md) - [Background job matrices and controls](background-job/matrice"
     },
     {
@@ -2416,6 +2448,14 @@
       "path": "knowledge/framework/background-job/governance-and-testing.md",
       "sourceHash": "233d3f750af911b8d8e6a1b523b23d4cd8288999cf15fdabb6fde489d5a4a0a3",
       "summary": "# Background Job Governance and Testing ## Purpose This split document isolates background job validation, business rules, security, audit, performance, diagrams, testing, edge cases, and consistency verification from the parent Background"
+    },
+    {
+      "id": "d4c964d31eccd1bb",
+      "title": "Background Job Maintenance Jobs",
+      "category": "framework",
+      "path": "knowledge/framework/background-job/maintenance-jobs.md",
+      "sourceHash": "c45ee5ace6271e7298bc5a7148b54bdb43ed35d487206e385f1ac13239f9b202",
+      "summary": "# Background Job Maintenance Jobs Document Path: knowledge/framework/background-job/maintenance-jobs.md Parent Specification: knowledge/framework/background-job-framework.md # Purpose This split document isolates maintenance-oriented ba"
     },
     {
       "id": "15d3e218060c73a5",
@@ -2838,7 +2878,7 @@
       "title": "Scheduler Framework",
       "category": "framework",
       "path": "knowledge/framework/scheduler-framework.md",
-      "sourceHash": "6eb51af9883e46dca21c1508d0df11b5aad93ea3a2b2d71a235c6a5a084b522c",
+      "sourceHash": "09460606f02d459ac81467e01080dce5826ec4000aff5c64a7d7d851d834e66a",
       "summary": "# Scheduler Framework ## Split Navigation - [Scheduler catalog and timing](scheduler/catalog-and-timing.md) - [Scheduler execution strategies](scheduler/execution-strategies.md) - [Scheduler timing and concurrency policies](scheduler/timing"
     },
     {
@@ -2848,6 +2888,14 @@
       "path": "knowledge/framework/scheduler/catalog-and-timing.md",
       "sourceHash": "773c5c6e2dea7d78e6de8d295e4a6be2262b2eadd8a49575087dec7258a36542",
       "summary": "# Scheduler Catalog and Timing ## Purpose This split document isolates scheduler catalog entries, cron strategy, calendar strategy, and scheduling timing behavior from the parent Scheduler Framework. ## Source - Parent specification: [Sch"
+    },
+    {
+      "id": "288cbac289605988",
+      "title": "Scheduler Diagrams and Consistency",
+      "category": "framework",
+      "path": "knowledge/framework/scheduler/diagrams-and-consistency.md",
+      "sourceHash": "8725fe12206cbd21df574c8a3c3b9357dc457801c10707b6deba2fc1f28235a1",
+      "summary": "# Scheduler Diagrams and Consistency Document Path: knowledge/framework/scheduler/diagrams-and-consistency.md Parent Specification: knowledge/framework/scheduler-framework.md # Purpose This split document isolates the Scheduler Framewor"
     },
     {
       "id": "bb5402973b4a04ec",
@@ -2998,7 +3046,7 @@
       "title": "Integration Framework",
       "category": "integration",
       "path": "knowledge/integration/integration-framework.md",
-      "sourceHash": "242a5ce87adf00788f3af8035ce213dae5a63e8ca60e84f1961d922482c7d657",
+      "sourceHash": "679d23a4b03e21edaf3aef21d5e9e5c6c69d43f32f75ff45f9408637089b5c98",
       "summary": "# Integration Framework ## Split Navigation - [Integration architecture overview](integration/architecture-overview.md) - [Integration catalog](integration/catalog.md) - [Integration resilience and security](integration/resilience-and-secur"
     },
     {
@@ -3016,6 +3064,14 @@
       "path": "knowledge/integration/integration/catalog.md",
       "sourceHash": "085b5881d5f5f480fffd27aa21bd5bd1e32ad42ed2e3ef5a44b24cd15a626a3a",
       "summary": "# Integration Catalog ## Purpose This split document isolates the complete integration catalog from the parent Integration Framework. ## Source - Parent specification: [Integration Framework](../integration-framework.md) ## Integration E"
+    },
+    {
+      "id": "47c2b023e349a15f",
+      "title": "Integration Credential and Execution Controls",
+      "category": "integration",
+      "path": "knowledge/integration/integration/credential-and-execution-controls.md",
+      "sourceHash": "c938ad1ca71853c748dcfd5a31f87234423b6c500db0a62d19bada236936902e",
+      "summary": "# Integration Credential and Execution Controls ## Purpose This split document summarizes Integration Framework controls for authentication, authorization, encryption, credential references, retry, timeout, compensation, replay, and execu"
     },
     {
       "id": "7819241fe4755e38",
@@ -3206,7 +3262,7 @@
       "title": "Permission Framework",
       "category": "security",
       "path": "knowledge/security/permission-framework.md",
-      "sourceHash": "cef85ef11a88eb213930c6eb5ff26b81fa4bea5399558d0226ca78285469f759",
+      "sourceHash": "ef580250e0b6aeb6bf46ea8012431c78280c0fbc39cf1ea70a000d91f84e3dee",
       "summary": "# Permission Framework ## Split Navigation - [Permission architecture overview](permission-framework/architecture-overview.md) - [Permission catalog](permission-framework/permission-catalog.md) - [Permission evaluation and cache](permissio"
     },
     {
@@ -3258,6 +3314,14 @@
       "summary": "# Permission Resource Operation Summary Source: [permission-catalog.md](permission-catalog.md) ## Purpose This split document summarizes the complete permission naming surface from the parent Permission Catalog by resource and operation"
     },
     {
+      "id": "3bede05c2adf8ec0",
+      "title": "Permission Resolution Inheritance and Cache",
+      "category": "security",
+      "path": "knowledge/security/permission-framework/resolution-inheritance-and-cache.md",
+      "sourceHash": "56e65b88f63845970caa3fb5af5686f7c3ca98b4bda681dcfd9b1d02ac208d99",
+      "summary": "# Permission Resolution Inheritance and Cache ## Purpose This split document summarizes Permission Framework sections for permission resolution, inheritance, and cache strategy. ## Resolution Order - Explicit deny takes precedence over"
+    },
+    {
       "id": "98a7bf9f2fc522f3",
       "title": "Role and Matrix Catalog",
       "category": "security",
@@ -3278,7 +3342,7 @@
       "title": "Security Framework",
       "category": "security",
       "path": "knowledge/security/security-framework.md",
-      "sourceHash": "94e051bc0e9bc1470141f2698fa8c8bafc3cdb1d60b84633e50f0f4c88973cc2",
+      "sourceHash": "6ae35a24415aa5189d73c18b5a039532d4cc5c0711e99a38d64ff653a5a1e256",
       "summary": "# Security Framework ## Split Navigation - [Security architecture](security-framework/security-architecture.md) - [Authentication flows and events](security-framework/authentication-flows-and-events.md) - [Security governance and testing]"
     },
     {
@@ -3320,6 +3384,14 @@
       "path": "knowledge/security/security-framework/threat-validation-and-runtime-controls.md",
       "sourceHash": "28b19be39fa61c63fc8b13d0e9a7b4f4741a79341a65f28a65d076b430067719",
       "summary": "# Threat Validation and Runtime Controls Source: [security-framework.md](../security-framework.md) ## Purpose This split document isolates threat model, validation, business rules, runtime performance controls, edge cases, and consistenc"
+    },
+    {
+      "id": "7ae23fdb3d8ac206",
+      "title": "Security Token and Credential Lifecycle",
+      "category": "security",
+      "path": "knowledge/security/security-framework/token-and-credential-lifecycle.md",
+      "sourceHash": "e467636e24243756039f2a708f04462619a78bd4bf6a92bff5cac7a716a5c6b9",
+      "summary": "# Security Token and Credential Lifecycle ## Purpose This split document summarizes Security Framework controls for token lifecycle, credential management, secret management, encryption strategy, and key management. ## Lifecycle Scope -"
     },
     {
       "id": "a4132866965d02b3",

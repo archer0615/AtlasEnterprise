@@ -1,0 +1,39 @@
+{
+  "id": "47c2b023e349a15f",
+  "title": "Integration Credential and Execution Controls",
+  "category": "integration",
+  "canonicalPath": "knowledge/integration/integration/credential-and-execution-controls.md",
+  "sourceHash": "c938ad1ca71853c748dcfd5a31f87234423b6c500db0a62d19bada236936902e",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Integration Credential and Execution Controls"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Credential Boundary"
+    },
+    {
+      "level": 2,
+      "text": "Execution Contract"
+    },
+    {
+      "level": 2,
+      "text": "Required Commands"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Integration Credential and Execution Controls\n\n## Purpose\n\nThis split document summarizes Integration Framework controls for authentication, authorization, encryption, credential references, retry, timeout, compensation, replay, and execution contracts.\n\n## Credential Boundary\n\n- Integrations use catalog-approved source and target systems.\n- All integration calls require authentication, authorization, retry, timeout, audit, monitoring, and versioning.\n- Secrets are managed outside payloads and rotated according to security rules.\n- External payloads are translated through adapter or anti corruption layer before domain use.\n- Credential references identify approved credentials; secret values are never included in integration payloads or execution contracts.\n\n## Execution Contract\n\n| Field | Required | Description |\n|---|---|---|\n| IntegrationExecutionId | Yes | Stable integration run identifier |\n| IntegrationKey | Yes | Catalog integration identifier |\n| SourceSystem | Yes | Source system |\n| TargetSystem | Yes | Target system |\n| ProtocolVersion | Yes | Protocol and contract version |\n| PayloadVersion | Yes | Message or DTO version |\n| CredentialRef | Yes | Credential reference, never secret value |\n| IdempotencyKey | Yes | Deduplication key |\n| CorrelationId | Yes | Audit correlation |\n\n## Required Commands\n\n| Command | Actor | Output |\n|---|---|---|\n| ExecuteIntegrationRun | IntegrationApplicationService | IntegrationRunExecuted |\n| RetryIntegrationRun | IntegrationApplicationService | IntegrationRunRetried |\n| CompensateIntegrationRun | IntegrationApplicationService | IntegrationRunCompensated |\n| ReplayIntegrationRun | AdministrationApplicationService | IntegrationRunReplayed |\n\n## Validation Rules\n\n| Rule ID | Rule | Failure |\n|---|---|---|\n| INF-P2-VR-001 | Integration run must include protocol, payload version, credential reference, and idempotency key. | Reject run |\n| INF-P2-VR-002 | Retry must follow configured retry and timeout policy. | Reject retry |\n| INF-P2-VR-003 | Compensation must reference original run and compensation policy. | Reject compensation |\n| INF-P2-VR-004 | Replay must not call external systems. | Reject replay |\n\n## Related References\n\n- [Integration Framework](../integration-framework.md)\n- [Integration resilience and security](resilience-and-security.md)\n- [Integration diagrams and execution addendum](diagrams-and-execution-addendum.md)\n- [Security Framework](../../security/security-framework.md)\n",
+  "references": []
+}

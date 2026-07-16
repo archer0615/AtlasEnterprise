@@ -1,0 +1,35 @@
+{
+  "id": "3bede05c2adf8ec0",
+  "title": "Permission Resolution Inheritance and Cache",
+  "category": "security",
+  "canonicalPath": "knowledge/security/permission-framework/resolution-inheritance-and-cache.md",
+  "sourceHash": "56e65b88f63845970caa3fb5af5686f7c3ca98b4bda681dcfd9b1d02ac208d99",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Permission Resolution Inheritance and Cache"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Resolution Order"
+    },
+    {
+      "level": 2,
+      "text": "Cache Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Validation Surface"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Permission Resolution Inheritance and Cache\n\n## Purpose\n\nThis split document summarizes Permission Framework sections for permission resolution, inheritance, and cache strategy.\n\n## Resolution Order\n\n- Explicit deny takes precedence over explicit allow.\n- Explicit allow is evaluated with role mapping, policy mapping, scope, Principal, Claim, ownership, tenant, and household context.\n- Role inheritance contributes permissions only when the inherited role and policy scope are valid for the Principal.\n- Ownership, tenant, and household boundaries remain part of the decision and cannot be bypassed by cache.\n- Default deny applies when required permission evidence is missing, expired, conflicting, or outside scope.\n\n## Cache Strategy\n\n- Permission cache entries must include permission name, resource, operation, role mapping, policy mapping, scope, Principal, Claim, cache version, and audit correlation.\n- Cache validity participates in deterministic permission resolution.\n- Cache use must preserve tenant isolation, household isolation, ownership checks, privilege escalation prevention, and audit requirements.\n- Cache misses, stale entries, and conflicting entries must not allow execution by default.\n\n## Validation Surface\n\n| Area | Required Evidence |\n|---|---|\n| Resolution | Explicit deny, explicit allow, policy scope, ownership, tenant, household, default deny |\n| Inheritance | Role mapping, inherited permission, policy mapping, scope, Principal, Claim |\n| Cache | Cache version, cache validity, permission name, resource, operation, audit correlation |\n| Security | Authorization, privilege escalation prevention, tenant isolation, household isolation |\n\n## Related References\n\n- [Permission Framework](../permission-framework.md)\n- [Permission evaluation and cache](evaluation-and-cache.md)\n- [Permission governance and testing](permission-governance-and-testing.md)\n- [Security Framework](../security-framework.md)\n",
+  "references": []
+}

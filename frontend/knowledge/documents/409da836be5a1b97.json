@@ -1,0 +1,51 @@
+{
+  "id": "409da836be5a1b97",
+  "title": "Message Contract Diagrams and Edge Cases",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/message-contract/diagrams-and-edge-cases.md",
+  "sourceHash": "aa25c0fc1be9c5f1968a7607b28c9ea4b68d7fc34b8fce8dfcf2941b94710612",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Message Contract Diagrams and Edge Cases"
+    },
+    {
+      "level": 2,
+      "text": "Mermaid"
+    },
+    {
+      "level": 3,
+      "text": "Message Flow"
+    },
+    {
+      "level": 3,
+      "text": "Producer Consumer Diagram"
+    },
+    {
+      "level": 3,
+      "text": "Outbox Flow"
+    },
+    {
+      "level": 3,
+      "text": "Inbox Flow"
+    },
+    {
+      "level": 3,
+      "text": "Saga Messaging"
+    },
+    {
+      "level": 3,
+      "text": "Workflow Messaging"
+    },
+    {
+      "level": 2,
+      "text": "Edge Case Pattern"
+    },
+    {
+      "level": 2,
+      "text": "Edge Case Coverage"
+    }
+  ],
+  "bodyMarkdown": "# Message Contract Diagrams and Edge Cases\n\nSource: [Message Contract Catalog](../message-contract-catalog.md)\n\nThis split document isolates message flow diagrams and message-contract failure conditions from the canonical message contract catalog. It keeps the parent catalog authoritative while making messaging relationships, delivery boundaries, and consistency risks easier to review independently.\n\n## Mermaid\n\n### Message Flow\n\n```mermaid\nflowchart TD\n  CMD[Command] --> EVT[Domain Event]\n  EVT --> OUT[Outbox Message]\n  OUT --> BUS[Message Bus]\n  BUS --> IN[Inbox Message]\n  IN --> CON[Consumer]\n```\n\n### Producer Consumer Diagram\n\n```mermaid\nflowchart LR\n  PROD[Producer] --> MSG[Message Contract]\n  MSG --> C1[Projection Consumer]\n  MSG --> C2[Workflow Consumer]\n  MSG --> C3[Notification Consumer]\n```\n\n### Outbox Flow\n\n```mermaid\nsequenceDiagram\n  participant App\n  participant Outbox\n  participant Bus\n  App->>Outbox: append message after commit\n  Outbox->>Bus: publish message\n```\n\n### Inbox Flow\n\n```mermaid\nsequenceDiagram\n  participant Bus\n  participant Inbox\n  participant Consumer\n  Bus->>Inbox: deliver message\n  Inbox->>Consumer: process once\n  Consumer-->>Inbox: record result\n```\n\n### Saga Messaging\n\n```mermaid\nflowchart TD\n  M1[Message] --> SAGA[Saga Step]\n  SAGA --> CMD[Next Command]\n  CMD --> M2[Next Message]\n```\n\n### Workflow Messaging\n\n```mermaid\nflowchart TD\n  MSG[Message] --> WF[Workflow]\n  WF --> STEP[Workflow Step]\n  STEP --> OUT[Outgoing Message]\n```\n\n## Edge Case Pattern\n\nMessage edge cases cover incomplete or conflicting mappings across message name, category, producer, consumer, command, event, payload, header, metadata, schema, version, correlation, causation, tenant, Household, serialization, compression, encryption, ordering, retry, dead letter, idempotency, validation, audit, and security concerns.\n\n## Edge Case Coverage\n\n- Message edge cases 1-50 share the same canonical failure condition: one or more message contract mappings are incomplete or conflicting.\n- Each edge case must be evaluated against producer, consumer, command, event, schema, version, payload, headers, metadata, serialization, correlation, causation, ordering, idempotency, retry, dead letter, audit, security, and performance consistency.\n- The parent catalog keeps the numbered edge case inventory; this split file provides the independent checklist used to interpret those repeated cases.\n",
+  "references": []
+}
