@@ -1,0 +1,39 @@
+{
+  "id": "bb86b6c3500ed763",
+  "title": "PWA Runtime Capability",
+  "category": "product",
+  "canonicalPath": "knowledge/product/pwa-runtime-capability.md",
+  "sourceHash": "bb69bacb8436456361ece593f56085f677ad99525feb3889e8f0ba122709ce9c",
+  "headings": [
+    {
+      "level": 1,
+      "text": "PWA Runtime Capability"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Runtime Scope"
+    },
+    {
+      "level": 2,
+      "text": "Required Assets"
+    },
+    {
+      "level": 2,
+      "text": "Runtime Rules"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "# PWA Runtime Capability\n\nDocument Path: knowledge/product/pwa-runtime-capability.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: PWA\nOwner: Project Atlas\nSource of Truth: Atlas PWA Runtime Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines the runtime capability expected from the Atlas static-first PWA shell.\n\n## Runtime Scope\n\n- Load the app shell from static assets.\n- Register a service worker.\n- Expose install metadata through the web manifest.\n- Load generated knowledge indexes and documents.\n- Load dashboard fixtures for offline-capable dashboard views.\n- Recover to `/index.html` when a cached navigation route is unavailable.\n\n## Required Assets\n\n- `/index.html`\n- `/manifest.webmanifest`\n- `/sw.js`\n- `/sw-version.js`\n- `/src/main.js`\n- `/src/dashboard-model.js`\n- `/src/styles.css`\n- `/fixtures/dashboard-snapshot.json`\n- `/fixtures/dashboard-snapshots.json`\n- `/knowledge/index.json`\n- `/knowledge/search-index.json`\n- `/knowledge/document-assets.json`\n- `/icons/atlas-icon.svg`\n\n## Runtime Rules\n\n- The service worker cache name must come from `sw-version.js` when available.\n- App shell assets must be precached during service worker install.\n- Generated knowledge document assets must be precached from `/knowledge/document-assets.json`.\n- GET requests should resolve from cache first, then network, then `/index.html` fallback.\n- Non-GET requests must bypass service worker handling.\n- Activation must remove older cache names.\n\n## Validation\n\n- `npm run validate:pwa` must confirm manifest, service worker, and generated knowledge availability.\n- `npm run validate:offline` must confirm app shell and generated document cache coverage.\n- Fixture-backed dashboard views must remain valid JSON and valid UTF-8.\n\n## Related Specifications\n\n- `knowledge/product/offline-cache-and-local-state.md`\n- `knowledge/product/current-capability-matrix.md`\n- `knowledge/product/dashboard-snapshot-contract.md`\n- `frontend/sw.js`\n- `frontend/manifest.webmanifest`\n",
+  "references": []
+}

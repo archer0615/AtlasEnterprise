@@ -3,117 +3,117 @@
   "snapshots": [
     {
       "snapshotId": "dashboard-fixture-2026-07-15",
-      "label": "房貸提前還款",
+      "label": "房貸提前還款基準",
       "asOfDate": "2026-07-15",
       "currency": "TWD",
       "sourceFixture": "simulator/fixtures/mortgage-prepayment-baseline-2026.json",
       "metrics": [
-        { "label": "現金流安全", "value": "88K", "detail": "每月自由現金流 TWD" },
-        { "label": "緊急預備金", "value": "6.5 月", "detail": "高於最低 6 個月" },
-        { "label": "房貸壓力", "value": "中", "detail": "提前還款需保留流動性" },
-        { "label": "決策分數", "value": "72", "detail": "有條件執行" }
+        { "label": "每月可用現金流", "value": "88K", "detail": "扣除必要支出後的 TWD 現金流" },
+        { "label": "剩餘年限", "value": "6.5 年", "detail": "提前還款後縮短約 6 個月" },
+        { "label": "還款壓力", "value": "中", "detail": "現金流仍保留安全緩衝" },
+        { "label": "決策分數", "value": "72", "detail": "綜合利息節省與流動性風險" }
       ],
       "scenarios": [
-        { "name": "基準", "score": 72, "status": "可行" },
-        { "name": "提前還款", "score": 68, "status": "需控管現金" },
-        { "name": "延後購車", "score": 79, "status": "較穩健" }
+        { "name": "維持原方案", "score": 72, "status": "穩定" },
+        { "name": "提前還款", "score": 68, "status": "節省利息但降低流動性" },
+        { "name": "保留投資現金", "score": 79, "status": "風險調整後較佳" }
       ],
       "actions": [
-        "確認 2027 房貸提前還款後預備金仍高於 6 個月",
-        "補齊 2031 換屋情境的頭期款與交易成本假設",
-        "建立退休與市場下跌壓力測試 fixture"
+        "檢查 2027 年提前還款後的緊急預備金是否仍達 6 個月",
+        "比較 2031 年換屋計畫與提前還款的資金排擠效果",
+        "保留此 fixture 作為房貸情境基準"
       ]
     },
     {
       "snapshotId": "home-upgrade-2031-baseline",
-      "label": "2031 換屋",
+      "label": "2031 換屋基準",
       "asOfDate": "2026-07-15",
       "currency": "TWD",
       "sourceFixture": "simulator/fixtures/home-upgrade-2031-baseline.json",
       "metrics": [
-        { "label": "頭期款缺口", "value": "900K", "detail": "尚需補齊 TWD" },
-        { "label": "交易成本", "value": "910K", "detail": "估計稅費與搬遷成本" },
-        { "label": "準備度", "value": "部分", "detail": "需延後承諾" },
-        { "label": "決策分數", "value": "61", "detail": "建議暫緩" }
+        { "label": "換屋準備金", "value": "900K", "detail": "目前可投入換屋的 TWD 資金" },
+        { "label": "預估資金缺口", "value": "910K", "detail": "依基準情境仍需補足" },
+        { "label": "負擔狀態", "value": "偏高", "detail": "換屋後固定支出上升" },
+        { "label": "決策分數", "value": "61", "detail": "受資金缺口與貸款壓力影響" }
       ],
       "scenarios": [
-        { "name": "2031 購屋", "score": 61, "status": "缺口未補齊" },
-        { "name": "延後一年", "score": 70, "status": "較可控" },
-        { "name": "降低目標總價", "score": 76, "status": "較穩健" }
+        { "name": "2031 換屋", "score": 61, "status": "可行但需控管風險" },
+        { "name": "延後一年", "score": 70, "status": "資金緩衝改善" },
+        { "name": "降低物件預算", "score": 76, "status": "較符合現金流限制" }
       ],
       "actions": [
-        "確認目標房價與交易成本假設",
-        "建立頭期款每月累積計畫",
-        "比較延後一年與降低目標總價的情境"
+        "更新換屋預算與頭期款假設",
+        "檢查換屋後的緊急預備金與月付壓力",
+        "評估延後一年或降低物件預算的替代方案"
       ]
     },
     {
       "snapshotId": "retirement-readiness-stress",
-      "label": "退休壓力測試",
+      "label": "退休準備壓力測試",
       "asOfDate": "2026-07-15",
       "currency": "TWD",
       "sourceFixture": "simulator/fixtures/retirement-readiness-stress.json",
       "metrics": [
-        { "label": "基準退休", "value": "達標", "detail": "長期報酬 5%" },
-        { "label": "壓力退休", "value": "觀察", "detail": "長期報酬 2.5%" },
-        { "label": "短缺風險", "value": "中", "detail": "報酬假設敏感" },
-        { "label": "決策分數", "value": "69", "detail": "持續監控" }
+        { "label": "退休準備狀態", "value": "偏弱", "detail": "以年化報酬下降 5% 測試" },
+        { "label": "退休現金流", "value": "不足", "detail": "通膨假設上升至 2.5%" },
+        { "label": "提領安全性", "value": "中", "detail": "需控制早期提領速度" },
+        { "label": "決策分數", "value": "69", "detail": "壓力情境下仍需補強" }
       ],
       "scenarios": [
-        { "name": "基準報酬", "score": 78, "status": "達標" },
-        { "name": "低報酬", "score": 69, "status": "需監控" },
-        { "name": "提高提撥", "score": 75, "status": "改善安全邊際" }
+        { "name": "基準報酬", "score": 78, "status": "可接受" },
+        { "name": "報酬下修", "score": 69, "status": "需調整提撥" },
+        { "name": "延後退休", "score": 75, "status": "可改善成功率" }
       ],
       "actions": [
-        "每季更新投資組合與提撥資料",
-        "加入市場下跌與通膨雙重壓力測試",
-        "追蹤退休支出假設是否偏低"
+        "提高每月退休提撥或降低退休支出假設",
+        "檢查投資組合在壓力情境下的最大回撤",
+        "評估延後退休對成功率的改善幅度"
       ]
     },
     {
       "snapshotId": "loan-refinancing-rate-shock",
-      "label": "貸款轉貸壓力",
+      "label": "貸款轉貸利率壓力",
       "asOfDate": "2026-07-15",
       "currency": "TWD",
       "sourceFixture": "simulator/fixtures/loan-refinancing-rate-shock.json",
       "metrics": [
-        { "label": "利率衝擊", "value": "中", "detail": "重設利率 2.9%" },
-        { "label": "轉貸效益", "value": "有條件", "detail": "需回收手續費" },
-        { "label": "月付壓力", "value": "觀察", "detail": "需搭配現金流檢查" },
-        { "label": "決策分數", "value": "66", "detail": "有條件轉貸" }
+        { "label": "目前利率", "value": "中", "detail": "現有房貸利率 2.9%" },
+        { "label": "轉貸效益", "value": "有限", "detail": "手續費抵銷部分利息節省" },
+        { "label": "現金流壓力", "value": "不足", "detail": "升息情境下月付增加" },
+        { "label": "決策分數", "value": "66", "detail": "轉貸需要更明確的 break-even 條件" }
       ],
       "scenarios": [
-        { "name": "不轉貸", "score": 58, "status": "受利率重設影響" },
-        { "name": "立即轉貸", "score": 66, "status": "需回收費用" },
-        { "name": "延後評估", "score": 62, "status": "保留彈性" }
+        { "name": "維持原貸款", "score": 58, "status": "成本較高但穩定" },
+        { "name": "轉貸降息", "score": 66, "status": "需確認費用與年限" },
+        { "name": "部分提前還款", "score": 62, "status": "降低本金但壓縮流動性" }
       ],
       "actions": [
-        "估算轉貸費用回收期",
-        "確認利率重設後月付金變化",
-        "比較立即轉貸與延後評估情境"
+        "重新估算轉貸手續費與利率差距",
+        "檢查升息後月付與 DTI 是否超過門檻",
+        "比較轉貸與提前還款的 break-even 日期"
       ]
     },
     {
       "snapshotId": "investment-drawdown-stress",
-      "label": "投資下跌壓力",
+      "label": "投資回撤壓力測試",
       "asOfDate": "2026-07-15",
       "currency": "TWD",
       "sourceFixture": "simulator/fixtures/investment-drawdown-stress.json",
       "metrics": [
-        { "label": "投資跌幅", "value": "22%", "detail": "壓力情境假設" },
-        { "label": "壓力後資產", "value": "5.3M", "detail": "投資組合 TWD" },
-        { "label": "預備金", "value": "13.0 月", "detail": "流動性仍充足" },
-        { "label": "決策分數", "value": "71", "detail": "持續監控" }
+        { "label": "投資回撤", "value": "22%", "detail": "壓力情境下的最大跌幅" },
+        { "label": "壓力後資產", "value": "5.3M", "detail": "投資組合剩餘 TWD 市值" },
+        { "label": "現金緩衝", "value": "13.0 月", "detail": "可支應必要支出的月份" },
+        { "label": "決策分數", "value": "71", "detail": "壓力情境下仍有調整空間" }
       ],
       "scenarios": [
-        { "name": "基準市場", "score": 78, "status": "穩定" },
-        { "name": "市場下跌", "score": 71, "status": "目標餘裕下降" },
-        { "name": "提高現金", "score": 74, "status": "降低短期壓力" }
+        { "name": "基準投資組合", "score": 78, "status": "穩健" },
+        { "name": "市場回撤", "score": 71, "status": "需降低集中風險" },
+        { "name": "增加現金", "score": 74, "status": "改善流動性但犧牲報酬" }
       ],
       "actions": [
-        "追蹤投資下跌後目標資金缺口",
-        "確認現金預備金是否仍高於目標",
-        "比較提高現金與維持配置的情境"
+        "檢查投資組合集中度與風險預算",
+        "維持至少 12 個月現金緩衝",
+        "評估增加現金部位對長期報酬的影響"
       ]
     }
   ]

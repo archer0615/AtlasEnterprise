@@ -1,1 +1,1 @@
-self.ATLAS_CACHE_NAME = "atlas-knowledge-a098d0b4a88b";
+self.ATLAS_CACHE_NAME = "atlas-knowledge-926a4e0b5b25";

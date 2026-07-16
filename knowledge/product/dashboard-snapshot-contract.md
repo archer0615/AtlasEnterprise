@@ -78,7 +78,7 @@ Each action must be:
 
 ## Known Gaps
 
-- Existing fixture labels and details include encoding corruption and require cleanup.
+- Fixture labels and details were normalized to readable UTF-8 in `frontend/fixtures/dashboard-snapshots.json` on 2026-07-16.
 - Field-level traceability from each metric to a canonical formula is not complete.
 - Runtime snapshots are fixture-backed and not yet generated from a production data service.
 

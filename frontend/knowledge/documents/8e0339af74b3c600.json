@@ -1,0 +1,43 @@
+{
+  "id": "8e0339af74b3c600",
+  "title": "Offline Cache And Local State",
+  "category": "product",
+  "canonicalPath": "knowledge/product/offline-cache-and-local-state.md",
+  "sourceHash": "0e85e91c24c9638f176a60581a6bee50bb26607f1b07293192292dcb24ecf780",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Offline Cache And Local State"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Cache Groups"
+    },
+    {
+      "level": 2,
+      "text": "Local State"
+    },
+    {
+      "level": 2,
+      "text": "Invalidation"
+    },
+    {
+      "level": 2,
+      "text": "Recovery"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "# Offline Cache And Local State\n\nDocument Path: knowledge/product/offline-cache-and-local-state.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: PWA\nOwner: Project Atlas\nSource of Truth: Atlas Offline Cache Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines offline cache behavior, local dashboard state, cache invalidation, and recovery expectations.\n\n## Cache Groups\n\n| Group | Source | Strategy |\n| --- | --- | --- |\n| App shell | Static frontend assets | Precache on install. |\n| Dashboard fixtures | `frontend/fixtures/*.json` | Precache with app shell. |\n| Knowledge indexes | `frontend/knowledge/*.json` | Precache with app shell. |\n| Knowledge documents | `/knowledge/document-assets.json` | Precache listed document assets. |\n| Runtime fetches | Any GET request | Cache after successful network response. |\n\n## Local State\n\n- Dashboard scenario preference may be stored in local browser state.\n- Local state must not be the source of truth for financial facts.\n- Clearing local state must not break app shell loading, knowledge browsing, or default dashboard snapshot selection.\n- Runtime financial decisions must use versioned snapshots or fixtures, not unversioned local state.\n\n## Invalidation\n\n- Cache invalidation is versioned by `sw-version.js`.\n- A new cache name must replace prior cache contents on service worker activation.\n- Generated knowledge changes must update document assets and service worker version metadata.\n- Stale caches must be deleted during activation.\n\n## Recovery\n\n- Missing cached GET requests should attempt network fetch.\n- Failed navigation-like fetches may fall back to `/index.html`.\n- Missing generated knowledge assets must fail validation before commit.\n- Corrupt dashboard fixture JSON must fail frontend or fixture validation before release.\n\n## Testing\n\n- `npm run build:knowledge`\n- `npm run validate:pwa`\n- `npm run validate:offline`\n- `npm run validate:frontend`\n\n## Related Specifications\n\n- `knowledge/product/pwa-runtime-capability.md`\n- `knowledge/product/dashboard-snapshot-contract.md`\n- `knowledge/governance/knowledge-source-of-truth.md`\n- `frontend/sw.js`\n- `frontend/sw-version.js`\n",
+  "references": []
+}

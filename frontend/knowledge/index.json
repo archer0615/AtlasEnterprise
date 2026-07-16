@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T15:39:32.475Z",
-  "buildId": "a098d0b4a88b",
+  "generatedAt": "2026-07-16T15:43:52.357Z",
+  "buildId": "926a4e0b5b25",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -3280,8 +3280,24 @@
       "title": "Dashboard Snapshot Contract",
       "category": "product",
       "path": "knowledge/product/dashboard-snapshot-contract.md",
-      "sourceHash": "eb561ac899807daa6b29fe54b9e75e1d38ce72fd1ed603777f1d441cb52c21d4",
+      "sourceHash": "120b2c093b84774b53452c8c9be7a3719ae82c3d78727604061076ee4e660f0c",
       "summary": "# Dashboard Snapshot Contract # Dashboard Snapshot Contract Document Path: knowledge/product/dashboard-snapshot-contract.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Produ"
+    },
+    {
+      "id": "8e0339af74b3c600",
+      "title": "Offline Cache And Local State",
+      "category": "product",
+      "path": "knowledge/product/offline-cache-and-local-state.md",
+      "sourceHash": "0e85e91c24c9638f176a60581a6bee50bb26607f1b07293192292dcb24ecf780",
+      "summary": "# Offline Cache And Local State Document Path: knowledge/product/offline-cache-and-local-state.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Conte"
+    },
+    {
+      "id": "bb86b6c3500ed763",
+      "title": "PWA Runtime Capability",
+      "category": "product",
+      "path": "knowledge/product/pwa-runtime-capability.md",
+      "sourceHash": "bb69bacb8436456361ece593f56085f677ad99525feb3889e8f0ba122709ce9c",
+      "summary": "# PWA Runtime Capability Document Path: knowledge/product/pwa-runtime-capability.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Context: PWA Owner:"
     },
     {
       "id": "d9b537ddc3ef0ac7",
