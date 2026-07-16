@@ -1,0 +1,35 @@
+{
+  "id": "381b6f9e0d532062",
+  "title": "API Versioning and Compatibility",
+  "category": "api",
+  "canonicalPath": "knowledge/api/api-governance/versioning-and-compatibility.md",
+  "sourceHash": "48ac32dcc58f002e82ff3c92710655790c06a58449eff635f564b416cbaa6c86",
+  "headings": [
+    {
+      "level": 1,
+      "text": "API Versioning and Compatibility"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Versioning Controls"
+    },
+    {
+      "level": 2,
+      "text": "Serialization Controls"
+    },
+    {
+      "level": 2,
+      "text": "Validation and Testing"
+    }
+  ],
+  "bodyMarkdown": "# API Versioning and Compatibility\n\n## Purpose\nThis split document isolates versioning, backward compatibility, content negotiation, OpenAPI, JSON naming, date/time, money, decimal precision, enum serialization, compatibility testing, and versioning flow controls from the parent API Governance Framework.\n\n## Source\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\n\n## Versioning Controls\n- API Version Strategy applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.\n- Content Negotiation and Media Type Standard keep request and response contracts explicit for supported versions.\n- OpenAPI Convention must document resource URLs, methods, DTOs, errors, pagination, filtering, sorting, security, and version behavior.\n\n## Serialization Controls\n- JSON Naming Convention, DateTime Convention, Money Convention, Decimal Precision, and Enum Serialization keep DTO contracts stable and predictable.\n- Response and request changes must preserve backward compatibility or require a governed version transition.\n\n## Validation and Testing\n- Compatibility Test validates that existing clients can continue using approved API versions.\n- OpenAPI Test validates schema documentation and contract shape.\n- Versioning Flow must preserve authentication, authorization, error behavior, audit, correlation, tracing, and observability.\n\n",
+  "references": []
+}

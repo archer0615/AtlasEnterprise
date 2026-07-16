@@ -1,0 +1,35 @@
+{
+  "id": "f46e5328b2674901",
+  "title": "Bounded Context Catalog Entries",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/bounded-context/catalog-entries.md",
+  "sourceHash": "8ececf6928fccd522945d3dc2cbf99b067600fbe62bea3af4b05527cdae1b1b6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Bounded Context Catalog Entries"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Entry Contract"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Entries"
+    },
+    {
+      "level": 2,
+      "text": "Usage Rules"
+    }
+  ],
+  "bodyMarkdown": "# Bounded Context Catalog Entries\n\n## Purpose\nThis split document isolates bounded context ownership entries from the parent Bounded Context Catalog while preserving the parent as the canonical source of truth.\n\n## Source\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\n\n## Entry Contract\nEach bounded context entry identifies its domain language boundary, aggregate ownership, repository ownership, application service ownership, API ownership, database ownership, integration boundary, published language, authorization, audit, security, performance, scalability, and version.\n\n## Catalog Entries\n\n| Bounded Context | Purpose | Owned Aggregates | Owned Repositories | Owned Application Services | API Ownership | Database Ownership |\n| --- | --- | --- | --- | --- | --- | --- |\n| Identity | Authentication and accounts. | User, Household | UserRepository, HouseholdRepository | UserApplicationService | /api/v1/users, /api/v1/households | users, households |\n| Financial Profile | User financial data. | FinancialProfile, Household, GoalPlan | HouseholdRepository, GoalRepository | BlueprintApplicationService, DashboardApplicationService, GoalApplicationService | /api/v1/blueprint, /api/v1/goals, /api/v1/dashboard | households, cash_flow_items, goals |\n| Investment | Portfolio and IPS. | AssetPortfolio | AssetRepository, PortfolioRepository | PortfolioApplicationService | /api/v1/portfolios | assets, portfolios, holdings |\n| Cash Flow | Income and expenses. | Household, Loan, Policy | HouseholdRepository, LoanRepository | DashboardApplicationService, BlueprintApplicationService | /api/v1/dashboard | cash_flow_items, loan_payments |\n| Loan | Mortgages and loans. | Loan, LiabilityPortfolio | LoanRepository, LiabilityRepository | LoanApplicationService | /api/v1/loans | loans, loan_payments, liabilities |\n| Property | Real estate. | Property | PropertyRepository | BlueprintApplicationService, DashboardApplicationService | /api/v1/properties | properties, property_valuations |\n| Retirement | Retirement planning. | RetirementPlan, GoalPlan, Scenario | GoalRepository, ScenarioRepository | BlueprintApplicationService, ScenarioApplicationService, GoalApplicationService | /api/v1/goals, /api/v1/scenarios | goals, scenarios |\n| Decision | Decision engine. | DecisionSession, Recommendation, Scenario | DecisionRepository, ScenarioRepository | DecisionApplicationService | /api/v1/decisions, /api/v1/recommendations | decisions, recommendations |\n| Scenario | Simulation. | Scenario, DecisionSession | ScenarioRepository, DecisionRepository | ScenarioApplicationService, AdministrationApplicationService | /api/v1/scenarios | scenarios, scenario_results |\n| Reporting | Reports. | Household, Scenario, DecisionSession, AssetPortfolio, Loan, Policy | HouseholdRepository, ScenarioRepository, DecisionRepository, PortfolioRepository, LoanRepository, AuditRepository | ReportApplicationService | /api/v1/reports | report_views, audit_log |\n| Platform | Configuration, Policy, Audit. | Configuration, Notification, Policy, Scenario | AuditRepository, NotificationRepository, ScenarioRepository | AdministrationApplicationService, NotificationApplicationService | /api/v1/administration, /api/v1/audit, /api/v1/notifications | configuration, notifications, audit_log |\n\n## Usage Rules\n- Use this document to find which bounded context owns a model, repository, service, API, or database surface.\n- Cross-context access must still use API, Domain Event, read model, or published language contracts from the parent catalog.\n- Do not infer direct mutation rights across bounded contexts from shared aggregate names.\n",
+  "references": []
+}

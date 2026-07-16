@@ -4,6 +4,7 @@
 - [Bounded context integrations](bounded-context/integrations.md)
 - [Bounded context governance](bounded-context/governance.md)
 - [Bounded context context map patterns](bounded-context/context-map-patterns.md)
+- [Bounded context catalog entries](bounded-context/catalog-entries.md)
 
 # Document Control
 

@@ -1,0 +1,35 @@
+{
+  "id": "c54de010c34396c2",
+  "title": "Permission Integration Boundaries",
+  "category": "security",
+  "canonicalPath": "knowledge/security/permission-framework/integration-boundaries.md",
+  "sourceHash": "58eb1c6e034332753ef75bf18d3e8bd1ded5165fdb0c539120b8ec9f6b32b5b6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Permission Integration Boundaries"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Protected Boundaries"
+    },
+    {
+      "level": 2,
+      "text": "Service and Data Access"
+    },
+    {
+      "level": 2,
+      "text": "UI, API, and Notification"
+    }
+  ],
+  "bodyMarkdown": "# Permission Integration Boundaries\n\n## Purpose\nThis split document groups how the Permission Framework applies across Atlas execution boundaries, including APIs, UI, application services, domain services, repositories, commands, events, workflows, scheduler jobs, automation actions, background jobs, notifications, audit, and integrations.\n\n## Source\n- Parent specification: [Permission Framework](../permission-framework.md)\n\n## Protected Boundaries\n- Permission Framework applies to every protected Atlas resource, operation, API, command, repository method, workflow step, scheduler job, automation action, background job, message contract, notification action, and audit-visible authorization decision.\n- Protected resources include Dashboard, Goal, Asset, Liability, Scenario, Decision, Policy, Configuration, Report, and Administration.\n- Protected operations include Create, Read, Update, Delete, Execute, Approve, Export, Share, and Restore.\n\n## Service and Data Access\n- Application Services, Domain Services, Repositories, Commands, Domain Events, Workflows, Automation, Scheduler, Background Jobs, APIs, UI, Notification, Audit, and Integration consume permission decisions.\n- Repository and command access must preserve resource ownership, operation sensitivity, tenant membership, household membership, explicit deny, explicit allow, and default deny.\n- Domain events and message contracts must avoid exposing protected data without the required resource and operation permission.\n\n## UI, API, and Notification\n- UI actions must request required permissions before protected operation rendering.\n- APIs must map endpoints to permissions and preserve authentication, authorization, audit, and observability.\n- Notification actions must avoid exposing protected resource data without the required permission.\n\n",
+  "references": []
+}

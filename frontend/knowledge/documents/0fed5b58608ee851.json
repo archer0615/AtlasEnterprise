@@ -1,0 +1,43 @@
+{
+  "id": "0fed5b58608ee851",
+  "title": "Background Job Diagrams and Completion",
+  "category": "framework",
+  "canonicalPath": "knowledge/framework/background-job/diagrams-and-completion.md",
+  "sourceHash": "d68d0c222857a16d5bfaaf0710dcd16eb118f52e1ea4a171e5c626c2422b1b38",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Background Job Diagrams and Completion"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Diagram Set"
+    },
+    {
+      "level": 2,
+      "text": "Edge Case Coverage"
+    },
+    {
+      "level": 2,
+      "text": "Final Consistency Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Completion Checklist"
+    },
+    {
+      "level": 2,
+      "text": "Version History"
+    }
+  ],
+  "bodyMarkdown": "# Background Job Diagrams and Completion\n\n## Purpose\nThis split document isolates Background Job Framework flow diagrams, edge-case coverage, final consistency mapping, completion checklist, and version history.\n\n## Source\n- Parent specification: [Background Job Framework](../background-job-framework.md)\n\n## Diagram Set\nThe parent framework includes Mermaid diagrams for:\n- Background Job Architecture\n- Execution Flow\n- Retry Flow\n- Checkpoint Flow\n- Scheduler Flow\n- Dependency Diagram\n\nTogether these diagrams show that background jobs are triggered by scheduler, automation, workflow, message, integration, or manual operational entry points, then execute through catalog-approved application services and domain services with retry, checkpoint, resume, cancellation, and audit controls.\n\n## Edge Case Coverage\nBackground job edge cases focus on incomplete or conflicting mappings across trigger, schedule, frequency, input, output, execution owner, application service, domain service, repository, command, domain event, message contract, workflow, scheduler, automation, dependency, transaction, consistency, retry, timeout, checkpoint, resume, cancellation, idempotency, lock, audit, logging, metrics, security, and performance.\n\n## Final Consistency Mapping\nThe final consistency matrix maps each background job to workflow, scheduler, automation, application service, domain service, repository, command, domain event, and message contract.\n\nThe cataloged jobs covered by the matrix are:\n- ScenarioEvaluationJob\n- ScenarioReplayJob\n- ProjectionRefreshJob\n- NotificationDispatchJob\n- ReportGenerationJob\n- BankingImportJob\n- BrokerageImportJob\n- CacheRefreshJob\n- OutboxPublishJob\n- InboxProcessJob\n- CleanupJob\n- BackupJob\n\n## Completion Checklist\nThe Background Job Framework is complete only when every background job defines trigger, retry, timeout, checkpoint, resume strategy, audit, and performance target. The specification also requires only catalog-approved background jobs, no incomplete work markers, no unresolved preparation markers, present Mermaid diagrams, complete Markdown structure, and Background Job Framework status as the background job source of truth.\n\n## Version History\nVersion 1.0 on 2026-07-12 upgraded the document to the Atlas Enterprise Canonical Specification and Background Job Source of Truth.\n\n",
+  "references": []
+}

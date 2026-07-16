@@ -1,0 +1,35 @@
+{
+  "id": "0e04dd10ac6dc735",
+  "title": "Event-driven Recovery and Projections",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/event-driven-architecture/recovery-and-projections.md",
+  "sourceHash": "a85537d1d07e91f24abb8c68eb33cca1dfe77f24b16a792bc637fb2b5c9f4a99",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Event-driven Recovery and Projections"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Recovery Controls"
+    },
+    {
+      "level": 2,
+      "text": "Projection and Read Models"
+    },
+    {
+      "level": 2,
+      "text": "Coordination"
+    }
+  ],
+  "bodyMarkdown": "# Event-driven Recovery and Projections\n\n## Purpose\nThis split document groups retry, dead letter, replay, projection, read model, cache invalidation, and search index update behavior from the parent Event Driven Architecture.\n\n## Source\n- Parent specification: [Event Driven Architecture](../event-driven-architecture.md)\n\n## Recovery Controls\n- Retry Strategy preserves catalog event mapping, message contract mapping, subscriber ownership, inbox idempotency, ordering, replay, projection, audit, security, and observability.\n- Dead Letter Strategy preserves failed-message evidence, retry exhaustion state, correlation, causation, payload version, consumer ownership, and audit history.\n- Replay Strategy must be versioned, audited, and side-effect controlled.\n- Failure Recovery must remain compatible with outbox, inbox, ordering, idempotency, retry, dead letter, replay, projection, and read model behavior.\n\n## Projection and Read Models\n- Projection Strategy maps accepted event facts into read model updates without changing the domain event history.\n- Read Model Strategy keeps query models eventually consistent and observable.\n- Cache Invalidation Strategy and Search Index Update Strategy must follow event ownership and avoid exposing stale protected data beyond governed consistency boundaries.\n\n## Coordination\n- Saga, Workflow, Automation, Background Job, Scheduler, and Notification coordination consume events through the same delivery, idempotency, correlation, causation, audit, security, and observability rules.\n- Recovery handling must avoid duplicate side effects when replaying events or resuming failed workflows.\n\n",
+  "references": []
+}

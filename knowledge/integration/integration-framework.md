@@ -4,6 +4,8 @@
 - [Integration resilience and security](integration/resilience-and-security.md)
 - [Integration governance and testing](integration/governance-and-testing.md)
 - [Integration matrices and mappings](integration/matrices-and-mappings.md)
+- [Integration exchange strategies](integration/exchange-strategies.md)
+- [Integration diagrams and execution addendum](integration/diagrams-and-execution-addendum.md)
 
 # Document Control
 

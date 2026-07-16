@@ -1,9 +1,11 @@
 # API Governance Framework
 ## Split Navigation
 - [API standards and contracts](api-governance/standards-and-contracts.md)
+- [API query and mutation controls](api-governance/query-and-mutation-controls.md)
 - [API resource catalog](api-governance/resource-catalog.md)
 - [API rule catalog and flows](api-governance/rule-catalog-and-flows.md)
 - [API security testing and operations](api-governance/security-testing-and-operations.md)
+- [API versioning and compatibility](api-governance/versioning-and-compatibility.md)
 
 # Document Control
 

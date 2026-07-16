@@ -4,6 +4,7 @@
 - [Application service query projection](application-service/query-projection.md)
 - [Application service governance](application-service/governance.md)
 - [Application service testing](application-service/testing.md)
+- [Application service catalog entries](application-service/catalog-entries.md)
 
 # Document Control
 

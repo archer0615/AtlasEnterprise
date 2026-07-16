@@ -4,6 +4,8 @@
 - [Background job execution strategy](background-job/execution-strategy.md)
 - [Background job matrices and controls](background-job/matrices-and-controls.md)
 - [Background job governance and testing](background-job/governance-and-testing.md)
+- [Background job validation and rules](background-job/validation-and-rules.md)
+- [Background job diagrams and completion](background-job/diagrams-and-completion.md)
 
 # Document Control
 

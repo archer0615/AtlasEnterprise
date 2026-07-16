@@ -1,0 +1,47 @@
+{
+  "id": "8b4f16368e8199de",
+  "title": "Integration Exchange Strategies",
+  "category": "integration",
+  "canonicalPath": "knowledge/integration/integration/exchange-strategies.md",
+  "sourceHash": "8406dcb76f9bfea76635057aace9d459c9e648b8d10c8a275c104c2598230188",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Integration Exchange Strategies"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Webhook Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Callback Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Polling Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Import, Export, and ETL Strategy"
+    },
+    {
+      "level": 2,
+      "text": "Error Recovery"
+    },
+    {
+      "level": 2,
+      "text": "Observability"
+    }
+  ],
+  "bodyMarkdown": "# Integration Exchange Strategies\n\n## Purpose\nThis split document isolates Integration Framework webhook, callback, polling, import, export, ETL, error recovery, and observability strategies.\n\n## Source\n- Parent specification: [Integration Framework](../integration-framework.md)\n\n## Webhook Strategy\nWebhook handling preserves source authorization, target authorization, protocol safety, retry safety, timeout safety, monitoring, audit, credential handling, versioning, and compatibility. Webhook payloads must pass through integration adapters or anti corruption layers before domain use.\n\n## Callback Strategy\nCallbacks preserve the same authorization, protocol, retry, timeout, monitoring, audit, credential, versioning, and compatibility controls as other integrations. Callback processing must remain catalog-approved and must not bypass API Governance, Message Contract Catalog, or Event Driven Architecture boundaries.\n\n## Polling Strategy\nPolling must use bounded timeout, retry, monitoring, audit, credential handling, and compatibility controls. Polling is safe only when duplicate handling, version compatibility, and target authorization are preserved.\n\n## Import, Export, and ETL Strategy\nImport, export, and ETL flows preserve source authorization, target authorization, protocol safety, retry safety, timeout safety, monitoring, audit, credential handling, versioning, and compatibility.\n\nThese flows must route external payloads through adapters, gateways, DTOs, message contracts, audit controls, security controls, retry controls, timeout controls, monitoring controls, and failure controls before they affect Atlas domain state.\n\n## Error Recovery\nIntegration error recovery can return an integration error, retry, dead-letter, quarantine, or mark the integration degraded according to the failure mode. External dependency failure must not corrupt Aggregate state.\n\n## Observability\nIntegration observability requires logs, traces, metrics, alerts, health checks, dependency latency, p95 latency, throughput, request hash, response hash, source, target, actor or system actor, CorrelationId, CausationId, and result.\n\n",
+  "references": []
+}

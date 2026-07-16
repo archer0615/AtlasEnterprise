@@ -4,6 +4,7 @@
 - [Domain model relationships](domain-model/relationships.md)
 - [Domain model governance](domain-model/governance.md)
 - [Domain model executable specification](domain-model/executable-specification.md)
+- [Domain model catalog entries](domain-model/catalog-entries.md)
 
 # Document Control
 

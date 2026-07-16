@@ -1,0 +1,35 @@
+{
+  "id": "2cd5d061529e7b26",
+  "title": "API Query and Mutation Controls",
+  "category": "api",
+  "canonicalPath": "knowledge/api/api-governance/query-and-mutation-controls.md",
+  "sourceHash": "4c7fb6ebf7270dab7b6dc323c25c1dd7cef1edb0c8c21e6f8902e24ff408cacb",
+  "headings": [
+    {
+      "level": 1,
+      "text": "API Query and Mutation Controls"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Query Controls"
+    },
+    {
+      "level": 2,
+      "text": "Mutation Controls"
+    },
+    {
+      "level": 2,
+      "text": "Operational Controls"
+    }
+  ],
+  "bodyMarkdown": "# API Query and Mutation Controls\n\n## Purpose\nThis split document groups query controls and mutation safety controls from the parent API Governance Framework. It covers query API standard, pagination, sorting, filtering, search, bulk operation, idempotency, concurrency, caching, rate limiting, and command endpoint behavior.\n\n## Source\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\n\n## Query Controls\n- Query API Standard uses GET with deterministic pagination, filtering, sorting, and search semantics.\n- Pagination, Sorting, Filtering, and Search standards must preserve authorization, permission mapping, tenant isolation, household isolation, audit, observability, and OpenAPI documentation.\n- Caching must not bypass authentication, authorization, permission checks, tenant isolation, household isolation, or protected data boundaries.\n\n## Mutation Controls\n- Command API Standard uses POST action endpoints only when resource state transition cannot be expressed as a standard resource mutation.\n- Bulk Operation Standard must preserve validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.\n- Idempotency Standard protects command replay, retry safety, and duplicate request handling.\n- Concurrency Standard protects optimistic locking and stale mutation rejection.\n\n## Operational Controls\n- Rate Limiting, Performance, CorrelationId, CausationId, and Tracing provide predictable operation behavior across query and mutation APIs.\n- Every mutation maps to Command Catalog, idempotency, concurrency, and Domain Event ownership.\n\n",
+  "references": []
+}
