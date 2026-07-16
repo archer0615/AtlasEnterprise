@@ -1,0 +1,31 @@
+{
+  "id": "6f0c6305c0e7317a",
+  "title": "current-capability-matrix",
+  "category": "product",
+  "canonicalPath": "knowledge/product/current-capability-matrix.md",
+  "sourceHash": "2a3086c22a55b0c5fa1726dd6a2325d3b2bcd497806f4be08f2e92da30ee72b5",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Status Legend"
+    },
+    {
+      "level": 2,
+      "text": "Capability Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "﻿# Current Capability Matrix\n\nDocument Path: knowledge/product/current-capability-matrix.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: Product\nOwner: Project Atlas\nSource of Truth: Atlas Product Capability Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nMaps the current product capabilities to implementation state, fixture support, canonical knowledge, and known gaps.\n\n## Status Legend\n\n- Implemented: supported by runtime code.\n- Fixture-backed: supported by checked-in fixture data.\n- Documented: covered by canonical or roadmap documentation.\n- Gap: not yet complete or not yet canonical.\n\n## Capability Matrix\n\n| Capability | Implemented | Fixture-backed | Documented | Canonical Knowledge | Known Gap |\n| --- | --- | --- | --- | --- | --- |\n| Static-first PWA shell | Yes | N/A | Yes | Gap | Product-level PWA runtime specification pending. |\n| Service worker offline cache | Yes | Yes | Yes | Gap | Cache invalidation and recovery rules need canonical product spec. |\n| Generated knowledge browser | Yes | Yes | Yes | Yes | Source hierarchy now defined; search quality tuning remains future work. |\n| Decision dashboard | Yes | Yes | Yes | Yes | Runtime snapshot contract needs direct field-level traceability. |\n| Scenario switching | Yes | Yes | Yes | Yes | UI labels need encoding cleanup in fixture-backed views. |\n| Simulator fixture validation | Yes | Yes | Yes | Yes | Formula coverage still needs amortization and refinancing depth. |\n| Recommendation lifecycle | Partial | Yes | Yes | Yes | Runtime execution integration remains staged. |\n| Goal lifecycle and funding | Partial | Yes | Yes | Yes | End-to-end workflow now documented; runtime integration remains staged. |\n| Portfolio allocation and reporting | Partial | Yes | Yes | Yes | Dashboard/reporting workflow needs runtime contract expansion. |\n| Loan and mortgage analysis | Partial | Yes | Yes | Yes | Loan amortization and refinancing calculations need production-grade formula coverage. |\n| Automation workflows | Partial | N/A | Yes | Yes | Runtime scheduling and approval behavior needs implementation traceability. |\n| Rule governance | Partial | N/A | Yes | Yes | Lifecycle, conflict handling, and rule test matrix added in this batch. |\n\n## Governance\n\n- New capabilities must map to at least one canonical `knowledge/**` document.\n- Fixture-backed capabilities must name the fixture source and validation command.\n- Runtime-only behavior must be promoted into `knowledge/product/**` or domain knowledge before it is considered canonical.\n- Known gaps must remain visible until implementation, fixture, documentation, and validation are aligned.\n\n## Related Specifications\n\n- `knowledge/governance/knowledge-source-of-truth.md`\n- `knowledge/product/dashboard-snapshot-contract.md`\n- `knowledge/workflow/decision-workflow.md`\n- `knowledge/workflow/goal-workflow.md`\n- `knowledge/workflow/portfolio-workflow.md`\n- `knowledge/workflow/loan-workflow.md`\n- `knowledge/workflow/automation-workflow.md`\r\n",
+  "references": []
+}

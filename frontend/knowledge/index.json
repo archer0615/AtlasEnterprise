@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T15:36:37.627Z",
-  "buildId": "ad5f37f68c27",
+  "generatedAt": "2026-07-16T15:39:32.475Z",
+  "buildId": "a098d0b4a88b",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -11,6 +11,7 @@
     "framework",
     "governance",
     "integration",
+    "product",
     "reporting",
     "rule",
     "security",
@@ -3267,6 +3268,22 @@
       "summary": "# Integration Resilience and Security ## Purpose This split document isolates integration authentication, authorization, resilience, retry, timeout, circuit breaker, bulkhead, rate limiting, webhook, callback, and polling strategies fro"
     },
     {
+      "id": "6f0c6305c0e7317a",
+      "title": "current-capability-matrix",
+      "category": "product",
+      "path": "knowledge/product/current-capability-matrix.md",
+      "sourceHash": "2a3086c22a55b0c5fa1726dd6a2325d3b2bcd497806f4be08f2e92da30ee72b5",
+      "summary": "# Current Capability Matrix Document Path: knowledge/product/current-capability-matrix.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Context: Pro"
+    },
+    {
+      "id": "f0a7454456f39e50",
+      "title": "Dashboard Snapshot Contract",
+      "category": "product",
+      "path": "knowledge/product/dashboard-snapshot-contract.md",
+      "sourceHash": "eb561ac899807daa6b29fe54b9e75e1d38ce72fd1ed603777f1d441cb52c21d4",
+      "summary": "# Dashboard Snapshot Contract # Dashboard Snapshot Contract Document Path: knowledge/product/dashboard-snapshot-contract.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Produ"
+    },
+    {
       "id": "d9b537ddc3ef0ac7",
       "title": "Dashboard Architecture",
       "category": "reporting",
@@ -3481,6 +3498,22 @@
       "path": "knowledge/rule/loan-decision-rule-catalog.md",
       "sourceHash": "f4c615e2a2a0d7accfa1c5126935c59fcf125d388d8ccd72d1a69b09bf4a5435",
       "summary": "# Loan Decision Rule Catalog Version: 1.0 ## Purpose Defines the canonical business rules used by Project Atlas to evaluate borrowing decisions, refinancing, early repayment, and debt restructuring. ## Scope Supported decisions:"
+    },
+    {
+      "id": "967fdc495dd3590c",
+      "title": "rule-conflict-resolution",
+      "category": "rule",
+      "path": "knowledge/rule/rule-conflict-resolution.md",
+      "sourceHash": "6f280f1d0aff7f190eee2d530c982b44c40c28efbe011f2383ddbb4720739c65",
+      "summary": "# Rule Conflict Resolution Document Path: knowledge/rule/rule-conflict-resolution.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Rule Governance Bounded Context: Rule Owner:"
+    },
+    {
+      "id": "3ac88f4b2d76d934",
+      "title": "rule-lifecycle-framework",
+      "category": "rule",
+      "path": "knowledge/rule/rule-lifecycle-framework.md",
+      "sourceHash": "eb1c6c44ecf0477316e93ad575064a77c3156427c842442369f247f09000c5aa",
+      "summary": "# Rule Lifecycle Framework Document Path: knowledge/rule/rule-lifecycle-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Rule Governance Bounded Context: Rule Owner:"
     },
     {
       "id": "8f9db58d80c27379",

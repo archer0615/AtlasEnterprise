@@ -1,0 +1,35 @@
+{
+  "id": "967fdc495dd3590c",
+  "title": "rule-conflict-resolution",
+  "category": "rule",
+  "canonicalPath": "knowledge/rule/rule-conflict-resolution.md",
+  "sourceHash": "6f280f1d0aff7f190eee2d530c982b44c40c28efbe011f2383ddbb4720739c65",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Conflict Types"
+    },
+    {
+      "level": 2,
+      "text": "Resolution Order"
+    },
+    {
+      "level": 2,
+      "text": "Required Conflict Record"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "﻿# Rule Conflict Resolution\n\nDocument Path: knowledge/rule/rule-conflict-resolution.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Rule Governance\nBounded Context: Rule\nOwner: Project Atlas\nSource of Truth: Atlas Rule Conflict Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines how Atlas detects, ranks, resolves, audits, and tests conflicts between rules.\n\n## Conflict Types\n\n| Type | Description |\n| --- | --- |\n| Output conflict | Two rules produce incompatible outcomes for the same facts. |\n| Priority conflict | Rules apply to the same decision but have unclear precedence. |\n| Constraint conflict | A recommendation satisfies one rule but violates another hard constraint. |\n| Version conflict | Multiple effective versions match the same execution context. |\n| Scope conflict | Rules from different bounded contexts claim ownership of the same decision. |\n| Explanation conflict | Rule outcome and explanation disagree or omit the decisive factor. |\n\n## Resolution Order\n\n1. Hard constraints override scoring and preference rules.\n2. Security, permission, compliance, and tenant-boundary rules override domain recommendations.\n3. More specific bounded-context rules override generic platform rules.\n4. Newer effective versions override older versions only when replay is not required.\n5. Domain owner approval is required when two active rules remain incompatible.\n6. Unresolved conflicts must suppress automated execution and produce review output.\n\n## Required Conflict Record\n\n- Conflict identifier.\n- Rule identifiers and versions.\n- Input facts and execution context.\n- Conflict type.\n- Resolution decision.\n- Approver or automated policy.\n- User-visible explanation.\n- Audit and replay reference.\n\n## Testing\n\n- Every high-impact rule must include at least one conflict test.\n- Rule changes must test known adjacent rules in the same bounded context.\n- Automated execution must be blocked when a conflict has no deterministic resolution.\n- Historical replay must preserve the original conflict resolution policy.\n\n## Related Specifications\n\n- `knowledge/rule/rule-lifecycle-framework.md`\n- `knowledge/rule/domain-rule-catalog.md`\n- `knowledge/rule/decision-rule-catalog.md`\n- `knowledge/supporting/constraint-rules.md`\n- `knowledge/security/permission-framework.md`\n",
+  "references": []
+}
