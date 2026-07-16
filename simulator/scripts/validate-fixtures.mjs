@@ -95,6 +95,7 @@ assert(Array.isArray(dashboard.actions) && dashboard.actions.length > 0, "dashbo
 
 const dashboards = JSON.parse(await readFile(frontendDashboardFixtures, "utf8"));
 assert(dashboards.defaultSnapshotId, "dashboard fixture collection missing defaultSnapshotId");
+assert(dashboards.generatedBy === "dashboard-fixture-generator.v1", "dashboard fixture collection missing generatedBy marker");
 assert(Array.isArray(dashboards.snapshots) && dashboards.snapshots.length > 0, "dashboard fixture collection missing snapshots");
 const snapshotIds = new Set();
 assert(dashboards.snapshots.some((snapshot) => snapshot.snapshotId === dashboards.defaultSnapshotId), "defaultSnapshotId must match a dashboard snapshot");

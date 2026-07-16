@@ -1,3 +1,5 @@
+import { scorePolicy } from "./score-policy.mjs";
+
 export const runtimeFormulaEvaluationContractVersion = "runtime-formula-evaluation.v1";
 
 export const fixtureFormulaIds = {
@@ -55,25 +57,21 @@ export const dashboardMetricFormulaIds = {
 
 export function calculateRecommendationScore(fixture, metrics) {
   const status = fixture.expected.recommendation.status;
-  let score = {
-    pass: 88,
-    conditional: 72,
-    monitor: 71,
-    defer: 61,
-    "at-risk": 42,
-  }[status] ?? 50;
+  let score = scorePolicy.statusScores[status] ?? scorePolicy.defaultScore;
 
-  if (metrics.refinanceFeeRecoveryMonths !== undefined) {
-    if (metrics.refinanceFeeRecoveryMonths > 120) score = 58;
-    else if (metrics.refinanceFeeRecoveryMonths > 60) score = 66;
+  for (const rule of scorePolicy.metricRules) {
+    if (rule.operator === ">" && metrics[rule.metric] !== undefined && metrics[rule.metric] > rule.threshold) {
+      score = rule.score;
+      break;
+    }
   }
-  if (metrics.drawdownRate !== undefined && metrics.drawdownRate > 0.12) score = 64;
-  if (fixture.fixtureId === "retirement-readiness-stress") score = 69;
+  if (scorePolicy.fixtureOverrides[fixture.fixtureId] !== undefined) score = scorePolicy.fixtureOverrides[fixture.fixtureId];
 
   return {
     score,
-    formulaId: "FORM-DECISION-SCORE",
+    formulaId: scorePolicy.formulaId,
     source: "engine-calculated-score.v1",
+    policyVersion: scorePolicy.policyVersion,
     inputMetricCount: Object.keys(metrics || {}).length,
     warningCount: fixture.expected.warnings.length,
   };

@@ -1,6 +1,7 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fixtureFormulaIds, runtimeFormulaEvaluationContractVersion } from "./formula-contract.mjs";
+import { scorePolicy } from "./score-policy.mjs";
 
 const root = process.cwd();
 const fixtureRoot = path.join(root, "simulator", "fixtures");
@@ -38,6 +39,7 @@ for (const result of output.results) {
   assert(["evaluated", "input-rejected"].includes(result.formulaEvaluation.status), `${result.fixtureId} invalid formula evaluation status`);
   assert(JSON.stringify(result.formulaEvaluation.formulaIds) === JSON.stringify(fixtureFormulaIds[result.fixtureId]), `${result.fixtureId} formula ID mapping mismatch`);
   assert(result.scoreEvaluation?.formulaId === "FORM-DECISION-SCORE", `${result.fixtureId} missing score evaluation formula ID`);
+  assert(result.scoreEvaluation.policyVersion === scorePolicy.policyVersion, `${result.fixtureId} score policy version mismatch`);
   assert(result.scoreEvaluation.score === result.score, `${result.fixtureId} score evaluation mismatch`);
   if (result.metrics?.postPrepaymentReserveMonths !== undefined) {
     assert(Math.abs(result.metrics.postPrepaymentReserveMonths - fixture.expected.metrics.postPrepaymentReserveMonths) <= 0.01, `${result.fixtureId} postPrepaymentReserveMonths outside tolerance`);

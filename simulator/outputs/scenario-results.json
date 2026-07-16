@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T16:28:21.144Z",
+  "generatedAt": "2026-07-16T16:30:41.578Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -32,6 +32,7 @@
         "score": 61,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 1,
         "warningCount": 1
       }
@@ -68,6 +69,7 @@
         "score": 71,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 2,
         "warningCount": 1
       }
@@ -107,6 +109,7 @@
         "score": 88,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 5,
         "warningCount": 0
       }
@@ -144,6 +147,7 @@
         "score": 58,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 3,
         "warningCount": 1
       }
@@ -183,6 +187,7 @@
         "score": 66,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 5,
         "warningCount": 2
       }
@@ -219,6 +224,7 @@
         "score": 72,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 2,
         "warningCount": 1
       }
@@ -259,6 +265,7 @@
         "score": 64,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 6,
         "warningCount": 1
       }
@@ -291,6 +298,7 @@
         "score": 69,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 0,
         "warningCount": 1
       }
@@ -331,6 +339,7 @@
         "score": 42,
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
         "inputMetricCount": 6,
         "warningCount": 2
       }

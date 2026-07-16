@@ -33,6 +33,11 @@ function validateNode(schema, value, label, errors) {
     if (schema.pattern && !new RegExp(schema.pattern).test(value)) errors.push(`${label} does not match pattern`);
   }
 
+  if (schema.type === "number" && Number.isFinite(value)) {
+    if (schema.minimum !== undefined && value < schema.minimum) errors.push(`${label} smaller than minimum`);
+    if (schema.maximum !== undefined && value > schema.maximum) errors.push(`${label} greater than maximum`);
+  }
+
   if (schema.type === "array" && Array.isArray(value)) {
     if (schema.minItems !== undefined && value.length < schema.minItems) errors.push(`${label} has fewer items than minItems`);
     if (schema.maxItems !== undefined && value.length > schema.maxItems) errors.push(`${label} has more items than maxItems`);
@@ -49,6 +54,24 @@ function validateNode(schema, value, label, errors) {
     for (const [field, fieldSchema] of Object.entries(schema.properties || {})) {
       if (Object.hasOwn(value, field)) validateNode(fieldSchema, value[field], `${label}.${field}`, errors);
     }
+  }
+
+  if (schema.oneOf) {
+    const matches = schema.oneOf.filter((candidate) => {
+      const candidateErrors = [];
+      validateNode(candidate, value, label, candidateErrors);
+      return candidateErrors.length === 0;
+    });
+    if (matches.length !== 1) errors.push(`${label} must match exactly one schema`);
+  }
+
+  if (schema.anyOf) {
+    const matches = schema.anyOf.some((candidate) => {
+      const candidateErrors = [];
+      validateNode(candidate, value, label, candidateErrors);
+      return candidateErrors.length === 0;
+    });
+    if (!matches) errors.push(`${label} must match at least one schema`);
   }
 }
 

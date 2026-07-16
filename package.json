@@ -10,6 +10,7 @@
     "validate:offline": "node frontend/scripts/validate-offline-cache.mjs",
     "validate:formula-registry": "node simulator/scripts/validate-formula-registry.mjs",
     "validate:fixtures": "node simulator/scripts/validate-fixtures.mjs",
+    "generate:dashboard-fixtures": "node frontend/scripts/generate-dashboard-fixtures.mjs",
     "report:visual": "node frontend/scripts/generate-visual-report.mjs",
     "simulator:run": "node simulator/scripts/run-simulator.mjs",
     "validate:simulator": "node simulator/scripts/validate-simulator-output.mjs",

@@ -321,5 +321,6 @@
       ],
       "schemaVersion": "dashboard-snapshot.v2"
     }
-  ]
+  ],
+  "generatedBy": "dashboard-fixture-generator.v1"
 }

@@ -23,6 +23,7 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Fixture and dashboard JSON now run through the in-repo schema validator.
 - Dashboard snapshots must use `dashboard-snapshot.v2`.
 - Dashboard metric cards must persist formula IDs that match the canonical mapping.
+- Dashboard fixture collections must carry `generatedBy: dashboard-fixture-generator.v1`.
 
 ## Validation
 
@@ -33,3 +34,4 @@ This report records the stricter fixture checks added for simulator fixtures and
 
 - Add support for additional JSON Schema keywords only when repository schemas require them.
 - Move dashboard metric formula ID mapping from helper constants to generated fixture metadata when runtime dashboard generation exists.
+- Add generator drift checks if dashboard fixtures become edited by multiple tooling paths.
