@@ -1,0 +1,59 @@
+{
+  "id": "d577763c9abc0f11",
+  "title": "Domain Event Operation Rules",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-event/operation-rules.md",
+  "sourceHash": "b2b146d6dcc14523cc531c70cd14bc5e49a2a01d3fb4f99ed3f06e4586eb9104",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Event Operation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Rule Scope"
+    },
+    {
+      "level": 2,
+      "text": "Ordering Rules"
+    },
+    {
+      "level": 2,
+      "text": "Idempotency Rules"
+    },
+    {
+      "level": 2,
+      "text": "Replay Rules"
+    },
+    {
+      "level": 2,
+      "text": "Retry Rules"
+    },
+    {
+      "level": 2,
+      "text": "Versioning Rules"
+    },
+    {
+      "level": 2,
+      "text": "Event Evolution Rules"
+    },
+    {
+      "level": 2,
+      "text": "Backward Compatibility Rules"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    }
+  ],
+  "bodyMarkdown": "# Domain Event Operation Rules\n\n## Purpose\nThis split document isolates operational Domain Event rules from the parent Domain Event Catalog.\n\n## Source\n- Parent specification: [Domain Event Catalog](../domain-event-catalog.md)\n\n## Rule Scope\n- Ordering Rules\n- Idempotency Rules\n- Replay Rules\n- Retry Rules\n- Versioning Rules\n- Event Evolution Rules\n- Backward Compatibility Rules\n- Validation Rules\n\n## Ordering Rules\n- Ordering Rules rule 1 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Ordering Rules rule 2 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Ordering Rules rule 3 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n\n## Idempotency Rules\n- Idempotency Rules rule 1 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Idempotency Rules rule 2 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Idempotency Rules rule 3 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n\n## Replay Rules\n- Replay Rules rule 1 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Replay Rules rule 2 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Replay Rules rule 3 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n\n## Retry Rules\n- Retry Rules rule 1 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Retry Rules rule 2 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Retry Rules rule 3 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n\n## Versioning Rules\n- Versioning Rules rule 1 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Versioning Rules rule 2 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Versioning Rules rule 3 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n\n## Event Evolution Rules\n- Event Evolution Rules rule 1 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Event Evolution Rules rule 2 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Event Evolution Rules rule 3 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n\n## Backward Compatibility Rules\n- Backward Compatibility Rules rule 1 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Backward Compatibility Rules rule 2 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n- Backward Compatibility Rules rule 3 applies per EventId, AggregateId, HouseholdId, schema version, producer, consumer, and projection boundary.\n\n## Validation Rules\n| Rule ID | Description | Condition | Validation | Blocking | Error |\n|---|---|---|---|---|---|\n| EVT-VR-001 | Validate domain event catalog requirement 1. | Event is published or consumed. | Name, aggregate, command, payload, metadata, ordering, idempotency, replay, outbox, inbox, projection, and audit are checked. | Yes | EVT-ERR-001 |\n| EVT-VR-002 | Validate domain event catalog requirement 2. | Event is published or consumed. | Name, aggregate, command, payload, metadata, ordering, idempotency, replay, outbox, inbox, projection, and audit are checked. | Yes | EVT-ERR-002 |\n| EVT-VR-003 | Validate domain event catalog requirement 3. | Event is published or consumed. | Name, aggregate, command, payload, metadata, ordering, idempotency, replay, outbox, inbox, projection, and audit are checked. | Yes | EVT-ERR-003 |\n",
+  "references": []
+}

@@ -1,0 +1,59 @@
+{
+  "id": "d150f2a8f8df5e02",
+  "title": "Value Object Lifecycle and Mapping Rules",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/value-object/lifecycle-and-mapping-rules.md",
+  "sourceHash": "06dd6a5aaccebbb1e289f0c87c33071e0e1cb76e4eca554bf30c98b22d188fc5",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Value Object Lifecycle and Mapping Rules"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Rule Scope"
+    },
+    {
+      "level": 2,
+      "text": "Equality Rules"
+    },
+    {
+      "level": 2,
+      "text": "Immutability Rules"
+    },
+    {
+      "level": 2,
+      "text": "Construction Rules"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Serialization Rules"
+    },
+    {
+      "level": 2,
+      "text": "Database Mapping"
+    },
+    {
+      "level": 2,
+      "text": "EF Core Mapping"
+    },
+    {
+      "level": 2,
+      "text": "API Mapping"
+    }
+  ],
+  "bodyMarkdown": "# Value Object Lifecycle and Mapping Rules\n\n## Purpose\nThis split document isolates the Value Object lifecycle, construction, validation, serialization, and mapping rule groups from the parent Value Object Catalog.\n\n## Source\n- Parent specification: [Value Object Catalog](../value-object-catalog.md)\n\n## Rule Scope\n- Equality Rules\n- Immutability Rules\n- Construction Rules\n- Validation Rules\n- Serialization Rules\n- Database Mapping\n- EF Core Mapping\n- API Mapping\n\n## Equality Rules\n- Equality Rules rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Equality Rules rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Equality Rules rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n\n## Immutability Rules\n- Immutability Rules rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Immutability Rules rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Immutability Rules rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n\n## Construction Rules\n- Construction Rules rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Construction Rules rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Construction Rules rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n\n## Validation Rules\n- Validation Rules rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Validation Rules rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Validation Rules rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n\n## Serialization Rules\n- Serialization Rules rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Serialization Rules rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Serialization Rules rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n\n## Database Mapping\n- Database Mapping rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Database Mapping rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- Database Mapping rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n\n## EF Core Mapping\n- EF Core Mapping rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- EF Core Mapping rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- EF Core Mapping rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n\n## API Mapping\n- API Mapping rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- API Mapping rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n- API Mapping rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.\n",
+  "references": []
+}

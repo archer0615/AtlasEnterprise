@@ -1,0 +1,35 @@
+{
+  "id": "53b8d3f2e1fbcf41",
+  "title": "Service Catalog Relationship Matrices",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/service-catalog/relationship-matrices.md",
+  "sourceHash": "760c6fb3fa37762d5320b993cf49d512d620871b32f49b9a2ff227bb84b7cbce",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Service Catalog Relationship Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Matrix Contract"
+    },
+    {
+      "level": 2,
+      "text": "Parent Sections"
+    }
+  ],
+  "bodyMarkdown": "# Service Catalog Relationship Matrices\n\n## Purpose\nThis split document isolates Service relationship matrix navigation from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Catalog Scope\nService relationship matrices preserve the service source of truth for Aggregate, Repository, Domain Service, Application Service, Command, Domain Event, Workflow, Background Job, Scheduler, Automation, External Integration, Capability, Dependency, Communication, and Transaction mappings.\n\n## Matrix Contract\nEach matrix row keeps the original Service, Category, Dependency, Consumer, Control, Aggregate, Repository, Domain Service, Application Service, Command, Domain Event, Workflow, Background Job, Scheduler, Automation, External Integration, Capability, Communication, and Transaction terminology defined in the parent specification.\n\n## Parent Sections\n- Service Dependency Matrix\n- Service Aggregate Matrix\n- Service Repository Matrix\n- Service Domain Service Matrix\n- Service Application Service Matrix\n- Service Command Matrix\n- Service Domain Event Matrix\n- Service Workflow Matrix\n- Service Background Job Matrix\n- Service Scheduler Matrix\n- Service Automation Matrix\n- Service External Integration Matrix\n- Capability Matrix\n- Dependency Matrix\n- Communication Matrix\n- Transaction Matrix\n",
+  "references": []
+}

@@ -1,0 +1,43 @@
+{
+  "id": "a4f241e20a8e6367",
+  "title": "Repository Method Catalog",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/repository/method-catalog.md",
+  "sourceHash": "288c2caf1954f9e259fbf060dbeeb845b1787f8e8f48528316e92fcbcd189775",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Repository Method Catalog"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Split Scope"
+    },
+    {
+      "level": 2,
+      "text": "Method Families"
+    },
+    {
+      "level": 2,
+      "text": "Contract Coverage"
+    },
+    {
+      "level": 2,
+      "text": "Extraction Rationale"
+    },
+    {
+      "level": 2,
+      "text": "Preservation Rule"
+    }
+  ],
+  "bodyMarkdown": "# Repository Method Catalog\n\n## Purpose\nThis split document isolates the Complete Repository Methods section from the parent Repository Catalog while preserving the parent document as the canonical full specification.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Split Scope\n- UserRepository methods\n- HouseholdRepository methods\n- AssetRepository methods\n- LiabilityRepository methods\n- GoalRepository methods\n- PortfolioRepository methods\n- LoanRepository methods\n- PropertyRepository methods\n- ScenarioRepository methods\n- DecisionRepository methods\n- NotificationRepository methods\n- AuditRepository methods\n\n## Method Families\nEach repository method family preserves the parent catalog terminology for GetById, GetByHouseholdId, FindBySpecification, ListPaged, Exists, Add, Update, Archive, Restore, SaveChanges, GetProjection, and StreamBySpecification.\n\n## Contract Coverage\nThe method catalog keeps method ownership distinct from repository definition metadata. It covers aggregate persistence access, query methods, specifications, projections, concurrency handling, transaction participation, and storage mapping.\n\n## Extraction Rationale\nThe parent Repository Catalog is large because repository definitions and repeated method contracts are both present. This split gives method readers a focused entry point without deleting or altering the original Complete Repository Methods content.\n\n## Preservation Rule\nDo not remove or rewrite the parent Repository Catalog body from this split. This child document is a navigation and ownership slice for the existing canonical content.\n",
+  "references": []
+}

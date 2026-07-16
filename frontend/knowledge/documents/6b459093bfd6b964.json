@@ -1,0 +1,35 @@
+{
+  "id": "6b459093bfd6b964",
+  "title": "Command Execution Controls",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/command/execution-controls.md",
+  "sourceHash": "ef08164cc20a917a75f27788bd89a82017ad99e818343eb05fdd353d64a26591",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Command Execution Controls"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Execution Control Contract"
+    },
+    {
+      "level": 2,
+      "text": "Parent Sections"
+    }
+  ],
+  "bodyMarkdown": "# Command Execution Controls\n\n## Purpose\nThis split document isolates Command execution control guidance from the parent Command Catalog while preserving the parent as the canonical source of truth.\n\n## Source\n- Parent specification: [Command Catalog](../command-catalog.md)\n\n## Catalog Scope\nCommand execution controls cover Authorization, Validation, Business Rules, Idempotency Rules, Concurrency Rules, Audit Rules, Error Catalog, Mermaid execution flows, Testing, Edge Cases, Final Consistency Matrix, Completion Checklist, Version History, and the Phase 2 Executable Specification Addendum.\n\n## Execution Control Contract\nEach command must remain authorized, validated, idempotent, concurrency-safe, audited, observable, error-catalog aligned, and executable through catalog-approved Application Service, Domain Service, Workflow, Saga, Background Job, Scheduler, API, UI, and Message Handler boundaries.\n\n## Parent Sections\n- Authorization\n- Validation\n- Business Rules\n- Idempotency Rules\n- Concurrency Rules\n- Audit Rules\n- Error Catalog\n- Mermaid\n- Testing\n- Edge Cases\n- Final Consistency Matrix\n- Completion Checklist\n- Version History\n- Phase 2 Executable Specification Addendum\n",
+  "references": []
+}

@@ -3,6 +3,7 @@
 - [Command catalog entries](command/catalog-entries.md)
 - [Command ownership and routing](command/ownership-and-routing.md)
 - [Command governance and testing](command/governance-and-testing.md)
+- [Command execution controls](command/execution-controls.md)
 
 # Document Control
 

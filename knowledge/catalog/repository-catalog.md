@@ -1,6 +1,7 @@
 # Repository Catalog
 ## Split Navigation
 - [Repository catalog entries](repository/catalog-entries.md)
+- [Repository method catalog](repository/method-catalog.md)
 - [Repository query and persistence rules](repository/query-and-persistence-rules.md)
 - [Repository governance and testing](repository/governance-and-testing.md)
 

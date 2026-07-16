@@ -2,6 +2,7 @@
 ## Split Navigation
 - [Domain event catalog entries](domain-event/catalog-entries.md)
 - [Domain event matrices and delivery](domain-event/matrices-and-delivery.md)
+- [Domain event operation rules](domain-event/operation-rules.md)
 - [Domain event governance and testing](domain-event/governance-and-testing.md)
 
 # Document Control

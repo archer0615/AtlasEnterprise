@@ -2,6 +2,7 @@
 ## Split Navigation
 - [Enumeration catalog entries](enumeration/catalog-entries.md)
 - [Enumeration mapping and compatibility](enumeration/mapping-and-compatibility.md)
+- [Enumeration state and rule model](enumeration/state-and-rule-model.md)
 - [Enumeration governance and testing](enumeration/governance-and-testing.md)
 
 # Document Control

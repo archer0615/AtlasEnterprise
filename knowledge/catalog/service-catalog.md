@@ -3,6 +3,8 @@
 - [Service catalog application services](service-catalog/application-services.md)
 - [Service catalog domain services](service-catalog/domain-services.md)
 - [Service catalog governance](service-catalog/governance.md)
+- [Service catalog relationship matrices](service-catalog/relationship-matrices.md)
+- [Service catalog execution controls](service-catalog/execution-controls.md)
 
 # Document Control
 

@@ -1,0 +1,43 @@
+{
+  "id": "3cac6dfefb9ed358",
+  "title": "Domain Service Rules and Execution Flows",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/domain-service/rules-and-execution-flows.md",
+  "sourceHash": "82182854b304232ac6405da1e1c0512cd46ec187332b1ecee3a5612e6ac874fd",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Domain Service Rules and Execution Flows"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Split Scope"
+    },
+    {
+      "level": 2,
+      "text": "Rule Families"
+    },
+    {
+      "level": 2,
+      "text": "Execution Flow Families"
+    },
+    {
+      "level": 2,
+      "text": "Extraction Rationale"
+    },
+    {
+      "level": 2,
+      "text": "Preservation Rule"
+    }
+  ],
+  "bodyMarkdown": "# Domain Service Rules and Execution Flows\n\n## Purpose\nThis split document isolates the rule, flow, and error governance portions of the parent Domain Service Catalog while preserving the parent document as the canonical full specification.\n\n## Source\n- Parent specification: [Domain Service Catalog](../domain-service-catalog.md)\n\n## Split Scope\n- Transaction Rules\n- Consistency Rules\n- Validation Rules\n- Business Rules\n- Error Catalog\n- Security\n- Audit\n- Performance\n- Mermaid execution flows\n- Edge Cases\n- Final Consistency Matrix\n\n## Rule Families\nThe parent catalog defines rule behavior for service transaction boundaries, consistency expectations, validation requirements, business policy enforcement, security checks, audit traceability, and performance constraints.\n\n## Execution Flow Families\nThe parent catalog keeps the executable sequence diagrams for Service Dependency Diagram, Domain Service Architecture, Service Collaboration Diagram, Business Flow, Calculation Flow, Decision Flow, Projection Flow, Optimization Flow, and related service orchestration flows.\n\n## Extraction Rationale\nThis split keeps catalog entries and dependency matrices separate from behavior-heavy material. Domain service readers can review DecisionService, CashFlowService, PortfolioService, LoanService, RetirementService, ScenarioService, ScoringService, ExplainabilityService, RiskService, and AllocationService entries without loading all rule and Mermaid flow sections.\n\n## Preservation Rule\nDo not remove or rewrite the parent Domain Service Catalog body from this split. This child document is a navigation and ownership slice for the existing canonical content.\n",
+  "references": []
+}

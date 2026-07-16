@@ -2,6 +2,7 @@
 ## Split Navigation
 - [Value object catalog entries](value-object/catalog-entries.md)
 - [Value object validation and mapping](value-object/validation-and-mapping.md)
+- [Value object lifecycle and mapping rules](value-object/lifecycle-and-mapping-rules.md)
 - [Value object governance and testing](value-object/governance-and-testing.md)
 
 # Document Control

@@ -1,0 +1,35 @@
+{
+  "id": "30ddb17fd8de45cc",
+  "title": "Service Catalog Execution Controls",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/service-catalog/execution-controls.md",
+  "sourceHash": "c016283949a3dcb6aa02bcf0821692136acf2961c57f3e68c9916311c555f17d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Service Catalog Execution Controls"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Catalog Scope"
+    },
+    {
+      "level": 2,
+      "text": "Execution Control Contract"
+    },
+    {
+      "level": 2,
+      "text": "Parent Sections"
+    }
+  ],
+  "bodyMarkdown": "# Service Catalog Execution Controls\n\n## Purpose\nThis split document isolates Service execution control guidance from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Catalog Scope\nService execution controls cover Validation Rules, Business Rules, Security, Audit, Performance, Mermaid diagrams, Testing, Edge Cases, Final Consistency Matrix, Completion Checklist, and Version History.\n\n## Execution Control Contract\nEach Service remains catalog-aligned across validation, business rules, security, audit, performance, observability, testing, workflow behavior, integration behavior, and failure strategy.\n\n## Parent Sections\n- Validation Rules\n- Business Rules\n- Security\n- Audit\n- Performance\n- Mermaid\n- Testing\n- Edge Cases\n- Final Consistency Matrix\n- Completion Checklist\n- Version History\n",
+  "references": []
+}
