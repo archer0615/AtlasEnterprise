@@ -1,0 +1,35 @@
+{
+  "id": "77774351595ee29f",
+  "title": "amortization-spec",
+  "category": "entity",
+  "canonicalPath": "knowledge/entity/loan/amortization-spec.md",
+  "sourceHash": "e1d2e74f0d04cf739ad200dcac698d82caaf4b44e691312615c07a47df0b6da2",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Formula"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Validation"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "﻿# Loan Amortization Spec\n\nDocument Path: knowledge/entity/loan/amortization-spec.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Debt Management\nBounded Context: Loan\nOwner: Project Atlas\nSource of Truth: Atlas Loan Amortization Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines `FORM-LOAN-AMORTIZATION`, the canonical schedule formula for principal, interest, payment, and remaining balance.\n\n## Inputs\n\n| Input | Required | Unit | Rule |\n| --- | --- | --- | --- |\n| Principal | Yes | Money | Must be greater than zero. |\n| AnnualRate | Yes | Percentage | Must be zero or greater. |\n| TermMonths | Yes | Count | Must be a positive integer. |\n| PaymentFrequency | Yes | Enum | Monthly by default. |\n| StartDate | Yes | Date | Defines first schedule period. |\n| ExtraPayment | No | Money | Defaults to zero and cannot be negative. |\n| Currency | Yes | Currency | Must match loan currency. |\n| RoundingPolicy | Yes | Policy | Defines money rounding precision. |\n\n## Formula\n\n- PeriodicRate = AnnualRate / 12.\n- StandardPayment = PMT(PeriodicRate, TermMonths, Principal).\n- InterestForPeriod = OpeningBalance * PeriodicRate.\n- PrincipalForPeriod = StandardPayment + ExtraPayment - InterestForPeriod.\n- ClosingBalance = OpeningBalance - PrincipalForPeriod.\n- Final period must adjust payment so ClosingBalance does not become negative unless residual balance is explicitly configured.\n\nWhen AnnualRate is zero:\n\n- StandardPayment = Principal / TermMonths.\n- InterestForPeriod = 0.\n\n## Outputs\n\n- Amortization schedule by period.\n- Total interest.\n- Total principal paid.\n- Payoff date.\n- Remaining balance.\n- Formula version and assumption references.\n\n## Validation\n\n- Reject negative principal, rate, term, or extra payment.\n- Reject currency mismatch.\n- Verify schedule length does not exceed term unless extra payment is disabled and residual balance is configured.\n- Verify final balance equals zero or configured residual after rounding.\n- Replay must use the original formula version and rounding policy.\n\n## Related Specifications\n\n- `knowledge/catalog/financial-formula-catalog.md`\n- `knowledge/entity/Loan.md`\n- `knowledge/entity/loan/identity-and-repayment.md`\n- `knowledge/entity/loan/risk-and-refinancing.md`\n- `knowledge/workflow/loan-workflow.md`\r\n",
+  "references": []
+}

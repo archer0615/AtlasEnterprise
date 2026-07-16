@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T15:47:40.112Z",
-  "buildId": "5d5fab48eebd",
+  "generatedAt": "2026-07-16T15:54:19.626Z",
+  "buildId": "faa1327d2c7a",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -608,8 +608,8 @@
       "title": "Financial Formula Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/financial-formula-catalog.md",
-      "sourceHash": "f0b54160a90458cdb4dbfa7a7aaaa09b8433571806d8c8b2ab28dfe9166d57d7",
-      "summary": "# Financial Formula Catalog ## Formula Groups - NPV - IRR - CAGR - XIRR - PMT - FV - PV - Loan Amortization - DTI - LTV - Savings Rate - Safe Withdrawal Rate - Net Worth - Cash Flow Coverage All formulas include version,"
+      "sourceHash": "27a1a46fdf39b11af1e98a60abcde1fe8682b426ebde6b023859a4a13da765df",
+      "summary": "# Financial Formula Catalog Document Path: knowledge/catalog/financial-formula-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.1 Status: Canonical Specification Domain: Formula Governance Bounded Context: Calc"
     },
     {
       "id": "36608ef601be93ca",
@@ -1676,6 +1676,14 @@
       "summary": "# Loan Entity Specification ## Split Navigation - [Loan identity and repayment](loan/identity-and-repayment.md) - [Loan risk and refinancing](loan/risk-and-refinancing.md) - [Loan API and audit](loan/api-and-audit.md) - [Loan scena"
     },
     {
+      "id": "77774351595ee29f",
+      "title": "amortization-spec",
+      "category": "entity",
+      "path": "knowledge/entity/loan/amortization-spec.md",
+      "sourceHash": "e1d2e74f0d04cf739ad200dcac698d82caaf4b44e691312615c07a47df0b6da2",
+      "summary": "# Loan Amortization Spec Document Path: knowledge/entity/loan/amortization-spec.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Debt Management Bounded Context: Loan Owner: P"
+    },
+    {
       "id": "b6b3005a77846717",
       "title": "Loan API and Audit",
       "category": "entity",
@@ -1706,6 +1714,14 @@
       "path": "knowledge/entity/loan/property-and-lifecycle-rules.md",
       "sourceHash": "35206782509c6960781704a8b71ee1cedbfce7a148ad490bc087d5bb3f82ad4f",
       "summary": "# Loan Property and Lifecycle Rules ## Purpose This split document isolates Loan properties, monetary semantics, interest model, repayment model, grace period model, validation rules, business rules, aggregate invariants, and state ma"
+    },
+    {
+      "id": "63d1ef412222c15d",
+      "title": "refinancing-break-even-spec",
+      "category": "entity",
+      "path": "knowledge/entity/loan/refinancing-break-even-spec.md",
+      "sourceHash": "e3c5ce11725ced9067cca80e8aea1e6c9a676aba30089e3ea0b6364b46116a86",
+      "summary": "# Refinancing Break-Even Spec Document Path: knowledge/entity/loan/refinancing-break-even-spec.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Debt Management Bounded Context"
     },
     {
       "id": "b5cc0a896449b2b5",
@@ -3312,7 +3328,7 @@
       "title": "simulator-formula-coverage",
       "category": "product",
       "path": "knowledge/product/simulator-formula-coverage.md",
-      "sourceHash": "ab258df67a4f0509f83489f41d77671f05c92f41e713b7b71c9b468c5a31e590",
+      "sourceHash": "0c7ff84c32a9fa45ed2f253cdf1e2fd7287d9dc73e68c10c89b6ae52d6fc4c0a",
       "summary": "# Simulator Formula Coverage Document Path: knowledge/product/simulator-formula-coverage.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Context: S"
     },
     {
