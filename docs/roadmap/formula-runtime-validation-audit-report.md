@@ -11,6 +11,9 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Simulator output validation now requires contract version, formula version match, input validation success, checked field count, and evaluated metric count.
 - Fixture validation now enforces formula input type, non-negative numeric values, rate and weight bounds, month count integrity, version suffixes, and warning reference consistency.
 - Dashboard fixture validation now confirms each snapshot binds to a simulator fixture and has complete metric, scenario, and action fields.
+- Shared formula contract logic now lives in `simulator/scripts/formula-contract.mjs`.
+- Runtime evaluation now flows through `simulator/scripts/formula-runtime-service.mjs`.
+- Fixture and dashboard mappings now resolve to named formula IDs and are checked against the formula catalog.
 
 ## Validation
 
@@ -22,5 +25,4 @@ Records completion of runtime formula evaluation contract, formula input validat
 ## Remaining Gaps
 
 - Runtime formula implementations are still fixture-scaffolded for recommendation status and score.
-- Formula validation rules are duplicated between runtime generation and fixture validation.
-- Dashboard metrics are source-bound but not fully mapped to named formula identifiers.
+- Dashboard metrics are mapped at fixture/snapshot level; individual metric-card formula IDs remain a later field-level enhancement.

@@ -16,6 +16,9 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Assumption and formula versions must end with `.vN`.
 - Recommendation warning references must be declared in fixture warnings.
 - Dashboard snapshots must bind to a simulator fixture ID and expose complete metric, scenario, and action fields.
+- Fixture formula mappings must exist for every simulator fixture.
+- Dashboard formula mappings must exist for every dashboard snapshot.
+- Formula mappings must resolve to known catalog formula IDs.
 
 ## Validation
 
@@ -26,4 +29,4 @@ This report records the stricter fixture checks added for simulator fixtures and
 
 - Add full JSON Schema validation when a schema validator dependency is available.
 - Expand dashboard field-level traceability to named formula IDs.
-- Move duplicated runtime and fixture input rules into a shared validation module.
+- Add metric-card-level formula IDs after dashboard snapshot schema versioning is introduced.

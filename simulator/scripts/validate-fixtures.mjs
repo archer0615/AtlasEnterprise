@@ -1,5 +1,6 @@
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
+import { dashboardSnapshotFormulaIds, fixtureFormulaIds, validateFormulaInputs } from "./formula-contract.mjs";
 
 const root = process.cwd();
 const fixtureRoot = path.join(root, "simulator", "fixtures");
@@ -39,20 +40,9 @@ function assertFormulaInputRules(fixture, file) {
   assert(/\.v\d+$/u.test(fixture.formulaVersion), `${file} formulaVersion must end with .vN`);
   assert(Object.keys(fixture.inputs).length > 0, `${file} inputs must not be empty`);
 
-  for (const [field, value] of Object.entries(fixture.inputs)) {
-    if (field === "currency") {
-      assert(/^[A-Z]{3}$/.test(value), `${file} inputs.currency must be an ISO-style currency code`);
-      continue;
-    }
-    assert(Number.isFinite(value), `${file} inputs.${field} must be numeric`);
-    assert(value >= 0, `${file} inputs.${field} must be non-negative`);
-    if (/(Rate|Weight)$/u.test(field)) {
-      assert(value <= 1, `${file} inputs.${field} must be between 0 and 1`);
-    }
-    if (/Months$/u.test(field)) {
-      assert(Number.isInteger(value) && value > 0, `${file} inputs.${field} must be a positive integer month count`);
-    }
-  }
+  const inputValidation = validateFormulaInputs(fixture);
+  assert(inputValidation.valid, `${file} formula inputs invalid: ${inputValidation.violations.join("; ")}`);
+  assert(Array.isArray(fixtureFormulaIds[fixture.fixtureId]) && fixtureFormulaIds[fixture.fixtureId].length > 0, `${file} missing fixture formula ID mapping`);
 
   for (const warningReference of fixture.expected.recommendation.warningReferences) {
     assert(fixture.expected.warnings.includes(warningReference), `${file} recommendation warning reference not declared: ${warningReference}`);
@@ -121,6 +111,7 @@ for (const snapshot of dashboards.snapshots) {
   assert(snapshot.metrics.every((metric) => metric.label && metric.value && metric.detail), `${snapshot.snapshotId} metric cards must include label, value, and detail`);
   assert(snapshot.scenarios.every((scenario) => scenario.name && Number.isFinite(scenario.score) && scenario.status), `${snapshot.snapshotId} scenarios must include name, numeric score, and status`);
   assert(snapshot.actions.every((action) => typeof action === "string" && action.trim().length > 0), `${snapshot.snapshotId} actions must be non-empty strings`);
+  assert(Array.isArray(dashboardSnapshotFormulaIds[snapshot.snapshotId]) && dashboardSnapshotFormulaIds[snapshot.snapshotId].length > 0, `${snapshot.snapshotId} missing dashboard formula ID mapping`);
 }
 
 console.log(`Fixture validation passed with ${fixtureFiles.length} simulator fixtures.`);

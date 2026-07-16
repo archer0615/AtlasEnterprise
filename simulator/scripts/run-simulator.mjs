@@ -1,54 +1,10 @@
 import { readFile, readdir, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import { evaluateScenarioFixture } from "./formula-runtime-service.mjs";
 
 const root = process.cwd();
 const fixtureRoot = path.join(root, "simulator", "fixtures");
 const outputRoot = path.join(root, "simulator", "outputs");
-
-function evaluateFixture(fixture) {
-  const inputValidation = validateFormulaInputs(fixture);
-  const computed = computeMetrics(fixture);
-  return {
-    fixtureId: fixture.fixtureId,
-    asOfDate: fixture.asOfDate,
-    assumptionVersion: fixture.assumptionVersion,
-    formulaVersion: fixture.formulaVersion,
-    status: fixture.expected.recommendation.status,
-    score: fixture.expected.recommendation.score,
-    warningCount: fixture.expected.warnings.length,
-    metrics: computed,
-    generatedFrom: Object.keys(computed).length ? "fixture-runtime-formula" : "fixture-expected-output",
-    formulaEvaluation: {
-      contractVersion: "runtime-formula-evaluation.v1",
-      status: inputValidation.valid ? "evaluated" : "input-rejected",
-      inputValidation,
-      evaluatedMetricCount: Object.keys(computed).length,
-      formulaVersion: fixture.formulaVersion,
-    },
-  };
-}
-
-function validateFormulaInputs(fixture) {
-  const violations = [];
-  const inputs = fixture.inputs || {};
-
-  for (const [field, value] of Object.entries(inputs)) {
-    if (field === "currency") {
-      if (!/^[A-Z]{3}$/.test(value)) violations.push(`${field} must be an ISO-style currency code`);
-      continue;
-    }
-    if (!Number.isFinite(value)) violations.push(`${field} must be numeric`);
-    if (Number.isFinite(value) && value < 0) violations.push(`${field} must be non-negative`);
-    if (/(Rate|Weight)$/u.test(field) && Number.isFinite(value) && value > 1) violations.push(`${field} must be between 0 and 1`);
-    if (/Months$/u.test(field) && (!Number.isInteger(value) || value <= 0)) violations.push(`${field} must be a positive integer month count`);
-  }
-
-  return {
-    valid: violations.length === 0,
-    checkedFieldCount: Object.keys(inputs).length,
-    violations,
-  };
-}
 
 function computeMetrics(fixture) {
   if (fixture.fixtureId === "investment-drawdown-stress") {
@@ -151,7 +107,7 @@ const results = [];
 
 for (const file of files) {
   const fixture = JSON.parse(await readFile(path.join(fixtureRoot, file), "utf8"));
-  results.push(evaluateFixture(fixture));
+  results.push(evaluateScenarioFixture(fixture, computeMetrics));
 }
 
 const payload = {

@@ -1,5 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
+import { fixtureFormulaIds, runtimeFormulaEvaluationContractVersion } from "./formula-contract.mjs";
 
 const root = process.cwd();
 const fixtureRoot = path.join(root, "simulator", "fixtures");
@@ -27,7 +28,7 @@ for (const result of output.results) {
   assert(result.formulaVersion === fixture.formulaVersion, `${result.fixtureId} formulaVersion mismatch`);
   assert(result.status === fixture.expected.recommendation.status, `${result.fixtureId} status mismatch`);
   assert(Math.abs(result.score - fixture.expected.recommendation.score) <= fixture.tolerances.ratio + fixture.tolerances.currency, `${result.fixtureId} score outside tolerance`);
-  assert(result.formulaEvaluation?.contractVersion === "runtime-formula-evaluation.v1", `${result.fixtureId} missing runtime formula evaluation contract`);
+  assert(result.formulaEvaluation?.contractVersion === runtimeFormulaEvaluationContractVersion, `${result.fixtureId} missing runtime formula evaluation contract`);
   assert(result.formulaEvaluation.formulaVersion === fixture.formulaVersion, `${result.fixtureId} formula evaluation version mismatch`);
   assert(result.formulaEvaluation.inputValidation?.valid === true, `${result.fixtureId} formula input validation failed`);
   assert(Number.isInteger(result.formulaEvaluation.inputValidation.checkedFieldCount), `${result.fixtureId} formula input validation field count missing`);
@@ -35,6 +36,7 @@ for (const result of output.results) {
   assert(Array.isArray(result.formulaEvaluation.inputValidation.violations), `${result.fixtureId} formula input validation violations must be an array`);
   assert(result.formulaEvaluation.evaluatedMetricCount === Object.keys(result.metrics || {}).length, `${result.fixtureId} evaluatedMetricCount mismatch`);
   assert(["evaluated", "input-rejected"].includes(result.formulaEvaluation.status), `${result.fixtureId} invalid formula evaluation status`);
+  assert(JSON.stringify(result.formulaEvaluation.formulaIds) === JSON.stringify(fixtureFormulaIds[result.fixtureId]), `${result.fixtureId} formula ID mapping mismatch`);
   if (result.metrics?.postPrepaymentReserveMonths !== undefined) {
     assert(Math.abs(result.metrics.postPrepaymentReserveMonths - fixture.expected.metrics.postPrepaymentReserveMonths) <= 0.01, `${result.fixtureId} postPrepaymentReserveMonths outside tolerance`);
   }

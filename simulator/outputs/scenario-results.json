@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T16:09:48.880Z",
+  "generatedAt": "2026-07-16T16:16:30.602Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -23,7 +23,10 @@
           "violations": []
         },
         "evaluatedMetricCount": 1,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-CF-COVERAGE"
+        ]
       }
     },
     {
@@ -48,7 +51,11 @@
           "violations": []
         },
         "evaluatedMetricCount": 2,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PORTFOLIO-DRAWDOWN",
+          "FORM-CF-COVERAGE"
+        ]
       }
     },
     {
@@ -76,7 +83,11 @@
           "violations": []
         },
         "evaluatedMetricCount": 5,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-LOAN-AMORTIZATION"
+        ]
       }
     },
     {
@@ -102,7 +113,11 @@
           "violations": []
         },
         "evaluatedMetricCount": 3,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-REFI-BREAK-EVEN"
+        ]
       }
     },
     {
@@ -130,7 +145,11 @@
           "violations": []
         },
         "evaluatedMetricCount": 5,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-REFI-BREAK-EVEN"
+        ]
       }
     },
     {
@@ -155,7 +174,11 @@
           "violations": []
         },
         "evaluatedMetricCount": 2,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-CF-COVERAGE"
+        ]
       }
     },
     {
@@ -184,7 +207,11 @@
           "violations": []
         },
         "evaluatedMetricCount": 6,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-DRAWDOWN-ATTRIBUTION",
+          "FORM-PORTFOLIO-DRAWDOWN"
+        ]
       }
     },
     {
@@ -206,7 +233,10 @@
           "violations": []
         },
         "evaluatedMetricCount": 0,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-DECISION-SCORE"
+        ]
       }
     },
     {
@@ -235,7 +265,11 @@
           "violations": []
         },
         "evaluatedMetricCount": 6,
-        "formulaVersion": "cash-flow-engine-formula.v1"
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-SWR",
+          "FORM-WITHDRAWAL-SUSTAINABILITY"
+        ]
       }
     }
   ]
