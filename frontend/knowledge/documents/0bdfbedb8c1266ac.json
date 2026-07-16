@@ -1,0 +1,47 @@
+{
+  "id": "0bdfbedb8c1266ac",
+  "title": "Message Contract Operational Controls",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/message-contract/operational-controls.md",
+  "sourceHash": "20d929ea8191fc6d80fa0852200e820f34204a271419cb2acfb52830bd3760e1",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Message Contract Operational Controls"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Operational Scope"
+    },
+    {
+      "level": 2,
+      "text": "Delivery and Compatibility Controls"
+    },
+    {
+      "level": 2,
+      "text": "Runtime Controls"
+    },
+    {
+      "level": 2,
+      "text": "Security, Audit, and Performance"
+    },
+    {
+      "level": 2,
+      "text": "Testing Focus"
+    },
+    {
+      "level": 2,
+      "text": "Usage Rules"
+    }
+  ],
+  "bodyMarkdown": "# Message Contract Operational Controls\n\n## Purpose\nThis split document isolates operational controls for message contract delivery, compatibility, validation, security, audit, performance, replay, and idempotency.\n\n## Source\n- Parent specification: [Message Contract Catalog](../message-contract-catalog.md)\n\n## Operational Scope\nOperational controls apply to command, event, workflow, saga, automation, scheduler, notification, replay, and report-generation messages documented in the parent catalog.\n\n## Delivery and Compatibility Controls\n| Control Area | Parent Catalog Rule |\n|---|---|\n| Schema Versioning | Contracts use explicit schema versions and retain compatibility evidence. |\n| Backward Compatibility | Compatible field additions must preserve existing consumers. |\n| Forward Compatibility | Consumers must tolerate fields introduced after their deployed schema version. |\n| Evolution Rules | Breaking changes require explicit versioning, migration, and deprecation handling. |\n| Serialization Rules | Serialization must preserve stable field names, types, and documented envelopes. |\n| Validation Rules | Messages must pass schema, required-field, enum, identifier, and business validation. |\n\n## Runtime Controls\n| Control Area | Parent Catalog Coverage |\n|---|---|\n| Outbox | Message flow includes outbox publication for reliable delivery. |\n| Inbox | Consumer processing includes inbox tracking for duplicate detection. |\n| Replay | Replay messages must remain deterministic and safe to reprocess. |\n| Idempotency | Consumers must handle duplicate deliveries without duplicate side effects. |\n| Saga Messaging | Saga messages coordinate multi-step workflows through documented contracts. |\n| Workflow Messaging | Workflow messages preserve orchestration state and handoff semantics. |\n\n## Security, Audit, and Performance\n| Control Area | Requirement |\n|---|---|\n| Security | Message payloads must respect catalog security classification and avoid leaking unauthorized data across consumers. |\n| Audit | Message production and consumption must leave traceable audit evidence for regulated workflows. |\n| Performance | High-volume contracts must preserve serialization and delivery performance expectations from the parent catalog. |\n| Notification | NotificationRequestedMessage remains separated from decision and report workflows through its documented contract. |\n| Reporting | ReportGenerationRequestedMessage coordinates report work without adding undeclared domain behavior. |\n\n## Testing Focus\n| Test Type | Purpose |\n|---|---|\n| Schema Test | Verify message shape, required fields, enums, and version metadata. |\n| Compatibility Test | Verify backward and forward compatibility across schema versions. |\n| Serialization Test | Verify stable serialization and deserialization behavior. |\n| Replay Test | Verify deterministic replay and snapshot/replay contract safety. |\n| Idempotency Test | Verify duplicate message handling. |\n| Performance Test | Verify throughput and processing expectations. |\n\n## Usage Rules\n- Use the parent Message Contract Catalog as the source of truth for complete message entries and matrices.\n- Use this split document to review operational controls that cut across delivery, compatibility, testing, and runtime processing.\n- Do not introduce new message behavior here; only summarize controls already present in the parent catalog.\n",
+  "references": []
+}

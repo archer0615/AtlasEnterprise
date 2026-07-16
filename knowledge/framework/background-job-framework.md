@@ -3,6 +3,8 @@
 - [Background job catalog](background-job/catalog.md)
 - [Background job execution strategy](background-job/execution-strategy.md)
 - [Background job matrices and controls](background-job/matrices-and-controls.md)
+- [Background job strategy and recovery](background-job/strategy-and-recovery.md)
+- [Background job operational controls](background-job/operational-controls.md)
 - [Background job governance and testing](background-job/governance-and-testing.md)
 - [Background job validation and rules](background-job/validation-and-rules.md)
 - [Background job diagrams and completion](background-job/diagrams-and-completion.md)

@@ -1,5 +1,6 @@
 # API Governance Framework
 ## Split Navigation
+- [API resource and URI standards](api-governance/resource-and-uri-standards.md)
 - [API standards and contracts](api-governance/standards-and-contracts.md)
 - [API query and mutation controls](api-governance/query-and-mutation-controls.md)
 - [API resource catalog](api-governance/resource-catalog.md)

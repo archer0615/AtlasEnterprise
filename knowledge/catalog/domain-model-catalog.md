@@ -5,6 +5,7 @@
 - [Domain model governance](domain-model/governance.md)
 - [Domain model executable specification](domain-model/executable-specification.md)
 - [Domain model catalog entries](domain-model/catalog-entries.md)
+- [Domain model mapping matrices](domain-model/mapping-matrices.md)
 
 # Document Control
 

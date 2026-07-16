@@ -1,5 +1,6 @@
 # Permission Framework
 ## Split Navigation
+- [Permission architecture overview](permission-framework/architecture-overview.md)
 - [Permission catalog](permission-framework/permission-catalog.md)
 - [Permission evaluation and cache](permission-framework/evaluation-and-cache.md)
 - [Permission integration boundaries](permission-framework/integration-boundaries.md)

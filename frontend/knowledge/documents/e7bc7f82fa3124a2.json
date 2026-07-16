@@ -1,0 +1,43 @@
+{
+  "id": "e7bc7f82fa3124a2",
+  "title": "API Resource and URI Standards",
+  "category": "api",
+  "canonicalPath": "knowledge/api/api-governance/resource-and-uri-standards.md",
+  "sourceHash": "1c368f56e60941530e00ba3ed392e154c10d64b59120c5cad07668bc1c201f2c",
+  "headings": [
+    {
+      "level": 1,
+      "text": "API Resource and URI Standards"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    },
+    {
+      "level": 2,
+      "text": "Resource Naming Standard"
+    },
+    {
+      "level": 2,
+      "text": "URI Standard"
+    },
+    {
+      "level": 2,
+      "text": "HTTP Method Standard"
+    },
+    {
+      "level": 2,
+      "text": "Request and Response Standards"
+    },
+    {
+      "level": 2,
+      "text": "Media Type and Content Negotiation"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# API Resource and URI Standards\n\nThis split document summarizes the resource naming, URI, HTTP method, request, response, media type, and content negotiation standards from the parent API Governance Framework. The parent document remains the canonical source of truth.\n\n## Scope\n\n- Resource naming.\n- URI standard.\n- HTTP method standard.\n- Request and response standard.\n- Media type standard.\n- Content negotiation.\n- DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation alignment.\n\n## Resource Naming Standard\n\n- Resource names must apply to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.\n- Resource URLs represent catalog-approved resources.\n- Naming must remain compatible with API Governance and the catalog-approved resource model.\n\n## URI Standard\n\n- URI rules apply to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.\n- URI design must preserve deterministic resource addressing and catalog alignment.\n- URI changes are governed by compatibility and versioning rules in the parent API Governance Framework.\n\n## HTTP Method Standard\n\n- HTTP method rules apply to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.\n- Commands use POST action endpoints only when resource state transition cannot be expressed as standard resource mutation.\n- Queries use GET with deterministic pagination, filtering, sorting, and search semantics.\n\n## Request and Response Standards\n\n- Request and response rules apply to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.\n- Request payloads must preserve DTO and validation conventions.\n- Response payloads must preserve error contract, audit, observability, compatibility, and OpenAPI documentation expectations.\n\n## Media Type and Content Negotiation\n\n- Media type and content negotiation rules apply to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.\n- Content negotiation must remain explicit and compatible with documented API contracts.\n\n## Related References\n\n- [Parent specification](../api-governance-framework.md)\n- [API standards and contracts](standards-and-contracts.md)\n- [API versioning and compatibility](versioning-and-compatibility.md)\n- [API security testing and operations](security-testing-and-operations.md)\n",
+  "references": []
+}

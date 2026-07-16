@@ -5,6 +5,7 @@
 - [Bounded context governance](bounded-context/governance.md)
 - [Bounded context context map patterns](bounded-context/context-map-patterns.md)
 - [Bounded context catalog entries](bounded-context/catalog-entries.md)
+- [Bounded context ownership matrices](bounded-context/ownership-matrices.md)
 
 # Document Control
 

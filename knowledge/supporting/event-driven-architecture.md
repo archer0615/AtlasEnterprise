@@ -1,5 +1,6 @@
 # Event Driven Architecture
 ## Split Navigation
+- [Event-driven architecture overview](event-driven-architecture/architecture-overview.md)
 - [Event-driven delivery patterns](event-driven-architecture/delivery-patterns.md)
 - [Event-driven flow catalog](event-driven-architecture/flow-catalog.md)
 - [Event-driven governance and testing](event-driven-architecture/governance-and-testing.md)

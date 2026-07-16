@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T08:06:46.719Z",
-  "buildId": "a4ef3012fdb5",
+  "generatedAt": "2026-07-16T08:16:03.116Z",
+  "buildId": "c0c28fd22325",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -22,8 +22,8 @@
       "title": "API Governance Framework",
       "category": "api",
       "path": "knowledge/api/api-governance-framework.md",
-      "sourceHash": "1a70a4693824a0ea0527ac36d2d7065820090c479421e773bcaa74433a187311",
-      "summary": "# API Governance Framework ## Split Navigation - [API standards and contracts](api-governance/standards-and-contracts.md) - [API query and mutation controls](api-governance/query-and-mutation-controls.md) - [API resource catalog](api-govern"
+      "sourceHash": "9bd5804c11f2bb8fd4333e8ba24bf62b5f27d28dd6a7e139b88146d29f69d6c6",
+      "summary": "# API Governance Framework ## Split Navigation - [API resource and URI standards](api-governance/resource-and-uri-standards.md) - [API standards and contracts](api-governance/standards-and-contracts.md) - [API query and mutation controls](a"
     },
     {
       "id": "2cd5d061529e7b26",
@@ -32,6 +32,14 @@
       "path": "knowledge/api/api-governance/query-and-mutation-controls.md",
       "sourceHash": "4c7fb6ebf7270dab7b6dc323c25c1dd7cef1edb0c8c21e6f8902e24ff408cacb",
       "summary": "# API Query and Mutation Controls ## Purpose This split document groups query controls and mutation safety controls from the parent API Governance Framework. It covers query API standard, pagination, sorting, filtering, search, bulk operat"
+    },
+    {
+      "id": "e7bc7f82fa3124a2",
+      "title": "API Resource and URI Standards",
+      "category": "api",
+      "path": "knowledge/api/api-governance/resource-and-uri-standards.md",
+      "sourceHash": "1c368f56e60941530e00ba3ed392e154c10d64b59120c5cad07668bc1c201f2c",
+      "summary": "# API Resource and URI Standards This split document summarizes the resource naming, URI, HTTP method, request, response, media type, and content negotiation standards from the parent API Governance Framework. The parent document remains t"
     },
     {
       "id": "f3e4db8ea5d094b8",
@@ -126,7 +134,7 @@
       "title": "Application Service Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/application-service-catalog.md",
-      "sourceHash": "d933ef0f85895118206b79a1b3d0c64f292230cb1ac7674121df6be5a653c3df",
+      "sourceHash": "7e289a9c0568bca855b887de671622c34d7a2473f1e280719b3da4647abb273c",
       "summary": "# Application Service Catalog ## Split Navigation - [Application service command orchestration](application-service/command-orchestration.md) - [Application service query projection](application-service/query-projection.md) - [Application s"
     },
     {
@@ -144,6 +152,14 @@
       "path": "knowledge/catalog/application-service/command-orchestration.md",
       "sourceHash": "d3ee379eebd045a11b52fd0883324f2a443d2df637238c52f89069549a03529f",
       "summary": "# Application Service Command Orchestration ## Purpose This split document isolates command orchestration responsibilities from the parent Application Service Catalog. ## Source - Parent specification: [Application Service Catalog](../app"
+    },
+    {
+      "id": "584f87e9f85f9723",
+      "title": "Application Service Coordination Matrices",
+      "category": "catalog",
+      "path": "knowledge/catalog/application-service/coordination-matrices.md",
+      "sourceHash": "e293b1c2a1aeb4b352b955c426eaa517ee1551c5c1689f7cbc733b5acff90812",
+      "summary": "# Application Service Coordination Matrices ## Purpose This split document isolates application service coordination matrices from the parent Application Service Catalog. ## Source - Parent specification: [Application Service Catalog](../"
     },
     {
       "id": "0c5e0d64786392d7",
@@ -174,7 +190,7 @@
       "title": "Bounded Context Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/bounded-context-catalog.md",
-      "sourceHash": "2f6b63ea3a31c740fcd5796228fd266b0eb3161d9a0f08752e3b2c33fa1a4178",
+      "sourceHash": "8ff5289c2310d9d28fcfd72eaf7a628fb55e2c881595aa6b67cada834bf78b99",
       "summary": "# Bounded Context Catalog ## Split Navigation - [Bounded context definitions](bounded-context/definitions.md) - [Bounded context integrations](bounded-context/integrations.md) - [Bounded context governance](bounded-context/governance.md) -"
     },
     {
@@ -216,6 +232,14 @@
       "path": "knowledge/catalog/bounded-context/integrations.md",
       "sourceHash": "c40db4e438ed28b6dd2860c1dfa959446a73e35ec6259616706cf1e920eb0315",
       "summary": "# Bounded Context Integrations ## Purpose This split document isolates bounded context integration, command, event, repository, API, and message relationships from the parent Bounded Context Catalog. ## Source - Parent specification: [Bou"
+    },
+    {
+      "id": "67efd51d2bcb7032",
+      "title": "Bounded Context Ownership Matrices",
+      "category": "catalog",
+      "path": "knowledge/catalog/bounded-context/ownership-matrices.md",
+      "sourceHash": "888b57c0a6e0732d538b6544eb548bedf049260fe306cd10b6b54f6548323ff7",
+      "summary": "# Bounded Context Ownership Matrices ## Purpose This split document isolates ownership and boundary-control matrices from the parent Bounded Context Catalog. ## Source - Parent specification: [Bounded Context Catalog](../bounded-context-c"
     },
     {
       "id": "3d088fa9be53db88",
@@ -342,7 +366,7 @@
       "title": "Domain Model Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/domain-model-catalog.md",
-      "sourceHash": "85e82b6ca996d706b77eaa2585092647e91cb1670321e381682e1818f0fc6f22",
+      "sourceHash": "37b39e2fd62fd696b4cb7c4eafe47afeadba1553a329d3a0f4c4866f3515791e",
       "summary": "# Domain Model Catalog ## Split Navigation - [Domain model entities](domain-model/entities.md) - [Domain model relationships](domain-model/relationships.md) - [Domain model governance](domain-model/governance.md) - [Domain model executable"
     },
     {
@@ -376,6 +400,14 @@
       "path": "knowledge/catalog/domain-model/governance.md",
       "sourceHash": "a49d59b60f4b0efabe802a011285b9790006848193b05a7a5c912737f389fc67",
       "summary": "# Domain Model Governance ## Purpose This split document isolates domain model governance, validation, security, audit, migration, and testing from the parent Domain Model Catalog. ## Source - Parent specification: [Domain Model Catalog]("
+    },
+    {
+      "id": "73fbb37daef3122c",
+      "title": "Domain Model Mapping Matrices",
+      "category": "catalog",
+      "path": "knowledge/catalog/domain-model/mapping-matrices.md",
+      "sourceHash": "f3bbb0b7232d650d00519bd0640bee7b018a52113da359420fb45c2942ac1649",
+      "summary": "# Domain Model Mapping Matrices ## Purpose This split document isolates cross-cutting mapping matrices from the parent Domain Model Catalog so readers can inspect domain ownership, persistence mapping, API exposure, and service coordinatio"
     },
     {
       "id": "b8e9be7e6046f2c9",
@@ -542,7 +574,7 @@
       "title": "Message Contract Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/message-contract-catalog.md",
-      "sourceHash": "48288eb364cd08e6f3d84e21c67c7f95cc6dd470fb574edd79c2fab7b7653d66",
+      "sourceHash": "1628430e5c21ea50ddff5206154b58401f9fd6a91e1dbc6a9151348f0de139d9",
       "summary": "# Message Contract Catalog ## Split Navigation - [Message contract catalog entries](message-contract/catalog-entries.md) - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md) - [Message contract gov"
     },
     {
@@ -576,6 +608,14 @@
       "path": "knowledge/catalog/message-contract/matrices-and-execution.md",
       "sourceHash": "b7e7d67f553165aa0d6a2cfac88eb7d30e5c6beba9aa285b4b401c7049aaef96",
       "summary": "# Message Contract Matrices and Execution ## Purpose This split document isolates message classification, producer consumer, command message, event message, workflow message, saga message, automation message, scheduler message, notificatio"
+    },
+    {
+      "id": "0bdfbedb8c1266ac",
+      "title": "Message Contract Operational Controls",
+      "category": "catalog",
+      "path": "knowledge/catalog/message-contract/operational-controls.md",
+      "sourceHash": "20d929ea8191fc6d80fa0852200e820f34204a271419cb2acfb52830bd3760e1",
+      "summary": "# Message Contract Operational Controls ## Purpose This split document isolates operational controls for message contract delivery, compatibility, validation, security, audit, performance, replay, and idempotency. ## Source - Parent speci"
     },
     {
       "id": "e3a9d1e9930e2073",
@@ -1806,7 +1846,7 @@
       "title": "Automation Framework",
       "category": "framework",
       "path": "knowledge/framework/automation-framework.md",
-      "sourceHash": "8e289d5a376baf8662ee5f373a1684d8c180c2dfb30369838050075373a4c819",
+      "sourceHash": "927328703aa6fb8508e1f1ef955b30a8498b5e4b9df9488fed28addbadf3dd7c",
       "summary": "# Automation Framework ## Split Navigation - [Automation catalog and triggers](automation/catalog-and-triggers.md) - [Automation execution strategies](automation/execution-strategies.md) - [Automation recovery and approvals](automation/reco"
     },
     {
@@ -1842,12 +1882,28 @@
       "summary": "# Automation Matrices and Controls ## Purpose This split document preserves automation mapping matrices, retry/compensation/escalation/approval/failure strategies, validation rules, business rules, and operational controls from the pare"
     },
     {
+      "id": "1a737187e4ba787b",
+      "title": "Automation Operational Controls",
+      "category": "framework",
+      "path": "knowledge/framework/automation/operational-controls.md",
+      "sourceHash": "04f20ed9db8d41683473d8fd53993054a19a2614e66c3702c70e7558232a4c8e",
+      "summary": "# Automation Operational Controls ## Purpose This split document preserves automation validation, business rule, security, audit, and performance controls from the parent Automation Framework. ## Source - Parent specification: [Automation"
+    },
+    {
       "id": "1cca6a4912528514",
       "title": "Automation Recovery and Approvals",
       "category": "framework",
       "path": "knowledge/framework/automation/recovery-and-approvals.md",
       "sourceHash": "28b2170f0dcbacf465367e7571aa625f5f064c4b6df337ccddead44f80ccf999",
       "summary": "# Automation Recovery and Approvals Document Path: knowledge/framework/automation/recovery-and-approvals.md Parent Specification: knowledge/framework/automation-framework.md # Purpose This split document summarizes the Automation Framew"
+    },
+    {
+      "id": "de0f5030b8dae431",
+      "title": "Automation Strategy and Recovery",
+      "category": "framework",
+      "path": "knowledge/framework/automation/strategy-and-recovery.md",
+      "sourceHash": "2b4ec65fcd5b88c2c6ba4fa14f0426db3ec2f9c8d24d32781bf8183065190e74",
+      "summary": "# Automation Strategy and Recovery ## Purpose This split document preserves the retry, compensation, escalation, approval, and failure recovery strategy content from the parent Automation Framework in a focused, independently readable form"
     },
     {
       "id": "f218ebbbec51ce5f",
@@ -2238,7 +2294,7 @@
       "title": "Background Job Framework",
       "category": "framework",
       "path": "knowledge/framework/background-job-framework.md",
-      "sourceHash": "0b9fbebdd0e653a6d2b1bc1986fd2381ba7c875781040bc810e8a2c91a121a75",
+      "sourceHash": "269fd921845efba75899c30b18045e3d098caab112f87cf61ed586058073ed0d",
       "summary": "# Background Job Framework ## Split Navigation - [Background job catalog](background-job/catalog.md) - [Background job execution strategy](background-job/execution-strategy.md) - [Background job matrices and controls](background-job/matrice"
     },
     {
@@ -2280,6 +2336,22 @@
       "path": "knowledge/framework/background-job/matrices-and-controls.md",
       "sourceHash": "ae7789bba3fb5ae98d84c1147fa7912f49a3d5807c7ecd4057f26da7948aafbc",
       "summary": "# Background Job Matrices and Controls ## Purpose This split document preserves the background job mapping matrices, retry/checkpoint/resume/failure strategies, validation rules, business rules, and operational controls from the parent"
+    },
+    {
+      "id": "2c5c55744394a492",
+      "title": "Background Job Operational Controls",
+      "category": "framework",
+      "path": "knowledge/framework/background-job/operational-controls.md",
+      "sourceHash": "90d67c46a60d5d89cf6f676fcd32d0093e238457e7c0f08d517d6e477c446f57",
+      "summary": "# Background Job Operational Controls ## Purpose This split document preserves the background job validation, business rule, security, audit, and performance controls from the parent Background Job Framework. ## Source - Parent specificat"
+    },
+    {
+      "id": "7f8ae5df3653a962",
+      "title": "Background Job Strategy and Recovery",
+      "category": "framework",
+      "path": "knowledge/framework/background-job/strategy-and-recovery.md",
+      "sourceHash": "6525337c3d83e778e674ccbcd42fa536de0df4b0cf30ade791ae3a4c430d539b",
+      "summary": "# Background Job Strategy and Recovery ## Purpose This split document preserves the retry, checkpoint, resume, and failure recovery strategy content from the parent Background Job Framework in a focused, independently readable form. ## So"
     },
     {
       "id": "47e1436d9dfed1b6",
@@ -2838,8 +2910,16 @@
       "title": "Integration Framework",
       "category": "integration",
       "path": "knowledge/integration/integration-framework.md",
-      "sourceHash": "f90be8fabf6475835756e0540ec0a2ce32aed1bb96326a666d23a8a25dc51098",
-      "summary": "# Integration Framework ## Split Navigation - [Integration catalog](integration/catalog.md) - [Integration resilience and security](integration/resilience-and-security.md) - [Integration governance and testing](integration/governance-and-te"
+      "sourceHash": "242a5ce87adf00788f3af8035ce213dae5a63e8ca60e84f1961d922482c7d657",
+      "summary": "# Integration Framework ## Split Navigation - [Integration architecture overview](integration/architecture-overview.md) - [Integration catalog](integration/catalog.md) - [Integration resilience and security](integration/resilience-and-secur"
+    },
+    {
+      "id": "88f7a3dd1083524a",
+      "title": "Integration Architecture Overview",
+      "category": "integration",
+      "path": "knowledge/integration/integration/architecture-overview.md",
+      "sourceHash": "84e625ca93f3ebd0ea32c8c68cb3f3807c6f14175c9be30790bd9d1be771cb98",
+      "summary": "# Integration Architecture Overview This split document summarizes the architecture overview from the parent Integration Framework specification. The parent document remains the canonical source of truth. ## Scope - External integration."
     },
     {
       "id": "7e905e320769705c",
@@ -3038,8 +3118,16 @@
       "title": "Permission Framework",
       "category": "security",
       "path": "knowledge/security/permission-framework.md",
-      "sourceHash": "fbff24b1d82b616dd103dad267f7f9903d4df00a5da13212b711dbc8fbd67e7e",
-      "summary": "# Permission Framework ## Split Navigation - [Permission catalog](permission-framework/permission-catalog.md) - [Permission evaluation and cache](permission-framework/evaluation-and-cache.md) - [Permission integration boundaries](permissi"
+      "sourceHash": "cef85ef11a88eb213930c6eb5ff26b81fa4bea5399558d0226ca78285469f759",
+      "summary": "# Permission Framework ## Split Navigation - [Permission architecture overview](permission-framework/architecture-overview.md) - [Permission catalog](permission-framework/permission-catalog.md) - [Permission evaluation and cache](permissio"
+    },
+    {
+      "id": "8ab780a52fc98fae",
+      "title": "Permission Architecture Overview",
+      "category": "security",
+      "path": "knowledge/security/permission-framework/architecture-overview.md",
+      "sourceHash": "3c84838e46d36018683ee675e85df770ede07cc9a72ffacf39b7922b7d0898d6",
+      "summary": "# Permission Architecture Overview This split document summarizes the permission architecture section from the parent Permission Framework. The parent document remains the canonical source of truth. ## Scope - Principal, Claim, Role, Per"
     },
     {
       "id": "b58734048a84c74d",
@@ -3470,8 +3558,16 @@
       "title": "Event Driven Architecture",
       "category": "supporting",
       "path": "knowledge/supporting/event-driven-architecture.md",
-      "sourceHash": "c77c077ca6715bd332470b82d8777281bb218c9ddf121f40cf609a1b293f53d5",
-      "summary": "# Event Driven Architecture ## Split Navigation - [Event-driven delivery patterns](event-driven-architecture/delivery-patterns.md) - [Event-driven flow catalog](event-driven-architecture/flow-catalog.md) - [Event-driven governance and testi"
+      "sourceHash": "50dcf4bc4fd5ada6de7c37efb9e28bd8261a5c3b264efe8bceb0246f25d5cd07",
+      "summary": "# Event Driven Architecture ## Split Navigation - [Event-driven architecture overview](event-driven-architecture/architecture-overview.md) - [Event-driven delivery patterns](event-driven-architecture/delivery-patterns.md) - [Event-driven fl"
+    },
+    {
+      "id": "e19b26a245b3eaff",
+      "title": "Event-driven Architecture Overview",
+      "category": "supporting",
+      "path": "knowledge/supporting/event-driven-architecture/architecture-overview.md",
+      "sourceHash": "62e29dd932a3d622b861b000c90d5d8bfa53710af82000f918a6e76c9dbb8b67",
+      "summary": "# Event-driven Architecture Overview This split document summarizes the architecture overview and event flow architecture sections from the parent Event Driven Architecture specification. The parent document remains the canonical source of"
     },
     {
       "id": "61d4368532086bb1",

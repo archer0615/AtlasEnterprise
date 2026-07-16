@@ -5,6 +5,7 @@
 - [Application service governance](application-service/governance.md)
 - [Application service testing](application-service/testing.md)
 - [Application service catalog entries](application-service/catalog-entries.md)
+- [Application service coordination matrices](application-service/coordination-matrices.md)
 
 # Document Control
 

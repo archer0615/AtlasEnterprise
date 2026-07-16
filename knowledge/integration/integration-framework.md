@@ -1,5 +1,6 @@
 # Integration Framework
 ## Split Navigation
+- [Integration architecture overview](integration/architecture-overview.md)
 - [Integration catalog](integration/catalog.md)
 - [Integration resilience and security](integration/resilience-and-security.md)
 - [Integration governance and testing](integration/governance-and-testing.md)

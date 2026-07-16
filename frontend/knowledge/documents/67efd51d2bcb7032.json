@@ -1,0 +1,39 @@
+{
+  "id": "67efd51d2bcb7032",
+  "title": "Bounded Context Ownership Matrices",
+  "category": "catalog",
+  "canonicalPath": "knowledge/catalog/bounded-context/ownership-matrices.md",
+  "sourceHash": "888b57c0a6e0732d538b6544eb548bedf049260fe306cd10b6b54f6548323ff7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Bounded Context Ownership Matrices"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source"
+    },
+    {
+      "level": 2,
+      "text": "Ownership Scope"
+    },
+    {
+      "level": 2,
+      "text": "Context Ownership"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Control"
+    },
+    {
+      "level": 2,
+      "text": "Usage Rules"
+    }
+  ],
+  "bodyMarkdown": "# Bounded Context Ownership Matrices\n\n## Purpose\nThis split document isolates ownership and boundary-control matrices from the parent Bounded Context Catalog.\n\n## Source\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\n\n## Ownership Scope\nBounded context ownership records the domain, aggregate, repository, command, domain event, application service, API, database, workflow, and integration responsibilities for each context.\n\n## Context Ownership\n| Bounded Context | Domain | Aggregate | Repository | Application Service | API | Database |\n|---|---|---|---|---|---|---|\n| Identity | Identity | User, Household | UserRepository, HouseholdRepository | UserApplicationService | /api/v1/users, /api/v1/households | users, households |\n| Financial Profile | Financial Profile | FinancialProfile, Household, GoalPlan | HouseholdRepository, GoalRepository | BlueprintApplicationService, DashboardApplicationService, GoalApplicationService | /api/v1/blueprint, /api/v1/goals, /api/v1/dashboard | households, cash_flow_items, goals |\n| Investment | Investment | AssetPortfolio | AssetRepository, PortfolioRepository | PortfolioApplicationService | /api/v1/portfolios | assets, portfolios, holdings |\n| Cash Flow | Cash Flow | Household, Loan, Policy | HouseholdRepository, LoanRepository | DashboardApplicationService, BlueprintApplicationService | /api/v1/dashboard | cash_flow_items, loan_payments |\n| Loan | Loan | Loan, LiabilityPortfolio | LoanRepository, LiabilityRepository | LoanApplicationService | /api/v1/loans | loans, loan_payments, liabilities |\n| Property | Property | Property | PropertyRepository | BlueprintApplicationService, DashboardApplicationService | /api/v1/properties | properties, property_valuations |\n| Retirement | Retirement | RetirementPlan, GoalPlan, Scenario | GoalRepository, ScenarioRepository | BlueprintApplicationService, ScenarioApplicationService, GoalApplicationService | /api/v1/goals, /api/v1/scenarios | goals, scenarios |\n| Decision | Decision | DecisionSession, Recommendation, Scenario | DecisionRepository, ScenarioRepository | DecisionApplicationService | /api/v1/decisions, /api/v1/recommendations | decisions, recommendations |\n| Scenario | Scenario | Scenario, DecisionSession | ScenarioRepository, DecisionRepository | ScenarioApplicationService, AdministrationApplicationService | /api/v1/scenarios | scenarios, scenario_results |\n| Reporting | Reporting | Household, Scenario, DecisionSession, AssetPortfolio, Loan, Policy | HouseholdRepository, ScenarioRepository, DecisionRepository, PortfolioRepository, LoanRepository, AuditRepository | ReportApplicationService | /api/v1/reports | report_views, audit_log |\n| Platform | Platform | Configuration, Notification, Policy, Scenario | AuditRepository, NotificationRepository, ScenarioRepository | AdministrationApplicationService, NotificationApplicationService | /api/v1/administration, /api/v1/audit, /api/v1/notifications | configuration, notifications, audit_log |\n\n## Boundary Control\n| Bounded Context | Mapping Focus | Ownership | Boundary Control |\n|---|---|---|---|\n| Identity | User, Household, repositories, commands, and identity events | Identity | Published language and ACL when crossing boundary |\n| Financial Profile | Financial profile, household, goal plan, cash-flow commands, and planning events | Financial Profile | Published language and ACL when crossing boundary |\n| Investment | Asset portfolio, portfolio repositories, trading commands, and portfolio events | Investment | Published language and ACL when crossing boundary |\n| Cash Flow | Household, loan, policy, income and expense commands, and payment events | Cash Flow | Published language and ACL when crossing boundary |\n| Loan | Loan, liability portfolio, loan repositories, payment and refinance commands | Loan | Published language and ACL when crossing boundary |\n| Property | Property repository, purchase/sell/update commands, and home events | Property | Published language and ACL when crossing boundary |\n| Retirement | Retirement plan, goal plan, scenario, retirement commands, and scenario events | Retirement | Published language and ACL when crossing boundary |\n| Decision | Decision session, recommendation, scenario, acceptance/rejection commands | Decision | Published language and ACL when crossing boundary |\n| Scenario | Scenario, decision session, evaluation/replay commands, and replay events | Scenario | Published language and ACL when crossing boundary |\n| Reporting | Reporting read models, report commands, source events, and audit repository | Reporting | Published language and ACL when crossing boundary |\n| Platform | Configuration, notification, audit, replay commands, and platform events | Platform | Published language and ACL when crossing boundary |\n\n## Usage Rules\n- Context ownership must stay aligned with aggregate, repository, command, event, service, API, and database catalogs.\n- Boundary crossings use published language and anti-corruption controls defined in the parent catalog.\n- The parent Bounded Context Catalog remains authoritative for full matrices and context map details.\n",
+  "references": []
+}

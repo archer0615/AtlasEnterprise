@@ -1,0 +1,35 @@
+{
+  "id": "88f7a3dd1083524a",
+  "title": "Integration Architecture Overview",
+  "category": "integration",
+  "canonicalPath": "knowledge/integration/integration/architecture-overview.md",
+  "sourceHash": "84e625ca93f3ebd0ea32c8c68cb3f3807c6f14175c9be30790bd9d1be771cb98",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Integration Architecture Overview"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    },
+    {
+      "level": 2,
+      "text": "Integration Architecture"
+    },
+    {
+      "level": 2,
+      "text": "Integration Principles"
+    },
+    {
+      "level": 2,
+      "text": "Boundary Rules"
+    },
+    {
+      "level": 2,
+      "text": "Related References"
+    }
+  ],
+  "bodyMarkdown": "# Integration Architecture Overview\n\nThis split document summarizes the architecture overview from the parent Integration Framework specification. The parent document remains the canonical source of truth.\n\n## Scope\n\n- External integration.\n- Internal integration.\n- REST, webhook, message, file, ETL, import, export, and synchronization patterns.\n- Adapter, gateway, facade, and anti corruption layer boundaries.\n\n## Integration Architecture\n\nExternal or internal systems interact with Atlas only through API Governance, Message Contract Catalog, Event Driven Architecture, Integration Framework adapters, or catalog-approved file exchange. Domain Services and Aggregates do not call external systems directly.\n\n## Integration Principles\n\n- Integrations use catalog-approved source and target systems.\n- External payloads are translated through adapter or anti corruption layer before domain use.\n- All integration calls require authentication, authorization, retry, timeout, audit, monitoring, and versioning.\n- Integration failures must not corrupt Aggregate state.\n- Secrets are managed outside payloads and rotated according to security rules.\n- Integration contracts are versioned and observable.\n\n## Boundary Rules\n\n- REST and external API traffic must follow API Governance.\n- Event-driven integrations must use Message Contract Catalog and Event Driven Architecture rules.\n- File exchange must be catalog-approved.\n- Adapter and anti corruption layer behavior must protect domain models from external payload shape.\n- Gateways and facades may coordinate integration access, but Domain Services and Aggregates must not call external systems directly.\n\n## Related References\n\n- [Parent specification](../integration-framework.md)\n- [Integration catalog](catalog.md)\n- [Integration resilience and security](resilience-and-security.md)\n- [Integration exchange strategies](exchange-strategies.md)\n",
+  "references": []
+}
