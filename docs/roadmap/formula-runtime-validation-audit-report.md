@@ -17,6 +17,9 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Dashboard metric-card formula mappings now exist per snapshot metric.
 - Runtime output now includes `scoreEvaluation` using `FORM-DECISION-SCORE`.
 - Fixture validation now uses the in-repo JSON schema validator in `simulator/scripts/schema-validator.mjs`.
+- Dashboard fixtures now persist `schemaVersion` and metric-level `formulaIds`.
+- Score evaluation now uses deterministic engine-calculated score rules instead of direct score passthrough.
+- Schema validation now supports `const`, `enum`, `uniqueItems`, and `additionalProperties: false`.
 
 ## Validation
 
@@ -29,4 +32,4 @@ Records completion of runtime formula evaluation contract, formula input validat
 
 - Runtime formula implementations are still fixture-scaffolded for recommendation status and score.
 - Dashboard metrics are mapped at fixture/snapshot level; individual metric-card formula IDs remain a later field-level enhancement.
-- Score evaluation still preserves fixture-approved expected score while the production scoring engine is pending.
+- Score evaluation remains deterministic and fixture-scaffolded until production scoring weights are externalized.

@@ -8,22 +8,34 @@
     {
       "label": "現金流安全",
       "value": "88K",
-      "detail": "每月自由現金流 TWD"
+      "detail": "每月自由現金流 TWD",
+      "formulaIds": [
+        "FORM-PMT"
+      ]
     },
     {
       "label": "緊急預備金",
       "value": "6.5 月",
-      "detail": "高於最低 6 個月"
+      "detail": "高於最低 6 個月",
+      "formulaIds": [
+        "FORM-CF-COVERAGE"
+      ]
     },
     {
       "label": "房貸壓力",
       "value": "中",
-      "detail": "提前還款需保留流動性"
+      "detail": "提前還款需保留流動性",
+      "formulaIds": [
+        "FORM-CF-COVERAGE"
+      ]
     },
     {
       "label": "決策分數",
       "value": "72",
-      "detail": "有條件執行"
+      "detail": "有條件執行",
+      "formulaIds": [
+        "FORM-DECISION-SCORE"
+      ]
     }
   ],
   "scenarios": [
@@ -47,5 +59,6 @@
     "確認 2027 房貸提前還款後預備金仍高於 6 個月",
     "補齊 2031 換屋情境的頭期款與交易成本假設",
     "建立退休與市場下跌壓力測試 fixture"
-  ]
+  ],
+  "schemaVersion": "dashboard-snapshot.v2"
 }

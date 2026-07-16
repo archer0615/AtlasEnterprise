@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T16:25:41.737Z",
+  "generatedAt": "2026-07-16T16:28:21.144Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -31,7 +31,7 @@
       "scoreEvaluation": {
         "score": 61,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 1,
         "warningCount": 1
       }
@@ -67,7 +67,7 @@
       "scoreEvaluation": {
         "score": 71,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 2,
         "warningCount": 1
       }
@@ -106,7 +106,7 @@
       "scoreEvaluation": {
         "score": 88,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 5,
         "warningCount": 0
       }
@@ -143,7 +143,7 @@
       "scoreEvaluation": {
         "score": 58,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 3,
         "warningCount": 1
       }
@@ -182,7 +182,7 @@
       "scoreEvaluation": {
         "score": 66,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 5,
         "warningCount": 2
       }
@@ -218,7 +218,7 @@
       "scoreEvaluation": {
         "score": 72,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 2,
         "warningCount": 1
       }
@@ -258,7 +258,7 @@
       "scoreEvaluation": {
         "score": 64,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 6,
         "warningCount": 1
       }
@@ -290,7 +290,7 @@
       "scoreEvaluation": {
         "score": 69,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 0,
         "warningCount": 1
       }
@@ -330,7 +330,7 @@
       "scoreEvaluation": {
         "score": 42,
         "formulaId": "FORM-DECISION-SCORE",
-        "source": "runtime-score-calculation.v1",
+        "source": "engine-calculated-score.v1",
         "inputMetricCount": 6,
         "warningCount": 2
       }

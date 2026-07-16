@@ -84,6 +84,7 @@ for (const file of fixtureFiles) {
 
 const dashboard = JSON.parse(await readFile(frontendDashboardFixture, "utf8"));
 assertSchemaMinimum(dashboardSchema, dashboard, "dashboard fixture");
+assert(dashboard.schemaVersion === "dashboard-snapshot.v2", "dashboard fixture schemaVersion mismatch");
 assert(dashboard.snapshotId, "dashboard fixture missing snapshotId");
 assert(dashboard.asOfDate, "dashboard fixture missing asOfDate");
 assert(dashboard.sourceFixture, "dashboard fixture missing sourceFixture");
@@ -98,7 +99,9 @@ assert(Array.isArray(dashboards.snapshots) && dashboards.snapshots.length > 0, "
 const snapshotIds = new Set();
 assert(dashboards.snapshots.some((snapshot) => snapshot.snapshotId === dashboards.defaultSnapshotId), "defaultSnapshotId must match a dashboard snapshot");
 for (const snapshot of dashboards.snapshots) {
+  assertSchemaMinimum(dashboardSchema, snapshot, snapshot.snapshotId || "dashboard snapshot");
   assert(snapshot.snapshotId, "dashboard snapshot missing snapshotId");
+  assert(snapshot.schemaVersion === "dashboard-snapshot.v2", `${snapshot.snapshotId} schemaVersion mismatch`);
   assert(!snapshotIds.has(snapshot.snapshotId), `duplicate dashboard snapshotId: ${snapshot.snapshotId}`);
   snapshotIds.add(snapshot.snapshotId);
   assert(snapshot.label, `${snapshot.snapshotId} missing label`);
@@ -118,6 +121,9 @@ for (const snapshot of dashboards.snapshots) {
   assert(Array.isArray(dashboardMetricFormulaIds[snapshot.snapshotId]), `${snapshot.snapshotId} missing metric-card formula ID mapping`);
   assert(dashboardMetricFormulaIds[snapshot.snapshotId].length === snapshot.metrics.length, `${snapshot.snapshotId} metric formula mapping count mismatch`);
   assert(dashboardMetricFormulaIds[snapshot.snapshotId].every((formulaIds) => Array.isArray(formulaIds) && formulaIds.length > 0), `${snapshot.snapshotId} metric formula mappings must not be empty`);
+  for (const [index, metric] of snapshot.metrics.entries()) {
+    assert(JSON.stringify(metric.formulaIds) === JSON.stringify(dashboardMetricFormulaIds[snapshot.snapshotId][index]), `${snapshot.snapshotId} metric ${index} formulaIds mismatch`);
+  }
 }
 
 console.log(`Fixture validation passed with ${fixtureFiles.length} simulator fixtures.`);
