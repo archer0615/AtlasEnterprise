@@ -1,4 +1,4 @@
-# Value Object Catalog
+﻿# Value Object Catalog
 ## Split Navigation
 - [Value object catalog entries](value-object/catalog-entries.md)
 - [Value object validation and mapping](value-object/validation-and-mapping.md)
@@ -11,7 +11,7 @@
 # Document Control
 
 Document Name: Value Object Catalog
-Document Path: knowledge/value-object-catalog.md
+Document Path: knowledge/catalog/value-object-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

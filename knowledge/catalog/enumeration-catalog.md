@@ -1,4 +1,4 @@
-# Enumeration Catalog
+﻿# Enumeration Catalog
 ## Split Navigation
 - [Enumeration catalog entries](enumeration/catalog-entries.md)
 - [Enumeration mapping and compatibility](enumeration/mapping-and-compatibility.md)
@@ -10,7 +10,7 @@
 # Document Control
 
 Document Name: Enumeration Catalog
-Document Path: knowledge/enumeration-catalog.md
+Document Path: knowledge/catalog/enumeration-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

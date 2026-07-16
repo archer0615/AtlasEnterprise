@@ -1,0 +1,43 @@
+{
+  "id": "3cb36783c4cf949e",
+  "title": "Portfolio Workflow",
+  "category": "workflow",
+  "canonicalPath": "knowledge/workflow/portfolio-workflow.md",
+  "sourceHash": "65ed0bce5d17dfb7a4c8c4e84dd2b4dcdb5c4f3c5b9b9a6412904566ca67e6ae",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Portfolio Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Workflow Stages"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Governance And Testing"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "# Portfolio Workflow\n\nDocument Path: knowledge/workflow/portfolio-workflow.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Portfolio Management\nBounded Context: Portfolio\nOwner: Project Atlas\nSource of Truth: Atlas Portfolio Workflow Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines the end-to-end workflow for portfolio construction, allocation, monitoring, rebalancing, stress testing, and reporting.\n\n## Scope\n\n- Portfolio setup and ownership.\n- Holdings and position synchronization.\n- Target allocation and risk-budget assignment.\n- Drift detection, performance measurement, and rebalancing.\n- Scenario and stress testing.\n- Reporting and recommendation generation.\n\n## Inputs\n\n- Portfolio, asset, and position records.\n- Investment policy and risk capacity.\n- Market assumptions and benchmark definitions.\n- Goal funding needs and liquidity constraints.\n- Tax, fee, and transaction assumptions.\n\n## Workflow Stages\n\n1. Validate portfolio identity, owner, account scope, and holdings completeness.\n2. Classify assets and positions by type, liquidity, risk, and valuation source.\n3. Load investment policy, target allocation, risk budget, and constraints.\n4. Calculate current allocation, concentration, performance, and drift.\n5. Evaluate goal funding impact, liquidity needs, and scenario sensitivity.\n6. Generate rebalance candidates with trade-offs, taxes, fees, and constraints.\n7. Score recommendations and require approval for material changes.\n8. Persist portfolio snapshot, assumptions, and recommendation evidence.\n9. Monitor execution, failed actions, and post-trade drift.\n10. Produce dashboard, report, and audit outputs.\n\n## Outputs\n\n- Portfolio snapshot and holdings summary.\n- Allocation, drift, performance, and risk metrics.\n- Rebalancing recommendation and execution status.\n- Stress test and scenario sensitivity results.\n- Audit identifiers and source assumptions.\n\n## Governance And Testing\n\n- Valuation and return calculations must use versioned market data and formula references.\n- Rebalancing must respect risk budget, liquidity, tax, and transaction constraints.\n- Tests must cover missing holdings, stale prices, allocation drift, rebalance suppression, trade approval, and post-trade validation.\n\n## Related Specifications\n\n- `knowledge/entity/Portfolio.md`\n- `knowledge/entity/Position.md`\n- `knowledge/supporting/portfolio.md`\n- `knowledge/supporting/portfolio-lifecycle.md`\n- `knowledge/framework/asset-allocation-framework.md`\n- `knowledge/framework/rebalancing-framework.md`\n- `knowledge/framework/portfolio-performance-framework.md`\n",
+  "references": []
+}

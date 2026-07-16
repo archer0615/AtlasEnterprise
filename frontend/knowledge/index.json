@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T15:05:41.616Z",
-  "buildId": "b9cacfabbf3c",
+  "generatedAt": "2026-07-16T15:36:37.627Z",
+  "buildId": "ad5f37f68c27",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -9,6 +9,7 @@
     "engine",
     "entity",
     "framework",
+    "governance",
     "integration",
     "reporting",
     "rule",
@@ -19,11 +20,11 @@
   "documents": [
     {
       "id": "76d8ea4fa681c5a8",
-      "title": "API Governance Framework",
+      "title": "Document Control",
       "category": "api",
       "path": "knowledge/api/api-governance-framework.md",
-      "sourceHash": "1272d6293b3c9f810ed790fffd4b03d920ca2140180e49426671682134793f3a",
-      "summary": "# API Governance Framework ## Split Navigation - [API resource and URI standards](api-governance/resource-and-uri-standards.md) - [API standards and contracts](api-governance/standards-and-contracts.md) - [API query and mutation control"
+      "sourceHash": "6e6c9a77a33fd16d0470c32f51955b8bbc312bb9d444f057ad412729a67b596f",
+      "summary": "# API Governance Framework ## Split Navigation - [API resource and URI standards](api-governance/resource-and-uri-standards.md) - [API standards and contracts](api-governance/standards-and-contracts.md) - [API query and mutation contro"
     },
     {
       "id": "1441590cb72d6f5d",
@@ -99,11 +100,11 @@
     },
     {
       "id": "3d2054372d95ebf7",
-      "title": "Aggregate Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/aggregate-catalog.md",
-      "sourceHash": "1a8270e3333e8319dc257b2d6fb36ec3074f450b14d2b0a755945c38721ff39f",
-      "summary": "# Aggregate Catalog ## Split Navigation - [Aggregate core catalog](aggregate-catalog/core-aggregates.md) - [Aggregate ownership mapping](aggregate-catalog/ownership-mapping.md) - [Aggregate governance and testing](aggregate-catalog/gove"
+      "sourceHash": "90b50e2dace370c07c8092a36e2aa0be19c03d21a0428bf827e543555b58617b",
+      "summary": "# Aggregate Catalog ## Split Navigation - [Aggregate core catalog](aggregate-catalog/core-aggregates.md) - [Aggregate ownership mapping](aggregate-catalog/ownership-mapping.md) - [Aggregate governance and testing](aggregate-catalog/gov"
     },
     {
       "id": "97f3bd15fe69fa1b",
@@ -139,11 +140,11 @@
     },
     {
       "id": "9624f4ba01322a64",
-      "title": "Application Service Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/application-service-catalog.md",
-      "sourceHash": "88619ab147d3aac90aa7c8b1fcc650eba3ac874682e6c1d942d086a0ef18aef3",
-      "summary": "# Application Service Catalog ## Split Navigation - [Application service command orchestration](application-service/command-orchestration.md) - [Application service query projection](application-service/query-projection.md) - [Applicati"
+      "sourceHash": "82899defb42618d8c22080340fe0f2313771efafd59d32232bdc5f7908f41fdd",
+      "summary": "# Application Service Catalog ## Split Navigation - [Application service command orchestration](application-service/command-orchestration.md) - [Application service query projection](application-service/query-projection.md) - [Applicat"
     },
     {
       "id": "e2c5d3c3fea60a49",
@@ -195,11 +196,11 @@
     },
     {
       "id": "64e0dd1e15409ed1",
-      "title": "Bounded Context Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/bounded-context-catalog.md",
-      "sourceHash": "6f6510f97cbba25514373e07252106d45138dec455d389f2e29378090e521fe3",
-      "summary": "# Bounded Context Catalog ## Split Navigation - [Bounded context definitions](bounded-context/definitions.md) - [Bounded context integrations](bounded-context/integrations.md) - [Bounded context governance](bounded-context/governance.md"
+      "sourceHash": "497eb957c2abf47258f608098fa4956e27d39d56565ce15d814c45fc95f10af3",
+      "summary": "# Bounded Context Catalog ## Split Navigation - [Bounded context definitions](bounded-context/definitions.md) - [Bounded context integrations](bounded-context/integrations.md) - [Bounded context governance](bounded-context/governance.m"
     },
     {
       "id": "f46e5328b2674901",
@@ -251,11 +252,11 @@
     },
     {
       "id": "3d088fa9be53db88",
-      "title": "Command Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/command-catalog.md",
-      "sourceHash": "32c037cc985417cc5330e0b0ce1da625cfdb26865677ca787182acd54e75f79c",
-      "summary": "# Command Catalog ## Split Navigation - [Command catalog entries](command/catalog-entries.md) - [Command ownership and routing](command/ownership-and-routing.md) - [Command governance and testing](command/governance-and-testing.md) - ["
+      "sourceHash": "66274c4447dc58f08d916e8f8af34e24f0a5dad5d04232fcba97af0e57c554f3",
+      "summary": "# Command Catalog ## Split Navigation - [Command catalog entries](command/catalog-entries.md) - [Command ownership and routing](command/ownership-and-routing.md) - [Command governance and testing](command/governance-and-testing.md) -"
     },
     {
       "id": "ae3a992bfef2e6d7",
@@ -291,10 +292,10 @@
     },
     {
       "id": "c9c32195ddb44c7f",
-      "title": "Command Flows and Diagrams",
+      "title": "flows-and-diagrams",
       "category": "catalog",
       "path": "knowledge/catalog/command/flows-and-diagrams.md",
-      "sourceHash": "d75c1dd3041e6077b8b6d0ed6c47c427091c6dc047850a7ebcb8ac5053c83c61",
+      "sourceHash": "54bd8ec13e29712dba94ba83b6769c1260de352f300a098f84a4352a14c0baee",
       "summary": "# Command Flows and Diagrams Document Path: knowledge/catalog/command/flows-and-diagrams.md Parent Specification: knowledge/catalog/command-catalog.md ## Purpose This split document isolates the command flow diagrams from the pa"
     },
     {
@@ -323,11 +324,11 @@
     },
     {
       "id": "6a265b5ccf0d6f87",
-      "title": "Domain Event Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/domain-event-catalog.md",
-      "sourceHash": "6078ae81a7c819f458445f80f715363f1d0fad20149283d29d3dc578be026bde",
-      "summary": "# Domain Event Catalog ## Split Navigation - [Domain event catalog entries](domain-event/catalog-entries.md) - [Domain event matrices and delivery](domain-event/matrices-and-delivery.md) - [Domain event operation rules](domain-event/ope"
+      "sourceHash": "3af36ff22da6376f48f3c85a2f93c183bc9fa99bd9f758ef5251c320a84b830d",
+      "summary": "# Domain Event Catalog ## Split Navigation - [Domain event catalog entries](domain-event/catalog-entries.md) - [Domain event matrices and delivery](domain-event/matrices-and-delivery.md) - [Domain event operation rules](domain-event/op"
     },
     {
       "id": "9b62af2b018be1cf",
@@ -387,11 +388,11 @@
     },
     {
       "id": "4642ddd37cc96182",
-      "title": "Domain Model Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/domain-model-catalog.md",
-      "sourceHash": "1eef37776cf28ccac1590cb044d0c4b31baa4021e1b8c7fd6c5309d4ec4a943e",
-      "summary": "# Domain Model Catalog ## Split Navigation - [Domain model entities](domain-model/entities.md) - [Domain model relationships](domain-model/relationships.md) - [Domain model governance](domain-model/governance.md) - [Domain model execut"
+      "sourceHash": "edd584a2bd314299e657e8d32df4ec55024e9bab9ddede5bc2b8f136cfadb4cc",
+      "summary": "# Domain Model Catalog ## Split Navigation - [Domain model entities](domain-model/entities.md) - [Domain model relationships](domain-model/relationships.md) - [Domain model governance](domain-model/governance.md) - [Domain model execu"
     },
     {
       "id": "7e9c9639187d0564",
@@ -451,11 +452,11 @@
     },
     {
       "id": "c6d00a1ec1efc501",
-      "title": "Domain Service Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/domain-service-catalog.md",
-      "sourceHash": "be0d46fcaa1339d09a46537d241afc92ac70d9a1b02cc56578b138b8cdea34d4",
-      "summary": "# Domain Service Catalog ## Split Navigation - [Domain service catalog entries](domain-service/catalog-entries.md) - [Domain service capability and calculation matrices](domain-service/capability-and-calculation-matrices.md) - [Domain s"
+      "sourceHash": "7e7495b8948244fadcbdcccdc242f1b1bd3a690c0355edac8370261f5a46f535",
+      "summary": "# Domain Service Catalog ## Split Navigation - [Domain service catalog entries](domain-service/catalog-entries.md) - [Domain service capability and calculation matrices](domain-service/capability-and-calculation-matrices.md) - [Domain"
     },
     {
       "id": "283df2955703854c",
@@ -507,11 +508,11 @@
     },
     {
       "id": "be2e3e9228afe64c",
-      "title": "Entity Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/entity-catalog.md",
-      "sourceHash": "85e2323f04ef1974bcb24778da4d0fa75b06f1962b0e47974876a3754a86d565",
-      "summary": "# Entity Catalog ## Split Navigation - [Entity catalog entries](entity-catalog/catalog-entries.md) - [Entity relationships and ownership](entity-catalog/relationships-and-ownership.md) - [Entity governance and testing](entity-catalog/go"
+      "sourceHash": "0fd670c8a9d4e34acb6a2491d1efbd629a0f5d2e571baa1f994001f4f1a32ebd",
+      "summary": "# Entity Catalog ## Split Navigation - [Entity catalog entries](entity-catalog/catalog-entries.md) - [Entity relationships and ownership](entity-catalog/relationships-and-ownership.md) - [Entity governance and testing](entity-catalog/g"
     },
     {
       "id": "ffb2d65277e97c8c",
@@ -547,11 +548,11 @@
     },
     {
       "id": "8adc68c015c0c85b",
-      "title": "Enumeration Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/enumeration-catalog.md",
-      "sourceHash": "7f315bb333661e5685beb0139e1ea39256e3214ad4eca6532c824b0a5d0fe222",
-      "summary": "# Enumeration Catalog ## Split Navigation - [Enumeration catalog entries](enumeration/catalog-entries.md) - [Enumeration mapping and compatibility](enumeration/mapping-and-compatibility.md) - [Enumeration state and rule model](enumerati"
+      "sourceHash": "f483a0a61b0bef95f9965d069edc7bc9c0c732ce49abaa6477f07670062836e5",
+      "summary": "# Enumeration Catalog ## Split Navigation - [Enumeration catalog entries](enumeration/catalog-entries.md) - [Enumeration mapping and compatibility](enumeration/mapping-and-compatibility.md) - [Enumeration state and rule model](enumerat"
     },
     {
       "id": "1942d6067f681d1d",
@@ -611,11 +612,11 @@
     },
     {
       "id": "36608ef601be93ca",
-      "title": "Message Contract Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/message-contract-catalog.md",
-      "sourceHash": "754846f3d5f9f762bcb646ea59d82c905580cf9ead9f7fcf3157c72c18c1bbe9",
-      "summary": "# Message Contract Catalog ## Split Navigation - [Message contract catalog entries](message-contract/catalog-entries.md) - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md) - [Message contract"
+      "sourceHash": "97bee894433b10042dc66911fa7b4234c1ff36480ae2f66ee84bfb4eebd73ea9",
+      "summary": "# Message Contract Catalog ## Split Navigation - [Message contract catalog entries](message-contract/catalog-entries.md) - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md) - [Message contrac"
     },
     {
       "id": "cf49cbccab56fc08",
@@ -675,11 +676,11 @@
     },
     {
       "id": "8866c9a7f3e1f7b4",
-      "title": "Repository Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/repository-catalog.md",
-      "sourceHash": "b8d383f442155984154112b254418c9350b06f7e8c7d9feba1cfee65f959bb5b",
-      "summary": "# Repository Catalog ## Split Navigation - [Repository catalog entries](repository/catalog-entries.md) - [Repository method catalog](repository/method-catalog.md) - [Repository ownership and integration matrices](repository/ownership-an"
+      "sourceHash": "fc664dc36e396d1c7c74bc7fd8f384e485b6c400eb425c3b94547425614392b4",
+      "summary": "# Repository Catalog ## Split Navigation - [Repository catalog entries](repository/catalog-entries.md) - [Repository method catalog](repository/method-catalog.md) - [Repository ownership and integration matrices](repository/ownership-a"
     },
     {
       "id": "4e898587c986dafc",
@@ -731,11 +732,11 @@
     },
     {
       "id": "61bdd535f02a5191",
-      "title": "Service Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/service-catalog.md",
-      "sourceHash": "ebb60861c8c77dd519c51ee361196647fb61c57d89b92cefef3a11ea0bc46ad1",
-      "summary": "# Service Catalog ## Split Navigation - [Service catalog application services](service-catalog/application-services.md) - [Service catalog domain services](service-catalog/domain-services.md) - [Service catalog governance](service-catal"
+      "sourceHash": "04bf690c65c1f1ab388e1d842621b6557fe039a7757739f03f6fb2d896f882e5",
+      "summary": "# Service Catalog ## Split Navigation - [Service catalog application services](service-catalog/application-services.md) - [Service catalog domain services](service-catalog/domain-services.md) - [Service catalog governance](service-cata"
     },
     {
       "id": "c0743bdc074ac80d",
@@ -747,18 +748,18 @@
     },
     {
       "id": "e0fb9e3532c39898",
-      "title": "Service Catalog Communication and Transactions",
+      "title": "Purpose",
       "category": "catalog",
       "path": "knowledge/catalog/service-catalog/communication-and-transactions.md",
-      "sourceHash": "5dd9a12edf2bbad59a820d32dfaac91e840b9f4c973bd98e71e23db52c982d87",
+      "sourceHash": "0b0060842c2484d75830d71de858b2828cb2308a53eae29028e9ef8b17eab6b6",
       "summary": "# Service Catalog Communication and Transactions Document Path: knowledge/catalog/service-catalog/communication-and-transactions.md Parent Specification: knowledge/catalog/service-catalog.md # Purpose This split document summari"
     },
     {
       "id": "287ba2ae102d54f3",
-      "title": "Service Catalog Diagrams, Testing, and Edge Cases",
+      "title": "diagrams-testing-edge-cases",
       "category": "catalog",
       "path": "knowledge/catalog/service-catalog/diagrams-testing-edge-cases.md",
-      "sourceHash": "ba01138ea245ec6ae3882a74f8febfcb4d3dcc8705fe94f95f81738ca0b84f7f",
+      "sourceHash": "f14f8cd4d4ac93c17ec7e1b2468d86a3868ede693d65114442508e35d23584de",
       "summary": "# Service Catalog Diagrams, Testing, and Edge Cases Document Path: knowledge/catalog/service-catalog/diagrams-testing-edge-cases.md Parent Specification: knowledge/catalog/service-catalog.md ## Purpose This split document groups"
     },
     {
@@ -1035,11 +1036,11 @@
     },
     {
       "id": "6bbb72e5b5127cc5",
-      "title": "System Module Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/system-module-catalog.md",
-      "sourceHash": "10ef28176f506f5a38c4dc6e36ce933e47744d646a8341ed303b23a821b65c5a",
-      "summary": "# System Module Catalog ## Split Navigation - [System module catalog entries](system-module/catalog-entries.md) - [System module definition standard](system-module/definition-standard.md) - [System module dependencies](system-module/dep"
+      "sourceHash": "0b5819ea344a7cc1512299c1b06aa08e97d678558cedb5ec47936a38e031fa75",
+      "summary": "# System Module Catalog ## Split Navigation - [System module catalog entries](system-module/catalog-entries.md) - [System module definition standard](system-module/definition-standard.md) - [System module dependencies](system-module/de"
     },
     {
       "id": "efa566aceaad13b9",
@@ -1051,10 +1052,10 @@
     },
     {
       "id": "8da2790d23fc496d",
-      "title": "System Module Definition Standard",
+      "title": "Purpose",
       "category": "catalog",
       "path": "knowledge/catalog/system-module/definition-standard.md",
-      "sourceHash": "0cd54a0c7629a4fa326c2a40e001a6e87d6f01d2199f4d952037e745f5b0aab9",
+      "sourceHash": "dce6916bc0bfb0beb7bb028dc719c01591191273fb4678f7ce3b20d6f72c4bdb",
       "summary": "# System Module Definition Standard Document Path: knowledge/catalog/system-module/definition-standard.md Parent Specification: knowledge/catalog/system-module-catalog.md # Purpose This split document summarizes the module defin"
     },
     {
@@ -1067,10 +1068,10 @@
     },
     {
       "id": "300ec9f0cb69c997",
-      "title": "System Module Diagrams, Testing, and Edge Cases",
+      "title": "diagrams-testing-edge-cases",
       "category": "catalog",
       "path": "knowledge/catalog/system-module/diagrams-testing-edge-cases.md",
-      "sourceHash": "e436b3bb6271ee9f6551121c467a7ab625f61296e771fac64886b0e3b21d8fe6",
+      "sourceHash": "45037d65dbc6d996296b3c12ace3787666f1d9372ba6121f3a149b1175287617",
       "summary": "# System Module Diagrams, Testing, and Edge Cases Document Path: knowledge/catalog/system-module/diagrams-testing-edge-cases.md Parent Specification: knowledge/catalog/system-module-catalog.md ## Purpose This split document grou"
     },
     {
@@ -1251,11 +1252,11 @@
     },
     {
       "id": "c9039782df1e8ca8",
-      "title": "Value Object Catalog",
+      "title": "Document Control",
       "category": "catalog",
       "path": "knowledge/catalog/value-object-catalog.md",
-      "sourceHash": "1a1041f9dabe7c33091971fa9896fe1a20b6b336fc72943e7e508025212f579e",
-      "summary": "# Value Object Catalog ## Split Navigation - [Value object catalog entries](value-object/catalog-entries.md) - [Value object validation and mapping](value-object/validation-and-mapping.md) - [Value object lifecycle and mapping rules](va"
+      "sourceHash": "4f15198eeac6e65cd4d41d7ade28ee84031c38496cebf8156f0a5c64e4943168",
+      "summary": "# Value Object Catalog ## Split Navigation - [Value object catalog entries](value-object/catalog-entries.md) - [Value object validation and mapping](value-object/validation-and-mapping.md) - [Value object lifecycle and mapping rules](v"
     },
     {
       "id": "98ce7d13df2fc41a",
@@ -1315,18 +1316,18 @@
     },
     {
       "id": "141ace4c91d82c69",
-      "title": "Calculation Engine Framework",
+      "title": "Document Control",
       "category": "engine",
       "path": "knowledge/engine/calculation-engine-framework.md",
-      "sourceHash": "58e379572c2f01efa7339188a0372cf1f5bff0778e8b45085eb7550da32407c5",
-      "summary": "# Calculation Engine Framework # Document Control Document Name: Calculation Engine Framework Document Path: knowledge/calculation-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Ca"
+      "sourceHash": "36cd21b50d1c9e99f0fe9f641cabf5c99958a83a33966a8bd542dc821f926566",
+      "summary": "# Calculation Engine Framework # Document Control Document Name: Calculation Engine Framework Document Path: knowledge/engine/calculation-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Sta"
     },
     {
       "id": "7385b529abe7d054",
-      "title": "Optimization Engine Framework",
+      "title": "Document Control",
       "category": "engine",
       "path": "knowledge/engine/optimization-engine-framework.md",
-      "sourceHash": "e587f43f87c983d7400432ddd0f5cdde826aa8728aadc92d01e6f262fa67e2ca",
+      "sourceHash": "1ef68198476dc6d23b7c93c316b20c9eb0b83fda8d93048eeed4fe766562ed21",
       "summary": "# Optimization Engine Framework ## Split Navigation - [Optimization engine catalog and matrices](optimization-engine/catalog-and-matrices.md) - [Optimization engine solver and validation](optimization-engine/solver-and-validation.md)"
     },
     {
@@ -1355,11 +1356,11 @@
     },
     {
       "id": "2549a9b1f35dfdbe",
-      "title": "Projection Engine Framework",
+      "title": "Document Control",
       "category": "engine",
       "path": "knowledge/engine/projection-engine-framework.md",
-      "sourceHash": "a163f6208baccc2c18e4ea0a0dab1ebccc268a983787c513cdf34d8979388a8c",
-      "summary": "# Projection Engine Framework # Document Control Document Name: Projection Engine Framework Document Path: knowledge/projection-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canon"
+      "sourceHash": "a783974f56431516d74dff2244a1eb36e1967adae366968236ae3a61e79c440b",
+      "summary": "# Projection Engine Framework # Document Control Document Name: Projection Engine Framework Document Path: knowledge/engine/projection-engine-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status"
     },
     {
       "id": "0ebec91eacd74287",
@@ -1371,11 +1372,11 @@
     },
     {
       "id": "bbb6ac9b1b3eb1d8",
-      "title": "Simulation Engine Framework",
+      "title": "Document Control",
       "category": "engine",
       "path": "knowledge/engine/simulation-engine-framework.md",
-      "sourceHash": "93c4fd238c1567d3ffcf442bbb299aad75ed0029e8f884ec142531778a47bfb8",
-      "summary": "# Simulation Engine Framework ## Split Navigation - [Simulation engine catalog and matrices](simulation-engine/catalog-and-matrices.md) - [Simulation engine replay and validation](simulation-engine/replay-and-validation.md) - [Simulat"
+      "sourceHash": "df27f5eb3fbc74858d0ec437d36020b081cfbdd2d6b3469f57448b0817fbdb9e",
+      "summary": "# Simulation Engine Framework ## Split Navigation - [Simulation engine catalog and matrices](simulation-engine/catalog-and-matrices.md) - [Simulation engine replay and validation](simulation-engine/replay-and-validation.md) - [Simula"
     },
     {
       "id": "f831d0e981442d12",
@@ -1435,19 +1436,19 @@
     },
     {
       "id": "115b66a0372150de",
-      "title": "ActionPlan Entity Specification",
+      "title": "Document Control",
       "category": "entity",
       "path": "knowledge/entity/ActionPlan.md",
-      "sourceHash": "d06a563b5d8080ba723df43b667565ce02604143b0fd94a5a0455081b096b34a",
+      "sourceHash": "9650455540848768b066c3df4e5c8e3e55d2fe80e25eae3ff7d2fb3cd2be0946",
       "summary": "# ActionPlan Entity Specification # Document Control Document Name: ActionPlan Entity Specification Document Path: knowledge/entity/ActionPlan.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Speci"
     },
     {
       "id": "54b0387840385a9b",
-      "title": "Asset Entity Specification",
+      "title": "Document Control",
       "category": "entity",
       "path": "knowledge/entity/Asset.md",
-      "sourceHash": "e301436a302becdb56bf5225ad11b797a02f322cedcbaef8095788650d76c7a9",
-      "summary": "# Asset Entity Specification ## Split Navigation - [Asset identity and ownership](asset/identity-and-ownership.md) - [Asset valuation and reporting](asset/valuation-and-reporting.md) - [Asset classification and risk](asset/classific"
+      "sourceHash": "72e24488cc994c6cd906ae9767d8df78edc0b5f249bd803381bd55b0754f7a5e",
+      "summary": "# Asset Entity Specification ## Split Navigation - [Asset identity and ownership](asset/identity-and-ownership.md) - [Asset valuation and reporting](asset/valuation-and-reporting.md) - [Asset classification and risk](asset/classifi"
     },
     {
       "id": "58676d3f460531ff",
@@ -1499,11 +1500,11 @@
     },
     {
       "id": "c22351aebbd7ba2d",
-      "title": "Decision Entity Specification",
+      "title": "Document Control",
       "category": "entity",
       "path": "knowledge/entity/Decision.md",
-      "sourceHash": "a108cd893fa96bdd21bfddb516ec5975c410011efdb17463eceb2aac9d8cfa47",
-      "summary": "# Decision Entity Specification ## Split Navigation - [Decision identity and scoring](decision/identity-and-scoring.md) - [Decision API and persistence](decision/api-and-persistence.md) - [Decision governance and testing](decision/gover"
+      "sourceHash": "d1e287fa5e104847f9185c27e64cc03829e069755b1619d328e341634897a9c5",
+      "summary": "# Decision Entity Specification ## Split Navigation - [Decision identity and scoring](decision/identity-and-scoring.md) - [Decision API and persistence](decision/api-and-persistence.md) - [Decision governance and testing](decision/gove"
     },
     {
       "id": "eb081093cddbc296",
@@ -1555,18 +1556,18 @@
     },
     {
       "id": "9463ee9d88d75de1",
-      "title": "ExecutionPlan Entity Specification",
+      "title": "Document Control",
       "category": "entity",
       "path": "knowledge/entity/ExecutionPlan.md",
-      "sourceHash": "ca6f96bee1aeeb74644081d0ef5c0df5ab2d021160a3f7a1f8c39aae7f68829d",
+      "sourceHash": "e49ef3e5d7a354134c7358f99ca4c32d1afee27033e39712de8178639cb53604",
       "summary": "# ExecutionPlan Entity Specification # Document Control Document Name: ExecutionPlan Entity Specification Document Path: knowledge/entity/ExecutionPlan.md Document Type: Enterprise Specification Version: 1.0 Status: Canoni"
     },
     {
       "id": "6f3bcf4cac8d9110",
-      "title": "Goal Entity Specification",
+      "title": "Document Control",
       "category": "entity",
       "path": "knowledge/entity/Goal.md",
-      "sourceHash": "1380883151321ccf9c53937f94394fc80696262c3ce64fd1ffdb0aa3e150c46c",
+      "sourceHash": "e2eac28d0894d4b4df9d91396b37af1a00d6617bc6fb582028f2751c14591e06",
       "summary": "# Goal Entity Specification # Document Control Document Name: Goal Entity Specification Document Path: knowledge/entity/Goal.md Document Type: Enterprise Specification Version: 1.0 Status: Canonical Specification Domain"
     },
     {
@@ -1779,11 +1780,11 @@
     },
     {
       "id": "87021bfea90ada02",
-      "title": "Notification Entity Specification",
+      "title": "Document Control",
       "category": "entity",
       "path": "knowledge/entity/Notification.md",
-      "sourceHash": "966647f90ad46062fe4600f0f87053373471929c287f9977804d0b3326c2f116",
-      "summary": "# Notification Entity Specification ## Split Navigation - [Notification identity and delivery](notification/identity-and-delivery.md) - [Notification API and persistence](notification/api-and-persistence.md) - [Notification governance a"
+      "sourceHash": "5756039e99409e022b88da2bd3b1f2b97bc0e054dc659e1c0bd370a5eaedf0f7",
+      "summary": "# Notification Entity Specification ## Split Navigation - [Notification identity and delivery](notification/identity-and-delivery.md) - [Notification API and persistence](notification/api-and-persistence.md) - [Notification governance"
     },
     {
       "id": "a0d78b4badf51451",
@@ -1923,10 +1924,10 @@
     },
     {
       "id": "eb0e81fa13800bfd",
-      "title": "Recommendation Entity Specification",
+      "title": "Document Control",
       "category": "entity",
       "path": "knowledge/entity/Recommendation.md",
-      "sourceHash": "ea6942e8996ed109d5f90290d2fefa7b212b89eda86eb6f3cfe49ff497369470",
+      "sourceHash": "f0978dacf78e154ce286dc4f79f2a032f23ed4623aad5a15156f9d659b2a1eda",
       "summary": "# Recommendation Entity Specification # Document Control Document Name: Recommendation Entity Specification Document Path: knowledge/entity/Recommendation.md Document Type: Enterprise Specification Version: 1.0 Status: Can"
     },
     {
@@ -1955,11 +1956,11 @@
     },
     {
       "id": "64f447e8dbeb0663",
-      "title": "Scenario Entity Specification",
+      "title": "Document Control",
       "category": "entity",
       "path": "knowledge/entity/Scenario.md",
-      "sourceHash": "1a144fe9403051880693f815be5ebd2b2c711fd2e665342788d9f50004e2a74a",
-      "summary": "# Scenario Entity Specification ## Split Navigation - [Scenario identity and assumptions](scenario/identity-and-assumptions.md) - [Scenario API and persistence](scenario/api-and-persistence.md) - [Scenario governance and testing](scenar"
+      "sourceHash": "bd18ad4f6c7b5e4f3344a942293654f8744ee7e731d9095aefe28e1160b09ff2",
+      "summary": "# Scenario Entity Specification ## Split Navigation - [Scenario identity and assumptions](scenario/identity-and-assumptions.md) - [Scenario API and persistence](scenario/api-and-persistence.md) - [Scenario governance and testing](scena"
     },
     {
       "id": "6a34b9d16ad3e6b3",
@@ -2051,11 +2052,11 @@
     },
     {
       "id": "3b3c1e7f1f3b092e",
-      "title": "Automation Framework",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automation-framework.md",
-      "sourceHash": "9fba9be096e2478c1add5e20f45e1fa9c7510584443c801c4bc574abc1513d25",
-      "summary": "# Automation Framework ## Split Navigation - [Automation catalog and triggers](automation/catalog-and-triggers.md) - [Automation execution strategies](automation/execution-strategies.md) - [Automation recovery and approvals](automation/"
+      "sourceHash": "5d58046277b04f082cf9e18731c2d9f86f6500ab6f06f1c0ae0b982613eb18f5",
+      "summary": "# Automation Framework ## Split Navigation - [Automation catalog and triggers](automation/catalog-and-triggers.md) - [Automation execution strategies](automation/execution-strategies.md) - [Automation recovery and approvals](automation"
     },
     {
       "id": "f156abf17b561731",
@@ -2067,10 +2068,10 @@
     },
     {
       "id": "c1be5723b7aa1f31",
-      "title": "Automation Decision Projections and Notifications",
+      "title": "Purpose",
       "category": "framework",
       "path": "knowledge/framework/automation/decision-projections-and-notifications.md",
-      "sourceHash": "b85814bdcd47a42daf947acc52969abd22ca4559cc8d7391a99ecd518b993fee",
+      "sourceHash": "17f390ea4725b5c132f37a115572c39a099f1b369e13448c283be315aa31bea4",
       "summary": "# Automation Decision Projections and Notifications Document Path: knowledge/framework/automation/decision-projections-and-notifications.md Parent Specification: knowledge/framework/automation-framework.md # Purpose This split d"
     },
     {
@@ -2107,10 +2108,10 @@
     },
     {
       "id": "1cca6a4912528514",
-      "title": "Automation Recovery and Approvals",
+      "title": "Purpose",
       "category": "framework",
       "path": "knowledge/framework/automation/recovery-and-approvals.md",
-      "sourceHash": "ff99161572d19b15417291e3e6cac7958d84938c18a34e58d064cac3fc4c698f",
+      "sourceHash": "b96728bff289599e09a029e25a7cca9479fb6ab2d79c9cbb56b9ad16be8beb70",
       "summary": "# Automation Recovery and Approvals Document Path: knowledge/framework/automation/recovery-and-approvals.md Parent Specification: knowledge/framework/automation-framework.md # Purpose This split document summarizes the Automatio"
     },
     {
@@ -2123,11 +2124,11 @@
     },
     {
       "id": "f218ebbbec51ce5f",
-      "title": "Automation - BackupAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/backup-automation.md",
-      "sourceHash": "a305fb0cef7234e0290cc48db82fef5b83e794590fd2055396423677671b541c",
-      "summary": "# Automation - BackupAutomation ## Split Navigation - [Backup trigger and scope](backup-automation/trigger-and-scope.md) - [Backup execution](backup-automation/execution.md) - [Backup governance and testing](backup-automation/governance"
+      "sourceHash": "2e70b1ccbf784ee518288e00f3dd5a6b3e57d9439a635033ed5b5edd11105e1f",
+      "summary": "# Automation - BackupAutomation ## Split Navigation - [Backup trigger and scope](backup-automation/trigger-and-scope.md) - [Backup execution](backup-automation/execution.md) - [Backup governance and testing](backup-automation/governanc"
     },
     {
       "id": "2394fc42e1f3b912",
@@ -2155,11 +2156,11 @@
     },
     {
       "id": "26e41db2789c9d0d",
-      "title": "Automation - BankingImportAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/banking-import-automation.md",
-      "sourceHash": "ec578bbbeb6dcd66f61d617111e7b7f131073b26c809dce3a98668e93cf097d9",
-      "summary": "# Automation - BankingImportAutomation ## Split Navigation - [Banking import trigger and scope](banking-import-automation/trigger-and-scope.md) - [Banking import execution](banking-import-automation/execution.md) - [Banking import gover"
+      "sourceHash": "3b050cd4baeeb00ddca4f404e0602d144a4c8fc8dbb153edea19e8205c1a789c",
+      "summary": "# Automation - BankingImportAutomation ## Split Navigation - [Banking import trigger and scope](banking-import-automation/trigger-and-scope.md) - [Banking import execution](banking-import-automation/execution.md) - [Banking import gove"
     },
     {
       "id": "8f216904f6ab135c",
@@ -2187,10 +2188,10 @@
     },
     {
       "id": "a1812d87ae17fe3a",
-      "title": "Automation - BrokerageImportAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/brokerage-import-automation.md",
-      "sourceHash": "80c3e8a7aea5e4744788430a3a5616d5fedd8537376effc0493ad05b3ab84de6",
+      "sourceHash": "bfbf4f548bd3ba6006a4aeb3a72089cf6ace6a99ecb6980f89e0d763d481e3ad",
       "summary": "# Automation - BrokerageImportAutomation ## Split Navigation - [Brokerage import trigger and scope](brokerage-import-automation/trigger-and-scope.md) - [Brokerage import execution](brokerage-import-automation/execution.md) - [Brokerage"
     },
     {
@@ -2219,10 +2220,10 @@
     },
     {
       "id": "9a3dda77521d8186",
-      "title": "Automation - CacheRefreshAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/cache-refresh-automation.md",
-      "sourceHash": "7cdcfcae32dc023ed4b954f43360306266a85592f18ef892fc9d4cca233c71cb",
+      "sourceHash": "fd313ec21fec6b436efe9216d8caada278e53ca49746c56c1074c78329162d05",
       "summary": "# Automation - CacheRefreshAutomation ## Split Navigation - [Cache refresh trigger and scope](cache-refresh-automation/trigger-and-scope.md) - [Cache refresh execution](cache-refresh-automation/execution.md) - [Cache refresh governance"
     },
     {
@@ -2251,11 +2252,11 @@
     },
     {
       "id": "31649bd373718d12",
-      "title": "Automation - CleanupAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/cleanup-automation.md",
-      "sourceHash": "82cc0b28eb9a43e24bfb481d32b7c88c4ac2dd78f8abe757bf3fa8da87a56117",
-      "summary": "# Automation - CleanupAutomation ## Split Navigation - [Cleanup trigger and scope](cleanup-automation/trigger-and-scope.md) - [Cleanup execution](cleanup-automation/execution.md) - [Cleanup governance and testing](cleanup-automation/gov"
+      "sourceHash": "b58fc2d4fedaf91356d74dc35322dee7ac28b9d0102e51217a5966d16ff444ea",
+      "summary": "# Automation - CleanupAutomation ## Split Navigation - [Cleanup trigger and scope](cleanup-automation/trigger-and-scope.md) - [Cleanup execution](cleanup-automation/execution.md) - [Cleanup governance and testing](cleanup-automation/go"
     },
     {
       "id": "930587649e0e25cf",
@@ -2283,11 +2284,11 @@
     },
     {
       "id": "85c5ec265f3c4b4a",
-      "title": "Automation - DecisionReviewAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/decision-review-automation.md",
-      "sourceHash": "b6284cafaa73a0f19a82cca8f0f5d78517dfeaf01d5c9522daafc5c4615fa91a",
-      "summary": "# Automation - DecisionReviewAutomation ## Split Navigation - [Decision review automation trigger and scope](decision-review-automation/trigger-and-scope.md) - [Decision review automation execution](decision-review-automation/execution.m"
+      "sourceHash": "72d11d454578b258b06e1d9ce9be360f34b5f5c4e67f2ba4ddf0074115085705",
+      "summary": "# Automation - DecisionReviewAutomation ## Split Navigation - [Decision review automation trigger and scope](decision-review-automation/trigger-and-scope.md) - [Decision review automation execution](decision-review-automation/execution."
     },
     {
       "id": "78e03364cf76ded3",
@@ -2315,10 +2316,10 @@
     },
     {
       "id": "36178682fbe40cd7",
-      "title": "Automation - InboxProcessAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/inbox-process-automation.md",
-      "sourceHash": "62bc9897114227c1083e3d0a5f2f140046b5154a15c2606d59867a25736d6067",
+      "sourceHash": "515c1e2d6d1b5965519e779855cb27729784c8d4417584725aa5c707cefd1270",
       "summary": "# Automation - InboxProcessAutomation ## Split Navigation - [Inbox process trigger and scope](inbox-process-automation/trigger-and-scope.md) - [Inbox process execution](inbox-process-automation/execution.md) - [Inbox process governance"
     },
     {
@@ -2347,11 +2348,11 @@
     },
     {
       "id": "177b5bff839aa38e",
-      "title": "Automation - NotificationDispatchAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/notification-dispatch-automation.md",
-      "sourceHash": "fbce373a0144591917f145b1a40fda9e548475740e5c12a16f17a480dd370312",
-      "summary": "# Automation - NotificationDispatchAutomation ## Split Navigation - [Notification dispatch trigger and channels](notification-dispatch-automation/trigger-and-channels.md) - [Notification dispatch execution](notification-dispatch-automati"
+      "sourceHash": "6298431bc3ba43a555f42a8836305803e2234b84cfc4fb497528789ead63747a",
+      "summary": "# Automation - NotificationDispatchAutomation ## Split Navigation - [Notification dispatch trigger and channels](notification-dispatch-automation/trigger-and-channels.md) - [Notification dispatch execution](notification-dispatch-automat"
     },
     {
       "id": "0d6d29b7ad4235eb",
@@ -2379,11 +2380,11 @@
     },
     {
       "id": "9d3940745f73120f",
-      "title": "Automation - OutboxPublishAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/outbox-publish-automation.md",
-      "sourceHash": "7b5ecab11b57e7e03aa55a34d7cb20a9dec44b78113823783d2e2964bcda49d9",
-      "summary": "# Automation - OutboxPublishAutomation ## Split Navigation - [Outbox publish trigger and scope](outbox-publish-automation/trigger-and-scope.md) - [Outbox publish execution](outbox-publish-automation/execution.md) - [Outbox publish gover"
+      "sourceHash": "951fef5b5735adb182d9dced54eca628a2baba039f0d3c68451cc17da48ccf98",
+      "summary": "# Automation - OutboxPublishAutomation ## Split Navigation - [Outbox publish trigger and scope](outbox-publish-automation/trigger-and-scope.md) - [Outbox publish execution](outbox-publish-automation/execution.md) - [Outbox publish gove"
     },
     {
       "id": "1e2603bf4a915842",
@@ -2411,11 +2412,11 @@
     },
     {
       "id": "db80aed4b3ca8f92",
-      "title": "Automation - RecommendationRefreshAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/recommendation-refresh-automation.md",
-      "sourceHash": "f103a8437446dc667f876180fc24a499d83e174bd01d2c71e3d7492a158787f6",
-      "summary": "# Automation - RecommendationRefreshAutomation ## Split Navigation - [Recommendation refresh trigger and scope](recommendation-refresh-automation/trigger-and-scope.md) - [Recommendation refresh execution](recommendation-refresh-automatio"
+      "sourceHash": "9ef3531170036c44efbd89ce8c9ec7b50fc91f53edcaabcf0ac3e0558719b14e",
+      "summary": "# Automation - RecommendationRefreshAutomation ## Split Navigation - [Recommendation refresh trigger and scope](recommendation-refresh-automation/trigger-and-scope.md) - [Recommendation refresh execution](recommendation-refresh-automati"
     },
     {
       "id": "58ed90e2c0c74a8d",
@@ -2443,11 +2444,11 @@
     },
     {
       "id": "0470c1fcfb806a49",
-      "title": "Automation - ReportGenerationAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/report-generation-automation.md",
-      "sourceHash": "b3bd0d59cda1635a3bbc2e75652fb6ab0272ca1f825f5bd54d29134e0bef8d91",
-      "summary": "# Automation - ReportGenerationAutomation ## Split Navigation - [Report generation trigger and scope](report-generation-automation/trigger-and-scope.md) - [Report generation execution](report-generation-automation/execution.md) - [Repor"
+      "sourceHash": "72a2ccd27763d27a398459da7a5b76349528a07e34b0ecd411ea5170cbb9561f",
+      "summary": "# Automation - ReportGenerationAutomation ## Split Navigation - [Report generation trigger and scope](report-generation-automation/trigger-and-scope.md) - [Report generation execution](report-generation-automation/execution.md) - [Repo"
     },
     {
       "id": "e430a3e99cff1b75",
@@ -2475,11 +2476,11 @@
     },
     {
       "id": "9c53a7567796da0b",
-      "title": "Automation - ScenarioRefreshAutomation",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/automations/scenario-refresh-automation.md",
-      "sourceHash": "5fcaffd220262b8f078b3d2b3d862bff5b8bb80b7d11fa83a59f7eb4d2535f9c",
-      "summary": "# Automation - ScenarioRefreshAutomation ## Split Navigation - [Scenario refresh trigger and scope](scenario-refresh-automation/trigger-and-scope.md) - [Scenario refresh execution](scenario-refresh-automation/execution.md) - [Scenario r"
+      "sourceHash": "f98f8719e60e7f4e9be7bdfc1be372d76ea707d097ad78cfcdb7b3b04d9a9932",
+      "summary": "# Automation - ScenarioRefreshAutomation ## Split Navigation - [Scenario refresh trigger and scope](scenario-refresh-automation/trigger-and-scope.md) - [Scenario refresh execution](scenario-refresh-automation/execution.md) - [Scenario"
     },
     {
       "id": "a70c226b2dd9a033",
@@ -2507,11 +2508,11 @@
     },
     {
       "id": "2785e5e879a3a1c8",
-      "title": "Background Job Framework",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/background-job-framework.md",
-      "sourceHash": "25fdbdecaa67ac866cc536100e9e4b0d977801ea732c365a7229ef48f779d455",
-      "summary": "# Background Job Framework ## Split Navigation - [Background job catalog](background-job/catalog.md) - [Background job execution strategy](background-job/execution-strategy.md) - [Background job matrices and controls](background-job/mat"
+      "sourceHash": "e19cf14216ad34b1ce1a4ef29e193172856eb41a208e8df6378842417ed41c42",
+      "summary": "# Background Job Framework ## Split Navigation - [Background job catalog](background-job/catalog.md) - [Background job execution strategy](background-job/execution-strategy.md) - [Background job matrices and controls](background-job/ma"
     },
     {
       "id": "fc47aec03e10cc72",
@@ -2547,10 +2548,10 @@
     },
     {
       "id": "d4c964d31eccd1bb",
-      "title": "Background Job Maintenance Jobs",
+      "title": "Purpose",
       "category": "framework",
       "path": "knowledge/framework/background-job/maintenance-jobs.md",
-      "sourceHash": "5e7d92feb355aa91d069646804b7eac96c5d6aa32388a82633f908c8f102df6a",
+      "sourceHash": "74a79f267a6f6ca8bfbaf3631a410775fe258e460a0fc373c3ef0fad4f143a14",
       "summary": "# Background Job Maintenance Jobs Document Path: knowledge/framework/background-job/maintenance-jobs.md Parent Specification: knowledge/framework/background-job-framework.md # Purpose This split document isolates maintenance-ori"
     },
     {
@@ -2603,11 +2604,11 @@
     },
     {
       "id": "e04cfb6f99f6f4eb",
-      "title": "Cache Strategy Framework",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/cache-strategy-framework.md",
-      "sourceHash": "578131ea1ce4c98b85225788de396cc2ed9b12df51c945cf9fc9c215a20835a8",
-      "summary": "# Cache Strategy Framework # Document Control Document Name: Cache Strategy Framework Document Path: knowledge/cache-strategy-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Spec"
+      "sourceHash": "ca551ce5425365ac70dd9fee57f127da7710cb83019e7c48d04a58beaef9f409",
+      "summary": "# Cache Strategy Framework # Document Control Document Name: Cache Strategy Framework Document Path: knowledge/framework/cache-strategy-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Cano"
     },
     {
       "id": "951806951ad88da9",
@@ -2619,11 +2620,11 @@
     },
     {
       "id": "00839929425e7774",
-      "title": "Compliance Framework",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/compliance-framework.md",
-      "sourceHash": "602dacfcd9efeec00f13be3f8f3dcf4194b275cfb6749851df9bafd5ed1c53db",
-      "summary": "# Compliance Framework # Document Control Document Name: Compliance Framework Document Path: knowledge/compliance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification D"
+      "sourceHash": "cfdc7aa857e6c2a0107fbbd2700b50f77372b03ed159ff8dab654efe80e4442c",
+      "summary": "# Compliance Framework # Document Control Document Name: Compliance Framework Document Path: knowledge/framework/compliance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specif"
     },
     {
       "id": "98192808b56f4c89",
@@ -2635,11 +2636,11 @@
     },
     {
       "id": "f39d41dac6001576",
-      "title": "Data Governance Framework",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/data-governance-framework.md",
-      "sourceHash": "5e9d300ca272a52076ab3d99ed9c00766f042e5bfdebf7c26b75dbc503fe9ac4",
-      "summary": "# Data Governance Framework # Document Control Document Name: Data Governance Framework Document Path: knowledge/data-governance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical S"
+      "sourceHash": "0b2427b67af363932176e1fd44442c5851747564135d0716c3c740fb70337b2c",
+      "summary": "# Data Governance Framework # Document Control Document Name: Data Governance Framework Document Path: knowledge/framework/data-governance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: C"
     },
     {
       "id": "140ef93d913198ef",
@@ -2651,11 +2652,11 @@
     },
     {
       "id": "e876ad89d58a6dd1",
-      "title": "Database Governance Framework",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/database-governance-framework.md",
-      "sourceHash": "5caceca3d61a1dd16eacd454d369b97837e551fbf7254515ca029b44a646f6a1",
-      "summary": "# Database Governance Framework # Document Control Document Name: Database Governance Framework Document Path: knowledge/database-governance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status:"
+      "sourceHash": "858474eba3862d017c687f968ec7636d85df2566b453238a5449a92d1541de3d",
+      "summary": "# Database Governance Framework # Document Control Document Name: Database Governance Framework Document Path: knowledge/framework/database-governance-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1."
     },
     {
       "id": "05a260ec40fcb2a1",
@@ -3019,11 +3020,11 @@
     },
     {
       "id": "fc274e6a6d1e5768",
-      "title": "Scheduler Framework",
+      "title": "Document Control",
       "category": "framework",
       "path": "knowledge/framework/scheduler-framework.md",
-      "sourceHash": "124f69bdc7cc7fd86156dfba9201c814dd3afe4ab75d60f3382ef24eb21cd811",
-      "summary": "# Scheduler Framework ## Split Navigation - [Scheduler catalog and timing](scheduler/catalog-and-timing.md) - [Scheduler execution strategies](scheduler/execution-strategies.md) - [Scheduler timing and concurrency policies](scheduler/ti"
+      "sourceHash": "3929a95612c8727fc14d7c360b579257c4451f45fa70a2595b62557fe40f4a10",
+      "summary": "# Scheduler Framework ## Split Navigation - [Scheduler catalog and timing](scheduler/catalog-and-timing.md) - [Scheduler execution strategies](scheduler/execution-strategies.md) - [Scheduler timing and concurrency policies](scheduler/t"
     },
     {
       "id": "c62005a471ab1911",
@@ -3035,10 +3036,10 @@
     },
     {
       "id": "288cbac289605988",
-      "title": "Scheduler Diagrams and Consistency",
+      "title": "Purpose",
       "category": "framework",
       "path": "knowledge/framework/scheduler/diagrams-and-consistency.md",
-      "sourceHash": "0af29393913875d51c15e4c885a3e973ee2d6968ca5310dea7f8ab4c21936eb2",
+      "sourceHash": "385a8888d40f71f9662853c50ae186201332865f3098514f2c53ea4208fbbba2",
       "summary": "# Scheduler Diagrams and Consistency Document Path: knowledge/framework/scheduler/diagrams-and-consistency.md Parent Specification: knowledge/framework/scheduler-framework.md # Purpose This split document isolates the Scheduler"
     },
     {
@@ -3067,10 +3068,10 @@
     },
     {
       "id": "57c7e8df8cfedb3e",
-      "title": "Scheduler Timing and Concurrency Policies",
+      "title": "Purpose",
       "category": "framework",
       "path": "knowledge/framework/scheduler/timing-and-concurrency-policies.md",
-      "sourceHash": "700762207b8b1db0a7a01ef49dabec7796462fc9211e14fce0da2abd4ddbbbbc",
+      "sourceHash": "b9bb4bc7f83c4f15f99971fbd150d73a0dcd6bbfe73c3d5b3bded69a400e89fd",
       "summary": "# Scheduler Timing and Concurrency Policies Document Path: knowledge/framework/scheduler/timing-and-concurrency-policies.md Parent Specification: knowledge/framework/scheduler-framework.md # Purpose This split document summarize"
     },
     {
@@ -3186,12 +3187,20 @@
       "summary": "# user-journey-framework.md # Atlas Enterprise Specification ## User Journey Framework Version: 1.0 ## 1. Purpose This document defines the end-to-end user journey for Project Atlas (Life Financial Decision Operating System). I"
     },
     {
+      "id": "8223d3d223cbab0e",
+      "title": "Knowledge Source of Truth",
+      "category": "governance",
+      "path": "knowledge/governance/knowledge-source-of-truth.md",
+      "sourceHash": "7da01736b8e15e292104a1fd9532e46e1dedcf1e63cc023f3cb3bf75727b0bdd",
+      "summary": "# Knowledge Source of Truth Document Path: knowledge/governance/knowledge-source-of-truth.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Knowledge Governance Bounded Context:"
+    },
+    {
       "id": "44f8eff120df2e5e",
-      "title": "Integration Framework",
+      "title": "Document Control",
       "category": "integration",
       "path": "knowledge/integration/integration-framework.md",
-      "sourceHash": "beb554bfee1a4e82d8cde1bdd2d5a3d73c4e641dba90101e1b88ac98c0736ebd",
-      "summary": "# Integration Framework ## Split Navigation - [Integration architecture overview](integration/architecture-overview.md) - [Integration catalog](integration/catalog.md) - [Integration resilience and security](integration/resilience-and-s"
+      "sourceHash": "48038e31220569173100a28ad6dc78e2e10ba169721e9854318b3724cb538c83",
+      "summary": "# Integration Framework ## Split Navigation - [Integration architecture overview](integration/architecture-overview.md) - [Integration catalog](integration/catalog.md) - [Integration resilience and security](integration/resilience-and-"
     },
     {
       "id": "88f7a3dd1083524a",
@@ -3483,11 +3492,11 @@
     },
     {
       "id": "878c224230fbe8d8",
-      "title": "Audit Framework",
+      "title": "Document Control",
       "category": "security",
       "path": "knowledge/security/audit-framework.md",
-      "sourceHash": "1d61a821bc546fcd176108be712bc10766ba8f77af60dacd50ffcb10927bad3f",
-      "summary": "# Audit Framework # Document Control Document Name: Audit Framework Document Path: knowledge/audit-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Platform"
+      "sourceHash": "42352ab27fea834b21c4fab235f0b5b7cf8dd93d4d242f8c568c19692f4cbcf7",
+      "summary": "# Audit Framework # Document Control Document Name: Audit Framework Document Path: knowledge/security/audit-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain:"
     },
     {
       "id": "bae76cb48a31a65c",
@@ -3659,11 +3668,11 @@
     },
     {
       "id": "a4132866965d02b3",
-      "title": "Tenant Framework",
+      "title": "Document Control",
       "category": "security",
       "path": "knowledge/security/tenant-framework.md",
-      "sourceHash": "81ba575668956c458cc061ed79f04a681067c2020ca6f8cf4fde4e30bb872d21",
-      "summary": "# Tenant Framework # Document Control Document Name: Tenant Framework Document Path: knowledge/tenant-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Platf"
+      "sourceHash": "bcd6b210f1010345c53c83cba788f02747c54419cb1f3dee501a167bb23fa87d",
+      "summary": "# Tenant Framework # Document Control Document Name: Tenant Framework Document Path: knowledge/security/tenant-framework.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Doma"
     },
     {
       "id": "7b643dfcf9c77d06",
@@ -3979,11 +3988,11 @@
     },
     {
       "id": "f41ab03e313c15c1",
-      "title": "Event Driven Architecture",
+      "title": "Document Control",
       "category": "supporting",
       "path": "knowledge/supporting/event-driven-architecture.md",
-      "sourceHash": "f09b5e28407170fff74c284c711a9c91cb87c8e9f5a18164379a0096e46f3ca1",
-      "summary": "# Event Driven Architecture ## Split Navigation - [Event-driven architecture overview](event-driven-architecture/architecture-overview.md) - [Event-driven delivery patterns](event-driven-architecture/delivery-patterns.md) - [Event-drive"
+      "sourceHash": "289f869a31d6f6a8f376766cd0515ed40f2a8c26d167b29b276654006109fdec",
+      "summary": "# Event Driven Architecture ## Split Navigation - [Event-driven architecture overview](event-driven-architecture/architecture-overview.md) - [Event-driven delivery patterns](event-driven-architecture/delivery-patterns.md) - [Event-driv"
     },
     {
       "id": "e19b26a245b3eaff",
@@ -4147,11 +4156,11 @@
     },
     {
       "id": "acf323c2a51ae571",
-      "title": "Goal Conflict Resolution",
+      "title": "Catalog Alignment Summary",
       "category": "supporting",
       "path": "knowledge/supporting/goal-conflict-resolution.md",
-      "sourceHash": "d16ce51a46a202df884efdf6dee4cb38b46229bc4e74768ebe82a1b62561f211",
-      "summary": "# Goal Conflict Resolution ## Split Navigation - [Goal conflict detection](goal-conflict-resolution/detection-and-classification.md) - [Goal conflict resolution workflow](goal-conflict-resolution/resolution-workflow.md) - [Goal conflict"
+      "sourceHash": "b309e34a78e80902ce763b472060e2887c7f6821e7823a8fab70359006540fbd",
+      "summary": "# Goal Conflict Resolution ## Split Navigation - [Goal conflict detection](goal-conflict-resolution/detection-and-classification.md) - [Goal conflict resolution workflow](goal-conflict-resolution/resolution-workflow.md) - [Goal conflic"
     },
     {
       "id": "1c2fdc2781e02387",
@@ -4874,12 +4883,44 @@
       "summary": "# Terminology Version: 1.0 Project: Atlas -- Life Financial Decision Operating System ------------------------------------------------------------------------ # Purpose 本文件定義 Project Atlas 的統一領域語言（Ubiquitous Language）。 所有文件、A"
     },
     {
+      "id": "a7da6a59de8fc015",
+      "title": "Automation Workflow",
+      "category": "workflow",
+      "path": "knowledge/workflow/automation-workflow.md",
+      "sourceHash": "0db1dae582d502b6e6ef7d7638e3f618dd36dcd9df2a6737462570ce249c29a2",
+      "summary": "# Automation Workflow Document Path: knowledge/workflow/automation-workflow.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Automation Bounded Context: Automation Owner: Proje"
+    },
+    {
       "id": "070a9062234f1eaa",
       "title": "knowledge/decision-workflow.md",
       "category": "workflow",
       "path": "knowledge/workflow/decision-workflow.md",
       "sourceHash": "ec723b3464a069ae3c5a7f91766a2d7f0ab8761ebcac5b119b846b23c05e9f17",
       "summary": "# knowledge/decision-workflow.md # Atlas Decision Workflow Version: 1.0 ## Purpose Defines the end-to-end workflow executed by the Atlas Decision Engine. The workflow is deterministic, versioned and auditable, ensuring identical inp"
+    },
+    {
+      "id": "92ec3143489b4c30",
+      "title": "Goal Workflow",
+      "category": "workflow",
+      "path": "knowledge/workflow/goal-workflow.md",
+      "sourceHash": "1e81ad73027dc67ccbb64b4d6a35a2c2e27a69c29ad7583a7edcda930a8566c6",
+      "summary": "# Goal Workflow Document Path: knowledge/workflow/goal-workflow.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Goal Management Bounded Context: Goal Owner: Project Atlas Sour"
+    },
+    {
+      "id": "8b8b21bcb23c8885",
+      "title": "Loan Workflow",
+      "category": "workflow",
+      "path": "knowledge/workflow/loan-workflow.md",
+      "sourceHash": "0c0b511ae53a698e6fc5763db4cb12a3e01f49085f131e81f2cd9e8c60075fca",
+      "summary": "# Loan Workflow Document Path: knowledge/workflow/loan-workflow.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Debt Management Bounded Context: Loan Owner: Project Atlas Sour"
+    },
+    {
+      "id": "3cb36783c4cf949e",
+      "title": "Portfolio Workflow",
+      "category": "workflow",
+      "path": "knowledge/workflow/portfolio-workflow.md",
+      "sourceHash": "65ed0bce5d17dfb7a4c8c4e84dd2b4dcdb5c4f3c5b9b9a6412904566ca67e6ae",
+      "summary": "# Portfolio Workflow Document Path: knowledge/workflow/portfolio-workflow.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Portfolio Management Bounded Context: Portfolio Owner"
     }
   ]
 }

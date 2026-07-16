@@ -1,4 +1,4 @@
-# Simulation Engine Framework
+﻿# Simulation Engine Framework
 ## Split Navigation
 
 - [Simulation engine catalog and matrices](simulation-engine/catalog-and-matrices.md)
@@ -8,7 +8,7 @@
 # Document Control
 
 Document Name: Simulation Engine Framework
-Document Path: knowledge/simulation-engine-framework.md
+Document Path: knowledge/engine/simulation-engine-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

@@ -1,4 +1,4 @@
-# Bounded Context Catalog
+﻿# Bounded Context Catalog
 ## Split Navigation
 - [Bounded context definitions](bounded-context/definitions.md)
 - [Bounded context integrations](bounded-context/integrations.md)
@@ -10,7 +10,7 @@
 # Document Control
 
 Document Name: Bounded Context Catalog
-Document Path: knowledge/bounded-context-catalog.md
+Document Path: knowledge/catalog/bounded-context-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

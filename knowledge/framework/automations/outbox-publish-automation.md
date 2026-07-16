@@ -1,4 +1,4 @@
-# Automation - OutboxPublishAutomation
+﻿# Automation - OutboxPublishAutomation
 ## Split Navigation
 - [Outbox publish trigger and scope](outbox-publish-automation/trigger-and-scope.md)
 - [Outbox publish execution](outbox-publish-automation/execution.md)

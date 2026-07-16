@@ -1,4 +1,4 @@
-# Automation - ScenarioRefreshAutomation
+﻿# Automation - ScenarioRefreshAutomation
 ## Split Navigation
 - [Scenario refresh trigger and scope](scenario-refresh-automation/trigger-and-scope.md)
 - [Scenario refresh execution](scenario-refresh-automation/execution.md)

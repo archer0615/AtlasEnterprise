@@ -1,4 +1,4 @@
-# Application Service Catalog
+﻿# Application Service Catalog
 ## Split Navigation
 - [Application service command orchestration](application-service/command-orchestration.md)
 - [Application service query projection](application-service/query-projection.md)
@@ -10,7 +10,7 @@
 # Document Control
 
 Document Name: Application Service Catalog
-Document Path: knowledge/application-service-catalog.md
+Document Path: knowledge/catalog/application-service-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

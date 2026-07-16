@@ -1,9 +1,9 @@
-# Projection Engine Framework
+﻿# Projection Engine Framework
 
 # Document Control
 
 Document Name: Projection Engine Framework
-Document Path: knowledge/projection-engine-framework.md
+Document Path: knowledge/engine/projection-engine-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

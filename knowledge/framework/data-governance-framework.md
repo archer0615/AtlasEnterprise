@@ -1,9 +1,9 @@
-# Data Governance Framework
+﻿# Data Governance Framework
 
 # Document Control
 
 Document Name: Data Governance Framework
-Document Path: knowledge/data-governance-framework.md
+Document Path: knowledge/framework/data-governance-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

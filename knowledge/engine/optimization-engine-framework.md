@@ -1,4 +1,4 @@
-# Optimization Engine Framework
+﻿# Optimization Engine Framework
 ## Split Navigation
 
 - [Optimization engine catalog and matrices](optimization-engine/catalog-and-matrices.md)
@@ -8,7 +8,7 @@
 # Document Control
 
 Document Name: Optimization Engine Framework
-Document Path: knowledge/optimization-engine-framework.md
+Document Path: knowledge/engine/optimization-engine-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

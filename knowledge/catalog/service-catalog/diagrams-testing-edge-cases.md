@@ -1,4 +1,4 @@
-# Service Catalog Diagrams, Testing, and Edge Cases
+﻿# Service Catalog Diagrams, Testing, and Edge Cases
 
 Document Path: knowledge/catalog/service-catalog/diagrams-testing-edge-cases.md
 

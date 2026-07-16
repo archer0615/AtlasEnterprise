@@ -1,4 +1,4 @@
-# Integration Framework
+﻿# Integration Framework
 ## Split Navigation
 - [Integration architecture overview](integration/architecture-overview.md)
 - [Integration catalog](integration/catalog.md)
@@ -12,7 +12,7 @@
 # Document Control
 
 Document Name: Integration Framework
-Document Path: knowledge/integration-framework.md
+Document Path: knowledge/integration/integration-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

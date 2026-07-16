@@ -1,4 +1,4 @@
-# Event Driven Architecture
+﻿# Event Driven Architecture
 ## Split Navigation
 - [Event-driven architecture overview](event-driven-architecture/architecture-overview.md)
 - [Event-driven delivery patterns](event-driven-architecture/delivery-patterns.md)
@@ -11,7 +11,7 @@
 # Document Control
 
 Document Name: Event Driven Architecture
-Document Path: knowledge/event-driven-architecture.md
+Document Path: knowledge/supporting/event-driven-architecture.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

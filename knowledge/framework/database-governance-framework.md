@@ -1,9 +1,9 @@
-# Database Governance Framework
+﻿# Database Governance Framework
 
 # Document Control
 
 Document Name: Database Governance Framework
-Document Path: knowledge/database-governance-framework.md
+Document Path: knowledge/framework/database-governance-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

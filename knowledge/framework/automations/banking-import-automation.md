@@ -1,4 +1,4 @@
-# Automation - BankingImportAutomation
+﻿# Automation - BankingImportAutomation
 ## Split Navigation
 - [Banking import trigger and scope](banking-import-automation/trigger-and-scope.md)
 - [Banking import execution](banking-import-automation/execution.md)

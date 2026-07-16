@@ -1,4 +1,4 @@
-# Automation - CleanupAutomation
+﻿# Automation - CleanupAutomation
 ## Split Navigation
 - [Cleanup trigger and scope](cleanup-automation/trigger-and-scope.md)
 - [Cleanup execution](cleanup-automation/execution.md)

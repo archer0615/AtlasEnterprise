@@ -1,4 +1,4 @@
-# Message Contract Catalog
+﻿# Message Contract Catalog
 ## Split Navigation
 - [Message contract catalog entries](message-contract/catalog-entries.md)
 - [Message contract delivery and compatibility](message-contract/delivery-and-compatibility.md)
@@ -11,7 +11,7 @@
 # Document Control
 
 Document Name: Message Contract Catalog
-Document Path: knowledge/message-contract-catalog.md
+Document Path: knowledge/catalog/message-contract-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

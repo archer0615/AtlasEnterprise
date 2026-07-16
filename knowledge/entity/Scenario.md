@@ -1,4 +1,4 @@
-# Scenario Entity Specification
+﻿# Scenario Entity Specification
 ## Split Navigation
 - [Scenario identity and assumptions](scenario/identity-and-assumptions.md)
 - [Scenario API and persistence](scenario/api-and-persistence.md)

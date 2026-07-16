@@ -1,4 +1,4 @@
-# Automation Framework
+﻿# Automation Framework
 ## Split Navigation
 - [Automation catalog and triggers](automation/catalog-and-triggers.md)
 - [Automation execution strategies](automation/execution-strategies.md)
@@ -12,7 +12,7 @@
 # Document Control
 
 Document Name: Automation Framework
-Document Path: knowledge/automation-framework.md
+Document Path: knowledge/framework/automation-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

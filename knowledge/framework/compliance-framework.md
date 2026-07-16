@@ -1,9 +1,9 @@
-# Compliance Framework
+﻿# Compliance Framework
 
 # Document Control
 
 Document Name: Compliance Framework
-Document Path: knowledge/compliance-framework.md
+Document Path: knowledge/framework/compliance-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

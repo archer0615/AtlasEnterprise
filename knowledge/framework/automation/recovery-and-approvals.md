@@ -1,4 +1,4 @@
-# Automation Recovery and Approvals
+﻿# Automation Recovery and Approvals
 
 Document Path: knowledge/framework/automation/recovery-and-approvals.md
 

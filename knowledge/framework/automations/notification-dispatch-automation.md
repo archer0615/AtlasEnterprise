@@ -1,4 +1,4 @@
-# Automation - NotificationDispatchAutomation
+﻿# Automation - NotificationDispatchAutomation
 ## Split Navigation
 - [Notification dispatch trigger and channels](notification-dispatch-automation/trigger-and-channels.md)
 - [Notification dispatch execution](notification-dispatch-automation/execution.md)

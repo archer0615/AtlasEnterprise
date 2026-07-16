@@ -1,4 +1,4 @@
-# Repository Catalog
+﻿# Repository Catalog
 ## Split Navigation
 - [Repository catalog entries](repository/catalog-entries.md)
 - [Repository method catalog](repository/method-catalog.md)
@@ -10,7 +10,7 @@
 # Document Control
 
 Document Name: Repository Catalog
-Document Path: knowledge/repository-catalog.md
+Document Path: knowledge/catalog/repository-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

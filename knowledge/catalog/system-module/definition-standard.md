@@ -1,4 +1,4 @@
-# System Module Definition Standard
+﻿# System Module Definition Standard
 
 Document Path: knowledge/catalog/system-module/definition-standard.md
 

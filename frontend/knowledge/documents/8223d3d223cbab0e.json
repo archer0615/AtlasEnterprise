@@ -1,0 +1,47 @@
+{
+  "id": "8223d3d223cbab0e",
+  "title": "Knowledge Source of Truth",
+  "category": "governance",
+  "canonicalPath": "knowledge/governance/knowledge-source-of-truth.md",
+  "sourceHash": "7da01736b8e15e292104a1fd9532e46e1dedcf1e63cc023f3cb3bf75727b0bdd",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Knowledge Source of Truth"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Source Hierarchy"
+    },
+    {
+      "level": 2,
+      "text": "Canonical Rules"
+    },
+    {
+      "level": 2,
+      "text": "Legacy Reference Handling"
+    },
+    {
+      "level": 2,
+      "text": "Traceability"
+    },
+    {
+      "level": 2,
+      "text": "Governance"
+    },
+    {
+      "level": 2,
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "# Knowledge Source of Truth\n\nDocument Path: knowledge/governance/knowledge-source-of-truth.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Knowledge Governance\nBounded Context: Knowledge\nOwner: Project Atlas\nSource of Truth: Atlas Knowledge Governance Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines which knowledge documents are canonical, how legacy references are handled, and how product, implementation, and generated artifacts trace back to source specifications.\n\n## Source Hierarchy\n\n1. `knowledge/**` is the canonical specification corpus.\n2. `docs/knowledge/**` is legacy reference material unless a document explicitly states otherwise.\n3. `docs/roadmap/**` records plans, audits, migration notes, and validation evidence.\n4. `frontend/knowledge/**` is generated output and must not be edited as source.\n5. Runtime code and fixtures must cite or map back to canonical `knowledge/**` files when they define durable product behavior.\n\n## Canonical Rules\n\n- Every canonical document must include a correct `Document Path` when it has a document-control block.\n- Parent documents define overview, ownership, navigation, and source-of-truth scope.\n- Child documents carry concrete rules, contracts, workflows, matrices, acceptance criteria, and test expectations.\n- Legacy documents may remain for historical comparison, but must not override canonical `knowledge/**` content.\n- Generated artifacts must be rebuilt from source documents after canonical knowledge changes.\n\n## Legacy Reference Handling\n\n- `docs/knowledge/entity/*.md` remains legacy reference material for Asset, Household, Liability, Loan, and Mortgage.\n- Any difference between `docs/knowledge/entity/*.md` and `knowledge/entity/*.md` resolves in favor of `knowledge/entity/*.md`.\n- Legacy content may be migrated only through a new canonical patch under `knowledge/**`.\n\n## Traceability\n\nEach product capability should map to:\n\n- Canonical knowledge document.\n- Runtime implementation or fixture.\n- Validation command or audit report.\n- Known gaps or planned follow-up.\n\n## Governance\n\n- Path changes require updating `Document Path`, Related Specifications, and generated knowledge artifacts.\n- New domains require a parent specification and at least one governance/testing section.\n- Cross-document duplication must identify the canonical owner before content is copied or split.\n\n## Testing\n\n- `npm run build:knowledge` must pass after source changes that affect generated knowledge.\n- `npm run validate` must pass before local commit.\n- `git diff --check` must pass; line-ending warnings are acceptable on Windows when no whitespace errors are reported.\n\n## Related Specifications\n\n- `docs/roadmap/domain-coverage-audit-2026-07-16.md`\n- `docs/roadmap/semantic-quality-review-2026-07-16.md`\n- `docs/roadmap/product-spec-alignment-audit-2026-07-16.md`\n- `docs/roadmap/archive-2026-07-16-knowledge-split.md`\n",
+  "references": []
+}

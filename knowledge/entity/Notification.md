@@ -1,4 +1,4 @@
-# Notification Entity Specification
+﻿# Notification Entity Specification
 ## Split Navigation
 - [Notification identity and delivery](notification/identity-and-delivery.md)
 - [Notification API and persistence](notification/api-and-persistence.md)

@@ -1,4 +1,4 @@
-# Automation - DecisionReviewAutomation
+﻿# Automation - DecisionReviewAutomation
 ## Split Navigation
 - [Decision review automation trigger and scope](decision-review-automation/trigger-and-scope.md)
 - [Decision review automation execution](decision-review-automation/execution.md)

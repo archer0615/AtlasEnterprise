@@ -1,0 +1,43 @@
+{
+  "id": "92ec3143489b4c30",
+  "title": "Goal Workflow",
+  "category": "workflow",
+  "canonicalPath": "knowledge/workflow/goal-workflow.md",
+  "sourceHash": "1e81ad73027dc67ccbb64b4d6a35a2c2e27a69c29ad7583a7edcda930a8566c6",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Goal Workflow"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Scope"
+    },
+    {
+      "level": 2,
+      "text": "Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Workflow Stages"
+    },
+    {
+      "level": 2,
+      "text": "Outputs"
+    },
+    {
+      "level": 2,
+      "text": "Governance And Testing"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "# Goal Workflow\n\nDocument Path: knowledge/workflow/goal-workflow.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Canonical Specification\nDomain: Goal Management\nBounded Context: Goal\nOwner: Project Atlas\nSource of Truth: Atlas Goal Workflow Source of Truth\nLast Updated: 2026-07-16\n\n## Purpose\n\nDefines the end-to-end workflow for creating, prioritizing, funding, monitoring, reviewing, and retiring financial goals.\n\n## Scope\n\n- Goal creation and validation.\n- Goal priority and dependency assessment.\n- Funding plan generation.\n- Progress tracking and variance detection.\n- Review, adjustment, completion, cancellation, and archival.\n\n## Inputs\n\n- Household profile.\n- Goal definition, target amount, deadline, priority, and owner.\n- Asset, liability, cash-flow, and portfolio snapshots.\n- Assumption, inflation, return, tax, and risk versions.\n- Existing goals and dependency graph.\n\n## Workflow Stages\n\n1. Validate goal identity, ownership, target, deadline, and currency.\n2. Classify goal type, urgency, flexibility, and dependency constraints.\n3. Evaluate affordability, funding gap, risk capacity, and conflict with existing goals.\n4. Generate contribution schedule and funding source options.\n5. Score priority and resolve conflicts against other goals.\n6. Persist the approved goal plan and versioned assumptions.\n7. Track progress, milestone variance, and funding drift.\n8. Trigger review when deadline, contribution, assumption, or household state changes.\n9. Produce next actions, recommendations, and audit events.\n10. Complete, cancel, defer, or archive the goal with outcome evidence.\n\n## Outputs\n\n- Goal status and lifecycle state.\n- Funding plan and contribution schedule.\n- Progress percentage, milestone status, and variance reason.\n- Conflict and dependency resolution result.\n- Recommended next actions.\n- Audit trail with assumption and formula versions.\n\n## Governance And Testing\n\n- Every state transition must be deterministic and auditable.\n- Funding calculations must reference versioned assumptions and formulas.\n- Conflict resolution must record priority inputs and tie-breakers.\n- Tests must cover creation, funding, missed milestones, priority conflicts, completion, cancellation, and assumption changes.\n\n## Related Specifications\n\n- `knowledge/entity/Goal.md`\n- `knowledge/entity/goal/identity-and-ownership.md`\n- `knowledge/entity/goal/funding-progress-and-review.md`\n- `knowledge/supporting/goal-lifecycle.md`\n- `knowledge/supporting/goal-progress-tracking.md`\n- `knowledge/framework/goal-funding-framework.md`\n- `knowledge/framework/goal-review-framework.md`\n",
+  "references": []
+}

@@ -1,4 +1,4 @@
-# Domain Service Catalog
+﻿# Domain Service Catalog
 ## Split Navigation
 - [Domain service catalog entries](domain-service/catalog-entries.md)
 - [Domain service capability and calculation matrices](domain-service/capability-and-calculation-matrices.md)
@@ -10,7 +10,7 @@
 # Document Control
 
 Document Name: Domain Service Catalog
-Document Path: knowledge/domain-service-catalog.md
+Document Path: knowledge/catalog/domain-service-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

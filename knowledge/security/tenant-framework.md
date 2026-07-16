@@ -1,9 +1,9 @@
-# Tenant Framework
+﻿# Tenant Framework
 
 # Document Control
 
 Document Name: Tenant Framework
-Document Path: knowledge/tenant-framework.md
+Document Path: knowledge/security/tenant-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

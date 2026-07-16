@@ -1,9 +1,9 @@
-# Audit Framework
+﻿# Audit Framework
 
 # Document Control
 
 Document Name: Audit Framework
-Document Path: knowledge/audit-framework.md
+Document Path: knowledge/security/audit-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

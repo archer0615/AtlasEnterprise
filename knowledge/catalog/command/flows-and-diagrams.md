@@ -1,4 +1,4 @@
-# Command Flows and Diagrams
+﻿# Command Flows and Diagrams
 
 Document Path: knowledge/catalog/command/flows-and-diagrams.md
 

@@ -1,4 +1,4 @@
-# Command Catalog
+﻿# Command Catalog
 ## Split Navigation
 - [Command catalog entries](command/catalog-entries.md)
 - [Command ownership and routing](command/ownership-and-routing.md)
@@ -11,7 +11,7 @@
 # Document Control
 
 Document Name: Command Catalog
-Document Path: knowledge/command-catalog.md
+Document Path: knowledge/catalog/command-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

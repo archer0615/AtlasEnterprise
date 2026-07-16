@@ -1,4 +1,4 @@
-# Automation - BrokerageImportAutomation
+﻿# Automation - BrokerageImportAutomation
 ## Split Navigation
 - [Brokerage import trigger and scope](brokerage-import-automation/trigger-and-scope.md)
 - [Brokerage import execution](brokerage-import-automation/execution.md)

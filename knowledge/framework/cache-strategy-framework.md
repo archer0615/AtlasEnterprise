@@ -1,9 +1,9 @@
-# Cache Strategy Framework
+﻿# Cache Strategy Framework
 
 # Document Control
 
 Document Name: Cache Strategy Framework
-Document Path: knowledge/cache-strategy-framework.md
+Document Path: knowledge/framework/cache-strategy-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

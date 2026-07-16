@@ -1,4 +1,4 @@
-# Aggregate Catalog
+﻿# Aggregate Catalog
 ## Split Navigation
 - [Aggregate core catalog](aggregate-catalog/core-aggregates.md)
 - [Aggregate ownership mapping](aggregate-catalog/ownership-mapping.md)
@@ -9,7 +9,7 @@
 
 Document Name: Aggregate Catalog
 
-Document Path: knowledge/aggregate-catalog.md
+Document Path: knowledge/catalog/aggregate-catalog.md
 
 Document Type: Enterprise Specification
 

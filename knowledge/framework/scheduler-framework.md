@@ -1,4 +1,4 @@
-# Scheduler Framework
+﻿# Scheduler Framework
 ## Split Navigation
 - [Scheduler catalog and timing](scheduler/catalog-and-timing.md)
 - [Scheduler execution strategies](scheduler/execution-strategies.md)
@@ -10,7 +10,7 @@
 # Document Control
 
 Document Name: Scheduler Framework
-Document Path: knowledge/scheduler-framework.md
+Document Path: knowledge/framework/scheduler-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

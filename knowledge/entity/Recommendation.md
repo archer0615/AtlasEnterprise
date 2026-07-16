@@ -1,4 +1,4 @@
-# Recommendation Entity Specification
+﻿# Recommendation Entity Specification
 
 # Document Control
 

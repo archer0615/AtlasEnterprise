@@ -1,4 +1,4 @@
-# Background Job Framework
+﻿# Background Job Framework
 ## Split Navigation
 - [Background job catalog](background-job/catalog.md)
 - [Background job execution strategy](background-job/execution-strategy.md)
@@ -13,7 +13,7 @@
 # Document Control
 
 Document Name: Background Job Framework
-Document Path: knowledge/background-job-framework.md
+Document Path: knowledge/framework/background-job-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

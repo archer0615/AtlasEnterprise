@@ -1,4 +1,4 @@
-# System Module Catalog
+﻿# System Module Catalog
 ## Split Navigation
 - [System module catalog entries](system-module/catalog-entries.md)
 - [System module definition standard](system-module/definition-standard.md)
@@ -10,7 +10,7 @@
 # Document Control
 
 Document Name: System Module Catalog
-Document Path: knowledge/system-module-catalog.md
+Document Path: knowledge/catalog/system-module-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

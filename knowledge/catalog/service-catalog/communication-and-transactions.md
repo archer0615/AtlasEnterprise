@@ -1,4 +1,4 @@
-# Service Catalog Communication and Transactions
+﻿# Service Catalog Communication and Transactions
 
 Document Path: knowledge/catalog/service-catalog/communication-and-transactions.md
 

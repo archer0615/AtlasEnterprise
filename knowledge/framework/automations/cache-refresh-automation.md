@@ -1,4 +1,4 @@
-# Automation - CacheRefreshAutomation
+﻿# Automation - CacheRefreshAutomation
 ## Split Navigation
 - [Cache refresh trigger and scope](cache-refresh-automation/trigger-and-scope.md)
 - [Cache refresh execution](cache-refresh-automation/execution.md)

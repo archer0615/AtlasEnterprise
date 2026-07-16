@@ -1,4 +1,4 @@
-# Scheduler Timing and Concurrency Policies
+﻿# Scheduler Timing and Concurrency Policies
 
 Document Path: knowledge/framework/scheduler/timing-and-concurrency-policies.md
 

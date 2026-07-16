@@ -1,4 +1,4 @@
-# API Governance Framework
+﻿# API Governance Framework
 ## Split Navigation
 - [API resource and URI standards](api-governance/resource-and-uri-standards.md)
 - [API standards and contracts](api-governance/standards-and-contracts.md)
@@ -12,7 +12,7 @@
 # Document Control
 
 Document Name: API Governance Framework
-Document Path: knowledge/api-governance-framework.md
+Document Path: knowledge/api/api-governance-framework.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

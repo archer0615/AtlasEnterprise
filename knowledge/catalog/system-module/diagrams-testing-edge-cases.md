@@ -1,4 +1,4 @@
-# System Module Diagrams, Testing, and Edge Cases
+﻿# System Module Diagrams, Testing, and Edge Cases
 
 Document Path: knowledge/catalog/system-module/diagrams-testing-edge-cases.md
 

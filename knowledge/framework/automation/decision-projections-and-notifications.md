@@ -1,4 +1,4 @@
-# Automation Decision Projections and Notifications
+﻿# Automation Decision Projections and Notifications
 
 Document Path: knowledge/framework/automation/decision-projections-and-notifications.md
 

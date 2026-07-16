@@ -1,4 +1,4 @@
-# Scheduler Diagrams and Consistency
+﻿# Scheduler Diagrams and Consistency
 
 Document Path: knowledge/framework/scheduler/diagrams-and-consistency.md
 

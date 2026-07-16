@@ -1,4 +1,4 @@
-# Entity Catalog
+﻿# Entity Catalog
 ## Split Navigation
 - [Entity catalog entries](entity-catalog/catalog-entries.md)
 - [Entity relationships and ownership](entity-catalog/relationships-and-ownership.md)
@@ -9,7 +9,7 @@
 
 Document Name: Entity Catalog
 
-Document Path: knowledge/entity-catalog.md
+Document Path: knowledge/catalog/entity-catalog.md
 
 Document Type: Enterprise Canonical Specification
 

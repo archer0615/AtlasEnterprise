@@ -1,4 +1,4 @@
-# Goal Conflict Resolution
+﻿# Goal Conflict Resolution
 ## Split Navigation
 - [Goal conflict detection](goal-conflict-resolution/detection-and-classification.md)
 - [Goal conflict resolution workflow](goal-conflict-resolution/resolution-workflow.md)
@@ -12,7 +12,7 @@
 
 Document Name: Goal Conflict Resolution
 
-Document Path: knowledge/goal-conflict-resolution.md
+Document Path: knowledge/supporting/goal-conflict-resolution.md
 
 Document Type: Enterprise Specification
 

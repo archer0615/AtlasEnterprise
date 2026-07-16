@@ -1,4 +1,4 @@
-# Service Catalog
+﻿# Service Catalog
 ## Split Navigation
 - [Service catalog application services](service-catalog/application-services.md)
 - [Service catalog domain services](service-catalog/domain-services.md)
@@ -11,7 +11,7 @@
 # Document Control
 
 Document Name: Service Catalog
-Document Path: knowledge/service-catalog.md
+Document Path: knowledge/catalog/service-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

@@ -1,4 +1,4 @@
-# Goal Entity Specification
+﻿# Goal Entity Specification
 
 # Document Control
 

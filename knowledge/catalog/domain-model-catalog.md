@@ -1,4 +1,4 @@
-# Domain Model Catalog
+﻿# Domain Model Catalog
 ## Split Navigation
 - [Domain model entities](domain-model/entities.md)
 - [Domain model relationships](domain-model/relationships.md)
@@ -11,7 +11,7 @@
 # Document Control
 
 Document Name: Domain Model Catalog
-Document Path: knowledge/domain-model-catalog.md
+Document Path: knowledge/catalog/domain-model-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

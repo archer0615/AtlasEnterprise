@@ -1,4 +1,4 @@
-# Domain Event Catalog
+﻿# Domain Event Catalog
 ## Split Navigation
 - [Domain event catalog entries](domain-event/catalog-entries.md)
 - [Domain event matrices and delivery](domain-event/matrices-and-delivery.md)
@@ -11,7 +11,7 @@
 # Document Control
 
 Document Name: Domain Event Catalog
-Document Path: knowledge/domain-event-catalog.md
+Document Path: knowledge/catalog/domain-event-catalog.md
 Document Type: Atlas Enterprise Canonical Specification
 Version: 1.0
 Status: Canonical Specification

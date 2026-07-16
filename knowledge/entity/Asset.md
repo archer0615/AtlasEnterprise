@@ -1,4 +1,4 @@
-# Asset Entity Specification
+﻿# Asset Entity Specification
 
 ## Split Navigation
 
