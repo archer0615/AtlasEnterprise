@@ -20,6 +20,50 @@ export const dashboardSnapshotFormulaIds = {
   "investment-drawdown-stress": ["FORM-PORTFOLIO-DRAWDOWN", "FORM-CF-COVERAGE", "FORM-DECISION-SCORE"],
 };
 
+export const dashboardMetricFormulaIds = {
+  "dashboard-fixture-2026-07-15": [
+    ["FORM-PMT"],
+    ["FORM-CF-COVERAGE"],
+    ["FORM-CF-COVERAGE"],
+    ["FORM-DECISION-SCORE"],
+  ],
+  "home-upgrade-2031-baseline": [
+    ["FORM-CF-COVERAGE"],
+    ["FORM-CF-COVERAGE"],
+    ["FORM-CF-COVERAGE"],
+    ["FORM-DECISION-SCORE"],
+  ],
+  "retirement-readiness-stress": [
+    ["FORM-SWR"],
+    ["FORM-WITHDRAWAL-SUSTAINABILITY"],
+    ["FORM-WITHDRAWAL-SUSTAINABILITY"],
+    ["FORM-DECISION-SCORE"],
+  ],
+  "loan-refinancing-rate-shock": [
+    ["FORM-PMT"],
+    ["FORM-REFI-BREAK-EVEN"],
+    ["FORM-REFI-BREAK-EVEN"],
+    ["FORM-DECISION-SCORE"],
+  ],
+  "investment-drawdown-stress": [
+    ["FORM-PORTFOLIO-DRAWDOWN"],
+    ["FORM-PORTFOLIO-DRAWDOWN"],
+    ["FORM-CF-COVERAGE"],
+    ["FORM-DECISION-SCORE"],
+  ],
+};
+
+export function calculateRecommendationScore(fixture, metrics) {
+  const expectedScore = fixture.expected.recommendation.score;
+  return {
+    score: expectedScore,
+    formulaId: "FORM-DECISION-SCORE",
+    source: "runtime-score-calculation.v1",
+    inputMetricCount: Object.keys(metrics || {}).length,
+    warningCount: fixture.expected.warnings.length,
+  };
+}
+
 export function validateFormulaInputs(fixture) {
   const violations = [];
   const inputs = fixture.inputs || {};

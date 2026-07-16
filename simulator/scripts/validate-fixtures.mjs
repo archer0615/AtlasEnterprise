@@ -1,6 +1,7 @@
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
-import { dashboardSnapshotFormulaIds, fixtureFormulaIds, validateFormulaInputs } from "./formula-contract.mjs";
+import { dashboardMetricFormulaIds, dashboardSnapshotFormulaIds, fixtureFormulaIds, validateFormulaInputs } from "./formula-contract.mjs";
+import { validateJsonSchema } from "./schema-validator.mjs";
 
 const root = process.cwd();
 const fixtureRoot = path.join(root, "simulator", "fixtures");
@@ -20,6 +21,8 @@ async function assertReferenceExists(reference, fixtureId) {
 }
 
 function assertSchemaMinimum(schema, value, label) {
+  const validation = validateJsonSchema(schema, value, label);
+  assert(validation.valid, `${label} schema validation failed: ${validation.errors.join("; ")}`);
   for (const field of schema.required || []) {
     assert(Object.hasOwn(value, field), `${label} missing schema-required field: ${field}`);
   }
@@ -112,6 +115,9 @@ for (const snapshot of dashboards.snapshots) {
   assert(snapshot.scenarios.every((scenario) => scenario.name && Number.isFinite(scenario.score) && scenario.status), `${snapshot.snapshotId} scenarios must include name, numeric score, and status`);
   assert(snapshot.actions.every((action) => typeof action === "string" && action.trim().length > 0), `${snapshot.snapshotId} actions must be non-empty strings`);
   assert(Array.isArray(dashboardSnapshotFormulaIds[snapshot.snapshotId]) && dashboardSnapshotFormulaIds[snapshot.snapshotId].length > 0, `${snapshot.snapshotId} missing dashboard formula ID mapping`);
+  assert(Array.isArray(dashboardMetricFormulaIds[snapshot.snapshotId]), `${snapshot.snapshotId} missing metric-card formula ID mapping`);
+  assert(dashboardMetricFormulaIds[snapshot.snapshotId].length === snapshot.metrics.length, `${snapshot.snapshotId} metric formula mapping count mismatch`);
+  assert(dashboardMetricFormulaIds[snapshot.snapshotId].every((formulaIds) => Array.isArray(formulaIds) && formulaIds.length > 0), `${snapshot.snapshotId} metric formula mappings must not be empty`);
 }
 
 console.log(`Fixture validation passed with ${fixtureFiles.length} simulator fixtures.`);

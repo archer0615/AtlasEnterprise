@@ -18,7 +18,9 @@ This report records the stricter fixture checks added for simulator fixtures and
 - Dashboard snapshots must bind to a simulator fixture ID and expose complete metric, scenario, and action fields.
 - Fixture formula mappings must exist for every simulator fixture.
 - Dashboard formula mappings must exist for every dashboard snapshot.
+- Dashboard metric-card formula mappings must exist for every dashboard metric.
 - Formula mappings must resolve to known catalog formula IDs.
+- Fixture and dashboard JSON now run through the in-repo schema validator.
 
 ## Validation
 
@@ -27,6 +29,5 @@ This report records the stricter fixture checks added for simulator fixtures and
 
 ## Follow-up
 
-- Add full JSON Schema validation when a schema validator dependency is available.
-- Expand dashboard field-level traceability to named formula IDs.
-- Add metric-card-level formula IDs after dashboard snapshot schema versioning is introduced.
+- Expand schema validator support if schemas begin using advanced JSON Schema keywords.
+- Add persisted metric-card formula IDs to dashboard fixture schema after schema versioning is introduced.

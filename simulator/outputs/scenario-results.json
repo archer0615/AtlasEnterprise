@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T16:16:30.602Z",
+  "generatedAt": "2026-07-16T16:25:41.737Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -27,6 +27,13 @@
         "formulaIds": [
           "FORM-CF-COVERAGE"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 61,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 1,
+        "warningCount": 1
       }
     },
     {
@@ -56,6 +63,13 @@
           "FORM-PORTFOLIO-DRAWDOWN",
           "FORM-CF-COVERAGE"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 71,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 2,
+        "warningCount": 1
       }
     },
     {
@@ -88,6 +102,13 @@
           "FORM-PMT",
           "FORM-LOAN-AMORTIZATION"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 88,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 5,
+        "warningCount": 0
       }
     },
     {
@@ -118,6 +139,13 @@
           "FORM-PMT",
           "FORM-REFI-BREAK-EVEN"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 58,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 3,
+        "warningCount": 1
       }
     },
     {
@@ -150,6 +178,13 @@
           "FORM-PMT",
           "FORM-REFI-BREAK-EVEN"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 66,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 5,
+        "warningCount": 2
       }
     },
     {
@@ -179,6 +214,13 @@
           "FORM-PMT",
           "FORM-CF-COVERAGE"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 72,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 2,
+        "warningCount": 1
       }
     },
     {
@@ -212,6 +254,13 @@
           "FORM-DRAWDOWN-ATTRIBUTION",
           "FORM-PORTFOLIO-DRAWDOWN"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 64,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 6,
+        "warningCount": 1
       }
     },
     {
@@ -237,6 +286,13 @@
         "formulaIds": [
           "FORM-DECISION-SCORE"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 69,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 0,
+        "warningCount": 1
       }
     },
     {
@@ -270,6 +326,13 @@
           "FORM-SWR",
           "FORM-WITHDRAWAL-SUSTAINABILITY"
         ]
+      },
+      "scoreEvaluation": {
+        "score": 42,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "runtime-score-calculation.v1",
+        "inputMetricCount": 6,
+        "warningCount": 2
       }
     }
   ]

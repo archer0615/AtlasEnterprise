@@ -1,6 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
-import { dashboardSnapshotFormulaIds, fixtureFormulaIds } from "./formula-contract.mjs";
+import { dashboardMetricFormulaIds, dashboardSnapshotFormulaIds, fixtureFormulaIds } from "./formula-contract.mjs";
 
 const root = process.cwd();
 const catalogPath = path.join(root, "knowledge", "catalog", "financial-formula-catalog.md");
@@ -47,6 +47,15 @@ for (const [snapshotId, mappedFormulaIds] of Object.entries(dashboardSnapshotFor
   assert(mappedFormulaIds.length > 0, `${snapshotId} dashboard formula mapping must not be empty`);
   for (const formulaId of mappedFormulaIds) {
     assert(uniqueFormulaIds.has(formulaId), `${snapshotId} maps to unknown formula ID: ${formulaId}`);
+  }
+}
+
+for (const [snapshotId, metricFormulaGroups] of Object.entries(dashboardMetricFormulaIds)) {
+  assert(metricFormulaGroups.length > 0, `${snapshotId} metric formula mapping must not be empty`);
+  for (const mappedFormulaIds of metricFormulaGroups) {
+    for (const formulaId of mappedFormulaIds) {
+      assert(uniqueFormulaIds.has(formulaId), `${snapshotId} metric maps to unknown formula ID: ${formulaId}`);
+    }
   }
 }
 

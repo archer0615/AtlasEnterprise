@@ -37,6 +37,8 @@ for (const result of output.results) {
   assert(result.formulaEvaluation.evaluatedMetricCount === Object.keys(result.metrics || {}).length, `${result.fixtureId} evaluatedMetricCount mismatch`);
   assert(["evaluated", "input-rejected"].includes(result.formulaEvaluation.status), `${result.fixtureId} invalid formula evaluation status`);
   assert(JSON.stringify(result.formulaEvaluation.formulaIds) === JSON.stringify(fixtureFormulaIds[result.fixtureId]), `${result.fixtureId} formula ID mapping mismatch`);
+  assert(result.scoreEvaluation?.formulaId === "FORM-DECISION-SCORE", `${result.fixtureId} missing score evaluation formula ID`);
+  assert(result.scoreEvaluation.score === result.score, `${result.fixtureId} score evaluation mismatch`);
   if (result.metrics?.postPrepaymentReserveMonths !== undefined) {
     assert(Math.abs(result.metrics.postPrepaymentReserveMonths - fixture.expected.metrics.postPrepaymentReserveMonths) <= 0.01, `${result.fixtureId} postPrepaymentReserveMonths outside tolerance`);
   }

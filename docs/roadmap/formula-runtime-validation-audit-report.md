@@ -14,6 +14,9 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Shared formula contract logic now lives in `simulator/scripts/formula-contract.mjs`.
 - Runtime evaluation now flows through `simulator/scripts/formula-runtime-service.mjs`.
 - Fixture and dashboard mappings now resolve to named formula IDs and are checked against the formula catalog.
+- Dashboard metric-card formula mappings now exist per snapshot metric.
+- Runtime output now includes `scoreEvaluation` using `FORM-DECISION-SCORE`.
+- Fixture validation now uses the in-repo JSON schema validator in `simulator/scripts/schema-validator.mjs`.
 
 ## Validation
 
@@ -26,3 +29,4 @@ Records completion of runtime formula evaluation contract, formula input validat
 
 - Runtime formula implementations are still fixture-scaffolded for recommendation status and score.
 - Dashboard metrics are mapped at fixture/snapshot level; individual metric-card formula IDs remain a later field-level enhancement.
+- Score evaluation still preserves fixture-approved expected score while the production scoring engine is pending.

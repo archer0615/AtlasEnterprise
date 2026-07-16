@@ -13,6 +13,7 @@ This report records the first simulator runtime scaffold.
 - Records formula input validation status, checked field count, violations, evaluated metric count, and formula version.
 - Routes runtime fixture evaluation through `formula-runtime-service.mjs`.
 - Uses `formula-contract.mjs` for shared input validation and formula ID mapping.
+- Emits `scoreEvaluation` with `FORM-DECISION-SCORE` metadata.
 
 ## Command
 
@@ -26,9 +27,11 @@ This report records the first simulator runtime scaffold.
 - Runtime formula evaluation must use `runtime-formula-evaluation.v1`.
 - Input validation must pass before a result can be considered evaluated.
 - Formula IDs emitted by runtime output must exist in the canonical formula catalog.
+- Score evaluation output must equal the result score and remain traceable to `FORM-DECISION-SCORE`.
 
 ## Follow-up
 
 - Replace expected-output passthrough with formula-backed calculations.
 - Add output tolerance comparison against fixture expectations.
 - Replace fixture-backed status and score passthrough with production calculation service responses.
+- Promote `scoreEvaluation` from fixture-approved score preservation to engine-calculated scoring.
