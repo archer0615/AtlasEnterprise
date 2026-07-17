@@ -48,6 +48,11 @@ try {
   await page.click("#saveScenarioButton");
   await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("至少需要 2 個字"));
 
+  await page.fill("#scenarioNameInput", "Playwright invalid score");
+  await page.fill("#scenarioScoreInput", "101");
+  await page.click("#saveScenarioButton");
+  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("情境分數必須是 0 到 100"));
+
   await page.fill("#scenarioNameInput", "Playwright local scenario");
   await page.fill("#scenarioScoreInput", "88");
   await page.click("#saveScenarioButton");
@@ -89,6 +94,7 @@ try {
   await page.setInputFiles("#importBackupInput", backupFile);
   await page.waitForFunction(() => document.querySelector("#backupPreview")?.textContent.includes("1 筆情境"));
   await page.waitForFunction(() => document.querySelector("#backupPreview")?.textContent.includes("新增：1 筆"));
+  await page.waitForFunction(() => document.querySelector("#backupPreview")?.textContent.includes("Playwright imported scenario"));
   await page.check("#restoreConfirmInput");
   await page.click("#applyBackupButton");
   await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("已匯入"));

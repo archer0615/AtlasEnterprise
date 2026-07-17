@@ -146,6 +146,19 @@ export const indexedDbBackupRepository = {
   },
 
   validateBackup(backup) {
-    return backup?.schema === backupSchemaVersion && Array.isArray(backup.scenarios);
+    if (backup?.schema !== backupSchemaVersion || !Array.isArray(backup.scenarios)) {
+      return false;
+    }
+    const scenarioIds = new Set();
+    return backup.scenarios.every((scenario) => {
+      if (!scenario?.scenarioId || scenarioIds.has(scenario.scenarioId)) {
+        return false;
+      }
+      scenarioIds.add(scenario.scenarioId);
+      return typeof scenario.name === "string"
+        && scenario.name.trim().length >= 2
+        && typeof scenario.score === "string"
+        && typeof scenario.status === "string";
+    });
   },
 };

@@ -316,6 +316,12 @@ function validateScenarioInput(name, score) {
   if (name.length > 80) {
     throw new Error("情境名稱不可超過 80 個字。");
   }
+  if (!/^(N\/A|\d{1,3})$/.test(score)) {
+    throw new Error("情境分數必須是 0 到 100，或 N/A。");
+  }
+  if (/^\d{1,3}$/.test(score) && (Number(score) < 0 || Number(score) > 100)) {
+    throw new Error("情境分數必須是 0 到 100，或 N/A。");
+  }
   if (score.length > 24) {
     throw new Error("分數或狀態不可超過 24 個字。");
   }
@@ -325,11 +331,24 @@ function formatBackupPreview(backup) {
   const incomingIds = new Set(backup.scenarios.map((scenario) => scenario.scenarioId));
   const replacingCount = localScenarios.filter((scenario) => incomingIds.has(scenario.scenarioId)).length;
   const newCount = backup.scenarios.length - replacingCount;
+  const incomingNames = backup.scenarios
+    .slice(0, 5)
+    .map((scenario) => scenario.name)
+    .filter(Boolean)
+    .join("、") || "N/A";
+  const replacingNames = localScenarios
+    .filter((scenario) => incomingIds.has(scenario.scenarioId))
+    .slice(0, 5)
+    .map((scenario) => scenario.name)
+    .filter(Boolean)
+    .join("、") || "無";
   return [
     `備份預覽：${backup.scenarios.length} 筆情境`,
     `目前本地：${localScenarios.length} 筆`,
     `新增：${newCount} 筆`,
     `覆蓋：${replacingCount} 筆`,
+    `情境：${incomingNames}`,
+    `將覆蓋：${replacingNames}`,
     `匯出時間：${backup.exportedAt || "N/A"}`,
   ].join("，");
 }

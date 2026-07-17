@@ -18,6 +18,8 @@ assert(runtime.includes("async replaceAll(scenarios)"), "Scenario repository rep
 assert(runtime.includes("indexedDbBackupRepository"), "Backup repository adapter is missing");
 assert(runtime.includes("validateBackup(backup)"), "Backup validation is missing");
 assert(runtime.includes('"atlas-pwa-runtime-backup.v1"'), "Backup schema version is missing");
+assert(runtime.includes("scenarioIds.has"), "Backup duplicate scenario ID validation is missing");
+assert(runtime.includes("scenario.name.trim().length >= 2"), "Backup scenario name validation is missing");
 assert(runtime.includes("indexedDbMigrationRepository"), "Migration repository adapter is missing");
 assert(runtime.includes("async markCurrent()"), "Migration repository markCurrent is missing");
 assert(main.includes("deleteLastScenario"), "Dashboard delete workflow is missing");
@@ -28,5 +30,7 @@ assert(main.includes("previewBackup"), "Backup preview workflow is missing");
 assert(main.includes("applyBackup"), "Backup apply workflow is missing");
 assert(main.includes("validateScenarioInput"), "Scenario validation workflow is missing");
 assert(main.includes("formatBackupPreview"), "Backup preview diff workflow is missing");
+assert(main.includes("情境分數必須是 0 到 100"), "Scenario score range validation is missing");
+assert(main.includes("incomingNames"), "Backup preview scenario name details are missing");
 
 console.log("Local repository adapter tests passed.");

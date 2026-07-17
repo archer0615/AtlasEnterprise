@@ -59,6 +59,7 @@ assert(indexedDbRuntime.includes("async delete(scenarioId)"), "Scenario delete a
 assert(indexedDbRuntime.includes("async clear()"), "Scenario clear adapter is missing");
 assert(indexedDbRuntime.includes("backupSchemaVersion"), "Backup schema version is missing");
 assert(indexedDbRuntime.includes("validateBackup"), "Backup schema validation is missing");
+assert(indexedDbRuntime.includes("scenarioIds.has"), "Backup duplicate scenario ID validation is missing");
 assert(indexedDbRuntime.includes("indexedDbMigrationRepository"), "IndexedDB migration repository is missing");
 assert(indexedDbRuntime.includes("databaseVersion"), "IndexedDB database version is missing");
 assert(main.includes("restoreConfirmInput"), "Backup restore confirmation workflow is missing");
@@ -66,6 +67,9 @@ assert(main.includes("previewBackup"), "Backup preview workflow is missing");
 assert(main.includes("applyBackup"), "Backup apply workflow is missing");
 assert(main.includes("validateScenarioInput"), "Scenario validation rules are missing");
 assert(main.includes("formatBackupPreview"), "Backup preview diff details are missing");
+assert(main.includes("情境分數必須是 0 到 100"), "Scenario score range validation is missing");
+assert(main.includes("incomingNames"), "Backup preview scenario names are missing");
+assert(main.includes("replacingNames"), "Backup preview replacement names are missing");
 assert(repositoryInterface.includes("Repository Interfaces remain technology-neutral"), "Repository Interface documentation is missing technology-neutral invariant");
 assert(repositoryInterface.includes("IndexedDB scenario adapter"), "Repository Interface documentation is missing IndexedDB scenario adapter mapping");
 assert(main.includes("找不到符合條件的知識文件。"), "empty search result text is missing");
