@@ -70,7 +70,7 @@ async function loadIndex() {
   state.documents = index.documents || [];
   state.searchDocuments = new Map((searchIndex.documents || []).map((doc) => [doc.id, doc]));
   state.categories = index.categories || [];
-  statusText.textContent = `${state.documents.length} 份文件`;
+  statusText.textContent = `本機資料與 ${state.documents.length} 份內部文件已就緒`;
   renderCategories();
   renderList();
   openDocumentFromHash();
@@ -111,7 +111,7 @@ function renderCategories() {
       const active = category.id === state.selectedCategory ? "active" : "";
       return `
         <button class="${active}" data-category="${escapeAttribute(category.id)}" type="button">
-          <span>${escapeHtml(category.label)}</span>
+          <span>${escapeHtml(translateCategory(category.label))}</span>
           <span>${category.count}</span>
         </button>
       `;
@@ -130,7 +130,7 @@ function renderList() {
     return inCategory && matchesQuery;
   }).sort((a, b) => b.score - a.score || a.path.localeCompare(b.path));
 
-  pageTitle.textContent = state.selectedCategory === "all" ? "生活知識庫" : translateCategory(state.selectedCategory);
+  pageTitle.textContent = "今日決策總覽";
   resultCount.textContent = `${docs.length} 筆結果`;
   documentList.innerHTML = docs.map((doc) => `
     <button class="document-card ${doc.id === state.selectedDocumentId ? "active" : ""}" type="button" data-id="${doc.id}">

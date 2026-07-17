@@ -15,23 +15,48 @@
           <span class="brand-mark">A</span>
           <div>
             <h1>Atlas Enterprise</h1>
-            <p>生活決策支援</p>
+            <p>生活決策工作台</p>
           </div>
         </div>
+        <nav class="workflow-nav" aria-label="主要工作區">
+          <a href="#dashboard">決策總覽</a>
+          <a href="#portfolio">投資報表</a>
+          <a href="#recommendation">建議執行</a>
+          <a href="#loan">貸款試算</a>
+        </nav>
         <div class="search-box">
-          <input id="searchInput" type="search" placeholder="搜尋知識文件、規格或路徑" autocomplete="off" />
+          <label for="searchInput">內部知識搜尋</label>
+          <input id="searchInput" type="search" placeholder="搜尋內部知識文件" autocomplete="off" />
         </div>
+        <p class="sidebar-note">規格文件已收合在頁面底部，主要畫面保留給日常決策操作。</p>
         <nav id="categoryNav" class="category-nav" aria-label="知識分類"></nav>
       </aside>
       <main class="workspace">
         <header class="topbar">
           <div>
-            <p class="eyebrow">決策支援 PWA</p>
-            <h2 id="pageTitle">生活知識庫</h2>
+            <p class="eyebrow">生活決策工作台</p>
+            <h2 id="pageTitle">今日決策總覽</h2>
           </div>
-          <div class="status" id="statusText">載入中</div>
+          <div class="status" id="statusText">資料載入中</div>
         </header>
-        <section class="dashboard-prototype" aria-label="決策儀表板原型">
+        <section class="user-summary" aria-label="使用者工作流程">
+          <div>
+            <span>1</span>
+            <strong>選擇情境</strong>
+            <small>切換退休、投資、貸款等決策情境。</small>
+          </div>
+          <div>
+            <span>2</span>
+            <strong>查看影響</strong>
+            <small>比較指標、風險與下一步行動。</small>
+          </div>
+          <div>
+            <span>3</span>
+            <strong>執行或備份</strong>
+            <small>保存本地情境、匯出報表或建立備份。</small>
+          </div>
+        </section>
+        <section id="dashboard" class="dashboard-prototype" aria-label="決策儀表板">
           <div class="dashboard-header">
             <div>
               <p class="eyebrow">決策儀表板</p>
@@ -71,14 +96,14 @@
             </div>
           </div>
           <div class="runtime-panels">
-            <section>
+            <section id="portfolio">
               <h4>投資組合報表</h4>
               <div class="dashboard-actions compact-actions">
                 <button id="exportPortfolioReportButton" type="button">匯出報表</button>
               </div>
               <div id="portfolioReportPanel" class="report-list"></div>
             </section>
-            <section>
+            <section id="recommendation">
               <h4>建議執行</h4>
               <div id="recommendationControlPanel" class="execution-panel"></div>
               <div id="recommendationDecisionLog" class="decision-log"></div>
@@ -87,7 +112,7 @@
                 <button id="rejectRecommendationButton" type="button">拒絕建議</button>
               </div>
             </section>
-            <section>
+            <section id="loan">
               <h4>貸款情境</h4>
               <div class="dashboard-actions compact-actions">
                 <input id="loanBalanceInput" type="text" placeholder="本金" inputmode="decimal" />
@@ -100,18 +125,24 @@
             </section>
           </div>
         </section>
-        <section class="content-grid">
-          <div>
-            <div class="list-tools">
-              <span id="resultCount">0 筆結果</span>
-              <button id="clearFiltersButton" type="button">清除</button>
+        <details class="internal-knowledge">
+          <summary>
+            <span>內部知識庫與規格文件</span>
+            <small>供管理者查閱，不是一般使用者主要流程</small>
+          </summary>
+          <section class="content-grid">
+            <div>
+              <div class="list-tools">
+                <span id="resultCount">0 筆結果</span>
+                <button id="clearFiltersButton" type="button">清除</button>
+              </div>
+              <div class="document-list" id="documentList"></div>
             </div>
-            <div class="document-list" id="documentList"></div>
-          </div>
-          <article class="document-viewer" id="documentViewer">
-            <p class="empty-state">選取知識文件以檢視生活決策規格、流程與治理內容。</p>
-          </article>
-        </section>
+            <article class="document-viewer" id="documentViewer">
+              <p class="empty-state">選取知識文件以檢視生活決策規格、流程與治理內容。</p>
+            </article>
+          </section>
+        </details>
       </main>
     </div>
     <script type="module" src="src/main.js"></script>

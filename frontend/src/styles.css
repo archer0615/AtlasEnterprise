@@ -63,6 +63,38 @@ input {
   font-size: 13px;
 }
 
+.workflow-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.workflow-nav a {
+  border: 1px solid #456b6f;
+  color: #e8f2f0;
+  text-decoration: none;
+  padding: 10px 12px;
+}
+
+.workflow-nav a:hover {
+  background: #2d686e;
+}
+
+.search-box label,
+.sidebar-note {
+  color: #b8ccca;
+  font-size: 12px;
+}
+
+.search-box label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.sidebar-note {
+  margin: 0;
+  line-height: 1.5;
+}
+
 .search-box input {
   width: 100%;
   border: 1px solid #456b6f;
@@ -107,6 +139,41 @@ input {
   margin-bottom: 22px;
 }
 
+.user-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.user-summary > div {
+  background: #fff;
+  border: 1px solid #d7dfdc;
+  padding: 14px;
+  min-height: 118px;
+  display: grid;
+  gap: 6px;
+}
+
+.user-summary span {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: #1f6f78;
+  color: #fff;
+  font-weight: 700;
+}
+
+.user-summary strong {
+  font-size: 16px;
+}
+
+.user-summary small {
+  color: #627572;
+  line-height: 1.5;
+}
+
 .eyebrow {
   margin: 0 0 4px;
   color: #627572;
@@ -131,6 +198,34 @@ input {
   grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
   gap: 20px;
   align-items: start;
+}
+
+.internal-knowledge {
+  border: 1px solid #d7dfdc;
+  background: #fff;
+  padding: 0;
+}
+
+.internal-knowledge summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  padding: 14px 18px;
+  color: #243130;
+}
+
+.internal-knowledge summary span {
+  font-weight: 700;
+}
+
+.internal-knowledge summary small {
+  color: #627572;
+}
+
+.internal-knowledge .content-grid {
+  border-top: 1px solid #e1e8e5;
+  padding: 18px;
 }
 
 .dashboard-prototype {
@@ -409,9 +504,7 @@ input {
 }
 
 .doc-path {
-  color: #637371;
-  font-size: 12px;
-  overflow-wrap: anywhere;
+  display: none;
 }
 
 .doc-score {
@@ -482,7 +575,8 @@ input {
 
   .metric-grid,
   .decision-panels,
-  .runtime-panels {
+  .runtime-panels,
+  .user-summary {
     display: grid;
     grid-template-columns: 1fr;
   }
