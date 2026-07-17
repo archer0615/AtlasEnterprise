@@ -1,4 +1,4 @@
-# Legacy Reference
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Legacy Reference
 
 - Status: Legacy reference only; do not treat this document as canonical.
 - Canonical source: [knowledge/entity/Asset.md](../../../knowledge/entity/Asset.md).
@@ -84,7 +84,7 @@
 
 # Complete Properties
 
-| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|
 | AssetId | UUID | No | generated | Stable asset identifier. | Required, immutable, UUID. | Identifies Asset entity. | `b802d0d3-7f81-4d21-a6e0-55a6e9fa2101` | `asset_id uuid primary key` | `assetId` | Route, detail, response. | Yes | Yes | Yes | No | Yes |
 | AssetNumber | string(40) | No | generated | Business asset number. | Required, unique within scope, max 40. | Human-readable asset identity. | `AST-20260714` | `asset_number varchar(40) not null` | `assetNumber` | Create response, search. | Yes | Yes | Yes | No | Yes |
@@ -352,7 +352,7 @@ public interface IAssetRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Operation | HTTP Method | Endpoint | Request | Response | Error |
 |---|---|---|---|---|---|
 | Create | POST | `/api/assets` | CreateAssetDto | AssetDetailDto | 400, 403, 409, 422 |
@@ -504,7 +504,7 @@ public interface IAssetRepository
 }
 ```
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 - Table name: `assets`.
@@ -582,7 +582,7 @@ public interface IAssetRepository
 - GIN index on `tags`.
 - Index on `updated_at`.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE assets (
@@ -649,7 +649,7 @@ CREATE INDEX ix_assets_updated_at ON assets (updated_at);
 CREATE INDEX ix_assets_concurrency_token ON assets (concurrency_token);
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp
@@ -1105,4 +1105,4 @@ stateDiagram-v2
 
 | Version | Date | Change | Author |
 |---|---|---|---|
-| 1.0 | 2026-07-14 | Upgraded Asset to Enterprise Specification aligned with Atlas Entity Catalog, AssetPortfolio ownership, PortfolioRepository persistence, household isolation, valuation history, commands, events, API, database mapping, security, audit, performance, testing, and edge cases. | Atlas |
+| 1.0 | 2026-07-14 | Upgraded Asset to Enterprise Specification aligned with Atlas Entity Catalog, AssetPortfolio ownership, PortfolioRepository persistence, household isolation, valuation history, commands, events, API, PWA Runtime Mapping / Future Cloud Mapping, security, audit, performance, testing, and edge cases. | Atlas |

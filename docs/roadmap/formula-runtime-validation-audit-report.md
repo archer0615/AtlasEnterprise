@@ -1,4 +1,4 @@
-# Formula Runtime Validation Audit Report
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Formula Runtime Validation Audit Report
 
 ## Purpose
 
@@ -50,5 +50,5 @@ Records completion of runtime formula evaluation contract, formula input validat
 - Score evaluation remains deterministic until production scoring policy is backed by persisted configuration.
 - Runtime dashboard binding is fixture-backed until a service endpoint owns dashboard projection generation.
 - Projection API remains contract-only until backend services are activated.
-- Projection service remains fixture-backed until backend runtime activation.
+- Projection service remains fixture-backed until Future Cloud Architecture activation.
 - Deployment artifact manifest remains static until hosting output paths are generated.

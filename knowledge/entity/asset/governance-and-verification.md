@@ -1,4 +1,4 @@
-# Asset Governance and Verification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Asset Governance and Verification
 
 ## Purpose
 
@@ -19,7 +19,7 @@ This split document isolates Asset security, audit, observability, performance, 
 
 - Testing must cover creation, update, archive, restore, valuation recording, stale valuation, validation error, concurrency conflict, ownership isolation, and permission denial behavior.
 - Edge cases include missing household scope, invalid currency, unknown asset type, stale valuation dates, soft-deleted records, cross-household access, and projection/cache inconsistency.
-- Consistency verification must check catalog alignment, aggregate ownership, repository responsibility, API governance, database mapping, security controls, audit completeness, and final consistency matrix status.
+- Consistency verification must check catalog alignment, aggregate ownership, repository responsibility, API governance, PWA Runtime Mapping / Future Cloud Mapping, security controls, audit completeness, and final consistency matrix status.
 
 ## Visual and Example Coverage
 

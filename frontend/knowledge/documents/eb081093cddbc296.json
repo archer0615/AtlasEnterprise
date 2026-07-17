@@ -1,14 +1,10 @@
 {
   "id": "eb081093cddbc296",
-  "title": "Decision API and Persistence",
+  "title": "api-and-persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/decision/api-and-persistence.md",
-  "sourceHash": "3cc6b85107973c0bdad6f33262147e4e682013a443e2a3f6c79f7e4ba698922c",
+  "sourceHash": "075b4b04818d2a9e7698f8e3d2e42d3d1a4c6fd230ea0270be13dc5580214cce",
   "headings": [
-    {
-      "level": 1,
-      "text": "Decision API and Persistence"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -26,6 +22,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "# Decision API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Decision commands, events, repository, services, API, DTOs, database mapping, EF Core mapping, and cache strategy from the parent Decision Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Entity Specification](../Decision.md)\r\n\r\n## API\r\nDecision APIs expose create, update, approve, reject, defer, execute, archive, restore, delete, detail, summary, and search behavior under user and permission boundaries.\r\n\r\n## Persistence\r\nPersistence covers decision table mapping, snapshots, option fields, score precision, indexes, constraints, optimistic concurrency, and cache invalidation.\r\n\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Decision API and Persistence\n\n## Purpose\nThis split document isolates Decision commands, events, repository, services, API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping, and cache strategy from the parent Decision Entity Specification.\n\n## Source\n- Parent specification: [Decision Entity Specification](../Decision.md)\n\n## API\nDecision APIs expose create, update, approve, reject, defer, execute, archive, restore, delete, detail, summary, and search behavior under user and permission boundaries.\n\n## Persistence\nPersistence covers decision table mapping, snapshots, option fields, score precision, indexes, constraints, optimistic concurrency, and cache invalidation.\n\n",
   "references": []
 }

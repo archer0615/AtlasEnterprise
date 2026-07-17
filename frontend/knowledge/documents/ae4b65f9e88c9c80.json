@@ -3,7 +3,7 @@
   "title": "Goal Review Cadence and Evidence",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-review/cadence-and-evidence.md",
-  "sourceHash": "17a9d3392746ecd9af6578c5f6d3c5b9287984fc79ea8679c0569e5f2a7c183c",
+  "sourceHash": "b0ea53c1873737ff5dc2f67a83f67a697756bb0bafbfeae3fd808ecbacbf9843",
   "headings": [
     {
       "level": 1,
@@ -38,6 +38,6 @@
       "text": "Review Metrics"
     }
   ],
-  "bodyMarkdown": "# Goal Review Cadence and Evidence\r\n\r\n## Purpose\r\nThis split document isolates Goal Review cadence, review types, source evidence, criteria, and metrics from the parent Goal Review specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Review](../goal-review.md)\r\n\r\n## Review Lifecycle\r\nGoal Review begins when a goal reaches scheduled, manual, automatic, exception, risk, financial, or completion review conditions. It continues through preparation, data collection, evaluation, scoring, decision, action items, approval, and completion.\r\n\r\n## Review Frequency\r\nReview frequency includes monthly, quarterly, annual, manual, automatic, exception, risk, financial, and goal completion review cadence.\r\n\r\n## Evidence Scope\r\nGoal Review evidence includes Goal, Milestone, Task, Decision, Recommendation, Scenario, Portfolio, CashFlow, Notification, and User signals.\r\n\r\n## Review Criteria\r\n- Progress\r\n- Budget\r\n- Cash Flow\r\n- Risk\r\n- Dependencies\r\n- Milestones\r\n- Decision Quality\r\n- Recommendation Adoption\r\n- Health Score\r\n- Forecast Accuracy\r\n- Priority Alignment\r\n- Business Value\r\n\r\n## Review Metrics\r\n- Goal Achievement %\r\n- Budget Variance\r\n- Schedule Variance\r\n- Progress %\r\n- Forecast Accuracy\r\n- Health Score\r\n- Risk Score\r\n- Confidence Score\r\n- Completion Probability\r\n- Priority Score\r\n- Business Impact\r\n- ROI\r\n\r\n",
+  "bodyMarkdown": "# Goal Review Cadence and Evidence\n\n## Purpose\nThis split document isolates Goal Review cadence, review types, source evidence, criteria, and metrics from the parent Goal Review specification.\n\n## Source\n- Parent specification: [Goal Review](../goal-review.md)\n\n## Review Lifecycle\nGoal Review begins when a goal reaches scheduled, manual, automatic, exception, risk, financial, or completion review conditions. It continues through preparation, data collection, evaluation, scoring, decision, action items, approval, and completion.\n\n## Review Frequency\nReview frequency includes monthly, quarterly, annual, manual, automatic, exception, risk, financial, and goal completion review cadence.\n\n## Evidence Scope\nGoal Review evidence includes Goal, Milestone, Task, Decision, Recommendation, Scenario, Portfolio, CashFlow, Notification, and User signals.\n\n## Review Criteria\n- Progress\n- Budget\n- Cash Flow\n- Risk\n- Dependencies\n- Milestones\n- Decision Quality\n- Recommendation Adoption\n- Health Score\n- Forecast Accuracy\n- Priority Alignment\n- Business Value\n\n## Review Metrics\n- Goal Achievement %\n- Budget Variance\n- Schedule Variance\n- Progress %\n- Forecast Accuracy\n- Health Score\n- Risk Score\n- Confidence Score\n- Completion Probability\n- Priority Score\n- Business Impact\n- ROI\n\n",
   "references": []
 }

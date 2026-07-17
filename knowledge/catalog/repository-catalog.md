@@ -1,4 +1,4 @@
-﻿# Repository Catalog
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Repository Catalog
 ## Split Navigation
 - [Repository catalog entries](repository/catalog-entries.md)
 - [Repository method catalog](repository/method-catalog.md)
@@ -41,7 +41,7 @@ Related Specifications:
 
 # Purpose
 
-Repository Catalog defines the canonical persistence ownership model for Project Atlas. It is the source of truth for repository ownership across Aggregates, Entities, Commands, Domain Events, Application Services, Domain Services, EF Core, PostgreSQL, projections, read models, query services, specifications, unit of work, cache, and API access paths.
+Repository Catalog defines the canonical persistence ownership model for Project Atlas. It is the source of truth for repository ownership across Aggregates, Entities, Commands, Domain Events, Application Services, Domain Services, Future Cloud Mapping, Future Cloud Mapping, projections, read models, query services, specifications, unit of work, cache, and API access paths.
 
 # Scope
 
@@ -129,7 +129,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: User Aggregate boundary.
 Application Service: UserApplicationService
 Domain Service: DecisionService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: users
 Views: user_projection_view
@@ -206,7 +206,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: Household Aggregate boundary.
 Application Service: BlueprintApplicationService
 Domain Service: CashFlowService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: households
 Views: household_projection_view
@@ -283,7 +283,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: AssetPortfolio Aggregate boundary.
 Application Service: PortfolioApplicationService
 Domain Service: PortfolioService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: assets
 Views: asset_projection_view
@@ -360,7 +360,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: LiabilityPortfolio Aggregate boundary.
 Application Service: LoanApplicationService
 Domain Service: LoanService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: liabilities
 Views: liability_projection_view
@@ -437,7 +437,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: GoalPlan Aggregate boundary.
 Application Service: BlueprintApplicationService
 Domain Service: RetirementService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: goals
 Views: goal_projection_view
@@ -514,7 +514,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: AssetPortfolio Aggregate boundary.
 Application Service: PortfolioApplicationService
 Domain Service: AllocationService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: portfolios, holdings
 Views: portfolio_projection_view
@@ -591,7 +591,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: Loan Aggregate boundary.
 Application Service: LoanApplicationService
 Domain Service: LoanService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: loans, loan_payments
 Views: loan_projection_view
@@ -668,7 +668,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: Property Aggregate boundary.
 Application Service: BlueprintApplicationService
 Domain Service: PortfolioService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: properties, property_valuations
 Views: property_projection_view
@@ -745,7 +745,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: Scenario Aggregate boundary.
 Application Service: ScenarioApplicationService
 Domain Service: ScenarioService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: scenarios, scenario_results
 Views: scenario_projection_view
@@ -822,7 +822,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: DecisionSession Aggregate boundary.
 Application Service: DecisionApplicationService
 Domain Service: DecisionService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: decisions, recommendations
 Views: decision_projection_view
@@ -899,7 +899,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: Notification Aggregate boundary.
 Application Service: NotificationApplicationService
 Domain Service: ExplainabilityService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: notifications
 Views: notification_projection_view
@@ -976,7 +976,7 @@ Repository Type: Aggregate Repository with read and projection support where cat
 Persistence Owner: Audit Aggregate boundary.
 Application Service: AdministrationApplicationService
 Domain Service: ExplainabilityService
-Database: PostgreSQL
+Database: Future Cloud Mapping
 Schema: atlas
 Tables: audit_log, command_history, event_history
 Views: audit_projection_view
@@ -4117,18 +4117,18 @@ Example: AuditRepository.StreamBySpecification executes inside Audit persistence
 
 | Repository | Database | Schema | Tables |
 |---|---|---|---|
-| UserRepository | PostgreSQL | atlas | users |
-| HouseholdRepository | PostgreSQL | atlas | households |
-| AssetRepository | PostgreSQL | atlas | assets |
-| LiabilityRepository | PostgreSQL | atlas | liabilities |
-| GoalRepository | PostgreSQL | atlas | goals |
-| PortfolioRepository | PostgreSQL | atlas | portfolios, holdings |
-| LoanRepository | PostgreSQL | atlas | loans, loan_payments |
-| PropertyRepository | PostgreSQL | atlas | properties, property_valuations |
-| ScenarioRepository | PostgreSQL | atlas | scenarios, scenario_results |
-| DecisionRepository | PostgreSQL | atlas | decisions, recommendations |
-| NotificationRepository | PostgreSQL | atlas | notifications |
-| AuditRepository | PostgreSQL | atlas | audit_log, command_history, event_history |
+| UserRepository | Future Cloud Mapping | atlas | users |
+| HouseholdRepository | Future Cloud Mapping | atlas | households |
+| AssetRepository | Future Cloud Mapping | atlas | assets |
+| LiabilityRepository | Future Cloud Mapping | atlas | liabilities |
+| GoalRepository | Future Cloud Mapping | atlas | goals |
+| PortfolioRepository | Future Cloud Mapping | atlas | portfolios, holdings |
+| LoanRepository | Future Cloud Mapping | atlas | loans, loan_payments |
+| PropertyRepository | Future Cloud Mapping | atlas | properties, property_valuations |
+| ScenarioRepository | Future Cloud Mapping | atlas | scenarios, scenario_results |
+| DecisionRepository | Future Cloud Mapping | atlas | decisions, recommendations |
+| NotificationRepository | Future Cloud Mapping | atlas | notifications |
+| AuditRepository | Future Cloud Mapping | atlas | audit_log, command_history, event_history |
 
 # Repository EF Entity Matrix
 
@@ -4680,7 +4680,7 @@ Example: AuditRepository.StreamBySpecification executes inside Audit persistence
 flowchart TD
   APP[Application Service] --> REPO[Repository]
   REPO --> UOW[Unit of Work]
-  UOW --> DB[(PostgreSQL)]
+  UOW --> DB[(Future Cloud Mapping)]
   REPO --> SPEC[Specification]
   REPO --> CACHE[Cache]
 ```
@@ -4919,18 +4919,18 @@ flowchart LR
 
 | Repository | Aggregate | Entity | Command | Domain Event | Application Service | Domain Service | EF Entity | Database | Table | Projection | Cache | Specification |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| UserRepository | User | User | User, Household commands through ownership validation | Identity and ownership events | UserApplicationService | DecisionService | User | PostgreSQL | users | user_projection | Required | Required |
-| HouseholdRepository | Household | Household | RecordIncome, RecordExpense | SalaryReceived, BonusReceived, ExpenseRecorded, PassiveIncomeReceived | BlueprintApplicationService | CashFlowService | Household | PostgreSQL | households | household_projection | Required | Required |
-| AssetRepository | AssetPortfolio | Asset | CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio | PortfolioCreated, SecurityPurchased, SecuritySold, PortfolioRebalanced, DividendDistributed | PortfolioApplicationService | PortfolioService | Asset | PostgreSQL | assets | asset_projection | Required | Required |
-| LiabilityRepository | LiabilityPortfolio | Liability | CreateLoan, RecordLoanPayment, RefinanceLoan | LoanCreated, LoanPaymentMade, LoanRefinanced, LoanClosed | LoanApplicationService | LoanService | Liability | PostgreSQL | liabilities | liability_projection | Required | Required |
-| GoalRepository | GoalPlan | Goal | UpdateRetirementPlan | RetirementPlanUpdated, RetirementGoalReached, RetirementWithdrawalStarted | BlueprintApplicationService | RetirementService | Goal | PostgreSQL | goals | goal_projection | Required | Required |
-| PortfolioRepository | AssetPortfolio | Portfolio, Holding | CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio | PortfolioCreated, SecurityPurchased, SecuritySold, PortfolioRebalanced, DividendDistributed | PortfolioApplicationService | AllocationService | Portfolio, Holding | PostgreSQL | portfolios, holdings | portfolio_projection | Required | Required |
-| LoanRepository | Loan | Mortgage | CreateLoan, RecordLoanPayment, RefinanceLoan | LoanCreated, LoanPaymentMade, LoanRefinanced, LoanClosed | LoanApplicationService | LoanService | Mortgage | PostgreSQL | loans, loan_payments | loan_projection | Required | Required |
-| PropertyRepository | Property | Property | PurchaseHome, SellHome, UpdatePropertyValue | HomePurchased, HomeSold, HomeValueUpdated, HomeUpgradeStarted, HomeUpgradeCompleted | BlueprintApplicationService | PortfolioService | Property | PostgreSQL | properties, property_valuations | property_projection | Required | Required |
-| ScenarioRepository | Scenario | Scenario | EvaluateScenario, ReplayScenario | ScenarioEvaluated, RuleEvaluated, HardConstraintTriggered, ScoreAdjusted, SnapshotCreated, AssumptionVersionLoaded, FormulaVersionLoaded, ReplayCompleted | ScenarioApplicationService | ScenarioService | Scenario | PostgreSQL | scenarios, scenario_results | scenario_projection | Required | Required |
-| DecisionRepository | DecisionSession | Decision, Recommendation | AcceptRecommendation, RejectRecommendation | RecommendationGenerated, DecisionAccepted, DecisionRejected | DecisionApplicationService | DecisionService | Decision, Recommendation | PostgreSQL | decisions, recommendations | decision_projection | Required | Required |
-| NotificationRepository | Notification | Notification | Notification delivery commands from catalog-aligned handlers | DecisionAccepted, DecisionRejected, RecommendationGenerated | NotificationApplicationService | ExplainabilityService | Notification | PostgreSQL | notifications | notification_projection | Required | Required |
-| AuditRepository | Audit | Audit | All catalog commands | All catalog domain events | AdministrationApplicationService | ExplainabilityService | Audit | PostgreSQL | audit_log, command_history, event_history | audit_projection | Required | Required |
+| UserRepository | User | User | User, Household commands through ownership validation | Identity and ownership events | UserApplicationService | DecisionService | User | Future Cloud Mapping | users | user_projection | Required | Required |
+| HouseholdRepository | Household | Household | RecordIncome, RecordExpense | SalaryReceived, BonusReceived, ExpenseRecorded, PassiveIncomeReceived | BlueprintApplicationService | CashFlowService | Household | Future Cloud Mapping | households | household_projection | Required | Required |
+| AssetRepository | AssetPortfolio | Asset | CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio | PortfolioCreated, SecurityPurchased, SecuritySold, PortfolioRebalanced, DividendDistributed | PortfolioApplicationService | PortfolioService | Asset | Future Cloud Mapping | assets | asset_projection | Required | Required |
+| LiabilityRepository | LiabilityPortfolio | Liability | CreateLoan, RecordLoanPayment, RefinanceLoan | LoanCreated, LoanPaymentMade, LoanRefinanced, LoanClosed | LoanApplicationService | LoanService | Liability | Future Cloud Mapping | liabilities | liability_projection | Required | Required |
+| GoalRepository | GoalPlan | Goal | UpdateRetirementPlan | RetirementPlanUpdated, RetirementGoalReached, RetirementWithdrawalStarted | BlueprintApplicationService | RetirementService | Goal | Future Cloud Mapping | goals | goal_projection | Required | Required |
+| PortfolioRepository | AssetPortfolio | Portfolio, Holding | CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio | PortfolioCreated, SecurityPurchased, SecuritySold, PortfolioRebalanced, DividendDistributed | PortfolioApplicationService | AllocationService | Portfolio, Holding | Future Cloud Mapping | portfolios, holdings | portfolio_projection | Required | Required |
+| LoanRepository | Loan | Mortgage | CreateLoan, RecordLoanPayment, RefinanceLoan | LoanCreated, LoanPaymentMade, LoanRefinanced, LoanClosed | LoanApplicationService | LoanService | Mortgage | Future Cloud Mapping | loans, loan_payments | loan_projection | Required | Required |
+| PropertyRepository | Property | Property | PurchaseHome, SellHome, UpdatePropertyValue | HomePurchased, HomeSold, HomeValueUpdated, HomeUpgradeStarted, HomeUpgradeCompleted | BlueprintApplicationService | PortfolioService | Property | Future Cloud Mapping | properties, property_valuations | property_projection | Required | Required |
+| ScenarioRepository | Scenario | Scenario | EvaluateScenario, ReplayScenario | ScenarioEvaluated, RuleEvaluated, HardConstraintTriggered, ScoreAdjusted, SnapshotCreated, AssumptionVersionLoaded, FormulaVersionLoaded, ReplayCompleted | ScenarioApplicationService | ScenarioService | Scenario | Future Cloud Mapping | scenarios, scenario_results | scenario_projection | Required | Required |
+| DecisionRepository | DecisionSession | Decision, Recommendation | AcceptRecommendation, RejectRecommendation | RecommendationGenerated, DecisionAccepted, DecisionRejected | DecisionApplicationService | DecisionService | Decision, Recommendation | Future Cloud Mapping | decisions, recommendations | decision_projection | Required | Required |
+| NotificationRepository | Notification | Notification | Notification delivery commands from catalog-aligned handlers | DecisionAccepted, DecisionRejected, RecommendationGenerated | NotificationApplicationService | ExplainabilityService | Notification | Future Cloud Mapping | notifications | notification_projection | Required | Required |
+| AuditRepository | Audit | Audit | All catalog commands | All catalog domain events | AdministrationApplicationService | ExplainabilityService | Audit | Future Cloud Mapping | audit_log, command_history, event_history | audit_projection | Required | Required |
 
 # Completion Checklist
 

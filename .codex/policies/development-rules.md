@@ -1,3 +1,5 @@
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.
+
 # Development Rules
 
 ## Priorities
@@ -9,7 +11,7 @@
 6. Simple UI
 
 ## Rules
-- Use `.NET 8`.
+- Use `Future Cloud Architecture adapter`.
 - Use `decimal` for money.
 - Support TWD and USD.
 - FX rate is manual in v1.

@@ -1,4 +1,4 @@
-# Legacy Reference
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Legacy Reference
 
 - Status: Legacy reference only; do not treat this document as canonical.
 - Canonical source: [knowledge/entity/Loan.md](../../../knowledge/entity/Loan.md).
@@ -89,7 +89,7 @@
 
 # Complete Properties
 
-| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|
 | LoanId | UUID | No | generated | Stable loan identifier. | Required, immutable, UUID. | Identifies Loan aggregate. | `41e3a6f3-1a59-4f23-94b2-66da3b0c818d` | `loan_id uuid primary key` | `loanId` | Route, detail, response. | Yes | Yes | Yes | No | Yes |
 | LoanNumber | string(40) | No | generated | Unique business number. | Required, unique, max 40. | Human-readable loan identity. | `LOAN-20260714` | `loan_number varchar(40) not null` | `loanNumber` | Create response, search. | Yes | Yes | Yes | No | Yes |
@@ -376,7 +376,7 @@ public interface ILoanRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Operation | HTTP Method | Endpoint | Request | Response | Error |
 |---|---|---|---|---|---|
 | Create | POST | `/api/loans` | CreateLoanDto | LoanDetailDto | 400, 403, 409, 422 |
@@ -540,7 +540,7 @@ public interface ILoanRepository
 }
 ```
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 - Table name: `loans`.
@@ -625,7 +625,7 @@ public interface ILoanRepository
 - GIN index on `tags`.
 - Index on `updated_at`.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE loans (
@@ -701,7 +701,7 @@ CREATE INDEX ix_loans_updated_at ON loans (updated_at);
 CREATE INDEX ix_loans_concurrency_token ON loans (concurrency_token);
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp
@@ -1196,4 +1196,4 @@ stateDiagram-v2
 
 | Version | Date | Change | Author |
 |---|---|---|---|
-| 1.0 | 2026-07-14 | Upgraded Loan to Enterprise Specification aligned with Atlas Aggregate Catalog, Loan aggregate ownership, LoanRepository persistence, household isolation, payment and refinance rules, commands, events, API, database mapping, security, audit, performance, testing, and edge cases. | Atlas |
+| 1.0 | 2026-07-14 | Upgraded Loan to Enterprise Specification aligned with Atlas Aggregate Catalog, Loan aggregate ownership, LoanRepository persistence, household isolation, payment and refinance rules, commands, events, API, PWA Runtime Mapping / Future Cloud Mapping, security, audit, performance, testing, and edge cases. | Atlas |

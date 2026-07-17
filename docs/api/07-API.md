@@ -1,4 +1,4 @@
-# Project Atlas Enterprise
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Project Atlas Enterprise
 # docs/api/07-API.md
 
 Version: 2.0  
@@ -7,7 +7,7 @@ Runtime: In-Process TypeScript
 
 ## 1. Purpose
 
-Atlas v1 has no required network REST API. This document defines stable Application Use Cases that act as the internal API between Presentation and Domain/Application layers.
+Atlas v1 has no required network Future Cloud Architecture API. This document defines stable Application Use Cases that act as the internal API between Presentation and Domain/Application layers.
 
 ## 2. Architecture
 
@@ -118,7 +118,7 @@ type ApplicationResult<T> =
 
 ## 7. Future REST Compatibility
 
-Use-case DTOs shall be designed so a future ASP.NET Core adapter can expose equivalent endpoints without changing Domain logic. Network endpoint contracts are deferred to the cloud phase.
+Use-case DTOs shall be designed so a future Future Cloud Architecture adapter adapter can expose equivalent endpoints without changing Domain logic. Network endpoint contracts are deferred to the cloud phase.
 
 ## 8. Security
 
@@ -133,5 +133,5 @@ Use-case DTOs shall be designed so a future ASP.NET Core adapter can expose equi
 
 | Version | Date | Description |
 |---|---|---|
-| 1.0 | 2026-07-09 | REST API draft |
+| 1.0 | 2026-07-09 | Future Cloud Architecture API draft |
 | 2.0 | 2026-07-11 | Converted to in-process Application API |

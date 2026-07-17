@@ -1,14 +1,10 @@
 {
   "id": "48891a87f1e7d580",
-  "title": "Goal Metrics Implementation and Governance",
+  "title": "implementation-and-governance",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/goal-metrics/implementation-and-governance.md",
-  "sourceHash": "6f740d8bc02f436032084b8e2e7951353594a5e0caf6214655e3936a257ed49b",
+  "sourceHash": "6fd5a100153571e887100188c02ecff477bece262fd26526107ef6a4e8abb883",
   "headings": [
-    {
-      "level": 1,
-      "text": "Goal Metrics Implementation and Governance"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -26,6 +22,6 @@
       "text": "Boundary Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Metrics Implementation and Governance\n\n## Purpose\n\nThis split document isolates Goal Metrics commands, events, persistence, APIs, DTOs, storage mappings, cache, security, audit, performance, examples, diagrams, tests, edge cases, and executable addendum from the canonical `knowledge/reporting/goal-metrics.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-metrics.md`\n- Domain: Goal metrics\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Commands and Domain Events\n- Repository, Domain Service Interaction, Application Service Interaction, API, and DTO\n- Database Mapping, PostgreSQL Schema, EF Core Mapping, and Cache Strategy\n- Security, Audit, Performance, Example JSON, Mermaid, Testing, Edge Cases, Version History, and Phase 2 Executable Specification Addendum\n\n## Boundary Rules\n\n- Commands and APIs must preserve HouseholdId, TenantId when applicable, authorization, audit evidence, and calculation source versions.\n- Repository and cache behavior must distinguish metric definitions, current metric values, historical values, projections, trends, and forecasts.\n- Tests must cover deterministic calculation, validation, refresh behavior, concurrency, performance, and executable addendum command contracts.\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Goal Metrics Implementation and Governance\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal Metrics commands, events, persistence, APIs, DTOs, storage mappings, cache, security, audit, performance, examples, diagrams, tests, edge cases, and executable addendum from the canonical `knowledge/reporting/goal-metrics.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/reporting/goal-metrics.md`\r\n- Domain: Goal metrics\r\n- Status: Enterprise Specification\r\n\r\n## Covered Sections\r\n\r\n- Commands and Domain Events\r\n- Repository, Domain Service Interaction, Application Service Interaction, API, and DTO\r\n- PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping Schema, Future Cloud Mapping, and Cache Strategy\r\n- Security, Audit, Performance, Example JSON, Mermaid, Testing, Edge Cases, Version History, and Phase 2 Executable Specification Addendum\r\n\r\n## Boundary Rules\r\n\r\n- Commands and APIs must preserve HouseholdId, TenantId when applicable, authorization, audit evidence, and calculation source versions.\r\n- Repository and cache behavior must distinguish metric definitions, current metric values, historical values, projections, trends, and forecasts.\r\n- Tests must cover deterministic calculation, validation, refresh behavior, concurrency, performance, and executable addendum command contracts.\r\n",
   "references": []
 }

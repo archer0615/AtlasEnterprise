@@ -1,4 +1,4 @@
-﻿# Goal Analytics
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Analytics
 Version: 1.0
 ## Split Navigation
 - [Goal analytics indicators](goal-analytics/indicators.md)
@@ -417,7 +417,7 @@ Task<GoalAnalyticsExportDto> ExportAnalyticsAsync(ExportAnalyticsRequest request
 Task<GoalAnalyticsSearchResultDto> SearchAnalyticsAsync(GoalAnalyticsSearchRequest request);
 ```
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Method | Endpoint | Purpose |
 |---|---|---|
 | GET | /api/goal-analytics | Search analytics. |
@@ -513,7 +513,7 @@ Report API accepts report type, date range, filters, projection, and output pref
 ```json
 { "reportId": "uuid", "reportType": "GoalAnalyticsSummary", "generatedAt": "2026-07-13T00:00:00Z", "status": "Generated" }
 ```
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 Primary table: goal_analytics.
 Result table: goal_analytics_result.
@@ -537,7 +537,7 @@ uq_goal_analytics_household_goal_name.
 Ratio and score indicator values must be between 0 and 1 when unit is ratio or score.
 ## Partition Strategy
 Partition calculation history and result history by generated_at month when volume requires it.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_analytics (
     analytics_id uuid PRIMARY KEY,
@@ -644,7 +644,7 @@ SELECT household_id,
 FROM goal_analytics_result
 GROUP BY household_id, goal_plan_id, indicator_name, date_trunc('day', generated_at);
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 ## Fluent API
 ```csharp
 builder.ToTable("goal_analytics");
@@ -668,7 +668,7 @@ AnalyticsIndicator can be owned for indicator configuration.
 AnalyticsThreshold can be owned for warning and critical ranges.
 AnalyticsFilterSet can be owned for filters.
 ## Indexes
-Indexes match PostgreSQL schema.
+Indexes match Future Cloud Mapping schema.
 ## Query Filters
 Default query filter excludes deleted analytics.
 Repository specification applies Household and Tenant filters.

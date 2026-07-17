@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1f6f78" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="src/styles.css" />
     <title>Atlas Enterprise LifeOS</title>
   </head>
   <body>
@@ -39,6 +39,25 @@
             </div>
             <span id="dashboardDate">Fixture</span>
           </div>
+          <div class="dashboard-actions" aria-label="Local dashboard actions">
+            <input id="scenarioNameInput" type="text" placeholder="本地情境名稱" />
+            <input id="scenarioScoreInput" type="text" placeholder="分數或狀態" />
+            <button id="saveScenarioButton" type="button">儲存情境</button>
+            <button id="deleteScenarioButton" type="button">刪除最後情境</button>
+            <button id="resetScenariosButton" type="button">重置情境</button>
+            <button id="exportBackupButton" type="button">匯出備份</button>
+            <label>
+              <span>選擇備份</span>
+              <input id="importBackupInput" type="file" accept="application/json" />
+            </label>
+            <label class="restore-confirmation">
+              <input id="restoreConfirmInput" type="checkbox" />
+              <span>確認覆蓋本地情境</span>
+            </label>
+            <button id="applyBackupButton" type="button">套用備份</button>
+          </div>
+          <div class="backup-preview" id="backupPreview"></div>
+          <div class="runtime-feedback" id="runtimeFeedback" role="status" aria-live="polite"></div>
           <div class="dashboard-switcher" id="dashboardSwitcher" aria-label="Dashboard scenario switcher"></div>
           <div class="metric-grid" id="metricGrid"></div>
           <div class="decision-panels">
@@ -66,6 +85,6 @@
         </section>
       </main>
     </div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>

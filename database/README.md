@@ -1,6 +1,6 @@
 # Database
 
-The active architecture does not require a server database. Atlas Enterprise is organized as a static-first PWA knowledge application, with canonical knowledge stored in Markdown and runtime content generated as static assets.
+The active architecture does not require a Future Architecture server database. Atlas Enterprise is organized as a static-first PWA knowledge application, with canonical knowledge stored in Markdown and runtime content generated as static assets.
 
 ## Current Role
 

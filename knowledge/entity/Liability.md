@@ -1,4 +1,4 @@
-# Liability Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Liability Entity Specification
 ## Split Navigation
 - [Liability identity and lifecycle](liability/identity-and-lifecycle.md)
 - [Liability API and persistence](liability/api-and-persistence.md)
@@ -45,7 +45,7 @@
 | API Resource | entity-catalog.md | /api/v1/liabilities. | /api/v1/liabilities | Referenced | REST controller | Catalog-aligned | Household scoped |
 | DTO | API governance | DTO is contract, not Domain Concept. | Liability DTOs | Implementation Detail | Request/response schemas | Implementation Detail | Names map to properties |
 | Permission | entity-catalog.md | Liability:Read appears in API mapping. | Liability:Read and resource-action mappings | Referenced | Policy attributes | Catalog-aligned where present | Mutating permissions are API mapping |
-| Database Table | entity-catalog.md | liabilities. | liabilities | Referenced | PostgreSQL table | Catalog-aligned | Owned by LiabilityPortfolio |
+| Database Table | entity-catalog.md | liabilities. | liabilities | Referenced | Future Cloud Mapping table | Catalog-aligned | Owned by LiabilityPortfolio |
 | Read Model | API governance | Summary projections are not source of truth. | Liability summary projection | Implementation Detail | Cache/materialized view | Implementation Detail | Read-only |
 | Cache | entity-catalog.md | liability summary cache. | liability summary cache | Referenced | Cache keys | Catalog-aligned | Scoped by TenantId and HouseholdId |
 | Audit | entity-catalog.md | Liability changes audited through LiabilityPortfolio. | Liability audit | Referenced | AuditRepository entries | Catalog-aligned | Complete audit required |
@@ -157,7 +157,7 @@ Aggregate Catalog defines LiabilityPortfolio as Aggregate and Aggregate Root. Li
 | Prohibited navigation | Mutable object graph to Loan, Mortgage, CashFlow, Asset, Goal, Scenario, Decision, Recommendation | Not allowed |
 # Complete Properties
 ## Property Matrix
-| Name | Type | Nullable | Default | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---:|---:|---:|---:|---:|
 | LiabilityId | UUID | No | generated | liability_id uuid pk | liabilityId | route, response | Yes | Yes | Yes | No | Yes |
 | TenantId | UUID | No | context | tenant_id uuid | tenantId | internal, response | Yes | Yes | Yes | No | Yes |
@@ -420,7 +420,7 @@ Specifications describe persistence filters only. They must not calculate intere
 | ReportApplicationService | Catalog-aligned | Debt reports and explainability. |
 | AdministrationApplicationService | Catalog-aligned | Audit, import review, and operational queries. |
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Method | Path | Use Case | Permission | Status Codes |
 |---|---|---|---|---|
 | POST | /api/v1/liabilities | Create liability | Liability:Create | 201, 400, 401, 403, 409, 422 |
@@ -534,7 +534,7 @@ Responses include requestId, correlationId, tenantId, householdId, liabilityId, 
   "concurrencyToken": "65f9c0d1-87fb-45e9-a100-000000000010"
 }
 ```
-# Database Mapping
+# PWA Runtime Mapping
 | Column | Type | Nullable | Constraint |
 |---|---|---:|---|
 | liability_id | uuid | No | Primary key |
@@ -576,7 +576,7 @@ Responses include requestId, correlationId, tenantId, householdId, liabilityId, 
 | updated_by | uuid | No | Updater |
 | version | integer | No | Concurrency |
 | concurrency_token | uuid | No | Concurrency |
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE SCHEMA IF NOT EXISTS atlas;
 CREATE TABLE IF NOT EXISTS atlas.liabilities (
@@ -657,7 +657,7 @@ CREATE INDEX IF NOT EXISTS ix_liabilities_archived ON atlas.liabilities (tenant_
 CREATE INDEX IF NOT EXISTS ix_liabilities_deleted ON atlas.liabilities (tenant_id, deleted_at);
 CREATE INDEX IF NOT EXISTS ix_liabilities_concurrency_token ON atlas.liabilities (concurrency_token);
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 ```csharp
 public sealed class LiabilityEntityConfiguration : IEntityTypeConfiguration<LiabilityEntity>
 {
@@ -1033,7 +1033,7 @@ stateDiagram-v2
 | Application Service | application-service-catalog.md | LoanApplicationService | Referenced | Use case handlers | Catalog-aligned | None | Use catalog service | No |
 | API | entity-catalog.md | /api/v1/liabilities | Referenced | Controller | Catalog-aligned | None | Use catalog resource | No |
 | Permission | entity-catalog.md | Liability:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Mutating permissions partially implicit | Treat as API permission mapping | Optional catalog update |
-| Database | entity-catalog.md | liabilities | Referenced | PostgreSQL table | Catalog-aligned | None | Use table name | No |
+| Database | entity-catalog.md | liabilities | Referenced | Future Cloud Mapping table | Catalog-aligned | None | Use table name | No |
 | Read Model | API governance | Liability projection | Implementation Detail | Cache/materialized view | Implementation Detail | Dashboard metric could be mistaken for source | Projection read-only | No |
 | Audit | audit guidance | Liability audit through LiabilityPortfolio | Referenced | AuditRepository | Catalog-aligned | None | Mandatory audit | No |
 | Tenant | tenant guidance | TenantId | Referenced | tenant_id | Catalog-aligned | Household could be mistaken for Tenant | Keep distinct | No |

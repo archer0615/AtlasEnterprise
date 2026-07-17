@@ -1,4 +1,4 @@
-﻿# Recommendation Evaluation Overview
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Recommendation Evaluation Overview
 Version: 1.0.0
 Status: Enterprise Specification
 Owner: Atlas Recommendation Domain
@@ -463,7 +463,7 @@ public interface IRecommendationEvaluationRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Endpoint | Method | Purpose |
 |---|---:|---|
 | `/api/recommendation-evaluations` | `POST` | Create evaluation |
@@ -558,7 +558,7 @@ Fields: `reportId`, `evaluationId`, `scoreBreakdown`, `constraintResults`, `expl
 
 ---
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 Primary table: `recommendation_evaluations`. Score table: `recommendation_evaluation_scores`.
@@ -588,7 +588,7 @@ History and report tables may be partitioned by tenant and month.
 
 ---
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE recommendation_evaluations (
@@ -708,7 +708,7 @@ Constraints enforce state validity, score ranges, and version integrity.
 
 ---
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp

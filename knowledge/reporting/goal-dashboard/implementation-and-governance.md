@@ -1,4 +1,4 @@
-# Goal Dashboard Implementation and Governance
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Dashboard Implementation and Governance
 
 ## Purpose
 
@@ -14,7 +14,7 @@ This split document isolates Goal Dashboard commands, events, persistence, APIs,
 
 - Commands and Domain Events
 - Repository, Domain Service Interaction, Application Service Interaction, API, and DTO
-- Database Mapping, PostgreSQL Schema, EF Core Mapping, and Cache Strategy
+- PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping Schema, Future Cloud Mapping, and Cache Strategy
 - Security, Audit, Performance, Example JSON, Mermaid, Testing, Edge Cases, Version History, and Phase 2 Executable Specification Addendum
 
 ## Boundary Rules

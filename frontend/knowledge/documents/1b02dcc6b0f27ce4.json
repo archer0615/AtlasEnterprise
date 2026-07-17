@@ -1,14 +1,10 @@
 {
   "id": "1b02dcc6b0f27ce4",
-  "title": "ActionPlan Governance and Testing",
+  "title": "governance-and-testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/action-plan/governance-and-testing.md",
-  "sourceHash": "0ca0dcf9056cfc2f32138d27dbfa97b114f810dee9bf71c1fbabe62dd5171639",
+  "sourceHash": "8d9eb419bfd621ba4d10c2a815e2acf40a7b50a89528d8b8707c2c6e1872dd88",
   "headings": [
-    {
-      "level": 1,
-      "text": "ActionPlan Governance and Testing"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -22,6 +18,6 @@
       "text": "Governance Rules"
     }
   ],
-  "bodyMarkdown": "# ActionPlan Governance and Testing\n\n## Purpose\n\nThis split document isolates ActionPlan repository, API, persistence, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/entity/ActionPlan.md` parent.\n\n## Covered Sections\n\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n\n## Governance Rules\n\n- ActionPlanRepository loads ActionPlan records and history without cascading cross-aggregate changes.\n- Security must enforce User scope inherited through ExecutionPlan ownership.\n- Audit must include assignment, start, pause, resume, completion, cancellation, archive, restore, deletion, and history.\n- Performance checks must cover ordered task lists, dashboard summaries, and history retrieval.\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# ActionPlan Governance and Testing\r\n\r\n## Purpose\r\n\r\nThis split document isolates ActionPlan repository, API, persistence, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/entity/ActionPlan.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Repository\r\n- Domain Service Interaction\r\n- Application Service Interaction\r\n- API\r\n- DTO\r\n- PWA Runtime Mapping / Future Cloud Mapping\r\n- Future Cloud Mapping Schema\r\n- Future Cloud Mapping\r\n- Cache Strategy\r\n- Security\r\n- Audit\r\n- Performance\r\n- Example JSON\r\n- Mermaid\r\n- Testing\r\n- Edge Cases\r\n- Version History\r\n\r\n## Governance Rules\r\n\r\n- ActionPlanRepository loads ActionPlan records and history without cascading cross-aggregate changes.\r\n- Security must enforce User scope inherited through ExecutionPlan ownership.\r\n- Audit must include assignment, start, pause, resume, completion, cancellation, archive, restore, deletion, and history.\r\n- Performance checks must cover ordered task lists, dashboard summaries, and history retrieval.\r\n",
   "references": []
 }

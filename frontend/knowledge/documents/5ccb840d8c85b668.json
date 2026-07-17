@@ -3,7 +3,7 @@
   "title": "Domain Service Catalog Entries",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/domain-service/catalog-entries.md",
-  "sourceHash": "ba8d50858b74266e003aeec4be50d8a93542a89eef9b1fa69a74a802ab134c17",
+  "sourceHash": "feaa06699f848e80d07097ccb0d3eefa37c8572e50aec891f56deabd68170de1",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Entry Contract"
     }
   ],
-  "bodyMarkdown": "# Domain Service Catalog Entries\r\n\r\n## Purpose\r\nThis split document isolates domain service definitions from the parent Domain Service Catalog.\r\n\r\n## Source\r\n- Parent specification: [Domain Service Catalog](../domain-service-catalog.md)\r\n\r\n## Service Entries\r\n- DecisionService\r\n- CashFlowService\r\n- PortfolioService\r\n- LoanService\r\n- RetirementService\r\n- ScenarioService\r\n- ScoringService\r\n- ExplainabilityService\r\n- RiskService\r\n- AllocationService\r\n\r\n## Entry Contract\r\nEach domain service entry preserves business purpose, owned calculations, validation behavior, input/output contracts, aggregate dependencies, rule dependencies, engine dependencies, and side-effect boundaries.\r\n\r\n",
+  "bodyMarkdown": "# Domain Service Catalog Entries\n\n## Purpose\nThis split document isolates domain service definitions from the parent Domain Service Catalog.\n\n## Source\n- Parent specification: [Domain Service Catalog](../domain-service-catalog.md)\n\n## Service Entries\n- DecisionService\n- CashFlowService\n- PortfolioService\n- LoanService\n- RetirementService\n- ScenarioService\n- ScoringService\n- ExplainabilityService\n- RiskService\n- AllocationService\n\n## Entry Contract\nEach domain service entry preserves business purpose, owned calculations, validation behavior, input/output contracts, aggregate dependencies, rule dependencies, engine dependencies, and side-effect boundaries.\n\n",
   "references": []
 }

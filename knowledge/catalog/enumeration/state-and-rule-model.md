@@ -1,4 +1,4 @@
-# Enumeration State and Rule Model
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Enumeration State and Rule Model
 
 ## Purpose
 This split document isolates state, lifecycle, category, mapping, validation, and business rule groups from the parent Enumeration Catalog.
@@ -14,8 +14,8 @@ This split document isolates state, lifecycle, category, mapping, validation, an
 - Category Enumerations
 - Permission Enumerations
 - Validation Enumerations
-- Database Mapping
-- EF Core Mapping
+- PWA Runtime Mapping / Future Cloud Mapping
+- Future Cloud Mapping
 - API Mapping
 - Validation Rules
 - Business Rules
@@ -59,11 +59,11 @@ This split document isolates state, lifecycle, category, mapping, validation, an
 ## Validation Enumerations
 - Validation Enumerations define allowed status, type, priority, category, channel, and currency values for API, DTO, persistence, workflow, and state machine usage.
 
-## Database Mapping
-- Database Mapping preserves Enumeration database values, allowed values, and compatibility with PostgreSQL persistence.
+## PWA Runtime Mapping
+- PWA Runtime Mapping / Future Cloud Mapping preserves Enumeration database values, allowed values, and compatibility with Future Cloud Mapping persistence.
 
-## EF Core Mapping
-- EF Core Mapping preserves Enumeration conversion, owned usage where applicable, value comparison, migration compatibility, and query behavior.
+## Future Cloud Mapping
+- Future Cloud Mapping preserves Enumeration conversion, owned usage where applicable, value comparison, migration compatibility, and query behavior.
 
 ## API Mapping
 - API Mapping preserves JSON Value, API Values, display values, and backward-compatible external contracts.

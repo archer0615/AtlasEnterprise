@@ -1,4 +1,4 @@
-﻿# Projection Engine Framework
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Projection Engine Framework
 
 # Document Control
 
@@ -158,7 +158,7 @@ Every projection must use this Enterprise contract.
 | Refresh Strategy | Event, scheduled, refresh-ahead, manual, or dependency-driven. |
 | Version Strategy | Schema version, handler version, source event version, and read model version. |
 | Storage | Table, materialized view, search index, cache, analytics store, or report store. |
-| Database Mapping | Schema, table, view, index, partition, retention, and archive mapping. |
+| PWA Runtime Mapping / Future Cloud Mapping | Schema, table, view, index, partition, retention, and archive mapping. |
 | Security | Permission, tenant, household, classification, masking, and encryption rules. |
 | Audit | Replay, rebuild, refresh, failure, recovery, and administrative audit requirements. |
 | Performance | Processing SLA, replay throughput, refresh latency, query latency, and storage target. |
@@ -287,7 +287,7 @@ Every projection must use this Enterprise contract.
 - Refresh Strategy is required.
 - Version Strategy is required.
 - Storage mapping is required.
-- Database Mapping is required for persisted projections.
+- PWA Runtime Mapping / Future Cloud Mapping is required for persisted projections.
 - Cache mapping is required when projection is cached.
 - API mapping is required when projection is served through API.
 - Dashboard mapping is required when projection feeds dashboard.

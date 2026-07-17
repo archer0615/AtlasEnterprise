@@ -3,7 +3,7 @@
   "title": "Decision Lifecycle Execution and Audit",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-lifecycle/execution-and-audit.md",
-  "sourceHash": "60ef37a4b71a8c1070a380f59d9b4ac879706c77868176603b118a70723ab6f5",
+  "sourceHash": "b631fc61c8be337d1a57d64a074d523204a89d20af559a730f2aa5970217cebb",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Audit"
     }
   ],
-  "bodyMarkdown": "# Decision Lifecycle Execution and Audit\r\n\r\n## Purpose\r\nThis split document isolates decision lifecycle commands, events, API, persistence, audit, and reporting behavior from the parent Decision Lifecycle specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Lifecycle](../decision-lifecycle.md)\r\n\r\n## Execution\r\nExecution includes lifecycle command validation, state transition handling, decision history creation, recommendation linkage, workflow coordination, and dashboard projection refresh.\r\n\r\n## Audit\r\nAudit records every lifecycle transition, user action, recommendation change, execution reference, and outcome measurement.\r\n\r\n",
+  "bodyMarkdown": "# Decision Lifecycle Execution and Audit\n\n## Purpose\nThis split document isolates decision lifecycle commands, events, API, persistence, audit, and reporting behavior from the parent Decision Lifecycle specification.\n\n## Source\n- Parent specification: [Decision Lifecycle](../decision-lifecycle.md)\n\n## Execution\nExecution includes lifecycle command validation, state transition handling, decision history creation, recommendation linkage, workflow coordination, and dashboard projection refresh.\n\n## Audit\nAudit records every lifecycle transition, user action, recommendation change, execution reference, and outcome measurement.\n\n",
   "references": []
 }

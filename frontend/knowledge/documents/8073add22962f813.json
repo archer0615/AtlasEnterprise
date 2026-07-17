@@ -1,14 +1,10 @@
 {
   "id": "8073add22962f813",
-  "title": "Position API and Persistence",
+  "title": "api-and-persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/position/api-and-persistence.md",
-  "sourceHash": "40355e9454a017abc678f1fc212ae7dbbfb6ff73847b2500f5fa51d83617cac5",
+  "sourceHash": "c8a07f5355f549ff6f4e174762323f34c628b60c1b6eb00b9a8709bbe1426aca",
   "headings": [
-    {
-      "level": 1,
-      "text": "Position API and Persistence"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -26,6 +22,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "# Position API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Position commands, events, repository, services, REST API, DTOs, database mapping, PostgreSQL DDL, EF Core mapping, and cache strategy from the parent Position Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Position Entity Specification](../Position.md)\r\n\r\n## API\r\nPosition APIs expose create, update, detail, search, valuation, archive, restore, and delete behavior under portfolio and permission boundaries.\r\n\r\n## Persistence\r\nPersistence covers position table mapping, indexes, constraints, EF Core precision, optimistic concurrency, cache invalidation, and portfolio projection refresh.\r\n\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Position API and Persistence\n\n## Purpose\nThis split document isolates Position commands, events, repository, services, Future Cloud Architecture API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping, and cache strategy from the parent Position Entity Specification.\n\n## Source\n- Parent specification: [Position Entity Specification](../Position.md)\n\n## API\nPosition APIs expose create, update, detail, search, valuation, archive, restore, and delete behavior under portfolio and permission boundaries.\n\n## Persistence\nPersistence covers position table mapping, indexes, constraints, Future Cloud Mapping precision, optimistic concurrency, cache invalidation, and portfolio projection refresh.\n\n",
   "references": []
 }

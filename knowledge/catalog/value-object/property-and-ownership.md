@@ -1,4 +1,4 @@
-# Value Object Property and Ownership
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Value Object Property and Ownership
 
 Source: ../value-object-catalog.md
 
@@ -6,7 +6,7 @@ This split document preserves the canonical content from the parent catalog for 
 
 # Property Catalog
 
-| Value Object | Name | Type | Nullable | Default | Description | Validation | Business Meaning | JSON Name | Database Mapping | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Value Object | Name | Type | Nullable | Default | Description | Validation | Business Meaning | JSON Name | PWA Runtime Mapping / Future Cloud Mapping | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Money | Amount | Catalog type | No unless owner permits | None | Amount property for Money. | Required and type-safe. | Part of Money value equality. | amount | Owned column or JSON field | Request, response, event payload, projection | Conditional | Conditional | Conditional | Conditional | Through owner |
 | Money | Currency | Catalog type | No unless owner permits | None | Currency property for Money. | Required and type-safe. | Part of Money value equality. | currency | Owned column or JSON field | Request, response, event payload, projection | Conditional | Conditional | Conditional | Conditional | Through owner |

@@ -1,14 +1,10 @@
 {
   "id": "c11ec55cb92155b2",
-  "title": "Decision Insight Contracts and Persistence",
+  "title": "contracts-and-persistence",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-insights/contracts-and-persistence.md",
-  "sourceHash": "f975a3061d0c401d5a1b16cdba771adce3d2c8c7f25628dc69c0e0b47cba7c11",
+  "sourceHash": "737e59664ee3e8d4351cf5720cc9ba5d72e103ebec5b550c4ded1adffe331fce",
   "headings": [
-    {
-      "level": 1,
-      "text": "Decision Insight Contracts and Persistence"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -38,6 +34,6 @@
       "text": "Operations"
     }
   ],
-  "bodyMarkdown": "# Decision Insight Contracts and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Decision Insight commands, domain events, repository, API, DTO, database mapping, cache, security, audit, performance, examples, diagrams, testing, and edge cases from the parent Decision Insights specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Insights](../decision-insights.md)\r\n\r\n## Commands\r\nInsight commands include CreateInsight, UpdateInsight, RefreshInsight, GenerateInsight, DismissInsight, ResolveInsight, ArchiveInsight, RestoreInsight, DeleteInsight, GenerateInsightReport, and related existing domain commands.\r\n\r\n## Domain Events\r\nDomain events preserve insight lifecycle, evidence, recommendation mapping, reporting, resolution, dismissal, archive, restore, delete, audit, and cross-domain references without overriding source domain ownership.\r\n\r\n## API and DTO\r\nREST Endpoints, HTTP Methods, Request, Response, Errors, Pagination, Filtering, Sorting, Projection, Insight API, Report API, and Bulk API use Create DTO, Update DTO, Insight DTO, Evidence DTO, Recommendation DTO, Risk DTO, Summary DTO, Detail DTO, Search DTO, and Report DTO contracts.\r\n\r\n## Persistence\r\nRepository interface, methods, queries, filtering, sorting, aggregation, projection, specification, database table, columns, indexes, constraints, FK, unique, check constraint, partition strategy, PostgreSQL schema, EF Core mapping, and cache strategy preserve independent lifecycle, evidence collection, resolution state, audit trail, and repository identity.\r\n\r\n## Operations\r\nSecurity, authorization, permissions, field level security, data masking, audit history, batch generation, incremental detection, parallel processing, caching, materialized views, read optimization, example JSON, Mermaid diagrams, and tests support governed Decision Insight execution.\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Decision Insight Contracts and Persistence\n\n## Purpose\nThis split document isolates Decision Insight commands, domain events, repository, API, DTO, PWA Runtime Mapping / Future Cloud Mapping, cache, security, audit, performance, examples, diagrams, testing, and edge cases from the parent Decision Insights specification.\n\n## Source\n- Parent specification: [Decision Insights](../decision-insights.md)\n\n## Commands\nInsight commands include CreateInsight, UpdateInsight, RefreshInsight, GenerateInsight, DismissInsight, ResolveInsight, ArchiveInsight, RestoreInsight, DeleteInsight, GenerateInsightReport, and related existing domain commands.\n\n## Domain Events\nDomain events preserve insight lifecycle, evidence, recommendation mapping, reporting, resolution, dismissal, archive, restore, delete, audit, and cross-domain references without overriding source domain ownership.\n\n## API and DTO\nFuture Cloud Architecture Endpoints, HTTP Methods, Request, Response, Errors, Pagination, Filtering, Sorting, Projection, Insight API, Report API, and Bulk API use Create DTO, Update DTO, Insight DTO, Evidence DTO, Recommendation DTO, Risk DTO, Summary DTO, Detail DTO, Search DTO, and Report DTO contracts.\n\n## Persistence\nRepository interface, methods, queries, filtering, sorting, aggregation, projection, specification, database table, columns, indexes, constraints, FK, unique, check constraint, partition strategy, Future Cloud Mapping schema, Future Cloud Mapping, and cache strategy preserve independent lifecycle, evidence collection, resolution state, audit trail, and repository identity.\n\n## Operations\nSecurity, authorization, permissions, field level security, data masking, audit history, batch generation, incremental detection, parallel processing, caching, materialized views, read optimization, example JSON, Mermaid diagrams, and tests support governed Decision Insight execution.\n",
   "references": []
 }

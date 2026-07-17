@@ -3,7 +3,7 @@
   "title": "Liability Rules and State",
   "category": "entity",
   "canonicalPath": "knowledge/entity/liability/rules-and-state.md",
-  "sourceHash": "ccb8fd569be7b2c9c05988e5bc34b080ea1ecc6b7b446b935d65d88ba2c94f17",
+  "sourceHash": "0bfdd620c5c58c8593a7b18389760640f11feaddf8d11433eb6b3474512603f6",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "State and Events"
     }
   ],
-  "bodyMarkdown": "# Liability Rules and State\r\n\r\n## Purpose\r\nThis split document isolates Liability validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Liability Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Liability Entity Specification](../Liability.md)\r\n\r\n## Validation Rules\r\nLiability validation requires TenantId, HouseholdId, LiabilityPortfolioId, LiabilityName, Currency, non-negative OutstandingBalance, valid amount ordering, valid payment dates, and trusted cross-aggregate references for LoanId, MortgageId, and CollateralAssetId.\r\n\r\n## Business Rules\r\nLiability remains a child entity owned by LiabilityPortfolio. Loan, Mortgage, CashFlow, Asset, Goal, Scenario, Decision, Recommendation, and Notification behavior is reference-only or projection-only and cannot be mutated through Liability.\r\n\r\n## Aggregate Invariants\r\nLiabilityPortfolio is the consistency and concurrency boundary. Closed Liability requires zero OutstandingBalance, archived or deleted Liability rejects ordinary update, read model values cannot become aggregate source state, and every amount mutation must be audited.\r\n\r\n## State and Events\r\nActive, Suspended, Closed, Archived, and Deleted are implementation status values. No LiabilityPortfolio domain events are cataloged; use audit records and catalog-owned Loan events without creating new Liability domain events.\r\n",
+  "bodyMarkdown": "# Liability Rules and State\n\n## Purpose\nThis split document isolates Liability validation rules, business rules, aggregate invariants, state machine, commands, and domain event boundaries from the parent Liability Entity Specification.\n\n## Source\n- Parent specification: [Liability Entity Specification](../Liability.md)\n\n## Validation Rules\nLiability validation requires TenantId, HouseholdId, LiabilityPortfolioId, LiabilityName, Currency, non-negative OutstandingBalance, valid amount ordering, valid payment dates, and trusted cross-aggregate references for LoanId, MortgageId, and CollateralAssetId.\n\n## Business Rules\nLiability remains a child entity owned by LiabilityPortfolio. Loan, Mortgage, CashFlow, Asset, Goal, Scenario, Decision, Recommendation, and Notification behavior is reference-only or projection-only and cannot be mutated through Liability.\n\n## Aggregate Invariants\nLiabilityPortfolio is the consistency and concurrency boundary. Closed Liability requires zero OutstandingBalance, archived or deleted Liability rejects ordinary update, read model values cannot become aggregate source state, and every amount mutation must be audited.\n\n## State and Events\nActive, Suspended, Closed, Archived, and Deleted are implementation status values. No LiabilityPortfolio domain events are cataloged; use audit records and catalog-owned Loan events without creating new Liability domain events.\n",
   "references": []
 }

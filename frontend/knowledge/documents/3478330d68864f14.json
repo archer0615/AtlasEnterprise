@@ -3,7 +3,7 @@
   "title": "Identity and Access Architecture",
   "category": "security",
   "canonicalPath": "knowledge/security/security-framework/security-architecture/identity-and-access-architecture.md",
-  "sourceHash": "b32666c4173a602814d9c0e2c277643b873c6f3bada720103208dc31e13f85eb",
+  "sourceHash": "91e6803195da379caa032604d3ee624748f79a3b4b02137e7f63b52448bb9b42",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Canonical Reference"
     }
   ],
-  "bodyMarkdown": "# Identity and Access Architecture\n\nSource: [Security Architecture](../security-architecture.md)\n\n## Scope\n\nThis split document summarizes the identity and access control portions of the canonical Security Architecture. The parent document remains authoritative.\n\n## Covered Sections\n\n- Authentication Architecture\n- Authorization Architecture\n- Permission Model\n- Identity Model\n- Token Lifecycle\n\n## Review Focus\n\n- Every protected Atlas operation must start from an authenticated Principal.\n- Authorization decisions must be explicit, auditable, and fail closed.\n- Permission ownership must include household and tenant boundaries.\n- Identity claims must be traceable through authorization and audit records.\n- Token lifecycle controls must cover issuance, expiry, revocation, replay prevention, and downstream propagation.\n\n## Canonical Reference\n\nReview the canonical body in [Security Architecture](../security-architecture.md) for the full control list.\n",
+  "bodyMarkdown": "# Identity and Access Architecture\r\n\r\nSource: [Security Architecture](../security-architecture.md)\r\n\r\n## Scope\r\n\r\nThis split document summarizes the identity and access control portions of the canonical Security Architecture. The parent document remains authoritative.\r\n\r\n## Covered Sections\r\n\r\n- Authentication Architecture\r\n- Authorization Architecture\r\n- Permission Model\r\n- Identity Model\r\n- Token Lifecycle\r\n\r\n## Review Focus\r\n\r\n- Every protected Atlas operation must start from an authenticated Principal.\r\n- Authorization decisions must be explicit, auditable, and fail closed.\r\n- Permission ownership must include household and tenant boundaries.\r\n- Identity claims must be traceable through authorization and audit records.\r\n- Token lifecycle controls must cover issuance, expiry, revocation, replay prevention, and downstream propagation.\r\n\r\n## Canonical Reference\r\n\r\nReview the canonical body in [Security Architecture](../security-architecture.md) for the full control list.\r\n",
   "references": []
 }

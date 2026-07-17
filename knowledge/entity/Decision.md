@@ -1,4 +1,4 @@
-﻿# Decision Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Entity Specification
 ## Split Navigation
 - [Decision identity and scoring](decision/identity-and-scoring.md)
 - [Decision API and persistence](decision/api-and-persistence.md)
@@ -109,7 +109,7 @@ Navigation:
 - Validation: Required, unique, valid Guid, immutable.
 - Business Meaning: Identifies one evaluated decision across API, audit, events, and history.
 - Example: 111d49c8-0957-42a2-a812-b736615fa2bb.
-- Database Mapping: decisions.decision_id uuid primary key; JSON Name: decisionId; API Usage: all detail, mutation, history, and search APIs.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_id uuid primary key; JSON Name: decisionId; API Usage: all detail, mutation, history, and search APIs.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## DecisionNumber
@@ -119,7 +119,7 @@ Navigation:
 - Validation: Required, unique, max length 64, immutable.
 - Business Meaning: Enables support, audit, and user-facing traceability.
 - Example: DEC-20260714-000001.
-- Database Mapping: decisions.decision_number varchar(64) unique not null; JSON Name: decisionNumber; API Usage: detail, summary, search, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_number varchar(64) unique not null; JSON Name: decisionNumber; API Usage: detail, summary, search, history.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## UserId
@@ -129,7 +129,7 @@ Navigation:
 - Validation: Required, valid Guid, authorized User scope.
 - Business Meaning: Decision must belong to one User.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: decisions.user_id uuid not null; JSON Name: userId; API Usage: create, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.user_id uuid not null; JSON Name: userId; API Usage: create, detail, summary, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## DecisionType
@@ -139,7 +139,7 @@ Navigation:
 - Validation: Required, non-blank, max length 64.
 - Business Meaning: Classifies the decision without creating a new Domain.
 - Example: RecommendationDecision.
-- Database Mapping: decisions.decision_type varchar(64) not null; JSON Name: decisionType; API Usage: create, update before approval, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_type varchar(64) not null; JSON Name: decisionType; API Usage: create, update before approval, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## DecisionCategory
@@ -149,7 +149,7 @@ Navigation:
 - Validation: Required, max length 64.
 - Business Meaning: Groups decisions such as Goal, Scenario, Recommendation, Portfolio, Loan, and Risk.
 - Example: Recommendation.
-- Database Mapping: decisions.decision_category varchar(64) not null; JSON Name: decisionCategory; API Usage: create, update before approval, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_category varchar(64) not null; JSON Name: decisionCategory; API Usage: create, update before approval, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## DecisionStatus
@@ -159,7 +159,7 @@ Navigation:
 - Validation: Required; catalog values Pending, Evaluating, Recommended, Accepted, Rejected, Expired; lifecycle states map to Decision lifecycle policy.
 - Business Meaning: Controls evaluation, approval, rejection, execution, expiration, archive, and delete behavior.
 - Example: Recommended.
-- Database Mapping: decisions.decision_status varchar(32) not null; JSON Name: decisionStatus; API Usage: detail, summary, search, all state commands.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_status varchar(32) not null; JSON Name: decisionStatus; API Usage: detail, summary, search, all state commands.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## DecisionReason
@@ -169,7 +169,7 @@ Navigation:
 - Validation: Max length 2000, required for RejectDecision and CancelDecision.
 - Business Meaning: Explains why a Decision reached a state.
 - Example: Risk exceeds current capacity.
-- Database Mapping: decisions.decision_reason text null; JSON Name: decisionReason; API Usage: update, approve, reject, cancel, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_reason text null; JSON Name: decisionReason; API Usage: update, approve, reject, cancel, detail.
 - Searchable: Yes; Sortable: No; Indexed: Optional full text; Encrypted: Conditional; Auditable: Yes.
 
 ## DecisionSummary
@@ -179,7 +179,7 @@ Navigation:
 - Validation: Required, max length 512.
 - Business Meaning: Provides concise decision context in lists and dashboards.
 - Example: Approve cash reserve increase before portfolio risk increase.
-- Database Mapping: decisions.decision_summary varchar(512) not null; JSON Name: decisionSummary; API Usage: create, update before approval, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_summary varchar(512) not null; JSON Name: decisionSummary; API Usage: create, update before approval, detail, summary, search.
 - Searchable: Yes; Sortable: No; Indexed: Optional full text; Encrypted: Conditional; Auditable: Yes.
 
 ## Description
@@ -189,7 +189,7 @@ Navigation:
 - Validation: Max length 4000.
 - Business Meaning: Captures extended decision context.
 - Example: Evaluate whether to accept the generated recommendation.
-- Database Mapping: decisions.description text null; JSON Name: description; API Usage: create, update before approval, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.description text null; JSON Name: description; API Usage: create, update before approval, detail.
 - Searchable: Yes; Sortable: No; Indexed: Optional full text; Encrypted: Conditional; Auditable: Yes.
 
 ## Priority
@@ -199,7 +199,7 @@ Navigation:
 - Validation: Required; Low, Medium, High, Critical.
 - Business Meaning: Drives ordering and review urgency.
 - Example: High.
-- Database Mapping: decisions.priority varchar(32) not null; JSON Name: priority; API Usage: create, update before approval, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.priority varchar(32) not null; JSON Name: priority; API Usage: create, update before approval, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## DecisionScore
@@ -209,7 +209,7 @@ Navigation:
 - Validation: Range 0.0000 to 100.0000.
 - Business Meaning: Summarizes evaluation quality or suitability.
 - Example: 84.2500.
-- Database Mapping: decisions.decision_score numeric(9,4) not null; JSON Name: decisionScore; API Usage: evaluate, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_score numeric(9,4) not null; JSON Name: decisionScore; API Usage: evaluate, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ConfidenceScore
@@ -219,7 +219,7 @@ Navigation:
 - Validation: Range 0.0000 to 1.0000 when present.
 - Business Meaning: Indicates certainty of the Decision result.
 - Example: 0.8400.
-- Database Mapping: decisions.confidence_score numeric(5,4) null; JSON Name: confidenceScore; API Usage: evaluate, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.confidence_score numeric(5,4) null; JSON Name: confidenceScore; API Usage: evaluate, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## RiskScore
@@ -229,7 +229,7 @@ Navigation:
 - Validation: Range 0.0000 to 100.0000 when present.
 - Business Meaning: Quantifies downside or risk capacity pressure.
 - Example: 42.5000.
-- Database Mapping: decisions.risk_score numeric(9,4) null; JSON Name: riskScore; API Usage: evaluate, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.risk_score numeric(9,4) null; JSON Name: riskScore; API Usage: evaluate, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## BenefitScore
@@ -239,7 +239,7 @@ Navigation:
 - Validation: Range 0.0000 to 100.0000 when present.
 - Business Meaning: Quantifies expected positive effect.
 - Example: 88.0000.
-- Database Mapping: decisions.benefit_score numeric(9,4) null; JSON Name: benefitScore; API Usage: evaluate, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.benefit_score numeric(9,4) null; JSON Name: benefitScore; API Usage: evaluate, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## CostScore
@@ -249,7 +249,7 @@ Navigation:
 - Validation: Range 0.0000 to 100.0000 when present.
 - Business Meaning: Quantifies cost efficiency or affordability.
 - Example: 71.2500.
-- Database Mapping: decisions.cost_score numeric(9,4) null; JSON Name: costScore; API Usage: evaluate, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.cost_score numeric(9,4) null; JSON Name: costScore; API Usage: evaluate, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ImpactScore
@@ -259,7 +259,7 @@ Navigation:
 - Validation: Range 0.0000 to 100.0000 when present.
 - Business Meaning: Quantifies breadth and strength of financial impact.
 - Example: 79.0000.
-- Database Mapping: decisions.impact_score numeric(9,4) null; JSON Name: impactScore; API Usage: evaluate, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.impact_score numeric(9,4) null; JSON Name: impactScore; API Usage: evaluate, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Urgency
@@ -269,7 +269,7 @@ Navigation:
 - Validation: Required; Low, Normal, High, Immediate.
 - Business Meaning: Determines review, notification, and execution urgency.
 - Example: High.
-- Database Mapping: decisions.urgency varchar(32) not null; JSON Name: urgency; API Usage: create, update before approval, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.urgency varchar(32) not null; JSON Name: urgency; API Usage: create, update before approval, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## RecommendationId
@@ -279,7 +279,7 @@ Navigation:
 - Validation: Valid Guid when present; must be traceable when Decision came from Recommendation.
 - Business Meaning: Tracks source Recommendation.
 - Example: 7f3d29c6-6d0e-4f2c-bb46-bd3555d6d351.
-- Database Mapping: decisions.recommendation_id uuid null; JSON Name: recommendationId; API Usage: create, evaluate, approve, reject, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.recommendation_id uuid null; JSON Name: recommendationId; API Usage: create, evaluate, approve, reject, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ScenarioId
@@ -289,7 +289,7 @@ Navigation:
 - Validation: Valid Guid when present; same authorization scope.
 - Business Meaning: Connects Decision to evaluated Scenario evidence.
 - Example: 7b8f2309-4b51-4724-9fb7-927db4ee5d5d.
-- Database Mapping: decisions.scenario_id uuid null; JSON Name: scenarioId; API Usage: create, evaluate, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.scenario_id uuid null; JSON Name: scenarioId; API Usage: create, evaluate, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## GoalId
@@ -299,7 +299,7 @@ Navigation:
 - Validation: Valid Guid when present; same authorization scope.
 - Business Meaning: Links Decision to the most relevant Goal.
 - Example: 3e1f27f4-4201-431d-bb4a-01d2e4aa94d8.
-- Database Mapping: decisions.goal_id uuid null; JSON Name: goalId; API Usage: create, evaluate, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.goal_id uuid null; JSON Name: goalId; API Usage: create, evaluate, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ExecutionPlanId
@@ -309,7 +309,7 @@ Navigation:
 - Validation: Valid Guid when present; allowed only after approval or execution planning.
 - Business Meaning: Connects approved Decision to execution.
 - Example: 49b48b7e-2f44-40d7-bd31-2eb6fe7f206d.
-- Database Mapping: decisions.execution_plan_id uuid null; JSON Name: executionPlanId; API Usage: generate execution plan, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.execution_plan_id uuid null; JSON Name: executionPlanId; API Usage: generate execution plan, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ActionPlanId
@@ -319,7 +319,7 @@ Navigation:
 - Validation: Valid Guid when present; allowed only after approval or execution planning.
 - Business Meaning: Connects Decision to action planning.
 - Example: a0a0fe06-0352-45fb-bf56-15e2e4b29f10.
-- Database Mapping: decisions.action_plan_id uuid null; JSON Name: actionPlanId; API Usage: generate execution plan, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.action_plan_id uuid null; JSON Name: actionPlanId; API Usage: generate execution plan, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## SelectedOption
@@ -329,7 +329,7 @@ Navigation:
 - Validation: Valid JSON object; required before approval when alternatives exist.
 - Business Meaning: Records the selected decision path.
 - Example: {"optionId":"opt-a","label":"Increase reserve"}.
-- Database Mapping: decisions.selected_option jsonb null; JSON Name: selectedOption; API Usage: evaluate, approve, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.selected_option jsonb null; JSON Name: selectedOption; API Usage: evaluate, approve, detail.
 - Searchable: No; Sortable: No; Indexed: Optional jsonb path; Encrypted: Conditional; Auditable: Yes.
 
 ## AlternativeOptions
@@ -339,7 +339,7 @@ Navigation:
 - Validation: Valid JSON array or object when present.
 - Business Meaning: Preserves rejected or non-selected options for explainability.
 - Example: [{"optionId":"opt-b","label":"Maintain allocation"}].
-- Database Mapping: decisions.alternative_options jsonb null; JSON Name: alternativeOptions; API Usage: evaluate, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.alternative_options jsonb null; JSON Name: alternativeOptions; API Usage: evaluate, detail.
 - Searchable: No; Sortable: No; Indexed: Optional jsonb path; Encrypted: Conditional; Auditable: Yes.
 
 ## Assumptions
@@ -349,7 +349,7 @@ Navigation:
 - Validation: Valid JSON object; must include version references when supplied by assumption source.
 - Business Meaning: Preserves evaluation basis.
 - Example: {"inflationRate":0.02,"currency":"TWD"}.
-- Database Mapping: decisions.assumptions jsonb null; JSON Name: assumptions; API Usage: create, evaluate, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.assumptions jsonb null; JSON Name: assumptions; API Usage: create, evaluate, detail, history.
 - Searchable: No; Sortable: No; Indexed: Optional jsonb path; Encrypted: Conditional; Auditable: Yes.
 
 ## Constraints
@@ -359,7 +359,7 @@ Navigation:
 - Validation: Valid JSON object or array.
 - Business Meaning: Records hard and soft limits that shaped the Decision.
 - Example: {"minimumEmergencyFundMonths":6}.
-- Database Mapping: decisions.constraints jsonb null; JSON Name: constraints; API Usage: create, evaluate, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.constraints jsonb null; JSON Name: constraints; API Usage: create, evaluate, detail, history.
 - Searchable: No; Sortable: No; Indexed: Optional jsonb path; Encrypted: Conditional; Auditable: Yes.
 
 ## InputSnapshot
@@ -369,7 +369,7 @@ Navigation:
 - Validation: Required for evaluation; valid JSON; cannot be modified after approval.
 - Business Meaning: Preserves source data used by Decision.
 - Example: {"portfolioId":"...","cashFlowVersion":"v1"}.
-- Database Mapping: decisions.input_snapshot jsonb not null; JSON Name: inputSnapshot; API Usage: evaluate, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.input_snapshot jsonb not null; JSON Name: inputSnapshot; API Usage: evaluate, detail, history.
 - Searchable: No; Sortable: No; Indexed: Optional jsonb path; Encrypted: Conditional; Auditable: Yes.
 
 ## OutputSnapshot
@@ -379,7 +379,7 @@ Navigation:
 - Validation: Required after EvaluateDecision; valid JSON.
 - Business Meaning: Preserves computed Decision result.
 - Example: {"decisionScore":84.25,"recommendation":"Approve"}.
-- Database Mapping: decisions.output_snapshot jsonb null; JSON Name: outputSnapshot; API Usage: evaluate, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.output_snapshot jsonb null; JSON Name: outputSnapshot; API Usage: evaluate, detail, history.
 - Searchable: No; Sortable: No; Indexed: Optional jsonb path; Encrypted: Conditional; Auditable: Yes.
 
 ## DecisionExplanation
@@ -389,7 +389,7 @@ Navigation:
 - Validation: Required after evaluation; max length 4000.
 - Business Meaning: Makes the Decision understandable to users and auditors.
 - Example: Portfolio risk is acceptable after cash reserve improvement.
-- Database Mapping: decisions.decision_explanation text not null; JSON Name: decisionExplanation; API Usage: evaluate, approve, reject, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.decision_explanation text not null; JSON Name: decisionExplanation; API Usage: evaluate, approve, reject, detail.
 - Searchable: Yes; Sortable: No; Indexed: Optional full text; Encrypted: Conditional; Auditable: Yes.
 
 ## ExplainabilityReference
@@ -399,7 +399,7 @@ Navigation:
 - Validation: Required; max length 256; must resolve to explainability evidence.
 - Business Meaning: Preserves complete explainability trace.
 - Example: exp-20260714-0001.
-- Database Mapping: decisions.explainability_reference varchar(256) not null; JSON Name: explainabilityReference; API Usage: evaluate, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.explainability_reference varchar(256) not null; JSON Name: explainabilityReference; API Usage: evaluate, detail, history.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ApprovedBy
@@ -409,7 +409,7 @@ Navigation:
 - Validation: Required when DecisionStatus is Approved or Executing.
 - Business Meaning: Records approval authority.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: decisions.approved_by uuid null; JSON Name: approvedBy; API Usage: approve, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.approved_by uuid null; JSON Name: approvedBy; API Usage: approve, detail, history.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ApprovedAt
@@ -419,7 +419,7 @@ Navigation:
 - Validation: Required when approved; must be after CreatedAt.
 - Business Meaning: Establishes approval time.
 - Example: 2026-07-14T11:00:00+08:00.
-- Database Mapping: decisions.approved_at timestamptz null; JSON Name: approvedAt; API Usage: approve, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.approved_at timestamptz null; JSON Name: approvedAt; API Usage: approve, detail, history.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## RejectedBy
@@ -429,7 +429,7 @@ Navigation:
 - Validation: Required when DecisionStatus is Rejected.
 - Business Meaning: Records rejection authority.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: decisions.rejected_by uuid null; JSON Name: rejectedBy; API Usage: reject, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.rejected_by uuid null; JSON Name: rejectedBy; API Usage: reject, detail, history.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## RejectedAt
@@ -439,7 +439,7 @@ Navigation:
 - Validation: Required when rejected; must be after CreatedAt.
 - Business Meaning: Establishes rejection time.
 - Example: 2026-07-14T11:05:00+08:00.
-- Database Mapping: decisions.rejected_at timestamptz null; JSON Name: rejectedAt; API Usage: reject, detail, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.rejected_at timestamptz null; JSON Name: rejectedAt; API Usage: reject, detail, history.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## EffectiveDate
@@ -449,7 +449,7 @@ Navigation:
 - Validation: Must not be after ExpirationDate when both are present.
 - Business Meaning: Controls when execution can start.
 - Example: 2026-08-01.
-- Database Mapping: decisions.effective_date date null; JSON Name: effectiveDate; API Usage: create, update before approval, approve, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.effective_date date null; JSON Name: effectiveDate; API Usage: create, update before approval, approve, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ExpirationDate
@@ -459,7 +459,7 @@ Navigation:
 - Validation: Must be on or after EffectiveDate when both are present.
 - Business Meaning: Prevents stale Decision execution.
 - Example: 2026-12-31.
-- Database Mapping: decisions.expiration_date date null; JSON Name: expirationDate; API Usage: create, update before approval, expire, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.expiration_date date null; JSON Name: expirationDate; API Usage: create, update before approval, expire, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## CreatedAt
@@ -469,7 +469,7 @@ Navigation:
 - Validation: Required, immutable.
 - Business Meaning: Establishes Decision creation time.
 - Example: 2026-07-14T10:00:00+08:00.
-- Database Mapping: decisions.created_at timestamptz not null; JSON Name: createdAt; API Usage: detail, summary, search, history.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.created_at timestamptz not null; JSON Name: createdAt; API Usage: detail, summary, search, history.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## CreatedBy
@@ -479,7 +479,7 @@ Navigation:
 - Validation: Required, valid actor reference.
 - Business Meaning: Supports audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: decisions.created_by uuid not null; JSON Name: createdBy; API Usage: detail and audit.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.created_by uuid not null; JSON Name: createdBy; API Usage: detail and audit.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## UpdatedAt
@@ -489,7 +489,7 @@ Navigation:
 - Validation: Required; greater than or equal to CreatedAt.
 - Business Meaning: Supports ordering, cache invalidation, and audit.
 - Example: 2026-07-14T10:30:00+08:00.
-- Database Mapping: decisions.updated_at timestamptz not null; JSON Name: updatedAt; API Usage: detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.updated_at timestamptz not null; JSON Name: updatedAt; API Usage: detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## UpdatedBy
@@ -499,7 +499,7 @@ Navigation:
 - Validation: Valid actor reference when present.
 - Business Meaning: Supports mutation audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: decisions.updated_by uuid null; JSON Name: updatedBy; API Usage: detail and audit.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.updated_by uuid null; JSON Name: updatedBy; API Usage: detail and audit.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Version
@@ -509,7 +509,7 @@ Navigation:
 - Validation: Required; increments on every mutation; stale version rejected.
 - Business Meaning: Preserves version history and event ordering.
 - Example: 8.
-- Database Mapping: decisions.version bigint not null; JSON Name: version; API Usage: update and all mutation commands.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.version bigint not null; JSON Name: version; API Usage: update and all mutation commands.
 - Searchable: No; Sortable: Yes; Indexed: No; Encrypted: No; Auditable: Yes.
 
 ## ConcurrencyToken
@@ -519,7 +519,7 @@ Navigation:
 - Validation: Required; must match on mutation; regenerated after mutation.
 - Business Meaning: Prevents lost updates across DecisionSession mutation.
 - Example: 01J2Y8Z7ABCD.
-- Database Mapping: decisions.concurrency_token varchar(128) not null; JSON Name: concurrencyToken; API Usage: update and all mutation commands.
+- PWA Runtime Mapping / Future Cloud Mapping: decisions.concurrency_token varchar(128) not null; JSON Name: concurrencyToken; API Usage: update and all mutation commands.
 - Searchable: No; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 # Validation Rules
@@ -778,7 +778,7 @@ Approve DTO: ApproveDecisionDto includes decisionId, approvedAt, decisionReason,
 
 Reject DTO: RejectDecisionDto includes decisionId, rejectedAt, decisionReason, version, concurrencyToken, idempotencyKey.
 
-# Database Mapping
+# PWA Runtime Mapping
 
 Table: decisions
 
@@ -792,7 +792,7 @@ Check Constraint: score ranges, status values, priority values, urgency values, 
 
 Index: user, decision number, status, type, category, priority, urgency, score, recommendation, scenario, goal, execution plan, expiration, updated time, active filter.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE decisions (
@@ -870,7 +870,7 @@ CREATE INDEX ix_decisions_updated ON decisions (updated_at DESC, decision_id);
 CREATE INDEX ix_decisions_active ON decisions (user_id, decision_status, priority, updated_at DESC) WHERE decision_status NOT IN ('Archived','Deleted');
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 Fluent API:
 

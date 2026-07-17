@@ -3,7 +3,7 @@
   "title": "Scenario Inputs Outputs and Scoring",
   "category": "framework",
   "canonicalPath": "knowledge/framework/scenario/inputs-outputs-and-scoring.md",
-  "sourceHash": "8826b2da246b774ff20e01386939cd44cba65c5bd670d273d0837e6958d4788b",
+  "sourceHash": "e7bdebd5be534da30733a7a00ce759aa004b1ddaad928e50c365071ba4aaf88e",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Scenario Rules"
     }
   ],
-  "bodyMarkdown": "# Scenario Inputs Outputs and Scoring\n\n## Purpose\n\nThis split document isolates Scenario input, output, KPI, comparison, scoring, risk, validation, and decision/life-event model concerns from the canonical `knowledge/framework/scenario-framework.md` parent.\n\n## Covered Sections\n\n- Decision Set Model\n- Life Event Model\n- Scenario Input Snapshot\n- Scenario Output Model\n- KPI Integration\n- Scenario Comparison Framework\n- Scenario Scoring\n- Risk Level Model\n- Scenario Validation Rules\n\n## Scenario Rules\n\n- Scenario input snapshots must be immutable after execution.\n- Scenario outputs must be comparable across deterministic, stress, and Monte Carlo modes.\n- KPI integration, scoring, and risk levels must preserve assumptions used during calculation.\n- Decision sets and life events must not mutate canonical entity state outside approved workflows.\n",
+  "bodyMarkdown": "# Scenario Inputs Outputs and Scoring\r\n\r\n## Purpose\r\n\r\nThis split document isolates Scenario input, output, KPI, comparison, scoring, risk, validation, and decision/life-event model concerns from the canonical `knowledge/framework/scenario-framework.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Decision Set Model\r\n- Life Event Model\r\n- Scenario Input Snapshot\r\n- Scenario Output Model\r\n- KPI Integration\r\n- Scenario Comparison Framework\r\n- Scenario Scoring\r\n- Risk Level Model\r\n- Scenario Validation Rules\r\n\r\n## Scenario Rules\r\n\r\n- Scenario input snapshots must be immutable after execution.\r\n- Scenario outputs must be comparable across deterministic, stress, and Monte Carlo modes.\r\n- KPI integration, scoring, and risk levels must preserve assumptions used during calculation.\r\n- Decision sets and life events must not mutate canonical entity state outside approved workflows.\r\n",
   "references": []
 }

@@ -1,4 +1,4 @@
-﻿# Scenario Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Scenario Entity Specification
 ## Split Navigation
 - [Scenario identity and assumptions](scenario/identity-and-assumptions.md)
 - [Scenario API and persistence](scenario/api-and-persistence.md)
@@ -108,7 +108,7 @@ Navigation:
 - Validation: Required; unique; valid Guid; immutable.
 - Business Meaning: Identifies one projection path across API, repository, event, audit, and replay.
 - Example: 7b8f2309-4b51-4724-9fb7-927db4ee5d5d.
-- Database Mapping: scenarios.scenario_id uuid primary key
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.scenario_id uuid primary key
 - JSON Name: scenarioId
 - API Usage: Detail, Update, Run, Cancel, Clone, Compare, Archive, Restore, Delete, History
 - Searchable: Yes
@@ -127,7 +127,7 @@ Navigation:
 - Validation: Required; unique; max length 64; immutable.
 - Business Meaning: Enables support, audit, and user-facing traceability.
 - Example: SCN-20260714-000001.
-- Database Mapping: scenarios.scenario_number varchar(64) unique not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.scenario_number varchar(64) unique not null
 - JSON Name: scenarioNumber
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -146,7 +146,7 @@ Navigation:
 - Validation: Required; valid Guid; actor must be authorized for User scope.
 - Business Meaning: Scenario must belong to a User.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: scenarios.user_id uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.user_id uuid not null
 - JSON Name: userId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -165,7 +165,7 @@ Navigation:
 - Validation: Required; non-blank; max length 64.
 - Business Meaning: Classifies scenario without creating a new Domain.
 - Example: RetirementProjection.
-- Database Mapping: scenarios.scenario_type varchar(64) not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.scenario_type varchar(64) not null
 - JSON Name: scenarioType
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -184,7 +184,7 @@ Navigation:
 - Validation: Required; max length 64.
 - Business Meaning: Groups scenario by financial context such as Goal, Portfolio, CashFlow, Loan, Housing, or Risk.
 - Example: Goal.
-- Database Mapping: scenarios.scenario_category varchar(64) not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.scenario_category varchar(64) not null
 - JSON Name: scenarioCategory
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -203,7 +203,7 @@ Navigation:
 - Validation: Required; catalog values Draft, Ready, Evaluating, Evaluated, Failed, Archived; lifecycle states map Preparing, Running, Completed, Cancelled, Deleted to Scenario lifecycle policy.
 - Business Meaning: Controls run, replay, archive, and mutation behavior.
 - Example: Draft.
-- Database Mapping: scenarios.scenario_status varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.scenario_status varchar(32) not null
 - JSON Name: scenarioStatus
 - API Usage: Detail, Summary, Search, Run, Cancel, Archive, Restore, Delete
 - Searchable: Yes
@@ -222,7 +222,7 @@ Navigation:
 - Validation: Required; max length 256; unique within User scope when required by policy.
 - Business Meaning: User-facing name of projection path.
 - Example: Baseline retirement scenario.
-- Database Mapping: scenarios.scenario_name varchar(256) not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.scenario_name varchar(256) not null
 - JSON Name: scenarioName
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -241,7 +241,7 @@ Navigation:
 - Validation: Max length 4000; no executable content.
 - Business Meaning: Explains intent, scope, and assumptions context.
 - Example: Baseline projection using current household cash flow and portfolio allocation.
-- Database Mapping: scenarios.description text null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.description text null
 - JSON Name: description
 - API Usage: Create, Update, Detail
 - Searchable: Yes
@@ -260,7 +260,7 @@ Navigation:
 - Validation: Required; Low, Medium, High, Critical.
 - Business Meaning: Supports scenario evaluation and comparison ordering.
 - Example: High.
-- Database Mapping: scenarios.priority varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.priority varchar(32) not null
 - JSON Name: priority
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -279,7 +279,7 @@ Navigation:
 - Validation: Valid Guid when present; cannot equal ScenarioId; same user scope.
 - Business Meaning: Preserves lineage from base scenario.
 - Example: 9f22d3e5-54bb-4d6f-a8de-fc8bb60ab001.
-- Database Mapping: scenarios.base_scenario_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.base_scenario_id uuid null
 - JSON Name: baseScenarioId
 - API Usage: Clone, Compare, Detail, Search
 - Searchable: Yes
@@ -298,7 +298,7 @@ Navigation:
 - Validation: Valid Guid when present; same user or household scope.
 - Business Meaning: Links scenario to goal evaluation.
 - Example: 3e1f27f4-4201-431d-bb4a-01d2e4aa94d8.
-- Database Mapping: scenarios.goal_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.goal_id uuid null
 - JSON Name: goalId
 - API Usage: Create, Update, Detail, Summary, Search, Compare
 - Searchable: Yes
@@ -317,7 +317,7 @@ Navigation:
 - Validation: Valid Guid when present; same access scope.
 - Business Meaning: Connects scenario output to decision flow.
 - Example: 111d49c8-0957-42a2-a812-b736615fa2bb.
-- Database Mapping: scenarios.decision_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.decision_id uuid null
 - JSON Name: decisionId
 - API Usage: Detail, Search, Compare
 - Searchable: Yes
@@ -336,7 +336,7 @@ Navigation:
 - Validation: Valid Guid when present; same access scope.
 - Business Meaning: Links scenario evidence to recommendation output.
 - Example: 7f3d29c6-6d0e-4f2c-bb46-bd3555d6d351.
-- Database Mapping: scenarios.recommendation_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.recommendation_id uuid null
 - JSON Name: recommendationId
 - API Usage: Detail, Search, Compare
 - Searchable: Yes
@@ -355,7 +355,7 @@ Navigation:
 - Validation: Valid Guid when present.
 - Business Meaning: Connects Scenario to Projection output.
 - Example: 95fc1fde-1207-4fc9-8e99-8e7d6a400001.
-- Database Mapping: scenarios.projection_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.projection_id uuid null
 - JSON Name: projectionId
 - API Usage: Run, Detail, Search, History
 - Searchable: Yes
@@ -374,7 +374,7 @@ Navigation:
 - Validation: Required; max length 64.
 - Business Meaning: Defines evaluation method for replay and interpretation.
 - Example: MonteCarlo.
-- Database Mapping: scenarios.simulation_method varchar(64) not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.simulation_method varchar(64) not null
 - JSON Name: simulationMethod
 - API Usage: Create, Update, Run, Detail, Summary, Search
 - Searchable: Yes
@@ -393,7 +393,7 @@ Navigation:
 - Validation: Required; greater than 0; bounded by execution policy.
 - Business Meaning: Controls simulation depth and replay cost.
 - Example: 10000.
-- Database Mapping: scenarios.simulation_iterations integer not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.simulation_iterations integer not null
 - JSON Name: simulationIterations
 - API Usage: Create, Update, Run, Detail
 - Searchable: Yes
@@ -412,7 +412,7 @@ Navigation:
 - Validation: Required; valid JSON object; must include version references when applicable.
 - Business Meaning: Preserves full scenario input basis.
 - Example: {"currency":"TWD","horizonYears":30}.
-- Database Mapping: scenarios.assumptions jsonb not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.assumptions jsonb not null
 - JSON Name: assumptions
 - API Usage: Create, Update, Run, Detail, History
 - Searchable: No
@@ -431,7 +431,7 @@ Navigation:
 - Validation: Valid JSON object or array when present.
 - Business Meaning: Preserves rules that constrain projections.
 - Example: {"minimumEmergencyFundMonths":6}.
-- Database Mapping: scenarios.constraints jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.constraints jsonb null
 - JSON Name: constraints
 - API Usage: Create, Update, Run, Detail, History
 - Searchable: No
@@ -450,7 +450,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Captures market return, volatility, and market condition inputs.
 - Example: {"equityReturn":0.06,"bondReturn":0.025}.
-- Database Mapping: scenarios.market_assumptions jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.market_assumptions jsonb null
 - JSON Name: marketAssumptions
 - API Usage: Create, Update, Run, Detail, History
 - Searchable: No
@@ -469,7 +469,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Captures inflation, rate, and economic condition inputs.
 - Example: {"inflationRate":0.02,"interestRate":0.03}.
-- Database Mapping: scenarios.economic_assumptions jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.economic_assumptions jsonb null
 - JSON Name: economicAssumptions
 - API Usage: Create, Update, Run, Detail, History
 - Searchable: No
@@ -488,7 +488,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Captures income, expense, reserve, and liquidity assumptions.
 - Example: {"monthlySurplus":30000,"currency":"TWD"}.
-- Database Mapping: scenarios.cash_flow_assumptions jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.cash_flow_assumptions jsonb null
 - JSON Name: cashFlowAssumptions
 - API Usage: Create, Update, Run, Detail, History
 - Searchable: No
@@ -507,7 +507,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Captures allocation, return, contribution, and rebalancing inputs.
 - Example: {"targetEquityAllocation":0.6}.
-- Database Mapping: scenarios.investment_assumptions jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.investment_assumptions jsonb null
 - JSON Name: investmentAssumptions
 - API Usage: Create, Update, Run, Detail, History
 - Searchable: No
@@ -526,7 +526,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Captures risk capacity, risk tolerance, stress, and downside inputs.
 - Example: {"riskLevel":"Medium","maxDrawdown":0.2}.
-- Database Mapping: scenarios.risk_assumptions jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.risk_assumptions jsonb null
 - JSON Name: riskAssumptions
 - API Usage: Create, Update, Run, Detail, History
 - Searchable: No
@@ -545,7 +545,7 @@ Navigation:
 - Validation: Decimal within policy bounds when present.
 - Business Meaning: Quantifies projected return.
 - Example: 0.0525.
-- Database Mapping: scenarios.expected_return numeric(9,6) null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.expected_return numeric(9,6) null
 - JSON Name: expectedReturn
 - API Usage: Run, Detail, Summary, Search, Compare
 - Searchable: Yes
@@ -564,7 +564,7 @@ Navigation:
 - Validation: Decimal within policy bounds when present.
 - Business Meaning: Quantifies expected risk.
 - Example: 0.1350.
-- Database Mapping: scenarios.expected_risk numeric(9,6) null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.expected_risk numeric(9,6) null
 - JSON Name: expectedRisk
 - API Usage: Run, Detail, Summary, Search, Compare
 - Searchable: Yes
@@ -583,7 +583,7 @@ Navigation:
 - Validation: Between 0.0000 and 1.0000 when present.
 - Business Meaning: Represents likelihood of scenario outcome.
 - Example: 0.7200.
-- Database Mapping: scenarios.probability numeric(5,4) null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.probability numeric(5,4) null
 - JSON Name: probability
 - API Usage: Run, Detail, Summary, Search, Compare
 - Searchable: Yes
@@ -602,7 +602,7 @@ Navigation:
 - Validation: Between 0.0000 and 1.0000 when present.
 - Business Meaning: Indicates likelihood that goals or constraints are satisfied.
 - Example: 0.8100.
-- Database Mapping: scenarios.success_rate numeric(5,4) null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.success_rate numeric(5,4) null
 - JSON Name: successRate
 - API Usage: Run, Detail, Summary, Search, Compare
 - Searchable: Yes
@@ -621,7 +621,7 @@ Navigation:
 - Validation: Between 0.0000 and 1.0000 when present; SuccessRate plus FailureRate should not exceed 1 unless policy supports residual states.
 - Business Meaning: Indicates likelihood that goals or constraints fail.
 - Example: 0.1900.
-- Database Mapping: scenarios.failure_rate numeric(5,4) null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.failure_rate numeric(5,4) null
 - JSON Name: failureRate
 - API Usage: Run, Detail, Summary, Search, Compare
 - Searchable: Yes
@@ -640,7 +640,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Preserves projected net worth path.
 - Example: {"year30":25000000,"currency":"TWD"}.
-- Database Mapping: scenarios.net_worth_projection jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.net_worth_projection jsonb null
 - JSON Name: netWorthProjection
 - API Usage: Run, Detail, Compare, History
 - Searchable: No
@@ -659,7 +659,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Preserves projected cash flow path.
 - Example: {"monthlySurplusYear1":30000,"currency":"TWD"}.
-- Database Mapping: scenarios.cash_flow_projection jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.cash_flow_projection jsonb null
 - JSON Name: cashFlowProjection
 - API Usage: Run, Detail, Compare, History
 - Searchable: No
@@ -678,7 +678,7 @@ Navigation:
 - Validation: Max length 2000.
 - Business Meaning: Summarizes simulation outcome.
 - Example: Scenario has high goal success rate with moderate risk.
-- Database Mapping: scenarios.result_summary text null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.result_summary text null
 - JSON Name: resultSummary
 - API Usage: Run, Detail, Summary, Search, Compare
 - Searchable: Yes
@@ -697,7 +697,7 @@ Navigation:
 - Validation: Required when ScenarioStatus is Completed or Evaluated; valid JSON object.
 - Business Meaning: Preserves complete simulation output for history and replay.
 - Example: {"score":82.5,"successRate":0.81,"projectionId":"95fc1fde"}.
-- Database Mapping: scenarios.result_snapshot jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.result_snapshot jsonb null
 - JSON Name: resultSnapshot
 - API Usage: Run, Detail, Compare, History
 - Searchable: No
@@ -716,7 +716,7 @@ Navigation:
 - Validation: Valid Guid when present; cannot equal ScenarioId.
 - Business Meaning: Allows Scenario to be compared against another Scenario.
 - Example: 9f22d3e5-54bb-4d6f-a8de-fc8bb60ab001.
-- Database Mapping: scenarios.comparison_target uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.comparison_target uuid null
 - JSON Name: comparisonTarget
 - API Usage: Compare, Detail, Search
 - Searchable: Yes
@@ -735,7 +735,7 @@ Navigation:
 - Validation: Greater than 0 when present.
 - Business Meaning: Orders scenarios in comparison results.
 - Example: 1.
-- Database Mapping: scenarios.ranking integer null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.ranking integer null
 - JSON Name: ranking
 - API Usage: Compare, Detail, Summary, Search
 - Searchable: Yes
@@ -754,7 +754,7 @@ Navigation:
 - Validation: Only one baseline scenario per User scope unless policy changes scope.
 - Business Meaning: Establishes default comparison basis.
 - Example: true.
-- Database Mapping: scenarios.is_baseline boolean not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.is_baseline boolean not null
 - JSON Name: isBaseline
 - API Usage: Create, Update, Detail, Summary, Search, Compare
 - Searchable: Yes
@@ -773,7 +773,7 @@ Navigation:
 - Validation: At most one default scenario per User scope.
 - Business Meaning: Defines the default scenario shown in views.
 - Example: false.
-- Database Mapping: scenarios.is_default boolean not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.is_default boolean not null
 - JSON Name: isDefault
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -792,7 +792,7 @@ Navigation:
 - Validation: Required; immutable.
 - Business Meaning: Establishes scenario creation time.
 - Example: 2026-07-14T10:00:00+08:00.
-- Database Mapping: scenarios.created_at timestamptz not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.created_at timestamptz not null
 - JSON Name: createdAt
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -811,7 +811,7 @@ Navigation:
 - Validation: Required; valid actor identity.
 - Business Meaning: Supports audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: scenarios.created_by uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.created_by uuid not null
 - JSON Name: createdBy
 - API Usage: Detail, History
 - Searchable: Yes
@@ -830,7 +830,7 @@ Navigation:
 - Validation: Required; greater than or equal to CreatedAt.
 - Business Meaning: Supports ordering, cache invalidation, and audit.
 - Example: 2026-07-14T11:00:00+08:00.
-- Database Mapping: scenarios.updated_at timestamptz not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.updated_at timestamptz not null
 - JSON Name: updatedAt
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -849,7 +849,7 @@ Navigation:
 - Validation: Valid actor identity when present.
 - Business Meaning: Supports mutation audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: scenarios.updated_by uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.updated_by uuid null
 - JSON Name: updatedBy
 - API Usage: Detail, History
 - Searchable: Yes
@@ -868,7 +868,7 @@ Navigation:
 - Validation: Required; increments on mutation; stale version rejected.
 - Business Meaning: Preserves complete Version History.
 - Example: 6.
-- Database Mapping: scenarios.version bigint not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.version bigint not null
 - JSON Name: version
 - API Usage: Update, Run, Cancel, Clone, Compare, Archive, Restore, Delete
 - Searchable: No
@@ -887,7 +887,7 @@ Navigation:
 - Validation: Required; must match for mutation; regenerated after mutation.
 - Business Meaning: Prevents lost update.
 - Example: 01J2Y8Z7ABCD.
-- Database Mapping: scenarios.concurrency_token varchar(128) not null
+- PWA Runtime Mapping / Future Cloud Mapping: scenarios.concurrency_token varchar(128) not null
 - JSON Name: concurrencyToken
 - API Usage: Update, Run, Cancel, Clone, Compare, Archive, Restore, Delete
 - Searchable: No
@@ -1130,7 +1130,7 @@ Run DTO: RunScenarioDto includes scenarioId, simulationMethod, simulationIterati
 
 Compare DTO: CompareScenarioDto includes scenarioId, comparisonTarget, comparisonMetrics, version, concurrencyToken, idempotencyKey.
 
-# Database Mapping
+# PWA Runtime Mapping
 
 Table: scenarios
 
@@ -1144,7 +1144,7 @@ Check Constraint: status values, priority values, probability ranges, success/fa
 
 Index: user, number, status, type, category, goal, decision, recommendation, projection, baseline, default, comparison, success rate, expected risk, updated time, active filter.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE scenarios (
@@ -1221,7 +1221,7 @@ CREATE INDEX ix_scenarios_updated ON scenarios (updated_at DESC, scenario_id);
 CREATE INDEX ix_scenarios_active ON scenarios (user_id, scenario_status, priority, updated_at DESC) WHERE scenario_status NOT IN ('Archived','Deleted');
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 Fluent API:
 

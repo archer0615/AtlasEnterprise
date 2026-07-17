@@ -3,7 +3,7 @@
   "title": "ExecutionPlan Identity and Planning Scope",
   "category": "entity",
   "canonicalPath": "knowledge/entity/execution-plan/identity-and-planning-scope.md",
-  "sourceHash": "596795b44c3e32b2603953de6f9d4d188d45e800f941fed372fad14afdb07408",
+  "sourceHash": "2628d54a856ce849866dc4dfb49b4e104d710207df6a8e28c0a5ee06839c5e4c",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Ownership Rules"
     }
   ],
-  "bodyMarkdown": "# ExecutionPlan Identity and Planning Scope\n\n## Purpose\n\nThis split document isolates ExecutionPlan identity, planning ownership, relationships, and planning fields from the canonical `knowledge/entity/ExecutionPlan.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/entity/ExecutionPlan.md`\n- Entity: ExecutionPlan\n- Ownership: Decision execution and recommendation execution planning\n\n## Covered Sections\n\n- Document Control\n- Entity Overview\n- ExecutionPlanId, ExecutionPlanNumber\n- DecisionId, RecommendationId, UserId, GoalId, ScenarioId\n- Title, Description, PlanType, Priority, Status\n- ExecutionStrategy\n\n## Ownership Rules\n\n- ExecutionPlan coordinates execution for accepted decisions or recommendations.\n- ExecutionPlan references Decision, Recommendation, User, Goal, Scenario, ActionPlan, Workflow, Task, Notification, and DomainEvent by identity.\n- Planning scope must not mutate referenced aggregates outside approved commands.\n",
+  "bodyMarkdown": "# ExecutionPlan Identity and Planning Scope\r\n\r\n## Purpose\r\n\r\nThis split document isolates ExecutionPlan identity, planning ownership, relationships, and planning fields from the canonical `knowledge/entity/ExecutionPlan.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/entity/ExecutionPlan.md`\r\n- Entity: ExecutionPlan\r\n- Ownership: Decision execution and recommendation execution planning\r\n\r\n## Covered Sections\r\n\r\n- Document Control\r\n- Entity Overview\r\n- ExecutionPlanId, ExecutionPlanNumber\r\n- DecisionId, RecommendationId, UserId, GoalId, ScenarioId\r\n- Title, Description, PlanType, Priority, Status\r\n- ExecutionStrategy\r\n\r\n## Ownership Rules\r\n\r\n- ExecutionPlan coordinates execution for accepted decisions or recommendations.\r\n- ExecutionPlan references Decision, Recommendation, User, Goal, Scenario, ActionPlan, Workflow, Task, Notification, and DomainEvent by identity.\r\n- Planning scope must not mutate referenced aggregates outside approved commands.\r\n",
   "references": []
 }

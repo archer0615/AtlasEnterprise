@@ -1,14 +1,10 @@
 {
   "id": "2ec315c4dbe06eb1",
-  "title": "Domain Model Executable Specification",
+  "title": "executable-specification",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/domain-model/executable-specification.md",
-  "sourceHash": "0369d834fea80b0e9b408c19baf396ea6ca4ef3f1a4c1cc394a4b58bfef6271a",
+  "sourceHash": "ddfd2f82fda0ca3de2657908ee10d99fc81cf3aba2605f4dc9c6c9016d296d68",
   "headings": [
-    {
-      "level": 1,
-      "text": "Domain Model Executable Specification"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -30,6 +26,6 @@
       "text": "Preservation Rule"
     }
   ],
-  "bodyMarkdown": "# Domain Model Executable Specification\r\n\r\n## Purpose\r\nThis split document isolates executable specification, validation, and conformance topics from the parent Domain Model Catalog.\r\n\r\n## Source\r\n- Parent specification: [Domain Model Catalog](../domain-model-catalog.md)\r\n\r\n## Executable Specification Scope\r\nExecutable specification coverage includes Consistency Test, Mapping Test, Repository Test, API Mapping Test, Performance Test, and Phase 2 Executable Specification Addendum sections.\r\n\r\n## Catalog Usage\r\nUse this split document when validating that Domain, Subdomain, Bounded Context, Aggregate, Entity, Value Object, Enumeration, Repository, Domain Service, Application Service, Command, Domain Event, Read Model, Projection, DTO, API, Database mappings, EF Core mappings, and Rule Engine usage remain aligned with the canonical Domain Model Catalog.\r\n\r\n## Preservation Rule\r\nThe parent Domain Model Catalog remains the canonical source of truth and retains the original body. This child document provides a focused navigation surface for executable specification and validation references.\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Domain Model Executable Specification\n\n## Purpose\nThis split document isolates executable specification, validation, and conformance topics from the parent Domain Model Catalog.\n\n## Source\n- Parent specification: [Domain Model Catalog](../domain-model-catalog.md)\n\n## Executable Specification Scope\nExecutable specification coverage includes Consistency Test, Mapping Test, Repository Test, API Mapping Test, Performance Test, and Phase 2 Executable Specification Addendum sections.\n\n## Catalog Usage\nUse this split document when validating that Domain, Subdomain, Bounded Context, Aggregate, Entity, Value Object, Enumeration, Repository, Domain Service, Application Service, Command, Domain Event, Read Model, Projection, DTO, API, PWA Runtime Mapping / Future Cloud Mappings, Future Cloud Mappings, and Rule Engine usage remain aligned with the canonical Domain Model Catalog.\n\n## Preservation Rule\nThe parent Domain Model Catalog remains the canonical source of truth and retains the original body. This child document provides a focused navigation surface for executable specification and validation references.\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Brokerage Import Governance and Testing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/brokerage-import-automation/governance-and-testing.md",
-  "sourceHash": "ca5dc5b3acb741881b6d2f9ffeecd6a950125e69ba1baf4fdea78e15d826185c",
+  "sourceHash": "f0780062ca79e69451e966a25e9d05f24f2f5730b3275e0dd71e440aad878950",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Brokerage Import Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates brokerage import governance, security, audit, retry, failure recovery, testing, and edge cases from the parent BrokerageImportAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [BrokerageImportAutomation](../brokerage-import-automation.md)\r\n\r\n## Governance\r\nGovernance covers credential protection, provider rate limits, duplicate prevention, reconciliation evidence, masking, audit, retry, and failure isolation.\r\n\r\n## Testing\r\nTesting covers provider fetch, normalization, reconciliation, duplicate handling, retry, rate limiting, credential failure, audit, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Brokerage Import Governance and Testing\n\n## Purpose\nThis split document isolates brokerage import governance, security, audit, retry, failure recovery, testing, and edge cases from the parent BrokerageImportAutomation specification.\n\n## Source\n- Parent specification: [BrokerageImportAutomation](../brokerage-import-automation.md)\n\n## Governance\nGovernance covers credential protection, provider rate limits, duplicate prevention, reconciliation evidence, masking, audit, retry, and failure isolation.\n\n## Testing\nTesting covers provider fetch, normalization, reconciliation, duplicate handling, retry, rate limiting, credential failure, audit, and edge cases.\n\n",
   "references": []
 }

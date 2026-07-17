@@ -1,4 +1,4 @@
-# Legacy Reference
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Legacy Reference
 
 - Status: Legacy reference only; do not treat this document as canonical.
 - Canonical source: [knowledge/entity/Liability.md](../../../knowledge/entity/Liability.md).
@@ -82,7 +82,7 @@
 
 # Complete Properties
 
-| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|
 | LiabilityId | UUID | No | generated | Stable liability identifier. | Required, immutable, UUID. | Identifies Liability entity. | `cd9d0d9e-9b0c-4b11-8c3e-5d67b77a915a` | `liability_id uuid primary key` | `liabilityId` | Route, detail, response. | Yes | Yes | Yes | No | Yes |
 | LiabilityNumber | string(40) | No | generated | Business liability number. | Required, unique, max 40. | Human-readable liability identity. | `LIA-20260714` | `liability_number varchar(40) not null` | `liabilityNumber` | Create response, search. | Yes | Yes | Yes | No | Yes |
@@ -349,7 +349,7 @@ public interface ILiabilityRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Operation | HTTP Method | Endpoint | Request | Response | Error |
 |---|---|---|---|---|---|
 | Create | POST | `/api/liabilities` | CreateLiabilityDto | LiabilityDetailDto | 400, 403, 409, 422 |
@@ -502,7 +502,7 @@ public interface ILiabilityRepository
 }
 ```
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 - Table name: `liabilities`.
@@ -578,7 +578,7 @@ public interface ILiabilityRepository
 - GIN index on `tags`.
 - Index on `updated_at`.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE liabilities (
@@ -645,7 +645,7 @@ CREATE INDEX ix_liabilities_updated_at ON liabilities (updated_at);
 CREATE INDEX ix_liabilities_concurrency_token ON liabilities (concurrency_token);
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp
@@ -1108,4 +1108,4 @@ stateDiagram-v2
 
 | Version | Date | Change | Author |
 |---|---|---|---|
-| 1.0 | 2026-07-14 | Upgraded Liability to Enterprise Specification aligned with Atlas Entity Catalog, LiabilityPortfolio ownership, LiabilityRepository persistence, household isolation, balance history, commands, events, API, database mapping, security, audit, performance, testing, and edge cases. | Atlas |
+| 1.0 | 2026-07-14 | Upgraded Liability to Enterprise Specification aligned with Atlas Entity Catalog, LiabilityPortfolio ownership, LiabilityRepository persistence, household isolation, balance history, commands, events, API, PWA Runtime Mapping / Future Cloud Mapping, security, audit, performance, testing, and edge cases. | Atlas |

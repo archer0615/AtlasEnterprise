@@ -1,4 +1,4 @@
-﻿# ActionPlan Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# ActionPlan Entity Specification
 
 # Document Control
 
@@ -96,7 +96,7 @@ Navigation:
 - Validation: Required; unique; valid Guid; immutable.
 - Business Meaning: Identifies one executable action across API, events, and audit.
 - Example: a0a0fe06-0352-45fb-bf56-15e2e4b29f10.
-- Database Mapping: action_plans.action_plan_id uuid primary key
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.action_plan_id uuid primary key
 - JSON Name: actionPlanId
 - API Usage: Detail, Update, Assign, Start, Pause, Resume, Complete, Cancel, Archive, Restore, Delete, History
 - Searchable: Yes
@@ -115,7 +115,7 @@ Navigation:
 - Validation: Required; unique; max length 64; immutable.
 - Business Meaning: Enables support, user display, and audit lookup.
 - Example: ACT-20260714-000001.
-- Database Mapping: action_plans.action_plan_number varchar(64) unique not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.action_plan_number varchar(64) unique not null
 - JSON Name: actionPlanNumber
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -134,7 +134,7 @@ Navigation:
 - Validation: Required; valid Guid; ExecutionPlan must be accessible and not deleted.
 - Business Meaning: Every ActionPlan belongs to an ExecutionPlan.
 - Example: 49b48b7e-2f44-40d7-bd31-2eb6fe7f206d.
-- Database Mapping: action_plans.execution_plan_id uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.execution_plan_id uuid not null
 - JSON Name: executionPlanId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -153,7 +153,7 @@ Navigation:
 - Validation: Valid Guid when present; same execution scope.
 - Business Meaning: Preserves traceability to Decision.
 - Example: 111d49c8-0957-42a2-a812-b736615fa2bb.
-- Database Mapping: action_plans.decision_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.decision_id uuid null
 - JSON Name: decisionId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -172,7 +172,7 @@ Navigation:
 - Validation: Valid Guid when present; same execution scope.
 - Business Meaning: Preserves traceability to Recommendation.
 - Example: 7f3d29c6-6d0e-4f2c-bb46-bd3555d6d351.
-- Database Mapping: action_plans.recommendation_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.recommendation_id uuid null
 - JSON Name: recommendationId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -191,7 +191,7 @@ Navigation:
 - Validation: Valid Guid when present; same user or household scope.
 - Business Meaning: Links action completion to Goal execution.
 - Example: 3e1f27f4-4201-431d-bb4a-01d2e4aa94d8.
-- Database Mapping: action_plans.goal_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.goal_id uuid null
 - JSON Name: goalId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -210,7 +210,7 @@ Navigation:
 - Validation: Valid Guid when present; same scope.
 - Business Meaning: Preserves scenario traceability.
 - Example: 7b8f2309-4b51-4724-9fb7-927db4ee5d5d.
-- Database Mapping: action_plans.scenario_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.scenario_id uuid null
 - JSON Name: scenarioId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -229,7 +229,7 @@ Navigation:
 - Validation: Required; valid Guid; actor must have access.
 - Business Meaning: Defines access and ownership scope.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: action_plans.user_id uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.user_id uuid not null
 - JSON Name: userId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -248,7 +248,7 @@ Navigation:
 - Validation: Required; max length 256; no executable content.
 - Business Meaning: User-readable action name.
 - Example: Transfer monthly surplus to reserve.
-- Database Mapping: action_plans.title varchar(256) not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.title varchar(256) not null
 - JSON Name: title
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -267,7 +267,7 @@ Navigation:
 - Validation: Max length 4000; no executable content.
 - Business Meaning: Explains execution details and completion evidence.
 - Example: Set up transfer from cash account to emergency reserve.
-- Database Mapping: action_plans.description text null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.description text null
 - JSON Name: description
 - API Usage: Create, Update, Detail
 - Searchable: Yes
@@ -286,7 +286,7 @@ Navigation:
 - Validation: Required; max length 64.
 - Business Meaning: Classifies the action without creating a new Domain.
 - Example: CashFlow.
-- Database Mapping: action_plans.action_type varchar(64) not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.action_type varchar(64) not null
 - JSON Name: actionType
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -305,7 +305,7 @@ Navigation:
 - Validation: Required; Low, Medium, High, Critical.
 - Business Meaning: Determines ordering and attention.
 - Example: High.
-- Database Mapping: action_plans.priority varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.priority varchar(32) not null
 - JSON Name: priority
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -324,7 +324,7 @@ Navigation:
 - Validation: Required; Draft, Pending, Ready, InProgress, Blocked, Completed, Cancelled, Failed, Archived, Deleted.
 - Business Meaning: Controls execution behavior.
 - Example: Ready.
-- Database Mapping: action_plans.status varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.status varchar(32) not null
 - JSON Name: status
 - API Usage: Detail, Summary, Search, Assign, Start, Pause, Resume, Complete, Cancel, Archive, Restore, Delete
 - Searchable: Yes
@@ -343,7 +343,7 @@ Navigation:
 - Validation: Required; valid actor identity; authorized for scope.
 - Business Meaning: Assigns accountability.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: action_plans.owner uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.owner uuid not null
 - JSON Name: owner
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -362,7 +362,7 @@ Navigation:
 - Validation: Valid actor identity when present; authorized for scope.
 - Business Meaning: Identifies execution assignee.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: action_plans.assignee uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.assignee uuid null
 - JSON Name: assignee
 - API Usage: Assign, Detail, Summary, Search
 - Searchable: Yes
@@ -381,7 +381,7 @@ Navigation:
 - Validation: Required; greater than 0; unique within ExecutionPlanId.
 - Business Meaning: Defines ordering and dependencies.
 - Example: 1.
-- Database Mapping: action_plans.sequence integer not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.sequence integer not null
 - JSON Name: sequence
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -400,7 +400,7 @@ Navigation:
 - Validation: Max length 64; valid duration when supplied.
 - Business Meaning: Supports scheduling and monitoring.
 - Example: P7D.
-- Database Mapping: action_plans.estimated_duration varchar(64) null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.estimated_duration varchar(64) null
 - JSON Name: estimatedDuration
 - API Usage: Create, Update, Detail, Summary
 - Searchable: Yes
@@ -419,7 +419,7 @@ Navigation:
 - Validation: Valid JSON object; amount nonnegative and CurrencyCode present when amount exists.
 - Business Meaning: Preserves expected cost of action.
 - Example: {"amount":500,"currency":"TWD"}.
-- Database Mapping: action_plans.estimated_cost jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.estimated_cost jsonb null
 - JSON Name: estimatedCost
 - API Usage: Create, Update, Detail, Summary
 - Searchable: No
@@ -438,7 +438,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Captures value expected from completing the action.
 - Example: {"description":"Reserve balance increased"}.
-- Database Mapping: action_plans.expected_benefit jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.expected_benefit jsonb null
 - JSON Name: expectedBenefit
 - API Usage: Create, Update, Detail, Summary
 - Searchable: No
@@ -457,7 +457,7 @@ Navigation:
 - Validation: Valid RiskLevel when present.
 - Business Meaning: Indicates action execution risk.
 - Example: Low.
-- Database Mapping: action_plans.risk_level varchar(32) null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.risk_level varchar(32) null
 - JSON Name: riskLevel
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -476,7 +476,7 @@ Navigation:
 - Validation: Required; 0.0000 to 100.0000.
 - Business Meaning: Tracks action completion.
 - Example: 50.0000.
-- Database Mapping: action_plans.progress numeric(9,4) not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.progress numeric(9,4) not null
 - JSON Name: progress
 - API Usage: Update, Start, Pause, Resume, Complete, Detail, Summary, Search
 - Searchable: Yes
@@ -495,7 +495,7 @@ Navigation:
 - Validation: Must be on or before DueDate and CompletedDate when present.
 - Business Meaning: Establishes action start.
 - Example: 2026-08-01.
-- Database Mapping: action_plans.start_date date null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.start_date date null
 - JSON Name: startDate
 - API Usage: Create, Update, Start, Detail, Search
 - Searchable: Yes
@@ -514,7 +514,7 @@ Navigation:
 - Validation: Must be on or after StartDate when both exist.
 - Business Meaning: Defines action deadline.
 - Example: 2026-08-31.
-- Database Mapping: action_plans.due_date date null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.due_date date null
 - JSON Name: dueDate
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -533,7 +533,7 @@ Navigation:
 - Validation: Required when Status is Completed; must be on or after StartDate when present.
 - Business Meaning: Records action completion.
 - Example: 2026-08-20.
-- Database Mapping: action_plans.completed_date date null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.completed_date date null
 - JSON Name: completedDate
 - API Usage: Complete, Detail, Summary, Search
 - Searchable: Yes
@@ -552,7 +552,7 @@ Navigation:
 - Validation: Valid JSON object when present; required when Status is Completed.
 - Business Meaning: Preserves measurable outcome.
 - Example: {"result":"Completed","evidence":"Transfer configured"}.
-- Database Mapping: action_plans.result jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.result jsonb null
 - JSON Name: result
 - API Usage: Complete, Detail, History
 - Searchable: No
@@ -571,7 +571,7 @@ Navigation:
 - Validation: Required when Status is Blocked, Failed, or Cancelled; max length 2000.
 - Business Meaning: Explains why execution cannot proceed or did not succeed.
 - Example: Required external account permission missing.
-- Database Mapping: action_plans.failure_reason text null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.failure_reason text null
 - JSON Name: failureReason
 - API Usage: Cancel, Complete failure, Detail, History
 - Searchable: Yes
@@ -590,7 +590,7 @@ Navigation:
 - Validation: Required.
 - Business Meaning: Determines whether ExecutionPlan can complete without this action.
 - Example: true.
-- Database Mapping: action_plans.is_required boolean not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.is_required boolean not null
 - JSON Name: isRequired
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -609,7 +609,7 @@ Navigation:
 - Validation: Required; recurring action must include recurrence metadata in action payload or workflow metadata.
 - Business Meaning: Supports repeatable execution.
 - Example: false.
-- Database Mapping: action_plans.is_recurring boolean not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.is_recurring boolean not null
 - JSON Name: isRecurring
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -628,7 +628,7 @@ Navigation:
 - Validation: Required; immutable.
 - Business Meaning: Establishes action creation time.
 - Example: 2026-07-14T10:00:00+08:00.
-- Database Mapping: action_plans.created_at timestamptz not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.created_at timestamptz not null
 - JSON Name: createdAt
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -647,7 +647,7 @@ Navigation:
 - Validation: Required; valid actor identity.
 - Business Meaning: Supports audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: action_plans.created_by uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.created_by uuid not null
 - JSON Name: createdBy
 - API Usage: Detail, History
 - Searchable: Yes
@@ -666,7 +666,7 @@ Navigation:
 - Validation: Required; greater than or equal to CreatedAt.
 - Business Meaning: Supports ordering and cache invalidation.
 - Example: 2026-07-14T10:10:00+08:00.
-- Database Mapping: action_plans.updated_at timestamptz not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.updated_at timestamptz not null
 - JSON Name: updatedAt
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -685,7 +685,7 @@ Navigation:
 - Validation: Valid actor identity when present.
 - Business Meaning: Supports mutation audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: action_plans.updated_by uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.updated_by uuid null
 - JSON Name: updatedBy
 - API Usage: Detail, History
 - Searchable: Yes
@@ -704,7 +704,7 @@ Navigation:
 - Validation: Required; increments on mutation; stale version rejected.
 - Business Meaning: Preserves version history.
 - Example: 3.
-- Database Mapping: action_plans.version bigint not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.version bigint not null
 - JSON Name: version
 - API Usage: Update, Assign, Start, Pause, Resume, Complete, Cancel, Archive, Restore, Delete
 - Searchable: No
@@ -723,7 +723,7 @@ Navigation:
 - Validation: Required; must match for mutation; regenerated after mutation.
 - Business Meaning: Prevents lost update.
 - Example: 01J2Y8Z7ABCD.
-- Database Mapping: action_plans.concurrency_token varchar(128) not null
+- PWA Runtime Mapping / Future Cloud Mapping: action_plans.concurrency_token varchar(128) not null
 - JSON Name: concurrencyToken
 - API Usage: Update, Assign, Start, Pause, Resume, Complete, Cancel, Archive, Restore, Delete
 - Searchable: No
@@ -967,7 +967,7 @@ Assign DTO: AssignActionPlanDto includes actionPlanId, assignee, owner, version,
 
 Complete DTO: CompleteActionPlanDto includes actionPlanId, completedDate, progress, result, version, concurrencyToken, idempotencyKey.
 
-# Database Mapping
+# PWA Runtime Mapping
 
 Table: action_plans
 
@@ -981,7 +981,7 @@ Check Constraint: status values, priority values, progress range, sequence posit
 
 Index: execution plan, decision, recommendation, goal, scenario, user, status, priority, owner, assignee, sequence, due date, progress, updated time, active filter.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE action_plans (
@@ -1045,7 +1045,7 @@ CREATE INDEX ix_action_plans_updated ON action_plans (updated_at DESC, action_pl
 CREATE INDEX ix_action_plans_active ON action_plans (user_id, status, priority, due_date, sequence) WHERE status NOT IN ('Archived','Deleted');
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 Fluent API:
 

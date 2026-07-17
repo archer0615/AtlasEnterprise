@@ -1,4 +1,4 @@
-# Project Atlas Enterprise
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Project Atlas Enterprise
 # docs/roadmap/20-Roadmap.md
 
 Version: 2.0  
@@ -63,9 +63,9 @@ Deliver dashboard, timeline, goals, scenario comparison, decision explanation, r
 
 Only after local-first stability:
 
-- .NET 8 API
-- PostgreSQL
-- EF Core
+- Future Cloud Architecture adapter API
+- Future Cloud Mapping
+- Future Cloud Mapping
 - Authentication
 - Encrypted synchronization
 - Household sharing
@@ -92,7 +92,7 @@ The cloud phase must implement existing repository contracts rather than replace
 React, TypeScript, Vite, IndexedDB, Dexie/idb, PWA, Zod, Vitest, Playwright, GitHub Actions, GitHub Pages.
 
 ### Future
-.NET 8, ASP.NET Core, PostgreSQL, EF Core.
+Future Cloud Architecture adapter, Future Cloud Architecture adapter, Future Cloud Mapping, Future Cloud Mapping.
 
 ## Revision History
 

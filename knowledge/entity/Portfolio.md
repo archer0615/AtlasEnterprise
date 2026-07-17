@@ -1,4 +1,4 @@
-# Portfolio Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Portfolio Entity Specification
 ## Split Navigation
 - [Portfolio identity and semantics](portfolio-entity/identity-and-semantics.md)
 - [Portfolio API and persistence](portfolio-entity/api-and-persistence.md)
@@ -48,7 +48,7 @@
 | API Resource | entity-catalog.md | /api/v1/portfolios. | /api/v1/portfolios | Referenced | REST controller | Catalog-aligned | Household scoped |
 | DTO | API governance | DTO is implementation contract. | Portfolio DTOs | Implementation Detail | Request/response schemas | Implementation Detail | Not Domain Concept |
 | Permission | entity-catalog.md | Asset:Read for Portfolio API mapping. | Asset:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Mutating permissions are API mapping |
-| Database Table | entity-catalog.md | portfolios. | portfolios | Referenced | PostgreSQL table | Catalog-aligned | Owned by AssetPortfolio |
+| Database Table | entity-catalog.md | portfolios. | portfolios | Referenced | Future Cloud Mapping table | Catalog-aligned | Owned by AssetPortfolio |
 | Read Model | API governance | Projection is not source of truth. | Portfolio projection | Implementation Detail | Cache/materialized view | Implementation Detail | Read-only |
 | Cache | entity-catalog.md | Portfolio valuation and allocation cache. | Portfolio valuation and allocation cache | Referenced | Cache keys | Catalog-aligned | Versioned and scoped |
 | Audit | entity-catalog.md | Portfolio changes audited through AssetPortfolio. | Portfolio audit | Referenced | AuditRepository | Catalog-aligned | Complete audit |
@@ -149,7 +149,7 @@ Goal, Scenario, Decision, and Recommendation consume Portfolio state through pro
 | Prohibited navigation | Mutable graph to Goal, Scenario, Decision, Recommendation, external MarketData. | Not allowed |
 # Complete Properties
 ## Property Matrix
-| Name | Type | Nullable | Default | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---:|---:|---:|---:|---:|
 | PortfolioId | UUID | No | generated | portfolio_id uuid pk | portfolioId | route, response | Yes | Yes | Yes | No | Yes |
 | AssetPortfolioId | UUID | No | none | asset_portfolio_id uuid | assetPortfolioId | create, response | Yes | Yes | Yes | No | Yes |
@@ -392,7 +392,7 @@ Specifications describe persistence filters only. They do not calculate performa
 | RecommendationApplicationService | Catalog-aligned where present | Reads projections. |
 | ReportApplicationService | Catalog-aligned | Investment reports and audit explanations. |
 | AdministrationApplicationService | Catalog-aligned | Audit and operational queries. |
-# REST API
+# Future Cloud Architecture API
 | Method | Path | Use Case | Permission | Status Codes |
 |---|---|---|---|---|
 | POST | /api/v1/portfolios | CreatePortfolio | Asset:Create | 201, 400, 401, 403, 409, 422 |
@@ -418,7 +418,7 @@ Specifications describe persistence filters only. They do not calculate performa
 | PortfolioDetailResponse | all response-safe properties from Property Matrix plus holdings, allocation projection, performance projection, version, concurrencyToken |
 | PortfolioSummaryResponse | portfolioId, portfolioNumber, portfolioName, baseCurrency, netAssetValue, totalMarketValue, status |
 | PortfolioSearchRequest | householdId, ownerUserId, portfolioType, status, page, pageSize, sort |
-# Database Mapping
+# PWA Runtime Mapping
 | Column | Type | Nullable | Constraint |
 |---|---|---:|---|
 | portfolio_id | uuid | No | Primary key |
@@ -450,7 +450,7 @@ Specifications describe persistence filters only. They do not calculate performa
 | updated_by | uuid | No | Updater |
 | version | integer | No | Concurrency |
 | concurrency_token | uuid | No | Concurrency |
-# PostgreSQL DDL
+# Future Cloud Mapping DDL
 ```sql
 CREATE SCHEMA IF NOT EXISTS atlas;
 CREATE TABLE IF NOT EXISTS atlas.portfolios (
@@ -504,7 +504,7 @@ CREATE INDEX IF NOT EXISTS ix_portfolios_archived ON atlas.portfolios (tenant_id
 CREATE INDEX IF NOT EXISTS ix_portfolios_deleted ON atlas.portfolios (tenant_id, deleted_at);
 CREATE INDEX IF NOT EXISTS ix_portfolios_concurrency_token ON atlas.portfolios (concurrency_token);
 ```
-# EF Core Fluent API
+# Future Cloud Mapping Fluent API
 ```csharp
 public sealed class PortfolioEntityConfiguration : IEntityTypeConfiguration<PortfolioEntity>
 {
@@ -714,7 +714,7 @@ flowchart TD
 | Integration Test | Stale token returns 409. |
 | Validation Test | Invalid base currency and allocation rejected. |
 | Security Test | Cross-tenant and cross-household access denied. |
-| Contract Test | DTO JSON names match API and database mapping. |
+| Contract Test | DTO JSON names match API and PWA Runtime Mapping / Future Cloud Mapping. |
 | Performance Test | Search by household and status uses index. |
 | Performance Test | Projection lag is observable. |
 # Edge Cases
@@ -882,7 +882,7 @@ flowchart TD
 | Security | Tenant and Household isolation enforced. |
 | Audit | Complete audit and version history required. |
 # Completion Checklist
-Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Portfolio Semantics, Ownership Model, Asset Association Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, REST API, DTO, Database Mapping, PostgreSQL DDL, EF Core Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete.
+Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Portfolio Semantics, Ownership Model, Asset Association Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, Future Cloud Architecture API, DTO, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete.
 # Final Consistency Matrix
 | Concern | Source Catalog | Final Atlas Name | Defined Here or Referenced | Implementation Artifact | Status | Conflict | Resolution | Follow-up Catalog Change Required |
 |---|---|---|---|---|---|---|---|---|
@@ -899,7 +899,7 @@ Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary
 | Application Service | application-service-catalog.md | PortfolioApplicationService | Referenced | Use case handlers | Catalog-aligned | None | Use Catalog service | No |
 | API | entity-catalog.md | /api/v1/portfolios | Referenced | Controller | Catalog-aligned | None | Use Catalog resource | No |
 | Permission | entity-catalog.md | Asset:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Mutating permissions implicit | Treat as API mapping | Optional catalog update |
-| Database | entity-catalog.md | portfolios | Referenced | PostgreSQL table | Catalog-aligned | None | Use table name | No |
+| Database | entity-catalog.md | portfolios | Referenced | Future Cloud Mapping table | Catalog-aligned | None | Use table name | No |
 | Read Model | API governance | Portfolio projection | Implementation Detail | Projection/cache | Implementation Detail | Projection may appear authoritative | Projection read-only | No |
 | Audit | audit guidance | Portfolio audit through AssetPortfolio | Referenced | AuditRepository | Catalog-aligned | None | Mandatory audit | No |
 | Tenant | tenant guidance | TenantId | Referenced | tenant_id | Catalog-aligned | Household confused with Tenant | Keep distinct | No |

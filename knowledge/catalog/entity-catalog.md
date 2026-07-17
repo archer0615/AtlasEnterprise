@@ -1,4 +1,4 @@
-﻿# Entity Catalog
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Entity Catalog
 ## Split Navigation
 - [Entity catalog entries](entity-catalog/catalog-entries.md)
 - [Entity relationships and ownership](entity-catalog/relationships-and-ownership.md)
@@ -50,7 +50,7 @@ Related Specifications:
 
 Entity Catalog is the canonical source of truth for Atlas Entity ownership.
 
-It defines each Entity, its owning Aggregate, Aggregate Root, Repository, lifecycle owner, persistence owner, command mapping, event mapping, API resource, database mapping, EF Core mapping, DTO mapping, authorization boundary, audit requirement, and concurrency strategy.
+It defines each Entity, its owning Aggregate, Aggregate Root, Repository, lifecycle owner, persistence owner, command mapping, event mapping, API resource, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping, DTO mapping, authorization boundary, audit requirement, and concurrency strategy.
 
 It prevents implementation documents from inventing new Entities or assigning Entity ownership outside the Aggregate Catalog.
 

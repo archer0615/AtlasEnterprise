@@ -3,7 +3,7 @@
   "title": "Decision Reporting Scope and Architecture",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/decision-reporting/scope-and-architecture.md",
-  "sourceHash": "0fb7940022373586e148238be44fdc2e5194179e7394e48275b01b5bca7528b9",
+  "sourceHash": "e19d1f8fda39f4e98964dc80f061e1ffe2837e9733c49bd76b716f257295781b",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Boundary Rules"
     }
   ],
-  "bodyMarkdown": "# Decision Reporting Scope and Architecture\n\n## Purpose\n\nThis split document isolates Decision Reporting overview, ownership, relationships, and reporting architecture from the canonical `knowledge/reporting/decision-reporting.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/decision-reporting.md`\n- Domain: Decision reporting\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Decision Reporting Overview\n- Purpose and business meaning\n- Reporting scope, lifecycle, objectives, and ownership\n- Relationships with Decision, Decision Lifecycle, Decision Evaluation, Decision Execution, Decision Governance, Decision Analytics, Decision Explainability, Decision History, Decision Audit, Decision Rule, Recommendation, Goal, Scenario, Portfolio, CashFlow, Optimization, Simulation, Risk, Workflow, Automation, Notification, Business Calendar, and User\n- Reporting Architecture\n\n## Boundary Rules\n\n- Decision reports are reporting projections, not decision mutation surfaces.\n- Reporting must preserve links to decision lifecycle, evaluation, execution, governance, analytics, explainability, history, and audit sources.\n- Reporting architecture must keep rendering, aggregation, export, scheduling, distribution, cache, audit, and permission concerns explicit.\n",
+  "bodyMarkdown": "# Decision Reporting Scope and Architecture\r\n\r\n## Purpose\r\n\r\nThis split document isolates Decision Reporting overview, ownership, relationships, and reporting architecture from the canonical `knowledge/reporting/decision-reporting.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/reporting/decision-reporting.md`\r\n- Domain: Decision reporting\r\n- Status: Enterprise Specification\r\n\r\n## Covered Sections\r\n\r\n- Decision Reporting Overview\r\n- Purpose and business meaning\r\n- Reporting scope, lifecycle, objectives, and ownership\r\n- Relationships with Decision, Decision Lifecycle, Decision Evaluation, Decision Execution, Decision Governance, Decision Analytics, Decision Explainability, Decision History, Decision Audit, Decision Rule, Recommendation, Goal, Scenario, Portfolio, CashFlow, Optimization, Simulation, Risk, Workflow, Automation, Notification, Business Calendar, and User\r\n- Reporting Architecture\r\n\r\n## Boundary Rules\r\n\r\n- Decision reports are reporting projections, not decision mutation surfaces.\r\n- Reporting must preserve links to decision lifecycle, evaluation, execution, governance, analytics, explainability, history, and audit sources.\r\n- Reporting architecture must keep rendering, aggregation, export, scheduling, distribution, cache, audit, and permission concerns explicit.\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "User Identity and Access",
   "category": "entity",
   "canonicalPath": "knowledge/entity/user/identity-and-access.md",
-  "sourceHash": "c2f94c7322b0da5771f6944baec9791e4ae94ace07a5c33f2db1802ca81bda62",
+  "sourceHash": "a1941f141522aa1ddfaa54e97a4f98187261f684f41624b20e46b1574c9d1fbe",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Identity"
     }
   ],
-  "bodyMarkdown": "# User Identity and Access\r\n\r\n## Purpose\r\nThis split document isolates User identity, access profile, lifecycle, relationships, properties, validation, and business rules from the parent User Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [User Entity Specification](../User.md)\r\n\r\n## Identity\r\nUser represents authenticated identity, profile, preferences, household membership, authorization context, and audit actor references.\r\n\r\n",
+  "bodyMarkdown": "# User Identity and Access\n\n## Purpose\nThis split document isolates User identity, access profile, lifecycle, relationships, properties, validation, and business rules from the parent User Entity Specification.\n\n## Source\n- Parent specification: [User Entity Specification](../User.md)\n\n## Identity\nUser represents authenticated identity, profile, preferences, household membership, authorization context, and audit actor references.\n\n",
   "references": []
 }

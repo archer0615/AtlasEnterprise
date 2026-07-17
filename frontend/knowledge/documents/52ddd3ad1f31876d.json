@@ -1,14 +1,10 @@
 {
   "id": "52ddd3ad1f31876d",
-  "title": "Decision Reporting Governance and Testing",
+  "title": "governance-and-testing",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/decision-reporting/governance-and-testing.md",
-  "sourceHash": "94332c5ed9c8f3ceef193e598cc68180abe484b69266e793f3588a4313275153",
+  "sourceHash": "658308fc4c88b3a288b7b46d1797bd81604b9f8997713036134e5c9541cbd880",
   "headings": [
-    {
-      "level": 1,
-      "text": "Decision Reporting Governance and Testing"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -22,6 +18,6 @@
       "text": "Governance Rules"
     }
   ],
-  "bodyMarkdown": "# Decision Reporting Governance and Testing\n\n## Purpose\n\nThis split document isolates Decision Reporting validation, business rules, repository, services, API, persistence, cache, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/reporting/decision-reporting.md` parent.\n\n## Covered Sections\n\n- Validation Rules\n- Business Rules\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n\n## Governance Rules\n\n- Decision report access must enforce permission and audit controls before rendering, exporting, sharing, or scheduling.\n- Report cache invalidation must preserve decision evidence freshness.\n- Retention and versioning must keep historical reports reproducible.\n- Testing must include export, schedule, concurrency, permission, performance, and stress coverage.\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Decision Reporting Governance and Testing\r\n\r\n## Purpose\r\n\r\nThis split document isolates Decision Reporting validation, business rules, repository, services, API, persistence, cache, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/reporting/decision-reporting.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Validation Rules\r\n- Business Rules\r\n- Repository\r\n- Domain Service Interaction\r\n- Application Service Interaction\r\n- API\r\n- DTO\r\n- PWA Runtime Mapping / Future Cloud Mapping\r\n- Future Cloud Mapping Schema\r\n- Future Cloud Mapping\r\n- Cache Strategy\r\n- Security\r\n- Audit\r\n- Performance\r\n- Example JSON\r\n- Mermaid\r\n- Testing\r\n- Edge Cases\r\n- Version History\r\n\r\n## Governance Rules\r\n\r\n- Decision report access must enforce permission and audit controls before rendering, exporting, sharing, or scheduling.\r\n- Report cache invalidation must preserve decision evidence freshness.\r\n- Retention and versioning must keep historical reports reproducible.\r\n- Testing must include export, schedule, concurrency, permission, performance, and stress coverage.\r\n",
   "references": []
 }

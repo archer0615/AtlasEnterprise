@@ -1,4 +1,4 @@
-# Entity Security, Audit, and Performance
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Entity Security, Audit, and Performance
 
 ## Purpose
 
@@ -42,7 +42,7 @@ This split document isolates Entity Catalog rules for security, audit, performan
 
 - Tests must cover ownership boundaries, command routing, event mapping, persistence mapping, authorization, audit, and concurrency behavior.
 - Edge cases include stale projections, invalid cross-aggregate navigation, deleted owners, archived entities, duplicate identity, unsupported status values, and missing catalog mappings.
-- Consistency tests should verify that Entity Catalog, Aggregate Catalog, Repository Catalog, Command Catalog, Domain Event Catalog, API mapping, and database mapping remain aligned.
+- Consistency tests should verify that Entity Catalog, Aggregate Catalog, Repository Catalog, Command Catalog, Domain Event Catalog, API mapping, and PWA Runtime Mapping / Future Cloud Mapping remain aligned.
 
 ## Related References
 

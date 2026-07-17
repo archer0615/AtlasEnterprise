@@ -3,7 +3,7 @@
   "title": "Decision Evaluation Governance and Testing",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-evaluation/governance-and-testing.md",
-  "sourceHash": "8d3841b0ea324732e7d10dcac8bd475a858fc5d87e98ab5e4e2ac17b82f1797f",
+  "sourceHash": "811a3d14eae62afd84e99cf45b3b00197282700bc4ac458f3c86d8942979d49d",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Evaluation Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates decision evaluation governance, validation, audit, security, performance, testing, edge cases, and consistency checks from the parent Decision Evaluation specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Evaluation](../decision-evaluation.md)\r\n\r\n## Governance\r\nGovernance covers evidence immutability, permission-aware visibility, formula versioning, rule versioning, audit, cache invalidation, and reproducibility.\r\n\r\n## Testing\r\nTesting covers criteria calculation, scoring, scenario comparison, evidence capture, permission masking, audit, concurrency, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Decision Evaluation Governance and Testing\n\n## Purpose\nThis split document isolates decision evaluation governance, validation, audit, security, performance, testing, edge cases, and consistency checks from the parent Decision Evaluation specification.\n\n## Source\n- Parent specification: [Decision Evaluation](../decision-evaluation.md)\n\n## Governance\nGovernance covers evidence immutability, permission-aware visibility, formula versioning, rule versioning, audit, cache invalidation, and reproducibility.\n\n## Testing\nTesting covers criteria calculation, scoring, scenario comparison, evidence capture, permission masking, audit, concurrency, and edge cases.\n\n",
   "references": []
 }

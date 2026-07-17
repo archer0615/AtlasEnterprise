@@ -1,4 +1,4 @@
-# Household Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Household Entity Specification
 ## Split Navigation
 - [Household identity and ownership](household/identity-and-ownership.md)
 - [Household API and persistence](household/api-and-persistence.md)
@@ -39,7 +39,7 @@
 | API Resource | entity-catalog.md | /api/v1/households | /api/v1/households | Referenced | REST controller | Catalog-aligned | Resource is household-scoped |
 | DTO | api governance | DTOs are implementation contract | HouseholdCreateRequest; HouseholdUpdateRequest; HouseholdDetailResponse | Implementation Detail | API schema | Implementation Detail | DTO names do not create Domain Concepts |
 | Permission | entity-catalog.md; permission-framework.md | Household:Read appears in entity API mapping | Household:Read; Household:Create; Household:Update; Household:Archive; Household:Restore; Household:Delete | Referenced and implementation mapped | Policy attributes | Catalog-aligned where present | Mutating permission names follow resource-action mapping |
-| Database Table | entity-catalog.md | households | households | Referenced | PostgreSQL table | Catalog-aligned | Table owned by Household aggregate |
+| Database Table | entity-catalog.md | households | households | Referenced | Future Cloud Mapping table | Catalog-aligned | Table owned by Household aggregate |
 | Read Model | api governance | Read Model is not source of truth | Household projection | Implementation Detail | materialized view/cache | Implementation Detail | Cannot write aggregate through projection |
 | Cache | entity-catalog.md; aggregate-catalog.md | Household membership cache | Household membership cache | Referenced | Cache keys | Catalog-aligned | TenantId and HouseholdId scoped |
 | Audit | audit guidance | Household preserves audit context | Audit trail | Referenced | AuditRepository entries | Catalog-aligned | Complete audit trail required |
@@ -156,7 +156,7 @@ Aggregate Catalog defines Aggregate Name as Household and Aggregate Root as Hous
 | Prohibited navigation | Direct mutable object graph into User, Goal, Asset, Liability, Loan, Portfolio, CashFlow, Scenario, Decision, Recommendation, Notification, Policy, Configuration | Not allowed |
 # Complete Properties
 ## Property Matrix
-| Name | Type | Nullable | Default | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---:|---:|---:|---:|---:|
 | HouseholdId | UUID | No | generated | household_id uuid pk | householdId | response, route | Yes | Yes | Yes | No | Yes |
 | TenantId | UUID | No | request context | tenant_id uuid | tenantId | internal, response | Yes | Yes | Yes | No | Yes |
@@ -387,7 +387,7 @@ Specifications express query criteria only. They must not mutate Household or ap
 | ReportApplicationService | Catalog-aligned | Household-scoped reporting and explainability. |
 | AdministrationApplicationService | Catalog-aligned | Audit and configuration queries with household scope. |
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Method | Path | Use Case | Permission | Status Codes |
 |---|---|---|---|---|
 | POST | /api/v1/households | Create household | Household:Create | 201, 400, 401, 403, 409, 422 |
@@ -480,7 +480,7 @@ All responses include correlationId, requestId, tenantId, and householdId where 
   "sort": "householdName"
 }
 ```
-# Database Mapping
+# PWA Runtime Mapping
 | Column | Type | Nullable | Constraint |
 |---|---|---:|---|
 | household_id | uuid | No | Primary key |
@@ -505,7 +505,7 @@ All responses include correlationId, requestId, tenantId, and householdId where 
 | updated_by | uuid | No | Actor reference |
 | version | integer | No | >= 1 |
 | concurrency_token | uuid | No | Optimistic concurrency |
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE SCHEMA IF NOT EXISTS atlas;
 CREATE TABLE IF NOT EXISTS atlas.households (
@@ -555,7 +555,7 @@ CREATE INDEX IF NOT EXISTS ix_households_tenant_archived ON atlas.households (te
 CREATE INDEX IF NOT EXISTS ix_households_tenant_deleted ON atlas.households (tenant_id, deleted_at);
 CREATE INDEX IF NOT EXISTS ix_households_concurrency_token ON atlas.households (concurrency_token);
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 ```csharp
 public sealed class HouseholdEntityConfiguration : IEntityTypeConfiguration<HouseholdEntity>
 {
@@ -894,7 +894,7 @@ stateDiagram-v2
 | Application Service | application-service-catalog.md | UserApplicationService; DashboardApplicationService | Referenced | Use case handlers | Catalog-aligned | None | Use catalog services | No |
 | API | entity-catalog.md | /api/v1/households | Referenced | Controller | Catalog-aligned | None | Use catalog resource | No |
 | Permission | entity-catalog.md | Household:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Some mutations not explicitly listed | Treat as API permission mapping, not Domain Concept | Optional catalog update |
-| Database | entity-catalog.md | households | Referenced | PostgreSQL table | Catalog-aligned | None | Use table name | No |
+| Database | entity-catalog.md | households | Referenced | Future Cloud Mapping table | Catalog-aligned | None | Use table name | No |
 | Tenant | tenant guidance | TenantId | Referenced | tenant_id | Catalog-aligned | Household could be mistaken for Tenant | Explicitly separate Tenant and Household | No |
 | Read Model | API governance | Household projection | Implementation Detail | Cache/materialized view | Implementation Detail | None | Projection is read-only | No |
 | Audit | audit guidance | Audit trail | Referenced | AuditRepository | Catalog-aligned | None | Mandatory for writes | No |

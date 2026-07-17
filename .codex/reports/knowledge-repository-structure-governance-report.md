@@ -1,5 +1,7 @@
 # Atlas Repository Structure Governance Report
 
+> Historical Snapshot: This report predates ADR-001 Static Local First PWA. Backend/database wording is legacy context only; Atlas v1 is governed by docs/architecture/ADR-001-static-local-first-pwa.md and does not require backend/database runtime.
+
 ## Executive Assessment
 
 Repository structure decision is approved. Migration Readiness is Ready for Repository Structure Migration Batch S1. Phase 2 remains paused until S10 Repository Validation passes.

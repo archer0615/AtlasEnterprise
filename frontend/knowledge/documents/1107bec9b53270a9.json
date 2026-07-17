@@ -3,7 +3,7 @@
   "title": "Goal Lifecycle Governance and Testing",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-lifecycle-management/governance-and-testing.md",
-  "sourceHash": "44091655f153d222952f548fa3d0ae386945963d032a83e1761dfbee765876ed",
+  "sourceHash": "546328b4ce0238557dc4b4d2620c621c90a90dabd1cd7925622ec803c3fdbf2d",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Goal Lifecycle Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Goal lifecycle governance, validation, permissions, audit, monitoring, retention, testing, edge cases, and consistency checks from the parent Goal Lifecycle Management specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Lifecycle Management](../goal-lifecycle-management.md)\r\n\r\n## Governance\r\nGovernance covers state validation, dependency validation, progress validation, financial validation, schedule validation, ownership validation, permission validation, and consistency validation.\r\n\r\n## Testing\r\nTesting covers lifecycle transitions, invalid transitions, automation, recovery, merge, split, template conversion, snapshot creation, archive, restore, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Goal Lifecycle Governance and Testing\n\n## Purpose\nThis split document isolates Goal lifecycle governance, validation, permissions, audit, monitoring, retention, testing, edge cases, and consistency checks from the parent Goal Lifecycle Management specification.\n\n## Source\n- Parent specification: [Goal Lifecycle Management](../goal-lifecycle-management.md)\n\n## Governance\nGovernance covers state validation, dependency validation, progress validation, financial validation, schedule validation, ownership validation, permission validation, and consistency validation.\n\n## Testing\nTesting covers lifecycle transitions, invalid transitions, automation, recovery, merge, split, template conversion, snapshot creation, archive, restore, and edge cases.\n\n",
   "references": []
 }

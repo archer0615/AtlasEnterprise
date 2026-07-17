@@ -1,4 +1,4 @@
-# Domain Model Catalog Entries
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Domain Model Catalog Entries
 
 ## Purpose
 This split document isolates the domain model entry index from the parent Domain Model Catalog while preserving the parent as the canonical source of truth.
@@ -7,7 +7,7 @@ This split document isolates the domain model entry index from the parent Domain
 - Parent specification: [Domain Model Catalog](../domain-model-catalog.md)
 
 ## Entry Contract
-Each domain model entry identifies its domain, bounded context, aggregate ownership, repository mapping, command mapping, service dependencies, database mapping, API resources, DTOs, security, audit, lifecycle, version, and consumers.
+Each domain model entry identifies its domain, bounded context, aggregate ownership, repository mapping, command mapping, service dependencies, PWA Runtime Mapping / Future Cloud Mapping, API resources, DTOs, security, audit, lifecycle, version, and consumers.
 
 ## Catalog Entries
 

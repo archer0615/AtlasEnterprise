@@ -3,7 +3,7 @@
   "title": "Recommendation Evaluation Scoring and Constraints",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-evaluation/scoring-and-constraints.md",
-  "sourceHash": "e5f0e53ce89cca62c548c476d20c10dcc569200f9d671f16a549c483645af0b0",
+  "sourceHash": "92a8ae7b92625a6d289165c1869185baa229ce544a0a76e0f4d494eeb3260b35",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Constraint Evaluation"
     }
   ],
-  "bodyMarkdown": "# Recommendation Evaluation Scoring and Constraints\r\n\r\n## Purpose\r\nThis split document isolates recommendation evaluation dimensions, scoring model, ranking behavior, and constraint evaluation from the parent Recommendation Evaluation specification.\r\n\r\n## Source\r\n- Parent specification: [Recommendation Evaluation](../recommendation-evaluation.md)\r\n\r\n## Evaluation Dimensions\r\n- Goal Alignment\r\n- Financial Benefit\r\n- Cash Flow Impact\r\n- Portfolio Impact\r\n- Risk Level\r\n- Priority\r\n- Urgency\r\n- Feasibility\r\n- Execution Complexity\r\n- Dependency\r\n- Expected ROI\r\n- Expected Value\r\n- Confidence Score\r\n- Explainability Score\r\n- User Preference Alignment\r\n- Time Sensitivity\r\n- Business Value\r\n\r\n## Scoring Model\r\nScoring includes weighted score, composite score, normalized score, confidence score, penalty rules, bonus rules, ranking rules, and tie-breaking rules.\r\n\r\n## Constraint Evaluation\r\nConstraints include hard, soft, budget, risk, portfolio, cash flow, goal, scenario, compliance, and user preference constraints.\r\n\r\n",
+  "bodyMarkdown": "# Recommendation Evaluation Scoring and Constraints\n\n## Purpose\nThis split document isolates recommendation evaluation dimensions, scoring model, ranking behavior, and constraint evaluation from the parent Recommendation Evaluation specification.\n\n## Source\n- Parent specification: [Recommendation Evaluation](../recommendation-evaluation.md)\n\n## Evaluation Dimensions\n- Goal Alignment\n- Financial Benefit\n- Cash Flow Impact\n- Portfolio Impact\n- Risk Level\n- Priority\n- Urgency\n- Feasibility\n- Execution Complexity\n- Dependency\n- Expected ROI\n- Expected Value\n- Confidence Score\n- Explainability Score\n- User Preference Alignment\n- Time Sensitivity\n- Business Value\n\n## Scoring Model\nScoring includes weighted score, composite score, normalized score, confidence score, penalty rules, bonus rules, ranking rules, and tie-breaking rules.\n\n## Constraint Evaluation\nConstraints include hard, soft, budget, risk, portfolio, cash flow, goal, scenario, compliance, and user preference constraints.\n\n",
   "references": []
 }

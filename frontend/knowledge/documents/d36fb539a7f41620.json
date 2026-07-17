@@ -3,7 +3,7 @@
   "title": "Goal Identity and Ownership",
   "category": "entity",
   "canonicalPath": "knowledge/entity/goal/identity-and-ownership.md",
-  "sourceHash": "682b2fa4db3f1f9ab3b559f37dc4cd65e3f5e9ce699c653d2dbd7407409c1e3c",
+  "sourceHash": "d70ae88fc8004dc7dbe1cdb0df07732ff565ab92d9c2a06f77857aea3cc33889",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Split Notes"
     }
   ],
-  "bodyMarkdown": "# Goal Identity and Ownership\n\n## Purpose\n\nThis split document isolates Goal identity, ownership, relationships, and navigation from the canonical `knowledge/entity/Goal.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/entity/Goal.md`\n- Entity: Goal\n- Aggregate boundary: GoalPlan ownership through GoalRepository\n- Access scope: one User through UserId\n\n## Covered Sections\n\n- Document Control\n- Entity Overview\n- GoalId, GoalNumber, UserId\n- GoalType, GoalCategory, GoalStatus, GoalName, Description\n- ParentGoalId, Sequence\n- ScenarioId, DecisionId, RecommendationId, ExecutionPlanId\n\n## Ownership Rules\n\n- Goal belongs to one User access scope.\n- Goal lifecycle, persistence, authorization, concurrency, and audit boundaries are owned by GoalPlan.\n- Goal references Scenario, Decision, Recommendation, ExecutionPlan, ActionPlan, Portfolio, Asset, Liability, CashFlow, Notification, and DomainEvent by identity or immutable snapshot.\n- ParentGoalId hierarchy is scoped inside GoalPlan and cannot form cycles.\n\n## Split Notes\n\n- Keep identity and relationship rules here.\n- Keep progress, funding, review, and target metrics in `funding-progress-and-review.md`.\n- Keep security, audit, testing, and edge cases in `governance-and-testing.md`.\n",
+  "bodyMarkdown": "# Goal Identity and Ownership\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal identity, ownership, relationships, and navigation from the canonical `knowledge/entity/Goal.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/entity/Goal.md`\r\n- Entity: Goal\r\n- Aggregate boundary: GoalPlan ownership through GoalRepository\r\n- Access scope: one User through UserId\r\n\r\n## Covered Sections\r\n\r\n- Document Control\r\n- Entity Overview\r\n- GoalId, GoalNumber, UserId\r\n- GoalType, GoalCategory, GoalStatus, GoalName, Description\r\n- ParentGoalId, Sequence\r\n- ScenarioId, DecisionId, RecommendationId, ExecutionPlanId\r\n\r\n## Ownership Rules\r\n\r\n- Goal belongs to one User access scope.\r\n- Goal lifecycle, persistence, authorization, concurrency, and audit boundaries are owned by GoalPlan.\r\n- Goal references Scenario, Decision, Recommendation, ExecutionPlan, ActionPlan, Portfolio, Asset, Liability, CashFlow, Notification, and DomainEvent by identity or immutable snapshot.\r\n- ParentGoalId hierarchy is scoped inside GoalPlan and cannot form cycles.\r\n\r\n## Split Notes\r\n\r\n- Keep identity and relationship rules here.\r\n- Keep progress, funding, review, and target metrics in `funding-progress-and-review.md`.\r\n- Keep security, audit, testing, and edge cases in `governance-and-testing.md`.\r\n",
   "references": []
 }

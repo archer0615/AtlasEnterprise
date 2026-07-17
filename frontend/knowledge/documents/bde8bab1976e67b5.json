@@ -3,7 +3,7 @@
   "title": "Decision Evaluation Criteria and Scoring",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-evaluation/criteria-and-scoring.md",
-  "sourceHash": "9f871d3d45f1142d7f2e973164a4788e70117bc489220856a9d0e7eeb04df126",
+  "sourceHash": "dac19415f21670693d1d88be15f4c34511bb9f6da7afd10bf7131e26019ffc0a",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Scoring"
     }
   ],
-  "bodyMarkdown": "# Decision Evaluation Criteria and Scoring\r\n\r\n## Purpose\r\nThis split document isolates decision evaluation criteria, scoring model, thresholds, weights, and result interpretation from the parent Decision Evaluation specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Evaluation](../decision-evaluation.md)\r\n\r\n## Criteria\r\nCriteria include financial impact, cash flow impact, risk, goal alignment, feasibility, urgency, confidence, scenario performance, recommendation quality, and execution readiness.\r\n\r\n## Scoring\r\nScoring preserves weighted metrics, normalized scores, threshold ranges, rule outputs, penalty factors, bonus factors, and explainability evidence.\r\n\r\n",
+  "bodyMarkdown": "# Decision Evaluation Criteria and Scoring\n\n## Purpose\nThis split document isolates decision evaluation criteria, scoring model, thresholds, weights, and result interpretation from the parent Decision Evaluation specification.\n\n## Source\n- Parent specification: [Decision Evaluation](../decision-evaluation.md)\n\n## Criteria\nCriteria include financial impact, cash flow impact, risk, goal alignment, feasibility, urgency, confidence, scenario performance, recommendation quality, and execution readiness.\n\n## Scoring\nScoring preserves weighted metrics, normalized scores, threshold ranges, rule outputs, penalty factors, bonus factors, and explainability evidence.\n\n",
   "references": []
 }

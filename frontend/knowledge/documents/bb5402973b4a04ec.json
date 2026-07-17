@@ -3,7 +3,7 @@
   "title": "Scheduler Execution Strategies",
   "category": "framework",
   "canonicalPath": "knowledge/framework/scheduler/execution-strategies.md",
-  "sourceHash": "d2c59d43ddb414de98191cb4a49232497188911b06063a3402e072c698616533",
+  "sourceHash": "4bb7b734bb7f262afa0a291bea01385f5673b0a3f0aecde4ae57459e21408bb5",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Strategies"
     }
   ],
-  "bodyMarkdown": "# Scheduler Execution Strategies\r\n\r\n## Purpose\r\nThis split document isolates scheduler matrices and execution strategies from the parent Scheduler Framework.\r\n\r\n## Source\r\n- Parent specification: [Scheduler Framework](../scheduler-framework.md)\r\n\r\n## Matrices\r\nMatrices include scheduler, background job, workflow, automation, command, and domain event mapping.\r\n\r\n## Strategies\r\nExecution strategies include retry, misfire, catch-up, concurrency, idempotency, dependency coordination, and failure handling.\r\n\r\n",
+  "bodyMarkdown": "# Scheduler Execution Strategies\n\n## Purpose\nThis split document isolates scheduler matrices and execution strategies from the parent Scheduler Framework.\n\n## Source\n- Parent specification: [Scheduler Framework](../scheduler-framework.md)\n\n## Matrices\nMatrices include scheduler, background job, workflow, automation, command, and domain event mapping.\n\n## Strategies\nExecution strategies include retry, misfire, catch-up, concurrency, idempotency, dependency coordination, and failure handling.\n\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Automation Execution Strategies",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automation/execution-strategies.md",
-  "sourceHash": "3570052eacdd73899febdb68719620fc8e437c52ab6fbb2c148e9746a9fc7adc",
+  "sourceHash": "8cfc7c352b57baab469b6c5c6e0729c1dabf31d9d1d6c12b1292a84d83ff7763",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Strategies"
     }
   ],
-  "bodyMarkdown": "# Automation Execution Strategies\r\n\r\n## Purpose\r\nThis split document isolates automation matrices and execution strategies from the parent Automation Framework.\r\n\r\n## Source\r\n- Parent specification: [Automation Framework](../automation-framework.md)\r\n\r\n## Matrices\r\nMatrices include automation, trigger, condition, action, workflow, scheduler, background job, command, domain event, rule engine, decision engine, projection, and notification mapping.\r\n\r\n## Strategies\r\nExecution strategies include retry, compensation, escalation, approval, failure recovery, idempotency, dependency handling, and notification coordination.\r\n\r\n",
+  "bodyMarkdown": "# Automation Execution Strategies\n\n## Purpose\nThis split document isolates automation matrices and execution strategies from the parent Automation Framework.\n\n## Source\n- Parent specification: [Automation Framework](../automation-framework.md)\n\n## Matrices\nMatrices include automation, trigger, condition, action, workflow, scheduler, background job, command, domain event, rule engine, decision engine, projection, and notification mapping.\n\n## Strategies\nExecution strategies include retry, compensation, escalation, approval, failure recovery, idempotency, dependency handling, and notification coordination.\n\n",
   "references": []
 }

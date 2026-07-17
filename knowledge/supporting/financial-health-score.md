@@ -1,11 +1,11 @@
-# Financial Health Score
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Financial Health Score
 
 ## Split Navigation
 
 - [Liquidity and cashflow scoring](financial-health-score/liquidity-and-cashflow.md)
 - [Debt and goal readiness scoring](financial-health-score/debt-and-goal-readiness.md)
 
-> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScript Application Use Cases and IndexedDB repositories. Domain names, business rules, validation rules, formulas, events, and state machines remain authoritative.
+> **PWA v1 Architecture Amendment (2026-07-11):** Any Future Cloud Mapping, Future Cloud Mapping, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScript Application Use Cases and IndexedDB repositories. Domain names, business rules, validation rules, formulas, events, and state machines remain authoritative.
 
 # knowledge/financial-health-score.md
 
@@ -1080,7 +1080,7 @@ Interpretation:
 
 ## 19. API Contract Requirements
 
-The Financial Health Score calculation should be exposed through internal application services and REST API endpoints.
+The Financial Health Score calculation should be exposed through internal application services and Future Cloud Architecture API endpoints.
 
 ### 19.1 Calculate Current Score
 

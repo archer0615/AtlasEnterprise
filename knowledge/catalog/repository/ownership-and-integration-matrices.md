@@ -1,4 +1,4 @@
-# Repository Ownership and Integration Matrices
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Repository Ownership and Integration Matrices
 
 ## Purpose
 This split document isolates repository ownership, persistence mapping, service integration, command, event, API, cache, and projection matrices from the parent Repository Catalog while preserving the parent as the canonical full specification.
@@ -37,7 +37,7 @@ This split document isolates repository ownership, persistence mapping, service 
 | NotificationRepository | Notification | Notification | Required |
 | AuditRepository | Audit | Audit | Required |
 
-## Aggregate, Entity, and Database Mapping
+## Aggregate, Entity, and PWA Runtime Mapping / Future Cloud Mapping
 
 | Repository | Aggregate | Entity | Tables |
 |---|---|---|---|
@@ -54,7 +54,7 @@ This split document isolates repository ownership, persistence mapping, service 
 | NotificationRepository | Notification | Notification | notifications |
 | AuditRepository | Audit | Audit | audit_log, command_history, event_history |
 
-All repository database mappings target PostgreSQL in the `atlas` schema. EF entity mappings align with the aggregate/entity rows above.
+All repository PWA Runtime Mapping / Future Cloud Mappings target Future Cloud Mapping in the `atlas` schema. EF entity mappings align with the aggregate/entity rows above.
 
 ## Service Integration
 

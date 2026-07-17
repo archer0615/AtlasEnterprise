@@ -1,4 +1,4 @@
-﻿# Notification Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Notification Entity Specification
 ## Split Navigation
 - [Notification identity and delivery](notification/identity-and-delivery.md)
 - [Notification API and persistence](notification/api-and-persistence.md)
@@ -91,7 +91,7 @@ Navigation:
 - Validation: Required, unique, valid Guid, immutable.
 - Business Meaning: Identifies one communication record across API, repository, event, audit, and delivery history.
 - Example: 62f4d7f4-77c3-46bd-a47a-7e77b1dfc001.
-- Database Mapping: notifications.notification_id uuid primary key; JSON Name: notificationId; API Usage: all detail, mutation, search, and command APIs.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.notification_id uuid primary key; JSON Name: notificationId; API Usage: all detail, mutation, search, and command APIs.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## NotificationNumber
@@ -101,7 +101,7 @@ Navigation:
 - Validation: Required, unique, max length 64, immutable after creation.
 - Business Meaning: Enables support lookup without exposing internal identity.
 - Example: NOTIF-20260714-000001.
-- Database Mapping: notifications.notification_number varchar(64) unique not null; JSON Name: notificationNumber; API Usage: detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.notification_number varchar(64) unique not null; JSON Name: notificationNumber; API Usage: detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## UserId
@@ -111,7 +111,7 @@ Navigation:
 - Validation: Required, valid Guid, authorized User scope.
 - Business Meaning: Notification belongs to exactly one User.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: notifications.user_id uuid not null; JSON Name: userId; API Usage: create, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.user_id uuid not null; JSON Name: userId; API Usage: create, detail, summary, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## NotificationType
@@ -121,7 +121,7 @@ Navigation:
 - Validation: Required, non-blank, max length 64.
 - Business Meaning: Classifies the message purpose without creating a new Domain.
 - Example: RecommendationGenerated.
-- Database Mapping: notifications.notification_type varchar(64) not null; JSON Name: notificationType; API Usage: create, update, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.notification_type varchar(64) not null; JSON Name: notificationType; API Usage: create, update, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Category
@@ -131,7 +131,7 @@ Navigation:
 - Validation: Required, max length 64.
 - Business Meaning: Groups notifications such as Decision, Recommendation, Goal, Scenario, Workflow, and System.
 - Example: Recommendation.
-- Database Mapping: notifications.category varchar(64) not null; JSON Name: category; API Usage: create, update, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.category varchar(64) not null; JSON Name: category; API Usage: create, update, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Priority
@@ -141,7 +141,7 @@ Navigation:
 - Validation: Required, allowed value Low, Medium, High, Critical.
 - Business Meaning: Influences ordering, escalation, and delivery urgency.
 - Example: High.
-- Database Mapping: notifications.priority varchar(32) not null; JSON Name: priority; API Usage: create, update, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.priority varchar(32) not null; JSON Name: priority; API Usage: create, update, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Severity
@@ -151,7 +151,7 @@ Navigation:
 - Validation: Required, allowed value Info, Warning, Error, Critical.
 - Business Meaning: Indicates importance and risk of the message.
 - Example: Warning.
-- Database Mapping: notifications.severity varchar(32) not null; JSON Name: severity; API Usage: create, update, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.severity varchar(32) not null; JSON Name: severity; API Usage: create, update, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Channel
@@ -161,7 +161,7 @@ Navigation:
 - Validation: Required; one of InApp, Email, Sms, Push, Webhook.
 - Business Meaning: Determines delivery provider and transport behavior.
 - Example: InApp.
-- Database Mapping: notifications.channel varchar(32) not null; JSON Name: channel; API Usage: create, update, detail, summary, search, send.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.channel varchar(32) not null; JSON Name: channel; API Usage: create, update, detail, summary, search, send.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Title
@@ -171,7 +171,7 @@ Navigation:
 - Validation: Required, trim, max length 256, no executable content.
 - Business Meaning: Main user-visible notification subject.
 - Example: New recommendation is ready.
-- Database Mapping: notifications.title varchar(256) not null; JSON Name: title; API Usage: create, update before send, detail, summary.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.title varchar(256) not null; JSON Name: title; API Usage: create, update before send, detail, summary.
 - Searchable: Yes; Sortable: Yes; Indexed: Optional full text; Encrypted: No; Auditable: Yes.
 
 ## Subtitle
@@ -181,7 +181,7 @@ Navigation:
 - Validation: Max length 256, no executable content.
 - Business Meaning: Provides short context below Title.
 - Example: Review your cash reserve plan.
-- Database Mapping: notifications.subtitle varchar(256) null; JSON Name: subtitle; API Usage: create, update before send, detail, summary.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.subtitle varchar(256) null; JSON Name: subtitle; API Usage: create, update before send, detail, summary.
 - Searchable: Yes; Sortable: No; Indexed: Optional full text; Encrypted: No; Auditable: Yes.
 
 ## Message
@@ -191,7 +191,7 @@ Navigation:
 - Validation: Required, max length 4000, no executable content.
 - Business Meaning: Communicates full details to the User.
 - Example: Atlas generated a recommendation for your current scenario.
-- Database Mapping: notifications.message text not null; JSON Name: message; API Usage: create, update before send, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.message text not null; JSON Name: message; API Usage: create, update before send, detail.
 - Searchable: Yes; Sortable: No; Indexed: Optional full text; Encrypted: Conditional; Auditable: Yes.
 
 ## ShortMessage
@@ -201,7 +201,7 @@ Navigation:
 - Validation: Max length 512, no executable content.
 - Business Meaning: Enables concise delivery surfaces.
 - Example: New recommendation ready.
-- Database Mapping: notifications.short_message varchar(512) null; JSON Name: shortMessage; API Usage: create, update before send, summary.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.short_message varchar(512) null; JSON Name: shortMessage; API Usage: create, update before send, summary.
 - Searchable: Yes; Sortable: No; Indexed: Optional full text; Encrypted: Conditional; Auditable: Yes.
 
 ## RichContent
@@ -211,7 +211,7 @@ Navigation:
 - Validation: Valid JSON object, allowed schema, no script payload.
 - Business Meaning: Supports richer notification presentation without changing Domain.
 - Example: {"actionLabel":"Review","actionUrl":"/recommendations/62"}.
-- Database Mapping: notifications.rich_content jsonb null; JSON Name: richContent; API Usage: create, update before send, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.rich_content jsonb null; JSON Name: richContent; API Usage: create, update before send, detail.
 - Searchable: No; Sortable: No; Indexed: Optional jsonb path; Encrypted: Conditional; Auditable: Yes.
 
 ## Payload
@@ -221,7 +221,7 @@ Navigation:
 - Validation: Valid JSON object, no secrets, no executable content.
 - Business Meaning: Preserves causality and delivery context.
 - Example: {"sourceEvent":"RecommendationGenerated"}.
-- Database Mapping: notifications.payload jsonb null; JSON Name: payload; API Usage: create, detail for authorized service users.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.payload jsonb null; JSON Name: payload; API Usage: create, detail for authorized service users.
 - Searchable: No; Sortable: No; Indexed: Optional jsonb path; Encrypted: Conditional; Auditable: Yes.
 
 ## ReferenceEntityType
@@ -231,7 +231,7 @@ Navigation:
 - Validation: Max length 64; must match catalog entity name when present.
 - Business Meaning: Provides generic source reference.
 - Example: Recommendation.
-- Database Mapping: notifications.reference_entity_type varchar(64) null; JSON Name: referenceEntityType; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.reference_entity_type varchar(64) null; JSON Name: referenceEntityType; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ReferenceEntityId
@@ -241,7 +241,7 @@ Navigation:
 - Validation: Valid Guid when present; type must be supplied when id is supplied.
 - Business Meaning: Connects Notification to a source object without ownership.
 - Example: 7f3d29c6-6d0e-4f2c-bb46-bd3555d6d351.
-- Database Mapping: notifications.reference_entity_id uuid null; JSON Name: referenceEntityId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.reference_entity_id uuid null; JSON Name: referenceEntityId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## RecommendationId
@@ -251,7 +251,7 @@ Navigation:
 - Validation: Valid Guid when present; same authorization scope.
 - Business Meaning: Links message to advisory output.
 - Example: 7f3d29c6-6d0e-4f2c-bb46-bd3555d6d351.
-- Database Mapping: notifications.recommendation_id uuid null; JSON Name: recommendationId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.recommendation_id uuid null; JSON Name: recommendationId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## DecisionId
@@ -261,7 +261,7 @@ Navigation:
 - Validation: Valid Guid when present; same authorization scope.
 - Business Meaning: Links message to Decision state or action.
 - Example: 111d49c8-0957-42a2-a812-b736615fa2bb.
-- Database Mapping: notifications.decision_id uuid null; JSON Name: decisionId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.decision_id uuid null; JSON Name: decisionId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## GoalId
@@ -271,7 +271,7 @@ Navigation:
 - Validation: Valid Guid when present; same authorization scope.
 - Business Meaning: Links message to Goal progress or conflict.
 - Example: 3e1f27f4-4201-431d-bb4a-01d2e4aa94d8.
-- Database Mapping: notifications.goal_id uuid null; JSON Name: goalId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.goal_id uuid null; JSON Name: goalId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ScenarioId
@@ -281,7 +281,7 @@ Navigation:
 - Validation: Valid Guid when present; same authorization scope.
 - Business Meaning: Links message to evaluated Scenario.
 - Example: 7b8f2309-4b51-4724-9fb7-927db4ee5d5d.
-- Database Mapping: notifications.scenario_id uuid null; JSON Name: scenarioId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.scenario_id uuid null; JSON Name: scenarioId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ExecutionPlanId
@@ -291,7 +291,7 @@ Navigation:
 - Validation: Valid Guid when present; same authorization scope.
 - Business Meaning: Links message to execution planning.
 - Example: 49b48b7e-2f44-40d7-bd31-2eb6fe7f206d.
-- Database Mapping: notifications.execution_plan_id uuid null; JSON Name: executionPlanId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.execution_plan_id uuid null; JSON Name: executionPlanId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ActionPlanId
@@ -301,7 +301,7 @@ Navigation:
 - Validation: Valid Guid when present; same authorization scope.
 - Business Meaning: Links message to planned action.
 - Example: a0a0fe06-0352-45fb-bf56-15e2e4b29f10.
-- Database Mapping: notifications.action_plan_id uuid null; JSON Name: actionPlanId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.action_plan_id uuid null; JSON Name: actionPlanId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## WorkflowId
@@ -311,7 +311,7 @@ Navigation:
 - Validation: Valid Guid when present.
 - Business Meaning: Links message to workflow progress.
 - Example: 9f09e1cc-9a85-4f90-8a2b-fdb898d91882.
-- Database Mapping: notifications.workflow_id uuid null; JSON Name: workflowId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.workflow_id uuid null; JSON Name: workflowId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Status
@@ -321,7 +321,7 @@ Navigation:
 - Validation: Required; allowed Draft, Pending, Scheduled, Sending, Sent, Delivered, Read, Acknowledged, Expired, Cancelled, Archived, Deleted, Failed, Retrying.
 - Business Meaning: Controls delivery and user feed behavior.
 - Example: Pending.
-- Database Mapping: notifications.status varchar(32) not null; JSON Name: status; API Usage: detail, summary, search, all commands.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.status varchar(32) not null; JSON Name: status; API Usage: detail, summary, search, all commands.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ScheduledAt
@@ -331,7 +331,7 @@ Navigation:
 - Validation: Must be future time when scheduling.
 - Business Meaning: Enables delayed delivery.
 - Example: 2026-07-15T09:00:00+08:00.
-- Database Mapping: notifications.scheduled_at timestamptz null; JSON Name: scheduledAt; API Usage: create, schedule, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.scheduled_at timestamptz null; JSON Name: scheduledAt; API Usage: create, schedule, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## SentAt
@@ -341,7 +341,7 @@ Navigation:
 - Validation: Required when Status is Sent, Delivered, Read, or Acknowledged.
 - Business Meaning: Records delivery attempt success.
 - Example: 2026-07-15T09:01:00+08:00.
-- Database Mapping: notifications.sent_at timestamptz null; JSON Name: sentAt; API Usage: send, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.sent_at timestamptz null; JSON Name: sentAt; API Usage: send, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## DeliveredAt
@@ -351,7 +351,7 @@ Navigation:
 - Validation: Required when Status is Delivered, Read, or Acknowledged.
 - Business Meaning: Confirms provider or client delivery.
 - Example: 2026-07-15T09:01:10+08:00.
-- Database Mapping: notifications.delivered_at timestamptz null; JSON Name: deliveredAt; API Usage: mark delivered, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.delivered_at timestamptz null; JSON Name: deliveredAt; API Usage: mark delivered, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ReadAt
@@ -361,7 +361,7 @@ Navigation:
 - Validation: Required when IsRead is true or Status is Read or Acknowledged.
 - Business Meaning: Records user consumption.
 - Example: 2026-07-15T09:05:00+08:00.
-- Database Mapping: notifications.read_at timestamptz null; JSON Name: readAt; API Usage: read, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.read_at timestamptz null; JSON Name: readAt; API Usage: read, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## AcknowledgedAt
@@ -371,7 +371,7 @@ Navigation:
 - Validation: Requires ReadAt; required when IsAcknowledged is true.
 - Business Meaning: Records explicit user confirmation.
 - Example: 2026-07-15T09:06:00+08:00.
-- Database Mapping: notifications.acknowledged_at timestamptz null; JSON Name: acknowledgedAt; API Usage: acknowledge, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.acknowledged_at timestamptz null; JSON Name: acknowledgedAt; API Usage: acknowledge, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ExpiredAt
@@ -381,7 +381,7 @@ Navigation:
 - Validation: Required when Status is Expired.
 - Business Meaning: Prevents obsolete delivery.
 - Example: 2026-08-01T00:00:00+08:00.
-- Database Mapping: notifications.expired_at timestamptz null; JSON Name: expiredAt; API Usage: expire, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.expired_at timestamptz null; JSON Name: expiredAt; API Usage: expire, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## RetryCount
@@ -391,7 +391,7 @@ Navigation:
 - Validation: Greater than or equal to 0 and less than or equal to MaxRetryCount.
 - Business Meaning: Controls provider retry behavior.
 - Example: 2.
-- Database Mapping: notifications.retry_count integer not null; JSON Name: retryCount; API Usage: retry, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.retry_count integer not null; JSON Name: retryCount; API Usage: retry, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## MaxRetryCount
@@ -401,7 +401,7 @@ Navigation:
 - Validation: Greater than or equal to 0 and less than or equal to 10.
 - Business Meaning: Prevents unbounded delivery attempts.
 - Example: 3.
-- Database Mapping: notifications.max_retry_count integer not null; JSON Name: maxRetryCount; API Usage: create, update before send, retry, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.max_retry_count integer not null; JSON Name: maxRetryCount; API Usage: create, update before send, retry, detail.
 - Searchable: No; Sortable: Yes; Indexed: No; Encrypted: No; Auditable: Yes.
 
 ## NextRetryAt
@@ -411,7 +411,7 @@ Navigation:
 - Validation: Required when Status is Retrying.
 - Business Meaning: Supports delayed retry and scheduler coordination.
 - Example: 2026-07-15T09:10:00+08:00.
-- Database Mapping: notifications.next_retry_at timestamptz null; JSON Name: nextRetryAt; API Usage: retry, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.next_retry_at timestamptz null; JSON Name: nextRetryAt; API Usage: retry, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Provider
@@ -421,7 +421,7 @@ Navigation:
 - Validation: Max length 128 when present.
 - Business Meaning: Identifies external or internal delivery route.
 - Example: InAppProvider.
-- Database Mapping: notifications.provider varchar(128) null; JSON Name: provider; API Usage: send, retry, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.provider varchar(128) null; JSON Name: provider; API Usage: send, retry, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## ProviderMessageId
@@ -431,7 +431,7 @@ Navigation:
 - Validation: Max length 256; unique with Provider when present.
 - Business Meaning: Supports delivery reconciliation and idempotency.
 - Example: msg_01J2Y8Z7.
-- Database Mapping: notifications.provider_message_id varchar(256) null; JSON Name: providerMessageId; API Usage: send, retry, detail.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.provider_message_id varchar(256) null; JSON Name: providerMessageId; API Usage: send, retry, detail.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: Conditional; Auditable: Yes.
 
 ## TemplateId
@@ -441,7 +441,7 @@ Navigation:
 - Validation: Max length 128; template must exist when supplied.
 - Business Meaning: Links content to Template Engine output.
 - Example: recommendation-generated-v1.
-- Database Mapping: notifications.template_id varchar(128) null; JSON Name: templateId; API Usage: create, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.template_id varchar(128) null; JSON Name: templateId; API Usage: create, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Language
@@ -451,7 +451,7 @@ Navigation:
 - Validation: Required, max length 16, valid language tag.
 - Business Meaning: Supports localized notification content.
 - Example: zh-TW.
-- Database Mapping: notifications.language varchar(16) not null; JSON Name: language; API Usage: create, update before send, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.language varchar(16) not null; JSON Name: language; API Usage: create, update before send, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## IsRead
@@ -461,7 +461,7 @@ Navigation:
 - Validation: Cannot change from true to false.
 - Business Meaning: Supports unread counts and feed filtering.
 - Example: true.
-- Database Mapping: notifications.is_read boolean not null; JSON Name: isRead; API Usage: read, unread count, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.is_read boolean not null; JSON Name: isRead; API Usage: read, unread count, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## IsAcknowledged
@@ -471,7 +471,7 @@ Navigation:
 - Validation: Requires IsRead true.
 - Business Meaning: Records explicit user acknowledgment.
 - Example: false.
-- Database Mapping: notifications.is_acknowledged boolean not null; JSON Name: isAcknowledged; API Usage: acknowledge, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.is_acknowledged boolean not null; JSON Name: isAcknowledged; API Usage: acknowledge, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## IsArchived
@@ -481,7 +481,7 @@ Navigation:
 - Validation: Archived notifications hidden from active feed.
 - Business Meaning: Removes Notification from normal feed without deleting history.
 - Example: false.
-- Database Mapping: notifications.is_archived boolean not null; JSON Name: isArchived; API Usage: archive, restore, detail, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.is_archived boolean not null; JSON Name: isArchived; API Usage: archive, restore, detail, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## IsDeleted
@@ -491,7 +491,7 @@ Navigation:
 - Validation: Deleted notifications cannot be sent, retried, read, acknowledged, or restored unless policy permits.
 - Business Meaning: Removes Notification from user access while preserving audit.
 - Example: false.
-- Database Mapping: notifications.is_deleted boolean not null; JSON Name: isDeleted; API Usage: delete, detail for audit, search for audit.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.is_deleted boolean not null; JSON Name: isDeleted; API Usage: delete, detail for audit, search for audit.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## IsSystem
@@ -501,7 +501,7 @@ Navigation:
 - Validation: System actor required when true.
 - Business Meaning: Distinguishes system notifications from user-created communication.
 - Example: true.
-- Database Mapping: notifications.is_system boolean not null; JSON Name: isSystem; API Usage: create, detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.is_system boolean not null; JSON Name: isSystem; API Usage: create, detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## CreatedAt
@@ -511,7 +511,7 @@ Navigation:
 - Validation: Required, immutable.
 - Business Meaning: Establishes notification creation time.
 - Example: 2026-07-14T10:00:00+08:00.
-- Database Mapping: notifications.created_at timestamptz not null; JSON Name: createdAt; API Usage: detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.created_at timestamptz not null; JSON Name: createdAt; API Usage: detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## CreatedBy
@@ -521,7 +521,7 @@ Navigation:
 - Validation: Required, valid actor reference.
 - Business Meaning: Supports audit attribution.
 - Example: 00000000-0000-0000-0000-000000000001.
-- Database Mapping: notifications.created_by uuid not null; JSON Name: createdBy; API Usage: detail and audit.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.created_by uuid not null; JSON Name: createdBy; API Usage: detail and audit.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## UpdatedAt
@@ -531,7 +531,7 @@ Navigation:
 - Validation: Required; greater than or equal to CreatedAt.
 - Business Meaning: Supports ordering, cache invalidation, and audit.
 - Example: 2026-07-14T10:05:00+08:00.
-- Database Mapping: notifications.updated_at timestamptz not null; JSON Name: updatedAt; API Usage: detail, summary, search.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.updated_at timestamptz not null; JSON Name: updatedAt; API Usage: detail, summary, search.
 - Searchable: Yes; Sortable: Yes; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## UpdatedBy
@@ -541,7 +541,7 @@ Navigation:
 - Validation: Valid actor reference when present.
 - Business Meaning: Supports mutation audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: notifications.updated_by uuid null; JSON Name: updatedBy; API Usage: detail and audit.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.updated_by uuid null; JSON Name: updatedBy; API Usage: detail and audit.
 - Searchable: Yes; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 ## Version
@@ -551,7 +551,7 @@ Navigation:
 - Validation: Required; increments on every mutation.
 - Business Meaning: Supports event ordering and audit versioning.
 - Example: 5.
-- Database Mapping: notifications.version bigint not null; JSON Name: version; API Usage: update and all mutation commands.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.version bigint not null; JSON Name: version; API Usage: update and all mutation commands.
 - Searchable: No; Sortable: Yes; Indexed: No; Encrypted: No; Auditable: Yes.
 
 ## ConcurrencyToken
@@ -561,7 +561,7 @@ Navigation:
 - Validation: Required; must match on mutation; regenerated after mutation.
 - Business Meaning: Prevents lost updates.
 - Example: 01J2Y8Z7ABCD.
-- Database Mapping: notifications.concurrency_token varchar(128) not null; JSON Name: concurrencyToken; API Usage: update and all mutation commands.
+- PWA Runtime Mapping / Future Cloud Mapping: notifications.concurrency_token varchar(128) not null; JSON Name: concurrencyToken; API Usage: update and all mutation commands.
 - Searchable: No; Sortable: No; Indexed: Yes; Encrypted: No; Auditable: Yes.
 
 # Validation Rules
@@ -838,7 +838,7 @@ Schedule DTO: ScheduleNotificationDto includes notificationId, scheduledAt, vers
 
 Archive DTO: ArchiveNotificationDto includes notificationId, reason, version, concurrencyToken, idempotencyKey.
 
-# Database Mapping
+# PWA Runtime Mapping
 
 Table: notifications
 
@@ -852,7 +852,7 @@ Check Constraint: status values, channel values, priority values, severity value
 
 Index: user feed, unread count, status, channel, priority, severity, schedule, retry, references, provider message, active feed, archive, delete, created, updated.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE notifications (
@@ -934,7 +934,7 @@ CREATE INDEX ix_notifications_workflow ON notifications (workflow_id);
 CREATE INDEX ix_notifications_updated ON notifications (updated_at DESC, notification_id);
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 Fluent API:
 

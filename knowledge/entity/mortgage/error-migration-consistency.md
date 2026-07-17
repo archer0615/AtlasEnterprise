@@ -1,4 +1,4 @@
-# Mortgage Error, Migration, and Consistency
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Mortgage Error, Migration, and Consistency
 
 ## Purpose
 
@@ -29,12 +29,12 @@ This split document isolates Mortgage error handling, data migration, consistenc
 - Verify Mortgage remains catalog-aligned with Entity Catalog, Aggregate Catalog, Command Catalog, Domain Event Catalog, Repository Catalog, Application Service Catalog, Service Catalog, API Governance, and database design.
 - Verify commands such as `CreateLoan`, `RecordLoanPayment`, and `RefinanceLoan` remain Loan-owned where cataloged.
 - Verify domain events such as `LoanCreated`, `LoanPaymentRecorded`, and `LoanRefinanced` remain catalog-aligned.
-- Verify Mortgage persistence, DTO, API, and EF Core mappings do not change aggregate ownership.
+- Verify Mortgage persistence, DTO, API, and Future Cloud Mappings do not change aggregate ownership.
 - Verify scenario, affordability, refinance, and cash flow outputs remain derived or decision-support data.
 
 ## Completion Checklist
 
-- Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Mortgage Monetary Semantics, Mortgage Interest Model, Mortgage Repayment Model, Grace Period Model, Collateral Reference Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, REST API, DTO, Database Mapping, PostgreSQL DDL, EF Core Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete in the parent specification.
+- Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Mortgage Monetary Semantics, Mortgage Interest Model, Mortgage Repayment Model, Grace Period Model, Collateral Reference Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, Future Cloud Architecture API, DTO, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete in the parent specification.
 
 ## Related References
 

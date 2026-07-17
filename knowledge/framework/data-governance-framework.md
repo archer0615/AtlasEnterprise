@@ -1,4 +1,4 @@
-﻿# Data Governance Framework
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Data Governance Framework
 
 # Document Control
 
@@ -222,7 +222,7 @@ Every governance capability must use this Enterprise contract.
 | --- | --- |
 | Command Mutation | Tenant, household, actor, command, repository, transaction, and audit required. |
 | Domain Event | Source aggregate, event version, TenantId, HouseholdId when applicable, classification, and lineage required. |
-| Repository Record | Owner, classification, retention, lifecycle, and database mapping required. |
+| Repository Record | Owner, classification, retention, lifecycle, and PWA Runtime Mapping / Future Cloud Mapping required. |
 | Workflow State | WorkflowRunId, TenantContext, classification, step lineage, and retention required. |
 | Job State | JobRunId, payload classification, checkpoint, retry, and audit required. |
 

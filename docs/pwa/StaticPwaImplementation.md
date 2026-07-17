@@ -14,7 +14,8 @@ Atlas Enterprise currently uses a static-first PWA implementation.
 - Source documents remain in `knowledge/**/*.md`.
 - `frontend/scripts/build-knowledge-index.mjs` converts Markdown into static JSON.
 - Generated files are written to `frontend/knowledge/`.
-- No runtime database, IndexedDB, or backend API is required for the current shell.
+- No Future Architecture service, hosted API, or server database is required for the PWA v1 Runtime.
+- IndexedDB Runtime is the browser-local persistence target for scenarios and user-owned runtime state.
 
 ## Build Commands
 
@@ -41,3 +42,7 @@ The `frontend/` directory can be deployed as static files. The generated `fronte
 ## Deployment Artifact
 
 The deployment artifact is the complete `frontend/` directory after running `npm run build`.
+
+## Future Architecture
+
+Future Cloud Architecture may add hosted APIs, cloud persistence, or sync later, but those extensions must not be required for Static PWA startup, Browser Runtime calculation, Offline First dashboards, IndexedDB scenarios, or Knowledge JSON loading.

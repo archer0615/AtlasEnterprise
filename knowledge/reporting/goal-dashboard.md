@@ -1,4 +1,4 @@
-﻿# Goal Dashboard
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Dashboard
 Version: 1.0
 Status: Enterprise Specification
 Owner: Project Atlas
@@ -441,7 +441,7 @@ Task<GoalWidgetDto> ConfigureWidgetAsync(ConfigureWidgetRequest request);
 Task<GoalDashboardSearchResultDto> SearchDashboardsAsync(GoalDashboardSearchRequest request);
 ```
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Method | Endpoint | Purpose |
 |---|---|---|
 | GET | /api/goal-dashboards | Search dashboards. |
@@ -532,7 +532,7 @@ Export response returns ExportId, status, createdAt, and audit reference.
 ```json
 { "exportFormat": "json", "projection": "dashboard", "maskingMode": "authorized", "includeSnapshot": true }
 ```
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 Primary table: goal_dashboard.
 Widget table: goal_dashboard_widget.
@@ -556,7 +556,7 @@ uq_goal_dashboard_widget_dashboard_key.
 ## Check Constraint
 Widget width and height must be positive.
 Dashboard state must be non-empty.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_dashboard (
     dashboard_id uuid PRIMARY KEY,
@@ -650,7 +650,7 @@ FROM goal_dashboard
 WHERE deleted_at IS NULL
 GROUP BY household_id;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 ## Fluent API
 ```csharp
 builder.ToTable("goal_dashboard");
@@ -674,7 +674,7 @@ DashboardLayout can be owned for layout settings.
 DashboardFilterSet can be owned for persisted filters.
 WidgetLayout can be owned for row, column, width, height, and order.
 ## Indexes
-Indexes match PostgreSQL schema.
+Indexes match Future Cloud Mapping schema.
 ## Query Filters
 Default query filter excludes deleted dashboards.
 Repository specification applies Household and Tenant filters.

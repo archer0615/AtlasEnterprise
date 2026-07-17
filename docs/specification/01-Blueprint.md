@@ -1,4 +1,4 @@
-> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScript Application Use Cases and IndexedDB repositories. Domain names, business rules, validation rules, formulas, events, and state machines remain authoritative.
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n> **PWA v1 Architecture Amendment (2026-07-11):** Any Future Cloud Mapping, Future Cloud Mapping, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScript Application Use Cases and IndexedDB repositories. Domain names, business rules, validation rules, formulas, events, and state machines remain authoritative.
 
 # Project Atlas Enterprise
 # 01-Blueprint.md
@@ -226,4 +226,4 @@ Blueprint information feeds:
 
 ## Local-First PWA Architecture Amendment
 
-Atlas v1 is a static PWA hosted on GitHub Pages. Domain capabilities remain unchanged. Application services execute in-process; repositories persist to IndexedDB; encrypted backup provides portability. .NET 8 and PostgreSQL are future optional adapters rather than v1 runtime dependencies.
+Atlas v1 is a static PWA hosted on GitHub Pages. Domain capabilities remain unchanged. Application services execute in-process; repositories persist to IndexedDB; encrypted backup provides portability. Future Cloud Architecture adapter and Future Cloud Mapping are future optional adapters rather than v1 runtime dependencies.

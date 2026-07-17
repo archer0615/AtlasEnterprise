@@ -1,4 +1,4 @@
-﻿# Decision Analytics
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Analytics
 Version: 1.0
 ## Split Navigation
 - [Decision analytics indicators](decision-analytics/indicators.md)
@@ -630,7 +630,7 @@ IDecisionAnalyticsRepository persists analytics definition, calculated result, t
 - SearchAnalyticsQueryHandler applies filtering, sorting, pagination, and projection.
 - DashboardAnalyticsQueryHandler returns visualization-ready dashboard data.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/decision-analytics
 - POST /api/decision-analytics
 - GET /api/decision-analytics/{analyticsId}
@@ -710,7 +710,7 @@ Includes analytics definition, source versions, calculated results, trends, fore
 Includes filters, sorting, pagination, projection, and masking mode.
 ## Report DTO
 Includes report id, analytics id, scope, period, generated time, projection, and summary.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - decision_analytics
 - decision_analytics_results
@@ -764,7 +764,7 @@ Includes report id, analytics id, scope, period, generated time, projection, and
 - Score values in result tables must be between 0 and 100 when score type is bounded.
 ## Partition Strategy
 - Partition results, trends, forecasts, reports, exports, and access history by generated_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE decision_analytics (
   analytics_id uuid PRIMARY KEY,
@@ -876,7 +876,7 @@ FROM decision_analytics
 WHERE status <> 'Deleted'
 GROUP BY household_id, category, status;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps DecisionAnalytics to decision_analytics with analytics_id primary key.
 - Owned Types map config payload, result payload, series payload, forecast payload, visualization payload, report payload, and export payload as JSON.
 - Indexes map household status, decision, category, period, generated time, source version, calculation version, and scope category period uniqueness.

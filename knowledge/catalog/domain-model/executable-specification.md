@@ -1,4 +1,4 @@
-# Domain Model Executable Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Domain Model Executable Specification
 
 ## Purpose
 This split document isolates executable specification, validation, and conformance topics from the parent Domain Model Catalog.
@@ -10,7 +10,7 @@ This split document isolates executable specification, validation, and conforman
 Executable specification coverage includes Consistency Test, Mapping Test, Repository Test, API Mapping Test, Performance Test, and Phase 2 Executable Specification Addendum sections.
 
 ## Catalog Usage
-Use this split document when validating that Domain, Subdomain, Bounded Context, Aggregate, Entity, Value Object, Enumeration, Repository, Domain Service, Application Service, Command, Domain Event, Read Model, Projection, DTO, API, Database mappings, EF Core mappings, and Rule Engine usage remain aligned with the canonical Domain Model Catalog.
+Use this split document when validating that Domain, Subdomain, Bounded Context, Aggregate, Entity, Value Object, Enumeration, Repository, Domain Service, Application Service, Command, Domain Event, Read Model, Projection, DTO, API, PWA Runtime Mapping / Future Cloud Mappings, Future Cloud Mappings, and Rule Engine usage remain aligned with the canonical Domain Model Catalog.
 
 ## Preservation Rule
 The parent Domain Model Catalog remains the canonical source of truth and retains the original body. This child document provides a focused navigation surface for executable specification and validation references.

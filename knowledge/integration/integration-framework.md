@@ -1,4 +1,4 @@
-﻿# Integration Framework
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Integration Framework
 ## Split Navigation
 - [Integration architecture overview](integration/architecture-overview.md)
 - [Integration catalog](integration/catalog.md)
@@ -45,7 +45,7 @@ Related Specifications:
 
 # Purpose
 
-Integration Framework defines Atlas integration governance for REST API, External API, Internal API, Application Service, Domain Service, Message Contract, Domain Event, Integration Event, Workflow, Saga, Scheduler, Automation, Background Job, Notification, Authentication, Authorization, Webhook, File Exchange, ETL, Import, and Export interactions. It is the integration source of truth.
+Integration Framework defines Atlas integration governance for Future Cloud Architecture API, External API, Internal API, Application Service, Domain Service, Message Contract, Domain Event, Integration Event, Workflow, Saga, Scheduler, Automation, Background Job, Notification, Authentication, Authorization, Webhook, File Exchange, ETL, Import, and Export interactions. It is the integration source of truth.
 
 # Scope
 

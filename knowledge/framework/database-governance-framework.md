@@ -1,4 +1,4 @@
-﻿# Database Governance Framework
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Database Governance Framework
 
 # Document Control
 
@@ -34,14 +34,14 @@ Related Specifications:
 
 # Purpose
 
-Database Governance Framework defines the canonical Atlas database governance model. It is the source of truth for PostgreSQL schemas, database objects, tables, views, materialized views, repositories, aggregates, entities, value objects, migrations, EF Core mappings, indexes, constraints, transactions, locks, concurrency, partitions, archive, backup, restore, security, audit, monitoring, and performance governance.
+Database Governance Framework defines the canonical Atlas database governance model. It is the source of truth for Future Cloud Mapping schemas, database objects, tables, views, materialized views, repositories, aggregates, entities, value objects, migrations, Future Cloud Mappings, indexes, constraints, transactions, locks, concurrency, partitions, archive, backup, restore, security, audit, monitoring, and performance governance.
 
 This document does not create new Atlas business domains. It consolidates database behavior already required by the Domain Model Catalog, Aggregate Catalog, Entity Catalog, Value Object Catalog, Repository Catalog, Application Service Catalog, Domain Service Catalog, Security Framework, Audit Framework, Compliance Framework, Data Governance Framework, Tenant Framework, API Governance Framework, Service Catalog, Database Design, ERD, and API documentation.
 
 # Scope
 
 - Database
-- PostgreSQL Schema
+- Future Cloud Mapping Schema
 - Schema
 - Table
 - View
@@ -68,7 +68,7 @@ This document does not create new Atlas business domains. It consolidates databa
 - Value Object
 - Application Service
 - Domain Service
-- EF Core
+- Future Cloud Mapping
 - Audit
 - Security
 - Tenant
@@ -90,7 +90,7 @@ This document does not create new Atlas business domains. It consolidates databa
 
 | Concept | Canonical Meaning | Required Usage |
 | --- | --- | --- |
-| Database | Governed PostgreSQL persistence boundary for Atlas application, audit, operational, projection, and reporting data. | Required for all persistent data. |
+| Database | Governed Future Cloud Mapping persistence boundary for Atlas application, audit, operational, projection, and reporting data. | Required for all persistent data. |
 | Schema | Namespace grouping related database objects by domain, platform concern, audit, configuration, projection, archive, or operational purpose. | Required for table and object ownership. |
 | Table | Persistent relational structure storing governed records. | Must map to a cataloged owner and retention policy. |
 | View | Query abstraction over governed tables. | Must preserve permission, tenant, household, masking, and classification rules. |
@@ -118,7 +118,7 @@ Atlas database architecture is repository-owned and catalog-aligned.
 
 1. Application Service starts a command or query with authenticated Principal, TenantContext, and permission decision.
 2. Domain Service or Aggregate enforces domain rules before persistent mutation.
-3. Repository owns SQL, EF Core mapping, query filters, transaction boundary, concurrency tokens, and table mapping.
+3. Repository owns SQL, Future Cloud Mapping, query filters, transaction boundary, concurrency tokens, and table mapping.
 4. Database enforces structural integrity through primary keys, foreign keys, unique keys, check constraints, indexes, and transaction isolation.
 5. Audit records capture mutation, migration, backup, restore, archive, purge, and administrative access.
 6. Data Governance and Compliance define classification, retention, legal hold, masking, encryption, and lineage.
@@ -216,7 +216,7 @@ Atlas database architecture is repository-owned and catalog-aligned.
 # Versioning Strategy
 
 - Database schema version must be traceable to application version and migration history.
-- EF Core model snapshot must align with migration history.
+- Future Cloud Mapping model snapshot must align with migration history.
 - Repository mapping changes must be versioned with database migration when persistence shape changes.
 - Views and materialized views must have definition version.
 - Archive format must have version.
@@ -368,7 +368,7 @@ Atlas database architecture is repository-owned and catalog-aligned.
 - Repository methods must be the normal access path to application tables.
 - Application Services must not bypass repository governance for normal business operations.
 - Domain Services must not issue unmanaged database writes.
-- EF Core mappings must align with database naming and constraint conventions.
+- Future Cloud Mappings must align with database naming and constraint conventions.
 - Database schema must align with docs/database/05-DatabaseDesign.md.
 - ERD must reflect governed table relationships.
 - API response shape must not depend on unmanaged database objects.
@@ -572,8 +572,8 @@ Atlas database architecture is repository-owned and catalog-aligned.
 ```mermaid
 flowchart LR
   App[Application Service] --> Repo[Repository]
-  Repo --> Map[EF Core Mapping]
-  Map --> DB[(PostgreSQL Database)]
+  Repo --> Map[Future Cloud Mapping]
+  Map --> DB[(Future Cloud Mapping Database)]
   DB --> Tables[Tables and Constraints]
   DB --> Indexes[Indexes]
   DB --> Views[Views and Materialized Views]
@@ -669,7 +669,7 @@ flowchart LR
 - Unique constraint missing for idempotency key.
 - Check constraint conflicts with domain enumeration.
 - Migration applied out of order.
-- Migration history differs from EF Core model snapshot.
+- Migration history differs from Future Cloud Mapping model snapshot.
 - Destructive migration runs without backup.
 - Data migration affected count differs from expected count.
 - Migration succeeds but audit write fails.
@@ -735,8 +735,8 @@ flowchart LR
 - Table owner requirement is defined.
 - Schema purpose requirement is defined.
 - Repository table mapping is defined.
-- Entity database mapping is defined.
-- Aggregate database mapping is defined.
+- Entity PWA Runtime Mapping / Future Cloud Mapping is defined.
+- Aggregate PWA Runtime Mapping / Future Cloud Mapping is defined.
 - Migration version requirement is defined.
 - Migration validation requirement is defined.
 - Backup policy is defined.

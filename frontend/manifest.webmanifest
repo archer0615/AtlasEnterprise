@@ -1,13 +1,13 @@
 {
   "name": "Atlas Enterprise Knowledge",
   "short_name": "Atlas",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#f5f2ed",
   "theme_color": "#1f6f78",
   "icons": [
     {
-      "src": "/icons/atlas-icon.svg",
+      "src": "icons/atlas-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

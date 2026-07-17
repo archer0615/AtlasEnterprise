@@ -1,4 +1,4 @@
-# Decision Reporting
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Reporting
 Version: 1.0
 Status: Enterprise Specification
 Owner: Project Atlas
@@ -657,7 +657,7 @@ IDecisionReportingRepository persists report definitions, snapshots, sections, e
 - CancelScheduledReportHandler records cancellation reason.
 - SearchReportQueryHandler applies filtering, sorting, pagination, and projection.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/decision-reports
 - POST /api/decision-reports
 - GET /api/decision-reports/{reportId}
@@ -739,7 +739,7 @@ Includes template id, version, report type, allowed sections, locale, and projec
 Includes executive summary, decision count, success rate, risk summary, financial summary, and governance summary.
 ## Audit Report DTO
 Includes audit scope, audit events, access history, export history, retention evidence, and generated time.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - decision_reports
 - decision_report_sections
@@ -795,7 +795,7 @@ Includes audit scope, audit events, access history, export history, retention ev
 - Export requires generated snapshot.
 ## Partition Strategy
 - Partition snapshots, exports, generation history, and access history by generated_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE decision_reports (
   report_id uuid PRIMARY KEY,
@@ -911,7 +911,7 @@ FROM decision_reports
 WHERE status <> 'Deleted'
 GROUP BY household_id, report_type, status;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps DecisionReport to decision_reports with report_id primary key.
 - Owned Types map filter payload, section payload, snapshot payload, export payload, and generation messages as JSON value objects.
 - Indexes map household status, decision, report type, generated time, owner, template, schedule next run, and scope type template uniqueness.

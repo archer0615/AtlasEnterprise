@@ -1,4 +1,4 @@
-﻿# Decision Execution
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Execution
 Version: 1.0
 ## Split Navigation
 - [Decision execution planning](decision-execution/planning-and-workflow.md)
@@ -548,7 +548,7 @@ IDecisionExecutionRepository persists execution aggregate, plan, steps, logs, me
 - SearchExecutionQueryHandler applies filters, sorting, projection, and pagination.
 - BulkExecutionHandler performs batch start, retry, cancel, archive, and restore with per-item result.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/decision-executions
 - POST /api/decision-executions
 - GET /api/decision-executions/{executionId}
@@ -633,7 +633,7 @@ Includes executionId, DecisionSessionId, status, mode, priority, progressPercent
 Includes execution detail, plan, steps, logs, metrics, histories, errors, warnings, permissions, and audit metadata.
 ## Search DTO
 Includes filters, sorting, pagination, projection, and masking mode.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - decision_executions
 - decision_execution_steps
@@ -708,7 +708,7 @@ Includes filters, sorting, pagination, projection, and masking mode.
 - Started time cannot be after completed time.
 ## Partition Strategy
 - Partition logs, metrics, state history, retry history, rollback history, recovery history, and operator history by created_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE decision_executions (
   execution_id uuid PRIMARY KEY,
@@ -848,7 +848,7 @@ FROM decision_executions
 WHERE status <> 'Deleted'
 GROUP BY household_id, status, mode, priority;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps DecisionExecution to decision_executions with execution_id primary key.
 - Owned Types map plan payload, result payload, dependency payload, input payload, recovery payload, rollback payload, and log payload as JSON.
 - Indexes map household status, decision status, mode status, schedule, workflow, automation, priority, and active execution key.

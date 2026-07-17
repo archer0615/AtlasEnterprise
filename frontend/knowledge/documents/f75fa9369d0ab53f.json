@@ -3,7 +3,7 @@
   "title": "Portfolio Execution and Reporting",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/portfolio/execution-and-reporting.md",
-  "sourceHash": "1efcf0793e9d68fc6e9787fcbfc071a0b355b22383d1c4eadf0dc3a0588f4f99",
+  "sourceHash": "8889597100ef62fce1a21cdaeb6b61bcdfddc9e8556e0bf8f511f23fceb8d8c2",
   "headings": [
     {
       "level": 1,
@@ -38,6 +38,6 @@
       "text": "Testing Matrix"
     }
   ],
-  "bodyMarkdown": "# Portfolio Execution and Reporting\r\n\r\n## Purpose\r\nThis split document isolates portfolio commands, events, validation, API, KPIs, and testing from the parent Portfolio Knowledge Base.\r\n\r\n## Source\r\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\r\n\r\n## Portfolio Contract\r\nPortfolio owns name, owner, base currency, target allocation, current allocation, holdings, risk level, market value, cost basis, unrealized gain/loss, annual income, and allocation drift.\r\n\r\n## Required Commands\r\n- CreatePortfolio\r\n- UpdatePortfolioProfile\r\n- AddPortfolioHolding\r\n- RemovePortfolioHolding\r\n- UpdatePortfolioValuation\r\n- ChangePortfolioAllocation\r\n- ArchivePortfolio\r\n- ReplayPortfolioState\r\n\r\n## Domain Events\r\n- PortfolioCreated\r\n- PortfolioProfileUpdated\r\n- PortfolioHoldingAdded\r\n- PortfolioHoldingRemoved\r\n- PortfolioValuationUpdated\r\n- PortfolioAllocationChanged\r\n- PortfolioArchived\r\n- PortfolioStateReplayed\r\n\r\n## KPIs\r\nPortfolio reporting exposes portfolio value, net investment value, annual income, passive income ratio, asset allocation accuracy, portfolio return, drawdown, and risk score.\r\n\r\n## Testing Matrix\r\nTesting covers valid portfolio creation, invalid allocation totals, unsupported asset class rejection, IPS validation, archive protection, and replay accuracy.\r\n\r\n",
+  "bodyMarkdown": "# Portfolio Execution and Reporting\n\n## Purpose\nThis split document isolates portfolio commands, events, validation, API, KPIs, and testing from the parent Portfolio Knowledge Base.\n\n## Source\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\n\n## Portfolio Contract\nPortfolio owns name, owner, base currency, target allocation, current allocation, holdings, risk level, market value, cost basis, unrealized gain/loss, annual income, and allocation drift.\n\n## Required Commands\n- CreatePortfolio\n- UpdatePortfolioProfile\n- AddPortfolioHolding\n- RemovePortfolioHolding\n- UpdatePortfolioValuation\n- ChangePortfolioAllocation\n- ArchivePortfolio\n- ReplayPortfolioState\n\n## Domain Events\n- PortfolioCreated\n- PortfolioProfileUpdated\n- PortfolioHoldingAdded\n- PortfolioHoldingRemoved\n- PortfolioValuationUpdated\n- PortfolioAllocationChanged\n- PortfolioArchived\n- PortfolioStateReplayed\n\n## KPIs\nPortfolio reporting exposes portfolio value, net investment value, annual income, passive income ratio, asset allocation accuracy, portfolio return, drawdown, and risk score.\n\n## Testing Matrix\nTesting covers valid portfolio creation, invalid allocation totals, unsupported asset class rejection, IPS validation, archive protection, and replay accuracy.\n\n",
   "references": []
 }

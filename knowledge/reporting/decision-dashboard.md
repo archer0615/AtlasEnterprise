@@ -1,4 +1,4 @@
-﻿# Decision Dashboard Overview
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Dashboard Overview
 Version: 1.0.0
 ## Split Navigation
 - [Decision dashboard metrics and views](decision-dashboard/metrics-and-views.md)
@@ -523,7 +523,7 @@ public interface IDecisionDashboardRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Endpoint | Method | Purpose |
 |---|---:|---|
 | `/api/decision-dashboards` | `POST` | Create dashboard |
@@ -630,7 +630,7 @@ Fields: `filters`, `sort`, `pagination`, `projection`, `includeArchived`, `inclu
 
 ---
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 Primary table: `decision_dashboards`. Widget table: `decision_dashboard_widgets`.
@@ -662,7 +662,7 @@ Dashboard history, snapshots, access history, and exports may be partitioned by 
 
 ---
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE decision_dashboards (
@@ -825,7 +825,7 @@ Constraints enforce valid state, refresh status, layout size, refresh policy, an
 
 ---
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp

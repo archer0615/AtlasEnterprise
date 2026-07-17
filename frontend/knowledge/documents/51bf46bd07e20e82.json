@@ -3,7 +3,7 @@
   "title": "Goal Review Execution and Audit",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-review/execution-and-audit.md",
-  "sourceHash": "fb5ff870f82973ecf566eeb6413bbd48a711dfb8d6c13b521d5ab8aa784f5e34",
+  "sourceHash": "33aceae2b33fe1b7a8f614dc8245ae8e0479580396d3983ae497b8fc58bdcd1f",
   "headings": [
     {
       "level": 1,
@@ -38,6 +38,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Goal Review Execution and Audit\r\n\r\n## Purpose\r\nThis split document isolates Goal Review commands, state machine behavior, persistence, API, audit, and testing concerns from the parent Goal Review specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Review](../goal-review.md)\r\n\r\n## States\r\nGoal Review states include Draft, Scheduled, InProgress, Completed, Approved, Rejected, Archived, Restored, and Deleted.\r\n\r\n## Commands\r\n- CreateReview\r\n- UpdateReview\r\n- StartReview\r\n- CompleteReview\r\n- ApproveReview\r\n- RejectReview\r\n- ArchiveReview\r\n- RestoreReview\r\n- DeleteReview\r\n\r\n## Domain Events\r\n- ReviewCreated\r\n- ReviewStarted\r\n- ReviewCompleted\r\n- ReviewApproved\r\n- ReviewRejected\r\n- ReviewArchived\r\n- ReviewUpdated\r\n\r\n## Audit\r\nReview history, review trail, and versioning must record operator, source, timestamp, reason, prior state, next state, and correlation identifier.\r\n\r\n## Testing\r\nTesting covers unit, integration, validation, performance, state transition, API, repository, audit, cache, security, and edge-case behavior.\r\n\r\n",
+  "bodyMarkdown": "# Goal Review Execution and Audit\n\n## Purpose\nThis split document isolates Goal Review commands, state machine behavior, persistence, API, audit, and testing concerns from the parent Goal Review specification.\n\n## Source\n- Parent specification: [Goal Review](../goal-review.md)\n\n## States\nGoal Review states include Draft, Scheduled, InProgress, Completed, Approved, Rejected, Archived, Restored, and Deleted.\n\n## Commands\n- CreateReview\n- UpdateReview\n- StartReview\n- CompleteReview\n- ApproveReview\n- RejectReview\n- ArchiveReview\n- RestoreReview\n- DeleteReview\n\n## Domain Events\n- ReviewCreated\n- ReviewStarted\n- ReviewCompleted\n- ReviewApproved\n- ReviewRejected\n- ReviewArchived\n- ReviewUpdated\n\n## Audit\nReview history, review trail, and versioning must record operator, source, timestamp, reason, prior state, next state, and correlation identifier.\n\n## Testing\nTesting covers unit, integration, validation, performance, state transition, API, repository, audit, cache, security, and edge-case behavior.\n\n",
   "references": []
 }

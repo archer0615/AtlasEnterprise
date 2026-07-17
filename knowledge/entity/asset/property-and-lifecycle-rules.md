@@ -1,4 +1,4 @@
-# Asset Property and Lifecycle Rules
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Asset Property and Lifecycle Rules
 
 ## Purpose
 
@@ -15,7 +15,7 @@ This split document isolates Asset property semantics, validation rules, busines
 - `PortfolioId` is optional and links Asset usage to Portfolio behavior without turning Asset into Position or Holding.
 - `AssetName`, `DisplayName`, and `Description` are descriptive fields and must not carry classification or authorization meaning.
 - `AssetType`, `AssetClass`, `Currency`, `LiquidityLevel`, and `Status` preserve catalog-aligned classification and implementation metadata boundaries.
-- Monetary values such as `AcquisitionCost`, `CostBasis`, `BookValue`, `CurrentValue`, and `EstimatedValue` must use Money and Currency semantics and must not use PostgreSQL money type.
+- Monetary values such as `AcquisitionCost`, `CostBasis`, `BookValue`, `CurrentValue`, and `EstimatedValue` must use Money and Currency semantics and must not use Future Cloud Mapping money type.
 
 ## Lifecycle Rules
 

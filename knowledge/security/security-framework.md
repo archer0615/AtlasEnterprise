@@ -1,4 +1,4 @@
-# Security Framework
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Security Framework
 ## Split Navigation
 - [Security architecture](security-framework/security-architecture.md)
 - [Authentication flows and events](security-framework/authentication-flows-and-events.md)
@@ -26,7 +26,7 @@ This document does not create new Atlas domains or business concepts. It consoli
 
 ## Scope
 
-- Applies to REST APIs, Application Services, Domain Services, Repositories, DTOs, Commands, Queries, Message Contracts, Domain Events, Workflows, Automation, Scheduler, Background Jobs, Integrations, Notifications, Database access, Cache access, Audit recording, and operational administration.
+- Applies to Future Cloud Architecture APIs, Application Services, Domain Services, Repositories, DTOs, Commands, Queries, Message Contracts, Domain Events, Workflows, Automation, Scheduler, Background Jobs, Integrations, Notifications, Database access, Cache access, Audit recording, and operational administration.
 - Requires every API request to complete authentication, authorization, permission evaluation, tenant isolation, household isolation, validation, audit correlation, and rate limiting checks before protected data is returned or modified.
 - Requires every machine-to-machine call, scheduled operation, background job, and message consumer to use an authenticated Principal with explicit permissions and auditable execution context.
 

@@ -1,4 +1,4 @@
-﻿# Goal Optimization
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Optimization
 Version: 1.0
 ## Split Navigation
 - [Goal optimization strategy and objectives](goal-optimization/strategy-and-objectives.md)
@@ -488,7 +488,7 @@ IGoalOptimizationRepository persists optimization aggregate, objectives, constra
 - SearchOptimizationQueryHandler applies filters, sorting, projection, and pagination.
 - BatchOptimizationHandler executes multiple scopes with isolated item results.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/goal-optimizations
 - POST /api/goal-optimizations
 - GET /api/goal-optimizations/{optimizationId}
@@ -553,7 +553,7 @@ Includes baseline, candidate list, candidate ranking, objective scores, constrai
 Includes constraint type, hard flag, input values, violation state, penalty score, and explanation.
 ## Objective DTO
 Includes objective name, weight, priority, inputs, outputs, formula, score, and explanation.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - goal_optimizations
 - goal_optimization_objectives
@@ -618,7 +618,7 @@ Includes objective name, weight, priority, inputs, outputs, formula, score, and 
 - Lifecycle timestamp must match lifecycle status.
 ## Partition Strategy
 - Partition execution history and audit by created_at month for large installations.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_optimizations (
   optimization_id uuid PRIMARY KEY,
@@ -746,7 +746,7 @@ FROM goal_optimizations
 WHERE status <> 'Deleted'
 GROUP BY household_id, status, scope_type;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps GoalOptimization to goal_optimizations with optimization_id primary key.
 - Owned Types map request payload, result summary, objective inputs, objective outputs, constraint result, and candidate explanation as JSON.
 - Indexes map household status, goal status, scope, score, stale flag, and candidate rank.

@@ -1,4 +1,4 @@
-﻿# Audit Framework
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Audit Framework
 
 # Document Control
 
@@ -160,7 +160,7 @@ Every Atlas audit entry must use this contract.
 | Message Contract | Message name, version, producer, consumer, and delivery metadata when applicable. |
 | Security Event | Authentication, authorization, token, session, policy, isolation, or threat event when applicable. |
 | Permission Event | Permission check, grant, denial, policy match, or role decision when applicable. |
-| Database Mapping | Table, primary key, mutation type, and transaction boundary when applicable. |
+| PWA Runtime Mapping / Future Cloud Mapping | Table, primary key, mutation type, and transaction boundary when applicable. |
 | Storage Strategy | Hot, warm, cold, archive, or legal hold. |
 | Retention Policy | Retention class and minimum duration. |
 | Archive Strategy | Archive trigger and destination class. |
@@ -360,7 +360,7 @@ Every audit repository must support these search dimensions:
 - Message Contract and version are required for message audits.
 - Security Event type is required for security audits.
 - Permission result is required for authorization and protected access audits.
-- Database Mapping is required for repository mutation audits.
+- PWA Runtime Mapping / Future Cloud Mapping is required for repository mutation audits.
 - CorrelationId is required.
 - CausationId is required when triggered by another command, event, message, workflow step, scheduler run, automation run, or job.
 - TraceId is required when runtime tracing exists.

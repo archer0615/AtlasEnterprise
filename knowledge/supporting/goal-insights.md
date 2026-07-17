@@ -1,4 +1,4 @@
-﻿# Goal Insights
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Insights
 Version: 1.0
 ## Split Navigation
 - [Goal insights generation](goal-insights/generation.md)
@@ -549,7 +549,7 @@ IGoalInsightRepository persists insight aggregate, evidence, lifecycle history, 
 - DashboardInsightsQueryHandler returns dashboard projection.
 - BulkInsightHandler performs batch generation, resolution, and dismissal with optimistic concurrency.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/goal-insights
 - POST /api/goal-insights
 - GET /api/goal-insights/{insightId}
@@ -616,7 +616,7 @@ Includes evidenceId, sourceType, sourceId, sourceVersion, evidenceValue, masked,
 Includes total count, severity distribution, priority distribution, category distribution, top insights, and stale count.
 ## Lifecycle DTO
 Includes fromStatus, toStatus, reason, actorId, occurredAt, and correlationId.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - goal_insights
 - goal_insight_evidence
@@ -682,7 +682,7 @@ Includes fromStatus, toStatus, reason, actorId, occurredAt, and correlationId.
 - Lifecycle timestamp must match lifecycle status.
 ## Partition Strategy
 - Partition audit and lifecycle history by created_at month for large installations.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_insights (
   insight_id uuid PRIMARY KEY,
@@ -781,7 +781,7 @@ FROM goal_insights
 WHERE status <> 'Deleted'
 GROUP BY household_id, status, severity, priority, category;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps GoalInsight to goal_insights with insight_id primary key.
 - Owned Types map evidence summary, permission context, and recommended actions as JSON value objects.
 - Indexes map household status, goal status, category severity, priority rank, expiration, source version, and active insight key.

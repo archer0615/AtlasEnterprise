@@ -3,7 +3,7 @@
   "title": "Aggregate Catalog Ownership Mapping",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/aggregate-catalog/ownership-mapping.md",
-  "sourceHash": "15e3ca3212b3d474d476298b0847bd22c64e83ffd292d8c8462cbfbb496aafe7",
+  "sourceHash": "075894a1fa0dbbecab972f5e293e53f6aa0e59cf62e05b500bd68077ee4b29e8",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Interaction Rules"
     }
   ],
-  "bodyMarkdown": "# Aggregate Catalog Ownership Mapping\r\n\r\n## Purpose\r\nThis split document isolates ownership matrices and cross-aggregate mappings from the parent Aggregate Catalog.\r\n\r\n## Source\r\n- Parent specification: [Aggregate Catalog](../aggregate-catalog.md)\r\n\r\n## Mapping Tables\r\n- Aggregate Ownership Matrix\r\n- Entity-to-Aggregate Mapping\r\n- Command-to-Aggregate Mapping\r\n- Event-to-Aggregate Mapping\r\n- Repository-to-Aggregate Mapping\r\n- Table-to-Aggregate Mapping\r\n\r\n## Interaction Rules\r\nCross-aggregate interaction rules must preserve transaction boundaries, command ownership, event ownership, repository ownership, persistence ownership, API ownership, security boundary, and audit boundary.\r\n\r\n",
+  "bodyMarkdown": "# Aggregate Catalog Ownership Mapping\n\n## Purpose\nThis split document isolates ownership matrices and cross-aggregate mappings from the parent Aggregate Catalog.\n\n## Source\n- Parent specification: [Aggregate Catalog](../aggregate-catalog.md)\n\n## Mapping Tables\n- Aggregate Ownership Matrix\n- Entity-to-Aggregate Mapping\n- Command-to-Aggregate Mapping\n- Event-to-Aggregate Mapping\n- Repository-to-Aggregate Mapping\n- Table-to-Aggregate Mapping\n\n## Interaction Rules\nCross-aggregate interaction rules must preserve transaction boundaries, command ownership, event ownership, repository ownership, persistence ownership, API ownership, security boundary, and audit boundary.\n\n",
   "references": []
 }

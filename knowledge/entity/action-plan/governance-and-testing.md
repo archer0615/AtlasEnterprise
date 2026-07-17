@@ -1,4 +1,4 @@
-# ActionPlan Governance and Testing
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# ActionPlan Governance and Testing
 
 ## Purpose
 
@@ -11,9 +11,9 @@ This split document isolates ActionPlan repository, API, persistence, security, 
 - Application Service Interaction
 - API
 - DTO
-- Database Mapping
-- PostgreSQL Schema
-- EF Core Mapping
+- PWA Runtime Mapping / Future Cloud Mapping
+- Future Cloud Mapping Schema
+- Future Cloud Mapping
 - Cache Strategy
 - Security
 - Audit

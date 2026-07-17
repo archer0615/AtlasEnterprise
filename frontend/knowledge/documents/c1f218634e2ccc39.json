@@ -3,7 +3,7 @@
   "title": "Market Assumptions Returns and Inflation",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/market-assumptions/returns-and-inflation.md",
-  "sourceHash": "6cce2d09a05c1f1be14f1a768d1893080f8dde26e3e9e63ce33e96eeca1ec8d4",
+  "sourceHash": "929ce3effa73bf4cf61e2c8ca96e20d27b4c352e2367fb2c94d3c67c591b27dd",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Market Assumptions Returns and Inflation\n\n## Purpose\n\nThis split document isolates return and inflation assumptions from the larger Market Assumptions document.\n\n## Source\n\n- Parent specification: [Market Assumptions](../market-assumptions.md)\n\n## Return Rules\n\n- Return assumptions must be versioned.\n- Baseline and stress return assumptions must remain explicit.\n- Simulator fixtures must identify the assumption version they use.\n\n## Inflation Rules\n\n- Inflation assumptions must identify currency and planning period.\n- Inflation should remain separate from nominal return and cashflow assumptions.\n- Long-term goal readiness should preserve inflation assumption traceability.\n\n## Related References\n\n- [Retirement Supporting Document](../retirement.md)\n- [Portfolio Performance Framework](../../framework/portfolio-performance-framework.md)\n- [Investment Drawdown Fixture](../../../simulator/fixtures/investment-drawdown-stress.json)\n",
+  "bodyMarkdown": "# Market Assumptions Returns and Inflation\r\n\r\n## Purpose\r\n\r\nThis split document isolates return and inflation assumptions from the larger Market Assumptions document.\r\n\r\n## Source\r\n\r\n- Parent specification: [Market Assumptions](../market-assumptions.md)\r\n\r\n## Return Rules\r\n\r\n- Return assumptions must be versioned.\r\n- Baseline and stress return assumptions must remain explicit.\r\n- Simulator fixtures must identify the assumption version they use.\r\n\r\n## Inflation Rules\r\n\r\n- Inflation assumptions must identify currency and planning period.\r\n- Inflation should remain separate from nominal return and cashflow assumptions.\r\n- Long-term goal readiness should preserve inflation assumption traceability.\r\n\r\n## Related References\r\n\r\n- [Retirement Supporting Document](../retirement.md)\r\n- [Portfolio Performance Framework](../../framework/portfolio-performance-framework.md)\r\n- [Investment Drawdown Fixture](../../../simulator/fixtures/investment-drawdown-stress.json)\r\n",
   "references": []
 }

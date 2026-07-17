@@ -1,4 +1,4 @@
-﻿# Decision Lifecycle
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Lifecycle
 Version: 1.0
 ## Split Navigation
 - [Decision lifecycle states](decision-lifecycle/states-and-transitions.md)
@@ -665,7 +665,7 @@ IDecisionLifecycleRepository persists DecisionSession lifecycle state, transitio
 - CreateSnapshotHandler persists immutable snapshot.
 - SearchDecisionQueryHandler applies filters, sorting, pagination, and projection.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/decisions
 - POST /api/decisions
 - GET /api/decisions/{decisionSessionId}
@@ -754,7 +754,7 @@ Includes decisionSessionId, state, selected option, approval state, execution st
 Includes full detail, options, evidence, lifecycle, approval, simulation, optimization, execution, history, audit, and permissions.
 ## Search DTO
 Includes filters, sorting, pagination, projection, and masking mode.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - decision_lifecycle_states
 - decision_lifecycle_transitions
@@ -818,7 +818,7 @@ Includes filters, sorting, pagination, projection, and masking mode.
 - Executed state requires execution history.
 ## Partition Strategy
 - Partition transitions, approvals, executions, snapshots, rollback history, and audit by created_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE decision_lifecycle_states (
   lifecycle_id uuid PRIMARY KEY,
@@ -936,7 +936,7 @@ FROM decision_lifecycle_states
 WHERE state <> 'Deleted'
 GROUP BY household_id, state;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps DecisionLifecycleState to decision_lifecycle_states with lifecycle_id primary key.
 - Owned Types map snapshot payload, template payload, execution payload, verification payload, and audit payload as JSON.
 - Indexes map decision state, household state, tenant state, entered time, approval due time, workflow, automation, and current lifecycle row.

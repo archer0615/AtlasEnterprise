@@ -1,14 +1,10 @@
 {
   "id": "1c2fdc2781e02387",
-  "title": "Goal Conflict Contracts and Persistence",
+  "title": "contracts-and-persistence",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-conflict-resolution/contracts-and-persistence.md",
-  "sourceHash": "40ad2748b89f5ce17c8244e62bcf156b0771f2f85e1dae41936b1829d2bd39ef",
+  "sourceHash": "b4c576bd0a21020e75ce556d327a7fd1d828c5ac563dab1278edacfd2f54d774",
   "headings": [
-    {
-      "level": 1,
-      "text": "Goal Conflict Contracts and Persistence"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -38,6 +34,6 @@
       "text": "Database and Cache"
     }
   ],
-  "bodyMarkdown": "# Goal Conflict Contracts and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Goal Conflict commands, events, API, DTO, persistence mapping, cache, and example payload concerns from the parent Goal Conflict Resolution specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\r\n\r\n## Commands\r\nGoalApplicationService owns DetectGoalConflict, ReevaluateGoalConflict, ProposeGoalConflictResolution, SelectGoalConflictResolution, AcceptGoalConflictResolution, RejectGoalConflictResolution, OverrideGoalConflictResolution, DeferGoalConflictResolution, EscalateGoalConflict, ResolveGoalConflict, ReopenGoalConflict, ArchiveGoalConflict, and RestoreGoalConflict use cases.\r\n\r\n## Domain Events\r\nPublished messages use canonical event metadata and remain GoalApplicationService events until the Domain Event Catalog adds goal-conflict-specific names.\r\n\r\n## API and DTO\r\nGoal Conflict API contracts are exposed as Goal resource subresources such as `/api/v1/goals/conflicts`, with request and response DTOs preserving evidence, candidate, status, lifecycle, audit, and error code fields.\r\n\r\n## Persistence\r\nGoal Conflict data is stored as GoalPlan-owned conflict state plus read model projections, not as a standalone Aggregate, Entity, or Repository.\r\n\r\n## Database and Cache\r\nDatabase mapping, PostgreSQL schema, EF Core mapping, and cache strategy must preserve tenant isolation, optimistic concurrency, idempotency keys, archival rules, and replay-safe audit records.\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Goal Conflict Contracts and Persistence\n\n## Purpose\nThis split document isolates Goal Conflict commands, events, API, DTO, persistence mapping, cache, and example payload concerns from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Commands\nGoalApplicationService owns DetectGoalConflict, ReevaluateGoalConflict, ProposeGoalConflictResolution, SelectGoalConflictResolution, AcceptGoalConflictResolution, RejectGoalConflictResolution, OverrideGoalConflictResolution, DeferGoalConflictResolution, EscalateGoalConflict, ResolveGoalConflict, ReopenGoalConflict, ArchiveGoalConflict, and RestoreGoalConflict use cases.\n\n## Domain Events\nPublished messages use canonical event metadata and remain GoalApplicationService events until the Domain Event Catalog adds goal-conflict-specific names.\n\n## API and DTO\nGoal Conflict API contracts are exposed as Goal resource subresources such as `/api/v1/goals/conflicts`, with request and response DTOs preserving evidence, candidate, status, lifecycle, audit, and error code fields.\n\n## Persistence\nGoal Conflict data is stored as GoalPlan-owned conflict state plus read model projections, not as a standalone Aggregate, Entity, or Repository.\n\n## Database and Cache\nPWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping schema, Future Cloud Mapping, and cache strategy must preserve tenant isolation, optimistic concurrency, idempotency keys, archival rules, and replay-safe audit records.\n",
   "references": []
 }

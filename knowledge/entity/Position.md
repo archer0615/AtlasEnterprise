@@ -1,4 +1,4 @@
-# Position Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Position Entity Specification
 ## Split Navigation
 - [Position identity and valuation](position/identity-and-valuation.md)
 - [Position API and persistence](position/api-and-persistence.md)
@@ -50,7 +50,7 @@
 | API Resource | entity-catalog.md | /api/v1/portfolios/{portfolioId}/holdings. | /api/v1/portfolios/{portfolioId}/holdings | Referenced | REST controller | Catalog-aligned | Position URL may alias only |
 | DTO | API governance | DTO is implementation contract. | Holding DTOs | Implementation Detail | Request/response schemas | Implementation Detail | Position DTO naming may map to Holding |
 | Permission | entity-catalog.md | Asset:Read for Holding API mapping. | Asset:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Mutating permissions are API mapping |
-| Database Table | entity-catalog.md | holdings. | holdings | Referenced | PostgreSQL table | Catalog-aligned | Not positions |
+| Database Table | entity-catalog.md | holdings. | holdings | Referenced | Future Cloud Mapping table | Catalog-aligned | Not positions |
 | Read Model | API governance | Projection is not source of truth. | Holding valuation projection | Implementation Detail | Cache/materialized view | Implementation Detail | Read-only |
 | Cache | entity-catalog.md | holding valuation cache. | Holding valuation cache | Referenced | Cache keys | Catalog-aligned | Versioned and scoped |
 | Audit | entity-catalog.md | Holding changes audited through AssetPortfolio. | Holding audit | Referenced | AuditRepository | Catalog-aligned | Complete audit |
@@ -148,7 +148,7 @@ User and Household provide actor and authorization context. They do not own Hold
 | Prohibited navigation | Mutable graph to Asset master, MarketData, Scenario, Decision, Recommendation. | Not allowed |
 # Complete Properties
 ## Property Matrix
-| Name | Type | Nullable | Default | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---:|---:|---:|---:|---:|
 | HoldingId | UUID | No | generated | holding_id uuid pk | holdingId | route, response | Yes | Yes | Yes | No | Yes |
 | PositionNumber | string(40) | No | generated | position_number varchar(40) | positionNumber | response | Yes | Yes | Yes | No | Yes |
@@ -433,7 +433,7 @@ Specifications describe filters only. They do not calculate price, return, gain,
 | RecommendationApplicationService | Catalog-aligned where present | Reads projections. |
 | ReportApplicationService | Catalog-aligned | Position reports and audit explanations. |
 | AdministrationApplicationService | Catalog-aligned | Audit and operational queries. |
-# REST API
+# Future Cloud Architecture API
 | Method | Path | Use Case | Permission | Status Codes |
 |---|---|---|---|---|
 | POST | /api/v1/portfolios/{portfolioId}/holdings | BuySecurity or create holding use case | Asset:Update | 201, 400, 401, 403, 409, 422 |
@@ -457,7 +457,7 @@ Specifications describe filters only. They do not calculate price, return, gain,
 | PositionDetailResponse | all response-safe properties from Property Matrix plus asset summary, valuation projection, version, concurrencyToken |
 | PositionSummaryResponse | holdingId, positionNumber, portfolioId, assetId, securityIdentifier, quantity, currentMarketValue, status |
 | PositionSearchRequest | householdId, portfolioId, assetId, status, securityIdentifier, page, pageSize, sort |
-# Database Mapping
+# PWA Runtime Mapping
 | Column | Type | Nullable | Constraint |
 |---|---|---:|---|
 | holding_id | uuid | No | Primary key |
@@ -499,7 +499,7 @@ Specifications describe filters only. They do not calculate price, return, gain,
 | updated_by | uuid | No | Updater |
 | version | integer | No | Concurrency |
 | concurrency_token | uuid | No | Concurrency |
-# PostgreSQL DDL
+# Future Cloud Mapping DDL
 ```sql
 CREATE SCHEMA IF NOT EXISTS atlas;
 CREATE TABLE IF NOT EXISTS atlas.holdings (
@@ -579,7 +579,7 @@ CREATE INDEX IF NOT EXISTS ix_holdings_archived ON atlas.holdings (tenant_id, is
 CREATE INDEX IF NOT EXISTS ix_holdings_deleted ON atlas.holdings (tenant_id, deleted_at);
 CREATE INDEX IF NOT EXISTS ix_holdings_concurrency_token ON atlas.holdings (concurrency_token);
 ```
-# EF Core Fluent API
+# Future Cloud Mapping Fluent API
 ```csharp
 public sealed class HoldingEntityConfiguration : IEntityTypeConfiguration<HoldingEntity>
 {
@@ -785,7 +785,7 @@ flowchart TD
 | Integration Test | Stale token returns 409. |
 | Validation Test | Invalid asset, portfolio, currency, precision rejected. |
 | Security Test | Cross-tenant and cross-household access denied. |
-| Contract Test | DTO JSON names match API and database mapping. |
+| Contract Test | DTO JSON names match API and PWA Runtime Mapping / Future Cloud Mapping. |
 | Performance Test | Search by portfolio and asset uses indexes. |
 | Performance Test | Projection lag is observable. |
 # Edge Cases
@@ -956,7 +956,7 @@ flowchart TD
 | Security | Tenant and Household isolation enforced. |
 | Audit | Complete audit and version history required. |
 # Completion Checklist
-Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Position Semantics, Quantity Model, Cost Basis Model, Valuation Reference Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, REST API, DTO, Database Mapping, PostgreSQL DDL, EF Core Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete.
+Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Position Semantics, Quantity Model, Cost Basis Model, Valuation Reference Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, Future Cloud Architecture API, DTO, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete.
 # Final Consistency Matrix
 | Concern | Source Catalog | Final Atlas Name | Defined Here or Referenced | Implementation Artifact | Status | Conflict | Resolution | Follow-up Catalog Change Required |
 |---|---|---|---|---|---|---|---|---|
@@ -973,7 +973,7 @@ Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary
 | Application Service | application-service-catalog.md | PortfolioApplicationService | Referenced | Use case handlers | Catalog-aligned | None | Use Catalog service | No |
 | API | entity-catalog.md | /api/v1/portfolios/{portfolioId}/holdings | Referenced | Controller | Catalog-aligned | Position URL absent | Holding URL is canonical | No |
 | Permission | entity-catalog.md | Asset:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Mutating permissions implicit | Treat as API mapping | Optional catalog update |
-| Database | entity-catalog.md | holdings | Referenced | PostgreSQL table | Catalog-aligned | positions table requested implicitly | Use holdings table | No |
+| Database | entity-catalog.md | holdings | Referenced | Future Cloud Mapping table | Catalog-aligned | positions table requested implicitly | Use holdings table | No |
 | Read Model | API governance | Holding valuation projection | Implementation Detail | Projection/cache | Implementation Detail | Projection may appear authoritative | Projection read-only | No |
 | Audit | audit guidance | Holding audit through AssetPortfolio | Referenced | AuditRepository | Catalog-aligned | None | Mandatory audit | No |
 | Tenant | tenant guidance | TenantId | Referenced | tenant_id | Catalog-aligned | Household confused with Tenant | Keep distinct | No |

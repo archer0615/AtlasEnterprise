@@ -1,4 +1,4 @@
-# Threat Validation and Runtime Controls
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Threat Validation and Runtime Controls
 
 Source: [security-framework.md](../security-framework.md)
 
@@ -8,7 +8,7 @@ This split document isolates threat model, validation, business rules, runtime p
 
 ## Runtime Boundary Controls
 
-- API Security protects REST APIs with authentication, authorization, permission evaluation, tenant isolation, household isolation, validation, audit correlation, and rate limiting before protected data is returned or modified.
+- API Security protects Future Cloud Architecture APIs with authentication, authorization, permission evaluation, tenant isolation, household isolation, validation, audit correlation, and rate limiting before protected data is returned or modified.
 - Message Security protects message contracts, domain events, and consumers with authenticated Principal context and auditable execution scope.
 - Scheduler, automation, background job, and integration executions must use explicit permissions and auditable context.
 - Rate Limiting protects APIs, authentication endpoints, integration endpoints, and high-cost queries from excessive traffic.

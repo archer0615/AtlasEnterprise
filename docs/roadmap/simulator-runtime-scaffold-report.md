@@ -1,4 +1,4 @@
-# Simulator Runtime Scaffold Report
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Simulator Runtime Scaffold Report
 
 ## Purpose
 
@@ -53,5 +53,5 @@ This report records the first simulator runtime scaffold.
 - Replace module-based score policy with persisted configuration when the calculation service is introduced.
 - Replace runtime dashboard fixture generation with the production dashboard projection service.
 - Move cache policy enforcement into deployment validation when hosting is introduced.
-- Replace fixture-backed projection service with an application service when backend runtime is activated.
+- Replace fixture-backed projection service with an application service when Future Cloud Architecture is activated.
 - Replace static artifact manifest with build-generated manifest when deployment packaging exists.

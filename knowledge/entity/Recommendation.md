@@ -1,4 +1,4 @@
-﻿# Recommendation Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Recommendation Entity Specification
 
 # Document Control
 
@@ -119,7 +119,7 @@ Navigation:
 - Validation: Required; immutable; unique; valid Guid.
 - Business Meaning: Identifies one advisory output across history, API, audit, and events.
 - Example: 7f3d29c6-6d0e-4f2c-bb46-bd3555d6d351
-- Database Mapping: recommendations.recommendation_id uuid primary key
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.recommendation_id uuid primary key
 - JSON Name: recommendationId
 - API Usage: Detail, Summary, Search, Update, Accept, Reject, Dismiss, Archive, Restore, Delete, Expire, Assign, Complete
 - Searchable: Yes
@@ -138,7 +138,7 @@ Navigation:
 - Validation: Required; valid Guid; actor must have Household access.
 - Business Meaning: Limits Recommendation visibility and mutation to the financial planning scope.
 - Example: 18a6d4bb-8532-4d0d-8ad1-2ef6a0215f74
-- Database Mapping: recommendations.household_id uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.household_id uuid not null
 - JSON Name: householdId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -157,7 +157,7 @@ Navigation:
 - Validation: Required; valid Guid; Decision must be within same Household scope.
 - Business Meaning: Every Recommendation must support at least one Decision.
 - Example: 111d49c8-0957-42a2-a812-b736615fa2bb
-- Database Mapping: recommendations.decision_id uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.decision_id uuid not null
 - JSON Name: decisionId
 - API Usage: Create, Detail, Summary, Search, Accept, Reject
 - Searchable: Yes
@@ -176,7 +176,7 @@ Navigation:
 - Validation: Valid Guid when present; Scenario must be within same Household scope.
 - Business Meaning: Connects advisory output to evaluated Scenario evidence.
 - Example: 7b8f2309-4b51-4724-9fb7-927db4ee5d5d
-- Database Mapping: recommendations.scenario_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.scenario_id uuid null
 - JSON Name: scenarioId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -195,7 +195,7 @@ Navigation:
 - Validation: Each Guid must be valid; each Goal must be within same Household scope; duplicates rejected.
 - Business Meaning: Recommendation may align with multiple Goals.
 - Example: ["3e1f27f4-4201-431d-bb4a-01d2e4aa94d8"]
-- Database Mapping: recommendation_goals.goal_id uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendation_goals.goal_id uuid not null
 - JSON Name: goalIds
 - API Usage: Create, Update, Detail, Search
 - Searchable: Yes
@@ -214,7 +214,7 @@ Navigation:
 - Validation: Required; non-blank; max length 64; stable catalog value.
 - Business Meaning: Classifies what kind of advisory action Atlas produced without creating a new Domain.
 - Example: Rebalance
-- Database Mapping: recommendations.recommendation_type varchar(64) not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.recommendation_type varchar(64) not null
 - JSON Name: recommendationType
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -233,7 +233,7 @@ Navigation:
 - Validation: Required; one of Low, Medium, High, Critical when those values are active in Enumeration Catalog.
 - Business Meaning: Defines ordering urgency for review and action.
 - Example: High
-- Database Mapping: recommendations.priority varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.priority varchar(32) not null
 - JSON Name: priority
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -252,7 +252,7 @@ Navigation:
 - Validation: Required; range 0.0000 to 100.0000; scale 4.
 - Business Meaning: Quantifies relative usefulness of the Recommendation.
 - Example: 82.7500
-- Database Mapping: recommendations.recommendation_score numeric(9,4) not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.recommendation_score numeric(9,4) not null
 - JSON Name: recommendationScore
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -271,7 +271,7 @@ Navigation:
 - Validation: Required; allowed values Pending, Evaluating, Recommended, Accepted, Rejected, Expired plus lifecycle states Dismissed, Archived, Deleted when represented by Recommendation lifecycle policy.
 - Business Meaning: Records whether advisory output is active, accepted, rejected, dismissed, expired, archived, or deleted.
 - Example: Recommended
-- Database Mapping: recommendations.status varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.status varchar(32) not null
 - JSON Name: status
 - API Usage: Detail, Summary, Search, Accept, Reject, Dismiss, Archive, Restore, Delete, Expire, Complete
 - Searchable: Yes
@@ -290,7 +290,7 @@ Navigation:
 - Validation: Required; trim; max length 4000; no script content.
 - Business Meaning: Makes the advisory output understandable to users and auditors.
 - Example: Increase emergency reserve before adding investment risk.
-- Database Mapping: recommendations.rationale text not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.rationale text not null
 - JSON Name: rationale
 - API Usage: Create, Update, Detail, Summary
 - Searchable: Yes
@@ -309,7 +309,7 @@ Navigation:
 - Validation: Required; max length 256; must resolve to explainability data.
 - Business Meaning: Allows Recommendation to be traced to calculation, rule, assumption, and scoring evidence.
 - Example: exp-20260714-0001
-- Database Mapping: recommendations.explainability_ref varchar(256) not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.explainability_ref varchar(256) not null
 - JSON Name: explainabilityRef
 - API Usage: Create, Update, Detail
 - Searchable: Yes
@@ -328,7 +328,7 @@ Navigation:
 - Validation: Valid JSON object when present; must not contain executable content.
 - Business Meaning: Records downside, risk level, and risk drivers.
 - Example: {"riskLevel":"Medium","drivers":["cashFlowVolatility"]}
-- Database Mapping: recommendations.risk_assessment jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.risk_assessment jsonb null
 - JSON Name: riskAssessment
 - API Usage: Create, Update, Detail
 - Searchable: No
@@ -347,7 +347,7 @@ Navigation:
 - Validation: Valid JSON object when present; monetary values must include CurrencyCode.
 - Business Meaning: Captures the expected positive effect of accepting the Recommendation.
 - Example: {"amount":150000,"currency":"TWD","description":"Projected cash reserve improvement"}
-- Database Mapping: recommendations.expected_benefit jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.expected_benefit jsonb null
 - JSON Name: expectedBenefit
 - API Usage: Create, Update, Detail, Summary
 - Searchable: No
@@ -366,7 +366,7 @@ Navigation:
 - Validation: Valid JSON object when present; monetary values must include CurrencyCode and nonnegative amount.
 - Business Meaning: Represents estimated financial or operational cost.
 - Example: {"amount":5000,"currency":"TWD","description":"Transaction cost estimate"}
-- Database Mapping: recommendations.cost jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.cost jsonb null
 - JSON Name: cost
 - API Usage: Create, Update, Detail
 - Searchable: No
@@ -385,7 +385,7 @@ Navigation:
 - Validation: Range 0.0000 to 1.0000 when present; scale 4.
 - Business Meaning: Indicates model or rule certainty.
 - Example: 0.8400
-- Database Mapping: recommendations.confidence numeric(5,4) null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.confidence numeric(5,4) null
 - JSON Name: confidence
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -404,7 +404,7 @@ Navigation:
 - Validation: Must be later than CreatedAt when present.
 - Business Meaning: Supports time-bound advisory output.
 - Example: 2026-12-31T23:59:59+08:00
-- Database Mapping: recommendations.expiration_at timestamptz null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.expiration_at timestamptz null
 - JSON Name: expirationAt
 - API Usage: Create, Update, Detail, Summary, Search, Expire
 - Searchable: Yes
@@ -423,7 +423,7 @@ Navigation:
 - Validation: Valid Guid when present; user must be authorized for Household scope.
 - Business Meaning: Supports ownership of review or execution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4
-- Database Mapping: recommendations.assigned_user_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.assigned_user_id uuid null
 - JSON Name: assignedUserId
 - API Usage: Assign, Detail, Summary, Search
 - Searchable: Yes
@@ -442,7 +442,7 @@ Navigation:
 - Validation: Valid Guid when present; must be traceable to Recommendation.
 - Business Meaning: Links advisory acceptance to execution planning.
 - Example: 49b48b7e-2f44-40d7-bd31-2eb6fe7f206d
-- Database Mapping: recommendations.follow_up_action_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.follow_up_action_id uuid null
 - JSON Name: followUpActionId
 - API Usage: Detail, Summary, Complete
 - Searchable: Yes
@@ -461,7 +461,7 @@ Navigation:
 - Validation: Required; increments on mutation; stale version rejected.
 - Business Meaning: Prevents lost update and protects historical traceability.
 - Example: 7
-- Database Mapping: recommendations.version bigint not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.version bigint not null
 - JSON Name: version
 - API Usage: Update, Accept, Reject, Dismiss, Archive, Restore, Delete, Expire, Assign, Complete
 - Searchable: No
@@ -480,7 +480,7 @@ Navigation:
 - Validation: Required; immutable after creation.
 - Business Meaning: Establishes generation time.
 - Example: 2026-07-14T10:30:00+08:00
-- Database Mapping: recommendations.created_at timestamptz not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.created_at timestamptz not null
 - JSON Name: createdAt
 - API Usage: Detail, Summary, Search
 - Searchable: Yes
@@ -499,7 +499,7 @@ Navigation:
 - Validation: Required; valid actor reference.
 - Business Meaning: Supports audit attribution.
 - Example: 00000000-0000-0000-0000-000000000001
-- Database Mapping: recommendations.created_by uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.created_by uuid not null
 - JSON Name: createdBy
 - API Usage: Detail
 - Searchable: Yes
@@ -518,7 +518,7 @@ Navigation:
 - Validation: Required; must be greater than or equal to CreatedAt.
 - Business Meaning: Supports ordering, cache invalidation, and audit.
 - Example: 2026-07-14T11:10:00+08:00
-- Database Mapping: recommendations.updated_at timestamptz not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.updated_at timestamptz not null
 - JSON Name: updatedAt
 - API Usage: Detail, Summary, Search
 - Searchable: Yes
@@ -537,7 +537,7 @@ Navigation:
 - Validation: Valid actor reference when present.
 - Business Meaning: Supports audit attribution for mutation.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4
-- Database Mapping: recommendations.updated_by uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.updated_by uuid null
 - JSON Name: updatedBy
 - API Usage: Detail
 - Searchable: Yes
@@ -556,7 +556,7 @@ Navigation:
 - Validation: Required when Status is Archived; null when active.
 - Business Meaning: Removes Recommendation from active default views while preserving history.
 - Example: 2026-08-01T09:00:00+08:00
-- Database Mapping: recommendations.archived_at timestamptz null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.archived_at timestamptz null
 - JSON Name: archivedAt
 - API Usage: Archive, Restore, Detail, Search
 - Searchable: Yes
@@ -575,7 +575,7 @@ Navigation:
 - Validation: Required when Status is Deleted; physical delete requires retention approval.
 - Business Meaning: Marks Recommendation as removed without rewriting history.
 - Example: 2026-08-15T09:00:00+08:00
-- Database Mapping: recommendations.deleted_at timestamptz null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.deleted_at timestamptz null
 - JSON Name: deletedAt
 - API Usage: Delete, Detail when permitted
 - Searchable: Yes
@@ -594,7 +594,7 @@ Navigation:
 - Validation: Required; max length 128.
 - Business Meaning: Links command, event, audit, and projection records.
 - Example: corr-20260714-0001
-- Database Mapping: recommendations.correlation_id varchar(128) not null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.correlation_id varchar(128) not null
 - JSON Name: correlationId
 - API Usage: Command metadata, Detail
 - Searchable: Yes
@@ -613,7 +613,7 @@ Navigation:
 - Validation: Max length 128 when present.
 - Business Meaning: Preserves event causality.
 - Example: cmd-evaluate-scenario-0001
-- Database Mapping: recommendations.causation_id varchar(128) null
+- PWA Runtime Mapping / Future Cloud Mapping: recommendations.causation_id varchar(128) null
 - JSON Name: causationId
 - API Usage: Command metadata, Detail
 - Searchable: Yes
@@ -874,7 +874,7 @@ Reject DTO: RejectRecommendationDto includes recommendationId, decisionId, versi
 
 Dismiss DTO: DismissRecommendationDto includes recommendationId, version, reason, dismissedAt, idempotencyKey, correlationId, causationId.
 
-# Database Mapping
+# PWA Runtime Mapping
 
 Table: recommendations
 
@@ -888,7 +888,7 @@ Check Constraint: score range, confidence range, status values, priority values,
 
 Index: household, decision, scenario, status, priority, score, confidence, expiration, assigned user, updated time, active filter.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE recommendations (
@@ -949,7 +949,7 @@ CREATE INDEX ix_recommendations_active ON recommendations (household_id, status,
 CREATE INDEX ix_recommendation_goals_goal ON recommendation_goals (goal_id, household_id);
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 Fluent API:
 

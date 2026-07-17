@@ -1,4 +1,4 @@
-# Legacy Reference
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Legacy Reference
 
 - Status: Legacy reference only; do not treat this document as canonical.
 - Canonical source: [knowledge/entity/Mortgage.md](../../../knowledge/entity/Mortgage.md).
@@ -86,7 +86,7 @@
 
 # Complete Properties
 
-| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|
 | MortgageId | UUID | No | generated | Stable mortgage identifier or Loan-backed subtype id. | Required, immutable, UUID. | Identifies mortgage entity view. | `76f37a57-d1b4-4f80-a77a-c7177fb2b23e` | `mortgage_id uuid primary key` | `mortgageId` | Route, detail, response. | Yes | Yes | Yes | No | Yes |
 | MortgageNumber | string(40) | No | generated | Business mortgage number. | Required, unique, max 40. | Human-readable mortgage identity. | `MTG-20260714` | `mortgage_number varchar(40) not null` | `mortgageNumber` | Create response, search. | Yes | Yes | Yes | No | Yes |
@@ -378,7 +378,7 @@ public interface IMortgageRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Operation | HTTP Method | Endpoint | Request | Response | Error |
 |---|---|---|---|---|---|
 | Create | POST | `/api/mortgages` | CreateMortgageDto | MortgageDetailDto | 400, 403, 409, 422 |
@@ -552,7 +552,7 @@ public interface IMortgageRepository
 }
 ```
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 - Table name: `mortgages` or `loans` subtype table according to implementation mapping.
@@ -639,7 +639,7 @@ public interface IMortgageRepository
 - Index on `refinance_eligible`, `government_subsidy_type`.
 - GIN index on `tags`.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE mortgages (
@@ -724,7 +724,7 @@ CREATE INDEX ix_mortgages_updated_at ON mortgages (updated_at);
 CREATE INDEX ix_mortgages_concurrency_token ON mortgages (concurrency_token);
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp
@@ -1192,4 +1192,4 @@ stateDiagram-v2
 
 | Version | Date | Change | Author |
 |---|---|---|---|
-| 1.0 | 2026-07-14 | Upgraded Mortgage to Enterprise Specification aligned with Atlas Entity Catalog, Loan aggregate ownership, LoanRepository persistence, property-backed mortgage behavior, commands, events, API, database mapping, security, audit, performance, testing, and edge cases. | Atlas |
+| 1.0 | 2026-07-14 | Upgraded Mortgage to Enterprise Specification aligned with Atlas Entity Catalog, Loan aggregate ownership, LoanRepository persistence, property-backed mortgage behavior, commands, events, API, PWA Runtime Mapping / Future Cloud Mapping, security, audit, performance, testing, and edge cases. | Atlas |

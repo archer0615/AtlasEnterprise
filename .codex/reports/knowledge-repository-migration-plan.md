@@ -1,5 +1,7 @@
 # Atlas Repository Migration Plan
 
+> Historical Snapshot: This report predates ADR-001 Static Local First PWA. Backend/database wording is legacy context only; Atlas v1 is governed by docs/architecture/ADR-001-static-local-first-pwa.md and does not require backend/database runtime.
+
 ## Migration Objective
 
 Normalize repository structure so knowledge/ is the canonical Atlas Knowledge root, docs/ is project documentation, and .codex/ owns pipeline control and reports.

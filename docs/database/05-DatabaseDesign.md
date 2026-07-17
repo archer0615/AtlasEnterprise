@@ -1,4 +1,4 @@
-# Project Atlas Enterprise
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Project Atlas Enterprise
 # docs/database/05-DatabaseDesign.md
 
 Version: 2.0  
@@ -126,7 +126,7 @@ Plaintext export is disabled by default.
 
 ## 11. Future Cloud Mapping
 
-The Domain Model shall remain persistence-agnostic. A future RemoteRepository may synchronize with .NET 8 and PostgreSQL. IndexedDB IDs use UUID-compatible strings to reduce migration friction.
+The Domain Model shall remain persistence-agnostic. A future RemoteRepository may synchronize with Future Cloud Architecture adapter and Future Cloud Mapping. IndexedDB IDs use UUID-compatible strings to reduce migration friction.
 
 ## 12. Definition of Done
 
@@ -141,5 +141,5 @@ The Domain Model shall remain persistence-agnostic. A future RemoteRepository ma
 
 | Version | Date | Description |
 |---|---|---|
-| 1.0 | 2026-07-09 | PostgreSQL design |
+| 1.0 | 2026-07-09 | Future Cloud Mapping design |
 | 2.0 | 2026-07-11 | Replaced v1 persistence with IndexedDB local-first design |

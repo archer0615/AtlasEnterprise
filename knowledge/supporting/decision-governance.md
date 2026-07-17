@@ -1,4 +1,4 @@
-﻿# Decision Governance
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Governance
 Version: 1.0
 ## Split Navigation
 - [Decision governance policies](decision-governance/policies.md)
@@ -690,7 +690,7 @@ IDecisionGovernanceRepository persists policy aggregate, compliance history, app
 - EscalateIssueHandler creates escalation and notification trigger.
 - GovernanceSearchQueryHandler applies filtering, sorting, projection, and pagination.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/decision-governance/policies
 - POST /api/decision-governance/policies
 - GET /api/decision-governance/policies/{policyId}
@@ -776,7 +776,7 @@ Includes policy detail, rule definitions, lifecycle history, approval history, e
 Includes filters, sorting, pagination, projection, and masking mode.
 ## Report DTO
 Includes report id, scope, period, policy counts, compliance counts, exception counts, escalation counts, and generated time.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - decision_governance_policies
 - decision_governance_policy_versions
@@ -835,7 +835,7 @@ Includes report id, scope, period, policy counts, compliance counts, exception c
 - Compliance result must have violation reason when failed.
 ## Partition Strategy
 - Partition compliance results, audit, reports, escalations, and operator history by created_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE decision_governance_policies (
   policy_id uuid PRIMARY KEY,
@@ -969,7 +969,7 @@ SELECT household_id, result, count(*) AS compliance_count, max(evaluated_at) AS 
 FROM decision_governance_compliance_results
 GROUP BY household_id, result;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps DecisionGovernancePolicy to decision_governance_policies with policy_id primary key.
 - Owned Types map rule payload, exception payload, escalation payload, approval payload, audit payload, report payload, violations, and warnings as JSON.
 - Indexes map scope status, owner, effective window, household, decision, compliance scope, compliance result, exception expiration, and active policy key.

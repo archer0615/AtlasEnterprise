@@ -3,7 +3,7 @@
   "title": "Market Assumptions Returns and Risk",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/market-assumptions/returns-and-risk.md",
-  "sourceHash": "6ef922d649985c2cd6927e9eb83e2bd12e95b76466b030109daedfc7462d4ccb",
+  "sourceHash": "9078010e33bf3b5ab140d2741f15c62f4b413bb0b3d44232a1cceb71156eeb31",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Risk Linkage"
     }
   ],
-  "bodyMarkdown": "# Market Assumptions Returns and Risk\r\n\r\n## Purpose\r\nThis split document isolates market assumption definitions for inflation, expected returns, volatility, correlation, exchange rates, portfolio return formulas, and risk attributes from the parent Market Assumptions specification.\r\n\r\n## Source\r\n- Parent specification: [Market Assumptions](../market-assumptions.md)\r\n\r\n## Assumption Layers\r\nMarket assumptions include baseline, conservative, optimistic, stress, and scenario override layers.\r\n\r\n## Return and Risk Inputs\r\n- Long-term inflation assumptions\r\n- Long-term return assumptions\r\n- Volatility assumptions\r\n- Asset correlation assumptions\r\n- Exchange rate assumptions\r\n- Portfolio return formula inputs\r\n\r\n## Risk Linkage\r\nUser risk attributes, asset class classification, liquidity assumptions, and risk tolerance define how market assumptions are consumed by scenario and decision engines.\r\n\r\n",
+  "bodyMarkdown": "# Market Assumptions Returns and Risk\n\n## Purpose\nThis split document isolates market assumption definitions for inflation, expected returns, volatility, correlation, exchange rates, portfolio return formulas, and risk attributes from the parent Market Assumptions specification.\n\n## Source\n- Parent specification: [Market Assumptions](../market-assumptions.md)\n\n## Assumption Layers\nMarket assumptions include baseline, conservative, optimistic, stress, and scenario override layers.\n\n## Return and Risk Inputs\n- Long-term inflation assumptions\n- Long-term return assumptions\n- Volatility assumptions\n- Asset correlation assumptions\n- Exchange rate assumptions\n- Portfolio return formula inputs\n\n## Risk Linkage\nUser risk attributes, asset class classification, liquidity assumptions, and risk tolerance define how market assumptions are consumed by scenario and decision engines.\n\n",
   "references": []
 }

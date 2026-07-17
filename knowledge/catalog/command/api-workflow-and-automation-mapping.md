@@ -1,4 +1,4 @@
-# Command API, Workflow, and Automation Mapping
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Command API, Workflow, and Automation Mapping
 
 Source: ../command-catalog.md
 
@@ -6,7 +6,7 @@ This split document preserves the canonical content from the parent catalog for 
 
 # API Mapping
 
-| Command | REST Endpoint | HTTP Method | Request DTO | Response DTO |
+| Command | Future Cloud Architecture Endpoint | HTTP Method | Request DTO | Response DTO |
 |---|---|---|---|---|
 | RecordIncome | /api/v1/commands/record-income | POST | RecordIncomeRequest | CommandResult |
 | RecordExpense | /api/v1/commands/record-expense | POST | RecordExpenseRequest | CommandResult |

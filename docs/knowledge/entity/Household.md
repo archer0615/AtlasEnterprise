@@ -1,4 +1,4 @@
-# Legacy Reference
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Legacy Reference
 
 - Status: Legacy reference only; do not treat this document as canonical.
 - Canonical source: [knowledge/entity/Household.md](../../../knowledge/entity/Household.md).
@@ -100,7 +100,7 @@
 
 # Complete Properties
 
-| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|
 | HouseholdId | UUID | No | generated | Stable household identifier. | Required, immutable, UUID. | Identifies Household aggregate. | `6a8b7b40-6b60-420a-88df-942b940d89a1` | `household_id uuid primary key` | `householdId` | Route, detail, response. | Yes | Yes | Yes | No | Yes |
 | HouseholdNumber | string(40) | No | generated | Unique business number. | Required, unique, max 40. | Human-readable household identity. | `HH-20260714` | `household_number varchar(40) not null unique` | `householdNumber` | Create response, search. | Yes | Yes | Yes | No | Yes |
@@ -338,7 +338,7 @@ public interface IHouseholdRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Operation | HTTP Method | Endpoint | Request | Response | Error |
 |---|---|---|---|---|---|
 | Create | POST | `/api/households` | CreateHouseholdDto | HouseholdDetailDto | 400, 403, 409, 422 |
@@ -468,7 +468,7 @@ public interface IHouseholdRepository
 }
 ```
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 - Table name: `households`.
@@ -535,7 +535,7 @@ public interface IHouseholdRepository
 - Index on `created_at`, `updated_at`.
 - Index on `concurrency_token`.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE households (
@@ -589,7 +589,7 @@ CREATE INDEX ix_households_updated_at ON households (updated_at);
 CREATE INDEX ix_households_concurrency_token ON households (concurrency_token);
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp

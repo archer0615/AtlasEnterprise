@@ -3,7 +3,7 @@
   "title": "Value Object Governance and Testing",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/value-object/governance-and-testing.md",
-  "sourceHash": "d0acf3cfe8e03ded93b75a36d9976f2cbf6c4130580234eb58ae120f43ea624a",
+  "sourceHash": "66760d2d5247c60ea2e91dbc72fb401313f50dd91f29fd21df2e2b9f8da0a261",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Value Object Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates value object governance, security, audit, performance, testing, edge cases, and consistency checks from the parent Value Object Catalog.\r\n\r\n## Source\r\n- Parent specification: [Value Object Catalog](../value-object-catalog.md)\r\n\r\n## Governance\r\nGovernance covers immutability, ownership, reuse rules, validation ownership, API exposure, persistence consistency, security classification, and audit relevance.\r\n\r\n## Testing\r\nTesting covers equality, validation, serialization, persistence mapping, DTO mapping, edge cases, precision, nullability, and migration compatibility.\r\n\r\n",
+  "bodyMarkdown": "# Value Object Governance and Testing\n\n## Purpose\nThis split document isolates value object governance, security, audit, performance, testing, edge cases, and consistency checks from the parent Value Object Catalog.\n\n## Source\n- Parent specification: [Value Object Catalog](../value-object-catalog.md)\n\n## Governance\nGovernance covers immutability, ownership, reuse rules, validation ownership, API exposure, persistence consistency, security classification, and audit relevance.\n\n## Testing\nTesting covers equality, validation, serialization, persistence mapping, DTO mapping, edge cases, precision, nullability, and migration compatibility.\n\n",
   "references": []
 }

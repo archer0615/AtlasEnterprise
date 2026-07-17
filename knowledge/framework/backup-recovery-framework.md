@@ -1,6 +1,6 @@
-# backup-recovery-framework.md
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# backup-recovery-framework.md
 
-> **PWA v1 Architecture Amendment (2026-07-11):** Any PostgreSQL, EF Core, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScript Application Use Cases and IndexedDB repositories. Domain names, business rules, validation rules, formulas, events, and state machines remain authoritative.
+> **PWA v1 Architecture Amendment (2026-07-11):** Any Future Cloud Mapping, Future Cloud Mapping, JWT, Swagger, server-hosted REST, or mandatory .NET runtime content in this document is classified as a future cloud-phase mapping. Atlas v1 uses in-process TypeScript Application Use Cases and IndexedDB repositories. Domain names, business rules, validation rules, formulas, events, and state machines remain authoritative.
 
 # Atlas Enterprise Specification
 ## Backup & Recovery Framework
@@ -27,7 +27,7 @@ Define backup, disaster recovery, restoration, verification and business continu
 | Configuration | On every approved change |
 
 ## 4. Protected Assets
-- PostgreSQL
+- Future Cloud Mapping
 - Object Storage
 - Documents
 - Configuration

@@ -3,7 +3,7 @@
   "title": "Recommendation Execution Policies and Monitoring",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-execution/policies-and-monitoring.md",
-  "sourceHash": "cef874f5d2840023cc284616d6426d6b76f9b233e5d3d753e7366dd0df9b1fbb",
+  "sourceHash": "8f082760687177d16da1380936f8dcae7c487baf444c423ae704babafedacfbf",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "Validation and Business Rules"
     }
   ],
-  "bodyMarkdown": "# Recommendation Execution Policies and Monitoring\r\n\r\n## Purpose\r\nThis split document isolates execution policies, execution modes, monitoring, health, metrics, KPIs, forecasts, timelines, logs, and validation rules from the parent Recommendation Execution specification.\r\n\r\n## Source\r\n- Parent specification: [Recommendation Execution](../recommendation-execution.md)\r\n\r\n## Execution Modes\r\nExecution supports Manual, Automatic, Scheduled, Event Driven, Workflow Driven, Batch, Parallel, Incremental, Simulation, Dry Run, and Emergency Execution modes.\r\n\r\n## Execution Policies\r\nExecution policies include Priority Policy, Dependency Policy, Retry Policy, Timeout Policy, Cancellation Policy, Rollback Policy, Recovery Policy, Escalation Policy, Approval Policy, Notification Policy, and Audit Policy.\r\n\r\n## Execution Monitoring\r\nMonitoring tracks Execution Progress, Execution Status, Execution Health, Execution Metrics, Execution Errors, Execution Warnings, Execution KPIs, Execution Forecast, Execution Timeline, and Execution Logs.\r\n\r\n## Validation and Business Rules\r\nValidation Rules and Business Rules preserve governed execution for existing Recommendations while keeping Domain ownership, Catalog naming, validation, audit, security, lifecycle, and execution evidence intact.\r\n",
+  "bodyMarkdown": "# Recommendation Execution Policies and Monitoring\n\n## Purpose\nThis split document isolates execution policies, execution modes, monitoring, health, metrics, KPIs, forecasts, timelines, logs, and validation rules from the parent Recommendation Execution specification.\n\n## Source\n- Parent specification: [Recommendation Execution](../recommendation-execution.md)\n\n## Execution Modes\nExecution supports Manual, Automatic, Scheduled, Event Driven, Workflow Driven, Batch, Parallel, Incremental, Simulation, Dry Run, and Emergency Execution modes.\n\n## Execution Policies\nExecution policies include Priority Policy, Dependency Policy, Retry Policy, Timeout Policy, Cancellation Policy, Rollback Policy, Recovery Policy, Escalation Policy, Approval Policy, Notification Policy, and Audit Policy.\n\n## Execution Monitoring\nMonitoring tracks Execution Progress, Execution Status, Execution Health, Execution Metrics, Execution Errors, Execution Warnings, Execution KPIs, Execution Forecast, Execution Timeline, and Execution Logs.\n\n## Validation and Business Rules\nValidation Rules and Business Rules preserve governed execution for existing Recommendations while keeping Domain ownership, Catalog naming, validation, audit, security, lifecycle, and execution evidence intact.\n",
   "references": []
 }

@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
 
@@ -48,6 +48,27 @@ function normalizeSearchText(value) {
     .replace(/[`*_#[\](){}|>~:;,.!?/\\-]+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+async function writeJsonFile(file, payload) {
+  const serialized = `${JSON.stringify(payload, null, 2)}\n`;
+  await writeTextFile(file, serialized);
+}
+
+async function writeTextFile(file, value) {
+  const tempFile = `${file}.tmp`;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      await writeFile(tempFile, value, "utf8");
+      await rename(tempFile, file);
+      return;
+    } catch (error) {
+      if (attempt === 3) {
+        throw error;
+      }
+      await new Promise((resolve) => setTimeout(resolve, attempt * 250));
+    }
+  }
 }
 
 function keywordsFromMarkdown(markdown, title, headings, canonicalPath) {
@@ -103,9 +124,9 @@ for (const file of files) {
     keywords,
     terms: keywords.join(" "),
   });
-  documentAssets.push(`/knowledge/documents/${id}.json`);
+  documentAssets.push(`knowledge/documents/${id}.json`);
 
-  await writeFile(path.join(documentsRoot, `${id}.json`), JSON.stringify(payload, null, 2), "utf8");
+  await writeJsonFile(path.join(documentsRoot, `${id}.json`), payload);
 }
 
 documents.sort((a, b) => a.path.localeCompare(b.path));
@@ -115,31 +136,30 @@ const buildId = createHash("sha256")
   .digest("hex")
   .slice(0, 12);
 
-await writeFile(path.join(outputRoot, "index.json"), JSON.stringify({
+await writeJsonFile(path.join(outputRoot, "index.json"), {
   generatedAt: new Date().toISOString(),
   buildId,
   source: "knowledge/",
   strategy: "BUILD_COPY_FROM_KNOWLEDGE",
   categories,
   documents,
-}, null, 2), "utf8");
+});
 
-await writeFile(path.join(outputRoot, "search-index.json"), JSON.stringify({
+await writeJsonFile(path.join(outputRoot, "search-index.json"), {
   generatedAt: new Date().toISOString(),
   buildId,
   documents: searchIndex,
-}, null, 2), "utf8");
+});
 
-await writeFile(path.join(outputRoot, "document-assets.json"), JSON.stringify({
+await writeJsonFile(path.join(outputRoot, "document-assets.json"), {
   generatedAt: new Date().toISOString(),
   buildId,
   documents: documentAssets.sort(),
-}, null, 2), "utf8");
+});
 
-await writeFile(
+await writeTextFile(
   path.join(frontendRoot, "sw-version.js"),
-  `self.ATLAS_CACHE_NAME = "atlas-knowledge-${buildId}";\n`,
-  "utf8"
+  `self.ATLAS_CACHE_NAME = "atlas-knowledge-${buildId}";\n`
 );
 
 console.log(`Generated ${documents.length} knowledge documents.`);

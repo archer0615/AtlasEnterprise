@@ -1,4 +1,4 @@
-﻿# Goal Execution
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Execution
 Version: 1.0
 Status: Enterprise Specification
 Owner: Project Atlas
@@ -457,7 +457,7 @@ IGoalExecutionRepository persists execution aggregate, plan, steps, logs, metric
 - SearchExecutionQueryHandler applies filters, sorting, projection, and pagination.
 - BulkExecutionHandler performs batch start, retry, cancel, archive, and restore with per-item result.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/goal-executions
 - POST /api/goal-executions
 - GET /api/goal-executions/{executionId}
@@ -530,7 +530,7 @@ Includes steps, dependencies, schedule, timeout, retry policy, rollback policy, 
 Includes status, result code, completed steps, failed steps, verification evidence, and synchronization outcome.
 ## Execution Log DTO
 Includes log id, step id, level, message, masked payload, occurred time, and correlation id.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - goal_executions
 - goal_execution_steps
@@ -600,7 +600,7 @@ Includes log id, step id, level, message, masked payload, occurred time, and cor
 - Started time cannot be after completed time.
 ## Partition Strategy
 - Partition logs, metrics, state history, retry history, rollback history, and operator history by created_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_executions (
   execution_id uuid PRIMARY KEY,
@@ -728,7 +728,7 @@ FROM goal_executions
 WHERE status <> 'Deleted'
 GROUP BY household_id, status, mode, priority;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps GoalExecution to goal_executions with execution_id primary key.
 - Owned Types map plan payload, result payload, dependency payload, input payload, and log payload as JSON value objects.
 - Indexes map household status, goal status, mode status, schedule, workflow, automation, priority, and active execution key.

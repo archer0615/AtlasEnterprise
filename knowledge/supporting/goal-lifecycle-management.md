@@ -1,4 +1,4 @@
-﻿# Goal Lifecycle Management
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Lifecycle Management
 Version: 1.0
 ## Split Navigation
 - [Goal lifecycle states](goal-lifecycle-management/states-and-transitions.md)
@@ -665,7 +665,7 @@ IGoalLifecycleRepository persists GoalPlan lifecycle state, transition history, 
 - ExpireGoalHandler records expiration reason.
 - SearchGoalLifecycleQueryHandler applies filters, sorting, pagination, and projection.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/goals
 - POST /api/goals
 - GET /api/goals/{goalPlanId}
@@ -751,7 +751,7 @@ Includes filters, sorting, pagination, projection, and masking mode.
 Includes goalPlanId, lifecycle state, priority, progress percent, health score, target date, and updatedAt.
 ## Detail DTO
 Includes full lifecycle detail, transition history, state history, operator history, rollback history, permissions, and audit metadata.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - goal_lifecycle_states
 - goal_lifecycle_transitions
@@ -809,7 +809,7 @@ Includes full lifecycle detail, transition history, state history, operator hist
 - Deleted state requires deleted_at.
 ## Partition Strategy
 - Partition transitions, snapshots, operator history, and rollback history by created_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_lifecycle_states (
   lifecycle_id uuid PRIMARY KEY,
@@ -915,7 +915,7 @@ FROM goal_lifecycle_states
 WHERE state <> 'Deleted'
 GROUP BY household_id, state;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps GoalLifecycleState to goal_lifecycle_states with lifecycle_id primary key.
 - Owned Types map snapshot payload and template payload as JSON.
 - Indexes map goal state, household state, tenant state, entered time, archived time, workflow, automation, and current goal lifecycle row.

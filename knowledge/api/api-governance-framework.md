@@ -1,4 +1,4 @@
-﻿# API Governance Framework
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# API Governance Framework
 ## Split Navigation
 - [API resource and URI standards](api-governance/resource-and-uri-standards.md)
 - [API standards and contracts](api-governance/standards-and-contracts.md)
@@ -48,7 +48,7 @@ Related Specifications:
 
 # Purpose
 
-API Governance Framework defines Atlas API governance across REST API resources, Application Services, DTOs, Commands, Queries, Repositories, Domain Events, Authentication, Authorization, OpenAPI, Versioning, Error Contracts, Pagination, Filtering, Sorting, Idempotency, Concurrency, Security, and Integration APIs. It is the API governance source of truth.
+API Governance Framework defines Atlas API governance across Future Cloud Architecture API resources, Application Services, DTOs, Commands, Queries, Repositories, Domain Events, Authentication, Authorization, OpenAPI, Versioning, Error Contracts, Pagination, Filtering, Sorting, Idempotency, Concurrency, Security, and Integration APIs. It is the API governance source of truth.
 
 # Scope
 
@@ -164,15 +164,15 @@ API Governance Framework defines Atlas API governance across REST API resources,
 - API Version Strategy rule 6 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
 - API Version Strategy rule 7 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
 
-# REST Endpoint Standard
+# Future Cloud Architecture Endpoint Standard
 
-- REST Endpoint Standard rule 1 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
-- REST Endpoint Standard rule 2 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
-- REST Endpoint Standard rule 3 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
-- REST Endpoint Standard rule 4 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
-- REST Endpoint Standard rule 5 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
-- REST Endpoint Standard rule 6 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
-- REST Endpoint Standard rule 7 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
+- Future Cloud Architecture Endpoint Standard rule 1 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
+- Future Cloud Architecture Endpoint Standard rule 2 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
+- Future Cloud Architecture Endpoint Standard rule 3 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
+- Future Cloud Architecture Endpoint Standard rule 4 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
+- Future Cloud Architecture Endpoint Standard rule 5 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
+- Future Cloud Architecture Endpoint Standard rule 6 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
+- Future Cloud Architecture Endpoint Standard rule 7 applies to resource name, URI, method, DTO, validation, authorization, error contract, audit, observability, compatibility, and OpenAPI documentation.
 
 # Command API Standard
 
@@ -1711,7 +1711,7 @@ API Control 40: Audit preserves REST semantics, versioning, URI naming, DTO mapp
 
 ```mermaid
 flowchart TD
-  CLIENT[Client] --> API[REST API]
+  CLIENT[Client] --> API[Future Cloud Architecture API]
   API --> APP[Application Service]
   APP --> DOMAIN[Domain Service]
   APP --> REPO[Repository]

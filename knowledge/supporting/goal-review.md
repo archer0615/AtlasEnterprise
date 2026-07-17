@@ -1,4 +1,4 @@
-﻿# Goal Review
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Review
 Version: 1.0
 Status: Enterprise Specification
 Owner: Project Atlas
@@ -519,7 +519,7 @@ Task<GoalReviewDetailDto> RestoreReviewAsync(RestoreReviewRequest request);
 Task<GoalReviewSearchResultDto> SearchReviewsAsync(GoalReviewSearchRequest request);
 ```
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Method | Endpoint | Purpose |
 |---|---|---|
 | GET | /api/goal-reviews | Search reviews. |
@@ -596,7 +596,7 @@ Projection supports summary, detail, dashboard, result, search, and history.
 ```json
 { "reviewResult": "AdjustmentRecommended", "findings": ["budget variance exceeded threshold"], "actionItems": ["refresh recommendation"], "nextReviewDate": "2026-08-13" }
 ```
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 Primary table: goal_review.
 History table: goal_review_history.
@@ -612,7 +612,7 @@ fk_goal_review_goal_plan.
 uq_goal_review_household_goal_type_date.
 ## Check Constraint
 health_score between 0 and 1.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_review (
     review_id uuid PRIMARY KEY,
@@ -684,7 +684,7 @@ FROM goal_review
 WHERE archived_at IS NULL AND deleted_at IS NULL
 GROUP BY household_id;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 ## Fluent API
 ```csharp
 builder.ToTable("goal_review");
@@ -709,7 +709,7 @@ builder.HasQueryFilter(x => x.DeletedAt == null);
 ## Owned Types
 ReviewMetrics can be modeled as owned value object when existing code supports owned metric values.
 ## Indexes
-Indexes match PostgreSQL schema.
+Indexes match Future Cloud Mapping schema.
 ## Query Filters
 Default query filter excludes deleted reviews.
 Repository specification applies Household and Tenant filters.

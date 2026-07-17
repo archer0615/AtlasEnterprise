@@ -1,4 +1,4 @@
-# Goal Conflict Contracts and Persistence
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Conflict Contracts and Persistence
 
 ## Purpose
 This split document isolates Goal Conflict commands, events, API, DTO, persistence mapping, cache, and example payload concerns from the parent Goal Conflict Resolution specification.
@@ -19,4 +19,4 @@ Goal Conflict API contracts are exposed as Goal resource subresources such as `/
 Goal Conflict data is stored as GoalPlan-owned conflict state plus read model projections, not as a standalone Aggregate, Entity, or Repository.
 
 ## Database and Cache
-Database mapping, PostgreSQL schema, EF Core mapping, and cache strategy must preserve tenant isolation, optimistic concurrency, idempotency keys, archival rules, and replay-safe audit records.
+PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping schema, Future Cloud Mapping, and cache strategy must preserve tenant isolation, optimistic concurrency, idempotency keys, archival rules, and replay-safe audit records.

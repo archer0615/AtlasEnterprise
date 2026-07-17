@@ -1,4 +1,4 @@
-﻿# Recommendation Execution Overview
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Recommendation Execution Overview
 Version: 1.0.0
 Status: Enterprise Specification
 Owner: Atlas Recommendation Domain
@@ -864,8 +864,8 @@ Event NotificationExecutionSent is immutable, tenant-scoped, correlation-aware, 
 
 ---
 # API
-## REST Endpoints
-REST Endpoints supports JSON contracts, idempotency, tenant context, permission checks, validation errors, state conflicts, paged search, filtered projection, and batch item results.
+## Future Cloud Architecture Endpoints
+Future Cloud Architecture Endpoints supports JSON contracts, idempotency, tenant context, permission checks, validation errors, state conflicts, paged search, filtered projection, and batch item results.
 
 ## HTTP Methods
 HTTP Methods supports JSON contracts, idempotency, tenant context, permission checks, validation errors, state conflicts, paged search, filtered projection, and batch item results.
@@ -930,7 +930,7 @@ Fields: id, tenantId, recommendationId, status, mode, priority, ownerUserId, ope
 Fields: id, tenantId, recommendationId, status, mode, priority, ownerUserId, operatorUserId, plan, result, progressPercent, schedule, timestamps, version, correlationId, idempotencyKey, metadata, links.
 
 ---
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 Table is defined for recommendation_executions, recommendation_execution_steps, recommendation_execution_logs, recommendation_execution_histories, recommendation_execution_metrics, and recommendation_execution_audits.
 
@@ -956,7 +956,7 @@ Check Constraint is defined for recommendation_executions, recommendation_execut
 Partition Strategy is defined for recommendation_executions, recommendation_execution_steps, recommendation_execution_logs, recommendation_execution_histories, recommendation_execution_metrics, and recommendation_execution_audits.
 
 ---
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE recommendation_executions (id uuid PRIMARY KEY, tenant_id uuid NOT NULL, recommendation_id uuid NOT NULL, status varchar(40) NOT NULL, mode varchar(40) NOT NULL, priority varchar(40) NOT NULL, owner_user_id uuid NULL, operator_user_id uuid NOT NULL, workflow_id uuid NULL, automation_id uuid NULL, progress_percent numeric(5,2) NOT NULL DEFAULT 0, plan_json jsonb NOT NULL DEFAULT '{}'::jsonb, result_json jsonb NOT NULL DEFAULT '{}'::jsonb, metadata_json jsonb NOT NULL DEFAULT '{}'::jsonb, scheduled_at timestamptz NULL, started_at timestamptz NULL, completed_at timestamptz NULL, failed_at timestamptz NULL, archived_at timestamptz NULL, deleted_at timestamptz NULL, created_at timestamptz NOT NULL, updated_at timestamptz NOT NULL, row_version bigint NOT NULL DEFAULT 0, correlation_id varchar(100) NOT NULL, idempotency_key varchar(120) NOT NULL);
 CREATE UNIQUE INDEX ux_re_tenant_id ON recommendation_executions(tenant_id, id);
@@ -974,7 +974,7 @@ CREATE MATERIALIZED VIEW mv_recommendation_execution_kpi AS SELECT tenant_id, co
 ```
 
 ---
-# EF Core Mapping
+# Future Cloud Mapping
 - Enterprise requirement 1 enforces tenant isolation, permission filtering, deterministic mapping, cache consistency, immutable audit, and operational performance.
 - Enterprise requirement 2 enforces tenant isolation, permission filtering, deterministic mapping, cache consistency, immutable audit, and operational performance.
 - Enterprise requirement 3 enforces tenant isolation, permission filtering, deterministic mapping, cache consistency, immutable audit, and operational performance.

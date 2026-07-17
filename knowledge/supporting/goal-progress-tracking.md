@@ -1,4 +1,4 @@
-﻿# Goal Progress Tracking
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Progress Tracking
 Version: 1.0 Status: Enterprise Specification Owner: Project Atlas Source of Truth: Atlas Goal Progress Tracking Specification Last Updated: 2026-07-13
 ## Split Navigation
 - [Goal progress model and formulas](goal-progress-tracking/model-and-formulas.md)
@@ -478,7 +478,7 @@ Task<GoalProgressDetailDto> RestoreProgressAsync(RestoreProgressRequest request)
 Task<GoalProgressSearchResultDto> SearchGoalProgressAsync(GoalProgressSearchRequest request);
 ```
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Method | Endpoint | Purpose |
 |---|---|---|
 | GET | /api/goal-progress | Search progress. |
@@ -572,7 +572,7 @@ Projection parameter supports summary, detail, forecast, and dashboard.
 ```json
 { "householdId": "uuid", "averageProgress": 0.64, "averageHealthScore": 0.78, "behindScheduleCount": 2, "blockedGoalCount": 1, "generatedAt": "2026-07-13T00:00:00Z" }
 ```
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 Primary table: goal_progress. History table: goal_progress_history.
 ## Columns
@@ -589,7 +589,7 @@ uq_goal_progress_household_goal_plan.
 overall_progress between 0 and 1.
 ## Partition Strategy
 Partition history by updated_at month when volume requires it.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_progress (
     progress_id uuid PRIMARY KEY,
@@ -668,7 +668,7 @@ FROM goal_progress
 WHERE archived_at IS NULL
 GROUP BY household_id;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 ## Fluent API
 ```csharp
 builder.ToTable("goal_progress");
@@ -699,7 +699,7 @@ GoalProgressScore can be modeled as owned value object when existing code suppor
 ## Value Conversion
 ProgressState and HealthBand use string conversion. Percent values use decimal conversion.
 ## Indexes
-Indexes match PostgreSQL schema.
+Indexes match Future Cloud Mapping schema.
 ## Query Filters
 Default query filter excludes archived progress. Repository specification applies Household and Tenant filters.
 # Cache Strategy

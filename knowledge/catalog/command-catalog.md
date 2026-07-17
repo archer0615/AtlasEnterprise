@@ -1,4 +1,4 @@
-﻿# Command Catalog
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Command Catalog
 ## Split Navigation
 - [Command catalog entries](command/catalog-entries.md)
 - [Command ownership and routing](command/ownership-and-routing.md)
@@ -1686,7 +1686,7 @@ Execution Control 25: ReplayScenario keeps catalog ownership, authorization, val
 
 # API Mapping
 
-| Command | REST Endpoint | HTTP Method | Request DTO | Response DTO |
+| Command | Future Cloud Architecture Endpoint | HTTP Method | Request DTO | Response DTO |
 |---|---|---|---|---|
 | RecordIncome | /api/v1/commands/record-income | POST | RecordIncomeRequest | CommandResult |
 | RecordExpense | /api/v1/commands/record-expense | POST | RecordExpenseRequest | CommandResult |

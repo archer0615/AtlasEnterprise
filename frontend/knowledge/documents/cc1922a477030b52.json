@@ -3,7 +3,7 @@
   "title": "Decision Lifecycle Governance and Testing",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-lifecycle/governance-and-testing.md",
-  "sourceHash": "681d91bb8b24d362773c48552521be0b7491ab595e0f056d7f5f9f40170bac0d",
+  "sourceHash": "9f69602afc53617fa3468bff2758167d3ae43cfa68c22d2102423e4196e6bd47",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Lifecycle Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates decision lifecycle governance, permissions, security, performance, testing, edge cases, and consistency checks from the parent Decision Lifecycle specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Lifecycle](../decision-lifecycle.md)\r\n\r\n## Governance\r\nGovernance covers immutable history, permission-aware state changes, household isolation, retention, restore rules, and deleted-state protection.\r\n\r\n## Testing\r\nTesting covers state transitions, invalid transitions, acceptance, rejection, defer, execution, outcome measurement, archive, restore, concurrency, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Decision Lifecycle Governance and Testing\n\n## Purpose\nThis split document isolates decision lifecycle governance, permissions, security, performance, testing, edge cases, and consistency checks from the parent Decision Lifecycle specification.\n\n## Source\n- Parent specification: [Decision Lifecycle](../decision-lifecycle.md)\n\n## Governance\nGovernance covers immutable history, permission-aware state changes, household isolation, retention, restore rules, and deleted-state protection.\n\n## Testing\nTesting covers state transitions, invalid transitions, acceptance, rejection, defer, execution, outcome measurement, archive, restore, concurrency, and edge cases.\n\n",
   "references": []
 }

@@ -1,14 +1,10 @@
 {
   "id": "44fc4d7726cc01e5",
-  "title": "Goal Reporting Governance and Testing",
+  "title": "governance-and-testing",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/goal-reporting/governance-and-testing.md",
-  "sourceHash": "2ddfe9938e7975642a6a78ee32d6f817f312c95f2892221edc62014b38882534",
+  "sourceHash": "45c79a01d569015890a60af77c9b84093344fbda9c03926892aef053b341f145",
   "headings": [
-    {
-      "level": 1,
-      "text": "Goal Reporting Governance and Testing"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -22,6 +18,6 @@
       "text": "Governance Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Reporting Governance and Testing\n\n## Purpose\n\nThis split document isolates Goal Reporting validation, business rules, repository, services, API, persistence, cache, security, audit, performance, examples, diagrams, testing, edge cases, version history, and Phase 2 addenda from the canonical `knowledge/reporting/goal-reporting.md` parent.\n\n## Covered Sections\n\n- Validation Rules\n- Business Rules\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n- API\n- DTO\n- Database Mapping\n- PostgreSQL Schema\n- EF Core Mapping\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n- Phase 2 Executable Specification Addendum\n\n## Governance Rules\n\n- Goal report access must enforce user and goal ownership scope.\n- Export and schedule APIs must preserve audit and retention rules.\n- Cache refresh must not make stale progress, milestone, or forecast values appear current.\n- Testing must include progress, export, schedule, load, concurrency, and permission coverage.\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Goal Reporting Governance and Testing\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal Reporting validation, business rules, repository, services, API, persistence, cache, security, audit, performance, examples, diagrams, testing, edge cases, version history, and Phase 2 addenda from the canonical `knowledge/reporting/goal-reporting.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Validation Rules\r\n- Business Rules\r\n- Repository\r\n- Domain Service Interaction\r\n- Application Service Interaction\r\n- API\r\n- DTO\r\n- PWA Runtime Mapping / Future Cloud Mapping\r\n- Future Cloud Mapping Schema\r\n- Future Cloud Mapping\r\n- Cache Strategy\r\n- Security\r\n- Audit\r\n- Performance\r\n- Example JSON\r\n- Mermaid\r\n- Testing\r\n- Edge Cases\r\n- Version History\r\n- Phase 2 Executable Specification Addendum\r\n\r\n## Governance Rules\r\n\r\n- Goal report access must enforce user and goal ownership scope.\r\n- Export and schedule APIs must preserve audit and retention rules.\r\n- Cache refresh must not make stale progress, milestone, or forecast values appear current.\r\n- Testing must include progress, export, schedule, load, concurrency, and permission coverage.\r\n",
   "references": []
 }

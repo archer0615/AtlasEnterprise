@@ -1,4 +1,4 @@
-# User Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# User Entity Specification
 ## Split Navigation
 - [User identity and access](user/identity-and-access.md)
 - [User API and persistence](user/api-and-persistence.md)
@@ -97,7 +97,7 @@
 
 # Complete Properties
 
-| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|
 | UserId | UUID | No | generated | Stable primary identifier. | Required, immutable, UUID. | Identifies the User aggregate. | `0f40f9f1-7c98-4c8b-a5aa-6e7b12d70411` | `user_id uuid primary key` | `userId` | Read, detail, route, response. | Yes | Yes | Yes | No | Yes |
 | UserNumber | string(40) | No | generated | Human-readable unique user number. | Required, unique, max 40, pattern `USR-[0-9]{8}`. | Stable business identifier. | `USR-20260714` | `user_number varchar(40) not null unique` | `userNumber` | Create response, search, detail. | Yes | Yes | Yes | No | Yes |
@@ -386,7 +386,7 @@ public interface IUserRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Operation | HTTP Method | Endpoint | Request | Response | Error |
 |---|---|---|---|---|---|
 | Create | POST | `/api/users` | CreateUserDto | UserDetailDto | 400, 409, 422 |
@@ -555,7 +555,7 @@ public interface IUserRepository
 }
 ```
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 - Table name: `users`.
@@ -630,7 +630,7 @@ public interface IUserRepository
 - Index on `last_login_at`.
 - Index on `created_at` and `updated_at`.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE users (
@@ -689,7 +689,7 @@ CREATE INDEX ix_users_updated_at ON users (updated_at);
 CREATE INDEX ix_users_concurrency_token ON users (concurrency_token);
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp

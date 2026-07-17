@@ -1,14 +1,10 @@
 {
   "id": "d85d2ecc74f86ab5",
-  "title": "Value Object Security, Audit, and Performance",
+  "title": "security-audit-and-performance",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/value-object/security-audit-and-performance.md",
-  "sourceHash": "abdf4f54e7c8bf10ec58292be8c74ed9e6dbbb914ccaf24613b3c48f6efc8477",
+  "sourceHash": "37c47e7d61b947e5fe59d5f2e58e0b49d89471cfce863f52c629435afb1bf9cc",
   "headings": [
-    {
-      "level": 1,
-      "text": "Value Object Security, Audit, and Performance"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -30,6 +26,6 @@
       "text": "Performance"
     }
   ],
-  "bodyMarkdown": "# Value Object Security, Audit, and Performance\r\n\r\n## Purpose\r\nThis split document isolates Value Object security, audit, and performance guidance from the parent Value Object Catalog.\r\n\r\n## Source\r\n- Parent specification: [Value Object Catalog](../value-object-catalog.md)\r\n\r\n## Security\r\n- Encryption is applied through owner Entity, DTO, API, repository, and database mapping when the Value Object contains sensitive data.\r\n- Masking is applied through owner Entity, DTO, API, repository, and database mapping when the Value Object contains sensitive data.\r\n- PII is applied through owner Entity, DTO, API, repository, and database mapping when the Value Object contains sensitive data.\r\n\r\n## Audit\r\n- Creation is tracked through the owning Aggregate or Entity; Value Objects do not own independent audit lifecycle.\r\n- Usage is tracked through the owning Aggregate or Entity; Value Objects do not own independent audit lifecycle.\r\n- History is tracked through the owning Aggregate or Entity; Value Objects do not own independent audit lifecycle.\r\n\r\n## Performance\r\n- Memory uses immutable compact representation, deterministic JSON, bounded payload size, cache-safe equality, and no independent repository lookup.\r\n- Allocation uses immutable compact representation, deterministic JSON, bounded payload size, cache-safe equality, and no independent repository lookup.\r\n- Serialization uses immutable compact representation, deterministic JSON, bounded payload size, cache-safe equality, and no independent repository lookup.\r\n- Caching uses immutable compact representation, deterministic JSON, bounded payload size, cache-safe equality, and no independent repository lookup.\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Value Object Security, Audit, and Performance\n\n## Purpose\nThis split document isolates Value Object security, audit, and performance guidance from the parent Value Object Catalog.\n\n## Source\n- Parent specification: [Value Object Catalog](../value-object-catalog.md)\n\n## Security\n- Encryption is applied through owner Entity, DTO, API, repository, and PWA Runtime Mapping / Future Cloud Mapping when the Value Object contains sensitive data.\n- Masking is applied through owner Entity, DTO, API, repository, and PWA Runtime Mapping / Future Cloud Mapping when the Value Object contains sensitive data.\n- PII is applied through owner Entity, DTO, API, repository, and PWA Runtime Mapping / Future Cloud Mapping when the Value Object contains sensitive data.\n\n## Audit\n- Creation is tracked through the owning Aggregate or Entity; Value Objects do not own independent audit lifecycle.\n- Usage is tracked through the owning Aggregate or Entity; Value Objects do not own independent audit lifecycle.\n- History is tracked through the owning Aggregate or Entity; Value Objects do not own independent audit lifecycle.\n\n## Performance\n- Memory uses immutable compact representation, deterministic JSON, bounded payload size, cache-safe equality, and no independent repository lookup.\n- Allocation uses immutable compact representation, deterministic JSON, bounded payload size, cache-safe equality, and no independent repository lookup.\n- Serialization uses immutable compact representation, deterministic JSON, bounded payload size, cache-safe equality, and no independent repository lookup.\n- Caching uses immutable compact representation, deterministic JSON, bounded payload size, cache-safe equality, and no independent repository lookup.\n",
   "references": []
 }

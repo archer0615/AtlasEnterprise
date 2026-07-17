@@ -3,7 +3,7 @@
   "title": "Goal Progress Model and Formulas",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-progress-tracking/model-and-formulas.md",
-  "sourceHash": "99225c1c409e51325d5ab26ed317d49b1cb08458e97aa7f89bff321aebcdb8df",
+  "sourceHash": "20a7f6bd26913f02ae85336c31bbc1d15a4986892bade97e8b1727dab1c1c9c6",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Update Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Progress Model and Formulas\r\n\r\n## Purpose\r\nThis split document isolates progress dimensions, calculation formulas, update frequency, and consistency requirements from the parent Goal Progress Tracking specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\r\n\r\n## Progress Dimensions\r\n- Physical Progress\r\n- Financial Progress\r\n- Time Progress\r\n- Milestone Progress\r\n- Dependency Progress\r\n- Risk Progress\r\n- Confidence Score\r\n- Completion Score\r\n- Health Score\r\n- Overall Progress\r\n\r\n## Calculation Formulas\r\n- Weighted Progress\r\n- Milestone Contribution\r\n- Financial Contribution\r\n- Elapsed Time %\r\n- Remaining Time %\r\n- Schedule Variance\r\n- Budget Variance\r\n- Forecast Completion\r\n- Expected Completion Date\r\n- Progress Confidence\r\n- Goal Health Score\r\n- Risk Adjusted Progress\r\n- Composite Progress Score\r\n\r\n## Update Rules\r\nProgress updates can be manual, automatic, event driven, batch, scheduled, scenario simulation based, recommendation driven, decision driven, rollback based, or recalculated.\r\n\r\n",
+  "bodyMarkdown": "# Goal Progress Model and Formulas\n\n## Purpose\nThis split document isolates progress dimensions, calculation formulas, update frequency, and consistency requirements from the parent Goal Progress Tracking specification.\n\n## Source\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\n\n## Progress Dimensions\n- Physical Progress\n- Financial Progress\n- Time Progress\n- Milestone Progress\n- Dependency Progress\n- Risk Progress\n- Confidence Score\n- Completion Score\n- Health Score\n- Overall Progress\n\n## Calculation Formulas\n- Weighted Progress\n- Milestone Contribution\n- Financial Contribution\n- Elapsed Time %\n- Remaining Time %\n- Schedule Variance\n- Budget Variance\n- Forecast Completion\n- Expected Completion Date\n- Progress Confidence\n- Goal Health Score\n- Risk Adjusted Progress\n- Composite Progress Score\n\n## Update Rules\nProgress updates can be manual, automatic, event driven, batch, scheduled, scenario simulation based, recommendation driven, decision driven, rollback based, or recalculated.\n\n",
   "references": []
 }

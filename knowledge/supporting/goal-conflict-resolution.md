@@ -1,4 +1,4 @@
-﻿# Goal Conflict Resolution
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Conflict Resolution
 ## Split Navigation
 - [Goal conflict detection](goal-conflict-resolution/detection-and-classification.md)
 - [Goal conflict resolution workflow](goal-conflict-resolution/resolution-workflow.md)
@@ -858,7 +858,7 @@ Identical Goals:
 
 # Complete Properties
 
-| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable | Immutable | Source of Truth | Concurrency |
+| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable | Immutable | Source of Truth | Concurrency |
 |---|---|---:|---|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|---:|---|---|
 | Id | UUID | No | generated | Conflict identity. | Required. | Stable identity. | uuid | id | id | All | Yes | Yes | Yes | No | Yes | Yes | Repository | Token |
 | ConflictSetHash | string | No | generated | Deterministic conflict set hash. | Required. | Deduplication key. | hash | conflict_set_hash | conflictSetHash | Internal | Yes | Yes | Yes | No | Yes | Yes | GoalApplicationService | Token |
@@ -1479,7 +1479,7 @@ Idempotency: Required on mutating commands.
 
 API names are Goal resource subroutes under API Governance and use `/api/v1/` versioning.
 
-| REST Endpoint | Method | Permission | Path Parameter | Query Parameter | Request | Response | HTTP Status | Error | Idempotency | Concurrency Header | Pagination | Sorting | Filtering | Rate Limit | Audit | Example |
+| Future Cloud Architecture Endpoint | Method | Permission | Path Parameter | Query Parameter | Request | Response | HTTP Status | Error | Idempotency | Concurrency Header | Pagination | Sorting | Filtering | Rate Limit | Audit | Example |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | /api/v1/goals/conflicts/detect | POST | Goal:Execute | none | none | DetectGoalConflictRequest | ConflictDetailDto | 201 | ErrorResponse | Required | Optional | No | No | No | Yes | Yes | Detect conflicts |
 | /api/v1/goals/conflicts | GET | Goal:Read | none | status,severity,type | none | ConflictSearchResponse | 200 | ErrorResponse | No | No | Yes | Yes | Yes | Yes | Yes | Search |
@@ -1657,9 +1657,9 @@ ConflictHistoryDto:
 | GCR-ERR-019 | 400 | Invalid Date Range | Date invalid | No | Date range is invalid. | Date error. | Yes | Start after end |
 | GCR-ERR-020 | 400 | Invalid Amount | Amount invalid | No | Amount is invalid. | Negative amount. | Yes | -100 |
 
-# Database Mapping
+# PWA Runtime Mapping
 
-Database mapping is a read model mapping. GoalPlan remains the aggregate persistence owner through GoalRepository.
+PWA Runtime Mapping / Future Cloud Mapping is a read model mapping. GoalPlan remains the aggregate persistence owner through GoalRepository.
 
 Table: goal_conflicts_read_model
 
@@ -1767,7 +1767,7 @@ Retention: Retain resolved and archived records for audit.
 
 Migration Strategy: Additive schema changes only.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE goal_conflicts_read_model (
@@ -1840,9 +1840,9 @@ COMMENT ON TABLE goal_conflicts_read_model IS 'Read model projection for GoalPla
 COMMENT ON COLUMN goal_conflicts_read_model.conflict_set_hash IS 'Deterministic hash of HouseholdId, PrimaryGoalId, sorted RelatedGoalIds, ConflictType, and ScenarioId when present.';
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
-EF Core mapping applies only to cloud-phase .NET persistence when Atlas uses EF Core.
+Future Cloud Mapping applies only to cloud-phase .NET persistence when Atlas uses Future Cloud Mapping.
 
 Table Mapping: goal_conflicts_read_model.
 
@@ -2587,7 +2587,7 @@ flowchart LR
 66. Event publishing emits GoalConflictDetected.
 67. Event publishing emits GoalConflictResolved.
 68. Outbox retries without duplicates.
-69. PostgreSQL mapping persists JSON evidence.
+69. Future Cloud Mapping mapping persists JSON evidence.
 70. Cache invalidates on GoalConflictStatusChanged.
 71. Authorization blocks unauthorized Household.
 72. Tenant isolation blocks cross-tenant access.
@@ -2733,8 +2733,8 @@ flowchart LR
 - Repository methods are complete.
 - API is complete.
 - DTO is complete.
-- PostgreSQL DDL is complete.
-- EF Core mapping is complete.
+- Future Cloud Mapping DDL is complete.
+- Future Cloud Mapping is complete.
 - Security is complete.
 - Audit is complete.
 - Explainability is complete.
@@ -2762,7 +2762,7 @@ flowchart LR
 | DTO | Message Contract Catalog | Goal conflict API contracts | Defined here | Request and response DTOs | Aligned |
 | Permissions | Permission Framework | Goal:Read, Goal:Update, Goal:Execute, Goal:Approve, Goal:Restore, Decision:Approve | Referenced | Authorization rules | Aligned |
 | Error Codes | API Governance Framework | GCR-ERR-* | Defined here | Module-local error model | Aligned |
-| Database Table | Repository Catalog and Database mapping | goal_conflicts_read_model | Defined here | Read model projection | Aligned |
+| Database Table | Repository Catalog and PWA Runtime Mapping / Future Cloud Mapping | goal_conflicts_read_model | Defined here | Read model projection | Aligned |
 | Outbox | Message Contract Catalog | Outbox message | Referenced | Event delivery | Aligned |
 | Audit Record | Aggregate Catalog and Repository Catalog | AuditRepository | Referenced | Audit persistence | Aligned |
 | Cache Keys | Service Catalog | CacheService keys | Defined here | Cache entries | Aligned |

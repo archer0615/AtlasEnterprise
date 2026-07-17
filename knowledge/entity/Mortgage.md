@@ -1,4 +1,4 @@
-# Mortgage Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Mortgage Entity Specification
 ## Split Navigation
 - [Mortgage identity and repayment](mortgage/identity-and-repayment.md)
 - [Mortgage persistence and API](mortgage/persistence-and-api.md)
@@ -42,7 +42,7 @@
 | API Resource | entity-catalog.md | /api/v1/loans. | /api/v1/loans | Referenced | REST controller | Catalog-aligned | Mortgage maps through Loan resource |
 | DTO | API governance | DTO is implementation contract. | Mortgage DTOs | Implementation Detail | Request/response schemas | Implementation Detail | Does not create Domain Concept |
 | Permission | entity-catalog.md | Liability:Read for loan resource mapping. | Liability:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Mutating permissions are API mapping |
-| Database Table | entity-catalog.md | mortgages or loans depending on persistence mapping. | mortgages | Referenced | PostgreSQL table | Catalog-aligned | Separate table used as implementation mapping |
+| Database Table | entity-catalog.md | mortgages or loans depending on persistence mapping. | mortgages | Referenced | Future Cloud Mapping table | Catalog-aligned | Separate table used as implementation mapping |
 | Read Model | API governance | Projection is not source of truth. | Mortgage projection | Implementation Detail | Cache/materialized view | Implementation Detail | Read-only |
 | Cache | entity-catalog.md | Loan amortization cache. | Mortgage amortization cache | Referenced | Cache keys | Catalog-aligned | Output cache only |
 | Audit | entity-catalog.md | Mortgage changes audited through Loan. | Loan audit | Referenced | AuditRepository | Catalog-aligned | Complete audit |
@@ -145,7 +145,7 @@ CashFlow and Expense may reflect payment outcomes through event consumers and ap
 | Prohibited navigation | Mutable object graph to Asset, Liability, CashFlow, Expense, Scenario, Decision, Recommendation. | Not allowed |
 # Complete Properties
 ## Property Matrix
-| Name | Type | Nullable | Default | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---:|---:|---:|---:|---:|
 | MortgageId | UUID | No | generated | mortgage_id uuid pk | mortgageId | route, response | Yes | Yes | Yes | No | Yes |
 | LoanId | UUID | No | none | loan_id uuid | loanId | create, response | Yes | Yes | Yes | No | Yes |
@@ -475,7 +475,7 @@ Specifications describe persistence filters only. They do not calculate amortiza
 | RecommendationApplicationService | Catalog-aligned where present | Reads projections. |
 | ReportApplicationService | Catalog-aligned | Mortgage reports and explanations. |
 | AdministrationApplicationService | Catalog-aligned | Audit and operational queries. |
-# REST API
+# Future Cloud Architecture API
 | Method | Path | Use Case | Permission | Status Codes |
 |---|---|---|---|---|
 | POST | /api/v1/loans | Create mortgage-backed Loan | Liability:Create | 201, 400, 401, 403, 409, 422 |
@@ -502,7 +502,7 @@ Specifications describe persistence filters only. They do not calculate amortiza
 | MortgageDetailResponse | all response-safe properties from Property Matrix plus version and concurrencyToken |
 | MortgageSummaryResponse | mortgageId, loanId, mortgageNumber, mortgageName, currency, outstandingBalance, monthlyPayment, nextPaymentDate, status |
 | MortgageSearchRequest | householdId, ownerUserId, status, mortgageProgram, collateralAssetId, page, pageSize, sort |
-# Database Mapping
+# PWA Runtime Mapping
 | Column | Type | Nullable | Constraint |
 |---|---|---:|---|
 | mortgage_id | uuid | No | Primary key |
@@ -559,7 +559,7 @@ Specifications describe persistence filters only. They do not calculate amortiza
 | updated_by | uuid | No | Updater |
 | version | integer | No | Concurrency |
 | concurrency_token | uuid | No | Concurrency |
-# PostgreSQL DDL
+# Future Cloud Mapping DDL
 ```sql
 CREATE SCHEMA IF NOT EXISTS atlas;
 CREATE TABLE IF NOT EXISTS atlas.mortgages (
@@ -655,7 +655,7 @@ CREATE INDEX IF NOT EXISTS ix_mortgages_archived ON atlas.mortgages (tenant_id, 
 CREATE INDEX IF NOT EXISTS ix_mortgages_deleted ON atlas.mortgages (tenant_id, deleted_at);
 CREATE INDEX IF NOT EXISTS ix_mortgages_concurrency_token ON atlas.mortgages (concurrency_token);
 ```
-# EF Core Fluent API
+# Future Cloud Mapping Fluent API
 ```csharp
 public sealed class MortgageEntityConfiguration : IEntityTypeConfiguration<MortgageEntity>
 {
@@ -892,7 +892,7 @@ flowchart TD
 | Integration Test | Search filters tenant, household, status, collateral. |
 | Validation Test | Negative amount, invalid rate, and invalid dates are rejected. |
 | Security Test | Cross-tenant and cross-household access denied. |
-| Contract Test | DTO JSON names match API and database mapping. |
+| Contract Test | DTO JSON names match API and PWA Runtime Mapping / Future Cloud Mapping. |
 | Performance Test | nextPaymentDate search uses index. |
 | Performance Test | Projection lag is observable. |
 # Edge Cases
@@ -1063,7 +1063,7 @@ flowchart TD
 | Security | Tenant and Household isolation enforced. |
 | Audit | Complete audit and version history required. |
 # Completion Checklist
-Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Mortgage Monetary Semantics, Mortgage Interest Model, Mortgage Repayment Model, Grace Period Model, Collateral Reference Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, REST API, DTO, Database Mapping, PostgreSQL DDL, EF Core Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete.
+Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Mortgage Monetary Semantics, Mortgage Interest Model, Mortgage Repayment Model, Grace Period Model, Collateral Reference Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, Future Cloud Architecture API, DTO, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete.
 # Final Consistency Matrix
 | Concern | Source Catalog | Final Atlas Name | Defined Here or Referenced | Implementation Artifact | Status | Conflict | Resolution | Follow-up Catalog Change Required |
 |---|---|---|---|---|---|---|---|---|
@@ -1078,7 +1078,7 @@ Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary
 | Application Service | application-service-catalog.md | LoanApplicationService | Referenced | Use case handlers | Catalog-aligned | None | Use Catalog service | No |
 | API | entity-catalog.md | /api/v1/loans | Referenced | Controller | Catalog-aligned | Separate mortgage URL absent | Map through Loan resource | No |
 | Permission | entity-catalog.md | Liability:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Mutating permissions implicit | Treat as API mapping | Optional catalog update |
-| Database | entity-catalog.md | mortgages or loans | Referenced | PostgreSQL table | Catalog-aligned | Mapping alternatives exist | Use mortgages table as implementation artifact | No |
+| Database | entity-catalog.md | mortgages or loans | Referenced | Future Cloud Mapping table | Catalog-aligned | Mapping alternatives exist | Use mortgages table as implementation artifact | No |
 | Read Model | API governance | Mortgage projection | Implementation Detail | Projection/cache | Implementation Detail | Projection may appear authoritative | Projection read-only | No |
 | Collateral | entity-catalog.md | Asset reference | Referenced | collateral_asset_id | Catalog-aligned | Collateral concept could be created | Keep identity reference only | No |
 | Taiwan mortgage | taiwan-mortgage.md | Program-specific rules | Implementation Detail | mortgage_program and validation | Implementation Detail | Product could be treated as domain | Keep rule/detail only | Optional catalog update |

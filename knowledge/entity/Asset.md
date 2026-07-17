@@ -1,4 +1,4 @@
-﻿# Asset Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Asset Entity Specification
 
 ## Split Navigation
 
@@ -44,7 +44,7 @@
 | Valuation Method | Catalog | not formal enum | Implementation Detail | Described | valuation projection | Catalog Gap | Not a Domain enum |
 | Liquidity Classification | Catalog | not formal enum except risk concepts | Implementation Detail | Described | `liquidity_level` optional string | Catalog Gap | Must not create enum |
 | Currency | Value Object Catalog | Currency | CurrencyCode | Referenced | `currency char(3)` | Canonical | ISO code strategy |
-| Money | Value Object Catalog | Money | Money | Referenced | numeric + currency | Canonical | PostgreSQL money type prohibited |
+| Money | Value Object Catalog | Money | Money | Referenced | numeric + currency | Canonical | Future Cloud Mapping money type prohibited |
 | Quantity | Value Object Catalog | quantity concept in Holding | Quantity | Referenced | numeric(28,8) when used | Canonical | Asset quantity optional |
 | Percentage | Value Object Catalog | Percentage | Percentage | Referenced | numeric(9,6) | Canonical | Ratio 0..1 unless rule states otherwise |
 | Command | Command Catalog | CreatePortfolio, BuySecurity, SellSecurity, RebalancePortfolio | Catalog commands | Referenced | command handlers | Canonical | Asset-specific commands are Catalog Gap |
@@ -57,7 +57,7 @@
 | API Resource | Entity Catalog | /api/v1/assets, /api/v1/portfolios | /api/v1/assets | Defined | REST resource | Canonical | Governance-aligned |
 | DTO | API Governance | Asset DTO contract | AssetDto | Defined | request/response models | Implementation Detail | DTO is not Entity |
 | Permission | Permission Framework | Asset:Read, Asset:Create, Asset:Update | Asset permissions | Referenced | authorization checks | Canonical | Colon naming follows catalog examples |
-| Database Table | Entity Catalog | assets | assets | Defined | PostgreSQL table | Canonical | Source table |
+| Database Table | Entity Catalog | assets | assets | Defined | Future Cloud Mapping table | Canonical | Source table |
 | Read Model | Catalog | projection is not source of truth | Asset projection | Referenced | read model | Canonical | Never write model |
 | Cache | Entity Catalog | Portfolio valuation cache | asset and portfolio scoped cache | Defined | cache keys | Implementation Detail | Scope required |
 | Audit | Audit Catalog | aggregate audit required | Asset audit through AssetPortfolio | Defined | audit records | Canonical | Append-only |
@@ -209,7 +209,7 @@
 ## Navigation
 
 - Domain navigation uses identity references across aggregates.
-- EF Core navigation to Household and User is optional and configured with Restrict delete.
+- Future Cloud Mapping navigation to Household and User is optional and configured with Restrict delete.
 - API navigation supports expansion only for safe read projections.
 - Owned navigation is limited to value objects embedded in Asset.
 - Aggregate identity reference is preferred for Portfolio, Position, Goal, Scenario, Decision, Recommendation, Loan, Liability, Policy, and Notification.
@@ -221,7 +221,7 @@
 
 # Complete Properties
 
-| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | Database Mapping | JSON Name | API Usage | Create Allowed | Update Allowed | Searchable | Sortable | Indexed | Unique | Encrypted | Masked | Auditable | Immutable | Derived | Source of Truth | Concurrency Impact | Security Classification | Financial Precision | Rounding Rule | Currency Dependency |
+| Name | Type | Nullable | Default | Description | Validation | Business Meaning | Example | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Create Allowed | Update Allowed | Searchable | Sortable | Indexed | Unique | Encrypted | Masked | Auditable | Immutable | Derived | Source of Truth | Concurrency Impact | Security Classification | Financial Precision | Rounding Rule | Currency Dependency |
 |---|---|---:|---|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|---|---|---|
 | AssetId | Guid | No | generated | Technical identity | UUID immutable | Identifies Asset | `b802d0d3-7f81-4d21-a6e0-55a6e9fa2101` | `asset_id uuid pk` | `assetId` | route/response | No | No | Yes | No | Yes | Yes | No | No | Yes | Yes | No | assets | none | Internal | n/a | n/a | none |
 | TenantId | Guid | Yes | context | Tenant scope when tenancy exists | match actor tenant | Tenant isolation | `aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa` | `tenant_id uuid` | `tenantId` | internal/response privileged | No | No | Yes | No | Yes | No | No | Mask if needed | Yes | Yes | No | tenant context | query filter | Restricted | n/a | n/a | none |
@@ -956,7 +956,7 @@ stateDiagram-v2
 - UUID serialization: lowercase canonical string.
 - Enumeration serialization: stable Catalog string.
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 
@@ -967,7 +967,7 @@ stateDiagram-v2
 
 ## Columns
 
-| Column Name | PostgreSQL Type | Nullable | Default | PK | FK | Unique | Check Constraint | Index | Encryption | Collation | Precision | Scale | Description | Entity Property | Migration Impact |
+| Column Name | Future Cloud Mapping Type | Nullable | Default | PK | FK | Unique | Check Constraint | Index | Encryption | Collation | Precision | Scale | Description | Entity Property | Migration Impact |
 |---|---|---:|---|---:|---:|---:|---|---|---|---|---:|---:|---|---|---|
 | asset_id | uuid | No | gen_random_uuid() | Yes | No | Yes | not null | pk | No | n/a | n/a | n/a | identity | AssetId | backfill ids |
 | tenant_id | uuid | Yes | null | No | No | No | scope policy | ix tenant | No | n/a | n/a | n/a | tenant scope | TenantId | backfill if tenancy |
@@ -1046,7 +1046,7 @@ stateDiagram-v2
 - Portfolio projection remains read model.
 - Reporting read model remains read-only.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS atlas;
@@ -1136,7 +1136,7 @@ COMMENT ON COLUMN atlas.assets.account_reference IS 'Sensitive account reference
 COMMENT ON COLUMN atlas.assets.concurrency_token IS 'Optimistic concurrency token for AssetPortfolio-owned Asset mutation.';
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ```csharp
 public sealed class AssetConfiguration : IEntityTypeConfiguration<Asset>
@@ -1210,13 +1210,13 @@ public sealed class AssetConfiguration : IEntityTypeConfiguration<Asset>
 
 - AssetType uses string conversion.
 - Currency uses CurrencyCode string conversion.
-- Status uses string conversion without creating a PostgreSQL enum type.
+- Status uses string conversion without creating a Future Cloud Mapping enum type.
 - RiskScore and Percentage values use decimal conversion with fixed precision.
 
 ## Money Mapping
 
 - Money is stored as numeric amount plus Currency.
-- PostgreSQL `money` type is prohibited.
+- Future Cloud Mapping `money` type is prohibited.
 - Rounding follows financial formula catalog.
 
 ## Currency Mapping
@@ -1777,8 +1777,8 @@ flowchart TD
 | AST-UT-020 | Domain Events | BuySecurity | command | SecurityPurchased | outbox schema | Unit |
 | AST-UT-021 | Idempotency | same key | retry | same result | no duplicate | Unit |
 | AST-UT-022 | Concurrency | stale token | update | conflict | 409 | Unit |
-| AST-IT-001 | PostgreSQL persistence | database | save/reload | all columns match | DDL constraints | Integration |
-| AST-IT-002 | EF Core mapping | DbContext | save Asset | mapping works | query filter | Integration |
+| AST-IT-001 | Future Cloud Mapping persistence | database | save/reload | all columns match | DDL constraints | Integration |
+| AST-IT-002 | Future Cloud Mapping | DbContext | save Asset | mapping works | query filter | Integration |
 | AST-IT-003 | Repository | seeded data | search | scoped result | no business logic | Integration |
 | AST-IT-004 | API auth | no token | read | 401 | error schema | Integration |
 | AST-IT-005 | Authorization | other household | read | 403/404 | no leak | Security |
@@ -2005,7 +2005,7 @@ flowchart TD
 | Scenario.md | Scenario reads snapshots | none | read-only |
 | Decision.md | Decision evidence read-only | none | read-only |
 | Recommendation.md | Recommendation context read-only | none | read-only |
-| Database Design | PostgreSQL table owns source | valuation projection confusion | source/projection separated |
+| Database Design | Future Cloud Mapping table owns source | valuation projection confusion | source/projection separated |
 | ERD | Household/User references | no cascade across aggregates | Restrict/SetNull |
 | API specification | REST resource governance | none | endpoint matrix defined |
 
@@ -2026,9 +2026,9 @@ flowchart TD
 - Application services complete: yes.
 - API complete: yes.
 - DTO complete: yes.
-- Database mapping complete: yes.
-- PostgreSQL DDL complete: yes.
-- EF Core mapping complete: yes.
+- PWA Runtime Mapping / Future Cloud Mapping complete: yes.
+- Future Cloud Mapping DDL complete: yes.
+- Future Cloud Mapping complete: yes.
 - Calculation interaction complete: yes.
 - Valuation interaction complete: yes.
 - Cache complete: yes.

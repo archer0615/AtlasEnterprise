@@ -12,12 +12,22 @@ The system should support long-term decisions:
 
 ## Current implementation direction
 
-The repository is being organized as a static-first PWA knowledge application.
+Atlas v1 is a Static-first, Local-first GitHub Pages PWA. The core runtime is:
+
+- GitHub Pages deployment
+- Static PWA
+- Browser Runtime
+- Offline-first
+- IndexedDB Persistence
+- Local Calculation Runtime
+
+The repository is being organized around that PWA v1 architecture.
 
 - Source knowledge lives in `knowledge/**/*.md`.
 - Runtime knowledge data is generated into `frontend/knowledge/`.
-- The frontend reads static JSON files and does not require a backend database.
+- The frontend reads static JSON files and does not require a backend, server database, or cloud service to start.
 - The PWA shell lives in `frontend/`.
+- ASP.NET Core, PostgreSQL, EF Core, Server REST API, Cloud Database, Authentication Server, and Multi-device Sync are Future Optional Architecture only.
 
 ## Repository navigation
 
@@ -25,7 +35,8 @@ The repository is being organized as a static-first PWA knowledge application.
 - `docs/` contains product specifications, PWA implementation notes, database design, API notes, roadmap, and governance reports.
 - `frontend/` contains the static PWA shell and generated knowledge JSON consumed at runtime.
 - `frontend/knowledge/` is generated output; update `knowledge/**/*.md` first, then rebuild.
-- `backend/`, `database/`, `ai/`, and `simulator/` are reserved implementation areas documented by their local README files.
+- `backend/`, `database/`, and `ai/` are Future Optional Architecture or prototype areas and must not be required for PWA v1 startup or operation.
+- `simulator/` supports local scenario, decision, and calculation validation without changing canonical rules or formulas.
 
 ## Document entry points
 
@@ -81,6 +92,7 @@ The repository is being organized as a static-first PWA knowledge application.
 - `npm run validate:frontend`
 - `npm run validate:pwa`
 - `npm run validate:offline`
+- `npm run validate:deployment`
 - `npm run validate:fixtures`
 - `npm run validate`
 - `npm run build`

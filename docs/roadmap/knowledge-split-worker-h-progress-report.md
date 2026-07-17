@@ -1,4 +1,4 @@
-# Knowledge Split Worker H Progress Report
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Knowledge Split Worker H Progress Report
 
 ## Scope
 - `knowledge/catalog/value-object-catalog.md`
@@ -9,7 +9,7 @@
 - `knowledge/catalog/enumeration/**`
 
 ## Completed Split Work
-- Added `knowledge/catalog/value-object/lifecycle-and-mapping-rules.md` for Equality Rules, Immutability Rules, Construction Rules, Validation Rules, Serialization Rules, Database Mapping, EF Core Mapping, and API Mapping.
+- Added `knowledge/catalog/value-object/lifecycle-and-mapping-rules.md` for Equality Rules, Immutability Rules, Construction Rules, Validation Rules, Serialization Rules, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping, and API Mapping.
 - Added `knowledge/catalog/domain-event/operation-rules.md` for Ordering Rules, Idempotency Rules, Replay Rules, Retry Rules, Versioning Rules, Event Evolution Rules, Backward Compatibility Rules, and Validation Rules.
 - Added `knowledge/catalog/enumeration/state-and-rule-model.md` for State Transition Matrix, Lifecycle Enumerations, Status Enumerations, Priority Enumerations, Category Enumerations, Permission Enumerations, Validation Enumerations, mapping, validation, and business rules.
 - Updated the three parent `## Split Navigation` blocks with links to the new split documents.

@@ -3,7 +3,7 @@
   "title": "Aggregate Catalog Core Aggregates",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/aggregate-catalog/core-aggregates.md",
-  "sourceHash": "ccde42f55c820ef9cf018bb72c2ba29d15746c5498fbe736a412cc8c709c0977",
+  "sourceHash": "a0647f23b6d7c0222c127d5696016c7763835211e362dc24977756e14e167d4a",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Definition Standard"
     }
   ],
-  "bodyMarkdown": "# Aggregate Catalog Core Aggregates\r\n\r\n## Purpose\r\nThis split document isolates the core aggregate definitions from the parent Aggregate Catalog.\r\n\r\n## Source\r\n- Parent specification: [Aggregate Catalog](../aggregate-catalog.md)\r\n\r\n## Core Aggregates\r\n- User\r\n- Household\r\n- FinancialProfile\r\n- AssetPortfolio\r\n- LiabilityPortfolio\r\n- GoalPlan\r\n- Property\r\n- Loan\r\n- Scenario\r\n- DecisionSession\r\n- Recommendation\r\n- RetirementPlan\r\n- Notification\r\n- Policy\r\n- Configuration\r\n\r\n## Definition Standard\r\nEach aggregate entry preserves business meaning, ownership, aggregate boundary, lifecycle, commands, events, repositories, invariants, and consistency requirements.\r\n\r\n",
+  "bodyMarkdown": "# Aggregate Catalog Core Aggregates\n\n## Purpose\nThis split document isolates the core aggregate definitions from the parent Aggregate Catalog.\n\n## Source\n- Parent specification: [Aggregate Catalog](../aggregate-catalog.md)\n\n## Core Aggregates\n- User\n- Household\n- FinancialProfile\n- AssetPortfolio\n- LiabilityPortfolio\n- GoalPlan\n- Property\n- Loan\n- Scenario\n- DecisionSession\n- Recommendation\n- RetirementPlan\n- Notification\n- Policy\n- Configuration\n\n## Definition Standard\nEach aggregate entry preserves business meaning, ownership, aggregate boundary, lifecycle, commands, events, repositories, invariants, and consistency requirements.\n\n",
   "references": []
 }

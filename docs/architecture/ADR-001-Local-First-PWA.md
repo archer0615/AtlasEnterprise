@@ -1,5 +1,7 @@
 # ADR-001 — Adopt Local-First Static PWA
 
+> Superseded for governance priority by [ADR-001: Static Local First PWA Architecture](ADR-001-static-local-first-pwa.md). This document remains as historical architecture context.
+
 Status: Accepted  
 Date: 2026-07-11
 

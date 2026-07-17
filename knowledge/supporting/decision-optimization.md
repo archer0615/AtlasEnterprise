@@ -1,4 +1,4 @@
-﻿# Decision Optimization
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Optimization
 Version: 1.0
 ## Split Navigation
 - [Decision optimization objectives](decision-optimization/objectives-and-constraints.md)
@@ -620,7 +620,7 @@ IDecisionOptimizationRepository persists optimization aggregate, objectives, con
 - SearchOptimizationQueryHandler applies filters, sorting, pagination, and projection.
 - BatchOptimizationHandler performs batch optimization with per-item result.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/decision-optimizations
 - POST /api/decision-optimizations
 - GET /api/decision-optimizations/{optimizationId}
@@ -703,7 +703,7 @@ Includes OptimizationId, status, top candidate, composite score, confidence scor
 Includes objectives, constraints, candidates, scores, ranking, sensitivity, trade-offs, comparisons, permissions, and audit metadata.
 ## Search DTO
 Includes filters, sorting, pagination, projection, and masking mode.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - decision_optimizations
 - decision_optimization_objectives
@@ -768,7 +768,7 @@ Includes filters, sorting, pagination, projection, and masking mode.
 - Approved status requires approved_at.
 ## Partition Strategy
 - Partition objectives, constraints, candidates, scores, comparisons, sensitivity, trade-offs, and audit by created_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE decision_optimizations (
   optimization_id uuid PRIMARY KEY,
@@ -903,7 +903,7 @@ FROM decision_optimizations
 WHERE status <> 'Deleted'
 GROUP BY household_id, status;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps DecisionOptimization to decision_optimizations with optimization_id primary key.
 - Owned Types map request payload, result payload, input payload, output payload, candidate payload, explanation payload, comparison payload, sensitivity payload, and tradeoff payload as JSON.
 - Indexes map decision status, household status, score, confidence, risk, stale flag, completed time, latest active optimization, and candidate rank.

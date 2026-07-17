@@ -1,4 +1,4 @@
-# Project Atlas Enterprise
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Project Atlas Enterprise
 # docs/specification/00-Vision.md
 
 Version: 2.0  
@@ -24,10 +24,10 @@ The application shall:
 - Execute all Domain, Formula, Scenario, KPI, and Decision logic in the browser.
 - Persist user data in IndexedDB.
 - Remain usable without network access after installation.
-- Require no server, database server, login service, or cloud account for the primary workflow.
+- Require no server, Future Cloud Architecture, login service, or cloud account for the primary workflow.
 - Keep financial data on the user's device by default.
 - Support encrypted export and restore.
-- Preserve an optional future migration path to a .NET 8 API and PostgreSQL.
+- Preserve an optional future migration path to a Future Cloud Architecture adapter API and Future Cloud Mapping.
 
 ## 4. Core Principles
 
@@ -80,10 +80,10 @@ Future: multi-device users, shared households, financial planners, and cloud-ass
 
 ### Future Optional Cloud Layer
 
-- .NET 8
-- ASP.NET Core REST API
-- PostgreSQL
-- EF Core
+- Future Cloud Architecture adapter
+- Future Cloud Architecture adapter Future Cloud Architecture API
+- Future Cloud Mapping
+- Future Cloud Mapping
 - Authentication and household sharing
 
 The future cloud layer is not required by the v1 Domain Model.

@@ -1,4 +1,4 @@
-﻿# Decision Insights Overview
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Insights Overview
 Version: 1.0.0 Status: Enterprise Specification Owner: Atlas Decision Domain Source of Truth: Decision Catalog
 Last Updated: 2026-07-13
 ## Split Navigation
@@ -1123,7 +1123,7 @@ Specifications must be composable, deterministic, and testable.
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 
 | Endpoint | Method | Purpose |
 |---|---:|---|
@@ -1258,7 +1258,7 @@ Fields: `reportId`, `generatedAt`, `filters`, `counts`, `severityDistribution`, 
 
 ---
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 
@@ -1308,7 +1308,7 @@ Archive partitions may be compressed.
 
 ---
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE decision_insights (
@@ -1488,7 +1488,7 @@ Database constraints enforce valid status, severity, priority, score ranges, and
 
 ---
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 

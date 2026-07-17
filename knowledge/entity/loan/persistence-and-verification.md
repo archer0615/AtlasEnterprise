@@ -1,8 +1,8 @@
-# Loan Persistence and Verification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Loan Persistence and Verification
 
 ## Purpose
 
-This split document isolates Loan database mapping, PostgreSQL DDL, EF Core Fluent API, cache strategy, security, audit, observability, performance, examples, diagrams, testing, edge cases, error catalog, data migration, and consistency verification from the larger Loan entity specification.
+This split document isolates Loan PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping Fluent API, cache strategy, security, audit, observability, performance, examples, diagrams, testing, edge cases, error catalog, data migration, and consistency verification from the larger Loan entity specification.
 
 ## Source
 
@@ -11,7 +11,7 @@ This split document isolates Loan database mapping, PostgreSQL DDL, EF Core Flue
 ## Persistence
 
 - Loan persistence maps through LoanRepository and database tables such as `loans` and `mortgages` when Mortgage is mapped separately.
-- PostgreSQL DDL and EF Core Fluent API must preserve aggregate ownership, concurrency, soft-delete behavior, tenant filtering where tenancy exists, and household filtering.
+- Future Cloud Mapping DDL and Future Cloud Mapping Fluent API must preserve aggregate ownership, concurrency, soft-delete behavior, tenant filtering where tenancy exists, and household filtering.
 - Cache strategy is limited to computed outputs such as Loan amortization cache and must not become source of truth.
 - Read models and projections are read-only and must not replace aggregate state.
 
@@ -24,7 +24,7 @@ This split document isolates Loan database mapping, PostgreSQL DDL, EF Core Flue
 ## Verification
 
 - Testing covers create, update, payment, refinance, close, archive, restore, replay, concurrency, stale amortization, invalid term, invalid rate, invalid currency, and permission denial behavior.
-- Consistency verification checks catalog alignment, command/event mapping, repository ownership, calculation boundaries, API DTO behavior, database mapping, cache boundaries, audit completeness, and final consistency matrix status.
+- Consistency verification checks catalog alignment, command/event mapping, repository ownership, calculation boundaries, API DTO behavior, PWA Runtime Mapping / Future Cloud Mapping, cache boundaries, audit completeness, and final consistency matrix status.
 
 ## Visual and Example Coverage
 

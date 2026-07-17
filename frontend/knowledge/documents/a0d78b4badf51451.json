@@ -1,14 +1,10 @@
 {
   "id": "a0d78b4badf51451",
-  "title": "Notification API and Persistence",
+  "title": "api-and-persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/notification/api-and-persistence.md",
-  "sourceHash": "5609abc5ad8aa181b9a68ff71a407b3cbf7259255ac9c2ff041d6b5e4fb531c1",
+  "sourceHash": "d570ed1329bee32ab4930f94a54136b9b1fca04a04bb15595221df3138f02c15",
   "headings": [
-    {
-      "level": 1,
-      "text": "Notification API and Persistence"
-    },
     {
       "level": 2,
       "text": "Purpose"
@@ -26,6 +22,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "# Notification API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Notification commands, events, repository, services, API, DTOs, database mapping, EF Core mapping, and cache strategy from the parent Notification Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Notification Entity Specification](../Notification.md)\r\n\r\n## API\r\nNotification APIs expose create, schedule, send, mark read, acknowledge, archive, restore, delete, detail, summary, and search behavior under user and permission boundaries.\r\n\r\n## Persistence\r\nPersistence covers notification table mapping, status timestamps, provider identifiers, retry metadata, indexes, constraints, optimistic concurrency, and cache invalidation.\r\n\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Notification API and Persistence\n\n## Purpose\nThis split document isolates Notification commands, events, repository, services, API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping, and cache strategy from the parent Notification Entity Specification.\n\n## Source\n- Parent specification: [Notification Entity Specification](../Notification.md)\n\n## API\nNotification APIs expose create, schedule, send, mark read, acknowledge, archive, restore, delete, detail, summary, and search behavior under user and permission boundaries.\n\n## Persistence\nPersistence covers notification table mapping, status timestamps, provider identifiers, retry metadata, indexes, constraints, optimistic concurrency, and cache invalidation.\n\n",
   "references": []
 }

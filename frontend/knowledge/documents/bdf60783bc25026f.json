@@ -3,7 +3,7 @@
   "title": "Banking Import Trigger and Scope",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/banking-import-automation/trigger-and-scope.md",
-  "sourceHash": "7d197503484fe2633806e8184af7f91067e0deb74bb7087f2325ce98ab12ba3c",
+  "sourceHash": "dba35a6a289d4c8c77d737c80068d4e05314f89eaa8d8ffb591d843124b2918a",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Import Scope"
     }
   ],
-  "bodyMarkdown": "# Banking Import Trigger and Scope\r\n\r\n## Purpose\r\nThis split document isolates banking import triggers, account scope, source eligibility, and import boundaries from the parent BankingImportAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [BankingImportAutomation](../banking-import-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include scheduled banking import, manual import, external webhook, credential refresh, failed import recovery, and reconciliation refresh.\r\n\r\n## Import Scope\r\nImport scope includes accounts, balances, transactions, fees, interest, currency, and source timestamps under tenant and household boundaries.\r\n\r\n",
+  "bodyMarkdown": "# Banking Import Trigger and Scope\n\n## Purpose\nThis split document isolates banking import triggers, account scope, source eligibility, and import boundaries from the parent BankingImportAutomation specification.\n\n## Source\n- Parent specification: [BankingImportAutomation](../banking-import-automation.md)\n\n## Trigger Scope\nTriggers include scheduled banking import, manual import, external webhook, credential refresh, failed import recovery, and reconciliation refresh.\n\n## Import Scope\nImport scope includes accounts, balances, transactions, fees, interest, currency, and source timestamps under tenant and household boundaries.\n\n",
   "references": []
 }

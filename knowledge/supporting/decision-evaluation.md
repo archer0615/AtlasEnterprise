@@ -1,4 +1,4 @@
-﻿# Decision Evaluation
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Decision Evaluation
 Version: 1.0
 ## Split Navigation
 - [Decision evaluation criteria](decision-evaluation/criteria-and-scoring.md)
@@ -659,7 +659,7 @@ IDecisionEvaluationRepository persists evaluation aggregate, dimension results, 
 - SearchEvaluationQueryHandler applies filters, sorting, pagination, and projection.
 - BulkEvaluationHandler performs batch evaluation with per-item result.
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 - GET /api/decision-evaluations
 - POST /api/decision-evaluations
 - GET /api/decision-evaluations/{evaluationId}
@@ -736,7 +736,7 @@ Includes all dimensions, scores, constraints, risks, ranking, explanation, appro
 Includes filters, sorting, pagination, projection, and masking mode.
 ## Report DTO
 Includes report id, evaluation id, score summary, constraint summary, ranking, generatedAt, and generatedBy.
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 - decision_evaluations
 - decision_evaluation_dimensions
@@ -798,7 +798,7 @@ Includes report id, evaluation id, score summary, constraint summary, ranking, g
 - Approved status requires approval history.
 ## Partition Strategy
 - Partition dimensions, scores, constraints, risks, reports, approval history, and audit by created_at month.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE decision_evaluations (
   evaluation_id uuid PRIMARY KEY,
@@ -924,7 +924,7 @@ FROM decision_evaluations
 WHERE status <> 'Deleted'
 GROUP BY household_id, status;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 - Fluent API maps DecisionEvaluation to decision_evaluations with evaluation_id primary key.
 - Owned Types map evidence payload, score payload, risk payload, report payload, and audit payload as JSON.
 - Indexes map decision status, household status, score, confidence, risk, stale flag, evaluated time, and latest active evaluation.

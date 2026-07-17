@@ -9,6 +9,7 @@ const requiredFiles = [
   "sw.js",
   "sw-version.js",
   "src/main.js",
+  "src/indexeddb-runtime.js",
   "src/dashboard-model.js",
   "src/styles.css",
   "fixtures/dashboard-snapshot.json",
@@ -44,11 +45,11 @@ if (!Array.isArray(manifest.icons) || manifest.icons.length === 0) {
 
 const serviceWorker = await readFile(path.join(frontendRoot, "sw.js"), "utf8");
 const serviceWorkerVersion = await readFile(path.join(frontendRoot, "sw-version.js"), "utf8");
-if (!serviceWorker.includes('importScripts("/sw-version.js")')) {
+if (!serviceWorker.includes('importScripts("sw-version.js")')) {
   throw new Error("service worker must import sw-version.js");
 }
 for (const file of requiredFiles.filter((item) => item !== "sw.js")) {
-  const url = `/${file.replaceAll("\\", "/")}`;
+  const url = file.replaceAll("\\", "/");
   if (!serviceWorker.includes(url)) {
     throw new Error(`service worker cache is missing ${url}`);
   }
@@ -81,7 +82,7 @@ for (const doc of knowledgeIndex.documents) {
   if (!documentFiles.includes(`${doc.id}.json`)) {
     throw new Error(`generated document is missing ${doc.id}.json`);
   }
-  if (!documentAssets.documents.includes(`/knowledge/documents/${doc.id}.json`)) {
+  if (!documentAssets.documents.includes(`knowledge/documents/${doc.id}.json`)) {
     throw new Error(`document asset list is missing ${doc.id}.json`);
   }
 }

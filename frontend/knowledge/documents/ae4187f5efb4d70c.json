@@ -3,7 +3,7 @@
   "title": "Goal Governance and Testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/goal/governance-and-testing.md",
-  "sourceHash": "e1d45ccd494baefa42a073ebefa1b908c659e77f44388a8830762d93791cb1ab",
+  "sourceHash": "a6b6dffa89b202b1ef43a282f336a98b67a161745b65f9b753fd67c8ca62532b",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing Focus"
     }
   ],
-  "bodyMarkdown": "# Goal Governance and Testing\n\n## Purpose\n\nThis split document isolates Goal governance, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/entity/Goal.md` parent.\n\n## Covered Sections\n\n- Cache Strategy\n- Security\n- Audit\n- Performance\n- Example JSON\n- Mermaid\n- Testing\n- Edge Cases\n- Version History\n\n## Governance Rules\n\n- Goal audit records must preserve lifecycle, progress, priority, review, dependency, and conflict changes.\n- Goal security must enforce User access scope and GoalPlan ownership boundaries.\n- Goal read models may include related summaries but cannot mutate referenced entities.\n- Goal performance validation must include search, summary, history, progress, and dashboard usage.\n\n## Testing Focus\n\n- Identity immutability and User scope.\n- ParentGoalId cycle prevention.\n- Progress recalculation boundaries.\n- Review cadence transitions.\n- Archive, restore, deletion, and history traceability.\n",
+  "bodyMarkdown": "# Goal Governance and Testing\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal governance, security, audit, performance, examples, diagrams, testing, and edge cases from the canonical `knowledge/entity/Goal.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Cache Strategy\r\n- Security\r\n- Audit\r\n- Performance\r\n- Example JSON\r\n- Mermaid\r\n- Testing\r\n- Edge Cases\r\n- Version History\r\n\r\n## Governance Rules\r\n\r\n- Goal audit records must preserve lifecycle, progress, priority, review, dependency, and conflict changes.\r\n- Goal security must enforce User access scope and GoalPlan ownership boundaries.\r\n- Goal read models may include related summaries but cannot mutate referenced entities.\r\n- Goal performance validation must include search, summary, history, progress, and dashboard usage.\r\n\r\n## Testing Focus\r\n\r\n- Identity immutability and User scope.\r\n- ParentGoalId cycle prevention.\r\n- Progress recalculation boundaries.\r\n- Review cadence transitions.\r\n- Archive, restore, deletion, and history traceability.\r\n",
   "references": []
 }

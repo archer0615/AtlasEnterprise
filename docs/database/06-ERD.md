@@ -1,4 +1,4 @@
-# Project Atlas Enterprise
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Project Atlas Enterprise
 # docs/database/06-ERD.md
 
 Version: 2.0  
@@ -6,7 +6,7 @@ Status: Conceptual Local Data Model
 
 ## 1. Purpose
 
-This document describes conceptual aggregate relationships and their IndexedDB persistence representation. It is not a relational PostgreSQL ERD.
+This document describes conceptual aggregate relationships and their IndexedDB persistence representation. It is not a relational Future Cloud Mapping ERD.
 
 ## 2. Aggregate Relationship Model
 

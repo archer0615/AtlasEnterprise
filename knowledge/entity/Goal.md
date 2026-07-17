@@ -1,4 +1,4 @@
-﻿# Goal Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Entity Specification
 
 # Document Control
 
@@ -117,7 +117,7 @@ Navigation:
 - Validation: Required; unique; valid Guid; immutable.
 - Business Meaning: Identifies one planning objective across API, audit, history, events, and references.
 - Example: 3e1f27f4-4201-431d-bb4a-01d2e4aa94d8.
-- Database Mapping: goals.goal_id uuid primary key
+- PWA Runtime Mapping / Future Cloud Mapping: goals.goal_id uuid primary key
 - JSON Name: goalId
 - API Usage: Detail, Update, Activate, Pause, Resume, Complete, Cancel, Archive, Restore, Delete, Review, Progress, History
 - Searchable: Yes
@@ -136,7 +136,7 @@ Navigation:
 - Validation: Required; unique; max length 64; immutable.
 - Business Meaning: Enables support, audit, and user-facing lookup.
 - Example: GOAL-20260714-000001.
-- Database Mapping: goals.goal_number varchar(64) unique not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.goal_number varchar(64) unique not null
 - JSON Name: goalNumber
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -155,7 +155,7 @@ Navigation:
 - Validation: Required; valid Guid; actor must be authorized for User and GoalPlan scope.
 - Business Meaning: Goal must belong to User.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: goals.user_id uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.user_id uuid not null
 - JSON Name: userId
 - API Usage: Create, Detail, Summary, Search
 - Searchable: Yes
@@ -174,7 +174,7 @@ Navigation:
 - Validation: Required; non-blank; max length 64.
 - Business Meaning: Classifies the goal without creating a new Domain.
 - Example: Retirement.
-- Database Mapping: goals.goal_type varchar(64) not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.goal_type varchar(64) not null
 - JSON Name: goalType
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -193,7 +193,7 @@ Navigation:
 - Validation: Required; max length 64.
 - Business Meaning: Groups objectives such as Retirement, Housing, Liquidity, Investment, CashFlow, or Debt.
 - Example: Liquidity.
-- Database Mapping: goals.goal_category varchar(64) not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.goal_category varchar(64) not null
 - JSON Name: goalCategory
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -212,7 +212,7 @@ Navigation:
 - Validation: Required; catalog values Draft, Active, Prioritized, Deferred, Completed, Cancelled; lifecycle states Planned, OnHold, Archived, Deleted map to Goal lifecycle policy.
 - Business Meaning: Controls Goal activation, pause, completion, cancellation, archive, and mutation behavior.
 - Example: Active.
-- Database Mapping: goals.goal_status varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.goal_status varchar(32) not null
 - JSON Name: goalStatus
 - API Usage: Detail, Summary, Search, Activate, Pause, Resume, Complete, Cancel, Archive, Restore, Delete
 - Searchable: Yes
@@ -231,7 +231,7 @@ Navigation:
 - Validation: Required; max length 256; unique within User scope when policy requires.
 - Business Meaning: Business identity for the objective.
 - Example: Build emergency fund.
-- Database Mapping: goals.goal_name varchar(256) not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.goal_name varchar(256) not null
 - JSON Name: goalName
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -250,7 +250,7 @@ Navigation:
 - Validation: Max length 4000; no executable content.
 - Business Meaning: Explains goal intent and planning context.
 - Example: Maintain six months of expenses in cash reserve.
-- Database Mapping: goals.description text null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.description text null
 - JSON Name: description
 - API Usage: Create, Update, Detail
 - Searchable: Yes
@@ -269,7 +269,7 @@ Navigation:
 - Validation: Required; Low, Medium, High, Critical.
 - Business Meaning: Supports Goal Priority and execution ordering.
 - Example: High.
-- Database Mapping: goals.priority varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.priority varchar(32) not null
 - JSON Name: priority
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -288,7 +288,7 @@ Navigation:
 - Validation: Required; range 1 to 10.
 - Business Meaning: Captures relative value of Goal.
 - Example: 9.
-- Database Mapping: goals.importance integer not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.importance integer not null
 - JSON Name: importance
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -307,7 +307,7 @@ Navigation:
 - Validation: Required; Low, Normal, High, Immediate.
 - Business Meaning: Influences review, priority, and recommendation behavior.
 - Example: High.
-- Database Mapping: goals.urgency varchar(32) not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.urgency varchar(32) not null
 - JSON Name: urgency
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -326,7 +326,7 @@ Navigation:
 - Validation: Valid JSON object when present; amount nonnegative; CurrencyCode required when amount exists.
 - Business Meaning: Defines financial target for amount-based goals.
 - Example: {"amount":600000,"currency":"TWD"}.
-- Database Mapping: goals.target_amount jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.target_amount jsonb null
 - JSON Name: targetAmount
 - API Usage: Create, Update, Detail, Summary, Search, Progress
 - Searchable: No
@@ -345,7 +345,7 @@ Navigation:
 - Validation: Valid JSON object when present; amount nonnegative; CurrencyCode required when amount exists; must not exceed TargetAmount where goal semantics are capped accumulation.
 - Business Meaning: Tracks current funded or achieved amount.
 - Example: {"amount":180000,"currency":"TWD"}.
-- Database Mapping: goals.current_amount jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.current_amount jsonb null
 - JSON Name: currentAmount
 - API Usage: Update, Detail, Summary, Search, RecalculateProgress
 - Searchable: No
@@ -364,7 +364,7 @@ Navigation:
 - Validation: Required; 0.0000 to 100.0000.
 - Business Meaning: Tracks GoalProgress.
 - Example: 30.0000.
-- Database Mapping: goals.completion_percentage numeric(9,4) not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.completion_percentage numeric(9,4) not null
 - JSON Name: completionPercentage
 - API Usage: Detail, Summary, Search, RecalculateProgress, Complete
 - Searchable: Yes
@@ -383,7 +383,7 @@ Navigation:
 - Validation: Must be on or after StartDate when both exist.
 - Business Meaning: Defines goal horizon and urgency.
 - Example: 2027-12-31.
-- Database Mapping: goals.target_date date null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.target_date date null
 - JSON Name: targetDate
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -402,7 +402,7 @@ Navigation:
 - Validation: Must be on or before TargetDate and CompletedDate when present.
 - Business Meaning: Establishes tracking start.
 - Example: 2026-08-01.
-- Database Mapping: goals.start_date date null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.start_date date null
 - JSON Name: startDate
 - API Usage: Create, Update, Activate, Detail, Search
 - Searchable: Yes
@@ -421,7 +421,7 @@ Navigation:
 - Validation: Required when GoalStatus is Completed; must be on or after StartDate when present.
 - Business Meaning: Records when Goal is completed.
 - Example: 2027-03-31.
-- Database Mapping: goals.completed_date date null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.completed_date date null
 - JSON Name: completedDate
 - API Usage: Complete, Detail, Summary, Search
 - Searchable: Yes
@@ -440,7 +440,7 @@ Navigation:
 - Validation: Max length 32; valid cadence value when present.
 - Business Meaning: Supports Goal Review scheduling.
 - Example: Monthly.
-- Database Mapping: goals.review_frequency varchar(32) null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.review_frequency varchar(32) null
 - JSON Name: reviewFrequency
 - API Usage: Create, Update, Review, Detail, Search
 - Searchable: Yes
@@ -459,7 +459,7 @@ Navigation:
 - Validation: Valid date; must align with ReviewFrequency when scheduled by review service.
 - Business Meaning: Drives Goal Review workflow.
 - Example: 2026-09-01.
-- Database Mapping: goals.review_date date null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.review_date date null
 - JSON Name: reviewDate
 - API Usage: Update, Review, Detail, Summary, Search
 - Searchable: Yes
@@ -478,7 +478,7 @@ Navigation:
 - Validation: Valid Guid when present; cannot equal GoalId; cannot create cycle.
 - Business Meaning: Supports parent-child goal structure.
 - Example: 5c21e0c8-3000-4e48-9000-5e6a845d0f10.
-- Database Mapping: goals.parent_goal_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.parent_goal_id uuid null
 - JSON Name: parentGoalId
 - API Usage: Create, Update, Detail, Search
 - Searchable: Yes
@@ -497,7 +497,7 @@ Navigation:
 - Validation: Required; greater than 0; unique within selected ordering scope when policy requires.
 - Business Meaning: Supports ordered goal display and dependency sequencing.
 - Example: 1.
-- Database Mapping: goals.sequence integer not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.sequence integer not null
 - JSON Name: sequence
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -516,7 +516,7 @@ Navigation:
 - Validation: Valid Guid when present; same access scope.
 - Business Meaning: Connects Goal to scenario evaluation.
 - Example: 7b8f2309-4b51-4724-9fb7-927db4ee5d5d.
-- Database Mapping: goals.scenario_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.scenario_id uuid null
 - JSON Name: scenarioId
 - API Usage: Detail, Summary, Search
 - Searchable: Yes
@@ -535,7 +535,7 @@ Navigation:
 - Validation: Valid Guid when present; same access scope.
 - Business Meaning: Connects Goal to decision result.
 - Example: 111d49c8-0957-42a2-a812-b736615fa2bb.
-- Database Mapping: goals.decision_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.decision_id uuid null
 - JSON Name: decisionId
 - API Usage: Detail, Summary, Search
 - Searchable: Yes
@@ -554,7 +554,7 @@ Navigation:
 - Validation: Valid Guid when present; same access scope.
 - Business Meaning: Connects Goal to recommendation.
 - Example: 7f3d29c6-6d0e-4f2c-bb46-bd3555d6d351.
-- Database Mapping: goals.recommendation_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.recommendation_id uuid null
 - JSON Name: recommendationId
 - API Usage: Detail, Summary, Search
 - Searchable: Yes
@@ -573,7 +573,7 @@ Navigation:
 - Validation: Valid Guid when present; same access scope.
 - Business Meaning: Connects Goal to execution.
 - Example: 49b48b7e-2f44-40d7-bd31-2eb6fe7f206d.
-- Database Mapping: goals.execution_plan_id uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.execution_plan_id uuid null
 - JSON Name: executionPlanId
 - API Usage: Detail, Summary, Search
 - Searchable: Yes
@@ -592,7 +592,7 @@ Navigation:
 - Validation: Between 0.0000 and 1.0000 when present.
 - Business Meaning: Supports risk, scenario, and recommendation evaluation.
 - Example: 0.8200.
-- Database Mapping: goals.success_probability numeric(5,4) null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.success_probability numeric(5,4) null
 - JSON Name: successProbability
 - API Usage: Detail, Summary, Search, RecalculateProgress
 - Searchable: Yes
@@ -611,7 +611,7 @@ Navigation:
 - Validation: Valid RiskLevel when present.
 - Business Meaning: Communicates risk level of achieving Goal.
 - Example: Medium.
-- Database Mapping: goals.risk_level varchar(32) null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.risk_level varchar(32) null
 - JSON Name: riskLevel
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -630,7 +630,7 @@ Navigation:
 - Validation: Decimal within policy bounds when present.
 - Business Meaning: Supports investment and scenario evaluation.
 - Example: 0.0525.
-- Database Mapping: goals.expected_return numeric(9,6) null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.expected_return numeric(9,6) null
 - JSON Name: expectedReturn
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -649,7 +649,7 @@ Navigation:
 - Validation: Valid JSON object or array when present.
 - Business Meaning: Preserves rules affecting Goal planning and execution.
 - Example: {"minimumLiquidityMonths":6}.
-- Database Mapping: goals.constraints jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.constraints jsonb null
 - JSON Name: constraints
 - API Usage: Create, Update, Detail, Review, History
 - Searchable: No
@@ -668,7 +668,7 @@ Navigation:
 - Validation: Valid JSON object when present.
 - Business Meaning: Preserves planning basis for Goal.
 - Example: {"monthlyContribution":30000,"currency":"TWD"}.
-- Database Mapping: goals.assumptions jsonb null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.assumptions jsonb null
 - JSON Name: assumptions
 - API Usage: Create, Update, Detail, Review, History
 - Searchable: No
@@ -687,7 +687,7 @@ Navigation:
 - Validation: Each tag max length 64; duplicates rejected; no executable content.
 - Business Meaning: Supports filtering and organization.
 - Example: ["liquidity","critical"].
-- Database Mapping: goals.tags text[] not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.tags text[] not null
 - JSON Name: tags
 - API Usage: Create, Update, Detail, Summary, Search
 - Searchable: Yes
@@ -706,7 +706,7 @@ Navigation:
 - Validation: Required; immutable.
 - Business Meaning: Establishes Goal creation time.
 - Example: 2026-07-14T10:00:00+08:00.
-- Database Mapping: goals.created_at timestamptz not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.created_at timestamptz not null
 - JSON Name: createdAt
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -725,7 +725,7 @@ Navigation:
 - Validation: Required; valid actor identity.
 - Business Meaning: Supports audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: goals.created_by uuid not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.created_by uuid not null
 - JSON Name: createdBy
 - API Usage: Detail, History
 - Searchable: Yes
@@ -744,7 +744,7 @@ Navigation:
 - Validation: Required; greater than or equal to CreatedAt.
 - Business Meaning: Supports ordering, cache invalidation, and audit.
 - Example: 2026-07-14T11:00:00+08:00.
-- Database Mapping: goals.updated_at timestamptz not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.updated_at timestamptz not null
 - JSON Name: updatedAt
 - API Usage: Detail, Summary, Search, History
 - Searchable: Yes
@@ -763,7 +763,7 @@ Navigation:
 - Validation: Valid actor identity when present.
 - Business Meaning: Supports mutation audit attribution.
 - Example: b6a6d087-b8f8-4062-92ec-08b7fc5d64f4.
-- Database Mapping: goals.updated_by uuid null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.updated_by uuid null
 - JSON Name: updatedBy
 - API Usage: Detail, History
 - Searchable: Yes
@@ -782,7 +782,7 @@ Navigation:
 - Validation: Required; increments on mutation; stale version rejected.
 - Business Meaning: Preserves Goal Version and Goal History.
 - Example: 6.
-- Database Mapping: goals.version bigint not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.version bigint not null
 - JSON Name: version
 - API Usage: Update, Activate, Pause, Resume, Complete, Cancel, Archive, Restore, Delete, Review, RecalculateProgress
 - Searchable: No
@@ -801,7 +801,7 @@ Navigation:
 - Validation: Required; must match for mutation; regenerated after mutation.
 - Business Meaning: Prevents lost updates inside GoalPlan.
 - Example: 01J2Y8Z7ABCD.
-- Database Mapping: goals.concurrency_token varchar(128) not null
+- PWA Runtime Mapping / Future Cloud Mapping: goals.concurrency_token varchar(128) not null
 - JSON Name: concurrencyToken
 - API Usage: Update, Activate, Pause, Resume, Complete, Cancel, Archive, Restore, Delete, Review, RecalculateProgress
 - Searchable: No
@@ -1055,7 +1055,7 @@ Review DTO: ReviewGoalDto includes goalId, reviewDate, reviewResult, nextReviewD
 
 Progress DTO: GoalProgressDto includes goalId, currentAmount, completionPercentage, progressEvidence, version, concurrencyToken, idempotencyKey.
 
-# Database Mapping
+# PWA Runtime Mapping
 
 Table: goals
 
@@ -1069,7 +1069,7 @@ Check Constraint: status values, priority values, importance range, urgency valu
 
 Index: user, number, status, type, category, priority, target date, review date, parent, references, progress, risk level, tags, updated time, active filter.
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE goals (
@@ -1142,7 +1142,7 @@ CREATE INDEX ix_goals_updated ON goals (updated_at DESC, goal_id);
 CREATE INDEX ix_goals_active ON goals (user_id, goal_status, priority, target_date, updated_at DESC) WHERE goal_status NOT IN ('Archived','Deleted');
 ```
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 Fluent API:
 

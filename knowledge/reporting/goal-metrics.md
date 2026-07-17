@@ -1,4 +1,4 @@
-﻿# Goal Metrics
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Metrics
 Version: 1.0
 Status: Enterprise Specification
 Owner: Project Atlas
@@ -494,7 +494,7 @@ Task<GoalMetricTrendDto> GetMetricTrendAsync(GetMetricTrendRequest request);
 Task<GoalMetricForecastDto> GetMetricForecastAsync(GetMetricForecastRequest request);
 ```
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Method | Endpoint | Purpose |
 |---|---|---|
 | GET | /api/goal-metrics | Search metrics. |
@@ -579,7 +579,7 @@ Projection supports summary, detail, dashboard, result, trend, forecast, search,
 ```json
 { "metricName": "ForecastCompletion", "forecastValue": 0.91, "forecastDate": "2027-04-30", "scenarioId": "uuid", "scenarioVersion": "1.0" }
 ```
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 Primary table: goal_metric.
 History table: goal_metric_history.
@@ -596,7 +596,7 @@ fk_goal_metric_goal_plan.
 uq_goal_metric_household_goal_name.
 ## Check Constraint
 score metric values must be between 0 and 1 when unit is score or ratio.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_metric (
     metric_id uuid PRIMARY KEY,
@@ -692,7 +692,7 @@ SELECT household_id,
 FROM goal_metric_calculation_history
 GROUP BY household_id, goal_plan_id, metric_name, date_trunc('day', calculated_at);
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 ## Fluent API
 ```csharp
 builder.ToTable("goal_metric");
@@ -719,7 +719,7 @@ builder.HasQueryFilter(x => x.DeletedAt == null);
 MetricThreshold can be owned with warning and critical ranges.
 MetricPrecision can be owned with precision name, scale, and unit.
 ## Indexes
-Indexes match PostgreSQL schema.
+Indexes match Future Cloud Mapping schema.
 ## Query Filters
 Default query filter excludes deleted metrics.
 Repository specification applies Household and Tenant filters.

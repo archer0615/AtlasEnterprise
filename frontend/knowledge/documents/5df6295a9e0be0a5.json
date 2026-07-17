@@ -3,7 +3,7 @@
   "title": "Decision Execution Governance and Testing",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-execution/governance-and-testing.md",
-  "sourceHash": "84ddd325b2acba94176626ab7c4005d7da82edeba3be76e8fbcd8621898bd917",
+  "sourceHash": "689c0e48c7dea31d34dc9b522ed48a579e10702c516686762a745b99ecd409c3",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Execution Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Decision Execution governance, validation, security, performance, testing, edge cases, and consistency checks from the parent Decision Execution specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Execution](../decision-execution.md)\r\n\r\n## Testing\r\nTesting covers start, pause, resume, retry, rollback, recover, complete, validation, permissions, audit, concurrency, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Decision Execution Governance and Testing\n\n## Purpose\nThis split document isolates Decision Execution governance, validation, security, performance, testing, edge cases, and consistency checks from the parent Decision Execution specification.\n\n## Source\n- Parent specification: [Decision Execution](../decision-execution.md)\n\n## Testing\nTesting covers start, pause, resume, retry, rollback, recover, complete, validation, permissions, audit, concurrency, and edge cases.\n\n",
   "references": []
 }

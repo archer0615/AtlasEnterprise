@@ -1,4 +1,4 @@
-﻿# Recommendation Lifecycle Overview
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Recommendation Lifecycle Overview
 Version: 1.0.0
 Status: Enterprise Specification
 Owner: Atlas Recommendation Domain
@@ -20,7 +20,7 @@ The lifecycle turns Recommendation signals into governed business actions while 
 Scope includes Recommendation creation, generation, evaluation, ranking, prioritization, approval, publication, acceptance, decline, implementation, expiration, archive, restore, deletion, snapshot, history, audit, and recovery. Scope excludes creation of new Atlas business concepts and excludes direct mutation of Decision, Goal, Scenario, Portfolio, CashFlow, Notification, Workflow, Automation, Business Calendar, or User records.
 
 ## Lifecycle Objectives
-1. Keep Recommendation state deterministic and auditable. 2. Ensure every lifecycle transition has a valid trigger and permission. 3. Preserve ranking, priority, evidence, and business meaning. 4. Coordinate with Decision, Goal, Scenario, Portfolio, CashFlow, Optimization, Simulation, Workflow, Automation, Notification, Business Calendar, and User context. 5. Support enterprise APIs, repositories, database mapping, cache, security, audit, and performance. 6. Prevent stale, unauthorized, duplicate, or inconsistent Recommendations from driving action.
+1. Keep Recommendation state deterministic and auditable. 2. Ensure every lifecycle transition has a valid trigger and permission. 3. Preserve ranking, priority, evidence, and business meaning. 4. Coordinate with Decision, Goal, Scenario, Portfolio, CashFlow, Optimization, Simulation, Workflow, Automation, Notification, Business Calendar, and User context. 5. Support enterprise APIs, repositories, PWA Runtime Mapping / Future Cloud Mapping, cache, security, audit, and performance. 6. Prevent stale, unauthorized, duplicate, or inconsistent Recommendations from driving action.
 
 ## Ownership
 Recommendation Lifecycle is owned by the Recommendation domain. Recommendation source evidence remains owned by the originating domain.
@@ -445,7 +445,7 @@ public interface IRecommendationRepository
 
 # API
 
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Endpoint | Method | Purpose |
 |---|---:|---|
 | `/api/recommendations` | `POST` | Create Recommendation |
@@ -555,7 +555,7 @@ Fields: `filters`, `sort`, `pagination`, `projection`, `includeArchived`, `inclu
 
 ---
 
-# Database Mapping
+# PWA Runtime Mapping
 
 ## Table
 Primary table: `recommendations`. History table: `recommendation_history`.
@@ -584,7 +584,7 @@ History and snapshots may be partitioned by tenant and month.
 
 ---
 
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 
 ```sql
 CREATE TABLE recommendations (
@@ -692,7 +692,7 @@ Constraints enforce state, priority, score range, and version validity.
 
 ---
 
-# EF Core Mapping
+# Future Cloud Mapping
 
 ## Fluent API
 ```csharp

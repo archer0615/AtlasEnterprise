@@ -160,6 +160,63 @@ input {
   margin-bottom: 16px;
 }
 
+.dashboard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.dashboard-actions button,
+.dashboard-actions label,
+.dashboard-actions input[type="text"] {
+  border: 1px solid #c9d5d1;
+  background: #fff;
+  color: #243130;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.dashboard-actions input[type="text"] {
+  cursor: text;
+  min-width: 160px;
+}
+
+.dashboard-actions input[type="file"] {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+}
+
+.dashboard-actions .restore-confirmation {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dashboard-actions .restore-confirmation input {
+  position: static;
+  inline-size: auto;
+  block-size: auto;
+  opacity: 1;
+}
+
+.runtime-feedback {
+  min-height: 20px;
+  margin-bottom: 12px;
+  color: #315c5f;
+  font-size: 13px;
+}
+
+.backup-preview {
+  min-height: 20px;
+  margin-bottom: 8px;
+  color: #627572;
+  font-size: 13px;
+}
+
 .dashboard-switcher button {
   border: 1px solid #c9d5d1;
   background: #fff;

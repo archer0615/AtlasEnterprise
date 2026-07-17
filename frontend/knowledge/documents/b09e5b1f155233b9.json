@@ -3,7 +3,7 @@
   "title": "Risk Budget Breach and Reporting",
   "category": "framework",
   "canonicalPath": "knowledge/framework/risk-budget/breach-and-reporting.md",
-  "sourceHash": "0e919360cfb1511dfd5d4da8dbd70e3cf2e08b107e08d91634ff5c57ffce6b75",
+  "sourceHash": "0253716c5519a8bd53fd57cf30261601c27cbf1fc0938ec4ab51109f08a95636",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Risk Budget Breach and Reporting\n\n## Purpose\n\nThis split document isolates breach handling and reporting behavior from the larger Risk Budget Framework.\n\n## Source\n\n- Parent specification: [Risk Budget Framework](../risk-budget-framework.md)\n\n## Breach Rules\n\n- Risk budget breach detection must identify the breached limit and source exposure.\n- Breaches should produce warning references suitable for recommendations and dashboard display.\n- Breach handling must preserve audit context and household scope.\n\n## Reporting Rules\n\n- Reports must show allocated budget, consumed budget, remaining budget, and breach status.\n- Dashboard summaries must not replace canonical risk budget state.\n- Scenario stress outputs should identify risk budget consumption under each alternative.\n\n## Related References\n\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\n- [Investment Drawdown Fixture Report](../../../docs/roadmap/investment-drawdown-fixture-report.md)\n- [Audit Framework](../../security/audit-framework.md)\n",
+  "bodyMarkdown": "# Risk Budget Breach and Reporting\r\n\r\n## Purpose\r\n\r\nThis split document isolates breach handling and reporting behavior from the larger Risk Budget Framework.\r\n\r\n## Source\r\n\r\n- Parent specification: [Risk Budget Framework](../risk-budget-framework.md)\r\n\r\n## Breach Rules\r\n\r\n- Risk budget breach detection must identify the breached limit and source exposure.\r\n- Breaches should produce warning references suitable for recommendations and dashboard display.\r\n- Breach handling must preserve audit context and household scope.\r\n\r\n## Reporting Rules\r\n\r\n- Reports must show allocated budget, consumed budget, remaining budget, and breach status.\r\n- Dashboard summaries must not replace canonical risk budget state.\r\n- Scenario stress outputs should identify risk budget consumption under each alternative.\r\n\r\n## Related References\r\n\r\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\r\n- [Investment Drawdown Fixture Report](../../../docs/roadmap/investment-drawdown-fixture-report.md)\r\n- [Audit Framework](../../security/audit-framework.md)\r\n",
   "references": []
 }

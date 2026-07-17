@@ -1,4 +1,4 @@
-# Loan Entity Specification
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Loan Entity Specification
 
 ## Split Navigation
 
@@ -45,7 +45,7 @@
 | API Resource | entity-catalog.md | /api/v1/loans. | /api/v1/loans | Referenced | REST controller | Catalog-aligned | Mortgage may map through loans |
 | DTO | API governance | DTO is implementation contract. | Loan DTOs | Implementation Detail | Request/response schemas | Implementation Detail | Does not create Domain Concept |
 | Permission | entity-catalog.md | Liability:Read shown for loan/mortgage API. | Liability:Read and resource-action mappings | Referenced | Authorization policies | Catalog-aligned where present | Mutating permissions are API mapping |
-| Database Table | aggregate-catalog.md | loan tables and mortgage tables when mapped separately. | loans; mortgages | Referenced | PostgreSQL tables | Catalog-aligned | DDL uses loans with optional mortgage reference fields |
+| Database Table | aggregate-catalog.md | loan tables and mortgage tables when mapped separately. | loans; mortgages | Referenced | Future Cloud Mapping tables | Catalog-aligned | DDL uses loans with optional mortgage reference fields |
 | Read Model | API governance | Projection is not source of truth. | Loan projection | Implementation Detail | Cache/materialized view | Implementation Detail | Read-only |
 | Cache | aggregate-catalog.md | Loan amortization cache. | Loan amortization cache | Referenced | Cache keys | Catalog-aligned | Computed output cache only |
 | Audit | aggregate-catalog.md | Loan creation, payment, refinance, close audited. | Loan audit | Referenced | AuditRepository entries | Catalog-aligned | Complete audit required |
@@ -152,7 +152,7 @@ Aggregate Catalog defines Loan as Aggregate Name and Aggregate Root. Loan owns l
 | Prohibited navigation | Mutable object graph to LiabilityPortfolio, CashFlow, Expense, Asset, Scenario, Decision, Recommendation. | Not allowed |
 # Complete Properties
 ## Property Matrix
-| Name | Type | Nullable | Default | Database Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
+| Name | Type | Nullable | Default | PWA Runtime Mapping / Future Cloud Mapping | JSON Name | API Usage | Searchable | Sortable | Indexed | Encrypted | Auditable |
 |---|---|---:|---|---|---|---|---:|---:|---:|---:|---:|
 | LoanId | UUID | No | generated | loan_id uuid pk | loanId | route, response | Yes | Yes | Yes | No | Yes |
 | TenantId | UUID | No | context | tenant_id uuid | tenantId | internal, response | Yes | Yes | Yes | No | Yes |
@@ -492,7 +492,7 @@ Specifications describe persistence filters only. They do not calculate amortiza
 | RecommendationApplicationService | Catalog-aligned where present | Reads projections for recommendations. |
 | ReportApplicationService | Catalog-aligned | Produces loan reports and audit explanations. |
 | AdministrationApplicationService | Catalog-aligned | Audits imports, operational review, and replay-safe queries. |
-# REST API
+# Future Cloud Architecture API
 | Method | Path | Use Case | Permission | Status Codes |
 |---|---|---|---|---|
 | POST | /api/v1/loans | CreateLoan | Liability:Create | 201, 400, 401, 403, 409, 422 |
@@ -523,7 +523,7 @@ Fields: newOriginalPrincipal, newInterestRate, newLoanTermMonths, newMaturityDat
 Fields: every response-safe property in the Property Matrix, plus createdAt, createdBy, updatedAt, updatedBy, version, concurrencyToken.
 ## Search DTO
 Fields: householdId, ownerUserId, loanType, status, nextPaymentDateFrom, nextPaymentDateTo, maturityDateFrom, maturityDateTo, page, pageSize, sort.
-# Database Mapping
+# PWA Runtime Mapping
 | Column | Type | Nullable | Constraint |
 |---|---|---:|---|
 | loan_id | uuid | No | Primary key |
@@ -580,7 +580,7 @@ Fields: householdId, ownerUserId, loanType, status, nextPaymentDateFrom, nextPay
 | updated_by | uuid | No | Updater |
 | version | integer | No | Concurrency |
 | concurrency_token | uuid | No | Concurrency |
-# PostgreSQL DDL
+# Future Cloud Mapping DDL
 ```sql
 CREATE SCHEMA IF NOT EXISTS atlas;
 CREATE TABLE IF NOT EXISTS atlas.loans (
@@ -684,7 +684,7 @@ CREATE INDEX IF NOT EXISTS ix_loans_archived ON atlas.loans (tenant_id, is_archi
 CREATE INDEX IF NOT EXISTS ix_loans_deleted ON atlas.loans (tenant_id, deleted_at);
 CREATE INDEX IF NOT EXISTS ix_loans_concurrency_token ON atlas.loans (concurrency_token);
 ```
-# EF Core Fluent API
+# Future Cloud Mapping Fluent API
 ```csharp
 public sealed class LoanEntityConfiguration : IEntityTypeConfiguration<LoanEntity>
 {
@@ -816,7 +816,7 @@ public sealed class LoanEntityConfiguration : IEntityTypeConfiguration<LoanEntit
 | Event Processing | Idempotent consumers keyed by event id and version. |
 | Read Model Lag | API exposes projection timestamp where projections are returned. |
 # Example JSON
-Create, payment, refinance, detail, and search examples are provided in the DTO section with JSON names matching API and database mappings.
+Create, payment, refinance, detail, and search examples are provided in the DTO section with JSON names matching API and PWA Runtime Mapping / Future Cloud Mappings.
 # Mermaid
 ## Class Diagram
 ```mermaid
@@ -930,7 +930,7 @@ flowchart TD
 | Validation Test | Maturity before origination is rejected. |
 | Security Test | Cross-tenant access is denied. |
 | Security Test | Cross-household access is denied. |
-| Contract Test | DTO JSON names match API schema and database mapping. |
+| Contract Test | DTO JSON names match API schema and PWA Runtime Mapping / Future Cloud Mapping. |
 | Performance Test | Search by nextPaymentDate uses index. |
 | Performance Test | Batch projection completes within target. |
 # Edge Cases
@@ -1081,7 +1081,7 @@ flowchart TD
 | Security | Tenant and Household isolation enforced. |
 | Audit | Complete audit and version history required. |
 # Completion Checklist
-Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Loan Monetary Semantics, Interest Model, Repayment Model, Grace Period Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, REST API, DTO, Database Mapping, PostgreSQL DDL, EF Core Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete.
+Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary, Lifecycle, Ownership, Relationships, Navigation, Complete Properties, Loan Monetary Semantics, Interest Model, Repayment Model, Grace Period Model, Validation Rules, Business Rules, Aggregate Invariants, State Machine, Commands, Domain Events, Repository, Domain Service Interaction, Application Service Interaction, Future Cloud Architecture API, DTO, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping Fluent API, Cache Strategy, Security, Audit, Observability, Performance, Example JSON, Mermaid, Testing, Edge Cases, Error Catalog, Data Migration, Consistency Verification, Final Consistency Matrix, and Version History are complete.
 # Final Consistency Matrix
 | Concern | Source Catalog | Final Atlas Name | Defined Here or Referenced | Implementation Artifact | Status | Conflict | Resolution | Follow-up Catalog Change Required |
 |---|---|---|---|---|---|---|---|---|
@@ -1096,7 +1096,7 @@ Document Control, Catalog Alignment Summary, Entity Overview, Aggregate Boundary
 | Application Service | application-service-catalog.md | LoanApplicationService | Referenced | Use case handlers | Catalog-aligned | None | Use catalog service | No |
 | API | entity-catalog.md | /api/v1/loans | Referenced | Controller | Catalog-aligned | None | Use catalog resource | No |
 | Permission | entity-catalog.md | Liability:Read and resource-action mappings | Referenced | Authorization policy | Catalog-aligned where present | Mutating permissions implicit | Treat as API mapping | Optional catalog update |
-| Database | aggregate-catalog.md | loans | Referenced | PostgreSQL table | Catalog-aligned | Mortgage may map separately | Keep Loan table primary and references optional mortgage mapping | No |
+| Database | aggregate-catalog.md | loans | Referenced | Future Cloud Mapping table | Catalog-aligned | Mortgage may map separately | Keep Loan table primary and references optional mortgage mapping | No |
 | Read Model | API governance | Loan projection | Implementation Detail | Projection/cache | Implementation Detail | Projection might appear authoritative | Projection is read-only | No |
 | Audit | aggregate-catalog.md | Loan audit | Referenced | AuditRepository | Catalog-aligned | None | Mandatory audit | No |
 | Tenant | tenant guidance | TenantId | Referenced | tenant_id | Catalog-aligned | Household confused with Tenant | Keep distinct | No |

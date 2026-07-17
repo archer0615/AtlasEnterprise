@@ -1,29 +1,30 @@
-importScripts("/sw-version.js");
+importScripts("sw-version.js");
 
 const CACHE_NAME = self.ATLAS_CACHE_NAME || "atlas-knowledge-dev";
 const APP_SHELL = [
-  "/",
-  "/index.html",
-  "/manifest.webmanifest",
-  "/sw-version.js",
-  "/src/main.js",
-  "/src/dashboard-model.js",
-  "/src/styles.css",
-  "/fixtures/dashboard-snapshot.json",
-  "/fixtures/dashboard-snapshots.json",
-  "/fixtures/dashboard-runtime-snapshots.json",
-  "/fixtures/generated-fixture-cache-policy.json",
-  "/knowledge/index.json",
-  "/knowledge/search-index.json",
-  "/knowledge/document-assets.json",
-  "/icons/atlas-icon.svg"
+  "./",
+  "index.html",
+  "manifest.webmanifest",
+  "sw-version.js",
+  "src/main.js",
+  "src/indexeddb-runtime.js",
+  "src/dashboard-model.js",
+  "src/styles.css",
+  "fixtures/dashboard-snapshot.json",
+  "fixtures/dashboard-snapshots.json",
+  "fixtures/dashboard-runtime-snapshots.json",
+  "fixtures/generated-fixture-cache-policy.json",
+  "knowledge/index.json",
+  "knowledge/search-index.json",
+  "knowledge/document-assets.json",
+  "icons/atlas-icon.svg"
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
       await cache.addAll(APP_SHELL);
-      const response = await fetch("/knowledge/document-assets.json");
+      const response = await fetch("knowledge/document-assets.json");
       const assets = await response.json();
       await cache.addAll(assets.documents || []);
     })
@@ -55,7 +56,7 @@ self.addEventListener("fetch", (event) => {
         const copy = response.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
         return response;
-      }).catch(() => caches.match("/index.html"));
+      }).catch(() => caches.match("index.html"));
     })
   );
 });

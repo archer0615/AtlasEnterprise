@@ -1,4 +1,4 @@
-# Value Object Lifecycle and Mapping Rules
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Value Object Lifecycle and Mapping Rules
 
 ## Purpose
 This split document isolates the Value Object lifecycle, construction, validation, serialization, and mapping rule groups from the parent Value Object Catalog.
@@ -12,8 +12,8 @@ This split document isolates the Value Object lifecycle, construction, validatio
 - Construction Rules
 - Validation Rules
 - Serialization Rules
-- Database Mapping
-- EF Core Mapping
+- PWA Runtime Mapping / Future Cloud Mapping
+- Future Cloud Mapping
 - API Mapping
 
 ## Equality Rules
@@ -41,15 +41,15 @@ This split document isolates the Value Object lifecycle, construction, validatio
 - Serialization Rules rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
 - Serialization Rules rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
 
-## Database Mapping
-- Database Mapping rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
-- Database Mapping rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
-- Database Mapping rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
+## PWA Runtime Mapping
+- PWA Runtime Mapping / Future Cloud Mapping rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
+- PWA Runtime Mapping / Future Cloud Mapping rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
+- PWA Runtime Mapping / Future Cloud Mapping rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
 
-## EF Core Mapping
-- EF Core Mapping rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
-- EF Core Mapping rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
-- EF Core Mapping rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
+## Future Cloud Mapping
+- Future Cloud Mapping rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
+- Future Cloud Mapping rule 2 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
+- Future Cloud Mapping rule 3 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.
 
 ## API Mapping
 - API Mapping rule 1 enforces immutable construction, value equality, owner persistence, deterministic serialization, API compatibility, and catalog-aligned validation.

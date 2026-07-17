@@ -1,4 +1,4 @@
-﻿# Goal Reporting
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Goal Reporting
 Version: 1.0
 Status: Enterprise Specification
 Owner: Project Atlas
@@ -497,7 +497,7 @@ Task<GoalReportScheduleDto> ScheduleReportAsync(ScheduleReportRequest request);
 Task<GoalReportSearchResultDto> SearchReportsAsync(GoalReportSearchRequest request);
 ```
 # API
-## REST Endpoints
+## Future Cloud Architecture Endpoints
 | Method | Endpoint | Purpose |
 |---|---|---|
 | GET | /api/goal-reports | Search reports. |
@@ -583,7 +583,7 @@ Schedule API accepts cadence, startDate, endDate, timezone, service actor, and d
 ```json
 { "templateVersion": "1.0", "sections": ["ExecutiveSummary", "Progress", "KPIs"], "format": "PDF" }
 ```
-# Database Mapping
+# PWA Runtime Mapping
 ## Table
 Primary table: goal_report. Snapshot table: goal_report_snapshot.
 Export table: goal_report_export_history. Schedule table: goal_report_schedule.
@@ -604,7 +604,7 @@ uq_goal_report_household_goal_name.
 ReportName length must be greater than 0. Schedule end must be after schedule start when present.
 ## Partition Strategy
 Partition snapshot, export history, access history, and generation history by created_at or generated_at month when volume requires it.
-# PostgreSQL Schema
+# Future Cloud Mapping Schema
 ```sql
 CREATE TABLE goal_report (
     report_id uuid PRIMARY KEY,
@@ -712,7 +712,7 @@ FROM goal_report
 WHERE deleted_at IS NULL
 GROUP BY household_id;
 ```
-# EF Core Mapping
+# Future Cloud Mapping
 ## Fluent API
 ```csharp
 builder.ToTable("goal_report");
@@ -738,7 +738,7 @@ builder.HasQueryFilter(x => x.DeletedAt == null);
 ReportSectionSet can be owned for section configuration. ReportFilterSet can be owned for filters.
 ReportTemplate can be owned for template version and rendering options. ReportRetention can be owned for retention policy.
 ## Indexes
-Indexes match PostgreSQL schema.
+Indexes match Future Cloud Mapping schema.
 ## Query Filters
 Default query filter excludes deleted reports. Repository specification applies Household and Tenant filters.
 ## Value Conversion

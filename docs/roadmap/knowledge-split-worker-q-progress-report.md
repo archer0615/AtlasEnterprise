@@ -1,4 +1,4 @@
-# Knowledge Split Worker Q Progress Report
+> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\r\n\r\n# Knowledge Split Worker Q Progress Report
 
 ## Scope
 
@@ -29,7 +29,7 @@
 
 - Value Object split separates property and ownership matrices from identity, construction, validation, and serialization rules so implementers can review model shape separately from behavior constraints.
 - Domain Event split separates delivery integration matrices from ordering, replay, retry, versioning, and compatibility rules so event consumers can focus on routing or operational guarantees independently.
-- Enumeration split separates value usage/reference matrices from database, EF Core, API, and validation mapping rules so API and persistence readers can use a smaller focused document.
+- Enumeration split separates value usage/reference matrices from database, Future Cloud Mapping, API, and validation mapping rules so API and persistence readers can use a smaller focused document.
 - Command split separates API/workflow/automation mapping from authorization, validation, business rules, idempotency, concurrency, audit, and errors so command routing and command controls can be reviewed independently.
 
 ## Verification

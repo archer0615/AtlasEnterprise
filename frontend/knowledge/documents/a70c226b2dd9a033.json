@@ -3,7 +3,7 @@
   "title": "Scenario Refresh Execution",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/scenario-refresh-automation/execution.md",
-  "sourceHash": "95169bd09b020d9d16f670228439dab37e5dbca6650af9bfcfe1af95d4d8944e",
+  "sourceHash": "0ed560f47b74a3d8755a1fae23e00239d7f5b8f1b6c641250e69fe33bc06b394",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Execution"
     }
   ],
-  "bodyMarkdown": "# Scenario Refresh Execution\r\n\r\n## Purpose\r\nThis split document isolates scenario refresh execution, simulation coordination, output generation, and projection refresh from the parent ScenarioRefreshAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [ScenarioRefreshAutomation](../scenario-refresh-automation.md)\r\n\r\n## Execution\r\nExecution selects stale scenarios, loads source assumptions, invokes simulation, stores scenario results, updates comparison projections, records audit, and triggers downstream recommendation refresh when required.\r\n\r\n",
+  "bodyMarkdown": "# Scenario Refresh Execution\n\n## Purpose\nThis split document isolates scenario refresh execution, simulation coordination, output generation, and projection refresh from the parent ScenarioRefreshAutomation specification.\n\n## Source\n- Parent specification: [ScenarioRefreshAutomation](../scenario-refresh-automation.md)\n\n## Execution\nExecution selects stale scenarios, loads source assumptions, invokes simulation, stores scenario results, updates comparison projections, records audit, and triggers downstream recommendation refresh when required.\n\n",
   "references": []
 }
