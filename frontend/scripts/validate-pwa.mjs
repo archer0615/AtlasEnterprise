@@ -14,6 +14,8 @@ const requiredFiles = [
   "src/styles.css",
   "fixtures/dashboard-snapshot.json",
   "fixtures/dashboard-snapshots.json",
+  "fixtures/dashboard-runtime-snapshots.json",
+  "fixtures/scenario-results.json",
   "knowledge/index.json",
   "knowledge/search-index.json",
   "knowledge/document-assets.json",

@@ -13,6 +13,7 @@ const APP_SHELL = [
   "fixtures/dashboard-snapshot.json",
   "fixtures/dashboard-snapshots.json",
   "fixtures/dashboard-runtime-snapshots.json",
+  "fixtures/scenario-results.json",
   "fixtures/generated-fixture-cache-policy.json",
   "knowledge/index.json",
   "knowledge/search-index.json",

@@ -1,0 +1,559 @@
+{
+  "generatedAt": "2026-07-17T07:28:20.651Z",
+  "mode": "fixture-runtime-scaffold",
+  "results": [
+    {
+      "fixtureId": "home-upgrade-2031-baseline",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "defer",
+      "score": 61,
+      "recommendation": {
+        "status": "defer",
+        "explanation": "Delay commitment until down payment and transaction cost assumptions are covered.",
+        "warningReferences": [
+          "down-payment-gap-remains"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "home-upgrade-2031-baseline",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "transactionCostEstimate": 910000
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 8,
+          "violations": []
+        },
+        "evaluatedMetricCount": 1,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-CF-COVERAGE"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 61,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 1,
+        "warningCount": 1
+      }
+    },
+    {
+      "fixtureId": "investment-drawdown-stress",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "market-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "monitor",
+      "score": 71,
+      "recommendation": {
+        "status": "monitor",
+        "explanation": "Liquidity survives the drawdown, but goal funding margin should remain under review.",
+        "warningReferences": [
+          "portfolio-drawdown-reduces-goal-margin"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "investment-drawdown-stress",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "stressedPortfolioValue": 5304000,
+        "reserveMonths": 13.04
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 7,
+          "violations": []
+        },
+        "evaluatedMetricCount": 2,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PORTFOLIO-DRAWDOWN",
+          "FORM-CF-COVERAGE"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 71,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 2,
+        "warningCount": 1
+      }
+    },
+    {
+      "fixtureId": "loan-amortization-prepayment-impact",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "review",
+      "score": 82,
+      "recommendation": {
+        "status": "review",
+        "explanation": "Prepayment improves monthly payment pressure, but reserve preservation must be checked first.",
+        "warningReferences": [
+          "Preserve emergency reserve before prepayment."
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "loan-amortization-prepayment-impact",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "monthlyPaymentBeforePrepayment": 30637.97,
+        "monthlyPaymentAfterPrepayment": 28084.81,
+        "monthlyPaymentReduction": 2553.16,
+        "interestSavedEstimate": 112758.4
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 5,
+          "violations": []
+        },
+        "evaluatedMetricCount": 4,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-LOAN-AMORTIZATION",
+          "FORM-PREPAYMENT-IMPACT"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 82,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 4,
+        "warningCount": 1
+      }
+    },
+    {
+      "fixtureId": "loan-amortization-schedule-baseline",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "pass",
+      "score": 88,
+      "recommendation": {
+        "status": "pass",
+        "explanation": "Schedule math is stable for monthly payment, first-period split, and remaining balance.",
+        "warningReferences": [],
+        "executionTrace": {
+          "sourceFixtureId": "loan-amortization-schedule-baseline",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 0,
+      "metrics": {
+        "monthlyPayment": 20739.96,
+        "firstMonthInterest": 5600,
+        "firstMonthPrincipal": 15139.96,
+        "endingBalanceAfterFirstMonth": 3184860.04,
+        "totalInterest": 533192.8
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 4,
+          "violations": []
+        },
+        "evaluatedMetricCount": 5,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-LOAN-AMORTIZATION"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 88,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 5,
+        "warningCount": 0
+      }
+    },
+    {
+      "fixtureId": "loan-refinancing-fee-breakdown",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "conditional",
+      "score": 58,
+      "recommendation": {
+        "status": "conditional",
+        "explanation": "Refinancing remains conditional because full fee recovery is longer than the aggregate-fee scenario.",
+        "warningReferences": [
+          "fee-stack-extends-break-even"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "loan-refinancing-fee-breakdown",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "totalRefinanceCost": 96000,
+        "monthlyPaymentSavingsAfterReset": 758.09,
+        "refinanceFeeRecoveryMonths": 126.63
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 10,
+          "violations": []
+        },
+        "evaluatedMetricCount": 3,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-REFI-BREAK-EVEN"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 58,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 3,
+        "warningCount": 1
+      }
+    },
+    {
+      "fixtureId": "loan-refinancing-no-savings-boundary",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "reject",
+      "score": 20,
+      "recommendation": {
+        "status": "reject",
+        "explanation": "Refinance does not create monthly savings and fee recovery is not available.",
+        "warningReferences": [
+          "Reject refinance when monthly savings are zero or negative."
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "loan-refinancing-no-savings-boundary",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "resetMonthlyPayment": 34185.6,
+        "refinanceMonthlyPayment": 34185.6,
+        "monthlyPaymentSavingsAfterReset": 0,
+        "refinanceFeeRecoveryMonths": null
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 7,
+          "violations": []
+        },
+        "evaluatedMetricCount": 4,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-REFI-BREAK-EVEN"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 20,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 4,
+        "warningCount": 1
+      }
+    },
+    {
+      "fixtureId": "loan-refinancing-rate-shock",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "conditional",
+      "score": 66,
+      "recommendation": {
+        "status": "conditional",
+        "explanation": "Refinance only if fee recovery remains acceptable under the reset-rate scenario.",
+        "warningReferences": [
+          "refinance-fee-must-be-recovered",
+          "rate-reset-pressure"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "loan-refinancing-rate-shock",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 2,
+      "metrics": {
+        "currentMonthlyPayment": 20739.96,
+        "resetMonthlyPayment": 21945.04,
+        "refinanceMonthlyPayment": 21186.95,
+        "monthlyPaymentSavingsAfterReset": 758.09,
+        "refinanceFeeRecoveryMonths": 63.32
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 9,
+          "violations": []
+        },
+        "evaluatedMetricCount": 5,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-REFI-BREAK-EVEN"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 66,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 5,
+        "warningCount": 2
+      }
+    },
+    {
+      "fixtureId": "mortgage-prepayment-baseline-2026",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "conditional",
+      "score": 72,
+      "recommendation": {
+        "status": "conditional",
+        "explanation": "Proceed only if emergency reserve remains above target after prepayment.",
+        "warningReferences": [
+          "reserve-must-remain-above-target"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "mortgage-prepayment-baseline-2026",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "postPrepaymentReserveMonths": 6.52,
+        "monthlyMortgagePayment": 73800.48
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 8,
+          "violations": []
+        },
+        "evaluatedMetricCount": 2,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-CF-COVERAGE"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 72,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 2,
+        "warningCount": 1
+      }
+    },
+    {
+      "fixtureId": "portfolio-drawdown-attribution-stress",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "market-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "monitor",
+      "score": 64,
+      "recommendation": {
+        "status": "monitor",
+        "explanation": "Equity exposure explains most drawdown risk and should drive mitigation planning.",
+        "warningReferences": [
+          "equity-dominates-drawdown"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "portfolio-drawdown-attribution-stress",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "equityLoss": 822800,
+        "bondLoss": 119000,
+        "cashLoss": 0,
+        "totalDrawdownAmount": 941800,
+        "stressedPortfolioValue": 5858200,
+        "drawdownRate": 0.1385
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 8,
+          "violations": []
+        },
+        "evaluatedMetricCount": 6,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-DRAWDOWN-ATTRIBUTION",
+          "FORM-PORTFOLIO-DRAWDOWN"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 64,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 6,
+        "warningCount": 1
+      }
+    },
+    {
+      "fixtureId": "retirement-readiness-stress",
+      "asOfDate": "2026-07-15",
+      "assumptionVersion": "market-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "monitor",
+      "score": 69,
+      "recommendation": {
+        "status": "monitor",
+        "explanation": "Keep retirement plan under monitoring because stress returns reduce readiness margin.",
+        "warningReferences": [
+          "return-assumption-sensitive"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "retirement-readiness-stress",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {},
+      "generatedFrom": "fixture-expected-output",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 7,
+          "violations": []
+        },
+        "evaluatedMetricCount": 0,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-DECISION-SCORE"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 69,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 0,
+        "warningCount": 1
+      }
+    },
+    {
+      "fixtureId": "retirement-withdrawal-sustainability-stress",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "market-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "at-risk",
+      "score": 42,
+      "recommendation": {
+        "status": "at-risk",
+        "explanation": "Withdrawal need materially exceeds the safe withdrawal threshold under baseline and stress views.",
+        "warningReferences": [
+          "withdrawal-rate-above-safe-threshold",
+          "stress-withdrawal-gap"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "retirement-withdrawal-sustainability-stress",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 2,
+      "metrics": {
+        "annualWithdrawalNeed": 960000,
+        "withdrawalRate": 0.098,
+        "stressedPortfolioValue": 8820000,
+        "stressedWithdrawalRate": 0.1088,
+        "sustainableAnnualWithdrawal": 392000,
+        "annualWithdrawalGap": 568000
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 5,
+          "violations": []
+        },
+        "evaluatedMetricCount": 6,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-SWR",
+          "FORM-WITHDRAWAL-SUSTAINABILITY"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 42,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 6,
+        "warningCount": 2
+      }
+    }
+  ]
+}

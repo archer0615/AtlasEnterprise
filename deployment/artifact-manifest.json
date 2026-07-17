@@ -8,6 +8,7 @@
     "frontend/fixtures/dashboard-snapshot.json",
     "frontend/fixtures/dashboard-snapshots.json",
     "frontend/fixtures/dashboard-runtime-snapshots.json",
+    "frontend/fixtures/scenario-results.json",
     "frontend/fixtures/generated-fixture-cache-policy.json",
     "frontend/knowledge/index.json",
     "frontend/knowledge/search-index.json",

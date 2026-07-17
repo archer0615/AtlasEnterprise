@@ -291,6 +291,55 @@ input {
   color: #1f6f78;
 }
 
+.runtime-panels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+  border-top: 1px solid #e1e8e5;
+  padding-top: 14px;
+}
+
+.runtime-panels section {
+  min-width: 0;
+}
+
+.report-list,
+.execution-panel {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.runtime-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #e1e8e5;
+  padding-top: 8px;
+}
+
+.runtime-row span,
+.runtime-note,
+.empty-runtime {
+  color: #627572;
+  font-size: 12px;
+}
+
+.runtime-row strong {
+  color: #1f6f78;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.runtime-note {
+  line-height: 1.45;
+}
+
+.compact-actions {
+  margin-top: 10px;
+}
+
 .list-tools {
   display: flex;
   justify-content: space-between;
@@ -424,7 +473,8 @@ input {
   }
 
   .metric-grid,
-  .decision-panels {
+  .decision-panels,
+  .runtime-panels {
     display: grid;
     grid-template-columns: 1fr;
   }

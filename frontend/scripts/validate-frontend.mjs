@@ -38,6 +38,11 @@ assert(html.includes('id="importBackupInput"'), "import backup input is missing"
 assert(html.includes('id="restoreConfirmInput"'), "restore confirmation input is missing");
 assert(html.includes('id="applyBackupButton"'), "apply backup button is missing");
 assert(html.includes('id="backupPreview"'), "backup preview is missing");
+assert(html.includes('id="portfolioReportPanel"'), "portfolio report panel is missing");
+assert(html.includes('id="recommendationControlPanel"'), "recommendation control panel is missing");
+assert(html.includes('id="loanScenarioPanel"'), "loan scenario panel is missing");
+assert(html.includes('id="acceptRecommendationButton"'), "accept recommendation button is missing");
+assert(html.includes('id="rejectRecommendationButton"'), "reject recommendation button is missing");
 assert(html.includes("搜尋知識文件、規格或路徑"), "search placeholder must be readable Traditional Chinese");
 assert(html.includes("選取知識文件以檢視"), "empty document state must be readable Traditional Chinese");
 assertReadable("index.html", html);
@@ -70,6 +75,10 @@ assert(main.includes("formatBackupPreview"), "Backup preview diff details are mi
 assert(main.includes("情境分數必須是 0 到 100"), "Scenario score range validation is missing");
 assert(main.includes("incomingNames"), "Backup preview scenario names are missing");
 assert(main.includes("replacingNames"), "Backup preview replacement names are missing");
+assert(main.includes("renderPortfolioReport"), "Portfolio report renderer is missing");
+assert(main.includes("renderRecommendationControls"), "Recommendation execution controls are missing");
+assert(main.includes("renderLoanScenarioPanel"), "Loan scenario renderer is missing");
+assert(main.includes("setRecommendationDecision"), "Recommendation decision handler is missing");
 assert(repositoryInterface.includes("Repository Interfaces remain technology-neutral"), "Repository Interface documentation is missing technology-neutral invariant");
 assert(repositoryInterface.includes("IndexedDB scenario adapter"), "Repository Interface documentation is missing IndexedDB scenario adapter mapping");
 assert(main.includes("找不到符合條件的知識文件。"), "empty search result text is missing");
@@ -82,6 +91,7 @@ new Function(dashboardModel.replaceAll("export const", "const").replaceAll("expo
 
 assert(styles.includes(".dashboard-prototype"), "dashboard prototype styles are missing");
 assert(styles.includes(".dashboard-switcher"), "dashboard switcher styles are missing");
+assert(styles.includes(".runtime-panels"), "runtime panel styles are missing");
 assert(styles.includes("@media (max-width: 860px)"), "responsive media query is missing");
 assert(dashboard.metrics.length === 4, "dashboard fixture must expose four metrics");
 assert(dashboard.label, "dashboard fixture must expose a label");

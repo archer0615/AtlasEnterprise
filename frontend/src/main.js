@@ -27,6 +27,11 @@ const dashboardSwitcher = document.querySelector("#dashboardSwitcher");
 const metricGrid = document.querySelector("#metricGrid");
 const scenarioList = document.querySelector("#scenarioList");
 const actionList = document.querySelector("#actionList");
+const portfolioReportPanel = document.querySelector("#portfolioReportPanel");
+const recommendationControlPanel = document.querySelector("#recommendationControlPanel");
+const loanScenarioPanel = document.querySelector("#loanScenarioPanel");
+const acceptRecommendationButton = document.querySelector("#acceptRecommendationButton");
+const rejectRecommendationButton = document.querySelector("#rejectRecommendationButton");
 const saveScenarioButton = document.querySelector("#saveScenarioButton");
 const deleteScenarioButton = document.querySelector("#deleteScenarioButton");
 const resetScenariosButton = document.querySelector("#resetScenariosButton");
@@ -40,6 +45,8 @@ const scenarioScoreInput = document.querySelector("#scenarioScoreInput");
 const runtimeFeedback = document.querySelector("#runtimeFeedback");
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
+let runtimeSnapshots = [];
+let simulatorResults = new Map();
 let selectedDashboardSnapshotId = fallbackDashboardSnapshot.snapshotId;
 let localScenarios = [];
 let pendingBackup = null;
@@ -67,6 +74,7 @@ async function loadDashboard() {
     if (!response.ok) throw new Error(`Failed to load dashboard fixtures: ${response.status}`);
     const collection = normalizeDashboardCollection(await response.json());
     dashboardSnapshots = collection.snapshots;
+    await loadRuntimeContracts();
     selectedDashboardSnapshotId = await readStoredDashboardSnapshotId() || collection.defaultSnapshotId;
     await indexedDbMigrationRepository.markCurrent().catch(() => {});
     localScenarios = await indexedDbScenarioRepository.list().catch(() => []);
@@ -225,6 +233,86 @@ function renderDashboard(snapshot) {
   actionList.innerHTML = snapshot.actions.map((action) => `
     <div class="action-row">${escapeHtml(action)}</div>
   `).join("");
+  renderPortfolioReport(snapshot);
+  renderRecommendationControls(snapshot);
+  renderLoanScenarioPanel(snapshot);
+}
+
+function getRuntimeSnapshot(snapshot) {
+  return runtimeSnapshots.find((item) => item.snapshotId === snapshot.snapshotId)
+    || runtimeSnapshots.find((item) => item.sourceFixture === snapshot.sourceFixture)
+    || null;
+}
+
+function getRuntimeResult(runtimeSnapshot) {
+  const fixtureId = runtimeSnapshot?.runtimeBinding?.sourceFixtureId || runtimeSnapshot?.sourceFixture?.split("/").pop()?.replace(/\.json$/, "");
+  return simulatorResults.get(fixtureId) || null;
+}
+
+function renderPortfolioReport(snapshot) {
+  const runtimeSnapshot = getRuntimeSnapshot(snapshot);
+  const result = getRuntimeResult(runtimeSnapshot);
+  const formulaIds = (runtimeSnapshot?.metrics || []).flatMap((metric) => metric.formulaIds || []);
+  const isPortfolio = formulaIds.includes("FORM-PORTFOLIO-DRAWDOWN") || formulaIds.includes("FORM-DRAWDOWN-ATTRIBUTION");
+  if (!isPortfolio || !result) {
+    portfolioReportPanel.innerHTML = `<div class="empty-runtime">目前情境沒有 Portfolio 報表合約。</div>`;
+    return;
+  }
+  const metrics = [
+    ["回撤率", formatMetricValue(result.metrics.drawdownRate, "percent")],
+    ["回撤金額", formatMetricValue(result.metrics.totalDrawdownAmount, "currency")],
+    ["壓力後資產", formatMetricValue(result.metrics.stressedPortfolioValue, "currency")],
+    ["Equity loss", formatMetricValue(result.metrics.equityLoss, "currency")],
+  ];
+  portfolioReportPanel.innerHTML = metrics.map(([label, value]) => `
+    <div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>
+  `).join("");
+}
+
+function renderRecommendationControls(snapshot) {
+  const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
+  if (!result?.recommendation) {
+    recommendationControlPanel.innerHTML = `<div class="empty-runtime">目前情境沒有 Recommendation execution trace。</div>`;
+    return;
+  }
+  recommendationControlPanel.innerHTML = `
+    <div class="runtime-row"><span>Status</span><strong>${escapeHtml(result.recommendation.status)}</strong></div>
+    <div class="runtime-row"><span>Score</span><strong>${escapeHtml(result.score)}</strong></div>
+    <div class="runtime-note">${escapeHtml(result.recommendation.explanation)}</div>
+  `;
+}
+
+function renderLoanScenarioPanel(snapshot) {
+  const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
+  const formulaIds = result?.formulaEvaluation?.formulaIds || [];
+  const isLoan = formulaIds.some((formulaId) => ["FORM-PMT", "FORM-LOAN-AMORTIZATION", "FORM-REFI-BREAK-EVEN", "FORM-PREPAYMENT-IMPACT"].includes(formulaId));
+  if (!isLoan || !result) {
+    loanScenarioPanel.innerHTML = `<div class="empty-runtime">目前情境沒有 Loan runtime 指標。</div>`;
+    return;
+  }
+  const loanMetrics = Object.entries(result.metrics)
+    .filter(([key]) => /payment|loan|refinance|interest|balance|prepayment|fee/i.test(key))
+    .slice(0, 5);
+  loanScenarioPanel.innerHTML = loanMetrics.map(([label, value]) => `
+    <div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(formatMetricValue(value))}</strong></div>
+  `).join("");
+}
+
+function setRecommendationDecision(decision) {
+  const snapshot = dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
+  const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
+  if (!result?.recommendation) {
+    setRuntimeFeedback("目前情境沒有可執行的建議。");
+    return;
+  }
+  setRuntimeFeedback(`Recommendation ${decision}：${result.fixtureId} / ${result.recommendation.status}`);
+}
+
+function formatMetricValue(value, mode = "") {
+  if (value === null || value === undefined) return "N/A";
+  if (mode === "percent") return `${(Number(value) * 100).toFixed(2)}%`;
+  if (mode === "currency") return Number(value).toLocaleString("zh-TW");
+  return String(value);
 }
 
 async function saveCurrentScenario() {
@@ -325,6 +413,16 @@ function validateScenarioInput(name, score) {
   if (score.length > 24) {
     throw new Error("分數或狀態不可超過 24 個字。");
   }
+}
+
+async function loadRuntimeContracts() {
+  const [runtimeResponse, simulatorResponse] = await Promise.all([
+    fetch("fixtures/dashboard-runtime-snapshots.json", { cache: "no-cache" }),
+    fetch("fixtures/scenario-results.json", { cache: "no-cache" }),
+  ]);
+  runtimeSnapshots = runtimeResponse.ok ? (await runtimeResponse.json()).snapshots || [] : [];
+  const simulatorPayload = simulatorResponse.ok ? await simulatorResponse.json() : { results: [] };
+  simulatorResults = new Map((simulatorPayload.results || []).map((result) => [result.fixtureId, result]));
 }
 
 function formatBackupPreview(backup) {
@@ -466,6 +564,14 @@ importBackupInput.addEventListener("change", (event) => {
 
 applyBackupButton.addEventListener("click", () => {
   applyBackup().catch((error) => setRuntimeFeedback(error.message));
+});
+
+acceptRecommendationButton.addEventListener("click", () => {
+  setRecommendationDecision("accepted");
+});
+
+rejectRecommendationButton.addEventListener("click", () => {
+  setRecommendationDecision("rejected");
 });
 
 window.addEventListener("hashchange", openDocumentFromHash);

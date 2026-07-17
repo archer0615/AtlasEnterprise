@@ -44,6 +44,20 @@ const browser = await chromium.launch();
 try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "networkidle" });
+  assert(await page.locator("#portfolioReportPanel").count() === 1, "portfolio report panel is missing");
+  assert(await page.locator("#recommendationControlPanel").count() === 1, "recommendation control panel is missing");
+  assert(await page.locator("#loanScenarioPanel").count() === 1, "loan scenario panel is missing");
+
+  await page.getByRole("button", { name: "投資回撤壓力測試" }).click();
+  await page.waitForFunction(() => document.querySelector("#portfolioReportPanel")?.textContent.includes("回撤率"));
+  await page.click("#acceptRecommendationButton");
+  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("Recommendation accepted"));
+
+  await page.getByRole("button", { name: "貸款轉貸利率壓力" }).click();
+  await page.waitForFunction(() => document.querySelector("#loanScenarioPanel")?.textContent.includes("refinanceMonthlyPayment"));
+  await page.click("#rejectRecommendationButton");
+  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("Recommendation rejected"));
+
   await page.fill("#scenarioNameInput", "A");
   await page.click("#saveScenarioButton");
   await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("至少需要 2 個字"));
