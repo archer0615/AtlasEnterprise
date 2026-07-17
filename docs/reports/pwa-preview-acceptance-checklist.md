@@ -30,27 +30,27 @@ Accepted.
 
 | URL | Status | Evidence |
 | --- | --- | --- |
-| `https://archer0615.github.io/AtlasEnterprise/` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
-| `https://archer0615.github.io/AtlasEnterprise/manifest.webmanifest` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
-| `https://archer0615.github.io/AtlasEnterprise/sw.js` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
-| `https://archer0615.github.io/AtlasEnterprise/knowledge/index.json` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
-| `https://archer0615.github.io/AtlasEnterprise/knowledge/search-index.json` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
+| `https://archer0615.github.io/AtlasEnterprise/frontend/` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29563344752`. |
+| `https://archer0615.github.io/AtlasEnterprise/frontend/manifest.webmanifest` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29563344752`. |
+| `https://archer0615.github.io/AtlasEnterprise/frontend/sw.js` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29563344752`. |
+| `https://archer0615.github.io/AtlasEnterprise/frontend/knowledge/index.json` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29563344752`. |
+| `https://archer0615.github.io/AtlasEnterprise/frontend/knowledge/search-index.json` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29563344752`. |
 
 ## Workflow Trigger Readiness
 
 | Item | Status | Evidence |
 | --- | --- | --- |
 | GitHub CLI availability | Not required | Push-triggered workflow deployed successfully without `gh`. |
-| Remote branch check | Passed | `origin/master` deployed commit `a0686931a73d17f863e9228546729233f0d8e08b`. |
+| Remote branch check | Passed | `origin/master` deployed commit `c186d0de89dd1d60a1d7ee85bdb7359241e81381`. |
 | Local workflow file | Present locally | `.github/workflows/pages.yml` exists in the workspace. |
-| GitHub Pages workflow | Passed | `Deploy Atlas PWA to GitHub Pages` run `29561153619` completed successfully. |
+| GitHub Pages workflow | Passed | `Deploy Atlas PWA to GitHub Pages` run `29563344752` completed successfully. |
 
 ## Acceptance Criteria
 
 | Criterion | Expected Result |
 | --- | --- |
 | GitHub Actions workflow dispatch completes | Deploy job succeeds and reports a GitHub Pages URL. |
-| Pages root URL loads | `https://archer0615.github.io/AtlasEnterprise/` returns HTTP 200. |
+| Pages PWA URL loads | `https://archer0615.github.io/AtlasEnterprise/frontend/` returns HTTP 200. |
 | Manifest loads | `/manifest.webmanifest` returns HTTP 200. |
 | Service worker loads | `/sw.js` returns HTTP 200. |
 | Knowledge index loads | `/knowledge/index.json` returns HTTP 200. |
@@ -61,9 +61,9 @@ Accepted.
 ## Release Status
 
 - Internal preview deployment is accepted.
-- GitHub Pages URL: `https://archer0615.github.io/AtlasEnterprise/`
-- Deployed commit: `a0686931a73d17f863e9228546729233f0d8e08b`
-- Workflow run: `https://github.com/archer0615/AtlasEnterprise/actions/runs/29561153619`
+- GitHub Pages PWA URL: `https://archer0615.github.io/AtlasEnterprise/frontend/`
+- Deployed commit: `c186d0de89dd1d60a1d7ee85bdb7359241e81381`
+- Workflow run: `https://github.com/archer0615/AtlasEnterprise/actions/runs/29563344752`
 
 ## Blockers
 
