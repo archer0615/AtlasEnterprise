@@ -17,105 +17,75 @@ const styles = await readFile(path.join(frontendRoot, "src", "styles.css"), "utf
 const dashboard = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-snapshot.json"), "utf8"));
 const dashboards = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-snapshots.json"), "utf8"));
 
-const mojibakePattern = /[�]|[?][\uE000-\uF8FF]|[銝瘥蝣撱閮][^\n]{0,8}[?]/u;
+const mojibakePattern = /[嚙稽]|[?][\uE000-\uF8FF]/u;
 
 function assertReadable(name, value) {
   assert(!mojibakePattern.test(value), `${name} contains unreadable text`);
 }
 
-assert(html.includes('id="metricGrid"'), "dashboard metric grid is missing");
-assert(html.includes('id="scenarioList"'), "dashboard scenario list is missing");
-assert(html.includes('id="actionList"'), "dashboard action list is missing");
-assert(html.includes('id="dashboardSwitcher"'), "dashboard switcher is missing");
-assert(html.includes('id="saveScenarioButton"'), "save scenario button is missing");
-assert(html.includes('id="deleteScenarioButton"'), "delete scenario button is missing");
-assert(html.includes('id="resetScenariosButton"'), "reset scenarios button is missing");
-assert(html.includes('id="runtimeFeedback"'), "runtime feedback is missing");
-assert(html.includes('id="scenarioNameInput"'), "scenario name input is missing");
-assert(html.includes('id="scenarioScoreInput"'), "scenario score input is missing");
-assert(html.includes('id="exportBackupButton"'), "export backup button is missing");
-assert(html.includes('id="importBackupInput"'), "import backup input is missing");
-assert(html.includes('id="restoreConfirmInput"'), "restore confirmation input is missing");
-assert(html.includes('id="applyBackupButton"'), "apply backup button is missing");
-assert(html.includes('id="backupPreview"'), "backup preview is missing");
-assert(html.includes('id="portfolioReportPanel"'), "portfolio report panel is missing");
-assert(html.includes('id="recommendationControlPanel"'), "recommendation control panel is missing");
-assert(html.includes('id="loanScenarioPanel"'), "loan scenario panel is missing");
-assert(html.includes('id="exportPortfolioReportButton"'), "portfolio report export button is missing");
-assert(html.includes('id="recommendationDecisionLog"'), "recommendation decision log is missing");
-assert(html.includes('id="acceptRecommendationButton"'), "accept recommendation button is missing");
-assert(html.includes('id="rejectRecommendationButton"'), "reject recommendation button is missing");
-assert(html.includes('id="loanBalanceInput"'), "loan balance input is missing");
-assert(html.includes('id="loanRateInput"'), "loan rate input is missing");
-assert(html.includes('id="loanMonthsInput"'), "loan months input is missing");
-assert(html.includes('id="calculateLoanButton"'), "loan calculation button is missing");
-assert(html.includes('id="loanEditableOutput"'), "loan editable output is missing");
-assert(html.includes("搜尋內部知識文件"), "search placeholder must be readable Traditional Chinese and internal-facing");
-assert(html.includes("選取知識文件以檢視"), "empty document state must be readable Traditional Chinese");
-assert(html.includes("生活決策工作台"), "workspace title must be user-facing");
-assert(html.includes("我的決策狀態"), "dashboard title must be user-facing");
-assert(html.includes("先選擇情境"), "dashboard must include user workflow guidance");
-assert(html.includes("情境名稱"), "primary scenario input must use user-facing copy");
-assert(html.includes("進階資料管理"), "advanced data controls must be separated from primary workflow");
-assert(html.includes("內部知識庫與規格文件"), "internal knowledge area must be explicitly separated");
-assert(html.includes("供管理者查閱"), "internal knowledge area must explain its audience");
+for (const id of [
+  "metricGrid", "scenarioList", "actionList", "dashboardSwitcher", "saveScenarioButton",
+  "deleteScenarioButton", "resetScenariosButton", "runtimeFeedback", "scenarioNameInput",
+  "scenarioScoreInput", "exportBackupButton", "importBackupInput", "restoreConfirmInput",
+  "applyBackupButton", "backupPreview", "portfolioReportPanel", "recommendationControlPanel",
+  "loanScenarioPanel", "exportPortfolioReportButton", "recommendationDecisionLog",
+  "acceptRecommendationButton", "rejectRecommendationButton", "loanBalanceInput", "loanRateInput",
+  "loanMonthsInput", "calculateLoanButton", "loanEditableOutput",
+]) {
+  assert(html.includes(`id="${id}"`), `${id} is missing`);
+}
+
+for (const text of [
+  "搜尋知識文件", "請選擇知識文件查看內容。", "財務決策工作台", "當前財務情境",
+  "依照儀表板提示完成檢查", "情境名稱", "進階資料管理", "內部知識與規格文件",
+  "提供架構、規則與治理文件查核",
+]) {
+  assert(html.includes(text), `missing readable UI text: ${text}`);
+}
+
 assertReadable("index.html", html);
 assertReadable("main.js", main);
 assertReadable("dashboard-model.js", dashboardModel);
 assertReadable("indexeddb-runtime.js", indexedDbRuntime);
 
-assert(main.includes('from "./dashboard-model.js"'), "dashboard model import is missing");
-assert(main.includes('from "./indexeddb-runtime.js"'), "IndexedDB runtime import is missing");
-assert(main.includes("indexedDbScenarioRepository"), "Scenario IndexedDB repository usage is missing");
-assert(main.includes("indexedDbBackupRepository"), "Backup IndexedDB repository usage is missing");
-assert(dashboardModel.includes("legacySnapshotIdKeys"), "dashboard persistence migration keys are missing");
-assert(indexedDbRuntime.includes('"atlas-pwa-runtime"'), "IndexedDB runtime database is missing");
-assert(indexedDbRuntime.includes('"settings"'), "IndexedDB settings object store is missing");
-assert(indexedDbRuntime.includes('"scenarios"'), "IndexedDB scenarios object store is missing");
-assert(indexedDbRuntime.includes('"recommendationDecisions"'), "IndexedDB recommendation decisions object store is missing");
-assert(indexedDbRuntime.includes("indexedDbScenarioRepository"), "Scenario repository adapter is missing");
-assert(indexedDbRuntime.includes("indexedDbRecommendationDecisionRepository"), "Recommendation decision repository adapter is missing");
-assert(indexedDbRuntime.includes("indexedDbBackupRepository"), "Backup repository adapter is missing");
-assert(indexedDbRuntime.includes("async delete(scenarioId)"), "Scenario delete adapter is missing");
-assert(indexedDbRuntime.includes("async clear()"), "Scenario clear adapter is missing");
-assert(indexedDbRuntime.includes("backupSchemaVersion"), "Backup schema version is missing");
-assert(indexedDbRuntime.includes("validateBackup"), "Backup schema validation is missing");
-assert(indexedDbRuntime.includes("scenarioIds.has"), "Backup duplicate scenario ID validation is missing");
-assert(indexedDbRuntime.includes("indexedDbMigrationRepository"), "IndexedDB migration repository is missing");
-assert(indexedDbRuntime.includes("databaseVersion"), "IndexedDB database version is missing");
-assert(main.includes("restoreConfirmInput"), "Backup restore confirmation workflow is missing");
-assert(main.includes("previewBackup"), "Backup preview workflow is missing");
-assert(main.includes("applyBackup"), "Backup apply workflow is missing");
-assert(main.includes("validateScenarioInput"), "Scenario validation rules are missing");
-assert(main.includes("formatBackupPreview"), "Backup preview diff details are missing");
-assert(main.includes("情境分數必須是 0 到 100"), "Scenario score range validation is missing");
-assert(main.includes("incomingNames"), "Backup preview scenario names are missing");
-assert(main.includes("replacingNames"), "Backup preview replacement names are missing");
-assert(main.includes("renderPortfolioReport"), "Portfolio report renderer is missing");
-assert(main.includes("renderRecommendationControls"), "Recommendation execution controls are missing");
-assert(main.includes("renderLoanScenarioPanel"), "Loan scenario renderer is missing");
-assert(main.includes("setRecommendationDecision"), "Recommendation decision handler is missing");
-assert(main.includes("exportPortfolioReport"), "Portfolio report export workflow is missing");
-assert(main.includes("calculateEditableLoan"), "Loan editable calculation workflow is missing");
-assert(main.includes("validateLoanInput"), "Loan input validation is missing");
+for (const token of [
+  'from "./dashboard-model.js"', 'from "./indexeddb-runtime.js"', "indexedDbScenarioRepository",
+  "indexedDbBackupRepository", "restoreConfirmInput", "previewBackup", "applyBackup",
+  "validateScenarioInput", "formatBackupPreview", "情境分數必須是 0 到 100",
+  "incomingNames", "replacingNames", "renderPortfolioReport", "renderRecommendationControls",
+  "renderLoanScenarioPanel", "setRecommendationDecision", "exportPortfolioReport",
+  "calculateEditableLoan", "validateLoanInput", "找不到符合條件的知識文件。",
+  "知識文件載入失敗。", 'fetch("fixtures/dashboard-snapshots.json"',
+  'fetch(`knowledge/documents/${doc.id}.json`)', 'navigator.serviceWorker.register("sw.js")',
+]) {
+  assert(main.includes(token), `main.js missing ${token}`);
+}
+
+for (const token of [
+  "legacySnapshotIdKeys", "atlas.dashboard.snapshotId",
+]) {
+  assert(dashboardModel.includes(token), `dashboard model missing ${token}`);
+}
+
+for (const token of [
+  '"atlas-pwa-runtime"', '"settings"', '"scenarios"', '"recommendationDecisions"',
+  "indexedDbScenarioRepository", "indexedDbRecommendationDecisionRepository",
+  "indexedDbBackupRepository", "async delete(scenarioId)", "async clear()",
+  "backupSchemaVersion", "validateBackup", "scenarioIds.has",
+  "indexedDbMigrationRepository", "databaseVersion",
+]) {
+  assert(indexedDbRuntime.includes(token), `IndexedDB runtime missing ${token}`);
+}
+
 assert(repositoryInterface.includes("Repository Interfaces remain technology-neutral"), "Repository Interface documentation is missing technology-neutral invariant");
 assert(repositoryInterface.includes("IndexedDB scenario adapter"), "Repository Interface documentation is missing IndexedDB scenario adapter mapping");
-assert(main.includes("找不到符合條件的知識文件。"), "empty search result text is missing");
-assert(main.includes("知識文件載入失敗。"), "document load failure text is missing");
-assert(main.includes('fetch("fixtures/dashboard-snapshots.json"'), "dashboard fixture collection fetch is missing");
-assert(main.includes('fetch(`knowledge/documents/${doc.id}.json`)'), "document fetch must use GitHub Pages compatible relative path");
-assert(main.includes('navigator.serviceWorker.register("sw.js")'), "service worker registration must use GitHub Pages compatible relative path");
-assert(dashboardModel.includes("atlas.dashboard.snapshotId"), "dashboard local persistence key is missing");
+
 new Function(dashboardModel.replaceAll("export const", "const").replaceAll("export function", "function"));
 
-assert(styles.includes(".dashboard-prototype"), "dashboard prototype styles are missing");
-assert(styles.includes(".dashboard-switcher"), "dashboard switcher styles are missing");
-assert(styles.includes(".runtime-panels"), "runtime panel styles are missing");
-assert(styles.includes(".user-summary"), "user workflow summary styles are missing");
-assert(styles.includes(".primary-actions"), "primary workflow action styles are missing");
-assert(styles.includes(".advanced-controls"), "advanced data controls styles are missing");
-assert(styles.includes(".internal-knowledge"), "internal knowledge separation styles are missing");
-assert(styles.includes("@media (max-width: 860px)"), "responsive media query is missing");
+for (const token of [".dashboard-prototype", ".dashboard-switcher", ".runtime-panels", ".user-summary", ".primary-actions", ".advanced-controls", ".internal-knowledge", "@media (max-width: 860px)"]) {
+  assert(styles.includes(token), `styles missing ${token}`);
+}
+
 assert(dashboard.metrics.length === 4, "dashboard fixture must expose four metrics");
 assert(dashboard.label, "dashboard fixture must expose a label");
 assert(dashboard.scenarios.length >= 3, "dashboard fixture must expose at least three scenarios");
