@@ -244,6 +244,29 @@ select {
   margin-bottom: 20px;
 }
 
+.release-dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #d7dfdc;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.release-dashboard h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.release-dashboard small {
+  display: block;
+  margin-top: 8px;
+  color: #627572;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
 .dashboard-header,
 .decision-panels,
 .scenario-row {
@@ -657,6 +680,7 @@ select {
   .metric-grid,
   .decision-panels,
   .runtime-panels,
+  .release-dashboard,
   .user-summary {
     display: grid;
     grid-template-columns: 1fr;

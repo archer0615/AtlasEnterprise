@@ -51,9 +51,15 @@ try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "networkidle" });
 
-  for (const selector of ["#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel", "#recommendationHistoryPanel", "#resetLoanButton"]) {
+  for (const selector of ["#releaseDashboardPanel", "#sampleExportButton", "#sampleBackupButton", "#cacheVersionText", "#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel", "#recommendationHistoryPanel", "#resetLoanButton"]) {
     assert(await page.locator(selector).count() === 1, `${selector} is missing`);
   }
+  await waitForText(page, "#releaseDashboardPanel", "驗證");
+  await waitForText(page, "#cacheVersionText", "快取版本");
+  await page.click("#sampleExportButton");
+  await waitForText(page, "#exportPreviewPanel", "投資回撤壓力測試");
+  await page.click("#sampleBackupButton");
+  await waitForText(page, "#sampleLoaderPanel", "backup-sample");
 
   await page.getByRole("button", { name: "投資回撤壓力測試" }).click();
   await waitForText(page, "#portfolioReportPanel", "壓力後投資組合價值");

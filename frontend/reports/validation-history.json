@@ -1,0 +1,15 @@
+[
+  {
+    "recordedAt": "2026-07-17T00:00:00.000Z",
+    "commit": "local",
+    "status": "passed",
+    "command": "npm run validate",
+    "scope": [
+      "frontend",
+      "browser-workflow",
+      "visual-regression",
+      "pwa",
+      "offline"
+    ]
+  }
+]

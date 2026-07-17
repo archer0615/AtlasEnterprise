@@ -50,6 +50,25 @@
           <div><span>2</span><strong>處理建議與貸款</strong><small>接受或拒絕建議，必要時輸入貸款條件重新試算。</small></div>
           <div><span>3</span><strong>匯出與備份</strong><small>先預覽中文化報表或備份覆蓋影響，再下載或套用。</small></div>
         </section>
+        <section class="release-dashboard" aria-label="發布狀態">
+          <div>
+            <h3>發布狀態</h3>
+            <div id="releaseDashboardPanel" class="report-list"></div>
+          </div>
+          <div>
+            <h3>範例載入</h3>
+            <div class="dashboard-actions compact-actions">
+              <button id="sampleExportButton" type="button">載入報表範例</button>
+              <button id="sampleBackupButton" type="button">載入備份範例</button>
+            </div>
+            <div id="sampleLoaderPanel" class="decision-log"></div>
+          </div>
+          <div>
+            <h3>驗證歷史</h3>
+            <div id="validationHistoryPanel" class="decision-log"></div>
+            <small id="cacheVersionText"></small>
+          </div>
+        </section>
         <section id="dashboard" class="dashboard-prototype" aria-label="決策儀表板">
           <div class="dashboard-header">
             <div>

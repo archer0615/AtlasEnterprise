@@ -47,6 +47,12 @@ const backupDryRunPanel = $("#backupDryRunPanel");
 const scenarioNameInput = $("#scenarioNameInput");
 const scenarioScoreInput = $("#scenarioScoreInput");
 const runtimeFeedback = $("#runtimeFeedback");
+const releaseDashboardPanel = $("#releaseDashboardPanel");
+const sampleExportButton = $("#sampleExportButton");
+const sampleBackupButton = $("#sampleBackupButton");
+const sampleLoaderPanel = $("#sampleLoaderPanel");
+const validationHistoryPanel = $("#validationHistoryPanel");
+const cacheVersionText = $("#cacheVersionText");
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -490,6 +496,37 @@ function currentSnapshot() {
   return dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
 }
 
+async function loadJsonOrNull(path) {
+  const response = await fetch(path, { cache: "no-cache" });
+  return response.ok ? response.json() : null;
+}
+
+async function renderReleaseDashboard() {
+  const [history, swVersion] = await Promise.all([
+    loadJsonOrNull("reports/validation-history.json").catch(() => null),
+    fetch("sw-version.js", { cache: "no-cache" }).then((response) => response.ok ? response.text() : "").catch(() => ""),
+  ]);
+  const latest = Array.isArray(history) ? history.at(-1) : null;
+  releaseDashboardPanel.innerHTML = [
+    ["狀態", latest?.status === "passed" ? "通過" : "等待驗證"],
+    ["提交", latest?.commit || "N/A"],
+    ["驗證", latest?.command || "npm run validate"],
+  ].map(([label, value]) => `<div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("");
+  validationHistoryPanel.textContent = latest ? `${latest.recordedAt}\n${latest.scope.join("、")}` : "尚無驗證歷史。";
+  const cacheName = swVersion.match(/atlas-knowledge-[a-z0-9]+/)?.[0] || "快取版本未載入";
+  cacheVersionText.textContent = `快取版本：${cacheName}`;
+}
+
+async function loadSample(path, target) {
+  const sample = await loadJsonOrNull(path);
+  if (!sample) {
+    sampleLoaderPanel.textContent = "範例檔載入失敗。";
+    return;
+  }
+  target.textContent = JSON.stringify(sample, null, 2);
+  sampleLoaderPanel.textContent = `已載入範例：${path}`;
+}
+
 function openDocumentFromHash() {
   const id = new URLSearchParams(window.location.hash.replace(/^#/, "")).get("doc");
   if (id) openDocument(id);
@@ -576,6 +613,8 @@ applyBackupButton.addEventListener("click", () => applyBackup().catch((error) =>
 acceptRecommendationButton.addEventListener("click", () => setRecommendationDecision("accepted").catch((error) => setRuntimeFeedback(error.message)));
 rejectRecommendationButton.addEventListener("click", () => setRecommendationDecision("rejected").catch((error) => setRuntimeFeedback(error.message)));
 recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
+sampleExportButton.addEventListener("click", () => loadSample("reports/export-report-sample.json", exportPreviewPanel).catch((error) => setRuntimeFeedback(error.message)));
+sampleBackupButton.addEventListener("click", () => loadSample("reports/backup-sample.json", sampleLoaderPanel).catch((error) => setRuntimeFeedback(error.message)));
 calculateLoanButton.addEventListener("click", () => {
   try {
     calculateEditableLoan();
@@ -589,6 +628,7 @@ window.addEventListener("hashchange", openDocumentFromHash);
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 
 loadDashboard();
+renderReleaseDashboard().catch(() => {});
 loadIndex().catch((error) => {
   statusText.textContent = "知識索引載入失敗";
   documentViewer.innerHTML = `<p class="empty-state">${escapeHtml(error.message)}</p>`;

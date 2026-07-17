@@ -25,6 +25,8 @@ function assertReadable(name, value) {
 
 for (const id of [
   "metricGrid", "scenarioList", "actionList", "dashboardSwitcher", "saveScenarioButton",
+  "releaseDashboardPanel", "sampleExportButton", "sampleBackupButton", "sampleLoaderPanel",
+  "validationHistoryPanel", "cacheVersionText",
   "deleteScenarioButton", "resetScenariosButton", "runtimeFeedback", "scenarioNameInput",
   "scenarioScoreInput", "exportBackupButton", "importBackupInput", "restoreConfirmInput",
   "applyBackupButton", "backupPreview", "backupDryRunPanel", "scenarioComparisonPanel",
