@@ -18,6 +18,10 @@ input {
   font: inherit;
 }
 
+select {
+  font: inherit;
+}
+
 #app {
   min-height: 100vh;
   display: grid;
@@ -78,6 +82,10 @@ input {
 
 .workflow-nav a:hover {
   background: #2d686e;
+}
+
+.mobile-toolbar {
+  display: none;
 }
 
 .search-box label,
@@ -346,6 +354,14 @@ input {
   margin-bottom: 8px;
   color: #627572;
   font-size: 13px;
+  white-space: pre-wrap;
+}
+
+.backup-dry-run {
+  min-height: 20px;
+  margin-bottom: 8px;
+  color: #405b59;
+  font-size: 13px;
 }
 
 .dashboard-switcher button {
@@ -431,6 +447,16 @@ input {
   padding-top: 14px;
 }
 
+.scenario-comparison {
+  border-top: 1px solid #e1e8e5;
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.scenario-comparison h4 {
+  margin: 0;
+}
+
 .runtime-panels section {
   min-width: 0;
 }
@@ -473,6 +499,25 @@ input {
   color: #405b59;
   font-size: 12px;
   line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.export-preview {
+  max-height: 220px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 10px 0 0;
+  border: 1px solid #d7dfdc;
+  background: #f7f9f8;
+  color: #243130;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.invalid-input {
+  border-color: #b42318 !important;
+  background: #fff5f2 !important;
 }
 
 .compact-actions {
@@ -628,6 +673,29 @@ input {
 
   .sidebar {
     min-height: auto;
+  }
+
+  .mobile-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    padding: 8px;
+    margin: -28px -28px 18px;
+    background: #fff;
+    border-bottom: 1px solid #d7dfdc;
+  }
+
+  .mobile-toolbar a {
+    border: 1px solid #c9d5d1;
+    color: #243130;
+    text-align: center;
+    text-decoration: none;
+    padding: 8px 4px;
+    font-size: 13px;
+    font-weight: 700;
   }
 
   .document-list,

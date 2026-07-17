@@ -18,8 +18,12 @@ const dashboardSwitcher = $("#dashboardSwitcher");
 const metricGrid = $("#metricGrid");
 const scenarioList = $("#scenarioList");
 const actionList = $("#actionList");
+const scenarioComparisonPanel = $("#scenarioComparisonPanel");
 const portfolioReportPanel = $("#portfolioReportPanel");
+const exportPreviewPanel = $("#exportPreviewPanel");
 const recommendationControlPanel = $("#recommendationControlPanel");
+const recommendationHistoryPanel = $("#recommendationHistoryPanel");
+const recommendationFilterInput = $("#recommendationFilterInput");
 const loanScenarioPanel = $("#loanScenarioPanel");
 const exportPortfolioReportButton = $("#exportPortfolioReportButton");
 const recommendationDecisionLog = $("#recommendationDecisionLog");
@@ -29,6 +33,7 @@ const loanBalanceInput = $("#loanBalanceInput");
 const loanRateInput = $("#loanRateInput");
 const loanMonthsInput = $("#loanMonthsInput");
 const calculateLoanButton = $("#calculateLoanButton");
+const resetLoanButton = $("#resetLoanButton");
 const loanEditableOutput = $("#loanEditableOutput");
 const saveScenarioButton = $("#saveScenarioButton");
 const deleteScenarioButton = $("#deleteScenarioButton");
@@ -38,6 +43,7 @@ const importBackupInput = $("#importBackupInput");
 const restoreConfirmInput = $("#restoreConfirmInput");
 const applyBackupButton = $("#applyBackupButton");
 const backupPreview = $("#backupPreview");
+const backupDryRunPanel = $("#backupDryRunPanel");
 const scenarioNameInput = $("#scenarioNameInput");
 const scenarioScoreInput = $("#scenarioScoreInput");
 const runtimeFeedback = $("#runtimeFeedback");
@@ -77,9 +83,10 @@ async function loadDashboard() {
     localScenarios = await indexedDbScenarioRepository.list().catch(() => []);
     recommendationDecisions = await indexedDbRecommendationDecisionRepository.list().catch(() => []);
     renderDashboardById(selectedDashboardSnapshotId);
-  } catch {
+  } catch (error) {
     dashboardSnapshots = [fallbackDashboardSnapshot];
     selectedDashboardSnapshotId = fallbackDashboardSnapshot.snapshotId;
+    setRuntimeFeedback(error.message || "儀表板資料載入失敗。");
     renderDashboard(fallbackDashboardSnapshot);
   }
 }
@@ -144,9 +151,25 @@ function renderDashboard(snapshot) {
   metricGrid.innerHTML = snapshot.metrics.map((metric) => `<div class="metric-card"><span>${escapeHtml(metric.label)}</span><strong>${escapeHtml(formatDisplayToken(metric.value))}</strong><small>${escapeHtml(metric.detail)}</small></div>`).join("");
   scenarioList.innerHTML = [...snapshot.scenarios, ...localScenarios].map((scenario) => `<div class="scenario-row"><span>${escapeHtml(scenario.name)}</span><strong>${escapeHtml(formatDisplayToken(scenario.score))}</strong><small>${escapeHtml(translateStatus(scenario.status))}</small></div>`).join("");
   actionList.innerHTML = snapshot.actions.map((action) => `<div class="action-row">${escapeHtml(action)}</div>`).join("");
+  renderScenarioComparison(snapshot);
   renderPortfolioReport(snapshot);
   renderRecommendationControls(snapshot);
   renderLoanScenarioPanel(snapshot);
+  renderExportPreview(snapshot);
+}
+
+function renderScenarioComparison(snapshot) {
+  const baselineScore = Number(snapshot.metrics.find((metric) => /分數|score/i.test(metric.label))?.value ?? snapshot.scenarios?.[0]?.score ?? 0);
+  if (!localScenarios.length) {
+    scenarioComparisonPanel.innerHTML = `<div class="empty-runtime">尚無本機情境可比較。</div>`;
+    return;
+  }
+  scenarioComparisonPanel.innerHTML = localScenarios.map((scenario) => {
+    const score = Number(String(scenario.score).replace(/[^\d.-]/g, ""));
+    const delta = Number.isFinite(score) && Number.isFinite(baselineScore) ? score - baselineScore : null;
+    const deltaText = delta === null ? "無法比較" : `${delta >= 0 ? "+" : ""}${delta}`;
+    return `<div class="runtime-row"><span>${escapeHtml(scenario.name)}</span><strong>${escapeHtml(deltaText)}</strong></div>`;
+  }).join("");
 }
 
 function getRuntimeSnapshot(snapshot) {
@@ -167,8 +190,8 @@ function renderPortfolioReport(snapshot) {
     portfolioReportPanel.innerHTML = `<div class="empty-runtime">此情境沒有投資報表資料。</div>`;
     return;
   }
-  const metrics = [["最大回撤率", formatMetricValue(result.metrics.drawdownRate, "percent")], ["總回撤金額", formatMetricValue(result.metrics.totalDrawdownAmount, "currency")], ["壓力後投資組合價值", formatMetricValue(result.metrics.stressedPortfolioValue, "currency")], ["股票損失", formatMetricValue(result.metrics.equityLoss, "currency")]];
-  portfolioReportPanel.innerHTML = metrics.map(([label, value]) => `<div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("");
+  const metrics = Object.entries(result.metrics).map(([key, value]) => [translateMetricName(key), formatMetricValue(value)]);
+  portfolioReportPanel.innerHTML = metrics.slice(0, 5).map(([label, value]) => `<div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("");
 }
 
 function renderRecommendationControls(snapshot) {
@@ -176,15 +199,28 @@ function renderRecommendationControls(snapshot) {
   if (!result?.recommendation) {
     recommendationControlPanel.innerHTML = `<div class="empty-runtime">此情境沒有可執行建議。</div>`;
     recommendationDecisionLog.textContent = "";
+    renderRecommendationHistory();
     return;
   }
   recommendationControlPanel.innerHTML = `<div class="runtime-row"><span>狀態</span><strong>${escapeHtml(translateStatus(result.recommendation.status))}</strong></div><div class="runtime-row"><span>分數</span><strong>${escapeHtml(result.score)}</strong></div><div class="runtime-note">${escapeHtml(translateRecommendationText(result.recommendation.explanation))}</div>`;
   renderRecommendationDecisionLog(result.fixtureId);
+  renderRecommendationHistory();
 }
 
 function renderRecommendationDecisionLog(fixtureId) {
   const latest = recommendationDecisions.filter((item) => item.fixtureId === fixtureId).sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")))[0];
   recommendationDecisionLog.textContent = latest ? `最新決策：${translateDecision(latest.decision)} / ${translateStatus(latest.status)} / ${latest.decidedAt}` : "尚未記錄決策。";
+}
+
+function renderRecommendationHistory() {
+  const filter = recommendationFilterInput.value;
+  const items = recommendationDecisions
+    .filter((item) => filter === "all" || item.decision === filter)
+    .sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")))
+    .slice(0, 5);
+  recommendationHistoryPanel.textContent = items.length
+    ? items.map((item) => `${translateDecision(item.decision)} / ${item.fixtureId} / ${item.decidedAt}`).join("\n")
+    : "尚無符合條件的建議歷史。";
 }
 
 function renderLoanScenarioPanel(snapshot) {
@@ -199,7 +235,7 @@ function renderLoanScenarioPanel(snapshot) {
 }
 
 async function setRecommendationDecision(decision) {
-  const snapshot = dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
+  const snapshot = currentSnapshot();
   const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
   if (!result?.recommendation) {
     setRuntimeFeedback("目前沒有可決策的建議。");
@@ -208,19 +244,16 @@ async function setRecommendationDecision(decision) {
   await indexedDbRecommendationDecisionRepository.save({ decisionId: `decision-${Date.now()}`, decision, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status, score: String(result.score), decidedAt: new Date().toISOString() });
   recommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
   renderRecommendationDecisionLog(result.fixtureId);
+  renderRecommendationHistory();
   setRuntimeFeedback(`建議已${translateDecision(decision)}：${result.fixtureId} / ${translateStatus(result.recommendation.status)}`);
 }
 
-function exportPortfolioReport() {
-  const snapshot = dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
+function buildPortfolioReportPayload(snapshot) {
   const runtimeSnapshot = getRuntimeSnapshot(snapshot);
   const result = getRuntimeResult(runtimeSnapshot);
-  if (!result?.metrics) {
-    setRuntimeFeedback("目前沒有可匯出的報表資料。");
-    return;
-  }
+  if (!result?.metrics) return null;
   const formulaIds = (runtimeSnapshot?.metrics || []).flatMap((metric) => metric.formulaIds || []);
-  const payload = {
+  return {
     匯出時間: new Date().toISOString(),
     情境代碼: snapshot.snapshotId,
     情境名稱: snapshot.label || snapshot.snapshotId,
@@ -229,11 +262,26 @@ function exportPortfolioReport() {
     指標: Object.fromEntries(Object.entries(result.metrics).map(([key, value]) => [translateMetricName(key), formatMetricValue(value)])),
     建議: result.recommendation ? { 狀態: translateStatus(result.recommendation.status), 說明: translateRecommendationText(result.recommendation.explanation) } : null,
   };
+}
+
+function renderExportPreview(snapshot) {
+  const payload = buildPortfolioReportPayload(snapshot);
+  exportPreviewPanel.textContent = payload ? JSON.stringify(payload, null, 2) : "此情境沒有可預覽的投資報表。";
+}
+
+function exportPortfolioReport() {
+  const snapshot = currentSnapshot();
+  const payload = buildPortfolioReportPayload(snapshot);
+  if (!payload) {
+    setRuntimeFeedback("目前沒有可匯出的報表資料。");
+    return;
+  }
   downloadJson(payload, `atlas-投資報表-${snapshot.snapshotId}.json`);
   setRuntimeFeedback(`已匯出中文化報表：${snapshot.snapshotId}`);
 }
 
 function calculateEditableLoan() {
+  clearLoanValidation();
   const principal = Number(loanBalanceInput.value.replaceAll(",", ""));
   const annualRate = Number(loanRateInput.value);
   const months = Number(loanMonthsInput.value);
@@ -243,15 +291,41 @@ function calculateEditableLoan() {
   setRuntimeFeedback("貸款試算完成。");
 }
 
+function resetLoanInputs() {
+  loanBalanceInput.value = "";
+  loanRateInput.value = "";
+  loanMonthsInput.value = "";
+  loanEditableOutput.textContent = "";
+  clearLoanValidation();
+  setRuntimeFeedback("貸款輸入已重設。");
+}
+
 function calculateAmortizedPayment(principal, annualRate, months) {
   const monthlyRate = annualRate / 100 / 12;
   return monthlyRate === 0 ? principal / months : principal * monthlyRate / (1 - (1 + monthlyRate) ** -months);
 }
 
 function validateLoanInput(principal, annualRate, months) {
-  if (!Number.isFinite(principal) || principal <= 0) throw new Error("本金必須大於 0，請輸入正確金額。");
-  if (!Number.isFinite(annualRate) || annualRate < 0 || annualRate > 100) throw new Error("年利率必須介於 0 到 100 之間。");
-  if (!Number.isInteger(months) || months <= 0 || months > 600) throw new Error("期數必須是 1 到 600 之間的整數月份。");
+  if (!Number.isFinite(principal) || principal <= 0) {
+    markInvalid(loanBalanceInput);
+    throw new Error("本金必須大於 0，請輸入正確金額。");
+  }
+  if (!Number.isFinite(annualRate) || annualRate < 0 || annualRate > 100) {
+    markInvalid(loanRateInput);
+    throw new Error("年利率必須介於 0 到 100 之間。");
+  }
+  if (!Number.isInteger(months) || months <= 0 || months > 600) {
+    markInvalid(loanMonthsInput);
+    throw new Error("期數必須是 1 到 600 之間的整數月份。");
+  }
+}
+
+function clearLoanValidation() {
+  [loanBalanceInput, loanRateInput, loanMonthsInput].forEach((input) => input.classList.remove("invalid-input"));
+}
+
+function markInvalid(input) {
+  input.classList.add("invalid-input");
 }
 
 function formatMetricValue(value, mode = "") {
@@ -283,7 +357,7 @@ function translateKnowledgeText(value) {
 }
 
 function translateStatus(value) {
-  const translations = { accepted: "已接受", "at-risk": "有風險", conditional: "有條件", evaluated: "已評估", IndexedDB: "本機儲存", monitor: "監控", reject: "拒絕", rejected: "已拒絕" };
+  const translations = { accepted: "已接受", "at-risk": "有風險", conditional: "有條件", defer: "延後", evaluated: "已評估", IndexedDB: "本機儲存", monitor: "監控", proceed: "可執行", reject: "拒絕", rejected: "已拒絕" };
   return translations[value] || value;
 }
 
@@ -292,13 +366,15 @@ function translateDecision(value) {
 }
 
 function translateMetricName(value) {
-  const translations = { drawdownRate: "最大回撤率", totalDrawdownAmount: "總回撤金額", stressedPortfolioValue: "壓力後投資組合價值", equityLoss: "股票損失", currentMonthlyPayment: "目前月付款", refinanceMonthlyPayment: "再融資月付款", refinanceFeeRecoveryMonths: "費用回收月數", monthlyMortgagePayment: "每月房貸付款", withdrawalRate: "提領率" };
+  const translations = { drawdownRate: "最大回撤率", totalDrawdownAmount: "總回撤金額", stressedPortfolioValue: "壓力後投資組合價值", equityLoss: "股票損失", reserveMonths: "預備金月數", currentMonthlyPayment: "目前月付款", refinanceMonthlyPayment: "再融資月付款", refinanceFeeRecoveryMonths: "費用回收月數", monthlyMortgagePayment: "每月房貸付款", withdrawalRate: "提領率", transactionCostEstimate: "交易成本估計" };
   return translations[value] || value;
 }
 
 function translateRecommendationText(value) {
   const translations = {
     "Equity exposure explains most drawdown risk and should drive mitigation planning.": "股票曝險是主要回撤來源，應優先規劃風險緩解。",
+    "Liquidity survives the drawdown, but goal funding margin should remain under review.": "流動性可承受回撤，但目標資金餘裕仍需持續檢視。",
+    "Delay commitment until down payment and transaction cost assumptions are covered.": "在頭期款與交易成本假設完整覆蓋前，應延後承諾。",
     "Keep retirement plan under monitoring because stress returns reduce readiness margin.": "壓力情境會降低退休準備餘裕，建議持續監控。",
     "Proceed only if emergency reserve remains above target after prepayment.": "僅在提前還款後緊急預備金仍高於目標時執行。",
     "Refinance does not create monthly savings and fee recovery is not available.": "再融資未產生月付節省，且費用無法回收。",
@@ -308,7 +384,7 @@ function translateRecommendationText(value) {
 }
 
 async function saveCurrentScenario() {
-  const snapshot = dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
+  const snapshot = currentSnapshot();
   const name = scenarioNameInput.value.trim() || `${snapshot.label || snapshot.snapshotId} 自訂情境`;
   const score = scenarioScoreInput.value.trim() || snapshot.metrics?.[0]?.value || "N/A";
   validateScenarioInput(name, score);
@@ -350,6 +426,7 @@ async function previewBackup(file) {
   if (!indexedDbBackupRepository.validateBackup(backup)) throw new Error("備份格式不支援。");
   pendingBackup = backup;
   backupPreview.textContent = formatBackupPreview(backup);
+  backupDryRunPanel.textContent = formatBackupDryRun(backup);
   setRuntimeFeedback("備份已預覽，確認後可套用。");
 }
 
@@ -359,6 +436,7 @@ async function applyBackup() {
   await indexedDbBackupRepository.importBackup(pendingBackup);
   pendingBackup = null;
   backupPreview.textContent = "";
+  backupDryRunPanel.textContent = "";
   restoreConfirmInput.checked = false;
   localScenarios = await indexedDbScenarioRepository.list();
   renderDashboardById(selectedDashboardSnapshotId);
@@ -391,6 +469,13 @@ function formatBackupPreview(backup) {
   return [`備份情境：${backup.scenarios.length} 筆`, `本機情境：${localScenarios.length} 筆`, `新增：${backup.scenarios.length - replacingCount} 筆`, `覆蓋：${replacingCount} 筆`, `情境：${incomingNames}`, `將被覆蓋：${replacingNames}`, `匯出時間：${backup.exportedAt || "N/A"}`].join("\n");
 }
 
+function formatBackupDryRun(backup) {
+  const existingIds = new Set(localScenarios.map((scenario) => scenario.scenarioId));
+  const overwrite = backup.scenarios.filter((scenario) => existingIds.has(scenario.scenarioId)).length;
+  const add = backup.scenarios.length - overwrite;
+  return `預演結果：將新增 ${add} 筆、覆蓋 ${overwrite} 筆；套用前需勾選確認覆蓋。`;
+}
+
 function downloadJson(payload, filename) {
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
   const url = URL.createObjectURL(blob);
@@ -399,6 +484,10 @@ function downloadJson(payload, filename) {
   link.download = filename;
   link.click();
   URL.revokeObjectURL(url);
+}
+
+function currentSnapshot() {
+  return dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
 }
 
 function openDocumentFromHash() {
@@ -453,22 +542,18 @@ categoryNav.addEventListener("click", (event) => {
   renderCategories();
   renderList();
 });
-
 documentList.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-id]");
   if (button) openDocument(button.dataset.id);
 });
-
 dashboardSwitcher.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-snapshot-id]");
   if (button) renderDashboardById(button.dataset.snapshotId);
 });
-
 searchInput.addEventListener("input", (event) => {
   state.query = event.target.value;
   renderList();
 });
-
 clearFiltersButton.addEventListener("click", () => {
   state.query = "";
   state.selectedCategory = "all";
@@ -476,7 +561,6 @@ clearFiltersButton.addEventListener("click", () => {
   renderCategories();
   renderList();
 });
-
 saveScenarioButton.addEventListener("click", () => saveCurrentScenario().catch((error) => setRuntimeFeedback(error.message)));
 deleteScenarioButton.addEventListener("click", () => deleteLastScenario().catch((error) => setRuntimeFeedback(error.message)));
 resetScenariosButton.addEventListener("click", () => resetScenarios().catch((error) => setRuntimeFeedback(error.message)));
@@ -491,6 +575,7 @@ importBackupInput.addEventListener("change", (event) => {
 applyBackupButton.addEventListener("click", () => applyBackup().catch((error) => setRuntimeFeedback(error.message)));
 acceptRecommendationButton.addEventListener("click", () => setRecommendationDecision("accepted").catch((error) => setRuntimeFeedback(error.message)));
 rejectRecommendationButton.addEventListener("click", () => setRecommendationDecision("rejected").catch((error) => setRuntimeFeedback(error.message)));
+recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
 calculateLoanButton.addEventListener("click", () => {
   try {
     calculateEditableLoan();
@@ -498,6 +583,7 @@ calculateLoanButton.addEventListener("click", () => {
     setRuntimeFeedback(error.message);
   }
 });
+resetLoanButton.addEventListener("click", resetLoanInputs);
 
 window.addEventListener("hashchange", openDocumentFromHash);
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));

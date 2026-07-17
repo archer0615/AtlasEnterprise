@@ -1,0 +1,14 @@
+{
+  "schema": "atlas-pwa-runtime-backup.v1",
+  "exportedAt": "2026-07-17T00:00:00.000Z",
+  "databaseVersion": 2,
+  "scenarios": [
+    {
+      "scenarioId": "sample-local-scenario",
+      "name": "範例本機情境",
+      "score": "88",
+      "status": "IndexedDB",
+      "savedAt": "2026-07-17T00:00:00.000Z"
+    }
+  ]
+}
