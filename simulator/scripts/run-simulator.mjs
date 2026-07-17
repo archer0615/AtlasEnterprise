@@ -49,6 +49,23 @@ function computeMetrics(fixture) {
     return { monthlyPayment, firstMonthInterest, firstMonthPrincipal, endingBalanceAfterFirstMonth, totalInterest };
   }
 
+  if (fixture.fixtureId === "loan-amortization-prepayment-impact") {
+    const monthlyPaymentBeforePrepayment = calculateAmortizedPayment(
+      fixture.inputs.loanBalance,
+      fixture.inputs.annualRate,
+      fixture.inputs.remainingMonths,
+    );
+    const balanceAfterPrepayment = fixture.inputs.loanBalance - fixture.inputs.plannedPrepayment;
+    const monthlyPaymentAfterPrepayment = calculateAmortizedPayment(
+      balanceAfterPrepayment,
+      fixture.inputs.annualRate,
+      fixture.inputs.remainingMonths,
+    );
+    const monthlyPaymentReduction = round(monthlyPaymentBeforePrepayment - monthlyPaymentAfterPrepayment, 2);
+    const interestSavedEstimate = round(monthlyPaymentReduction * fixture.inputs.remainingMonths - fixture.inputs.plannedPrepayment, 2);
+    return { monthlyPaymentBeforePrepayment, monthlyPaymentAfterPrepayment, monthlyPaymentReduction, interestSavedEstimate };
+  }
+
   if (fixture.fixtureId === "loan-refinancing-fee-breakdown") {
     const resetMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.resetRate, fixture.inputs.remainingMonths);
     const refinanceMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.refinanceRate, fixture.inputs.remainingMonths);
@@ -58,6 +75,16 @@ function computeMetrics(fixture) {
       ? round(totalRefinanceCost / monthlyPaymentSavingsAfterReset, 2)
       : null;
     return { totalRefinanceCost, monthlyPaymentSavingsAfterReset, refinanceFeeRecoveryMonths };
+  }
+
+  if (fixture.fixtureId === "loan-refinancing-no-savings-boundary") {
+    const resetMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.resetRate, fixture.inputs.remainingMonths);
+    const refinanceMonthlyPayment = calculateAmortizedPayment(fixture.inputs.loanBalance, fixture.inputs.refinanceRate, fixture.inputs.remainingMonths);
+    const monthlyPaymentSavingsAfterReset = round(resetMonthlyPayment - refinanceMonthlyPayment, 2);
+    const refinanceFeeRecoveryMonths = monthlyPaymentSavingsAfterReset > 0
+      ? round(fixture.inputs.refinanceFee / monthlyPaymentSavingsAfterReset, 2)
+      : null;
+    return { resetMonthlyPayment, refinanceMonthlyPayment, monthlyPaymentSavingsAfterReset, refinanceFeeRecoveryMonths };
   }
 
   if (fixture.fixtureId === "portfolio-drawdown-attribution-stress") {

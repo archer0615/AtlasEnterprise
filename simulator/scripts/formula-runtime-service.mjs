@@ -10,6 +10,16 @@ export function evaluateScenarioFixture(fixture, computeMetrics) {
     formulaVersion: fixture.formulaVersion,
     status: fixture.expected.recommendation.status,
     score: scoreEvaluation.score,
+    recommendation: {
+      status: fixture.expected.recommendation.status,
+      explanation: fixture.expected.recommendation.explanation,
+      warningReferences: fixture.expected.recommendation.warningReferences || [],
+      executionTrace: {
+        sourceFixtureId: fixture.fixtureId,
+        scorePolicyVersion: scoreEvaluation.policyVersion,
+        formulaVersion: fixture.formulaVersion,
+      },
+    },
     warningCount: fixture.expected.warnings.length,
     metrics,
     generatedFrom: Object.keys(metrics).length ? "fixture-runtime-formula" : "fixture-expected-output",

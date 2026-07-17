@@ -31,10 +31,10 @@ Maps the current product capabilities to implementation state, fixture support, 
 | Decision dashboard | Yes | Yes | Yes | Yes | Runtime snapshot contract needs direct field-level traceability. |
 | Scenario switching | Yes | Yes | Yes | Yes | UI labels need encoding cleanup in fixture-backed views. |
 | Simulator fixture validation | Yes | Yes | Yes | Yes | Formula coverage still needs amortization and refinancing depth. |
-| Recommendation lifecycle | Partial | Yes | Yes | Yes | Runtime execution integration remains staged. |
+| Recommendation lifecycle | Partial | Yes | Yes | Yes | Runtime output now validates execution trace fields; UI execution controls remain staged. |
 | Goal lifecycle and funding | Partial | Yes | Yes | Yes | End-to-end workflow now documented; runtime integration remains staged. |
-| Portfolio allocation and reporting | Partial | Yes | Yes | Yes | Dashboard/reporting workflow needs runtime contract expansion. |
-| Loan and mortgage analysis | Partial | Yes | Yes | Yes | Loan amortization and refinancing calculations need production-grade formula coverage. |
+| Portfolio allocation and reporting | Partial | Yes | Yes | Yes | Dashboard/reporting contract now validates portfolio runtime traceability; interactive reporting workflow remains staged. |
+| Loan and mortgage analysis | Partial | Yes | Yes | Yes | Amortization, prepayment, refinancing fee, rate shock, and no-savings boundary fixtures are covered; production-grade UI workflow remains staged. |
 | Automation workflows | Partial | N/A | Yes | Yes | Runtime scheduling and approval behavior needs implementation traceability. |
 | Rule governance | Partial | N/A | Yes | Yes | Lifecycle, conflict handling, and rule test matrix added in this batch. |
 

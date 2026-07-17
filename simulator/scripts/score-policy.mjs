@@ -7,6 +7,8 @@ export const scorePolicy = {
     conditional: 72,
     monitor: 71,
     defer: 61,
+    review: 82,
+    reject: 20,
     "at-risk": 42,
   },
   metricRules: [

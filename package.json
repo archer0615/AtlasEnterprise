@@ -12,6 +12,7 @@
     "validate:score-policy": "node simulator/scripts/validate-score-policy.mjs",
     "validate:cache-policy": "node frontend/scripts/validate-generated-fixture-cache-policy.mjs",
     "validate:dashboard-api": "node backend/validate-dashboard-projection-api.mjs",
+    "validate:portfolio-reporting": "node frontend/scripts/validate-portfolio-reporting-contract.mjs",
     "test:dashboard-projection": "node backend/test-dashboard-projection-service.mjs",
     "validate:cache-invalidation": "node frontend/scripts/validate-cache-invalidation.mjs",
     "test:local-repositories": "node frontend/scripts/test-local-repository-adapters.mjs",
@@ -27,7 +28,7 @@
     "validate:simulator": "node simulator/scripts/validate-simulator-output.mjs",
     "visual:screenshots": "node frontend/scripts/capture-playwright-screenshots.mjs",
     "validate:visual-regression": "node frontend/scripts/validate-visual-regression.mjs",
-    "validate": "npm run validate:frontend && npm run validate:formula-registry && npm run validate:score-policy && npm run validate:cache-policy && npm run validate:fixtures && npm run validate:dashboard-drift && npm run validate:dashboard-api && npm run test:dashboard-projection && npm run validate:cache-invalidation && npm run test:local-repositories && npm run validate:browser-workflow && npm run validate:visual-regression && npm run validate:pwa && npm run validate:offline && npm run validate:simulator && npm run validate:deployment && npm run validate:preview-smoke",
+    "validate": "npm run validate:frontend && npm run validate:formula-registry && npm run validate:score-policy && npm run validate:cache-policy && npm run validate:fixtures && npm run validate:dashboard-drift && npm run validate:dashboard-api && npm run validate:portfolio-reporting && npm run test:dashboard-projection && npm run validate:cache-invalidation && npm run test:local-repositories && npm run validate:browser-workflow && npm run validate:visual-regression && npm run validate:pwa && npm run validate:offline && npm run validate:simulator && npm run validate:deployment && npm run validate:preview-smoke",
     "build": "npm run build:knowledge",
     "start": "node frontend/scripts/serve-static.mjs",
     "dev": "npm run build:knowledge && npm run start"

@@ -41,10 +41,14 @@ for (const result of output.results) {
   assert(result.scoreEvaluation?.formulaId === "FORM-DECISION-SCORE", `${result.fixtureId} missing score evaluation formula ID`);
   assert(result.scoreEvaluation.policyVersion === scorePolicy.policyVersion, `${result.fixtureId} score policy version mismatch`);
   assert(result.scoreEvaluation.score === result.score, `${result.fixtureId} score evaluation mismatch`);
+  assert(result.recommendation?.status === fixture.expected.recommendation.status, `${result.fixtureId} recommendation status mismatch`);
+  assert(result.recommendation?.explanation === fixture.expected.recommendation.explanation, `${result.fixtureId} recommendation explanation mismatch`);
+  assert(Array.isArray(result.recommendation?.warningReferences), `${result.fixtureId} recommendation warning references missing`);
+  assert(result.recommendation.warningReferences.length === fixture.expected.recommendation.warningReferences.length, `${result.fixtureId} recommendation warning references mismatch`);
   if (result.metrics?.postPrepaymentReserveMonths !== undefined) {
     assert(Math.abs(result.metrics.postPrepaymentReserveMonths - fixture.expected.metrics.postPrepaymentReserveMonths) <= 0.01, `${result.fixtureId} postPrepaymentReserveMonths outside tolerance`);
   }
-  for (const metric of ["monthlyMortgagePayment", "currentMonthlyPayment", "resetMonthlyPayment", "refinanceMonthlyPayment", "monthlyPaymentSavingsAfterReset", "refinanceFeeRecoveryMonths", "monthlyPayment", "firstMonthInterest", "firstMonthPrincipal", "endingBalanceAfterFirstMonth", "totalInterest", "totalRefinanceCost", "equityLoss", "bondLoss", "cashLoss", "totalDrawdownAmount", "stressedPortfolioValue", "annualWithdrawalNeed", "sustainableAnnualWithdrawal", "annualWithdrawalGap"]) {
+  for (const metric of ["monthlyMortgagePayment", "currentMonthlyPayment", "resetMonthlyPayment", "refinanceMonthlyPayment", "monthlyPaymentSavingsAfterReset", "refinanceFeeRecoveryMonths", "monthlyPayment", "firstMonthInterest", "firstMonthPrincipal", "endingBalanceAfterFirstMonth", "totalInterest", "monthlyPaymentBeforePrepayment", "monthlyPaymentAfterPrepayment", "monthlyPaymentReduction", "interestSavedEstimate", "totalRefinanceCost", "equityLoss", "bondLoss", "cashLoss", "totalDrawdownAmount", "stressedPortfolioValue", "annualWithdrawalNeed", "sustainableAnnualWithdrawal", "annualWithdrawalGap"]) {
     if (result.metrics?.[metric] !== undefined && fixture.expected.metrics?.[metric] !== undefined) {
       assert(Math.abs(result.metrics[metric] - fixture.expected.metrics[metric]) <= fixture.tolerances.currency, `${result.fixtureId} ${metric} outside tolerance`);
     }

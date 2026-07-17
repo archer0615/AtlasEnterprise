@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T16:30:41.578Z",
+  "generatedAt": "2026-07-17T07:28:20.651Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -9,6 +9,18 @@
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "defer",
       "score": 61,
+      "recommendation": {
+        "status": "defer",
+        "explanation": "Delay commitment until down payment and transaction cost assumptions are covered.",
+        "warningReferences": [
+          "down-payment-gap-remains"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "home-upgrade-2031-baseline",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 1,
       "metrics": {
         "transactionCostEstimate": 910000
@@ -44,6 +56,18 @@
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "monitor",
       "score": 71,
+      "recommendation": {
+        "status": "monitor",
+        "explanation": "Liquidity survives the drawdown, but goal funding margin should remain under review.",
+        "warningReferences": [
+          "portfolio-drawdown-reduces-goal-margin"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "investment-drawdown-stress",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 1,
       "metrics": {
         "stressedPortfolioValue": 5304000,
@@ -75,12 +99,74 @@
       }
     },
     {
+      "fixtureId": "loan-amortization-prepayment-impact",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "review",
+      "score": 82,
+      "recommendation": {
+        "status": "review",
+        "explanation": "Prepayment improves monthly payment pressure, but reserve preservation must be checked first.",
+        "warningReferences": [
+          "Preserve emergency reserve before prepayment."
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "loan-amortization-prepayment-impact",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "monthlyPaymentBeforePrepayment": 30637.97,
+        "monthlyPaymentAfterPrepayment": 28084.81,
+        "monthlyPaymentReduction": 2553.16,
+        "interestSavedEstimate": 112758.4
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 5,
+          "violations": []
+        },
+        "evaluatedMetricCount": 4,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-LOAN-AMORTIZATION",
+          "FORM-PREPAYMENT-IMPACT"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 82,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 4,
+        "warningCount": 1
+      }
+    },
+    {
       "fixtureId": "loan-amortization-schedule-baseline",
       "asOfDate": "2026-07-17",
       "assumptionVersion": "taiwan-financial-assumptions.v1",
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "pass",
       "score": 88,
+      "recommendation": {
+        "status": "pass",
+        "explanation": "Schedule math is stable for monthly payment, first-period split, and remaining balance.",
+        "warningReferences": [],
+        "executionTrace": {
+          "sourceFixtureId": "loan-amortization-schedule-baseline",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 0,
       "metrics": {
         "monthlyPayment": 20739.96,
@@ -121,6 +207,18 @@
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "conditional",
       "score": 58,
+      "recommendation": {
+        "status": "conditional",
+        "explanation": "Refinancing remains conditional because full fee recovery is longer than the aggregate-fee scenario.",
+        "warningReferences": [
+          "fee-stack-extends-break-even"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "loan-refinancing-fee-breakdown",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 1,
       "metrics": {
         "totalRefinanceCost": 96000,
@@ -153,12 +251,76 @@
       }
     },
     {
+      "fixtureId": "loan-refinancing-no-savings-boundary",
+      "asOfDate": "2026-07-17",
+      "assumptionVersion": "taiwan-financial-assumptions.v1",
+      "formulaVersion": "cash-flow-engine-formula.v1",
+      "status": "reject",
+      "score": 20,
+      "recommendation": {
+        "status": "reject",
+        "explanation": "Refinance does not create monthly savings and fee recovery is not available.",
+        "warningReferences": [
+          "Reject refinance when monthly savings are zero or negative."
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "loan-refinancing-no-savings-boundary",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
+      "warningCount": 1,
+      "metrics": {
+        "resetMonthlyPayment": 34185.6,
+        "refinanceMonthlyPayment": 34185.6,
+        "monthlyPaymentSavingsAfterReset": 0,
+        "refinanceFeeRecoveryMonths": null
+      },
+      "generatedFrom": "fixture-runtime-formula",
+      "formulaEvaluation": {
+        "contractVersion": "runtime-formula-evaluation.v1",
+        "status": "evaluated",
+        "inputValidation": {
+          "valid": true,
+          "checkedFieldCount": 7,
+          "violations": []
+        },
+        "evaluatedMetricCount": 4,
+        "formulaVersion": "cash-flow-engine-formula.v1",
+        "formulaIds": [
+          "FORM-PMT",
+          "FORM-REFI-BREAK-EVEN"
+        ]
+      },
+      "scoreEvaluation": {
+        "score": 20,
+        "formulaId": "FORM-DECISION-SCORE",
+        "source": "engine-calculated-score.v1",
+        "policyVersion": "decision-score-policy.v1",
+        "inputMetricCount": 4,
+        "warningCount": 1
+      }
+    },
+    {
       "fixtureId": "loan-refinancing-rate-shock",
       "asOfDate": "2026-07-15",
       "assumptionVersion": "taiwan-financial-assumptions.v1",
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "conditional",
       "score": 66,
+      "recommendation": {
+        "status": "conditional",
+        "explanation": "Refinance only if fee recovery remains acceptable under the reset-rate scenario.",
+        "warningReferences": [
+          "refinance-fee-must-be-recovered",
+          "rate-reset-pressure"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "loan-refinancing-rate-shock",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 2,
       "metrics": {
         "currentMonthlyPayment": 20739.96,
@@ -199,6 +361,18 @@
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "conditional",
       "score": 72,
+      "recommendation": {
+        "status": "conditional",
+        "explanation": "Proceed only if emergency reserve remains above target after prepayment.",
+        "warningReferences": [
+          "reserve-must-remain-above-target"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "mortgage-prepayment-baseline-2026",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 1,
       "metrics": {
         "postPrepaymentReserveMonths": 6.52,
@@ -236,6 +410,18 @@
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "monitor",
       "score": 64,
+      "recommendation": {
+        "status": "monitor",
+        "explanation": "Equity exposure explains most drawdown risk and should drive mitigation planning.",
+        "warningReferences": [
+          "equity-dominates-drawdown"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "portfolio-drawdown-attribution-stress",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 1,
       "metrics": {
         "equityLoss": 822800,
@@ -277,6 +463,18 @@
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "monitor",
       "score": 69,
+      "recommendation": {
+        "status": "monitor",
+        "explanation": "Keep retirement plan under monitoring because stress returns reduce readiness margin.",
+        "warningReferences": [
+          "return-assumption-sensitive"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "retirement-readiness-stress",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 1,
       "metrics": {},
       "generatedFrom": "fixture-expected-output",
@@ -310,6 +508,19 @@
       "formulaVersion": "cash-flow-engine-formula.v1",
       "status": "at-risk",
       "score": 42,
+      "recommendation": {
+        "status": "at-risk",
+        "explanation": "Withdrawal need materially exceeds the safe withdrawal threshold under baseline and stress views.",
+        "warningReferences": [
+          "withdrawal-rate-above-safe-threshold",
+          "stress-withdrawal-gap"
+        ],
+        "executionTrace": {
+          "sourceFixtureId": "retirement-withdrawal-sustainability-stress",
+          "scorePolicyVersion": "decision-score-policy.v1",
+          "formulaVersion": "cash-flow-engine-formula.v1"
+        }
+      },
       "warningCount": 2,
       "metrics": {
         "annualWithdrawalNeed": 960000,

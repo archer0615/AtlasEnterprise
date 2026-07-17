@@ -38,6 +38,7 @@ Defines stable formula identifiers, metadata, lifecycle controls, and validation
 | FORM-XIRR | 1.0 | Return | Calculate irregular cash-flow return. | Portfolio Engine |
 | FORM-PMT | 1.0 | Loan | Calculate periodic loan payment. | Loan Engine |
 | FORM-LOAN-AMORTIZATION | 1.0 | Loan | Generate principal, interest, and balance schedule. | Loan Engine, Simulator |
+| FORM-PREPAYMENT-IMPACT | 1.0 | Loan | Estimate payment pressure and interest impact from planned principal prepayment. | Loan Engine, Simulator |
 | FORM-REFI-BREAK-EVEN | 1.0 | Loan | Calculate refinancing break-even period and net benefit. | Loan Engine, Dashboard |
 | FORM-DTI | 1.0 | Ratio | Measure debt burden against income. | Loan Engine, Financial Health Score |
 | FORM-LTV | 1.0 | Ratio | Measure collateral leverage. | Housing, Loan Engine |

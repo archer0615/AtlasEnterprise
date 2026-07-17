@@ -1,0 +1,42 @@
+{
+  "fixtureId": "loan-amortization-prepayment-impact",
+  "name": "Loan amortization prepayment impact",
+  "asOfDate": "2026-07-17",
+  "assumptionVersion": "taiwan-financial-assumptions.v1",
+  "formulaVersion": "cash-flow-engine-formula.v1",
+  "question": "Does planned principal prepayment reduce payment pressure and estimated lifetime interest?",
+  "inputs": {
+    "currency": "TWD",
+    "loanBalance": 6000000,
+    "annualRate": 0.021,
+    "remainingMonths": 240,
+    "plannedPrepayment": 500000
+  },
+  "expected": {
+    "metrics": {
+      "monthlyPaymentBeforePrepayment": 30637.97,
+      "monthlyPaymentAfterPrepayment": 28084.81,
+      "monthlyPaymentReduction": 2553.16,
+      "interestSavedEstimate": 112758.4
+    },
+    "recommendation": {
+      "status": "review",
+      "score": 82,
+      "explanation": "Prepayment improves monthly payment pressure, but reserve preservation must be checked first.",
+      "warningReferences": [
+        "Preserve emergency reserve before prepayment."
+      ]
+    },
+    "warnings": [
+      "Preserve emergency reserve before prepayment."
+    ]
+  },
+  "tolerances": {
+    "currency": 1,
+    "ratio": 0.0001
+  },
+  "references": [
+    "knowledge/entity/loan/amortization-spec.md",
+    "knowledge/entity/loan/risk-and-refinancing.md"
+  ]
+}
