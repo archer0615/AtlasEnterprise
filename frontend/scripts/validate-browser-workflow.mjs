@@ -54,21 +54,21 @@ try {
   await page.getByRole("button", { name: "投資回撤壓力測試" }).click();
   await page.waitForFunction(() => document.querySelector("#portfolioReportPanel")?.textContent.includes("回撤率"));
   await page.click("#exportPortfolioReportButton");
-  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("Portfolio report exported"));
+  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("投資組合報表已匯出"));
   await page.click("#acceptRecommendationButton");
-  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("Recommendation accepted"));
-  await page.waitForFunction(() => document.querySelector("#recommendationDecisionLog")?.textContent.includes("accepted"));
+  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("建議已接受"));
+  await page.waitForFunction(() => document.querySelector("#recommendationDecisionLog")?.textContent.includes("接受"));
 
   await page.getByRole("button", { name: "貸款轉貸利率壓力" }).click();
-  await page.waitForFunction(() => document.querySelector("#loanScenarioPanel")?.textContent.includes("refinanceMonthlyPayment"));
+  await page.waitForFunction(() => document.querySelector("#loanScenarioPanel")?.textContent.includes("轉貸月付金"));
   await page.fill("#loanBalanceInput", "1200000");
   await page.fill("#loanRateInput", "2.4");
   await page.fill("#loanMonthsInput", "180");
   await page.click("#calculateLoanButton");
   await page.waitForFunction(() => document.querySelector("#loanEditableOutput")?.textContent.includes("月付"));
   await page.click("#rejectRecommendationButton");
-  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("Recommendation rejected"));
-  await page.waitForFunction(() => document.querySelector("#recommendationDecisionLog")?.textContent.includes("rejected"));
+  await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("建議已拒絕"));
+  await page.waitForFunction(() => document.querySelector("#recommendationDecisionLog")?.textContent.includes("拒絕"));
 
   await page.fill("#scenarioNameInput", "A");
   await page.click("#saveScenarioButton");

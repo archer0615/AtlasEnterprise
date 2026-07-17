@@ -10,8 +10,8 @@
       "metrics": [
         {
           "label": "每月可用現金流",
-          "value": "88K",
-          "detail": "扣除必要支出後的 TWD 現金流",
+          "value": "8.8 萬",
+          "detail": "扣除必要支出後的新台幣現金流",
           "formulaIds": [
             "FORM-PMT"
           ]
@@ -74,15 +74,15 @@
       "metrics": [
         {
           "label": "換屋準備金",
-          "value": "900K",
-          "detail": "目前可投入換屋的 TWD 資金",
+          "value": "90 萬",
+          "detail": "目前可投入換屋的新台幣資金",
           "formulaIds": [
             "FORM-CF-COVERAGE"
           ]
         },
         {
           "label": "預估資金缺口",
-          "value": "910K",
+          "value": "91 萬",
           "detail": "依基準情境仍需補足",
           "formulaIds": [
             "FORM-CF-COVERAGE"
@@ -227,7 +227,7 @@
         {
           "label": "決策分數",
           "value": "66",
-          "detail": "轉貸需要更明確的 break-even 條件",
+          "detail": "轉貸需要更明確的損益兩平條件",
           "formulaIds": [
             "FORM-DECISION-SCORE"
           ]
@@ -253,7 +253,7 @@
       "actions": [
         "重新估算轉貸手續費與利率差距",
         "檢查升息後月付與 DTI 是否超過門檻",
-        "比較轉貸與提前還款的 break-even 日期"
+        "比較轉貸與提前還款的損益兩平日期"
       ],
       "schemaVersion": "dashboard-snapshot.v2"
     },
@@ -274,8 +274,8 @@
         },
         {
           "label": "壓力後資產",
-          "value": "5.3M",
-          "detail": "投資組合剩餘 TWD 市值",
+          "value": "530 萬",
+          "detail": "投資組合剩餘新台幣市值",
           "formulaIds": [
             "FORM-PORTFOLIO-DRAWDOWN"
           ]

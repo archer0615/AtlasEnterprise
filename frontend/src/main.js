@@ -70,7 +70,7 @@ async function loadIndex() {
   state.documents = index.documents || [];
   state.searchDocuments = new Map((searchIndex.documents || []).map((doc) => [doc.id, doc]));
   state.categories = index.categories || [];
-  statusText.textContent = `${state.documents.length} documents`;
+  statusText.textContent = `${state.documents.length} 份文件`;
   renderCategories();
   renderList();
   openDocumentFromHash();
@@ -100,7 +100,7 @@ function renderCategories() {
     acc[doc.category] = (acc[doc.category] || 0) + 1;
     return acc;
   }, {});
-  const categories = [{ id: "all", label: "All", count: state.documents.length }, ...state.categories.map((category) => ({
+  const categories = [{ id: "all", label: "全部", count: state.documents.length }, ...state.categories.map((category) => ({
     id: category,
     label: category,
     count: counts[category] || 0,
@@ -130,14 +130,14 @@ function renderList() {
     return inCategory && matchesQuery;
   }).sort((a, b) => b.score - a.score || a.path.localeCompare(b.path));
 
-  pageTitle.textContent = state.selectedCategory === "all" ? "LifeOS Knowledge Base" : state.selectedCategory;
-  resultCount.textContent = `${docs.length} results`;
+  pageTitle.textContent = state.selectedCategory === "all" ? "生活知識庫" : translateCategory(state.selectedCategory);
+  resultCount.textContent = `${docs.length} 筆結果`;
   documentList.innerHTML = docs.map((doc) => `
     <button class="document-card ${doc.id === state.selectedDocumentId ? "active" : ""}" type="button" data-id="${doc.id}">
       <span class="doc-title">${escapeHtml(doc.title)}</span>
       <span class="doc-category">${escapeHtml(doc.category)}</span>
       <span class="doc-path">${escapeHtml(doc.path)}</span>
-      ${tokens.length ? `<span class="doc-score">match ${doc.score}</span>` : ""}
+      ${tokens.length ? `<span class="doc-score">符合度 ${doc.score}</span>` : ""}
     </button>
   `).join("") || `<p class="empty-state">找不到符合條件的知識文件。</p>`;
 }
@@ -227,7 +227,7 @@ function renderDashboard(snapshot) {
   metricGrid.innerHTML = snapshot.metrics.map((metric) => `
     <div class="metric-card">
       <span>${escapeHtml(metric.label)}</span>
-      <strong>${escapeHtml(metric.value)}</strong>
+      <strong>${escapeHtml(formatDisplayToken(metric.value))}</strong>
       <small>${escapeHtml(metric.detail)}</small>
     </div>
   `).join("");
@@ -235,8 +235,8 @@ function renderDashboard(snapshot) {
   scenarioList.innerHTML = mergedScenarios.map((scenario) => `
     <div class="scenario-row">
       <span>${escapeHtml(scenario.name)}</span>
-      <strong>${scenario.score}</strong>
-      <small>${escapeHtml(scenario.status)}</small>
+      <strong>${escapeHtml(formatDisplayToken(scenario.score))}</strong>
+      <small>${escapeHtml(translateStatus(scenario.status))}</small>
     </div>
   `).join("");
   actionList.innerHTML = snapshot.actions.map((action) => `
@@ -264,14 +264,14 @@ function renderPortfolioReport(snapshot) {
   const formulaIds = (runtimeSnapshot?.metrics || []).flatMap((metric) => metric.formulaIds || []);
   const isPortfolio = formulaIds.includes("FORM-PORTFOLIO-DRAWDOWN") || formulaIds.includes("FORM-DRAWDOWN-ATTRIBUTION");
   if (!isPortfolio || !result) {
-    portfolioReportPanel.innerHTML = `<div class="empty-runtime">目前情境沒有 Portfolio 報表合約。</div>`;
+    portfolioReportPanel.innerHTML = `<div class="empty-runtime">目前情境沒有投資組合報表合約。</div>`;
     return;
   }
   const metrics = [
     ["回撤率", formatMetricValue(result.metrics.drawdownRate, "percent")],
     ["回撤金額", formatMetricValue(result.metrics.totalDrawdownAmount, "currency")],
     ["壓力後資產", formatMetricValue(result.metrics.stressedPortfolioValue, "currency")],
-    ["Equity loss", formatMetricValue(result.metrics.equityLoss, "currency")],
+    ["股票損失", formatMetricValue(result.metrics.equityLoss, "currency")],
   ];
   portfolioReportPanel.innerHTML = metrics.map(([label, value]) => `
     <div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>
@@ -281,14 +281,14 @@ function renderPortfolioReport(snapshot) {
 function renderRecommendationControls(snapshot) {
   const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
   if (!result?.recommendation) {
-    recommendationControlPanel.innerHTML = `<div class="empty-runtime">目前情境沒有 Recommendation execution trace。</div>`;
+    recommendationControlPanel.innerHTML = `<div class="empty-runtime">目前情境沒有建議執行紀錄。</div>`;
     recommendationDecisionLog.textContent = "";
     return;
   }
   recommendationControlPanel.innerHTML = `
-    <div class="runtime-row"><span>Status</span><strong>${escapeHtml(result.recommendation.status)}</strong></div>
-    <div class="runtime-row"><span>Score</span><strong>${escapeHtml(result.score)}</strong></div>
-    <div class="runtime-note">${escapeHtml(result.recommendation.explanation)}</div>
+    <div class="runtime-row"><span>狀態</span><strong>${escapeHtml(translateStatus(result.recommendation.status))}</strong></div>
+    <div class="runtime-row"><span>分數</span><strong>${escapeHtml(result.score)}</strong></div>
+    <div class="runtime-note">${escapeHtml(translateRecommendationText(result.recommendation.explanation))}</div>
   `;
   renderRecommendationDecisionLog(result.fixtureId);
 }
@@ -298,7 +298,7 @@ function renderRecommendationDecisionLog(fixtureId) {
     .filter((item) => item.fixtureId === fixtureId)
     .sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")))[0];
   recommendationDecisionLog.textContent = latest
-    ? `最近決策：${latest.decision} / ${latest.status} / ${latest.decidedAt}`
+    ? `最近決策：${translateDecision(latest.decision)} / ${translateStatus(latest.status)} / ${latest.decidedAt}`
     : "最近決策：尚未紀錄";
 }
 
@@ -307,14 +307,14 @@ function renderLoanScenarioPanel(snapshot) {
   const formulaIds = result?.formulaEvaluation?.formulaIds || [];
   const isLoan = formulaIds.some((formulaId) => ["FORM-PMT", "FORM-LOAN-AMORTIZATION", "FORM-REFI-BREAK-EVEN", "FORM-PREPAYMENT-IMPACT"].includes(formulaId));
   if (!isLoan || !result) {
-    loanScenarioPanel.innerHTML = `<div class="empty-runtime">目前情境沒有 Loan runtime 指標。</div>`;
+    loanScenarioPanel.innerHTML = `<div class="empty-runtime">目前情境沒有貸款執行指標。</div>`;
     return;
   }
   const loanMetrics = Object.entries(result.metrics)
     .filter(([key]) => /payment|loan|refinance|interest|balance|prepayment|fee/i.test(key))
     .slice(0, 5);
   loanScenarioPanel.innerHTML = loanMetrics.map(([label, value]) => `
-    <div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(formatMetricValue(value))}</strong></div>
+    <div class="runtime-row"><span>${escapeHtml(translateMetricName(label))}</span><strong>${escapeHtml(formatMetricValue(value))}</strong></div>
   `).join("");
 }
 
@@ -337,7 +337,7 @@ async function setRecommendationDecision(decision) {
   await indexedDbRecommendationDecisionRepository.save(record);
   recommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
   renderRecommendationDecisionLog(result.fixtureId);
-  setRuntimeFeedback(`Recommendation ${decision}：${result.fixtureId} / ${result.recommendation.status}`);
+  setRuntimeFeedback(`建議已${translateDecision(decision)}：${result.fixtureId} / ${translateStatus(result.recommendation.status)}`);
 }
 
 function exportPortfolioReport() {
@@ -345,7 +345,7 @@ function exportPortfolioReport() {
   const runtimeSnapshot = getRuntimeSnapshot(snapshot);
   const result = getRuntimeResult(runtimeSnapshot);
   if (!result?.metrics) {
-    setRuntimeFeedback("目前情境沒有可匯出的 Portfolio 報表。");
+    setRuntimeFeedback("目前情境沒有可匯出的投資組合報表。");
     return;
   }
   const formulaIds = (runtimeSnapshot?.metrics || []).flatMap((metric) => metric.formulaIds || []);
@@ -364,7 +364,7 @@ function exportPortfolioReport() {
   link.download = `atlas-portfolio-report-${snapshot.snapshotId}.json`;
   link.click();
   URL.revokeObjectURL(url);
-  setRuntimeFeedback(`Portfolio report exported：${snapshot.snapshotId}`);
+  setRuntimeFeedback(`投資組合報表已匯出：${snapshot.snapshotId}`);
 }
 
 function calculateEditableLoan() {
@@ -374,7 +374,7 @@ function calculateEditableLoan() {
   validateLoanInput(principal, annualRate, months);
   const monthlyPayment = calculateAmortizedPayment(principal, annualRate, months);
   loanEditableOutput.textContent = `月付：${monthlyPayment.toLocaleString("zh-TW", { maximumFractionDigits: 2 })}，本金：${principal.toLocaleString("zh-TW")}，期數：${months}`;
-  setRuntimeFeedback("Loan editable scenario calculated.");
+  setRuntimeFeedback("貸款可編輯情境已完成試算。");
 }
 
 function calculateAmortizedPayment(principal, annualRate, months) {
@@ -385,13 +385,13 @@ function calculateAmortizedPayment(principal, annualRate, months) {
 
 function validateLoanInput(principal, annualRate, months) {
   if (!Number.isFinite(principal) || principal <= 0) {
-    throw new Error("Loan 本金必須大於 0。");
+    throw new Error("貸款本金必須大於 0。");
   }
   if (!Number.isFinite(annualRate) || annualRate < 0 || annualRate > 100) {
-    throw new Error("Loan 年利率必須介於 0 到 100。");
+    throw new Error("貸款年利率必須介於 0 到 100。");
   }
   if (!Number.isInteger(months) || months <= 0 || months > 600) {
-    throw new Error("Loan 期數必須是 1 到 600 的整數。");
+    throw new Error("貸款期數必須是 1 到 600 的整數。");
   }
 }
 
@@ -399,7 +399,86 @@ function formatMetricValue(value, mode = "") {
   if (value === null || value === undefined) return "N/A";
   if (mode === "percent") return `${(Number(value) * 100).toFixed(2)}%`;
   if (mode === "currency") return Number(value).toLocaleString("zh-TW");
-  return String(value);
+  return formatDisplayToken(value);
+}
+
+function formatDisplayToken(value) {
+  return String(value)
+    .replace(/^(\d+(?:\.\d+)?)K$/, (_, amount) => `${Number(amount) * 1000}`)
+    .replace(/^(\d+(?:\.\d+)?)M$/, (_, amount) => `${Number(amount).toLocaleString("zh-TW")} 百萬`)
+    .replaceAll("TWD", "新台幣")
+    .replaceAll("break-even", "損益兩平");
+}
+
+function translateCategory(value) {
+  const translations = {
+    Finance: "財務",
+    Governance: "治理",
+    Insurance: "保險",
+    Investment: "投資",
+    Operations: "營運",
+    Planning: "規劃",
+    Retirement: "退休",
+  };
+  return translations[value] || value;
+}
+
+function translateStatus(value) {
+  const translations = {
+    accepted: "接受",
+    "at-risk": "高風險",
+    conditional: "有條件",
+    evaluated: "已評估",
+    IndexedDB: "本機儲存",
+    monitor: "監控",
+    reject: "拒絕",
+    rejected: "拒絕",
+  };
+  return translations[value] || value;
+}
+
+function translateDecision(value) {
+  const translations = {
+    accepted: "接受",
+    rejected: "拒絕",
+  };
+  return translations[value] || value;
+}
+
+function translateMetricName(value) {
+  const translations = {
+    annualWithdrawalGap: "年度提領缺口",
+    annualWithdrawalNeed: "年度提領需求",
+    bondLoss: "債券損失",
+    cashLoss: "現金損失",
+    currentMonthlyPayment: "目前月付金",
+    drawdownRate: "回撤率",
+    equityLoss: "股票損失",
+    monthlyMortgagePayment: "每月房貸付款",
+    monthlyPaymentSavingsAfterReset: "重設後每月節省金額",
+    postPrepaymentReserveMonths: "提前還款後預備金月數",
+    refinanceFeeRecoveryMonths: "轉貸費用回收月數",
+    refinanceMonthlyPayment: "轉貸月付金",
+    resetMonthlyPayment: "重設後月付金",
+    stressedPortfolioValue: "壓力後投資組合價值",
+    stressedWithdrawalRate: "壓力後提領率",
+    sustainableAnnualWithdrawal: "可持續年度提領額",
+    totalDrawdownAmount: "總回撤金額",
+    withdrawalRate: "提領率",
+  };
+  return translations[value] || value;
+}
+
+function translateRecommendationText(value) {
+  const translations = {
+    "Equity exposure explains most drawdown risk and should drive mitigation planning.": "股票曝險是多數回撤風險來源，應作為風險緩解規劃的主要依據。",
+    "Keep retirement plan under monitoring because stress returns reduce readiness margin.": "壓力報酬會降低退休準備緩衝，退休計畫應持續監控。",
+    "Proceed only if emergency reserve remains above target after prepayment.": "只有在提前還款後緊急預備金仍高於目標時才執行。",
+    "Refinance does not create monthly savings and fee recovery is not available.": "轉貸未產生每月節省金額，且無法回收相關費用。",
+    "Refinance only if fee recovery remains acceptable under the reset-rate scenario.": "只有在利率重設情境下費用回收期仍可接受時才轉貸。",
+    "Withdrawal need materially exceeds the safe withdrawal threshold under baseline and stress views.": "基準與壓力情境下的提領需求都明顯超過安全提領門檻。",
+  };
+  return translations[value] || value;
 }
 
 async function saveCurrentScenario() {

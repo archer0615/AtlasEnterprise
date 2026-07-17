@@ -7,8 +7,8 @@
   "metrics": [
     {
       "label": "現金流安全",
-      "value": "88K",
-      "detail": "每月自由現金流 TWD",
+      "value": "8.8 萬",
+      "detail": "每月自由現金流新台幣",
       "formulaIds": [
         "FORM-PMT"
       ]
