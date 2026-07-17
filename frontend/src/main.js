@@ -53,6 +53,9 @@ const sampleBackupButton = $("#sampleBackupButton");
 const sampleLoaderPanel = $("#sampleLoaderPanel");
 const validationHistoryPanel = $("#validationHistoryPanel");
 const cacheVersionText = $("#cacheVersionText");
+const reportVersionPanel = $("#reportVersionPanel");
+const offlineRepairButton = $("#offlineRepairButton");
+const offlineRepairPanel = $("#offlineRepairPanel");
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -61,6 +64,8 @@ let selectedDashboardSnapshotId = fallbackDashboardSnapshot.snapshotId;
 let localScenarios = [];
 let recommendationDecisions = [];
 let pendingBackup = null;
+let latestValidationRecord = null;
+let currentCacheVersion = "";
 
 async function loadIndex() {
   const response = await fetch("knowledge/index.json", { cache: "no-cache" });
@@ -272,7 +277,7 @@ function buildPortfolioReportPayload(snapshot) {
 
 function renderExportPreview(snapshot) {
   const payload = buildPortfolioReportPayload(snapshot);
-  exportPreviewPanel.textContent = payload ? JSON.stringify(payload, null, 2) : "此情境沒有可預覽的投資報表。";
+  exportPreviewPanel.textContent = payload ? JSON.stringify(wrapExportReport(snapshot, payload), null, 2) : "此情境沒有可預覽的投資報表。";
 }
 
 function exportPortfolioReport() {
@@ -282,8 +287,24 @@ function exportPortfolioReport() {
     setRuntimeFeedback("目前沒有可匯出的報表資料。");
     return;
   }
-  downloadJson(payload, `atlas-投資報表-${snapshot.snapshotId}.json`);
+  downloadJson(wrapExportReport(snapshot, payload), `atlas-export-report-v2-${snapshot.snapshotId}.json`);
   setRuntimeFeedback(`已匯出中文化報表：${snapshot.snapshotId}`);
+}
+
+function wrapExportReport(snapshot, payload) {
+  return {
+    reportVersion: "export-report.v2",
+    schema: "atlas-enterprise.export-report.localized.v2",
+    generatedAt: new Date().toISOString(),
+    snapshotId: snapshot.snapshotId,
+    cacheVersion: currentCacheVersion || "N/A",
+    validation: latestValidationRecord ? {
+      status: latestValidationRecord.status,
+      command: latestValidationRecord.command,
+      recordedAt: latestValidationRecord.recordedAt,
+    } : null,
+    localizedPayload: payload,
+  };
 }
 
 function calculateEditableLoan() {
@@ -507,6 +528,7 @@ async function renderReleaseDashboard() {
     fetch("sw-version.js", { cache: "no-cache" }).then((response) => response.ok ? response.text() : "").catch(() => ""),
   ]);
   const latest = Array.isArray(history) ? history.at(-1) : null;
+  latestValidationRecord = latest;
   releaseDashboardPanel.innerHTML = [
     ["狀態", latest?.status === "passed" ? "通過" : "等待驗證"],
     ["提交", latest?.commit || "N/A"],
@@ -514,7 +536,37 @@ async function renderReleaseDashboard() {
   ].map(([label, value]) => `<div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("");
   validationHistoryPanel.textContent = latest ? `${latest.recordedAt}\n${latest.scope.join("、")}` : "尚無驗證歷史。";
   const cacheName = swVersion.match(/atlas-knowledge-[a-z0-9]+/)?.[0] || "快取版本未載入";
+  currentCacheVersion = cacheName;
   cacheVersionText.textContent = `快取版本：${cacheName}`;
+  reportVersionPanel.textContent = [
+    "匯出報表版本：export-report.v2",
+    "中文化結構：localizedPayload",
+    `驗證狀態：${latest?.status || "N/A"}`,
+  ].join("\n");
+}
+
+async function repairOfflineData() {
+  const snapshot = currentSnapshot();
+  let repaired = 0;
+  const validSnapshotIds = new Set(dashboardSnapshots.map((item) => item.snapshotId));
+  if (!validSnapshotIds.has(selectedDashboardSnapshotId)) {
+    selectedDashboardSnapshotId = snapshot.snapshotId;
+    writeStoredValue(storageKeys.dashboardSnapshotId, selectedDashboardSnapshotId);
+    repaired += 1;
+  }
+  await indexedDbMigrationRepository.markCurrent().catch(() => {
+    repaired += 1;
+  });
+  localScenarios = (await indexedDbScenarioRepository.list().catch(() => [])).filter((scenario) => scenario?.scenarioId && scenario?.name);
+  recommendationDecisions = await indexedDbRecommendationDecisionRepository.list().catch(() => []);
+  renderDashboardById(selectedDashboardSnapshotId);
+  const message = repaired ? `離線資料已修復：${repaired} 項` : "離線資料檢查通過，無需修復。";
+  offlineRepairPanel.textContent = [
+    message,
+    `本機情境：${localScenarios.length} 筆`,
+    `決策紀錄：${recommendationDecisions.length} 筆`,
+  ].join("\n");
+  setRuntimeFeedback(message);
 }
 
 async function loadSample(path, target) {
@@ -615,6 +667,7 @@ rejectRecommendationButton.addEventListener("click", () => setRecommendationDeci
 recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
 sampleExportButton.addEventListener("click", () => loadSample("reports/export-report-sample.json", exportPreviewPanel).catch((error) => setRuntimeFeedback(error.message)));
 sampleBackupButton.addEventListener("click", () => loadSample("reports/backup-sample.json", sampleLoaderPanel).catch((error) => setRuntimeFeedback(error.message)));
+offlineRepairButton.addEventListener("click", () => repairOfflineData().catch((error) => setRuntimeFeedback(error.message)));
 calculateLoanButton.addEventListener("click", () => {
   try {
     calculateEditableLoan();
