@@ -54,8 +54,12 @@ const sampleLoaderPanel = $("#sampleLoaderPanel");
 const validationHistoryPanel = $("#validationHistoryPanel");
 const cacheVersionText = $("#cacheVersionText");
 const reportVersionPanel = $("#reportVersionPanel");
+const reportVersionHistoryPanel = $("#reportVersionHistoryPanel");
+const exportValidationButton = $("#exportValidationButton");
+const validationExportPanel = $("#validationExportPanel");
 const offlineRepairButton = $("#offlineRepairButton");
 const offlineRepairPanel = $("#offlineRepairPanel");
+const offlineRepairAuditPanel = $("#offlineRepairAuditPanel");
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -65,7 +69,9 @@ let localScenarios = [];
 let recommendationDecisions = [];
 let pendingBackup = null;
 let latestValidationRecord = null;
+let validationHistoryRecords = [];
 let currentCacheVersion = "";
+let offlineRepairAudit = [];
 
 async function loadIndex() {
   const response = await fetch("knowledge/index.json", { cache: "no-cache" });
@@ -292,12 +298,14 @@ function exportPortfolioReport() {
 }
 
 function wrapExportReport(snapshot, payload) {
+  const reportHistory = buildReportVersionHistory();
   return {
     reportVersion: "export-report.v2",
     schema: "atlas-enterprise.export-report.localized.v2",
     generatedAt: new Date().toISOString(),
     snapshotId: snapshot.snapshotId,
     cacheVersion: currentCacheVersion || "N/A",
+    reportHistory,
     validation: latestValidationRecord ? {
       status: latestValidationRecord.status,
       command: latestValidationRecord.command,
@@ -305,6 +313,13 @@ function wrapExportReport(snapshot, payload) {
     } : null,
     localizedPayload: payload,
   };
+}
+
+function buildReportVersionHistory() {
+  return [
+    { version: "export-report.v1", status: "retained", description: "中文化報表欄位" },
+    { version: "export-report.v2", status: "current", description: "加入快取版本、驗證紀錄與版本歷史" },
+  ];
 }
 
 function calculateEditableLoan() {
@@ -527,7 +542,8 @@ async function renderReleaseDashboard() {
     loadJsonOrNull("reports/validation-history.json").catch(() => null),
     fetch("sw-version.js", { cache: "no-cache" }).then((response) => response.ok ? response.text() : "").catch(() => ""),
   ]);
-  const latest = Array.isArray(history) ? history.at(-1) : null;
+  validationHistoryRecords = Array.isArray(history) ? history : [];
+  const latest = validationHistoryRecords.at(-1) || null;
   latestValidationRecord = latest;
   releaseDashboardPanel.innerHTML = [
     ["狀態", latest?.status === "passed" ? "通過" : "等待驗證"],
@@ -543,19 +559,25 @@ async function renderReleaseDashboard() {
     "中文化結構：localizedPayload",
     `驗證狀態：${latest?.status || "N/A"}`,
   ].join("\n");
+  reportVersionHistoryPanel.textContent = buildReportVersionHistory()
+    .map((item) => `${item.version} / ${item.status} / ${item.description}`)
+    .join("\n");
 }
 
 async function repairOfflineData() {
   const snapshot = currentSnapshot();
   let repaired = 0;
+  const auditEntry = { checkedAt: new Date().toISOString(), actions: [] };
   const validSnapshotIds = new Set(dashboardSnapshots.map((item) => item.snapshotId));
   if (!validSnapshotIds.has(selectedDashboardSnapshotId)) {
     selectedDashboardSnapshotId = snapshot.snapshotId;
     writeStoredValue(storageKeys.dashboardSnapshotId, selectedDashboardSnapshotId);
     repaired += 1;
+    auditEntry.actions.push("修復儀表板快照索引");
   }
   await indexedDbMigrationRepository.markCurrent().catch(() => {
     repaired += 1;
+    auditEntry.actions.push("重新標記 IndexedDB 遷移狀態");
   });
   localScenarios = (await indexedDbScenarioRepository.list().catch(() => [])).filter((scenario) => scenario?.scenarioId && scenario?.name);
   recommendationDecisions = await indexedDbRecommendationDecisionRepository.list().catch(() => []);
@@ -566,7 +588,38 @@ async function repairOfflineData() {
     `本機情境：${localScenarios.length} 筆`,
     `決策紀錄：${recommendationDecisions.length} 筆`,
   ].join("\n");
+  auditEntry.result = message;
+  auditEntry.localScenarios = localScenarios.length;
+  auditEntry.recommendationDecisions = recommendationDecisions.length;
+  if (!auditEntry.actions.length) auditEntry.actions.push("僅檢查，未變更資料");
+  offlineRepairAudit = [auditEntry, ...offlineRepairAudit].slice(0, 5);
+  renderOfflineRepairAudit();
   setRuntimeFeedback(message);
+}
+
+function renderOfflineRepairAudit() {
+  offlineRepairAuditPanel.textContent = offlineRepairAudit.length
+    ? offlineRepairAudit.map((item) => `${item.checkedAt}\n${item.result}\n${item.actions.join("、")}`).join("\n\n")
+    : "尚無離線修復稽核。";
+}
+
+function exportValidationResult() {
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    schema: "atlas-enterprise.validation-result.v1",
+    cacheVersion: currentCacheVersion || "N/A",
+    latest: latestValidationRecord,
+    history: validationHistoryRecords,
+    reportVersions: buildReportVersionHistory(),
+    offlineRepairAudit,
+  };
+  downloadJson(payload, "atlas-validation-result-v1.json");
+  validationExportPanel.textContent = [
+    "驗證結果已匯出：atlas-validation-result-v1.json",
+    `驗證紀錄：${validationHistoryRecords.length} 筆`,
+    `修復稽核：${offlineRepairAudit.length} 筆`,
+  ].join("\n");
+  setRuntimeFeedback("已匯出驗證結果。");
 }
 
 async function loadSample(path, target) {
@@ -667,6 +720,7 @@ rejectRecommendationButton.addEventListener("click", () => setRecommendationDeci
 recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
 sampleExportButton.addEventListener("click", () => loadSample("reports/export-report-sample.json", exportPreviewPanel).catch((error) => setRuntimeFeedback(error.message)));
 sampleBackupButton.addEventListener("click", () => loadSample("reports/backup-sample.json", sampleLoaderPanel).catch((error) => setRuntimeFeedback(error.message)));
+exportValidationButton.addEventListener("click", exportValidationResult);
 offlineRepairButton.addEventListener("click", () => repairOfflineData().catch((error) => setRuntimeFeedback(error.message)));
 calculateLoanButton.addEventListener("click", () => {
   try {

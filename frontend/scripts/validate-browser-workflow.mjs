@@ -51,12 +51,13 @@ try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "networkidle" });
 
-  for (const selector of ["#releaseDashboardPanel", "#sampleExportButton", "#sampleBackupButton", "#cacheVersionText", "#reportVersionPanel", "#offlineRepairButton", "#offlineRepairPanel", "#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel", "#recommendationHistoryPanel", "#resetLoanButton"]) {
+  for (const selector of ["#releaseDashboardPanel", "#sampleExportButton", "#sampleBackupButton", "#cacheVersionText", "#reportVersionPanel", "#reportVersionHistoryPanel", "#exportValidationButton", "#validationExportPanel", "#offlineRepairButton", "#offlineRepairPanel", "#offlineRepairAuditPanel", "#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel", "#recommendationHistoryPanel", "#resetLoanButton"]) {
     assert(await page.locator(selector).count() === 1, `${selector} is missing`);
   }
   await waitForText(page, "#releaseDashboardPanel", "驗證");
   await waitForText(page, "#cacheVersionText", "快取版本");
   await waitForText(page, "#reportVersionPanel", "export-report.v2");
+  await waitForText(page, "#reportVersionHistoryPanel", "export-report.v1");
   await page.click("#sampleExportButton");
   await waitForText(page, "#exportPreviewPanel", "投資回撤壓力測試");
   await page.click("#sampleBackupButton");
@@ -70,6 +71,9 @@ try {
   await waitForText(page, "#runtimeFeedback", "已匯出中文化報表");
   await page.click("#offlineRepairButton");
   await waitForText(page, "#offlineRepairPanel", "離線資料");
+  await waitForText(page, "#offlineRepairAuditPanel", "修復");
+  await page.click("#exportValidationButton");
+  await waitForText(page, "#validationExportPanel", "atlas-validation-result-v1.json");
   await page.click("#acceptRecommendationButton");
   await waitForText(page, "#runtimeFeedback", "建議已接受");
   await waitForText(page, "#recommendationDecisionLog", "接受");
