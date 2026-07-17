@@ -248,6 +248,31 @@ input {
   margin-bottom: 16px;
 }
 
+.section-help {
+  margin: 6px 0 0;
+  color: #627572;
+  font-size: 13px;
+}
+
+.advanced-controls {
+  border: 1px solid #e1e8e5;
+  margin-bottom: 12px;
+}
+
+.advanced-controls summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  color: #405b59;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.advanced-controls .dashboard-actions {
+  border-top: 1px solid #e1e8e5;
+  padding: 12px;
+  margin-bottom: 0;
+}
+
 .dashboard-switcher {
   display: flex;
   flex-wrap: wrap;

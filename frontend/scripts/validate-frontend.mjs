@@ -53,6 +53,9 @@ assert(html.includes('id="loanEditableOutput"'), "loan editable output is missin
 assert(html.includes("搜尋內部知識文件"), "search placeholder must be readable Traditional Chinese and internal-facing");
 assert(html.includes("選取知識文件以檢視"), "empty document state must be readable Traditional Chinese");
 assert(html.includes("生活決策工作台"), "workspace title must be user-facing");
+assert(html.includes("我的決策狀態"), "dashboard title must be user-facing");
+assert(html.includes("先選擇情境"), "dashboard must include user workflow guidance");
+assert(html.includes("進階資料管理"), "advanced data controls must be separated from primary workflow");
 assert(html.includes("內部知識庫與規格文件"), "internal knowledge area must be explicitly separated");
 assert(html.includes("供管理者查閱"), "internal knowledge area must explain its audience");
 assertReadable("index.html", html);
@@ -108,6 +111,7 @@ assert(styles.includes(".dashboard-prototype"), "dashboard prototype styles are 
 assert(styles.includes(".dashboard-switcher"), "dashboard switcher styles are missing");
 assert(styles.includes(".runtime-panels"), "runtime panel styles are missing");
 assert(styles.includes(".user-summary"), "user workflow summary styles are missing");
+assert(styles.includes(".advanced-controls"), "advanced data controls styles are missing");
 assert(styles.includes(".internal-knowledge"), "internal knowledge separation styles are missing");
 assert(styles.includes("@media (max-width: 860px)"), "responsive media query is missing");
 assert(dashboard.metrics.length === 4, "dashboard fixture must expose four metrics");

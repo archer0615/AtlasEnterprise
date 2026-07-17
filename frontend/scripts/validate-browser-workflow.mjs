@@ -85,6 +85,7 @@ try {
   await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("已儲存"));
   assert(await page.locator("#scenarioList").getByText("Playwright local scenario").count() === 1, "saved scenario is missing");
 
+  await page.locator(".advanced-controls").evaluate((element) => { element.open = true; });
   await page.click("#deleteScenarioButton");
   await page.waitForFunction(() => document.querySelector("#runtimeFeedback")?.textContent.includes("已刪除"));
   assert(await page.locator("#scenarioList").getByText("Playwright local scenario").count() === 0, "deleted scenario is still visible");
