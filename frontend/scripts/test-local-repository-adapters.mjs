@@ -16,6 +16,10 @@ assert(runtime.includes("async delete(scenarioId)"), "Scenario repository delete
 assert(runtime.includes("async clear()"), "Scenario repository clear is missing");
 assert(runtime.includes("async replaceAll(scenarios)"), "Scenario repository replaceAll is missing");
 assert(runtime.includes("indexedDbBackupRepository"), "Backup repository adapter is missing");
+assert(runtime.includes("indexedDbRecommendationDecisionRepository"), "Recommendation decision repository adapter is missing");
+assert(runtime.includes("recommendationDecisions"), "Recommendation decision store is missing");
+assert(runtime.includes("async save(decision)"), "Recommendation decision save is missing");
+assert(runtime.includes("async clear()"), "Repository clear operation is missing");
 assert(runtime.includes("validateBackup(backup)"), "Backup validation is missing");
 assert(runtime.includes('"atlas-pwa-runtime-backup.v1"'), "Backup schema version is missing");
 assert(runtime.includes("scenarioIds.has"), "Backup duplicate scenario ID validation is missing");
@@ -25,6 +29,9 @@ assert(runtime.includes("async markCurrent()"), "Migration repository markCurren
 assert(main.includes("deleteLastScenario"), "Dashboard delete workflow is missing");
 assert(main.includes("resetScenarios"), "Dashboard reset workflow is missing");
 assert(main.includes("setRuntimeFeedback"), "Runtime feedback workflow is missing");
+assert(main.includes("exportPortfolioReport"), "Portfolio report export workflow is missing");
+assert(main.includes("calculateEditableLoan"), "Loan editable calculation workflow is missing");
+assert(main.includes("validateLoanInput"), "Loan editable validation workflow is missing");
 assert(main.includes("restoreConfirmInput"), "Restore confirmation workflow is missing");
 assert(main.includes("previewBackup"), "Backup preview workflow is missing");
 assert(main.includes("applyBackup"), "Backup apply workflow is missing");

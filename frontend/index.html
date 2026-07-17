@@ -73,11 +73,15 @@
           <div class="runtime-panels">
             <section>
               <h4>Portfolio 報表</h4>
+              <div class="dashboard-actions compact-actions">
+                <button id="exportPortfolioReportButton" type="button">匯出報表</button>
+              </div>
               <div id="portfolioReportPanel" class="report-list"></div>
             </section>
             <section>
               <h4>Recommendation 執行</h4>
               <div id="recommendationControlPanel" class="execution-panel"></div>
+              <div id="recommendationDecisionLog" class="decision-log"></div>
               <div class="dashboard-actions compact-actions">
                 <button id="acceptRecommendationButton" type="button">接受建議</button>
                 <button id="rejectRecommendationButton" type="button">拒絕建議</button>
@@ -85,6 +89,13 @@
             </section>
             <section>
               <h4>Loan 情境</h4>
+              <div class="dashboard-actions compact-actions">
+                <input id="loanBalanceInput" type="text" placeholder="本金" inputmode="decimal" />
+                <input id="loanRateInput" type="text" placeholder="年利率 %" inputmode="decimal" />
+                <input id="loanMonthsInput" type="text" placeholder="期數" inputmode="numeric" />
+                <button id="calculateLoanButton" type="button">試算</button>
+              </div>
+              <div id="loanEditableOutput" class="decision-log"></div>
               <div id="loanScenarioPanel" class="report-list"></div>
             </section>
           </div>

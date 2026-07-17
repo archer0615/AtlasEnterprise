@@ -1,9 +1,10 @@
 const databaseName = "atlas-pwa-runtime";
-const databaseVersion = 1;
+const databaseVersion = 2;
 const backupSchemaVersion = "atlas-pwa-runtime-backup.v1";
 const migrationRecordKey = "schema";
 const stores = {
   metadata: "metadata",
+  recommendationDecisions: "recommendationDecisions",
   scenarios: "scenarios",
   settings: "settings",
 };
@@ -28,6 +29,9 @@ function openDatabase() {
       }
       if (!database.objectStoreNames.contains(stores.scenarios)) {
         database.createObjectStore(stores.scenarios, { keyPath: "scenarioId" });
+      }
+      if (!database.objectStoreNames.contains(stores.recommendationDecisions)) {
+        database.createObjectStore(stores.recommendationDecisions, { keyPath: "decisionId" });
       }
       if (!database.objectStoreNames.contains(stores.settings)) {
         database.createObjectStore(stores.settings, { keyPath: "key" });
@@ -121,6 +125,28 @@ export const indexedDbScenarioRepository = {
       for (const scenario of scenarios) {
         store.put(scenario);
       }
+      transaction.onerror = () => reject(transaction.error);
+      transaction.oncomplete = () => resolve();
+    });
+  },
+};
+
+export const indexedDbRecommendationDecisionRepository = {
+  async list() {
+    return getAll(stores.recommendationDecisions);
+  },
+
+  async save(decision) {
+    await withStore(stores.recommendationDecisions, "readwrite", (store) => store.put(decision));
+  },
+
+  async clear() {
+    const database = await openDatabase();
+
+    return new Promise((resolve, reject) => {
+      const transaction = database.transaction(stores.recommendationDecisions, "readwrite");
+      const store = transaction.objectStore(stores.recommendationDecisions);
+      store.clear();
       transaction.onerror = () => reject(transaction.error);
       transaction.oncomplete = () => resolve();
     });

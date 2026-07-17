@@ -1,5 +1,5 @@
 import { dashboardStorage, fallbackDashboardSnapshot, normalizeDashboardCollection } from "./dashboard-model.js";
-import { indexedDbBackupRepository, indexedDbMigrationRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
+import { indexedDbBackupRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
 
 const state = {
   documents: [],
@@ -30,8 +30,15 @@ const actionList = document.querySelector("#actionList");
 const portfolioReportPanel = document.querySelector("#portfolioReportPanel");
 const recommendationControlPanel = document.querySelector("#recommendationControlPanel");
 const loanScenarioPanel = document.querySelector("#loanScenarioPanel");
+const exportPortfolioReportButton = document.querySelector("#exportPortfolioReportButton");
+const recommendationDecisionLog = document.querySelector("#recommendationDecisionLog");
 const acceptRecommendationButton = document.querySelector("#acceptRecommendationButton");
 const rejectRecommendationButton = document.querySelector("#rejectRecommendationButton");
+const loanBalanceInput = document.querySelector("#loanBalanceInput");
+const loanRateInput = document.querySelector("#loanRateInput");
+const loanMonthsInput = document.querySelector("#loanMonthsInput");
+const calculateLoanButton = document.querySelector("#calculateLoanButton");
+const loanEditableOutput = document.querySelector("#loanEditableOutput");
 const saveScenarioButton = document.querySelector("#saveScenarioButton");
 const deleteScenarioButton = document.querySelector("#deleteScenarioButton");
 const resetScenariosButton = document.querySelector("#resetScenariosButton");
@@ -49,6 +56,7 @@ let runtimeSnapshots = [];
 let simulatorResults = new Map();
 let selectedDashboardSnapshotId = fallbackDashboardSnapshot.snapshotId;
 let localScenarios = [];
+let recommendationDecisions = [];
 let pendingBackup = null;
 
 async function loadIndex() {
@@ -78,6 +86,7 @@ async function loadDashboard() {
     selectedDashboardSnapshotId = await readStoredDashboardSnapshotId() || collection.defaultSnapshotId;
     await indexedDbMigrationRepository.markCurrent().catch(() => {});
     localScenarios = await indexedDbScenarioRepository.list().catch(() => []);
+    recommendationDecisions = await indexedDbRecommendationDecisionRepository.list().catch(() => []);
     renderDashboardById(selectedDashboardSnapshotId);
   } catch {
     dashboardSnapshots = [fallbackDashboardSnapshot];
@@ -273,6 +282,7 @@ function renderRecommendationControls(snapshot) {
   const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
   if (!result?.recommendation) {
     recommendationControlPanel.innerHTML = `<div class="empty-runtime">目前情境沒有 Recommendation execution trace。</div>`;
+    recommendationDecisionLog.textContent = "";
     return;
   }
   recommendationControlPanel.innerHTML = `
@@ -280,6 +290,16 @@ function renderRecommendationControls(snapshot) {
     <div class="runtime-row"><span>Score</span><strong>${escapeHtml(result.score)}</strong></div>
     <div class="runtime-note">${escapeHtml(result.recommendation.explanation)}</div>
   `;
+  renderRecommendationDecisionLog(result.fixtureId);
+}
+
+function renderRecommendationDecisionLog(fixtureId) {
+  const latest = recommendationDecisions
+    .filter((item) => item.fixtureId === fixtureId)
+    .sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")))[0];
+  recommendationDecisionLog.textContent = latest
+    ? `最近決策：${latest.decision} / ${latest.status} / ${latest.decidedAt}`
+    : "最近決策：尚未紀錄";
 }
 
 function renderLoanScenarioPanel(snapshot) {
@@ -298,14 +318,81 @@ function renderLoanScenarioPanel(snapshot) {
   `).join("");
 }
 
-function setRecommendationDecision(decision) {
+async function setRecommendationDecision(decision) {
   const snapshot = dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
   const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
   if (!result?.recommendation) {
     setRuntimeFeedback("目前情境沒有可執行的建議。");
     return;
   }
+  const record = {
+    decisionId: `decision-${Date.now()}`,
+    decision,
+    fixtureId: result.fixtureId,
+    snapshotId: snapshot.snapshotId,
+    status: result.recommendation.status,
+    score: String(result.score),
+    decidedAt: new Date().toISOString(),
+  };
+  await indexedDbRecommendationDecisionRepository.save(record);
+  recommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
+  renderRecommendationDecisionLog(result.fixtureId);
   setRuntimeFeedback(`Recommendation ${decision}：${result.fixtureId} / ${result.recommendation.status}`);
+}
+
+function exportPortfolioReport() {
+  const snapshot = dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
+  const runtimeSnapshot = getRuntimeSnapshot(snapshot);
+  const result = getRuntimeResult(runtimeSnapshot);
+  if (!result?.metrics) {
+    setRuntimeFeedback("目前情境沒有可匯出的 Portfolio 報表。");
+    return;
+  }
+  const formulaIds = (runtimeSnapshot?.metrics || []).flatMap((metric) => metric.formulaIds || []);
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    snapshotId: snapshot.snapshotId,
+    fixtureId: result.fixtureId,
+    formulaIds,
+    metrics: result.metrics,
+    recommendation: result.recommendation || null,
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `atlas-portfolio-report-${snapshot.snapshotId}.json`;
+  link.click();
+  URL.revokeObjectURL(url);
+  setRuntimeFeedback(`Portfolio report exported：${snapshot.snapshotId}`);
+}
+
+function calculateEditableLoan() {
+  const principal = Number(loanBalanceInput.value.replaceAll(",", ""));
+  const annualRate = Number(loanRateInput.value);
+  const months = Number(loanMonthsInput.value);
+  validateLoanInput(principal, annualRate, months);
+  const monthlyPayment = calculateAmortizedPayment(principal, annualRate, months);
+  loanEditableOutput.textContent = `月付：${monthlyPayment.toLocaleString("zh-TW", { maximumFractionDigits: 2 })}，本金：${principal.toLocaleString("zh-TW")}，期數：${months}`;
+  setRuntimeFeedback("Loan editable scenario calculated.");
+}
+
+function calculateAmortizedPayment(principal, annualRate, months) {
+  const monthlyRate = annualRate / 100 / 12;
+  if (monthlyRate === 0) return principal / months;
+  return principal * monthlyRate / (1 - (1 + monthlyRate) ** -months);
+}
+
+function validateLoanInput(principal, annualRate, months) {
+  if (!Number.isFinite(principal) || principal <= 0) {
+    throw new Error("Loan 本金必須大於 0。");
+  }
+  if (!Number.isFinite(annualRate) || annualRate < 0 || annualRate > 100) {
+    throw new Error("Loan 年利率必須介於 0 到 100。");
+  }
+  if (!Number.isInteger(months) || months <= 0 || months > 600) {
+    throw new Error("Loan 期數必須是 1 到 600 的整數。");
+  }
 }
 
 function formatMetricValue(value, mode = "") {
@@ -555,6 +642,10 @@ exportBackupButton.addEventListener("click", () => {
   exportBackup().catch((error) => setRuntimeFeedback(error.message));
 });
 
+exportPortfolioReportButton.addEventListener("click", () => {
+  exportPortfolioReport();
+});
+
 importBackupInput.addEventListener("change", (event) => {
   const file = event.target.files?.[0];
   if (!file) return;
@@ -567,11 +658,19 @@ applyBackupButton.addEventListener("click", () => {
 });
 
 acceptRecommendationButton.addEventListener("click", () => {
-  setRecommendationDecision("accepted");
+  setRecommendationDecision("accepted").catch((error) => setRuntimeFeedback(error.message));
 });
 
 rejectRecommendationButton.addEventListener("click", () => {
-  setRecommendationDecision("rejected");
+  setRecommendationDecision("rejected").catch((error) => setRuntimeFeedback(error.message));
+});
+
+calculateLoanButton.addEventListener("click", () => {
+  try {
+    calculateEditableLoan();
+  } catch (error) {
+    setRuntimeFeedback(error.message);
+  }
 });
 
 window.addEventListener("hashchange", openDocumentFromHash);
