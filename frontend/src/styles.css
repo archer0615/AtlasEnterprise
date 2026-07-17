@@ -73,6 +73,7 @@ input {
   color: #e8f2f0;
   text-decoration: none;
   padding: 10px 12px;
+  font-weight: 700;
 }
 
 .workflow-nav a:hover {
@@ -150,7 +151,7 @@ input {
   background: #fff;
   border: 1px solid #d7dfdc;
   padding: 14px;
-  min-height: 118px;
+  min-height: 104px;
   display: grid;
   gap: 6px;
 }
@@ -287,6 +288,12 @@ input {
   margin-bottom: 12px;
 }
 
+.primary-actions {
+  padding: 12px;
+  background: #f7f9f8;
+  border: 1px solid #e1e8e5;
+}
+
 .dashboard-actions button,
 .dashboard-actions label,
 .dashboard-actions input[type="text"] {
@@ -296,6 +303,10 @@ input {
   padding: 7px 10px;
   cursor: pointer;
   font-size: 13px;
+}
+
+.dashboard-actions button {
+  font-weight: 700;
 }
 
 .dashboard-actions input[type="text"] {

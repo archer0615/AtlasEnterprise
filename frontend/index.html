@@ -19,10 +19,10 @@
           </div>
         </div>
         <nav class="workflow-nav" aria-label="主要工作區">
-          <a href="#dashboard">決策總覽</a>
-          <a href="#portfolio">投資報表</a>
-          <a href="#recommendation">建議執行</a>
-          <a href="#loan">貸款試算</a>
+          <a href="#dashboard">總覽</a>
+          <a href="#portfolio">投資</a>
+          <a href="#recommendation">建議</a>
+          <a href="#loan">貸款</a>
         </nav>
         <div class="search-box">
           <label for="searchInput">內部知識搜尋</label>
@@ -43,17 +43,17 @@
           <div>
             <span>1</span>
             <strong>選擇情境</strong>
-            <small>切換退休、投資、貸款等決策情境。</small>
+            <small>選一個要檢查的生活財務情境。</small>
           </div>
           <div>
             <span>2</span>
             <strong>查看影響</strong>
-            <small>比較指標、風險與下一步行動。</small>
+            <small>看清楚分數、風險與下一步。</small>
           </div>
           <div>
             <span>3</span>
             <strong>執行或備份</strong>
-            <small>保存本地情境、匯出報表或建立備份。</small>
+            <small>保存情境、匯出報表或備份資料。</small>
           </div>
         </section>
         <section id="dashboard" class="dashboard-prototype" aria-label="決策儀表板">
@@ -63,10 +63,10 @@
               <h3>我的決策狀態</h3>
               <p class="section-help">先選擇情境，再查看指標、建議與可執行動作。</p>
             </div>
-            <span id="dashboardDate">資料快照</span>
+            <span id="dashboardDate">更新中</span>
           </div>
-          <div class="dashboard-actions" aria-label="本地儀表板操作">
-            <input id="scenarioNameInput" type="text" placeholder="本地情境名稱" />
+          <div class="dashboard-actions primary-actions" aria-label="情境儲存操作">
+            <input id="scenarioNameInput" type="text" placeholder="情境名稱" />
             <input id="scenarioScoreInput" type="text" placeholder="分數或狀態" />
             <button id="saveScenarioButton" type="button">儲存情境</button>
           </div>
