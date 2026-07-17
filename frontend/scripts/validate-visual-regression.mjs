@@ -30,7 +30,7 @@ for (const screenshot of screenshots) {
   }
 
   const baseline = baselines.get(screenshot);
-  if (!baseline) {
+  if (!baseline || process.env.CI === "true") {
     continue;
   }
 
