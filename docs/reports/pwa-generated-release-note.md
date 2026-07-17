@@ -5,26 +5,19 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+18abc8d8 Record continuation backup and regression
+ca4d61fe Implement next PWA workflow improvements
 62f88b56 Plan next PWA tasks and regression cadence
 021cdf05 Archive PWA release validation
 bcd4bc38 Localize PWA guidance and validation
-cd9e7481 Record PWA release closure
-7e35e2a1 Polish user dashboard copy
 ```
 
 ## Working Tree
 
 ```
-M frontend/index.html
- M frontend/scripts/validate-browser-workflow.mjs
- M frontend/scripts/validate-frontend.mjs
- M frontend/src/main.js
- M frontend/src/styles.css
- M package.json
-?? docs/reports/backup-sample.json
-?? docs/reports/export-report-sample.json
-?? docs/reports/pwa-next-twenty-implementation-report.md
-?? scripts/generate-release-note.mjs
+M package.json
+?? docs/reports/validation-history.json
+?? scripts/record-validation-history.mjs
 ```
 
 ## Validation Status Summary
