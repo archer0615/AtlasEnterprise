@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-17T06:29:06.949Z",
-  "buildId": "9bf01134f68a",
+  "generatedAt": "2026-07-17T08:53:43.112Z",
+  "buildId": "3141c1daa1a6",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -608,7 +608,7 @@
       "title": "Financial Formula Catalog",
       "category": "catalog",
       "path": "knowledge/catalog/financial-formula-catalog.md",
-      "sourceHash": "257ba6a5623c74b49db0332c9f4416e1c42361cc6305a7a23fd15591d11c1930",
+      "sourceHash": "ff8913a21e61583764e1c407e3c8520d8d117cf264db97e66f6f3336963c2573",
       "summary": "# Financial Formula Catalog Document Path: knowledge/catalog/financial-formula-catalog.md Document Type: Atlas Enterprise Canonical Specification Version: 1.1 Status: Canonical Specification Domain: Formula Governance Bounded Contex"
     },
     {
@@ -3288,7 +3288,7 @@
       "title": "current-capability-matrix",
       "category": "product",
       "path": "knowledge/product/current-capability-matrix.md",
-      "sourceHash": "4cb490c030dc8acc19f25485a18034c529eae879d5d2a22f9285d2022717a24f",
+      "sourceHash": "af0b47597e3050bb46df4da7772eb235ce3073e5477cb38107cdb3c0e6988993",
       "summary": "# Current Capability Matrix Document Path: knowledge/product/current-capability-matrix.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Canonical Specification Domain: Product Capability Bounded Conte"
     },
     {

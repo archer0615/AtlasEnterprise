@@ -134,8 +134,8 @@ function renderList() {
   resultCount.textContent = `${docs.length} 筆結果`;
   documentList.innerHTML = docs.map((doc) => `
     <button class="document-card ${doc.id === state.selectedDocumentId ? "active" : ""}" type="button" data-id="${doc.id}">
-      <span class="doc-title">${escapeHtml(doc.title)}</span>
-      <span class="doc-category">${escapeHtml(doc.category)}</span>
+      <span class="doc-title">${escapeHtml(translateKnowledgeText(doc.title))}</span>
+      <span class="doc-category">${escapeHtml(translateCategory(doc.category))}</span>
       <span class="doc-path">${escapeHtml(doc.path)}</span>
       ${tokens.length ? `<span class="doc-score">符合度 ${doc.score}</span>` : ""}
     </button>
@@ -188,14 +188,16 @@ async function openDocument(id) {
   }
 
   const payload = await response.json();
+  const translatedHeadings = translateKnowledgeHeadings(payload.headings || []);
+  const translatedBody = translateKnowledgeMarkdown(payload.bodyMarkdown || "");
   documentViewer.innerHTML = `
     <div class="document-meta">
-      <span>${escapeHtml(payload.category)}</span>
+      <span>${escapeHtml(translateCategory(payload.category))}</span>
       <span>${escapeHtml(payload.canonicalPath)}</span>
     </div>
-    <h2>${escapeHtml(payload.title)}</h2>
-    ${renderHeadingLinks(payload.headings || [])}
-    <pre>${escapeHtml(payload.bodyMarkdown)}</pre>
+    <h2>${escapeHtml(translateKnowledgeText(payload.title))}</h2>
+    ${renderHeadingLinks(translatedHeadings)}
+    <pre>${escapeHtml(translatedBody)}</pre>
   `;
 }
 
@@ -412,15 +414,217 @@ function formatDisplayToken(value) {
 
 function translateCategory(value) {
   const translations = {
+    ai: "AI",
+    api: "API",
+    catalog: "目錄",
+    engine: "引擎",
+    entity: "實體",
+    framework: "框架",
+    governance: "治理",
     Finance: "財務",
     Governance: "治理",
     Insurance: "保險",
     Investment: "投資",
+    product: "產品",
+    reporting: "報表",
     Operations: "營運",
     Planning: "規劃",
     Retirement: "退休",
+    security: "安全",
+    supporting: "支援",
+    workflow: "工作流程",
   };
   return translations[value] || value;
+}
+
+function translateKnowledgeHeadings(headings) {
+  return headings.map((heading) => ({
+    ...heading,
+    text: translateKnowledgeText(heading.text),
+  }));
+}
+
+function translateKnowledgeMarkdown(markdown) {
+  return String(markdown)
+    .split("\n")
+    .map((line) => translateKnowledgeLine(line))
+    .join("\n");
+}
+
+function translateKnowledgeLine(line) {
+  const heading = line.match(/^(#{1,6})\s+(.+)$/);
+  if (heading) return `${heading[1]} ${translateKnowledgeText(heading[2])}`;
+
+  const field = line.match(/^([A-Za-z][A-Za-z ]+):\s*(.*)$/);
+  if (field) {
+    return `${translateKnowledgeText(field[1])}: ${translateKnowledgeText(field[2])}`;
+  }
+
+  return translateKnowledgeText(line);
+}
+
+function translateKnowledgeText(value) {
+  let text = String(value || "");
+  const phraseTranslations = [
+    ["Document Control", "文件管制"],
+    ["Document Name", "文件名稱"],
+    ["Document Path", "文件路徑"],
+    ["Document Type", "文件類型"],
+    ["Parent Specification", "上層規格"],
+    ["Source of Truth", "事實來源"],
+    ["Version History", "版本歷程"],
+    ["Related Specifications", "相關規格"],
+    ["Status", "狀態"],
+    ["Canonical Specification", "正式規格"],
+    ["Owner", "負責單位"],
+    ["Last Updated", "最後更新"],
+    ["Service Name", "服務名稱"],
+    ["Display Name", "顯示名稱"],
+    ["Category", "分類"],
+    ["Domain Service", "領域服務"],
+    ["Application Service", "應用服務"],
+    ["Layer", "層級"],
+    ["Domain Layer", "領域層"],
+    ["Application Layer", "應用層"],
+    ["Domain", "領域"],
+    ["Bounded Context", "限界上下文"],
+    ["Module", "模組"],
+    ["Purpose", "用途"],
+    ["Business Meaning", "業務意義"],
+    ["Responsibilities", "職責"],
+    ["Non Responsibilities", "非職責"],
+    ["Dependencies", "相依項目"],
+    ["Consumers", "使用者"],
+    ["Interfaces", "介面"],
+    ["Public Operations", "公開操作"],
+    ["Input DTO", "輸入 DTO"],
+    ["Output DTO", "輸出 DTO"],
+    ["Repository Dependencies", "Repository 相依項目"],
+    ["Aggregate Dependencies", "Aggregate 相依項目"],
+    ["Command Dependencies", "Command 相依項目"],
+    ["Domain Event Dependencies", "領域事件相依項目"],
+    ["External Dependencies", "外部相依項目"],
+    ["Workflow Dependencies", "工作流程相依項目"],
+    ["Authorization", "授權"],
+    ["Transaction Boundary", "交易邊界"],
+    ["Consistency Boundary", "一致性邊界"],
+    ["Concurrency", "並行控制"],
+    ["Idempotency", "冪等性"],
+    ["Retry", "重試"],
+    ["Compensation", "補償"],
+    ["Caching", "快取"],
+    ["Logging", "記錄"],
+    ["Metrics", "指標"],
+    ["Audit", "稽核"],
+    ["Security", "安全"],
+    ["Performance Target", "效能目標"],
+    ["Failure Strategy", "失敗策略"],
+    ["Version", "版本"],
+    ["Date", "日期"],
+    ["Change", "變更"],
+    ["Reason", "原因"],
+    ["Description", "說明"],
+    ["Required", "必填"],
+    ["Field", "欄位"],
+    ["Endpoint", "端點"],
+    ["Method", "方法"],
+    ["Permission", "權限"],
+    ["Expected Result", "預期結果"],
+    ["Rule ID", "規則 ID"],
+    ["Rule", "規則"],
+    ["Failure", "失敗"],
+    ["Actor", "執行者"],
+    ["Output", "輸出"],
+    ["Capability Matrix", "能力矩陣"],
+    ["Capability", "能力"],
+    ["Implemented", "已實作"],
+    ["Fixture-backed", "Fixture 支援"],
+    ["Documented", "已文件化"],
+    ["Canonical Knowledge", "正式知識"],
+    ["Known Gap", "已知缺口"],
+    ["Status Legend", "狀態說明"],
+    ["Formula Definition Contract", "公式定義合約"],
+    ["Formula Identifier Catalog", "公式識別碼目錄"],
+    ["Formula Governance Commands", "公式治理命令"],
+    ["Validation Rules", "驗證規則"],
+    ["API Contract", "API 合約"],
+    ["Testing Matrix", "測試矩陣"],
+    ["Example", "範例"],
+    ["Service Control", "服務控制"],
+    ["Entity Control", "實體控制"],
+    ["Framework Control", "框架控制"],
+    ["Workflow Control", "工作流程控制"],
+    ["Decision Control", "決策控制"],
+    ["Governance", "治理"],
+    ["Testing", "測試"],
+    ["Architecture", "架構"],
+    ["Specification", "規格"],
+    ["Service", "服務"],
+    ["Entity", "實體"],
+    ["Framework", "框架"],
+    ["Workflow", "工作流程"],
+    ["Knowledge", "知識"],
+    ["Product", "產品"],
+    ["Formula", "公式"],
+    ["Scenario", "情境"],
+    ["Dashboard", "儀表板"],
+    ["Simulator", "模擬器"],
+    ["Runtime", "執行階段"],
+    ["Backup", "備份"],
+    ["Cache", "快取"],
+    ["Database", "資料庫"],
+    ["Financial", "財務"],
+    ["Capability", "能力"],
+    ["Loan", "貸款"],
+    ["Mortgage", "房貸"],
+    ["Portfolio", "投資組合"],
+    ["Goal", "目標"],
+    ["Decision", "決策"],
+    ["Liability", "負債"],
+    ["Asset", "資產"],
+    ["Household", "家庭"],
+    ["Notification", "通知"],
+    ["Execution Plan", "執行計畫"],
+    ["Action Plan", "行動計畫"],
+    ["Calculation Engine", "計算引擎"],
+    ["Optimization Engine", "最佳化引擎"],
+    ["Projection Engine", "預測引擎"],
+    ["Calculation", "計算"],
+    ["Optimization", "最佳化"],
+    ["Projection", "預測"],
+    ["Repository", "Repository"],
+    ["Aggregate", "Aggregate"],
+    ["Command", "Command"],
+    ["Domain Event", "領域事件"],
+    ["External", "外部"],
+    ["Internal", "內部"],
+    ["Yes", "是"],
+    ["No", "否"],
+    ["Partial", "部分"],
+    ["Draft", "草稿"],
+    ["Active", "啟用"],
+    ["Deprecated", "已棄用"],
+    ["Retired", "已退役"],
+    ["Gap", "缺口"],
+    ["N/A", "不適用"],
+    ["Read", "讀取"],
+    ["Evaluate", "評估"],
+    ["Admin", "管理"],
+    ["Reject publish", "拒絕發布"],
+    ["Reject update", "拒絕更新"],
+    ["Reject evaluation", "拒絕評估"],
+    ["Reject retirement", "拒絕退役"],
+    ["Only dependencies cataloged through Integration Framework or Service Catalog.", "只能使用整合框架或服務目錄已登錄的相依項目。"],
+    ["Caller authorization context is required before sensitive operation.", "敏感操作前必須具備呼叫者授權上下文。"],
+    ["Retry only transient failures with known state and safe idempotency.", "只在狀態已知且具備安全冪等性時重試暫時性失敗。"],
+    ["Cache only read-only deterministic outputs with scoped keys.", "只快取具範圍鍵值的唯讀 deterministic 輸出。"],
+    ["Tenant isolation, Household isolation, permission, and data classification are respected.", "必須遵守租戶隔離、家庭隔離、權限與資料分級。"],
+  ];
+
+  for (const [source, target] of phraseTranslations) {
+    text = text.replaceAll(source, target);
+  }
+  return text;
 }
 
 function translateStatus(value) {
