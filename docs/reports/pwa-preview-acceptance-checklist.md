@@ -2,7 +2,7 @@
 
 ## Status
 
-Prepared.
+Accepted.
 
 ## Deployment Gate
 
@@ -30,16 +30,20 @@ Prepared.
 
 | URL | Status | Evidence |
 | --- | --- | --- |
-| `https://archer0615.github.io/AtlasEnterprise/` | Failed | HTTP 404 Not Found on 2026-07-17. |
-| `https://archer0615.github.io/AtlasEnterprise/manifest.webmanifest` | Failed | HTTP 404 Not Found on 2026-07-17. |
+| `https://archer0615.github.io/AtlasEnterprise/` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
+| `https://archer0615.github.io/AtlasEnterprise/manifest.webmanifest` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
+| `https://archer0615.github.io/AtlasEnterprise/sw.js` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
+| `https://archer0615.github.io/AtlasEnterprise/knowledge/index.json` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
+| `https://archer0615.github.io/AtlasEnterprise/knowledge/search-index.json` | Passed | HTTP 200 OK on 2026-07-17 after workflow run `29561153619`. |
 
 ## Workflow Trigger Readiness
 
 | Item | Status | Evidence |
 | --- | --- | --- |
-| GitHub CLI availability | Blocked | `gh` command is not installed or not on `PATH`. |
-| Remote branch check | Passed | `origin/master` exists at `f8c55f9231564c13162bca82eae4361afde8e921`. |
+| GitHub CLI availability | Not required | Push-triggered workflow deployed successfully without `gh`. |
+| Remote branch check | Passed | `origin/master` deployed commit `a0686931a73d17f863e9228546729233f0d8e08b`. |
 | Local workflow file | Present locally | `.github/workflows/pages.yml` exists in the workspace. |
+| GitHub Pages workflow | Passed | `Deploy Atlas PWA to GitHub Pages` run `29561153619` completed successfully. |
 
 ## Acceptance Criteria
 
@@ -54,7 +58,13 @@ Prepared.
 | PWA runs without backend | Dashboard and knowledge views load without ASP.NET Core, database, auth server, or hosted API. |
 | Offline cache works after first load | App shell and generated knowledge assets remain available after refresh/offline simulation. |
 
+## Release Status
+
+- Internal preview deployment is accepted.
+- GitHub Pages URL: `https://archer0615.github.io/AtlasEnterprise/`
+- Deployed commit: `a0686931a73d17f863e9228546729233f0d8e08b`
+- Workflow run: `https://github.com/archer0615/AtlasEnterprise/actions/runs/29561153619`
+
 ## Blockers
 
-- GitHub Pages workflow could not be triggered from this environment because GitHub CLI is unavailable.
-- Deployed Pages URL currently returns 404, so deployed preview acceptance cannot pass yet.
+- None for internal preview deployment.
