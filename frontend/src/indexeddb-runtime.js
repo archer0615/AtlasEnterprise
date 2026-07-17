@@ -1,5 +1,5 @@
 const databaseName = "atlas-pwa-runtime";
-const databaseVersion = 2;
+const databaseVersion = 3;
 const backupSchemaVersion = "atlas-pwa-runtime-backup.v1";
 const migrationRecordKey = "schema";
 const stores = {
@@ -7,6 +7,7 @@ const stores = {
   recommendationDecisions: "recommendationDecisions",
   scenarios: "scenarios",
   settings: "settings",
+  auditEntries: "auditEntries",
 };
 
 let databasePromise;
@@ -35,6 +36,9 @@ function openDatabase() {
       }
       if (!database.objectStoreNames.contains(stores.settings)) {
         database.createObjectStore(stores.settings, { keyPath: "key" });
+      }
+      if (!database.objectStoreNames.contains(stores.auditEntries)) {
+        database.createObjectStore(stores.auditEntries, { keyPath: "auditId" });
       }
     };
 
@@ -146,6 +150,28 @@ export const indexedDbRecommendationDecisionRepository = {
     return new Promise((resolve, reject) => {
       const transaction = database.transaction(stores.recommendationDecisions, "readwrite");
       const store = transaction.objectStore(stores.recommendationDecisions);
+      store.clear();
+      transaction.onerror = () => reject(transaction.error);
+      transaction.oncomplete = () => resolve();
+    });
+  },
+};
+
+export const indexedDbAuditRepository = {
+  async list() {
+    return getAll(stores.auditEntries);
+  },
+
+  async save(entry) {
+    await withStore(stores.auditEntries, "readwrite", (store) => store.put(entry));
+  },
+
+  async clear() {
+    const database = await openDatabase();
+
+    return new Promise((resolve, reject) => {
+      const transaction = database.transaction(stores.auditEntries, "readwrite");
+      const store = transaction.objectStore(stores.auditEntries);
       store.clear();
       transaction.onerror = () => reject(transaction.error);
       transaction.oncomplete = () => resolve();

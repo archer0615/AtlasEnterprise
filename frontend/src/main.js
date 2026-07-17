@@ -1,5 +1,5 @@
 import { dashboardStorage, fallbackDashboardSnapshot, normalizeDashboardCollection } from "./dashboard-model.js";
-import { indexedDbBackupRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
+import { indexedDbAuditRepository, indexedDbBackupRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
 
 const state = { documents: [], searchDocuments: new Map(), categories: [], selectedCategory: "all", selectedDocumentId: "", query: "" };
 const storageKeys = { dashboardSnapshotId: dashboardStorage.snapshotIdKey };
@@ -60,6 +60,9 @@ const validationExportPanel = $("#validationExportPanel");
 const offlineRepairButton = $("#offlineRepairButton");
 const offlineRepairPanel = $("#offlineRepairPanel");
 const offlineRepairAuditPanel = $("#offlineRepairAuditPanel");
+const persistentAuditPanel = $("#persistentAuditPanel");
+const reportDiffPanel = $("#reportDiffPanel");
+const validationFailureDiagnosisPanel = $("#validationFailureDiagnosisPanel");
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -72,6 +75,7 @@ let latestValidationRecord = null;
 let validationHistoryRecords = [];
 let currentCacheVersion = "";
 let offlineRepairAudit = [];
+let persistentAuditEntries = [];
 
 async function loadIndex() {
   const response = await fetch("knowledge/index.json", { cache: "no-cache" });
@@ -259,6 +263,7 @@ async function setRecommendationDecision(decision) {
     return;
   }
   await indexedDbRecommendationDecisionRepository.save({ decisionId: `decision-${Date.now()}`, decision, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status, score: String(result.score), decidedAt: new Date().toISOString() });
+  await persistAuditEntry("recommendation-decision", { decision, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status });
   recommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
   renderRecommendationDecisionLog(result.fixtureId);
   renderRecommendationHistory();
@@ -431,6 +436,7 @@ async function saveCurrentScenario() {
   const score = scenarioScoreInput.value.trim() || snapshot.metrics?.[0]?.value || "N/A";
   validateScenarioInput(name, score);
   await indexedDbScenarioRepository.save({ scenarioId: `local-${Date.now()}`, name, score, status: "IndexedDB", sourceSnapshotId: snapshot.snapshotId, savedAt: new Date().toISOString() });
+  await persistAuditEntry("scenario-save", { snapshotId: snapshot.snapshotId, name, score });
   scenarioNameInput.value = "";
   scenarioScoreInput.value = "";
   localScenarios = await indexedDbScenarioRepository.list();
@@ -445,6 +451,7 @@ async function deleteLastScenario() {
     return;
   }
   await indexedDbScenarioRepository.delete(latest.scenarioId);
+  await persistAuditEntry("scenario-delete", { scenarioId: latest.scenarioId, sourceSnapshotId: latest.sourceSnapshotId });
   localScenarios = await indexedDbScenarioRepository.list();
   renderDashboardById(selectedDashboardSnapshotId);
   setRuntimeFeedback("最新自訂情境已刪除。");
@@ -452,6 +459,7 @@ async function deleteLastScenario() {
 
 async function resetScenarios() {
   await indexedDbScenarioRepository.clear();
+  await persistAuditEntry("scenario-reset", { count: localScenarios.length });
   localScenarios = [];
   renderDashboardById(selectedDashboardSnapshotId);
   setRuntimeFeedback("自訂情境已清空。");
@@ -476,6 +484,7 @@ async function applyBackup() {
   if (!restoreConfirmInput.checked) throw new Error("請先勾選確認覆蓋本機情境。");
   if (!pendingBackup) throw new Error("請先匯入並預覽備份。");
   await indexedDbBackupRepository.importBackup(pendingBackup);
+  await persistAuditEntry("backup-restore", { scenarioCount: pendingBackup.scenarios.length, exportedAt: pendingBackup.exportedAt || "N/A" });
   pendingBackup = null;
   backupPreview.textContent = "";
   backupDryRunPanel.textContent = "";
@@ -543,6 +552,7 @@ async function renderReleaseDashboard() {
     fetch("sw-version.js", { cache: "no-cache" }).then((response) => response.ok ? response.text() : "").catch(() => ""),
   ]);
   validationHistoryRecords = Array.isArray(history) ? history : [];
+  persistentAuditEntries = await indexedDbAuditRepository.list().catch(() => []);
   const latest = validationHistoryRecords.at(-1) || null;
   latestValidationRecord = latest;
   releaseDashboardPanel.innerHTML = [
@@ -562,6 +572,9 @@ async function renderReleaseDashboard() {
   reportVersionHistoryPanel.textContent = buildReportVersionHistory()
     .map((item) => `${item.version} / ${item.status} / ${item.description}`)
     .join("\n");
+  renderPersistentAudit();
+  renderReportDiff(latest);
+  renderValidationFailureDiagnosis(latest);
 }
 
 async function repairOfflineData() {
@@ -593,6 +606,7 @@ async function repairOfflineData() {
   auditEntry.recommendationDecisions = recommendationDecisions.length;
   if (!auditEntry.actions.length) auditEntry.actions.push("僅檢查，未變更資料");
   offlineRepairAudit = [auditEntry, ...offlineRepairAudit].slice(0, 5);
+  await persistAuditEntry("offline-repair", { result: message, actions: auditEntry.actions, localScenarios: auditEntry.localScenarios, recommendationDecisions: auditEntry.recommendationDecisions });
   renderOfflineRepairAudit();
   setRuntimeFeedback(message);
 }
@@ -612,6 +626,9 @@ function exportValidationResult() {
     history: validationHistoryRecords,
     reportVersions: buildReportVersionHistory(),
     offlineRepairAudit,
+    persistentAuditEntries,
+    reportDiff: buildReportDiff(latestValidationRecord),
+    validationFailureDiagnosis: diagnoseValidationRecord(latestValidationRecord),
   };
   downloadJson(payload, "atlas-validation-result-v1.json");
   validationExportPanel.textContent = [
@@ -620,6 +637,66 @@ function exportValidationResult() {
     `修復稽核：${offlineRepairAudit.length} 筆`,
   ].join("\n");
   setRuntimeFeedback("已匯出驗證結果。");
+}
+
+async function persistAuditEntry(action, detail = {}) {
+  const entry = {
+    auditId: `audit-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    action,
+    detail,
+    recordedAt: new Date().toISOString(),
+    schema: "atlas-enterprise.audit-entry.v1",
+  };
+  await indexedDbAuditRepository.save(entry).catch(() => {});
+  persistentAuditEntries = [entry, ...persistentAuditEntries].slice(0, 20);
+  renderPersistentAudit();
+}
+
+function renderPersistentAudit() {
+  if (!persistentAuditPanel) return;
+  const entries = [...persistentAuditEntries].sort((a, b) => String(b.recordedAt || "").localeCompare(String(a.recordedAt || ""))).slice(0, 5);
+  persistentAuditPanel.textContent = entries.length
+    ? entries.map((entry) => `${entry.recordedAt} / ${entry.action} / ${entry.schema}`).join("\n")
+    : "尚無持久化稽核紀錄";
+}
+
+function buildReportDiff(latest) {
+  const versions = buildReportVersionHistory();
+  const previous = versions.find((item) => item.version === "export-report.v1");
+  const current = versions.find((item) => item.version === "export-report.v2");
+  return {
+    previousVersion: previous?.version || "N/A",
+    currentVersion: current?.version || "N/A",
+    changedFields: ["cacheVersion", "validation", "localizedPayload"],
+    validationStatus: latest?.status || "N/A",
+  };
+}
+
+function renderReportDiff(latest) {
+  if (!reportDiffPanel) return;
+  const diff = buildReportDiff(latest);
+  reportDiffPanel.textContent = [
+    `報表差異：${diff.previousVersion} -> ${diff.currentVersion}`,
+    `新增欄位：${diff.changedFields.join(", ")}`,
+    `驗證狀態：${diff.validationStatus}`,
+  ].join("\n");
+}
+
+function diagnoseValidationRecord(record) {
+  if (!record) return { status: "missing", reason: "validation-history.json 尚未產生", nextAction: "執行 npm run report:validation-history" };
+  if (record.status === "passed") return { status: "passed", reason: "最近一次驗證通過", nextAction: "維持現有驗證鏈" };
+  const scope = Array.isArray(record.scope) ? record.scope.join(", ") : "unknown";
+  return { status: record.status || "failed", reason: `${record.command || "unknown command"} 在 ${scope} 失敗`, nextAction: "檢查 command、scope、commit 與最新輸出" };
+}
+
+function renderValidationFailureDiagnosis(record) {
+  if (!validationFailureDiagnosisPanel) return;
+  const diagnosis = diagnoseValidationRecord(record);
+  validationFailureDiagnosisPanel.textContent = [
+    `驗證診斷：${diagnosis.status}`,
+    `原因：${diagnosis.reason}`,
+    `建議：${diagnosis.nextAction}`,
+  ].join("\n");
 }
 
 async function loadSample(path, target) {

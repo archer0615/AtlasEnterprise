@@ -29,6 +29,7 @@ for (const id of [
   "validationHistoryPanel", "cacheVersionText",
   "reportVersionPanel", "offlineRepairButton", "offlineRepairPanel",
   "reportVersionHistoryPanel", "exportValidationButton", "validationExportPanel", "offlineRepairAuditPanel",
+  "persistentAuditPanel", "reportDiffPanel", "validationFailureDiagnosisPanel",
   "deleteScenarioButton", "resetScenariosButton", "runtimeFeedback", "scenarioNameInput",
   "scenarioScoreInput", "exportBackupButton", "importBackupInput", "restoreConfirmInput",
   "applyBackupButton", "backupPreview", "backupDryRunPanel", "scenarioComparisonPanel",
@@ -63,6 +64,8 @@ for (const token of [
   "renderLoanScenarioPanel", "setRecommendationDecision", "exportPortfolioReport",
   "wrapExportReport", "repairOfflineData",
   "buildReportVersionHistory", "exportValidationResult", "renderOfflineRepairAudit",
+  "persistAuditEntry", "renderPersistentAudit", "buildReportDiff", "renderReportDiff",
+  "diagnoseValidationRecord", "renderValidationFailureDiagnosis",
   "buildPortfolioReportPayload", "renderExportPreview", "calculateEditableLoan",
   "resetLoanInputs", "validateLoanInput", "找不到符合條件的知識文件。", "知識文件載入失敗。",
   'fetch("fixtures/dashboard-snapshots.json"', 'fetch(`knowledge/documents/${doc.id}.json`)',
@@ -81,6 +84,7 @@ for (const token of [
   "indexedDbBackupRepository", "async delete(scenarioId)", "async clear()",
   "backupSchemaVersion", "validateBackup", "scenarioIds.has",
   "indexedDbMigrationRepository", "databaseVersion",
+  "indexedDbAuditRepository", '"auditEntries"',
 ]) {
   assert(indexedDbRuntime.includes(token), `IndexedDB runtime missing ${token}`);
 }

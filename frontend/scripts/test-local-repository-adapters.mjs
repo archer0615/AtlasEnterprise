@@ -26,6 +26,8 @@ assert(runtime.includes("scenarioIds.has"), "Backup duplicate scenario ID valida
 assert(runtime.includes("scenario.name.trim().length >= 2"), "Backup scenario name validation is missing");
 assert(runtime.includes("indexedDbMigrationRepository"), "Migration repository adapter is missing");
 assert(runtime.includes("async markCurrent()"), "Migration repository markCurrent is missing");
+assert(runtime.includes("indexedDbAuditRepository"), "Audit repository adapter is missing");
+assert(runtime.includes("auditEntries"), "Audit persistence store is missing");
 assert(main.includes("deleteLastScenario"), "Dashboard delete workflow is missing");
 assert(main.includes("resetScenarios"), "Dashboard reset workflow is missing");
 assert(main.includes("setRuntimeFeedback"), "Runtime feedback workflow is missing");
@@ -39,5 +41,9 @@ assert(main.includes("validateScenarioInput"), "Scenario validation workflow is 
 assert(main.includes("formatBackupPreview"), "Backup preview diff workflow is missing");
 assert(main.includes("情境分數必須是 0 到 100"), "Scenario score range validation is missing");
 assert(main.includes("incomingNames"), "Backup preview scenario name details are missing");
+
+assert(main.includes("persistAuditEntry"), "Audit persistence workflow is missing");
+assert(main.includes("buildReportDiff"), "Report diff comparison workflow is missing");
+assert(main.includes("diagnoseValidationRecord"), "Validation failure diagnosis workflow is missing");
 
 console.log("Local repository adapter tests passed.");
