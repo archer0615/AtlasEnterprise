@@ -3,7 +3,7 @@
   "title": "Report Generation Trigger and Scope",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/report-generation-automation/trigger-and-scope.md",
-  "sourceHash": "0d28beba97f4cc8ba57bf8eb8e46810280325d6d178764c8a1696f25ac7a6238",
+  "sourceHash": "45060a6c83ae9519cf5e92b577462bfcce4dd0fe9d0e4e631bbbcfb3342aa6f5",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Eligibility"
     }
   ],
-  "bodyMarkdown": "# Report Generation Trigger and Scope\n\n## Purpose\nThis split document isolates report generation triggers, report scope, source eligibility, and scheduling rules from the parent ReportGenerationAutomation specification.\n\n## Source\n- Parent specification: [ReportGenerationAutomation](../report-generation-automation.md)\n\n## Trigger Scope\nTriggers include scheduled report cadence, manual report requests, scenario completion, decision review completion, recommendation refresh, dashboard snapshot, and compliance reporting windows.\n\n## Eligibility\nReport generation must preserve tenant scope, household scope, permission-aware sources, data freshness, report type, and idempotency key.\n\n",
+  "bodyMarkdown": "# Report Generation Trigger and Scope\r\n\r\n## Purpose\r\nThis split document isolates report generation triggers, report scope, source eligibility, and scheduling rules from the parent ReportGenerationAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [ReportGenerationAutomation](../report-generation-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include scheduled report cadence, manual report requests, scenario completion, decision review completion, recommendation refresh, dashboard snapshot, and compliance reporting windows.\r\n\r\n## Eligibility\r\nReport generation must preserve tenant scope, household scope, permission-aware sources, data freshness, report type, and idempotency key.\r\n\r\n",
   "references": []
 }

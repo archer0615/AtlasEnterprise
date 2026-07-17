@@ -3,7 +3,7 @@
   "title": "ActionPlan Identity and Execution Scope",
   "category": "entity",
   "canonicalPath": "knowledge/entity/action-plan/identity-and-execution-scope.md",
-  "sourceHash": "a0c003c0bc6d8137be3f7551767126248a7bbe76e24365760b613548c139e2aa",
+  "sourceHash": "3c99abc38276e8e7486fafb315971d63c14b437b23ddc3077d238fbc941bd33e",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Ownership Rules"
     }
   ],
-  "bodyMarkdown": "# ActionPlan Identity and Execution Scope\r\n\r\n## Purpose\r\n\r\nThis split document isolates ActionPlan identity, ownership, relationship, and sequencing rules from the canonical `knowledge/entity/ActionPlan.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/entity/ActionPlan.md`\r\n- Entity: ActionPlan\r\n- Ownership: ExecutionPlan behavior and Decision execution\r\n- Aggregate root: No\r\n\r\n## Covered Sections\r\n\r\n- Document Control\r\n- Entity Overview\r\n- ActionPlanId, ActionPlanNumber\r\n- ExecutionPlanId, DecisionId, RecommendationId, GoalId, ScenarioId, UserId\r\n- Title, Description, ActionType, Priority, Status\r\n- Owner, Assignee, Sequence\r\n\r\n## Ownership Rules\r\n\r\n- ActionPlan belongs to exactly one ExecutionPlan.\r\n- ActionPlan references Decision, Recommendation, Goal, Scenario, Workflow, Task, Notification, User, and DomainEvent by identity.\r\n- Sequence ordering is scoped to ExecutionPlanId.\r\n- ActionPlan read models may include related summaries but cannot mutate referenced entities.\r\n",
+  "bodyMarkdown": "# ActionPlan Identity and Execution Scope\n\n## Purpose\n\nThis split document isolates ActionPlan identity, ownership, relationship, and sequencing rules from the canonical `knowledge/entity/ActionPlan.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/entity/ActionPlan.md`\n- Entity: ActionPlan\n- Ownership: ExecutionPlan behavior and Decision execution\n- Aggregate root: No\n\n## Covered Sections\n\n- Document Control\n- Entity Overview\n- ActionPlanId, ActionPlanNumber\n- ExecutionPlanId, DecisionId, RecommendationId, GoalId, ScenarioId, UserId\n- Title, Description, ActionType, Priority, Status\n- Owner, Assignee, Sequence\n\n## Ownership Rules\n\n- ActionPlan belongs to exactly one ExecutionPlan.\n- ActionPlan references Decision, Recommendation, Goal, Scenario, Workflow, Task, Notification, User, and DomainEvent by identity.\n- Sequence ordering is scoped to ExecutionPlanId.\n- ActionPlan read models may include related summaries but cannot mutate referenced entities.\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Goal Reporting Reports and Metrics",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/goal-reporting/reports-and-metrics.md",
-  "sourceHash": "14520c9fd6666ef3af4f8541f4d0477977833d3bc3d63f07991080cd5743d026",
+  "sourceHash": "032bcf5b42fbdf9e21e381808f84896a86f8c151c80083942bf0583baebf3008",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Reporting Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Reporting Reports and Metrics\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal Reporting report types, report sections, reporting engine, export formats, state machine, commands, and domain events from the canonical `knowledge/reporting/goal-reporting.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Report Types\r\n- Report Sections\r\n- Reporting Engine\r\n- Export Formats\r\n- State Machine\r\n- Commands\r\n- Domain Events\r\n\r\n## Reporting Rules\r\n\r\n- Goal progress, completion, health, risk, financial, forecast, review, recommendation, decision, portfolio, and scenario reports must identify their evidence source.\r\n- Metrics, KPIs, forecast, risk, cash flow, budget, dependencies, and timeline sections must remain reproducible from snapshots.\r\n- Scheduled and exported reports must preserve generation status, export status, and schedule cancellation evidence.\r\n",
+  "bodyMarkdown": "# Goal Reporting Reports and Metrics\n\n## Purpose\n\nThis split document isolates Goal Reporting report types, report sections, reporting engine, export formats, state machine, commands, and domain events from the canonical `knowledge/reporting/goal-reporting.md` parent.\n\n## Covered Sections\n\n- Report Types\n- Report Sections\n- Reporting Engine\n- Export Formats\n- State Machine\n- Commands\n- Domain Events\n\n## Reporting Rules\n\n- Goal progress, completion, health, risk, financial, forecast, review, recommendation, decision, portfolio, and scenario reports must identify their evidence source.\n- Metrics, KPIs, forecast, risk, cash flow, budget, dependencies, and timeline sections must remain reproducible from snapshots.\n- Scheduled and exported reports must preserve generation status, export status, and schedule cancellation evidence.\n",
   "references": []
 }

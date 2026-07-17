@@ -3,7 +3,7 @@
   "title": "Background Job Catalog",
   "category": "framework",
   "canonicalPath": "knowledge/framework/background-job/catalog.md",
-  "sourceHash": "91164c0c448aebc1e55a6a032dc55ee0f9f1d16560193e2cb5f717fa67e23272",
+  "sourceHash": "778d2a5434a31c8c5baab6a79577d8fc323c7f3f5a3ceb1d92fb0cde3cfa224a",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Catalog Contract"
     }
   ],
-  "bodyMarkdown": "# Background Job Catalog\n\n## Purpose\nThis split document isolates the complete background job catalog from the parent Background Job Framework.\n\n## Source\n- Parent specification: [Background Job Framework](../background-job-framework.md)\n\n## Job Catalog\n- ScenarioEvaluationJob\n- ScenarioReplayJob\n- ProjectionRefreshJob\n- NotificationDispatchJob\n- ReportGenerationJob\n- BankingImportJob\n- BrokerageImportJob\n- CacheRefreshJob\n- OutboxPublishJob\n- InboxProcessJob\n- CleanupJob\n- BackupJob\n\n## Catalog Contract\nEach job entry preserves purpose, schedule, trigger, inputs, outputs, idempotency, retry policy, checkpoint behavior, dependencies, owner, permissions, audit, and failure handling.\n\n",
+  "bodyMarkdown": "# Background Job Catalog\r\n\r\n## Purpose\r\nThis split document isolates the complete background job catalog from the parent Background Job Framework.\r\n\r\n## Source\r\n- Parent specification: [Background Job Framework](../background-job-framework.md)\r\n\r\n## Job Catalog\r\n- ScenarioEvaluationJob\r\n- ScenarioReplayJob\r\n- ProjectionRefreshJob\r\n- NotificationDispatchJob\r\n- ReportGenerationJob\r\n- BankingImportJob\r\n- BrokerageImportJob\r\n- CacheRefreshJob\r\n- OutboxPublishJob\r\n- InboxProcessJob\r\n- CleanupJob\r\n- BackupJob\r\n\r\n## Catalog Contract\r\nEach job entry preserves purpose, schedule, trigger, inputs, outputs, idempotency, retry policy, checkpoint behavior, dependencies, owner, permissions, audit, and failure handling.\r\n\r\n",
   "references": []
 }

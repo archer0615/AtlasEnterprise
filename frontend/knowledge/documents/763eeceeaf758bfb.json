@@ -3,7 +3,7 @@
   "title": "Liability Identity and Lifecycle",
   "category": "entity",
   "canonicalPath": "knowledge/entity/liability/identity-and-lifecycle.md",
-  "sourceHash": "81b9b45aec4e7b734e428ec16396943c72e8a1eebec697b3d56cc2fe920d3196",
+  "sourceHash": "bcfe291a285299b23afbf7a47f0dd62050dfe9b9abed86282d14cf567a3f5662",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Invariants"
     }
   ],
-  "bodyMarkdown": "# Liability Identity and Lifecycle\n\n## Purpose\nThis split document isolates Liability identity, aggregate root behavior, aggregate boundary, lifecycle, ownership, relationships, navigation, properties, validation, business rules, invariants, and state machine from the parent Liability Entity Specification.\n\n## Source\n- Parent specification: [Liability Entity Specification](../Liability.md)\n\n## Identity\nLiability stores debt identity, classification, amount, rate, payment terms, dates, lender, secured status, collateral reference, audit fields, version, and concurrency metadata.\n\n## Lifecycle\nLiability lifecycle covers active obligation, payment recording, balance adjustment, payoff, archive, restore, delete, and terminal state protection.\n\n## Invariants\nOutstanding balance cannot be negative, archived liabilities cannot accept mutation, payment and balance adjustments must be audited, and Loan-owned behavior must not be mutated by Liability.\n\n",
+  "bodyMarkdown": "# Liability Identity and Lifecycle\r\n\r\n## Purpose\r\nThis split document isolates Liability identity, aggregate root behavior, aggregate boundary, lifecycle, ownership, relationships, navigation, properties, validation, business rules, invariants, and state machine from the parent Liability Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Liability Entity Specification](../Liability.md)\r\n\r\n## Identity\r\nLiability stores debt identity, classification, amount, rate, payment terms, dates, lender, secured status, collateral reference, audit fields, version, and concurrency metadata.\r\n\r\n## Lifecycle\r\nLiability lifecycle covers active obligation, payment recording, balance adjustment, payoff, archive, restore, delete, and terminal state protection.\r\n\r\n## Invariants\r\nOutstanding balance cannot be negative, archived liabilities cannot accept mutation, payment and balance adjustments must be audited, and Loan-owned behavior must not be mutated by Liability.\r\n\r\n",
   "references": []
 }

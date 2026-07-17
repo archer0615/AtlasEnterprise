@@ -3,7 +3,7 @@
   "title": "Goal Lifecycle Governance and Testing",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-lifecycle/governance-and-testing.md",
-  "sourceHash": "7a752fe598bd5925441ff02057ea5894159edb22f18cee2c3ac120733a15e5aa",
+  "sourceHash": "36f35d9325b9d6ca0a65f3147bf98a83f7e1cb7e74e401f315f43e765c3ad361",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Goal Lifecycle Governance and Testing\n\n## Purpose\nThis split document isolates Goal lifecycle governance, validation, security, performance, testing, edge cases, and consistency checks from the parent Goal Lifecycle specification.\n\n## Source\n- Parent specification: [Goal Lifecycle](../goal-lifecycle.md)\n\n## Testing\nTesting covers valid transitions, invalid transitions, pause, resume, block, complete, cancel, archive, restore, automation, concurrency, and edge cases.\n\n",
+  "bodyMarkdown": "# Goal Lifecycle Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Goal lifecycle governance, validation, security, performance, testing, edge cases, and consistency checks from the parent Goal Lifecycle specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Lifecycle](../goal-lifecycle.md)\r\n\r\n## Testing\r\nTesting covers valid transitions, invalid transitions, pause, resume, block, complete, cancel, archive, restore, automation, concurrency, and edge cases.\r\n\r\n",
   "references": []
 }

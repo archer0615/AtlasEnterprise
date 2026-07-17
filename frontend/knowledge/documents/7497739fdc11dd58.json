@@ -3,7 +3,7 @@
   "title": "Domain Model Governance",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/domain-model/governance.md",
-  "sourceHash": "a49d59b60f4b0efabe802a011285b9790006848193b05a7a5c912737f389fc67",
+  "sourceHash": "c3b552c6dee51bf842eac9a3d99c4ebc89ce78e445a3cd959e18f63ebd5f44cd",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Domain Model Governance\n\n## Purpose\nThis split document isolates domain model governance, validation, security, audit, migration, and testing from the parent Domain Model Catalog.\n\n## Source\n- Parent specification: [Domain Model Catalog](../domain-model-catalog.md)\n\n## Governance\nGovernance covers naming, aggregate alignment, lifecycle consistency, command/event ownership, persistence boundaries, API ownership, security classification, audit coverage, and migration compatibility.\n\n## Testing\nTesting covers entity consistency, relationship ownership, command routing, event routing, repository mapping, API mapping, edge cases, and final catalog verification.\n\n",
+  "bodyMarkdown": "# Domain Model Governance\r\n\r\n## Purpose\r\nThis split document isolates domain model governance, validation, security, audit, migration, and testing from the parent Domain Model Catalog.\r\n\r\n## Source\r\n- Parent specification: [Domain Model Catalog](../domain-model-catalog.md)\r\n\r\n## Governance\r\nGovernance covers naming, aggregate alignment, lifecycle consistency, command/event ownership, persistence boundaries, API ownership, security classification, audit coverage, and migration compatibility.\r\n\r\n## Testing\r\nTesting covers entity consistency, relationship ownership, command routing, event routing, repository mapping, API mapping, edge cases, and final catalog verification.\r\n\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "api-and-persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/liability/api-and-persistence.md",
-  "sourceHash": "aabaf962d908898f51747c815794233c27484a25a0fce8c7dadcd2531f8530aa",
+  "sourceHash": "a50d59c39b51f9fa3b8a953841a36c1f6821f78b1b24cec5116f48e434439a0d",
   "headings": [
     {
       "level": 2,
@@ -26,6 +26,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Liability API and Persistence\n\n## Purpose\nThis split document isolates Liability commands, events, repository, services, API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping schema, Future Cloud Mapping, and cache strategy from the parent Liability Entity Specification.\n\n## Source\n- Parent specification: [Liability Entity Specification](../Liability.md)\n\n## Commands and Events\nLiability commands cover create, update, record payment, adjust balance, close, archive, restore, and delete. Events preserve previous balance, payment amount, new balance, payment date, and actor.\n\n## API\nLiability APIs expose create, update, detail, summary, search, payment, close, archive, restore, and delete behavior under household and permission boundaries.\n\n## Persistence\nPersistence covers liabilities table mapping, constraints, indexes, Future Cloud Mapping precision mapping, cache keys, and invalidation after payment, balance adjustment, payoff, archive, restore, or delete.\n\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Liability API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Liability commands, events, repository, services, API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping schema, Future Cloud Mapping, and cache strategy from the parent Liability Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Liability Entity Specification](../Liability.md)\r\n\r\n## Commands and Events\r\nLiability commands cover create, update, record payment, adjust balance, close, archive, restore, and delete. Events preserve previous balance, payment amount, new balance, payment date, and actor.\r\n\r\n## API\r\nLiability APIs expose create, update, detail, summary, search, payment, close, archive, restore, and delete behavior under household and permission boundaries.\r\n\r\n## Persistence\r\nPersistence covers liabilities table mapping, constraints, indexes, Future Cloud Mapping precision mapping, cache keys, and invalidation after payment, balance adjustment, payoff, archive, restore, or delete.\r\n\r\n",
   "references": []
 }

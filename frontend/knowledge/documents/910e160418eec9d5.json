@@ -3,7 +3,7 @@
   "title": "Banking Import Governance and Testing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/banking-import-automation/governance-and-testing.md",
-  "sourceHash": "c50204b3f65f1b7a3eb4c849fd6017fedbc0c4d0f438185010e477ba66043502",
+  "sourceHash": "1f07fa90a183d102239c9fd2fec909094be098ef78719ddc2d3cac68a51e3b6c",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Banking Import Governance and Testing\n\n## Purpose\nThis split document isolates banking import governance, security, audit, retry, failure recovery, testing, and edge cases from the parent BankingImportAutomation specification.\n\n## Source\n- Parent specification: [BankingImportAutomation](../banking-import-automation.md)\n\n## Governance\nGovernance covers credential protection, provider rate limits, duplicate prevention, reconciliation evidence, masking, audit, retry, and failure isolation.\n\n## Testing\nTesting covers provider fetch, normalization, reconciliation, duplicate handling, retry, rate limiting, credential failure, audit, and edge cases.\n\n",
+  "bodyMarkdown": "# Banking Import Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates banking import governance, security, audit, retry, failure recovery, testing, and edge cases from the parent BankingImportAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [BankingImportAutomation](../banking-import-automation.md)\r\n\r\n## Governance\r\nGovernance covers credential protection, provider rate limits, duplicate prevention, reconciliation evidence, masking, audit, retry, and failure isolation.\r\n\r\n## Testing\r\nTesting covers provider fetch, normalization, reconciliation, duplicate handling, retry, rate limiting, credential failure, audit, and edge cases.\r\n\r\n",
   "references": []
 }

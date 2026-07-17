@@ -3,7 +3,7 @@
   "title": "catalog-entries",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/enumeration/catalog-entries.md",
-  "sourceHash": "00ae428992d1c59f47d47b18446180283ba8db6f159dd5a064fd2ce8656a4d74",
+  "sourceHash": "931511c8145d6ceadf136ba9e6426218bff5eb261b1be2c195c39dafa4d45e8f",
   "headings": [
     {
       "level": 2,
@@ -22,6 +22,6 @@
       "text": "Entry Contract"
     }
   ],
-  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Enumeration Catalog Entries\n\n## Purpose\nThis split document isolates enumeration definitions from the parent Enumeration Catalog.\n\n## Source\n- Parent specification: [Enumeration Catalog](../enumeration-catalog.md)\n\n## Catalog Scope\nEnumerations define canonical status, type, category, priority, severity, lifecycle, permission, module, and domain option sets used across Atlas.\n\n## Entry Contract\nEach enumeration entry preserves enum name, values, descriptions, owning module, API serialization, PWA Runtime Mapping / Future Cloud Mapping, default behavior, and deprecation rules.\n\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Enumeration Catalog Entries\r\n\r\n## Purpose\r\nThis split document isolates enumeration definitions from the parent Enumeration Catalog.\r\n\r\n## Source\r\n- Parent specification: [Enumeration Catalog](../enumeration-catalog.md)\r\n\r\n## Catalog Scope\r\nEnumerations define canonical status, type, category, priority, severity, lifecycle, permission, module, and domain option sets used across Atlas.\r\n\r\n## Entry Contract\r\nEach enumeration entry preserves enum name, values, descriptions, owning module, API serialization, PWA Runtime Mapping / Future Cloud Mapping, default behavior, and deprecation rules.\r\n\r\n",
   "references": []
 }

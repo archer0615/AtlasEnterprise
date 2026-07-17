@@ -3,7 +3,7 @@
   "title": "Market Assumptions Stress Scenarios",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/market-assumptions/stress-scenarios.md",
-  "sourceHash": "dd12aeef1c390c93e1478c935608edb7aa6b964286b31ac4a6ce29262e257648",
+  "sourceHash": "c096cc1332c6eb1981bb69286e1c40266572a5593342b77f3d82c4291acfd5b7",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Market Assumptions Stress Scenarios\r\n\r\n## Purpose\r\n\r\nThis split document isolates market stress assumptions from the larger Market Assumptions document.\r\n\r\n## Source\r\n\r\n- Parent specification: [Market Assumptions](../market-assumptions.md)\r\n\r\n## Stress Rules\r\n\r\n- Stress scenarios must define shock size, affected assets, and planning period.\r\n- Stress assumptions must not silently override baseline assumptions.\r\n- Stress results must include warning references when they affect recommendations.\r\n\r\n## Dashboard Use\r\n\r\n- Dashboard stress labels must remain separate from canonical assumption definitions.\r\n- Stress outputs may summarize drawdown, reserve months, and goal funding risk.\r\n- Scenario comparison must preserve baseline and stressed alternatives.\r\n\r\n## Related References\r\n\r\n- [Risk Budget Framework](../../framework/risk-budget-framework.md)\r\n- [Investment Drawdown Fixture Report](../../../docs/roadmap/investment-drawdown-fixture-report.md)\r\n- [Fixture Output Tolerance Report](../../../docs/roadmap/fixture-output-tolerance-report.md)\r\n",
+  "bodyMarkdown": "# Market Assumptions Stress Scenarios\n\n## Purpose\n\nThis split document isolates market stress assumptions from the larger Market Assumptions document.\n\n## Source\n\n- Parent specification: [Market Assumptions](../market-assumptions.md)\n\n## Stress Rules\n\n- Stress scenarios must define shock size, affected assets, and planning period.\n- Stress assumptions must not silently override baseline assumptions.\n- Stress results must include warning references when they affect recommendations.\n\n## Dashboard Use\n\n- Dashboard stress labels must remain separate from canonical assumption definitions.\n- Stress outputs may summarize drawdown, reserve months, and goal funding risk.\n- Scenario comparison must preserve baseline and stressed alternatives.\n\n## Related References\n\n- [Risk Budget Framework](../../framework/risk-budget-framework.md)\n- [Investment Drawdown Fixture Report](../../../docs/roadmap/investment-drawdown-fixture-report.md)\n- [Fixture Output Tolerance Report](../../../docs/roadmap/fixture-output-tolerance-report.md)\n",
   "references": []
 }

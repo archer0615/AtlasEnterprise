@@ -3,7 +3,7 @@
   "title": "Goal Insights Generation",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-insights/generation.md",
-  "sourceHash": "29f74bdbca36b8600cf06c8387f39e74078fb38c21f82f34b68d1e1a98440036",
+  "sourceHash": "9a1ca81786764e76d6d18d52f26f69f0e1c379bbfe0a531a580d2084056377a7",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Detection"
     }
   ],
-  "bodyMarkdown": "# Goal Insights Generation\n\n## Purpose\nThis split document isolates Goal Insight generation, detection rules, scoring, ranking, and evidence collection from the parent Goal Insights specification.\n\n## Source\n- Parent specification: [Goal Insights](../goal-insights.md)\n\n## Generation Scope\nGoal Insights consume Goal, Goal Progress, Goal Metrics, Goal Review, Goal Analytics, Recommendation, Decision, Scenario, Portfolio, CashFlow, Risk, and User signals.\n\n## Detection\nDetection covers progress risk, budget pressure, schedule delay, dependency blockage, priority drift, review gaps, recommendation non-adoption, and forecast variance.\n\n",
+  "bodyMarkdown": "# Goal Insights Generation\r\n\r\n## Purpose\r\nThis split document isolates Goal Insight generation, detection rules, scoring, ranking, and evidence collection from the parent Goal Insights specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Insights](../goal-insights.md)\r\n\r\n## Generation Scope\r\nGoal Insights consume Goal, Goal Progress, Goal Metrics, Goal Review, Goal Analytics, Recommendation, Decision, Scenario, Portfolio, CashFlow, Risk, and User signals.\r\n\r\n## Detection\r\nDetection covers progress risk, budget pressure, schedule delay, dependency blockage, priority drift, review gaps, recommendation non-adoption, and forecast variance.\r\n\r\n",
   "references": []
 }

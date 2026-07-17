@@ -3,7 +3,7 @@
   "title": "Asset Allocation Drift and Scenarios",
   "category": "framework",
   "canonicalPath": "knowledge/framework/asset-allocation/drift-and-scenarios.md",
-  "sourceHash": "456d0d72e9b6b0bbb5df09608a37a9a014d911d272e907224316025ba800bd0c",
+  "sourceHash": "cdc692467e61fa3ba47a79a14b0f115cd90b33c6b549fb736c090f5ac1186737",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Asset Allocation Drift and Scenarios\r\n\r\n## Purpose\r\n\r\nThis split document isolates drift and scenario behavior from the larger Asset Allocation Framework.\r\n\r\n## Source\r\n\r\n- Parent specification: [Asset Allocation Framework](../asset-allocation-framework.md)\r\n\r\n## Drift Rules\r\n\r\n- Drift is measured against target allocation.\r\n- Drift must identify asset class, current allocation, target allocation, and threshold status.\r\n- Drift outputs may feed rebalancing and recommendation workflows.\r\n\r\n## Scenario Rules\r\n\r\n- Allocation scenarios should compare baseline, stressed, and proposed alternatives.\r\n- Scenario outputs must preserve assumption and formula versions.\r\n- Dashboard summaries must not replace allocation source policy.\r\n\r\n## Related References\r\n\r\n- [Rebalancing Drift and Thresholds](../rebalancing/drift-and-thresholds.md)\r\n- [Portfolio Stress and Dashboard](../../supporting/portfolio/stress-and-dashboard.md)\r\n- [Simulator Formula Implementation Report](../../../docs/roadmap/simulator-formula-implementation-report.md)\r\n",
+  "bodyMarkdown": "# Asset Allocation Drift and Scenarios\n\n## Purpose\n\nThis split document isolates drift and scenario behavior from the larger Asset Allocation Framework.\n\n## Source\n\n- Parent specification: [Asset Allocation Framework](../asset-allocation-framework.md)\n\n## Drift Rules\n\n- Drift is measured against target allocation.\n- Drift must identify asset class, current allocation, target allocation, and threshold status.\n- Drift outputs may feed rebalancing and recommendation workflows.\n\n## Scenario Rules\n\n- Allocation scenarios should compare baseline, stressed, and proposed alternatives.\n- Scenario outputs must preserve assumption and formula versions.\n- Dashboard summaries must not replace allocation source policy.\n\n## Related References\n\n- [Rebalancing Drift and Thresholds](../rebalancing/drift-and-thresholds.md)\n- [Portfolio Stress and Dashboard](../../supporting/portfolio/stress-and-dashboard.md)\n- [Simulator Formula Implementation Report](../../../docs/roadmap/simulator-formula-implementation-report.md)\n",
   "references": []
 }

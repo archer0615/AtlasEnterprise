@@ -3,7 +3,7 @@
   "title": "Notification Identity and Delivery",
   "category": "entity",
   "canonicalPath": "knowledge/entity/notification/identity-and-delivery.md",
-  "sourceHash": "6bc8c0c68c192c80d0d064ff77fa6384859d43358b7fa595168ed078ea817991",
+  "sourceHash": "fdd38264ce7a7697c1343469374498f9c3daf5b927a4e98fd384f25bcaa613b7",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Delivery"
     }
   ],
-  "bodyMarkdown": "# Notification Identity and Delivery\n\n## Purpose\nThis split document isolates Notification identity, properties, delivery lifecycle, state machine, validation, and business rules from the parent Notification Entity Specification.\n\n## Source\n- Parent specification: [Notification Entity Specification](../Notification.md)\n\n## Identity\nNotification represents a user-visible or system-generated message with type, category, priority, severity, channel, references, status, scheduling, delivery, read, acknowledgement, retry, provider, template, and audit fields.\n\n## Delivery\nDelivery behavior covers scheduled, sent, delivered, read, acknowledged, expired, retry, archived, and deleted states.\n\n",
+  "bodyMarkdown": "# Notification Identity and Delivery\r\n\r\n## Purpose\r\nThis split document isolates Notification identity, properties, delivery lifecycle, state machine, validation, and business rules from the parent Notification Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Notification Entity Specification](../Notification.md)\r\n\r\n## Identity\r\nNotification represents a user-visible or system-generated message with type, category, priority, severity, channel, references, status, scheduling, delivery, read, acknowledgement, retry, provider, template, and audit fields.\r\n\r\n## Delivery\r\nDelivery behavior covers scheduled, sent, delivered, read, acknowledged, expired, retry, archived, and deleted states.\r\n\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "api-and-persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/portfolio-entity/api-and-persistence.md",
-  "sourceHash": "be7163b5abe837d6ba4bbccb056e223e6c289a95ff3d01c289c37ad3330b2272",
+  "sourceHash": "846ecf2a96510fe19338f15c67b04b74d2a7fa9fefee6dff4507c103b8299299",
   "headings": [
     {
       "level": 2,
@@ -22,6 +22,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Portfolio API and Persistence\n\n## Purpose\nThis split document isolates Portfolio commands, events, repository, services, Future Cloud Architecture API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping, and cache strategy from the parent Portfolio Entity Specification.\n\n## Source\n- Parent specification: [Portfolio Entity Specification](../Portfolio.md)\n\n## API\nPortfolio APIs expose create, update, detail, search, allocation, valuation, archive, restore, and delete behavior under household and permission boundaries.\n\n## Persistence\nPersistence covers portfolio table mapping, indexes, constraints, Future Cloud Mapping, optimistic concurrency, cache invalidation, and projection refresh.\n\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Portfolio API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Portfolio commands, events, repository, services, Future Cloud Architecture API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping, and cache strategy from the parent Portfolio Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Portfolio Entity Specification](../Portfolio.md)\r\n\r\n## API\r\nPortfolio APIs expose create, update, detail, search, allocation, valuation, archive, restore, and delete behavior under household and permission boundaries.\r\n\r\n## Persistence\r\nPersistence covers portfolio table mapping, indexes, constraints, Future Cloud Mapping, optimistic concurrency, cache invalidation, and projection refresh.\r\n\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Goal Optimization Execution Workflow",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-optimization/execution-workflow.md",
-  "sourceHash": "2b0378bcdd7e8b37c1e454b9637b1f9c1ec45a4f199680bf30a21ca8e9fcc192",
+  "sourceHash": "c2dd3475e37701a96a01bbecfd48b53440099c81d03a96258c5474fe9aa9c07a",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Workflow"
     }
   ],
-  "bodyMarkdown": "# Goal Optimization Execution Workflow\n\n## Purpose\nThis split document isolates Goal Optimization workflow, commands, events, candidate generation, ranking, approval, execution, monitoring, and rollback from the parent Goal Optimization specification.\n\n## Source\n- Parent specification: [Goal Optimization](../goal-optimization.md)\n\n## Workflow\nWorkflow includes preparation, data collection, constraint validation, optimization execution, candidate generation, scoring, ranking, recommendation, approval, execution, monitoring, and rollback.\n\n",
+  "bodyMarkdown": "# Goal Optimization Execution Workflow\r\n\r\n## Purpose\r\nThis split document isolates Goal Optimization workflow, commands, events, candidate generation, ranking, approval, execution, monitoring, and rollback from the parent Goal Optimization specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Optimization](../goal-optimization.md)\r\n\r\n## Workflow\r\nWorkflow includes preparation, data collection, constraint validation, optimization execution, candidate generation, scoring, ranking, recommendation, approval, execution, monitoring, and rollback.\r\n\r\n",
   "references": []
 }

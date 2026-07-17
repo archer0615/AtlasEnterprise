@@ -3,7 +3,7 @@
   "title": "Banking Import Execution",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/banking-import-automation/execution.md",
-  "sourceHash": "bb83b24adaefca93a210a4286ea8c0d51078cab8d9b478c060281f2b21d8d0db",
+  "sourceHash": "d7f3f08f4c2e645af13b2cc7187be26ad02c5038725c9067c82183d0353a7fa9",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Execution"
     }
   ],
-  "bodyMarkdown": "# Banking Import Execution\n\n## Purpose\nThis split document isolates banking import execution, normalization, reconciliation, persistence, and projection refresh from the parent BankingImportAutomation specification.\n\n## Source\n- Parent specification: [BankingImportAutomation](../banking-import-automation.md)\n\n## Execution\nExecution authenticates provider access, fetches banking data, normalizes records, validates ownership, reconciles transactions, persists import snapshots, updates cash flow projections, and records audit.\n\n",
+  "bodyMarkdown": "# Banking Import Execution\r\n\r\n## Purpose\r\nThis split document isolates banking import execution, normalization, reconciliation, persistence, and projection refresh from the parent BankingImportAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [BankingImportAutomation](../banking-import-automation.md)\r\n\r\n## Execution\r\nExecution authenticates provider access, fetches banking data, normalizes records, validates ownership, reconciles transactions, persists import snapshots, updates cash flow projections, and records audit.\r\n\r\n",
   "references": []
 }

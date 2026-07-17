@@ -3,7 +3,7 @@
   "title": "Recommendation Refresh Trigger and Scope",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/recommendation-refresh-automation/trigger-and-scope.md",
-  "sourceHash": "4e41ba835cd2f7c16703e1dbc18f29953a4784a3a9b02200d6ee30f67f3aea0b",
+  "sourceHash": "260c15b6ddab0a884fa286bd092e3c3053d27d946592d2cfb012970b01499fe6",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Eligibility"
     }
   ],
-  "bodyMarkdown": "# Recommendation Refresh Trigger and Scope\n\n## Purpose\nThis split document isolates recommendation refresh automation triggers, input scope, and refresh eligibility from the parent RecommendationRefreshAutomation specification.\n\n## Source\n- Parent specification: [RecommendationRefreshAutomation](../recommendation-refresh-automation.md)\n\n## Trigger Scope\nTriggers include decision changes, scenario changes, goal progress changes, market assumption changes, recommendation stale windows, scheduled refresh, and manual refresh requests.\n\n## Eligibility\nRefresh eligibility must preserve household scope, permission scope, recommendation status, source freshness, and idempotency.\n\n",
+  "bodyMarkdown": "# Recommendation Refresh Trigger and Scope\r\n\r\n## Purpose\r\nThis split document isolates recommendation refresh automation triggers, input scope, and refresh eligibility from the parent RecommendationRefreshAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [RecommendationRefreshAutomation](../recommendation-refresh-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include decision changes, scenario changes, goal progress changes, market assumption changes, recommendation stale windows, scheduled refresh, and manual refresh requests.\r\n\r\n## Eligibility\r\nRefresh eligibility must preserve household scope, permission scope, recommendation status, source freshness, and idempotency.\r\n\r\n",
   "references": []
 }

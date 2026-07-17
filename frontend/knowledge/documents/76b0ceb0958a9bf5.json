@@ -3,7 +3,7 @@
   "title": "Goal Funding Progress and Review",
   "category": "entity",
   "canonicalPath": "knowledge/entity/goal/funding-progress-and-review.md",
-  "sourceHash": "e13985c0a4c2c4bcb5af1fb1a6a47e99670acfd565bb9b9623cc05649a7da5e7",
+  "sourceHash": "6a6bc0266b52036e8b664831e695ce4dc9eec234fb3a008e665d28a09d80fc36",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Split Notes"
     }
   ],
-  "bodyMarkdown": "# Goal Funding Progress and Review\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal target, funding, progress, review cadence, and feasibility fields from the canonical `knowledge/entity/Goal.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Priority, Importance, Urgency\r\n- TargetAmount, CurrentAmount, CompletionPercentage\r\n- TargetDate, StartDate, CompletedDate\r\n- ReviewFrequency, ReviewDate\r\n- SuccessProbability, RiskLevel, ExpectedReturn\r\n- Constraints, Assumptions, Tags\r\n- Validation Rules\r\n- Business Rules\r\n- State Machine\r\n\r\n## Review Rules\r\n\r\n- Goal progress is represented by CurrentAmount, CompletionPercentage, progress events, and progress projections.\r\n- Goal review cadence is governed by ReviewFrequency and ReviewDate.\r\n- Goal conflict, priority, dependency, and progress behavior must not mutate external aggregates directly.\r\n- CompletionPercentage must remain derived from valid target and current amount inputs.\r\n\r\n## Split Notes\r\n\r\n- Use this document for review and funding behavior.\r\n- Keep commands, persistence, API, and infrastructure details in the parent until a dedicated command/persistence split is assigned.\r\n",
+  "bodyMarkdown": "# Goal Funding Progress and Review\n\n## Purpose\n\nThis split document isolates Goal target, funding, progress, review cadence, and feasibility fields from the canonical `knowledge/entity/Goal.md` parent.\n\n## Covered Sections\n\n- Priority, Importance, Urgency\n- TargetAmount, CurrentAmount, CompletionPercentage\n- TargetDate, StartDate, CompletedDate\n- ReviewFrequency, ReviewDate\n- SuccessProbability, RiskLevel, ExpectedReturn\n- Constraints, Assumptions, Tags\n- Validation Rules\n- Business Rules\n- State Machine\n\n## Review Rules\n\n- Goal progress is represented by CurrentAmount, CompletionPercentage, progress events, and progress projections.\n- Goal review cadence is governed by ReviewFrequency and ReviewDate.\n- Goal conflict, priority, dependency, and progress behavior must not mutate external aggregates directly.\n- CompletionPercentage must remain derived from valid target and current amount inputs.\n\n## Split Notes\n\n- Use this document for review and funding behavior.\n- Keep commands, persistence, API, and infrastructure details in the parent until a dedicated command/persistence split is assigned.\n",
   "references": []
 }

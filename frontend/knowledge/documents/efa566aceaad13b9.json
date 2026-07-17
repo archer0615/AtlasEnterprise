@@ -3,7 +3,7 @@
   "title": "System Module Catalog Entries",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/system-module/catalog-entries.md",
-  "sourceHash": "04787b89e1a11f2abf631f95354dc27f41fb3aa226fe4575e1ceb63b048411a9",
+  "sourceHash": "20aacbb4bfe216b9fe8f9614a0e8911fd84d9be783b17b02e3d59e92ded650b9",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Entry Contract"
     }
   ],
-  "bodyMarkdown": "# System Module Catalog Entries\n\n## Purpose\nThis split document isolates system module definitions from the parent System Module Catalog.\n\n## Source\n- Parent specification: [System Module Catalog](../system-module-catalog.md)\n\n## Module Scope\nSystem modules define the deployable or logical ownership surface for APIs, services, repositories, commands, events, jobs, schedulers, automations, permissions, and documentation.\n\n## Entry Contract\nEach module entry preserves module name, purpose, bounded context, owned services, aggregates, APIs, jobs, events, repositories, permissions, dependencies, and governance references.\n\n",
+  "bodyMarkdown": "# System Module Catalog Entries\r\n\r\n## Purpose\r\nThis split document isolates system module definitions from the parent System Module Catalog.\r\n\r\n## Source\r\n- Parent specification: [System Module Catalog](../system-module-catalog.md)\r\n\r\n## Module Scope\r\nSystem modules define the deployable or logical ownership surface for APIs, services, repositories, commands, events, jobs, schedulers, automations, permissions, and documentation.\r\n\r\n## Entry Contract\r\nEach module entry preserves module name, purpose, bounded context, owned services, aggregates, APIs, jobs, events, repositories, permissions, dependencies, and governance references.\r\n\r\n",
   "references": []
 }

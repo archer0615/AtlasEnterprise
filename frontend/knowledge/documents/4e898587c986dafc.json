@@ -3,7 +3,7 @@
   "title": "Repository Catalog Entries",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/repository/catalog-entries.md",
-  "sourceHash": "a763ed563e43be9bc664ffdfe88bf59a766dfab1bea5e3dd6cd63657463c33af",
+  "sourceHash": "aec3656bd5a02939df2188cd40430a2fa7ae7a1b874532787d8dcee529626642",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Entry Contract"
     }
   ],
-  "bodyMarkdown": "# Repository Catalog Entries\n\n## Purpose\nThis split document isolates repository definitions from the parent Repository Catalog.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Repository Scope\nRepositories own aggregate persistence access, query methods, specifications, projections, concurrency handling, transaction participation, and storage mapping.\n\n## Entry Contract\nEach repository entry preserves aggregate owner, entity owner, table mapping, query behavior, command behavior, transaction boundary, cache interaction, and audit expectations.\n\n",
+  "bodyMarkdown": "# Repository Catalog Entries\r\n\r\n## Purpose\r\nThis split document isolates repository definitions from the parent Repository Catalog.\r\n\r\n## Source\r\n- Parent specification: [Repository Catalog](../repository-catalog.md)\r\n\r\n## Repository Scope\r\nRepositories own aggregate persistence access, query methods, specifications, projections, concurrency handling, transaction participation, and storage mapping.\r\n\r\n## Entry Contract\r\nEach repository entry preserves aggregate owner, entity owner, table mapping, query behavior, command behavior, transaction boundary, cache interaction, and audit expectations.\r\n\r\n",
   "references": []
 }

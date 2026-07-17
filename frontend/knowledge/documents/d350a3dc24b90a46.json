@@ -3,7 +3,7 @@
   "title": "Decision Learning Governance and Outputs",
   "category": "framework",
   "canonicalPath": "knowledge/framework/decision-learning/governance-and-outputs.md",
-  "sourceHash": "1674e9a70697fc1aaace8c51f438147fe4eed8469da2af628bfaeb1f0275d50e",
+  "sourceHash": "e5068bdb2e4de77ae10ceb10c1ae31a772b1d3f076080026ef7f8a8000e85bb8",
   "headings": [
     {
       "level": 1,
@@ -38,6 +38,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Learning Governance and Outputs\n\n## Purpose\nThis split document isolates Decision Learning governance, explainability, integration, outputs, KPIs, and testing from the parent Decision Learning Framework.\n\n## Source\n- Parent specification: [Decision Learning Framework](../decision-learning-framework.md)\n\n## Learning Outputs\nLearning outputs include calibration recommendations, rule improvement candidates, model quality signals, dashboard insights, and governance reports.\n\n## Business Rules\n- Learning does not mutate historical decisions.\n- Learning outputs require approval before changing production rules.\n- Feedback must remain auditable and reproducible.\n- Model and rule changes must preserve version history.\n\n## Explainability\nEvery learning output records source evidence, reason for change, affected rule or model, expected impact, and validation status.\n\n## KPIs\n- Decision accuracy\n- Recommendation stability\n- Outcome success rate\n- Calibration acceptance rate\n- Rule improvement effectiveness\n\n## Testing\nTesting covers feedback capture, variance calculation, calibration proposal, approval governance, explainability, and historical replay.\n\n",
+  "bodyMarkdown": "# Decision Learning Governance and Outputs\r\n\r\n## Purpose\r\nThis split document isolates Decision Learning governance, explainability, integration, outputs, KPIs, and testing from the parent Decision Learning Framework.\r\n\r\n## Source\r\n- Parent specification: [Decision Learning Framework](../decision-learning-framework.md)\r\n\r\n## Learning Outputs\r\nLearning outputs include calibration recommendations, rule improvement candidates, model quality signals, dashboard insights, and governance reports.\r\n\r\n## Business Rules\r\n- Learning does not mutate historical decisions.\r\n- Learning outputs require approval before changing production rules.\r\n- Feedback must remain auditable and reproducible.\r\n- Model and rule changes must preserve version history.\r\n\r\n## Explainability\r\nEvery learning output records source evidence, reason for change, affected rule or model, expected impact, and validation status.\r\n\r\n## KPIs\r\n- Decision accuracy\r\n- Recommendation stability\r\n- Outcome success rate\r\n- Calibration acceptance rate\r\n- Rule improvement effectiveness\r\n\r\n## Testing\r\nTesting covers feedback capture, variance calculation, calibration proposal, approval governance, explainability, and historical replay.\r\n\r\n",
   "references": []
 }

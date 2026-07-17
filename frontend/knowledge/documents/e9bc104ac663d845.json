@@ -3,7 +3,7 @@
   "title": "Enumeration Mapping and Compatibility",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/enumeration/mapping-and-compatibility.md",
-  "sourceHash": "b052222aa187ae264bf995f3c6a9845d63e7dc152aea9b07dfe4d378f4c87c4f",
+  "sourceHash": "6aab043aa14e1da293f0e7b4abe714ec287ddc31b3fff15da0dadf8b73879b10",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Compatibility"
     }
   ],
-  "bodyMarkdown": "# Enumeration Mapping and Compatibility\n\n## Purpose\nThis split document isolates enumeration API, database, DTO, event, and compatibility mapping from the parent Enumeration Catalog.\n\n## Source\n- Parent specification: [Enumeration Catalog](../enumeration-catalog.md)\n\n## Mapping\nMapping covers string serialization, database storage, DTO exposure, OpenAPI schema, event payload compatibility, validation, and search indexing.\n\n## Compatibility\nCompatibility rules cover value additions, value deprecation, display labels, migration behavior, and backward-compatible consumers.\n\n",
+  "bodyMarkdown": "# Enumeration Mapping and Compatibility\r\n\r\n## Purpose\r\nThis split document isolates enumeration API, database, DTO, event, and compatibility mapping from the parent Enumeration Catalog.\r\n\r\n## Source\r\n- Parent specification: [Enumeration Catalog](../enumeration-catalog.md)\r\n\r\n## Mapping\r\nMapping covers string serialization, database storage, DTO exposure, OpenAPI schema, event payload compatibility, validation, and search indexing.\r\n\r\n## Compatibility\r\nCompatibility rules cover value additions, value deprecation, display labels, migration behavior, and backward-compatible consumers.\r\n\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Outbox Publish Governance and Testing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/outbox-publish-automation/governance-and-testing.md",
-  "sourceHash": "0092a882b9d3a3407901fb66677cba4c0b61d741816fcf3e77fc36bb587d1555",
+  "sourceHash": "896daf240e477eedde16268ad889dcf7455396cd713a122541c0e1f3b0c601f2",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Outbox Publish Governance and Testing\n\n## Purpose\nThis split document isolates outbox publish governance, validation, audit, retry, dead-letter handling, testing, and edge cases from the parent OutboxPublishAutomation specification.\n\n## Source\n- Parent specification: [OutboxPublishAutomation](../outbox-publish-automation.md)\n\n## Governance\nGovernance covers idempotency, ordering, duplicate prevention, retry limits, dead-letter rules, audit, replay control, and message compatibility.\n\n## Testing\nTesting covers message selection, publish success, publish failure, retry, ordering, idempotency, dead-letter, replay, audit, and edge cases.\n\n",
+  "bodyMarkdown": "# Outbox Publish Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates outbox publish governance, validation, audit, retry, dead-letter handling, testing, and edge cases from the parent OutboxPublishAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [OutboxPublishAutomation](../outbox-publish-automation.md)\r\n\r\n## Governance\r\nGovernance covers idempotency, ordering, duplicate prevention, retry limits, dead-letter rules, audit, replay control, and message compatibility.\r\n\r\n## Testing\r\nTesting covers message selection, publish success, publish failure, retry, ordering, idempotency, dead-letter, replay, audit, and edge cases.\r\n\r\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Capability Matrix",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/capability-matrix.md",
-  "sourceHash": "a8f17a405c7cd08768377fc290754731ce6896001c9e1164795616dc3cedd236",
+  "sourceHash": "d27c22de409efbe93e437a7c2789de748a739d7e658e02813a8dad2eb72eb093",
   "headings": [
     {
       "level": 1,
@@ -14,6 +14,6 @@
       "text": "Governance Notes"
     }
   ],
-  "bodyMarkdown": "# Capability Matrix\r\n\r\nThe capability matrix identifies which user roles can access major Atlas Enterprise functional areas. It is a planning artifact for authorization, navigation, reporting, and future multi-role expansion.\r\n\r\n| Capability | User | Advisor | Admin |\r\n| --- | :---: | :---: | :---: |\r\n| Financial Profile | Yes | Yes | Yes |\r\n| Goal Planning | Yes | Yes | No |\r\n| Scenario Simulation | Yes | Yes | No |\r\n| Portfolio Analysis | Yes | Yes | No |\r\n| Loan Analysis | Yes | Yes | No |\r\n| Retirement Planning | Yes | Yes | No |\r\n| Decision Recommendation | Yes | Yes | No |\r\n| Reports | Yes | Yes | Yes |\r\n| Policy Management | No | No | Yes |\r\n| Configuration | No | No | Yes |\r\n| Feature Flags | No | No | Yes |\r\n| Tenant Management | No | No | Yes |\r\n| Audit Review | No | Yes | Yes |\r\n\r\n## Governance Notes\r\n\r\n- The User role owns personal financial inputs, scenarios, goals, and decisions.\r\n- The Advisor role may review and explain decisions but should not silently change user-owned assumptions.\r\n- The Admin role manages system policies, configuration, feature flags, tenancy, and audit access.\r\n- Any runtime permission model should preserve audit records for privileged actions.\r\n",
+  "bodyMarkdown": "# Capability Matrix\n\nThe capability matrix identifies which user roles can access major Atlas Enterprise functional areas. It is a planning artifact for authorization, navigation, reporting, and future multi-role expansion.\n\n| Capability | User | Advisor | Admin |\n| --- | :---: | :---: | :---: |\n| Financial Profile | Yes | Yes | Yes |\n| Goal Planning | Yes | Yes | No |\n| Scenario Simulation | Yes | Yes | No |\n| Portfolio Analysis | Yes | Yes | No |\n| Loan Analysis | Yes | Yes | No |\n| Retirement Planning | Yes | Yes | No |\n| Decision Recommendation | Yes | Yes | No |\n| Reports | Yes | Yes | Yes |\n| Policy Management | No | No | Yes |\n| Configuration | No | No | Yes |\n| Feature Flags | No | No | Yes |\n| Tenant Management | No | No | Yes |\n| Audit Review | No | Yes | Yes |\n\n## Governance Notes\n\n- The User role owns personal financial inputs, scenarios, goals, and decisions.\n- The Advisor role may review and explain decisions but should not silently change user-owned assumptions.\n- The Admin role manages system policies, configuration, feature flags, tenancy, and audit access.\n- Any runtime permission model should preserve audit records for privileged actions.\n",
   "references": []
 }

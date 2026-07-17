@@ -3,7 +3,7 @@
   "title": "Repository Governance and Testing",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/repository/governance-and-testing.md",
-  "sourceHash": "c938b1dc99c4fc730c7988ae31ec0d92cad37a9d49c201d94111e2a1fc79e70f",
+  "sourceHash": "ef554faabcf3e80177e147be5ac5190c78bb26441e4405ebd381cc959c688218",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Repository Governance and Testing\n\n## Purpose\nThis split document isolates repository governance, validation, security, audit, performance, testing, edge cases, and consistency checks from the parent Repository Catalog.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Governance\nGovernance covers aggregate ownership, table ownership, query boundaries, command boundaries, transaction safety, field masking, audit metadata, and performance constraints.\n\n## Testing\nTesting covers repository queries, specifications, persistence mapping, concurrency, transaction behavior, cache invalidation, security filters, performance, and edge cases.\n\n",
+  "bodyMarkdown": "# Repository Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates repository governance, validation, security, audit, performance, testing, edge cases, and consistency checks from the parent Repository Catalog.\r\n\r\n## Source\r\n- Parent specification: [Repository Catalog](../repository-catalog.md)\r\n\r\n## Governance\r\nGovernance covers aggregate ownership, table ownership, query boundaries, command boundaries, transaction safety, field masking, audit metadata, and performance constraints.\r\n\r\n## Testing\r\nTesting covers repository queries, specifications, persistence mapping, concurrency, transaction behavior, cache invalidation, security filters, performance, and edge cases.\r\n\r\n",
   "references": []
 }

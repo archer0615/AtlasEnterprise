@@ -3,7 +3,7 @@
   "title": "Household Identity and Ownership",
   "category": "entity",
   "canonicalPath": "knowledge/entity/household/identity-and-ownership.md",
-  "sourceHash": "7ad92d4d2356f791393bcf49df2cf5ef63b462b36e48483ba6a88de4ae122dc7",
+  "sourceHash": "ca220a063b81f213df8ad11d7deb8b984588eb1550f660f7d8e5bac526410c9f",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Ownership"
     }
   ],
-  "bodyMarkdown": "# Household Identity and Ownership\n\n## Purpose\nThis split document isolates Household identity, ownership, lifecycle, relationships, navigation, properties, validation, and business rules from the parent Household Entity Specification.\n\n## Source\n- Parent specification: [Household Entity Specification](../Household.md)\n\n## Identity\nHousehold is the shared context for assets, liabilities, loans, goals, scenarios, decisions, recommendations, retirement planning, tax profile, cash flow, and insurance views.\n\n## Ownership\nHousehold scopes visibility and planning context while aggregate-specific modules own their own mutation behavior.\n\n",
+  "bodyMarkdown": "# Household Identity and Ownership\r\n\r\n## Purpose\r\nThis split document isolates Household identity, ownership, lifecycle, relationships, navigation, properties, validation, and business rules from the parent Household Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Household Entity Specification](../Household.md)\r\n\r\n## Identity\r\nHousehold is the shared context for assets, liabilities, loans, goals, scenarios, decisions, recommendations, retirement planning, tax profile, cash flow, and insurance views.\r\n\r\n## Ownership\r\nHousehold scopes visibility and planning context while aggregate-specific modules own their own mutation behavior.\r\n\r\n",
   "references": []
 }

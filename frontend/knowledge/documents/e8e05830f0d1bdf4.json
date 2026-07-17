@@ -3,7 +3,7 @@
   "title": "Notification Governance and Testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/notification/governance-and-testing.md",
-  "sourceHash": "6eeee567f8ae50b845f74aa9175ddc51ac91bd387cc23fe00f11b44da1f69750",
+  "sourceHash": "8d7fefd117cb39d64ace8a02efb34c7c08c7c7839eab4cb6b92b33078e1c4daf",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Notification Governance and Testing\n\n## Purpose\nThis split document isolates Notification security, audit, performance, examples, diagrams, testing, edge cases, and consistency checks from the parent Notification Entity Specification.\n\n## Source\n- Parent specification: [Notification Entity Specification](../Notification.md)\n\n## Governance\nGovernance covers user isolation, household-aware references, permission masking, provider failure handling, audit, rate limiting, retry, and retention.\n\n## Testing\nTesting covers creation, scheduling, dispatch, delivery status, read/acknowledge, retry, archive, delete, provider failure, masking, and edge cases.\n\n",
+  "bodyMarkdown": "# Notification Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Notification security, audit, performance, examples, diagrams, testing, edge cases, and consistency checks from the parent Notification Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Notification Entity Specification](../Notification.md)\r\n\r\n## Governance\r\nGovernance covers user isolation, household-aware references, permission masking, provider failure handling, audit, rate limiting, retry, and retention.\r\n\r\n## Testing\r\nTesting covers creation, scheduling, dispatch, delivery status, read/acknowledge, retry, archive, delete, provider failure, masking, and edge cases.\r\n\r\n",
   "references": []
 }

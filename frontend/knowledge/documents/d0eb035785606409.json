@@ -3,7 +3,7 @@
   "title": "Brokerage Import Execution",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/brokerage-import-automation/execution.md",
-  "sourceHash": "2f58b9765b907d7a1a7a5a709046a7d973b8ef80e91dfe4b87c522a7a71565a9",
+  "sourceHash": "3b8ab8deb93d5829707c564b7bda556e7226f192184a6edff7264e051c67b441",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Execution"
     }
   ],
-  "bodyMarkdown": "# Brokerage Import Execution\n\n## Purpose\nThis split document isolates brokerage import execution, mapping, reconciliation, persistence, and projection refresh from the parent BrokerageImportAutomation specification.\n\n## Source\n- Parent specification: [BrokerageImportAutomation](../brokerage-import-automation.md)\n\n## Execution\nExecution authenticates provider access, fetches brokerage data, normalizes records, validates ownership, reconciles positions, persists import snapshots, updates portfolio projections, and records audit.\n\n",
+  "bodyMarkdown": "# Brokerage Import Execution\r\n\r\n## Purpose\r\nThis split document isolates brokerage import execution, mapping, reconciliation, persistence, and projection refresh from the parent BrokerageImportAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [BrokerageImportAutomation](../brokerage-import-automation.md)\r\n\r\n## Execution\r\nExecution authenticates provider access, fetches brokerage data, normalizes records, validates ownership, reconciles positions, persists import snapshots, updates portfolio projections, and records audit.\r\n\r\n",
   "references": []
 }

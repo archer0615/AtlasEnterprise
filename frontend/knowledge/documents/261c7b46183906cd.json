@@ -3,7 +3,7 @@
   "title": "ActionPlan Commands and Workflow",
   "category": "entity",
   "canonicalPath": "knowledge/entity/action-plan/commands-and-workflow.md",
-  "sourceHash": "fb1e981f02b5f2980b086aea87e9f77a68d7aa9b81c209df3c78259291bfad86",
+  "sourceHash": "a004b679e773d76e84b90935726f23766991263d347f6d68b9ff13597cdfb217",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Workflow Rules"
     }
   ],
-  "bodyMarkdown": "# ActionPlan Commands and Workflow\r\n\r\n## Purpose\r\n\r\nThis split document isolates ActionPlan command, workflow, scheduling, result, and state-transition concerns from the canonical `knowledge/entity/ActionPlan.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- EstimatedDuration, EstimatedCost, ExpectedBenefit\r\n- RiskLevel, Progress\r\n- StartDate, DueDate, CompletedDate\r\n- Result, FailureReason\r\n- IsRequired, IsRecurring\r\n- Validation Rules\r\n- Business Rules\r\n- State Machine\r\n- Commands\r\n- Domain Events\r\n\r\n## Workflow Rules\r\n\r\n- ActionPlan is the atomic execution unit that turns an ExecutionPlan into ordered tasks and workflow steps.\r\n- ActionPlan may create, schedule, or reference Task identities through Task Service or Scheduler.\r\n- ActionPlan status changes must emit immutable DomainEvent records for traceability.\r\n- Recurring actions must preserve sequence, due date, result, and failure context per execution.\r\n",
+  "bodyMarkdown": "# ActionPlan Commands and Workflow\n\n## Purpose\n\nThis split document isolates ActionPlan command, workflow, scheduling, result, and state-transition concerns from the canonical `knowledge/entity/ActionPlan.md` parent.\n\n## Covered Sections\n\n- EstimatedDuration, EstimatedCost, ExpectedBenefit\n- RiskLevel, Progress\n- StartDate, DueDate, CompletedDate\n- Result, FailureReason\n- IsRequired, IsRecurring\n- Validation Rules\n- Business Rules\n- State Machine\n- Commands\n- Domain Events\n\n## Workflow Rules\n\n- ActionPlan is the atomic execution unit that turns an ExecutionPlan into ordered tasks and workflow steps.\n- ActionPlan may create, schedule, or reference Task identities through Task Service or Scheduler.\n- ActionPlan status changes must emit immutable DomainEvent records for traceability.\n- Recurring actions must preserve sequence, due date, result, and failure context per execution.\n",
   "references": []
 }

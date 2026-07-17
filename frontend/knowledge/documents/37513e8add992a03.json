@@ -3,7 +3,7 @@
   "title": "Notification Dispatch Trigger and Channels",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/notification-dispatch-automation/trigger-and-channels.md",
-  "sourceHash": "c51480fd6a5b5a6998652869d36f156c0bde1e6b75893a818201be505236cc68",
+  "sourceHash": "efa69718b5032a16ea8b7536214e528e377e829b3588401de1f5073e99e09eb1",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Channels"
     }
   ],
-  "bodyMarkdown": "# Notification Dispatch Trigger and Channels\n\n## Purpose\nThis split document isolates notification dispatch triggers, recipient selection, channel selection, and delivery eligibility from the parent NotificationDispatchAutomation specification.\n\n## Source\n- Parent specification: [NotificationDispatchAutomation](../notification-dispatch-automation.md)\n\n## Trigger Scope\nTriggers include notification created, scheduled reminder, escalation, critical insight, decision event, recommendation event, report ready, and manual dispatch requests.\n\n## Channels\nChannels include in-app, email, SMS, push, and provider-specific delivery where configured.\n\n",
+  "bodyMarkdown": "# Notification Dispatch Trigger and Channels\r\n\r\n## Purpose\r\nThis split document isolates notification dispatch triggers, recipient selection, channel selection, and delivery eligibility from the parent NotificationDispatchAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [NotificationDispatchAutomation](../notification-dispatch-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include notification created, scheduled reminder, escalation, critical insight, decision event, recommendation event, report ready, and manual dispatch requests.\r\n\r\n## Channels\r\nChannels include in-app, email, SMS, push, and provider-specific delivery where configured.\r\n\r\n",
   "references": []
 }

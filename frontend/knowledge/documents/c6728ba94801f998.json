@@ -3,7 +3,7 @@
   "title": "Decision Execution Recovery and Audit",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-execution/recovery-and-audit.md",
-  "sourceHash": "0ff5884ad77c410846b3eba894b1a5ae4f1167d3389eadcad4281bc9b7b7935c",
+  "sourceHash": "5b9a5522c60035a8dac528bb1c0f44ea38479f82b278379b0b4710fb65eb7d72",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Recovery"
     }
   ],
-  "bodyMarkdown": "# Decision Execution Recovery and Audit\n\n## Purpose\nThis split document isolates rollback, recovery, validation, audit, persistence, and testing from the parent Decision Execution specification.\n\n## Source\n- Parent specification: [Decision Execution](../decision-execution.md)\n\n## Recovery\nRecovery covers retry rules, rollback rules, failed execution handling, dependency failure handling, and validation after recovery.\n\n",
+  "bodyMarkdown": "# Decision Execution Recovery and Audit\r\n\r\n## Purpose\r\nThis split document isolates rollback, recovery, validation, audit, persistence, and testing from the parent Decision Execution specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Execution](../decision-execution.md)\r\n\r\n## Recovery\r\nRecovery covers retry rules, rollback rules, failed execution handling, dependency failure handling, and validation after recovery.\r\n\r\n",
   "references": []
 }

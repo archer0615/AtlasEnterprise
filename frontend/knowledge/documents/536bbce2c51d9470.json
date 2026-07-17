@@ -3,7 +3,7 @@
   "title": "Recommendation Lifecycle States and Workflow",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-lifecycle/states-and-workflow.md",
-  "sourceHash": "4f4f3205e46fae6d4045abf216794a36a752683f67baa987d609e6692cafe262",
+  "sourceHash": "b008f9be7cb641bb53e39cd6eb98d4651db6cfcb8ca280d939e0c3757197c632",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "Recommendation Workflow"
     }
   ],
-  "bodyMarkdown": "# Recommendation Lifecycle States and Workflow\n\n## Purpose\nThis split document isolates recommendation lifecycle state semantics, transition matrix, validation categories, and workflow stages from the parent Recommendation Lifecycle specification.\n\n## Source\n- Parent specification: [Recommendation Lifecycle](../recommendation-lifecycle.md)\n\n## Recommendation States\nRecommendation states include Draft, Generated, Pending Review, Ranked, Prioritized, Waiting Approval, Approved, Rejected, Published, Accepted, Declined, Implemented, Expired, Archived, Deleted, Restored, Historical, and Template.\n\n## Transition Matrix\nLegal transitions must preserve lifecycle invariant, trigger evidence, pre-condition, post-condition, rollback strategy, and recovery strategy.\n\n## Recommendation Validation\nValidation covers business, financial, goal, scenario, portfolio, cashflow, priority, dependency, permission, and consistency checks.\n\n## Recommendation Workflow\nWorkflow stages include generation, evaluation, ranking, prioritization, approval, publication, acceptance, implementation, verification, and archive.\n\n",
+  "bodyMarkdown": "# Recommendation Lifecycle States and Workflow\r\n\r\n## Purpose\r\nThis split document isolates recommendation lifecycle state semantics, transition matrix, validation categories, and workflow stages from the parent Recommendation Lifecycle specification.\r\n\r\n## Source\r\n- Parent specification: [Recommendation Lifecycle](../recommendation-lifecycle.md)\r\n\r\n## Recommendation States\r\nRecommendation states include Draft, Generated, Pending Review, Ranked, Prioritized, Waiting Approval, Approved, Rejected, Published, Accepted, Declined, Implemented, Expired, Archived, Deleted, Restored, Historical, and Template.\r\n\r\n## Transition Matrix\r\nLegal transitions must preserve lifecycle invariant, trigger evidence, pre-condition, post-condition, rollback strategy, and recovery strategy.\r\n\r\n## Recommendation Validation\r\nValidation covers business, financial, goal, scenario, portfolio, cashflow, priority, dependency, permission, and consistency checks.\r\n\r\n## Recommendation Workflow\r\nWorkflow stages include generation, evaluation, ranking, prioritization, approval, publication, acceptance, implementation, verification, and archive.\r\n\r\n",
   "references": []
 }

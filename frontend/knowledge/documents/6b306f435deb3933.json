@@ -3,7 +3,7 @@
   "title": "Decision Reporting Reports and Exports",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/decision-reporting/reports-and-exports.md",
-  "sourceHash": "2f57f13dddb73a8d2e7202f0810fedf644f6111e5eb93639db694502313f8c5b",
+  "sourceHash": "2feba5c4913faf4a9fc2957bcd6be0a9c507ce6a321dc2b4a758ca5e4ccde1fd",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Reporting Rules"
     }
   ],
-  "bodyMarkdown": "# Decision Reporting Reports and Exports\r\n\r\n## Purpose\r\n\r\nThis split document isolates Decision Reporting report types, report sections, report generation modes, export formats, commands, and domain events from the canonical `knowledge/reporting/decision-reporting.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Report Types\r\n- Report Sections\r\n- Reporting Engine\r\n- Export Formats\r\n- State Machine\r\n- Commands\r\n- Domain Events\r\n\r\n## Reporting Rules\r\n\r\n- Executive, management, operational, compliance, audit, and custom reports must identify their decision evidence source.\r\n- Export formats must preserve auditability, permissions, retention, and versioning.\r\n- Scheduled and batch reports must preserve schedule identity, generation result, failure reason, and export history.\r\n- Real-time and incremental reports must not bypass permission or audit layers.\r\n",
+  "bodyMarkdown": "# Decision Reporting Reports and Exports\n\n## Purpose\n\nThis split document isolates Decision Reporting report types, report sections, report generation modes, export formats, commands, and domain events from the canonical `knowledge/reporting/decision-reporting.md` parent.\n\n## Covered Sections\n\n- Report Types\n- Report Sections\n- Reporting Engine\n- Export Formats\n- State Machine\n- Commands\n- Domain Events\n\n## Reporting Rules\n\n- Executive, management, operational, compliance, audit, and custom reports must identify their decision evidence source.\n- Export formats must preserve auditability, permissions, retention, and versioning.\n- Scheduled and batch reports must preserve schedule identity, generation result, failure reason, and export history.\n- Real-time and incremental reports must not bypass permission or audit layers.\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Goal Metrics Definitions and Rules",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/goal-metrics/definitions-and-rules.md",
-  "sourceHash": "a665e8c0ed65664498d1bfae48b854501c73f2a4aec4389aca84814ede07652f",
+  "sourceHash": "30e53f65d75adf5fb70148f00b9f8548b0912b7ee9d44c04c0a85053a5e656b4",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Boundary Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Metrics Definitions and Rules\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal Metrics metric categories, named metric definitions, validation, business rules, and state behavior from the canonical `knowledge/reporting/goal-metrics.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/reporting/goal-metrics.md`\r\n- Domain: Goal metrics\r\n- Status: Enterprise Specification\r\n\r\n## Covered Sections\r\n\r\n- Metric Categories\r\n- Metric Definitions\r\n- Validation Rules\r\n- Business Rules\r\n- State Machine\r\n\r\n## Boundary Rules\r\n\r\n- Metric definitions must keep units, scale, thresholds, precision, source requirements, and calculation versions explicit.\r\n- Validation must reject missing source identifiers, incompatible units, invalid weights, stale inputs, unauthorized scope, and precision loss.\r\n- State transitions must preserve metric lifecycle integrity across creation, update, refresh, recalculation, archival, restoration, and deletion.\r\n",
+  "bodyMarkdown": "# Goal Metrics Definitions and Rules\n\n## Purpose\n\nThis split document isolates Goal Metrics metric categories, named metric definitions, validation, business rules, and state behavior from the canonical `knowledge/reporting/goal-metrics.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-metrics.md`\n- Domain: Goal metrics\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Metric Categories\n- Metric Definitions\n- Validation Rules\n- Business Rules\n- State Machine\n\n## Boundary Rules\n\n- Metric definitions must keep units, scale, thresholds, precision, source requirements, and calculation versions explicit.\n- Validation must reject missing source identifiers, incompatible units, invalid weights, stale inputs, unauthorized scope, and precision loss.\n- State transitions must preserve metric lifecycle integrity across creation, update, refresh, recalculation, archival, restoration, and deletion.\n",
   "references": []
 }

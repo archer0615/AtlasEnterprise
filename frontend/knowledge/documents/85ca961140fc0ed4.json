@@ -3,7 +3,7 @@
   "title": "Portfolio Identity and Semantics",
   "category": "entity",
   "canonicalPath": "knowledge/entity/portfolio-entity/identity-and-semantics.md",
-  "sourceHash": "7e9f532a5b8829600131079f9d24dc304118cd6ba548267050c80589f1fe2efd",
+  "sourceHash": "8bd720d4389400647f176d7af77bc5b2b5aaffe93f98556c3202aa3be57cce5d",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Semantics"
     }
   ],
-  "bodyMarkdown": "# Portfolio Identity and Semantics\n\n## Purpose\nThis split document isolates Portfolio identity, aggregate boundary, lifecycle, ownership, relationships, properties, portfolio semantics, ownership model, asset association model, validation, and business rules from the parent Portfolio Entity Specification.\n\n## Source\n- Parent specification: [Portfolio Entity Specification](../Portfolio.md)\n\n## Identity\nPortfolio represents an investment container with owner, base currency, lifecycle state, risk context, associated assets, and valuation behavior.\n\n## Semantics\nPortfolio semantics cover target allocation, current allocation, associated positions, valuation summary, lifecycle status, owner visibility, and dashboard projection.\n\n",
+  "bodyMarkdown": "# Portfolio Identity and Semantics\r\n\r\n## Purpose\r\nThis split document isolates Portfolio identity, aggregate boundary, lifecycle, ownership, relationships, properties, portfolio semantics, ownership model, asset association model, validation, and business rules from the parent Portfolio Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Portfolio Entity Specification](../Portfolio.md)\r\n\r\n## Identity\r\nPortfolio represents an investment container with owner, base currency, lifecycle state, risk context, associated assets, and valuation behavior.\r\n\r\n## Semantics\r\nPortfolio semantics cover target allocation, current allocation, associated positions, valuation summary, lifecycle status, owner visibility, and dashboard projection.\r\n\r\n",
   "references": []
 }

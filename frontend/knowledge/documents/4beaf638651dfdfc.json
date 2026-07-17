@@ -3,7 +3,7 @@
   "title": "Recommendation Execution Rollback and Validation",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-execution/rollback-and-validation.md",
-  "sourceHash": "293f9e7e9113fa8d5e16a231a5c386f8c31bce3c2018f3282792817ccf81074a",
+  "sourceHash": "40db452987007735e452dfeff3f35957f0a9d301fd97cf33cb79866e6dd6c776",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Recommendation Execution Rollback and Validation\r\n\r\n## Purpose\r\n\r\nThis split document isolates rollback and validation behavior from the larger Recommendation Execution overview.\r\n\r\n## Source\r\n\r\n- Parent specification: [Recommendation Execution Overview](../recommendation-execution.md)\r\n\r\n## Validation Rules\r\n\r\n- Validate recommendation status before execution.\r\n- Validate household scope and permissions before mutation.\r\n- Validate linked warnings and constraints before action.\r\n- Validate resulting state after execution.\r\n\r\n## Rollback Rules\r\n\r\n- Rollback behavior must be explicit for each executable action.\r\n- Irreversible actions must be marked before execution.\r\n- Failed execution must preserve error evidence and audit context.\r\n- Rollback must not erase original recommendation evidence.\r\n\r\n## Related References\r\n\r\n- [Recommendation Entity](../../entity/Recommendation.md)\r\n- [Decision Audit Framework](../../security/decision-audit-framework.md)\r\n- [Execution Plan Framework](../../framework/execution-plan-framework.md)\r\n",
+  "bodyMarkdown": "# Recommendation Execution Rollback and Validation\n\n## Purpose\n\nThis split document isolates rollback and validation behavior from the larger Recommendation Execution overview.\n\n## Source\n\n- Parent specification: [Recommendation Execution Overview](../recommendation-execution.md)\n\n## Validation Rules\n\n- Validate recommendation status before execution.\n- Validate household scope and permissions before mutation.\n- Validate linked warnings and constraints before action.\n- Validate resulting state after execution.\n\n## Rollback Rules\n\n- Rollback behavior must be explicit for each executable action.\n- Irreversible actions must be marked before execution.\n- Failed execution must preserve error evidence and audit context.\n- Rollback must not erase original recommendation evidence.\n\n## Related References\n\n- [Recommendation Entity](../../entity/Recommendation.md)\n- [Decision Audit Framework](../../security/decision-audit-framework.md)\n- [Execution Plan Framework](../../framework/execution-plan-framework.md)\n",
   "references": []
 }

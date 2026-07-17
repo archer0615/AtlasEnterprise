@@ -3,7 +3,7 @@
   "title": "api-and-persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/household/api-and-persistence.md",
-  "sourceHash": "043d390f63b3782586df00d99617018ed5a8010dd998c3834868092f35817a7e",
+  "sourceHash": "97a54c8dd907dbbfab0b5907d5d058fbf4fcea808e775d0d61a8511ff9a341b1",
   "headings": [
     {
       "level": 2,
@@ -22,6 +22,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Household API and Persistence\n\n## Purpose\nThis split document isolates Household commands, events, repository, services, API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping, and cache strategy from the parent Household Entity Specification.\n\n## Source\n- Parent specification: [Household Entity Specification](../Household.md)\n\n## API\nHousehold APIs expose create, update, detail, members, preferences, summary, search, archive, restore, and delete behavior under tenant and permission boundaries.\n\n## Persistence\nPersistence covers household table mapping, member associations, indexes, constraints, optimistic concurrency, cache invalidation, and projection refresh.\n\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Household API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Household commands, events, repository, services, API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping, and cache strategy from the parent Household Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Household Entity Specification](../Household.md)\r\n\r\n## API\r\nHousehold APIs expose create, update, detail, members, preferences, summary, search, archive, restore, and delete behavior under tenant and permission boundaries.\r\n\r\n## Persistence\r\nPersistence covers household table mapping, member associations, indexes, constraints, optimistic concurrency, cache invalidation, and projection refresh.\r\n\r\n",
   "references": []
 }

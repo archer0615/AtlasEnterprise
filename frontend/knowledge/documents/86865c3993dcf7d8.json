@@ -3,7 +3,7 @@
   "title": "Goal Conflict Resolution Workflow",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-conflict-resolution/resolution-workflow.md",
-  "sourceHash": "55ccbb441c68a3a4f9f9d3dca80c5c8c7dc4a5d16f90b4a4280bf31186c1d91d",
+  "sourceHash": "2bde7d483ec4e972291c821e74eef0ee42174bafb22af5b0b08469c1280fba57",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Outputs"
     }
   ],
-  "bodyMarkdown": "# Goal Conflict Resolution Workflow\n\n## Purpose\nThis split document isolates conflict resolution workflow, decision support, recommendation mapping, and outcome handling from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Workflow\nResolution workflow identifies conflict evidence, ranks severity, evaluates alternatives, maps recommendations, records user decision, updates related plans, and preserves audit history.\n\n## Outputs\nOutputs include conflict summary, severity, affected goals, proposed resolution, trade-off explanation, recommendation references, and follow-up actions.\n\n",
+  "bodyMarkdown": "# Goal Conflict Resolution Workflow\r\n\r\n## Purpose\r\nThis split document isolates conflict resolution workflow, decision support, recommendation mapping, and outcome handling from the parent Goal Conflict Resolution specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\r\n\r\n## Workflow\r\nResolution workflow identifies conflict evidence, ranks severity, evaluates alternatives, maps recommendations, records user decision, updates related plans, and preserves audit history.\r\n\r\n## Outputs\r\nOutputs include conflict summary, severity, affected goals, proposed resolution, trade-off explanation, recommendation references, and follow-up actions.\r\n\r\n",
   "references": []
 }

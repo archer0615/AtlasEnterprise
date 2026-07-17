@@ -3,7 +3,7 @@
   "title": "Goal Conflict Detection and Classification",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-conflict-resolution/detection-and-classification.md",
-  "sourceHash": "962ad2c5f2c2d30613110b12f89cb77a60a4195da51c098fbca270fd75af4c2a",
+  "sourceHash": "8037bec7538d4fa62a0ba5b0a9260ad999bf1bb1859e311989f81180e23eef62",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Classification"
     }
   ],
-  "bodyMarkdown": "# Goal Conflict Detection and Classification\n\n## Purpose\nThis split document isolates goal conflict detection inputs, classification, severity, and impact analysis from the parent Goal Conflict Resolution specification.\n\n## Source\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\n\n## Detection Scope\nGoal conflict detection compares priority, timing, funding, cash flow, dependency, risk, household preference, decision outcome, recommendation impact, and scenario results.\n\n## Classification\nConflicts are classified by resource conflict, timing conflict, priority conflict, dependency conflict, risk conflict, cash-flow conflict, and recommendation conflict.\n\n",
+  "bodyMarkdown": "# Goal Conflict Detection and Classification\r\n\r\n## Purpose\r\nThis split document isolates goal conflict detection inputs, classification, severity, and impact analysis from the parent Goal Conflict Resolution specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Conflict Resolution](../goal-conflict-resolution.md)\r\n\r\n## Detection Scope\r\nGoal conflict detection compares priority, timing, funding, cash flow, dependency, risk, household preference, decision outcome, recommendation impact, and scenario results.\r\n\r\n## Classification\r\nConflicts are classified by resource conflict, timing conflict, priority conflict, dependency conflict, risk conflict, cash-flow conflict, and recommendation conflict.\r\n\r\n",
   "references": []
 }

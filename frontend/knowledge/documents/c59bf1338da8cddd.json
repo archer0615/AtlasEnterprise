@@ -3,7 +3,7 @@
   "title": "Asset Identity and Ownership",
   "category": "entity",
   "canonicalPath": "knowledge/entity/asset/identity-and-ownership.md",
-  "sourceHash": "328c35f5c2465ad4a19c44cb56db194f2d491112fff176f87ecf2bc5e1d922b5",
+  "sourceHash": "e4cb516e7a052c1e50470492d880b3505e56bb9a859ae8669f7e39ff3a77112d",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Asset Identity and Ownership\r\n\r\n## Purpose\r\n\r\nThis split document isolates Asset identity and ownership rules from the larger Asset entity specification.\r\n\r\n## Source\r\n\r\n- Parent specification: [Asset Entity Specification](../Asset.md)\r\n\r\n## Identity Rules\r\n\r\n- Asset keeps a stable `AssetId`.\r\n- Optional `AssetNumber` is an external or user-facing identifier and must not replace `AssetId`.\r\n- Asset identity is separate from Portfolio Holding or Position identity.\r\n- Asset is owned inside `AssetPortfolio` and is not an aggregate root.\r\n\r\n## Ownership Rules\r\n\r\n- Asset must maintain `HouseholdId` scope.\r\n- Optional `OwnerUserId` can identify the user context authorized to manage the Asset.\r\n- Household isolation is required even when tenant support exists.\r\n- Tenant concepts must not replace Household ownership semantics.\r\n\r\n## Related References\r\n\r\n- [Asset Entity Specification](../Asset.md)\r\n- [Portfolio Entity](../Portfolio.md)\r\n- [Household Entity](../Household.md)\r\n- [Permission Framework](../../security/permission-framework.md)\r\n",
+  "bodyMarkdown": "# Asset Identity and Ownership\n\n## Purpose\n\nThis split document isolates Asset identity and ownership rules from the larger Asset entity specification.\n\n## Source\n\n- Parent specification: [Asset Entity Specification](../Asset.md)\n\n## Identity Rules\n\n- Asset keeps a stable `AssetId`.\n- Optional `AssetNumber` is an external or user-facing identifier and must not replace `AssetId`.\n- Asset identity is separate from Portfolio Holding or Position identity.\n- Asset is owned inside `AssetPortfolio` and is not an aggregate root.\n\n## Ownership Rules\n\n- Asset must maintain `HouseholdId` scope.\n- Optional `OwnerUserId` can identify the user context authorized to manage the Asset.\n- Household isolation is required even when tenant support exists.\n- Tenant concepts must not replace Household ownership semantics.\n\n## Related References\n\n- [Asset Entity Specification](../Asset.md)\n- [Portfolio Entity](../Portfolio.md)\n- [Household Entity](../Household.md)\n- [Permission Framework](../../security/permission-framework.md)\n",
   "references": []
 }

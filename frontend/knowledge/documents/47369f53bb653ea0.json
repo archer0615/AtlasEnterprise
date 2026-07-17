@@ -3,7 +3,7 @@
   "title": "standards-and-contracts",
   "category": "api",
   "canonicalPath": "knowledge/api/api-governance/standards-and-contracts.md",
-  "sourceHash": "03ce12944b9b3c4520d144258488e85b0a0a2da3ee5e207910573d75b13b8402",
+  "sourceHash": "d723e28e9139d570b35c93964acc1cd117e47bb78d176abd6aae5697593f09a9",
   "headings": [
     {
       "level": 2,
@@ -26,6 +26,6 @@
       "text": "Consistency Controls"
     }
   ],
-  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# API Governance Standards and Contracts\n\n## Purpose\nThis split document isolates API standards, contracts, naming, versioning, request/response rules, DTOs, errors, pagination, sorting, filtering, search, bulk operations, idempotency, and concurrency from the parent API Governance Framework.\n\n## Source\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\n\n## Standards\nAPI standards cover resource naming, URI shape, HTTP method usage, response contract, request contract, media type, content negotiation, API version strategy, Future Cloud Architecture Endpoint Standard, command API standard, query API standard, DTO standard, and error contract standard.\n\n## Query Controls\nPagination, sorting, filtering, search, and bulk operation standards must be consistent across APIs and preserve tenant and permission constraints.\n\n## Consistency Controls\nIdempotency and concurrency standards must protect command replay, retry safety, optimistic locking, and duplicate request handling.\n\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# API Governance Standards and Contracts\r\n\r\n## Purpose\r\nThis split document isolates API standards, contracts, naming, versioning, request/response rules, DTOs, errors, pagination, sorting, filtering, search, bulk operations, idempotency, and concurrency from the parent API Governance Framework.\r\n\r\n## Source\r\n- Parent specification: [API Governance Framework](../api-governance-framework.md)\r\n\r\n## Standards\r\nAPI standards cover resource naming, URI shape, HTTP method usage, response contract, request contract, media type, content negotiation, API version strategy, Future Cloud Architecture Endpoint Standard, command API standard, query API standard, DTO standard, and error contract standard.\r\n\r\n## Query Controls\r\nPagination, sorting, filtering, search, and bulk operation standards must be consistent across APIs and preserve tenant and permission constraints.\r\n\r\n## Consistency Controls\r\nIdempotency and concurrency standards must protect command replay, retry safety, optimistic locking, and duplicate request handling.\r\n\r\n",
   "references": []
 }

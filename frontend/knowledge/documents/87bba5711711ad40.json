@@ -3,7 +3,7 @@
   "title": "Data Isolation and Threat Controls",
   "category": "security",
   "canonicalPath": "knowledge/security/security-framework/security-architecture/data-isolation-and-threat-controls.md",
-  "sourceHash": "b201d0f7f282f6176ef7a7325a6e6076c2f29c50c6f9b69a780c454cb8481bab",
+  "sourceHash": "aedd61826a562bbdf238978a1f5d4af42346ebadf4d661bfb010833f2a8e6a49",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Canonical Reference"
     }
   ],
-  "bodyMarkdown": "# Data Isolation and Threat Controls\r\n\r\nSource: [Security Architecture](../security-architecture.md)\r\n\r\n## Scope\r\n\r\nThis split document summarizes data protection, isolation, audit, threat, and permission mapping controls from the canonical Security Architecture. The parent document remains authoritative.\r\n\r\n## Covered Sections\r\n\r\n- Database Security\r\n- Tenant Isolation\r\n- Household Isolation\r\n- PII Protection\r\n- Data Masking\r\n- Audit Security\r\n- Threat Model\r\n- Permission Mapping\r\n\r\n## Review Focus\r\n\r\n- Database access must enforce authenticated Principal, authorization decision, and least privilege.\r\n- Tenant and household isolation must be checked before protected data is read, written, exported, or joined.\r\n- PII and masked data flows must preserve privacy boundaries while retaining useful operational context.\r\n- Audit records must provide correlation, denial evidence, and tamper-resistant security history.\r\n- Threat modeling and permission mapping must keep controls aligned with real Atlas operations.\r\n\r\n## Canonical Reference\r\n\r\nReview the canonical body in [Security Architecture](../security-architecture.md) for the full control list.\r\n",
+  "bodyMarkdown": "# Data Isolation and Threat Controls\n\nSource: [Security Architecture](../security-architecture.md)\n\n## Scope\n\nThis split document summarizes data protection, isolation, audit, threat, and permission mapping controls from the canonical Security Architecture. The parent document remains authoritative.\n\n## Covered Sections\n\n- Database Security\n- Tenant Isolation\n- Household Isolation\n- PII Protection\n- Data Masking\n- Audit Security\n- Threat Model\n- Permission Mapping\n\n## Review Focus\n\n- Database access must enforce authenticated Principal, authorization decision, and least privilege.\n- Tenant and household isolation must be checked before protected data is read, written, exported, or joined.\n- PII and masked data flows must preserve privacy boundaries while retaining useful operational context.\n- Audit records must provide correlation, denial evidence, and tamper-resistant security history.\n- Threat modeling and permission mapping must keep controls aligned with real Atlas operations.\n\n## Canonical Reference\n\nReview the canonical body in [Security Architecture](../security-architecture.md) for the full control list.\n",
   "references": []
 }

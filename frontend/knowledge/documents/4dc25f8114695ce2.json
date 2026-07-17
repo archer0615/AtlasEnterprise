@@ -3,7 +3,7 @@
   "title": "Portfolio Holdings and Allocation",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/portfolio/holdings-and-allocation.md",
-  "sourceHash": "e107664011b86c5a638a81f5985de616e524434ca05f6b3cdb63cb98658a0221",
+  "sourceHash": "f08b9c16fcb02727d65980bb358913bd71997479601a266d0e9fbc66f2c049e5",
   "headings": [
     {
       "level": 1,
@@ -38,6 +38,6 @@
       "text": "Cash Flow"
     }
   ],
-  "bodyMarkdown": "# Portfolio Holdings and Allocation\n\n## Purpose\nThis split document isolates portfolio structure, asset classes, allocation rules, rebalancing principles, risk levels, and cash flow inputs from the parent Portfolio Knowledge Base.\n\n## Source\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\n\n## Portfolio Structure\nEach Portfolio includes portfolio ID, name, owner, base currency, target allocation, current allocation, holdings, cost basis, market value, unrealized gain/loss, annual income, and risk level.\n\n## Asset Classes\n- Cash\n- Fixed Income\n- Equity\n- Alternative\n\n## Allocation Rules\nEvery asset class must define target weight, minimum weight, maximum weight, and rebalance threshold.\n\n## Rebalancing\nRebalancing can be triggered by allocation drift, periodic review, life events, and market changes. Preferred execution uses new cash flow before selling assets.\n\n## Cash Flow\nPortfolio supplies dividend, coupon, rental income, withdrawal, and asset sale data to Cash Flow Engine.\n\n",
+  "bodyMarkdown": "# Portfolio Holdings and Allocation\r\n\r\n## Purpose\r\nThis split document isolates portfolio structure, asset classes, allocation rules, rebalancing principles, risk levels, and cash flow inputs from the parent Portfolio Knowledge Base.\r\n\r\n## Source\r\n- Parent specification: [Portfolio Knowledge Base](../portfolio.md)\r\n\r\n## Portfolio Structure\r\nEach Portfolio includes portfolio ID, name, owner, base currency, target allocation, current allocation, holdings, cost basis, market value, unrealized gain/loss, annual income, and risk level.\r\n\r\n## Asset Classes\r\n- Cash\r\n- Fixed Income\r\n- Equity\r\n- Alternative\r\n\r\n## Allocation Rules\r\nEvery asset class must define target weight, minimum weight, maximum weight, and rebalance threshold.\r\n\r\n## Rebalancing\r\nRebalancing can be triggered by allocation drift, periodic review, life events, and market changes. Preferred execution uses new cash flow before selling assets.\r\n\r\n## Cash Flow\r\nPortfolio supplies dividend, coupon, rental income, withdrawal, and asset sale data to Cash Flow Engine.\r\n\r\n",
   "references": []
 }

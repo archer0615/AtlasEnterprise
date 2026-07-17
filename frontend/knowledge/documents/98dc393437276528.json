@@ -3,7 +3,7 @@
   "title": "Service Catalog Domain Services",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/service-catalog/domain-services.md",
-  "sourceHash": "6f126e95b2dcc1b28d5400f6c991b14ec9aeeb3cd639da2622c63cebfda757f9",
+  "sourceHash": "98625fd2afb29cbbf8a39c59ec72a4791110dcf1073259db70db2adc840832e4",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Catalog Usage"
     }
   ],
-  "bodyMarkdown": "# Service Catalog Domain Services\n\n## Purpose\nThis split document isolates domain service entries from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Domain Service Scope\nDomain services own domain calculation, validation, scoring, lifecycle rule evaluation, policy enforcement, and cross-entity domain logic that does not belong inside a single entity.\n\n## Catalog Usage\nEach domain service entry must preserve ownership, inputs, outputs, invariants, dependencies, side-effect boundaries, and related aggregate ownership.\n\n",
+  "bodyMarkdown": "# Service Catalog Domain Services\r\n\r\n## Purpose\r\nThis split document isolates domain service entries from the parent Service Catalog.\r\n\r\n## Source\r\n- Parent specification: [Service Catalog](../service-catalog.md)\r\n\r\n## Domain Service Scope\r\nDomain services own domain calculation, validation, scoring, lifecycle rule evaluation, policy enforcement, and cross-entity domain logic that does not belong inside a single entity.\r\n\r\n## Catalog Usage\r\nEach domain service entry must preserve ownership, inputs, outputs, invariants, dependencies, side-effect boundaries, and related aggregate ownership.\r\n\r\n",
   "references": []
 }

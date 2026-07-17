@@ -3,7 +3,7 @@
   "title": "Liability Governance and Testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/liability/governance-and-testing.md",
-  "sourceHash": "6081d467404abd48f27ed119bc6309c3568359c6dea9344991a25c55bef910a3",
+  "sourceHash": "112f3e897cfe2e9039a830c65161a11e749d53dbc571aa0ce11e0855df5912f3",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Liability Governance and Testing\n\n## Purpose\nThis split document isolates Liability security, audit, observability, performance, example JSON, diagrams, testing, edge cases, error catalog, migration, and consistency verification from the parent Liability Entity Specification.\n\n## Source\n- Parent specification: [Liability Entity Specification](../Liability.md)\n\n## Governance\nGovernance covers tenant isolation, household isolation, financial data masking, audit, observability, performance, retention, and migration compatibility.\n\n## Testing\nTesting covers lifecycle transitions, payment validation, balance adjustment, close, archive, restore, delete, concurrency, permission checks, cache invalidation, edge cases, and final consistency matrix checks.\n\n",
+  "bodyMarkdown": "# Liability Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Liability security, audit, observability, performance, example JSON, diagrams, testing, edge cases, error catalog, migration, and consistency verification from the parent Liability Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Liability Entity Specification](../Liability.md)\r\n\r\n## Governance\r\nGovernance covers tenant isolation, household isolation, financial data masking, audit, observability, performance, retention, and migration compatibility.\r\n\r\n## Testing\r\nTesting covers lifecycle transitions, payment validation, balance adjustment, close, archive, restore, delete, concurrency, permission checks, cache invalidation, edge cases, and final consistency matrix checks.\r\n\r\n",
   "references": []
 }

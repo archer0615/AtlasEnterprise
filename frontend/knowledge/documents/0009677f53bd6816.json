@@ -3,7 +3,7 @@
   "title": "Secrets, Encryption, and Interface Security",
   "category": "security",
   "canonicalPath": "knowledge/security/security-framework/security-architecture/secrets-encryption-and-interface-security.md",
-  "sourceHash": "6625714c87743eb6562ee6bc7233b0f87e1a01f2f685ab44898c6668f2fb6702",
+  "sourceHash": "ade767a35b37c3d59f9f56cc6aaeb605fa4dee1865f3bea17a77ade602efe00c",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Canonical Reference"
     }
   ],
-  "bodyMarkdown": "# Secrets, Encryption, and Interface Security\r\n\r\nSource: [Security Architecture](../security-architecture.md)\r\n\r\n## Scope\r\n\r\nThis split document summarizes credential, secret, cryptographic, and interface controls from the canonical Security Architecture. The parent document remains authoritative.\r\n\r\n## Covered Sections\r\n\r\n- Credential Management\r\n- Secret Management\r\n- Encryption Strategy\r\n- Key Management\r\n- API Security\r\n- Message Security\r\n- Repository Security\r\n\r\n## Review Focus\r\n\r\n- Credentials and secrets must be stored, rotated, revoked, and audited without exposing protected values.\r\n- Encryption must protect data in transit, at rest, and across service boundaries where sensitive context moves.\r\n- Key management must define ownership, rotation, separation of duties, and recovery handling.\r\n- APIs and messages must validate identity, permission, integrity, replay protection, and failure-safe denial.\r\n- Repository controls must prevent secret leakage and preserve audit evidence for security-sensitive changes.\r\n\r\n## Canonical Reference\r\n\r\nReview the canonical body in [Security Architecture](../security-architecture.md) for the full control list.\r\n",
+  "bodyMarkdown": "# Secrets, Encryption, and Interface Security\n\nSource: [Security Architecture](../security-architecture.md)\n\n## Scope\n\nThis split document summarizes credential, secret, cryptographic, and interface controls from the canonical Security Architecture. The parent document remains authoritative.\n\n## Covered Sections\n\n- Credential Management\n- Secret Management\n- Encryption Strategy\n- Key Management\n- API Security\n- Message Security\n- Repository Security\n\n## Review Focus\n\n- Credentials and secrets must be stored, rotated, revoked, and audited without exposing protected values.\n- Encryption must protect data in transit, at rest, and across service boundaries where sensitive context moves.\n- Key management must define ownership, rotation, separation of duties, and recovery handling.\n- APIs and messages must validate identity, permission, integrity, replay protection, and failure-safe denial.\n- Repository controls must prevent secret leakage and preserve audit evidence for security-sensitive changes.\n\n## Canonical Reference\n\nReview the canonical body in [Security Architecture](../security-architecture.md) for the full control list.\n",
   "references": []
 }
