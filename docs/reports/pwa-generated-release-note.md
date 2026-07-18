@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+9a1a2d9 Add release evidence lock checkpoint
 9b21f98 Add evidence freeze review checkpoint
 ef3294d Add release backlog acceptance checkpoint
 e00b1ed Add candidate readiness twenty item checkpoint
 2609929 Add planning baseline twenty item checkpoint
-c2c16bd Add next release planning twenty item checkpoint
 ```
 
 ## Working Tree
@@ -18,8 +18,8 @@ c2c16bd Add next release planning twenty item checkpoint
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
  M package.json
-?? docs/reports/pwa-release-evidence-lock-twenty-items-report.md
-?? scripts/validate-release-evidence-lock.mjs
+?? docs/reports/pwa-final-release-review-twenty-items-report.md
+?? scripts/validate-final-release-review.mjs
 ```
 
 ## Validation Status Summary
