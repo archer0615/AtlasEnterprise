@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+1e44a93 Add long task diagnostics evidence
 8216c6d Add long task release readiness checks
 422ddd0 Run release governance checkpoint
 d42c755 Run long task final checkpoint
 cd189b3 Add long task governance automation
-d066699 Run long task artifact refresh
 ```
 
 ## Working Tree
@@ -17,11 +17,10 @@ d066699 Run long task artifact refresh
 ```
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
- M scripts/run-long-task.mjs
+ M package.json
  M scripts/validate-long-task-governance.mjs
-?? docs/reports/pwa-evidence-retention-policy.md
-?? docs/reports/pwa-long-task-failure-diagnostics.md
-?? docs/reports/pwa-recovery-scenario-fixtures.md
+?? docs/reports/pwa-release-operations-twenty-items-report.md
+?? scripts/validate-release-operations.mjs
 ```
 
 ## Validation Status Summary

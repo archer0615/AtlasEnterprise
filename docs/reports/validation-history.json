@@ -283,5 +283,20 @@
       "deployment",
       "preview-smoke"
     ]
+  },
+  {
+    "recordedAt": "2026-07-18T13:34:08.416Z",
+    "commit": "1e44a93",
+    "status": "passed",
+    "command": "npm run validate",
+    "scope": [
+      "frontend",
+      "browser-workflow",
+      "visual-regression",
+      "pwa",
+      "offline",
+      "deployment",
+      "preview-smoke"
+    ]
   }
 ]

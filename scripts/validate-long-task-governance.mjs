@@ -14,6 +14,7 @@ const recovery = await readFile(path.join(root, "docs", "reports", "pwa-recovery
 const retention = await readFile(path.join(root, "docs", "reports", "pwa-evidence-retention-policy.md"), "utf8").catch(() => "");
 const fixtures = await readFile(path.join(root, "docs", "reports", "pwa-recovery-scenario-fixtures.md"), "utf8").catch(() => "");
 const diagnostics = await readFile(path.join(root, "docs", "reports", "pwa-long-task-failure-diagnostics.md"), "utf8").catch(() => "");
+const operations = await readFile(path.join(root, "docs", "reports", "pwa-release-operations-twenty-items-report.md"), "utf8").catch(() => "");
 
 const stepsBlock = runner.match(/const steps = \[([\s\S]*?)\];/);
 assert(stepsBlock, "Long task steps array is missing");
@@ -22,7 +23,9 @@ const steps = [...stepsBlock[1].matchAll(/"([^"]+)"/g)].map((match) => match[1])
 const uniqueSteps = new Set(steps);
 
 assert(packageJson.scripts["validate:long-task-governance"], "Long task governance validation script is missing");
+assert(packageJson.scripts["validate:release-operations"], "Release operations validation script is missing");
 assert(packageJson.scripts.validate.includes("validate:long-task-governance"), "Full validation must include long task governance");
+assert(packageJson.scripts.validate.includes("validate:release-operations"), "Full validation must include release operations validation");
 assert(steps.length === 20, `Long task must contain exactly 20 steps, found ${steps.length}`);
 assert(uniqueSteps.size === steps.length, "Long task contains duplicate steps");
 assert(steps[0] === "validate", "Long task must start with full validation");
@@ -82,5 +85,7 @@ for (const token of [
 ]) {
   assert(diagnostics.includes(token), `Long task failure diagnostics missing ${token}`);
 }
+
+assert(operations.includes("PWA Release Operations Twenty Items Report"), "Release operations report is missing");
 
 console.log("Long task governance validation passed.");
