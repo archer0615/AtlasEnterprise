@@ -9,6 +9,7 @@ function assert(condition, message) {
 
 const report = await readFile(path.join(root, "docs", "reports", "pwa-next-release-planning-twenty-items-report.md"), "utf8");
 const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
+const planningBaseline = await readFile(path.join(root, "docs", "reports", "pwa-planning-baseline-twenty-items-report.md"), "utf8");
 
 const requiredItems = [
   "Next release scope draft",
@@ -38,7 +39,10 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:next-release-planning"], "Next release planning validation script is missing");
+assert(packageJson.scripts["validate:planning-baseline"], "Planning baseline validation script is missing");
 assert(packageJson.scripts.validate.includes("validate:next-release-planning"), "Full validation must include next release planning validation");
+assert(packageJson.scripts.validate.includes("validate:planning-baseline"), "Full validation must include planning baseline validation");
 assert(requiredItems.length === 20, "Next release planning validation must cover exactly 20 items");
+assert(planningBaseline.includes("PWA Planning Baseline Twenty Items Report"), "Planning baseline report is missing");
 
 console.log("Next release planning validation passed with 20 items.");
