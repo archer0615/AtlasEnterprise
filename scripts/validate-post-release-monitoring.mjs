@@ -9,6 +9,7 @@ function assert(condition, message) {
 
 const report = await readFile(path.join(root, "docs", "reports", "pwa-post-release-monitoring-twenty-items-report.md"), "utf8");
 const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
+const maintenance = await readFile(path.join(root, "docs", "reports", "pwa-maintenance-readiness-twenty-items-report.md"), "utf8");
 
 const requiredItems = [
   "Post-release evidence review",
@@ -38,7 +39,10 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:post-release-monitoring"], "Post-release monitoring validation script is missing");
+assert(packageJson.scripts["validate:maintenance-readiness"], "Maintenance readiness validation script is missing");
 assert(packageJson.scripts.validate.includes("validate:post-release-monitoring"), "Full validation must include post-release monitoring validation");
+assert(packageJson.scripts.validate.includes("validate:maintenance-readiness"), "Full validation must include maintenance readiness validation");
 assert(requiredItems.length === 20, "Post-release monitoring validation must cover exactly 20 items");
+assert(maintenance.includes("PWA Maintenance Readiness Twenty Items Report"), "Maintenance readiness report is missing");
 
 console.log("Post-release monitoring validation passed with 20 items.");

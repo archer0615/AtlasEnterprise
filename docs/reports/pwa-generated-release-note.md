@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+d63f338 Add post-release monitoring twenty item checkpoint
 ace6ae7 Add archive closure twenty item checkpoint
 ffbaa78 Add release signoff twenty item checkpoint
 6eb86cb Add release acceptance twenty item checkpoint
 179a334 Add release operations twenty item checkpoint
-1e44a93 Add long task diagnostics evidence
 ```
 
 ## Working Tree
@@ -18,9 +18,9 @@ ffbaa78 Add release signoff twenty item checkpoint
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
  M package.json
- M scripts/validate-archive-closure.mjs
-?? docs/reports/pwa-post-release-monitoring-twenty-items-report.md
-?? scripts/validate-post-release-monitoring.mjs
+ M scripts/validate-post-release-monitoring.mjs
+?? docs/reports/pwa-maintenance-readiness-twenty-items-report.md
+?? scripts/validate-maintenance-readiness.mjs
 ```
 
 ## Validation Status Summary
