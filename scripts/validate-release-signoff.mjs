@@ -9,6 +9,7 @@ function assert(condition, message) {
 
 const report = await readFile(path.join(root, "docs", "reports", "pwa-release-signoff-twenty-items-report.md"), "utf8");
 const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
+const archiveClosure = await readFile(path.join(root, "docs", "reports", "pwa-archive-closure-twenty-items-report.md"), "utf8");
 
 const requiredItems = [
   "Release signoff ledger",
@@ -38,7 +39,10 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:release-signoff"], "Release signoff validation script is missing");
+assert(packageJson.scripts["validate:archive-closure"], "Archive closure validation script is missing");
 assert(packageJson.scripts.validate.includes("validate:release-signoff"), "Full validation must include release signoff validation");
+assert(packageJson.scripts.validate.includes("validate:archive-closure"), "Full validation must include archive closure validation");
 assert(requiredItems.length === 20, "Release signoff validation must cover exactly 20 items");
+assert(archiveClosure.includes("PWA Archive Closure Twenty Items Report"), "Archive closure report is missing");
 
 console.log("Release signoff validation passed with 20 items.");
