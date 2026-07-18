@@ -9,6 +9,7 @@ function assert(condition, message) {
 
 const report = await readFile(path.join(root, "docs", "reports", "pwa-archive-closure-twenty-items-report.md"), "utf8");
 const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
+const monitoring = await readFile(path.join(root, "docs", "reports", "pwa-post-release-monitoring-twenty-items-report.md"), "utf8");
 
 const requiredItems = [
   "Archive manifest validation",
@@ -38,7 +39,10 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:archive-closure"], "Archive closure validation script is missing");
+assert(packageJson.scripts["validate:post-release-monitoring"], "Post-release monitoring validation script is missing");
 assert(packageJson.scripts.validate.includes("validate:archive-closure"), "Full validation must include archive closure validation");
+assert(packageJson.scripts.validate.includes("validate:post-release-monitoring"), "Full validation must include post-release monitoring validation");
 assert(requiredItems.length === 20, "Archive closure validation must cover exactly 20 items");
+assert(monitoring.includes("PWA Post-release Monitoring Twenty Items Report"), "Post-release monitoring report is missing");
 
 console.log("Archive closure validation passed with 20 items.");

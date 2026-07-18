@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+ace6ae7 Add archive closure twenty item checkpoint
 ffbaa78 Add release signoff twenty item checkpoint
 6eb86cb Add release acceptance twenty item checkpoint
 179a334 Add release operations twenty item checkpoint
 1e44a93 Add long task diagnostics evidence
-8216c6d Add long task release readiness checks
 ```
 
 ## Working Tree
@@ -18,9 +18,9 @@ ffbaa78 Add release signoff twenty item checkpoint
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
  M package.json
- M scripts/validate-release-signoff.mjs
-?? docs/reports/pwa-archive-closure-twenty-items-report.md
-?? scripts/validate-archive-closure.mjs
+ M scripts/validate-archive-closure.mjs
+?? docs/reports/pwa-post-release-monitoring-twenty-items-report.md
+?? scripts/validate-post-release-monitoring.mjs
 ```
 
 ## Validation Status Summary
