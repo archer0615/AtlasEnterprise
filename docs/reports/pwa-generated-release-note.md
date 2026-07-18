@@ -5,20 +5,22 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
-b35787097 Add audit persistence and report validation diagnostics
-2b822d70c Add validation export audit trail
-a2479b9eb Add report versioning and offline repair
-5c8f6ecb8 Add release dashboard samples
-2742fe9f6 Record release status and backup refresh
+d457dd1 Update release validation artifacts
+b357870 Add audit persistence and report validation diagnostics
+2b822d7 Add validation export audit trail
+a2479b9 Add report versioning and offline repair
+5c8f6ec Add release dashboard samples
 ```
 
 ## Working Tree
 
 ```
-M docs/reports/pwa-generated-release-note.md
- M docs/reports/validation-history.json
+M docs/reports/validation-history.json
  M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
+ M frontend/knowledge/document-assets.json
+ M frontend/knowledge/index.json
+ M frontend/knowledge/search-index.json
 ```
 
 ## Validation Status Summary
