@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+eebb20a Run long task validation artifacts
 1f0949f Run long task artifact checkpoint
 c1629fb Run long task release checkpoint
 b7ed16e Run long task validation checkpoint
 d457dd1 Update release validation artifacts
-b357870 Add audit persistence and report validation diagnostics
 ```
 
 ## Working Tree
