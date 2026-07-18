@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+b7ed16e Run long task validation checkpoint
 d457dd1 Update release validation artifacts
 b357870 Add audit persistence and report validation diagnostics
 2b822d7 Add validation export audit trail
 a2479b9 Add report versioning and offline repair
-5c8f6ec Add release dashboard samples
 ```
 
 ## Working Tree
@@ -18,9 +18,6 @@ a2479b9 Add report versioning and offline repair
 M docs/reports/validation-history.json
  M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
- M frontend/knowledge/document-assets.json
- M frontend/knowledge/index.json
- M frontend/knowledge/search-index.json
 ```
 
 ## Validation Status Summary
