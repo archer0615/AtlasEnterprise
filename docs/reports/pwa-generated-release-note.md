@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+5abf143 Add archive closure verification checkpoint
 e6e6f0a Add archive readiness lock checkpoint
 a202e2e Add handoff readiness review checkpoint
 7b4867a Add release closure lock checkpoint
 879890c Add final release review checkpoint
-9a1a2d9 Add release evidence lock checkpoint
 ```
 
 ## Working Tree
@@ -18,8 +18,8 @@ a202e2e Add handoff readiness review checkpoint
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
  M package.json
-?? docs/reports/pwa-archive-closure-verification-twenty-items-report.md
-?? scripts/validate-archive-closure-verification.mjs
+?? docs/reports/pwa-post-archive-monitoring-twenty-items-report.md
+?? scripts/validate-post-archive-monitoring.mjs
 ```
 
 ## Validation Status Summary
