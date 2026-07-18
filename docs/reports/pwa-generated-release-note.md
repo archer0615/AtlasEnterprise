@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+d42c755 Run long task final checkpoint
 cd189b3 Add long task governance automation
 d066699 Run long task artifact refresh
 2e7d285 Run long task report checkpoint
 9217d84 Run long task maintenance checkpoint
-2fa468c Run long task validation checkpoint
 ```
 
 ## Working Tree
