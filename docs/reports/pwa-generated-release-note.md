@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+2609929 Add planning baseline twenty item checkpoint
 c2c16bd Add next release planning twenty item checkpoint
 e821b4e Add maintenance readiness twenty item checkpoint
 d63f338 Add post-release monitoring twenty item checkpoint
 ace6ae7 Add archive closure twenty item checkpoint
-ffbaa78 Add release signoff twenty item checkpoint
 ```
 
 ## Working Tree
@@ -18,9 +18,9 @@ ffbaa78 Add release signoff twenty item checkpoint
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
  M package.json
- M scripts/validate-next-release-planning.mjs
-?? docs/reports/pwa-planning-baseline-twenty-items-report.md
-?? scripts/validate-planning-baseline.mjs
+ M scripts/validate-planning-baseline.mjs
+?? docs/reports/pwa-candidate-readiness-twenty-items-report.md
+?? scripts/validate-candidate-readiness.mjs
 ```
 
 ## Validation Status Summary
