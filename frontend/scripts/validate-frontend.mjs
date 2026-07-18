@@ -66,6 +66,7 @@ for (const token of [
   "buildReportVersionHistory", "exportValidationResult", "renderOfflineRepairAudit",
   "persistAuditEntry", "renderPersistentAudit", "buildReportDiff", "renderReportDiff",
   "diagnoseValidationRecord", "renderValidationFailureDiagnosis",
+  "auditRetentionPolicy", "reportDiffFixtures", "validationFailureFixtures",
   "buildPortfolioReportPayload", "renderExportPreview", "calculateEditableLoan",
   "resetLoanInputs", "validateLoanInput", "找不到符合條件的知識文件。", "知識文件載入失敗。",
   'fetch("fixtures/dashboard-snapshots.json"', 'fetch(`knowledge/documents/${doc.id}.json`)',

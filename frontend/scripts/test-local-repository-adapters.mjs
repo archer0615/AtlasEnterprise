@@ -45,5 +45,8 @@ assert(main.includes("incomingNames"), "Backup preview scenario name details are
 assert(main.includes("persistAuditEntry"), "Audit persistence workflow is missing");
 assert(main.includes("buildReportDiff"), "Report diff comparison workflow is missing");
 assert(main.includes("diagnoseValidationRecord"), "Validation failure diagnosis workflow is missing");
+assert(main.includes("auditRetentionPolicy"), "Audit retention policy is missing");
+assert(main.includes("reportDiffFixtures"), "Report diff fixtures are missing");
+assert(main.includes("validationFailureFixtures"), "Validation failure fixtures are missing");
 
 console.log("Local repository adapter tests passed.");

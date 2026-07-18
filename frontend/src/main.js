@@ -76,6 +76,19 @@ let validationHistoryRecords = [];
 let currentCacheVersion = "";
 let offlineRepairAudit = [];
 let persistentAuditEntries = [];
+const auditRetentionPolicy = {
+  schema: "atlas-enterprise.audit-retention-policy.v1",
+  maxEntries: 20,
+  visibleEntries: 5,
+  retainedActions: ["scenario-save", "scenario-delete", "scenario-reset", "backup-restore", "offline-repair", "recommendation-decision"],
+};
+const reportDiffFixtures = [
+  { previousVersion: "export-report.v1", currentVersion: "export-report.v2", changedFields: ["cacheVersion", "validation", "localizedPayload"] },
+];
+const validationFailureFixtures = [
+  { status: "missing", expectedReason: "validation-history.json 尚未產生" },
+  { status: "failed", command: "npm run validate", scope: ["frontend"], expectedNextAction: "檢查 command、scope、commit 與最新輸出" },
+];
 
 async function loadIndex() {
   const response = await fetch("knowledge/index.json", { cache: "no-cache" });
@@ -648,13 +661,13 @@ async function persistAuditEntry(action, detail = {}) {
     schema: "atlas-enterprise.audit-entry.v1",
   };
   await indexedDbAuditRepository.save(entry).catch(() => {});
-  persistentAuditEntries = [entry, ...persistentAuditEntries].slice(0, 20);
+  persistentAuditEntries = [entry, ...persistentAuditEntries].slice(0, auditRetentionPolicy.maxEntries);
   renderPersistentAudit();
 }
 
 function renderPersistentAudit() {
   if (!persistentAuditPanel) return;
-  const entries = [...persistentAuditEntries].sort((a, b) => String(b.recordedAt || "").localeCompare(String(a.recordedAt || ""))).slice(0, 5);
+  const entries = [...persistentAuditEntries].sort((a, b) => String(b.recordedAt || "").localeCompare(String(a.recordedAt || ""))).slice(0, auditRetentionPolicy.visibleEntries);
   persistentAuditPanel.textContent = entries.length
     ? entries.map((entry) => `${entry.recordedAt} / ${entry.action} / ${entry.schema}`).join("\n")
     : "尚無持久化稽核紀錄";
