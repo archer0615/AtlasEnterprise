@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+ef3294d Add release backlog acceptance checkpoint
 e00b1ed Add candidate readiness twenty item checkpoint
 2609929 Add planning baseline twenty item checkpoint
 c2c16bd Add next release planning twenty item checkpoint
 e821b4e Add maintenance readiness twenty item checkpoint
-d63f338 Add post-release monitoring twenty item checkpoint
 ```
 
 ## Working Tree
@@ -18,8 +18,8 @@ d63f338 Add post-release monitoring twenty item checkpoint
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
  M package.json
-?? docs/reports/pwa-release-backlog-acceptance-twenty-items-report.md
-?? scripts/validate-release-backlog-acceptance.mjs
+?? docs/reports/pwa-evidence-freeze-review-twenty-items-report.md
+?? scripts/validate-evidence-freeze-review.mjs
 ```
 
 ## Validation Status Summary
