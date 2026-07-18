@@ -30,6 +30,7 @@
     "validate:next-release-planning": "node scripts/validate-next-release-planning.mjs",
     "validate:planning-baseline": "node scripts/validate-planning-baseline.mjs",
     "validate:candidate-readiness": "node scripts/validate-candidate-readiness.mjs",
+    "validate:release-backlog-acceptance": "node scripts/validate-release-backlog-acceptance.mjs",
     "report:release": "node scripts/generate-release-note.mjs",
     "report:validation-history": "node scripts/record-validation-history.mjs",
     "task:long": "node scripts/run-long-task.mjs",
@@ -43,7 +44,7 @@
     "validate:simulator": "node simulator/scripts/validate-simulator-output.mjs",
     "visual:screenshots": "node frontend/scripts/capture-playwright-screenshots.mjs",
     "validate:visual-regression": "node frontend/scripts/validate-visual-regression.mjs",
-    "validate": "npm run validate:frontend && npm run validate:formula-registry && npm run validate:score-policy && npm run validate:cache-policy && npm run validate:fixtures && npm run validate:dashboard-drift && npm run validate:runtime-fixture-drift && npm run validate:dashboard-api && npm run validate:portfolio-reporting && npm run test:dashboard-projection && npm run validate:cache-invalidation && npm run test:local-repositories && npm run validate:browser-workflow && npm run validate:visual-regression && npm run validate:pwa && npm run validate:offline && npm run validate:simulator && npm run validate:deployment && npm run validate:preview-smoke && npm run validate:release-governance && npm run validate:long-task-governance && npm run validate:release-operations && npm run validate:release-acceptance && npm run validate:release-signoff && npm run validate:archive-closure && npm run validate:post-release-monitoring && npm run validate:maintenance-readiness && npm run validate:next-release-planning && npm run validate:planning-baseline && npm run validate:candidate-readiness",
+    "validate": "npm run validate:frontend && npm run validate:formula-registry && npm run validate:score-policy && npm run validate:cache-policy && npm run validate:fixtures && npm run validate:dashboard-drift && npm run validate:runtime-fixture-drift && npm run validate:dashboard-api && npm run validate:portfolio-reporting && npm run test:dashboard-projection && npm run validate:cache-invalidation && npm run test:local-repositories && npm run validate:browser-workflow && npm run validate:visual-regression && npm run validate:pwa && npm run validate:offline && npm run validate:simulator && npm run validate:deployment && npm run validate:preview-smoke && npm run validate:release-governance && npm run validate:long-task-governance && npm run validate:release-operations && npm run validate:release-acceptance && npm run validate:release-signoff && npm run validate:archive-closure && npm run validate:post-release-monitoring && npm run validate:maintenance-readiness && npm run validate:next-release-planning && npm run validate:planning-baseline && npm run validate:candidate-readiness && npm run validate:release-backlog-acceptance",
     "build": "npm run build:knowledge",
     "start": "node frontend/scripts/serve-static.mjs",
     "dev": "npm run build:knowledge && npm run start"
