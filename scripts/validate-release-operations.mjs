@@ -9,6 +9,7 @@ function assert(condition, message) {
 
 const report = await readFile(path.join(root, "docs", "reports", "pwa-release-operations-twenty-items-report.md"), "utf8");
 const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
+const acceptance = await readFile(path.join(root, "docs", "reports", "pwa-release-acceptance-twenty-items-report.md"), "utf8");
 
 const requiredItems = [
   "Release rollback drill",
@@ -38,6 +39,8 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts.validate.includes("validate:release-operations"), "Full validation must include release operations validation");
+assert(packageJson.scripts.validate.includes("validate:release-acceptance"), "Full validation must include release acceptance validation");
 assert(requiredItems.length === 20, "Release operations validation must cover exactly 20 items");
+assert(acceptance.includes("PWA Release Acceptance Twenty Items Report"), "Release acceptance report is missing");
 
 console.log("Release operations validation passed with 20 items.");

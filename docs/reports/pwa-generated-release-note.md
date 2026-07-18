@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+179a334 Add release operations twenty item checkpoint
 1e44a93 Add long task diagnostics evidence
 8216c6d Add long task release readiness checks
 422ddd0 Run release governance checkpoint
 d42c755 Run long task final checkpoint
-cd189b3 Add long task governance automation
 ```
 
 ## Working Tree
@@ -18,9 +18,9 @@ cd189b3 Add long task governance automation
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
  M package.json
- M scripts/validate-long-task-governance.mjs
-?? docs/reports/pwa-release-operations-twenty-items-report.md
-?? scripts/validate-release-operations.mjs
+ M scripts/validate-release-operations.mjs
+?? docs/reports/pwa-release-acceptance-twenty-items-report.md
+?? scripts/validate-release-acceptance.mjs
 ```
 
 ## Validation Status Summary
