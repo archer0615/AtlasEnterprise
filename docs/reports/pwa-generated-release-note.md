@@ -5,19 +5,20 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
-18abc8d8 Record continuation backup and regression
-ca4d61fe Implement next PWA workflow improvements
-62f88b56 Plan next PWA tasks and regression cadence
-021cdf05 Archive PWA release validation
-bcd4bc38 Localize PWA guidance and validation
+b35787097 Add audit persistence and report validation diagnostics
+2b822d70c Add validation export audit trail
+a2479b9eb Add report versioning and offline repair
+5c8f6ecb8 Add release dashboard samples
+2742fe9f6 Record release status and backup refresh
 ```
 
 ## Working Tree
 
 ```
-M package.json
-?? docs/reports/validation-history.json
-?? scripts/record-validation-history.mjs
+M docs/reports/pwa-generated-release-note.md
+ M docs/reports/validation-history.json
+ M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
+ M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
 ```
 
 ## Validation Status Summary
