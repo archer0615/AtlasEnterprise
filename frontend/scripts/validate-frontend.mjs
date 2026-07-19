@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+﻿import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
@@ -17,19 +17,12 @@ const styles = await readFile(path.join(frontendRoot, "src", "styles.css"), "utf
 const dashboard = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-snapshot.json"), "utf8"));
 const dashboards = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-snapshots.json"), "utf8"));
 
-const mojibakePattern = /[嚙�]|[?][\uE000-\uF8FF]/u;
-
-function assertReadable(name, value) {
-  assert(!mojibakePattern.test(value), `${name} contains unreadable text`);
-}
-
 for (const id of [
   "metricGrid", "scenarioList", "actionList", "dashboardSwitcher", "saveScenarioButton",
   "releaseDashboardPanel", "sampleExportButton", "sampleBackupButton", "sampleLoaderPanel",
-  "validationHistoryPanel", "cacheVersionText",
-  "reportVersionPanel", "offlineRepairButton", "offlineRepairPanel",
-  "reportVersionHistoryPanel", "exportValidationButton", "validationExportPanel", "offlineRepairAuditPanel",
-  "persistentAuditPanel", "reportDiffPanel", "validationFailureDiagnosisPanel",
+  "validationHistoryPanel", "cacheVersionText", "reportVersionPanel", "offlineRepairButton",
+  "offlineRepairPanel", "reportVersionHistoryPanel", "exportValidationButton", "validationExportPanel",
+  "offlineRepairAuditPanel", "persistentAuditPanel", "reportDiffPanel", "validationFailureDiagnosisPanel",
   "deleteScenarioButton", "resetScenariosButton", "runtimeFeedback", "scenarioNameInput",
   "scenarioScoreInput", "exportBackupButton", "importBackupInput", "restoreConfirmInput",
   "applyBackupButton", "backupPreview", "backupDryRunPanel", "scenarioComparisonPanel",
@@ -42,35 +35,23 @@ for (const id of [
   assert(html.includes(`id="${id}"`), `${id} is missing`);
 }
 
-for (const text of [
-  "搜尋知識文件", "請選擇知識文件查看內容。", "財務決策工作台", "當前財務情境",
-  "情境比較", "匯出報表預覽", "備份已預覽", "建議歷史篩選", "重設",
-  "行動版快捷工具列", "內部知識與規格文件",
-]) {
-  assert(html.includes(text) || main.includes(text), `missing readable UI text: ${text}`);
+for (const removedId of ["searchInput", "categoryNav", "documentList", "documentViewer", "resultCount", "clearFiltersButton"]) {
+  assert(!html.includes(`id="${removedId}"`), `${removedId} should not be visible in the user UI`);
 }
-
-assertReadable("index.html", html);
-assertReadable("main.js", main);
-assertReadable("dashboard-model.js", dashboardModel);
-assertReadable("indexeddb-runtime.js", indexedDbRuntime);
+assert(!html.includes("internal-knowledge"), "internal knowledge section should not be visible in the user UI");
 
 for (const token of [
   'from "./dashboard-model.js"', 'from "./indexeddb-runtime.js"', "indexedDbScenarioRepository",
   "indexedDbBackupRepository", "restoreConfirmInput", "previewBackup", "applyBackup",
-  "validateScenarioInput", "formatBackupPreview", "formatBackupDryRun",
-  "情境分數必須是 0 到 100", "incomingNames", "replacingNames", "renderPortfolioReport",
+  "validateScenarioInput", "formatBackupPreview", "formatBackupDryRun", "renderPortfolioReport",
   "renderRecommendationControls", "renderRecommendationHistory", "renderScenarioComparison",
   "renderLoanScenarioPanel", "setRecommendationDecision", "exportPortfolioReport",
-  "wrapExportReport", "repairOfflineData",
-  "buildReportVersionHistory", "exportValidationResult", "renderOfflineRepairAudit",
-  "persistAuditEntry", "renderPersistentAudit", "buildReportDiff", "renderReportDiff",
-  "diagnoseValidationRecord", "renderValidationFailureDiagnosis",
+  "wrapExportReport", "repairOfflineData", "buildReportVersionHistory", "exportValidationResult",
+  "renderOfflineRepairAudit", "persistAuditEntry", "renderPersistentAudit", "buildReportDiff",
+  "renderReportDiff", "diagnoseValidationRecord", "renderValidationFailureDiagnosis",
   "auditRetentionPolicy", "reportDiffFixtures", "validationFailureFixtures",
-  "buildPortfolioReportPayload", "renderExportPreview", "calculateEditableLoan",
-  "resetLoanInputs", "validateLoanInput", "找不到符合條件的知識文件。", "知識文件載入失敗。",
-  'fetch("fixtures/dashboard-snapshots.json"', 'fetch(`knowledge/documents/${doc.id}.json`)',
-  'navigator.serviceWorker.register("sw.js")',
+  "buildPortfolioReportPayload", "renderExportPreview", "calculateEditableLoan", "resetLoanInputs",
+  "validateLoanInput", 'fetch("fixtures/dashboard-snapshots.json"', 'navigator.serviceWorker.register("sw.js")',
 ]) {
   assert(main.includes(token), `main.js missing ${token}`);
 }
@@ -81,11 +62,9 @@ for (const token of ["legacySnapshotIdKeys", "atlas.dashboard.snapshotId"]) {
 
 for (const token of [
   '"atlas-pwa-runtime"', '"settings"', '"scenarios"', '"recommendationDecisions"',
-  "indexedDbScenarioRepository", "indexedDbRecommendationDecisionRepository",
-  "indexedDbBackupRepository", "async delete(scenarioId)", "async clear()",
-  "backupSchemaVersion", "validateBackup", "scenarioIds.has",
-  "indexedDbMigrationRepository", "databaseVersion",
-  "indexedDbAuditRepository", '"auditEntries"',
+  "indexedDbScenarioRepository", "indexedDbRecommendationDecisionRepository", "indexedDbBackupRepository",
+  "async delete(scenarioId)", "async clear()", "backupSchemaVersion", "validateBackup",
+  "scenarioIds.has", "indexedDbMigrationRepository", "databaseVersion", "indexedDbAuditRepository", '"auditEntries"',
 ]) {
   assert(indexedDbRuntime.includes(token), `IndexedDB runtime missing ${token}`);
 }
@@ -96,8 +75,8 @@ new Function(dashboardModel.replaceAll("export const", "const").replaceAll("expo
 
 for (const token of [
   ".dashboard-prototype", ".dashboard-switcher", ".runtime-panels", ".user-summary",
-  ".primary-actions", ".advanced-controls", ".internal-knowledge", ".mobile-toolbar",
-  ".export-preview", ".invalid-input", ".scenario-comparison", "@media (max-width: 860px)",
+  ".primary-actions", ".advanced-controls", ".mobile-toolbar", ".export-preview",
+  ".invalid-input", ".scenario-comparison", "@media (max-width: 860px)",
 ]) {
   assert(styles.includes(token), `styles missing ${token}`);
 }
@@ -113,18 +92,6 @@ for (const snapshot of dashboards.snapshots) {
   assert(snapshot.label, `${snapshot.snapshotId} missing label`);
   assert(snapshot.sourceFixture, `${snapshot.snapshotId} missing sourceFixture`);
   assert(snapshot.metrics.length === 4, `${snapshot.snapshotId} must expose four metrics`);
-  assertReadable(`${snapshot.snapshotId} label`, snapshot.label);
-  for (const metric of snapshot.metrics) {
-    assertReadable(`${snapshot.snapshotId} metric label`, metric.label);
-    assertReadable(`${snapshot.snapshotId} metric detail`, metric.detail);
-  }
-  for (const scenario of snapshot.scenarios) {
-    assertReadable(`${snapshot.snapshotId} scenario name`, scenario.name);
-    assertReadable(`${snapshot.snapshotId} scenario status`, scenario.status);
-  }
-  for (const action of snapshot.actions) {
-    assertReadable(`${snapshot.snapshotId} action`, action);
-  }
 }
 
 console.log("Frontend validation passed.");

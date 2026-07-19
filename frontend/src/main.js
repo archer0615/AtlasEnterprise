@@ -767,14 +767,14 @@ function escapeAttribute(value) {
   return escapeHtml(value).replaceAll('"', "&quot;");
 }
 
-categoryNav.addEventListener("click", (event) => {
+categoryNav?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-category]");
   if (!button) return;
   state.selectedCategory = button.dataset.category;
   renderCategories();
   renderList();
 });
-documentList.addEventListener("click", (event) => {
+documentList?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-id]");
   if (button) openDocument(button.dataset.id);
 });
@@ -782,11 +782,11 @@ dashboardSwitcher.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-snapshot-id]");
   if (button) renderDashboardById(button.dataset.snapshotId);
 });
-searchInput.addEventListener("input", (event) => {
+searchInput?.addEventListener("input", (event) => {
   state.query = event.target.value;
   renderList();
 });
-clearFiltersButton.addEventListener("click", () => {
+clearFiltersButton?.addEventListener("click", () => {
   state.query = "";
   state.selectedCategory = "all";
   searchInput.value = "";
@@ -826,7 +826,3 @@ if ("serviceWorker" in navigator) window.addEventListener("load", () => navigato
 
 loadDashboard();
 renderReleaseDashboard().catch(() => {});
-loadIndex().catch((error) => {
-  statusText.textContent = "知識索引載入失敗";
-  documentViewer.innerHTML = `<p class="empty-state">${escapeHtml(error.message)}</p>`;
-});
