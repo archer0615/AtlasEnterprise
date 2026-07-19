@@ -33,6 +33,7 @@ for (const id of [
   "calculateLoanButton", "resetLoanButton", "loanEditableOutput",
   "profileIncomeInput", "profileAssetsInput", "profileDebtInput", "profileGoalSelect",
   "saveProfileButton", "resetProfileButton", "profileSummaryPanel",
+  "scenarioTemplateList", "scenarioTemplatePreview", "applyScenarioTemplateButton", "saveScenarioTemplateButton",
 ]) {
   assert(html.includes(`id="${id}"`), `${id} is missing`);
 }
@@ -55,6 +56,7 @@ for (const token of [
   "buildPortfolioReportPayload", "renderExportPreview", "calculateEditableLoan", "resetLoanInputs",
   "validateLoanInput", 'fetch("fixtures/dashboard-snapshots.json"', 'navigator.serviceWorker.register("sw.js")',
   "loadUserProfile", "saveUserProfile", "resetUserProfile", "profile-save",
+  "scenarioTemplates", "renderScenarioTemplates", "applyScenarioTemplate", "saveScenarioFromTemplate",
 ]) {
   assert(main.includes(token), `main.js missing ${token}`);
 }
@@ -79,7 +81,7 @@ new Function(dashboardModel.replaceAll("export const", "const").replaceAll("expo
 for (const token of [
   ".dashboard-prototype", ".dashboard-switcher", ".runtime-panels", ".user-summary",
   ".primary-actions", ".advanced-controls", ".mobile-toolbar", ".export-preview",
-  ".invalid-input", ".scenario-comparison", ".profile-settings", ".profile-grid", "@media (max-width: 860px)",
+  ".invalid-input", ".scenario-comparison", ".profile-settings", ".profile-grid", ".scenario-templates", ".template-list", "@media (max-width: 860px)",
 ]) {
   assert(styles.includes(token), `styles missing ${token}`);
 }

@@ -106,6 +106,17 @@
             <input id="scenarioScoreInput" type="text" placeholder="分數或 N/A" />
             <button id="saveScenarioButton" type="button">儲存情境</button>
           </div>
+          <div class="scenario-templates" aria-label="情境範本管理">
+            <div class="template-header">
+              <h4>情境範本</h4>
+              <div class="dashboard-actions compact-actions">
+                <button id="applyScenarioTemplateButton" type="button">套用範本</button>
+                <button id="saveScenarioTemplateButton" type="button">直接儲存範本</button>
+              </div>
+            </div>
+            <div id="scenarioTemplateList" class="template-list"></div>
+            <div id="scenarioTemplatePreview" class="decision-log"></div>
+          </div>
           <details class="advanced-controls">
             <summary>進階資料操作</summary>
             <div class="dashboard-actions" aria-label="進階資料操作控制">

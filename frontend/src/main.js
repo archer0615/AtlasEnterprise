@@ -70,6 +70,10 @@ const profileGoalSelect = $("#profileGoalSelect");
 const saveProfileButton = $("#saveProfileButton");
 const resetProfileButton = $("#resetProfileButton");
 const profileSummaryPanel = $("#profileSummaryPanel");
+const scenarioTemplateList = $("#scenarioTemplateList");
+const scenarioTemplatePreview = $("#scenarioTemplatePreview");
+const applyScenarioTemplateButton = $("#applyScenarioTemplateButton");
+const saveScenarioTemplateButton = $("#saveScenarioTemplateButton");
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -84,6 +88,13 @@ let currentCacheVersion = "";
 let offlineRepairAudit = [];
 let persistentAuditEntries = [];
 let userProfile = { income: "", assets: "", debt: "", goal: "balanced" };
+let selectedScenarioTemplateId = "home";
+const scenarioTemplates = [
+  { id: "home", name: "買房準備", score: "72", detail: "檢查頭期款、交易成本與貸款壓力。" },
+  { id: "retirement", name: "退休準備", score: "68", detail: "檢查退休提領、通膨與長期資產配置。" },
+  { id: "investment", name: "投資回撤", score: "64", detail: "檢查投資組合回撤與風險承受度。" },
+  { id: "debt", name: "降債優先", score: "80", detail: "檢查負債收入比與提前還款彈性。" },
+];
 const auditRetentionPolicy = {
   schema: "atlas-enterprise.audit-retention-policy.v1",
   maxEntries: 20,
@@ -586,6 +597,35 @@ async function resetUserProfile() {
   setRuntimeFeedback("使用者資料已重設。");
 }
 
+function currentScenarioTemplate() {
+  return scenarioTemplates.find((template) => template.id === selectedScenarioTemplateId) || scenarioTemplates[0];
+}
+
+function renderScenarioTemplates() {
+  if (!scenarioTemplateList) return;
+  scenarioTemplateList.innerHTML = scenarioTemplates.map((template) => `<button class="${template.id === selectedScenarioTemplateId ? "active" : ""}" type="button" data-template-id="${escapeAttribute(template.id)}"><span>${escapeHtml(template.name)}</span><small>${escapeHtml(template.detail)}</small><strong>${escapeHtml(template.score)}</strong></button>`).join("");
+  renderScenarioTemplatePreview();
+}
+
+function renderScenarioTemplatePreview() {
+  if (!scenarioTemplatePreview) return;
+  const template = currentScenarioTemplate();
+  scenarioTemplatePreview.textContent = `${template.name}\n預設分數 ${template.score}\n${template.detail}`;
+}
+
+function applyScenarioTemplate() {
+  const template = currentScenarioTemplate();
+  scenarioNameInput.value = template.name;
+  scenarioScoreInput.value = template.score;
+  setRuntimeFeedback(`已套用情境範本：${template.name}`);
+}
+
+async function saveScenarioFromTemplate() {
+  applyScenarioTemplate();
+  await saveCurrentScenario();
+  await persistAuditEntry("scenario-template-save", { templateId: selectedScenarioTemplateId });
+}
+
 function validateScenarioInput(name, score) {
   if (name.length < 2) throw new Error("情境名稱至少需要 2 個字。");
   if (name.length > 80) throw new Error("情境名稱不可超過 80 個字。");
@@ -897,6 +937,14 @@ calculateLoanButton.addEventListener("click", () => {
 resetLoanButton.addEventListener("click", resetLoanInputs);
 saveProfileButton?.addEventListener("click", () => saveUserProfile().catch((error) => setRuntimeFeedback(error.message)));
 resetProfileButton?.addEventListener("click", () => resetUserProfile().catch((error) => setRuntimeFeedback(error.message)));
+scenarioTemplateList?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-template-id]");
+  if (!button) return;
+  selectedScenarioTemplateId = button.dataset.templateId;
+  renderScenarioTemplates();
+});
+applyScenarioTemplateButton?.addEventListener("click", applyScenarioTemplate);
+saveScenarioTemplateButton?.addEventListener("click", () => saveScenarioFromTemplate().catch((error) => setRuntimeFeedback(error.message)));
 
 window.addEventListener("hashchange", openDocumentFromHash);
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
@@ -904,3 +952,4 @@ if ("serviceWorker" in navigator) window.addEventListener("load", () => navigato
 loadDashboard();
 renderReleaseDashboard().catch(() => {});
 loadUserProfile().catch(() => {});
+renderScenarioTemplates();

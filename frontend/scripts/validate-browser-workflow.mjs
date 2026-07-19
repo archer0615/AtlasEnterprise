@@ -52,6 +52,7 @@ try {
     "#recommendationHistoryPanel", "#resetLoanButton", "#metricGrid", "#scenarioList", "#actionList",
     "#profileIncomeInput", "#profileAssetsInput", "#profileDebtInput", "#profileGoalSelect",
     "#saveProfileButton", "#resetProfileButton", "#profileSummaryPanel",
+    "#scenarioTemplateList", "#scenarioTemplatePreview", "#applyScenarioTemplateButton", "#saveScenarioTemplateButton",
   ]) {
     assert(await page.locator(selector).count() === 1, `${selector} is missing`);
   }
@@ -66,6 +67,11 @@ try {
   await page.selectOption("#profileGoalSelect", "growth");
   await page.click("#saveProfileButton");
   await page.waitForFunction(() => document.querySelector("#profileSummaryPanel")?.textContent.includes("2,200,000"));
+  await page.locator("#scenarioTemplateList button").filter({ hasText: "退休準備" }).click();
+  await page.click("#applyScenarioTemplateButton");
+  assert(await page.locator("#scenarioNameInput").inputValue() === "退休準備", "scenario template did not populate the name");
+  await page.click("#saveScenarioTemplateButton");
+  await page.waitForFunction(() => document.querySelector("#scenarioList")?.textContent.includes("退休準備"));
 
   await page.close();
   console.log("Browser workflow validation passed.");
