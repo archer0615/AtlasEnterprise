@@ -5,21 +5,17 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+6e4f955 Remove user-facing knowledge browser
+a5486c1 Record terminal validation checkpoint
+3d524d5 Add final archive audit checkpoint
 82f48ab Add archive retirement lock checkpoint
 8e8edc4 Add retirement closure verification checkpoint
-9c66c60 Add retirement evidence review checkpoint
-508626e Add post-archive monitoring checkpoint
-5abf143 Add archive closure verification checkpoint
 ```
 
 ## Working Tree
 
 ```
-M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
- M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
- M package.json
-?? docs/reports/pwa-final-archive-audit-twenty-items-report.md
-?? scripts/validate-final-archive-audit.mjs
+M docs/reports/validation-history.json
 ```
 
 ## Validation Status Summary
