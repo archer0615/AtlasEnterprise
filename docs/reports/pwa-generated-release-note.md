@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+82f48ab Add archive retirement lock checkpoint
 8e8edc4 Add retirement closure verification checkpoint
 9c66c60 Add retirement evidence review checkpoint
 508626e Add post-archive monitoring checkpoint
 5abf143 Add archive closure verification checkpoint
-e6e6f0a Add archive readiness lock checkpoint
 ```
 
 ## Working Tree
@@ -18,8 +18,8 @@ e6e6f0a Add archive readiness lock checkpoint
 M docs/roadmap/visual-artifacts/playwright-desktop-dashboard.png
  M docs/roadmap/visual-artifacts/playwright-mobile-dashboard.png
  M package.json
-?? docs/reports/pwa-archive-retirement-lock-twenty-items-report.md
-?? scripts/validate-archive-retirement-lock.mjs
+?? docs/reports/pwa-final-archive-audit-twenty-items-report.md
+?? scripts/validate-final-archive-audit.mjs
 ```
 
 ## Validation Status Summary
