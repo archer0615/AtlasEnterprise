@@ -44,6 +44,23 @@
           <div><span>2</span><strong>處理建議與情境</strong><small>新增情境、接受或拒絕建議，保留本機操作紀錄。</small></div>
           <div><span>3</span><strong>匯出與備份</strong><small>匯出報表、驗證結果與本機備份。</small></div>
         </section>
+        <section class="profile-settings" aria-label="使用者資料設定">
+          <div>
+            <p class="eyebrow">使用者資料</p>
+            <h3>基本財務設定</h3>
+          </div>
+          <div class="profile-grid">
+            <label><span>月收入</span><input id="profileIncomeInput" type="text" inputmode="decimal" placeholder="例如 120000" /></label>
+            <label><span>資產總額</span><input id="profileAssetsInput" type="text" inputmode="decimal" placeholder="例如 3000000" /></label>
+            <label><span>負債總額</span><input id="profileDebtInput" type="text" inputmode="decimal" placeholder="例如 800000" /></label>
+            <label><span>目標偏好</span><select id="profileGoalSelect"><option value="balanced">平衡</option><option value="growth">成長</option><option value="stability">穩健</option><option value="debt">降債</option></select></label>
+          </div>
+          <div class="dashboard-actions compact-actions">
+            <button id="saveProfileButton" type="button">儲存資料</button>
+            <button id="resetProfileButton" type="button">重設資料</button>
+          </div>
+          <div id="profileSummaryPanel" class="report-list"></div>
+        </section>
         <section class="release-dashboard" aria-label="發布狀態">
           <div>
             <h3>發布狀態</h3>

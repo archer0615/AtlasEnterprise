@@ -50,6 +50,8 @@ try {
     "#validationExportPanel", "#offlineRepairButton", "#offlineRepairPanel", "#offlineRepairAuditPanel",
     "#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel",
     "#recommendationHistoryPanel", "#resetLoanButton", "#metricGrid", "#scenarioList", "#actionList",
+    "#profileIncomeInput", "#profileAssetsInput", "#profileDebtInput", "#profileGoalSelect",
+    "#saveProfileButton", "#resetProfileButton", "#profileSummaryPanel",
   ]) {
     assert(await page.locator(selector).count() === 1, `${selector} is missing`);
   }
@@ -57,6 +59,13 @@ try {
   for (const selector of ["#searchInput", "#categoryNav", "#documentList", "#documentViewer", ".internal-knowledge"]) {
     assert(await page.locator(selector).count() === 0, `${selector} should not be visible in the user UI`);
   }
+
+  await page.fill("#profileIncomeInput", "120000");
+  await page.fill("#profileAssetsInput", "3000000");
+  await page.fill("#profileDebtInput", "800000");
+  await page.selectOption("#profileGoalSelect", "growth");
+  await page.click("#saveProfileButton");
+  await page.waitForFunction(() => document.querySelector("#profileSummaryPanel")?.textContent.includes("2,200,000"));
 
   await page.close();
   console.log("Browser workflow validation passed.");

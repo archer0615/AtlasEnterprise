@@ -63,6 +63,13 @@ const offlineRepairAuditPanel = $("#offlineRepairAuditPanel");
 const persistentAuditPanel = $("#persistentAuditPanel");
 const reportDiffPanel = $("#reportDiffPanel");
 const validationFailureDiagnosisPanel = $("#validationFailureDiagnosisPanel");
+const profileIncomeInput = $("#profileIncomeInput");
+const profileAssetsInput = $("#profileAssetsInput");
+const profileDebtInput = $("#profileDebtInput");
+const profileGoalSelect = $("#profileGoalSelect");
+const saveProfileButton = $("#saveProfileButton");
+const resetProfileButton = $("#resetProfileButton");
+const profileSummaryPanel = $("#profileSummaryPanel");
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -76,6 +83,7 @@ let validationHistoryRecords = [];
 let currentCacheVersion = "";
 let offlineRepairAudit = [];
 let persistentAuditEntries = [];
+let userProfile = { income: "", assets: "", debt: "", goal: "balanced" };
 const auditRetentionPolicy = {
   schema: "atlas-enterprise.audit-retention-policy.v1",
   maxEntries: 20,
@@ -511,6 +519,73 @@ function setRuntimeFeedback(message) {
   runtimeFeedback.textContent = message;
 }
 
+function profileStorageKey() {
+  return "atlas.user.profile.v1";
+}
+
+function parseProfileNumber(value) {
+  const normalized = String(value || "").replace(/,/g, "").trim();
+  if (!normalized) return 0;
+  const number = Number(normalized);
+  if (!Number.isFinite(number) || number < 0) throw new Error("使用者資料金額必須為 0 以上。");
+  return number;
+}
+
+function formatMoney(value) {
+  return new Intl.NumberFormat("zh-TW", { maximumFractionDigits: 0 }).format(value);
+}
+
+function renderUserProfile() {
+  if (!profileSummaryPanel) return;
+  const income = parseProfileNumber(userProfile.income);
+  const assets = parseProfileNumber(userProfile.assets);
+  const debt = parseProfileNumber(userProfile.debt);
+  const netWorth = assets - debt;
+  const debtIncomeRatio = income > 0 ? `${((debt / income) * 100).toFixed(1)}%` : "N/A";
+  const goalLabels = { balanced: "平衡", growth: "成長", stability: "穩健", debt: "降債" };
+  profileSummaryPanel.innerHTML = [
+    ["淨值", formatMoney(netWorth)],
+    ["負債收入比", debtIncomeRatio],
+    ["目標偏好", goalLabels[userProfile.goal] || "平衡"],
+  ].map(([label, value]) => `<div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("");
+}
+
+async function loadUserProfile() {
+  const stored = await readStoredValue(profileStorageKey());
+  if (stored) {
+    userProfile = { ...userProfile, ...JSON.parse(stored) };
+  }
+  if (profileIncomeInput) profileIncomeInput.value = userProfile.income;
+  if (profileAssetsInput) profileAssetsInput.value = userProfile.assets;
+  if (profileDebtInput) profileDebtInput.value = userProfile.debt;
+  if (profileGoalSelect) profileGoalSelect.value = userProfile.goal;
+  renderUserProfile();
+}
+
+async function saveUserProfile() {
+  userProfile = {
+    income: profileIncomeInput.value.trim(),
+    assets: profileAssetsInput.value.trim(),
+    debt: profileDebtInput.value.trim(),
+    goal: profileGoalSelect.value,
+  };
+  parseProfileNumber(userProfile.income);
+  parseProfileNumber(userProfile.assets);
+  parseProfileNumber(userProfile.debt);
+  writeStoredValue(profileStorageKey(), JSON.stringify(userProfile));
+  await persistAuditEntry("profile-save", { goal: userProfile.goal });
+  renderUserProfile();
+  setRuntimeFeedback("使用者資料已儲存。");
+}
+
+async function resetUserProfile() {
+  userProfile = { income: "", assets: "", debt: "", goal: "balanced" };
+  writeStoredValue(profileStorageKey(), JSON.stringify(userProfile));
+  await persistAuditEntry("profile-reset", {});
+  await loadUserProfile();
+  setRuntimeFeedback("使用者資料已重設。");
+}
+
 function validateScenarioInput(name, score) {
   if (name.length < 2) throw new Error("情境名稱至少需要 2 個字。");
   if (name.length > 80) throw new Error("情境名稱不可超過 80 個字。");
@@ -820,9 +895,12 @@ calculateLoanButton.addEventListener("click", () => {
   }
 });
 resetLoanButton.addEventListener("click", resetLoanInputs);
+saveProfileButton?.addEventListener("click", () => saveUserProfile().catch((error) => setRuntimeFeedback(error.message)));
+resetProfileButton?.addEventListener("click", () => resetUserProfile().catch((error) => setRuntimeFeedback(error.message)));
 
 window.addEventListener("hashchange", openDocumentFromHash);
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 
 loadDashboard();
 renderReleaseDashboard().catch(() => {});
+loadUserProfile().catch(() => {});
