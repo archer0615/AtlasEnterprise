@@ -87,6 +87,7 @@
             <div id="validationExportPanel" class="decision-log"></div>
             <div id="offlineRepairPanel" class="decision-log"></div>
             <div id="offlineRepairAuditPanel" class="decision-log"></div>
+            <div id="restoreAuditPanel" class="decision-log"></div>
             <div id="persistentAuditPanel" class="decision-log" hidden></div>
             <div id="reportDiffPanel" class="decision-log" hidden></div>
             <div id="validationFailureDiagnosisPanel" class="decision-log" hidden></div>
@@ -123,7 +124,10 @@
               <button id="deleteScenarioButton" type="button">刪除最新情境</button>
               <button id="resetScenariosButton" type="button">重設情境</button>
               <button id="exportBackupButton" type="button">匯出備份</button>
+              <input id="backupPassphraseInput" type="password" placeholder="加密密碼" autocomplete="new-password" />
+              <button id="exportEncryptedBackupButton" type="button">匯出加密備份</button>
               <label><span>匯入備份</span><input id="importBackupInput" type="file" accept="application/json" /></label>
+              <label><span>衝突策略</span><select id="backupConflictPolicySelect"><option value="replace-all">覆蓋本機</option><option value="skip-existing">保留本機</option></select></label>
               <label class="restore-confirmation"><input id="restoreConfirmInput" type="checkbox" /><span>確認覆寫本機情境</span></label>
               <button id="applyBackupButton" type="button">套用備份</button>
             </div>

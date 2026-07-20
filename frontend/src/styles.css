@@ -361,7 +361,9 @@ select {
 
 .dashboard-actions button,
 .dashboard-actions label,
-.dashboard-actions input[type="text"] {
+.dashboard-actions input[type="text"],
+.dashboard-actions input[type="password"],
+.dashboard-actions select {
   border: 1px solid #c9d5d1;
   background: #fff;
   color: #243130;
@@ -374,7 +376,9 @@ select {
   font-weight: 700;
 }
 
-.dashboard-actions input[type="text"] {
+.dashboard-actions input[type="text"],
+.dashboard-actions input[type="password"],
+.dashboard-actions select {
   cursor: text;
   min-width: 160px;
 }
@@ -419,6 +423,62 @@ select {
   margin-bottom: 8px;
   color: #405b59;
   font-size: 13px;
+}
+
+.dry-run-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.dry-run-card,
+.dry-run-detail {
+  border: 1px solid #d7dfdc;
+  background: #f7f9f8;
+  padding: 8px 10px;
+}
+
+.dry-run-card {
+  display: grid;
+  gap: 4px;
+}
+
+.dry-run-card span,
+.dry-run-detail span {
+  color: #627572;
+  font-size: 12px;
+}
+
+.dry-run-card strong {
+  color: #1f6f78;
+  font-size: 18px;
+}
+
+.dry-run-detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.dry-run-detail strong {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.dry-run-note,
+.dry-run-warning {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.dry-run-note {
+  color: #315c5f;
+}
+
+.dry-run-warning {
+  color: #7a4e00;
 }
 
 .scenario-templates {
@@ -766,8 +826,9 @@ select {
   .runtime-panels,
   .release-dashboard,
   .profile-grid,
-  .template-list,
-  .user-summary {
+    .template-list,
+    .user-summary,
+    .dry-run-grid {
     display: grid;
     grid-template-columns: 1fr;
   }

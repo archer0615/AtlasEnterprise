@@ -39,6 +39,9 @@ const saveScenarioButton = $("#saveScenarioButton");
 const deleteScenarioButton = $("#deleteScenarioButton");
 const resetScenariosButton = $("#resetScenariosButton");
 const exportBackupButton = $("#exportBackupButton");
+const exportEncryptedBackupButton = $("#exportEncryptedBackupButton");
+const backupPassphraseInput = $("#backupPassphraseInput");
+const backupConflictPolicySelect = $("#backupConflictPolicySelect");
 const importBackupInput = $("#importBackupInput");
 const restoreConfirmInput = $("#restoreConfirmInput");
 const applyBackupButton = $("#applyBackupButton");
@@ -60,6 +63,7 @@ const validationExportPanel = $("#validationExportPanel");
 const offlineRepairButton = $("#offlineRepairButton");
 const offlineRepairPanel = $("#offlineRepairPanel");
 const offlineRepairAuditPanel = $("#offlineRepairAuditPanel");
+const restoreAuditPanel = $("#restoreAuditPanel");
 const persistentAuditPanel = $("#persistentAuditPanel");
 const reportDiffPanel = $("#reportDiffPanel");
 const validationFailureDiagnosisPanel = $("#validationFailureDiagnosisPanel");
@@ -86,6 +90,7 @@ let latestValidationRecord = null;
 let validationHistoryRecords = [];
 let currentCacheVersion = "";
 let offlineRepairAudit = [];
+let restoreAuditReports = [];
 let persistentAuditEntries = [];
 let userProfile = { income: "", assets: "", debt: "", goal: "balanced" };
 let selectedScenarioTemplateId = "home";
@@ -503,26 +508,51 @@ async function exportBackup() {
   setRuntimeFeedback("備份已匯出。");
 }
 
+async function exportEncryptedBackup() {
+  const passphrase = backupPassphraseInput.value;
+  if (passphrase.length < 8) throw new Error("加密密碼至少需要 8 個字元。");
+  const backup = await indexedDbBackupRepository.exportEncryptedBackup(passphrase);
+  downloadJson(backup, "atlas-pwa-runtime-encrypted-backup.json");
+  backupPassphraseInput.value = "";
+  setRuntimeFeedback("加密備份已匯出。");
+}
+
 async function previewBackup(file) {
-  const backup = JSON.parse(await file.text());
-  if (!indexedDbBackupRepository.validateBackup(backup)) throw new Error("備份格式不支援。");
+  const payload = JSON.parse(await file.text());
+  const backup = payload.backupFormatVersion
+    ? await decryptBackupForPreview(payload)
+    : payload;
+  if (!await indexedDbBackupRepository.validateBackup(backup)) throw new Error("備份格式不支援。");
   pendingBackup = backup;
+  const dryRun = await indexedDbBackupRepository.dryRunImport(backup);
   backupPreview.textContent = formatBackupPreview(backup);
-  backupDryRunPanel.textContent = formatBackupDryRun(backup);
-  setRuntimeFeedback("備份已預覽，確認後可套用。");
+  backupDryRunPanel.innerHTML = renderBackupDryRun(dryRun);
+  setRuntimeFeedback("備份已預覽，套用時會取得本機資料鎖定。");
+}
+
+async function decryptBackupForPreview(payload) {
+  const passphrase = backupPassphraseInput.value;
+  if (passphrase.length < 8) throw new Error("請先輸入加密備份密碼，至少 8 個字元。");
+  const backup = await indexedDbBackupRepository.decryptEncryptedBackup(payload, passphrase);
+  backupPassphraseInput.value = "";
+  return backup;
 }
 
 async function applyBackup() {
   if (!restoreConfirmInput.checked) throw new Error("請先勾選確認覆蓋本機情境。");
   if (!pendingBackup) throw new Error("請先匯入並預覽備份。");
-  await indexedDbBackupRepository.importBackup(pendingBackup);
-  await persistAuditEntry("backup-restore", { scenarioCount: pendingBackup.scenarios.length, exportedAt: pendingBackup.exportedAt || "N/A" });
+  const conflictPolicy = backupConflictPolicySelect.value;
+  const stagingResult = await indexedDbBackupRepository.importBackup(pendingBackup, { conflictPolicy });
+  const restoreAuditReport = buildRestoreAuditReport(pendingBackup, conflictPolicy, stagingResult);
+  restoreAuditReports = [restoreAuditReport, ...restoreAuditReports].slice(0, 5);
+  await persistAuditEntry("backup-restore", restoreAuditReport);
   pendingBackup = null;
   backupPreview.textContent = "";
   backupDryRunPanel.textContent = "";
   restoreConfirmInput.checked = false;
   localScenarios = await indexedDbScenarioRepository.list();
   renderDashboardById(selectedDashboardSnapshotId);
+  renderRestoreAudit();
   setRuntimeFeedback("備份已套用。");
 }
 
@@ -648,11 +678,91 @@ function formatBackupPreview(backup) {
   return [`備份情境：${backup.scenarios.length} 筆`, `本機情境：${localScenarios.length} 筆`, `新增：${backup.scenarios.length - replacingCount} 筆`, `覆蓋：${replacingCount} 筆`, `情境：${incomingNames}`, `將被覆蓋：${replacingNames}`, `匯出時間：${backup.exportedAt || "N/A"}`].join("\n");
 }
 
-function formatBackupDryRun(backup) {
-  const existingIds = new Set(localScenarios.map((scenario) => scenario.scenarioId));
-  const overwrite = backup.scenarios.filter((scenario) => existingIds.has(scenario.scenarioId)).length;
-  const add = backup.scenarios.length - overwrite;
-  return `預演結果：將新增 ${add} 筆、覆蓋 ${overwrite} 筆；套用前需勾選確認覆蓋。`;
+function formatBackupDryRun(dryRun) {
+  return [
+    `預演結果：將新增 ${dryRun.creates} 筆、覆蓋 ${dryRun.updates} 筆、略過 ${dryRun.skips} 筆、拒絕 ${dryRun.rejects} 筆`,
+    `版本：${dryRun.sourceBackupFormatVersion} / DB ${dryRun.sourceDatabaseSchemaVersion} -> ${dryRun.targetDatabaseSchemaVersion}`,
+    `遷移：${dryRun.migrationSteps.length ? dryRun.migrationSteps.join("、") : "不需要"}`,
+    `Checksum：${dryRun.checksum}`,
+    "套用前需勾選確認覆蓋。",
+  ].join("\n");
+}
+
+function renderBackupDryRun(dryRun) {
+  const stats = [
+    ["新增", dryRun.creates],
+    ["覆蓋", dryRun.updates],
+    ["略過", dryRun.skips],
+    ["拒絕", dryRun.rejects],
+    ["衝突", dryRun.conflicts],
+  ];
+  const migration = dryRun.migrationSteps.length ? dryRun.migrationSteps.join("、") : "不需要";
+  const migrationPlan = dryRun.migrationPlan || { status: "current-version", supported: true, message: "備份版本與目前資料庫一致。" };
+  const storePlan = (dryRun.storePlan || []).map((item) => `<div class="dry-run-detail"><span>${escapeHtml(translateStoreName(item.storeName))}</span><strong>${escapeHtml(item.current)} -> ${escapeHtml(item.incoming)} / 衝突 ${escapeHtml(item.conflicts)}${item.conflictKeys?.length ? ` / ${escapeHtml(item.conflictKeys.join("、"))}` : ""}</strong></div>`).join("");
+  return [
+    `<div class="dry-run-grid">${stats.map(([label, value]) => `<div class="dry-run-card"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("")}</div>`,
+    storePlan,
+    `<div class="dry-run-detail"><span>版本</span><strong>${escapeHtml(dryRun.sourceBackupFormatVersion)} / DB ${escapeHtml(dryRun.sourceDatabaseSchemaVersion)} -> ${escapeHtml(dryRun.targetDatabaseSchemaVersion)}</strong></div>`,
+    `<div class="dry-run-detail"><span>遷移狀態</span><strong>${escapeHtml(translateMigrationStatus(migrationPlan.status))}</strong></div>`,
+    `<div class="dry-run-detail"><span>遷移</span><strong>${escapeHtml(migration)}</strong></div>`,
+    `<div class="${migrationPlan.supported ? "dry-run-note" : "dry-run-warning"}">${escapeHtml(migrationPlan.message)}</div>`,
+    `<div class="dry-run-detail"><span>Checksum</span><strong>${escapeHtml(dryRun.checksum)}</strong></div>`,
+    `<div class="dry-run-warning">套用前需勾選確認覆蓋。</div>`,
+  ].join("");
+}
+
+function buildRestoreAuditReport(backup, conflictPolicy, stagingResult) {
+  const restoredRecords = stagingResult?.restoredRecords || {};
+  return {
+    schema: "atlas-enterprise.restore-audit-report.v1",
+    restoredAt: new Date().toISOString(),
+    exportedAt: backup.exportedAt || "N/A",
+    sourceBackupFormatVersion: backup.schema,
+    sourceDatabaseSchemaVersion: backup.databaseVersion || 0,
+    conflictPolicy,
+    scenarioCount: backup.scenarios.length,
+    restoredRecords,
+    replacedStoreCount: stagingResult?.replacedStoreCount || 0,
+    stagingResult,
+  };
+}
+
+function renderRestoreAudit() {
+  if (!restoreAuditPanel) return;
+  restoreAuditPanel.textContent = restoreAuditReports.length
+    ? restoreAuditReports.map((report) => [
+      `${report.restoredAt} / ${report.schema}`,
+      `策略：${translateConflictPolicy(report.conflictPolicy)} / Store：${report.replacedStoreCount}`,
+      `還原：${Object.entries(report.restoredRecords).map(([storeName, count]) => `${translateStoreName(storeName)} ${count}`).join("、") || "N/A"}`,
+    ].join("\n")).join("\n\n")
+    : "尚無多Store還原稽核。";
+}
+
+function translateConflictPolicy(policy) {
+  const labels = {
+    "replace-all": "覆蓋本機",
+    "skip-existing": "保留本機",
+  };
+  return labels[policy] || policy;
+}
+
+function translateMigrationStatus(status) {
+  const labels = {
+    "current-version": "目前版本",
+    "migration-required": "需要遷移",
+    "unsupported-version": "不支援版本",
+  };
+  return labels[status] || status;
+}
+
+function translateStoreName(storeName) {
+  const labels = {
+    scenarios: "情境",
+    recommendationDecisions: "建議決策",
+    settings: "設定",
+    auditEntries: "稽核紀錄",
+  };
+  return labels[storeName] || storeName;
 }
 
 function downloadJson(payload, filename) {
@@ -701,6 +811,7 @@ async function renderReleaseDashboard() {
     .map((item) => `${item.version} / ${item.status} / ${item.description}`)
     .join("\n");
   renderPersistentAudit();
+  renderRestoreAudit();
   renderReportDiff(latest);
   renderValidationFailureDiagnosis(latest);
 }
@@ -754,6 +865,7 @@ function exportValidationResult() {
     history: validationHistoryRecords,
     reportVersions: buildReportVersionHistory(),
     offlineRepairAudit,
+    restoreAuditReports,
     persistentAuditEntries,
     reportDiff: buildReportDiff(latestValidationRecord),
     validationFailureDiagnosis: diagnoseValidationRecord(latestValidationRecord),
@@ -912,6 +1024,7 @@ saveScenarioButton.addEventListener("click", () => saveCurrentScenario().catch((
 deleteScenarioButton.addEventListener("click", () => deleteLastScenario().catch((error) => setRuntimeFeedback(error.message)));
 resetScenariosButton.addEventListener("click", () => resetScenarios().catch((error) => setRuntimeFeedback(error.message)));
 exportBackupButton.addEventListener("click", () => exportBackup().catch((error) => setRuntimeFeedback(error.message)));
+exportEncryptedBackupButton?.addEventListener("click", () => exportEncryptedBackup().catch((error) => setRuntimeFeedback(error.message)));
 exportPortfolioReportButton.addEventListener("click", () => exportPortfolioReport());
 importBackupInput.addEventListener("change", (event) => {
   const file = event.target.files?.[0];
