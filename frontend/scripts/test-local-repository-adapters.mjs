@@ -72,6 +72,12 @@ assert(runtime.includes("validateRecoveryTimeObjective"), "Backup RTO validation
 assert(runtime.includes("backup-schedule-health-report.v1"), "Backup schedule health report schema is missing");
 assert(runtime.includes("backup-offsite-copy-report.v1"), "Backup offsite copy report schema is missing");
 assert(runtime.includes("backup-rto-report.v1"), "Backup RTO report schema is missing");
+assert(runtime.includes("monitorBackupCapacityGrowth"), "Backup capacity growth monitoring is missing");
+assert(runtime.includes("validateBackupFailureAlert"), "Backup failure alert validation is missing");
+assert(runtime.includes("runBackupIntegrityPeriodicAudit"), "Backup integrity periodic audit is missing");
+assert(runtime.includes("backup-capacity-growth-report.v1"), "Backup capacity growth report schema is missing");
+assert(runtime.includes("backup-failure-alert-report.v1"), "Backup failure alert report schema is missing");
+assert(runtime.includes("backup-integrity-periodic-audit.v1"), "Backup integrity periodic audit schema is missing");
 assert(runtime.includes("scenarioIds.has"), "Backup duplicate scenario ID validation is missing");
 assert(runtime.includes("scenario.name.trim().length >= 2"), "Backup scenario name validation is missing");
 assert(runtime.includes("indexedDbMigrationRepository"), "Migration repository adapter is missing");

@@ -72,6 +72,9 @@ Encrypted backup files must include:
 - Backup schedule health check must report healthy, warning, or failed based on the last successful backup timestamp.
 - Backup offsite copy validation must compare encrypted envelope metadata and payload checksum before marking the copy verified.
 - Backup RTO validation must measure drill duration against the configured recovery time target.
+- Backup capacity growth monitoring must compare current and previous backup sizes and flag abnormal growth.
+- Backup failure alert validation must raise an alert when the latest backup event sequence ends in failure.
+- Backup integrity periodic audit must validate stored backup checksums and encrypted envelope metadata on a repeatable cadence.
 
 ## Validation Matrix
 
@@ -89,6 +92,9 @@ Encrypted backup files must include:
 | Schedule health check | Fresh backup reports healthy; stale backup reports warning or failed. |
 | Offsite copy validation | Matching encrypted copy verifies; checksum mismatch reports mismatch. |
 | RTO validation | Drill duration is measured and compared with target. |
+| Capacity growth monitoring | Stable backup size reports healthy; warning and failure thresholds are enforced. |
+| Failure alert validation | Latest failure reports alert; latest success clears alert. |
+| Integrity periodic audit | Valid plaintext/encrypted backups pass; invalid backup fails audit. |
 
 ## Current Implementation Mapping
 
@@ -105,6 +111,9 @@ Encrypted backup files must include:
 - Current runtime validates backup schedule health with a 24-hour interval policy, 30-hour warning threshold, and 48-hour failure threshold.
 - Current runtime validates offsite encrypted copy metadata and checksum match before reporting the copy verified.
 - Current runtime validates recovery time objective by timing a disaster recovery drill against the configured target.
+- Current runtime monitors backup capacity growth with warning and failure thresholds.
+- Current runtime validates backup failure alert state from consecutive backup event outcomes.
+- Current runtime runs periodic backup integrity audits across plaintext backups and encrypted envelopes.
 - Current runtime validates scenario IDs, names, scores, and status before restore.
 - Current runtime verifies checksum when checksum metadata is present.
 - Plaintext export remains available for local validation and fixture compatibility.

@@ -113,6 +113,13 @@ try {
     const offsiteCopy = await module.indexedDbBackupRepository.validateOffsiteCopy(encrypted, { ...encrypted });
     const offsiteMismatch = await module.indexedDbBackupRepository.validateOffsiteCopy(encrypted, { ...encrypted, checksum: "mismatch" });
     const rtoReport = await module.indexedDbBackupRepository.validateRecoveryTimeObjective(backup, 5000);
+    const capacityHealthy = module.indexedDbBackupRepository.monitorBackupCapacityGrowth({ sizeBytes: encrypted.encryptedPayload.length }, encrypted);
+    const capacityWarning = module.indexedDbBackupRepository.monitorBackupCapacityGrowth({ sizeBytes: 1000 }, { ...encrypted, encryptedPayload: "x".repeat(1300) });
+    const capacityFailed = module.indexedDbBackupRepository.monitorBackupCapacityGrowth({ sizeBytes: 1000 }, { ...encrypted, encryptedPayload: "x".repeat(1600) });
+    const failureAlert = module.indexedDbBackupRepository.validateBackupFailureAlert([{ status: "success" }, { status: "failure", errorCode: "BACKUP_EXPORT_FAILED" }]);
+    const failureClear = module.indexedDbBackupRepository.validateBackupFailureAlert([{ status: "failure" }, { status: "success" }]);
+    const integrityAudit = await module.indexedDbBackupRepository.runBackupIntegrityPeriodicAudit([backup, encrypted]);
+    const integrityAuditFailed = await module.indexedDbBackupRepository.runBackupIntegrityPeriodicAudit([backup, { ...encrypted, checksum: "" }]);
     const tamperedEnvelope = { ...encrypted, encryptedPayload: encrypted.encryptedPayload.replace(/.$/, encrypted.encryptedPayload.endsWith("A") ? "B" : "A") };
 
     const failures = {};
@@ -160,6 +167,13 @@ try {
       offsiteCopy,
       offsiteMismatch,
       rtoReport,
+      capacityHealthy,
+      capacityWarning,
+      capacityFailed,
+      failureAlert,
+      failureClear,
+      integrityAudit,
+      integrityAuditFailed,
       plaintextHasChecksum: Boolean(backup.checksum),
       plaintextHasRetentionPolicy: Boolean(backup.retentionPolicy),
       dryRun: await module.indexedDbBackupRepository.dryRunImport({ ...backup, databaseVersion: 2, checksum: undefined }),
@@ -192,6 +206,16 @@ try {
   assert(runtimeChecks.offsiteMismatch.status === "mismatch", "mismatched offsite backup copy was not rejected");
   assert(runtimeChecks.rtoReport.schema === "atlas-enterprise.backup-rto-report.v1", "backup RTO report schema is missing");
   assert(runtimeChecks.rtoReport.status === "within-target", `backup RTO validation exceeded target: ${runtimeChecks.rtoReport.durationMs}ms`);
+  assert(runtimeChecks.capacityHealthy.schema === "atlas-enterprise.backup-capacity-growth-report.v1", "backup capacity growth report schema is missing");
+  assert(runtimeChecks.capacityHealthy.status === "healthy", "stable backup capacity did not report healthy");
+  assert(runtimeChecks.capacityWarning.status === "warning", "backup capacity warning threshold did not trigger");
+  assert(runtimeChecks.capacityFailed.status === "failed", "backup capacity failure threshold did not trigger");
+  assert(runtimeChecks.failureAlert.schema === "atlas-enterprise.backup-failure-alert-report.v1", "backup failure alert report schema is missing");
+  assert(runtimeChecks.failureAlert.status === "alert", "backup failure alert did not trigger after failure");
+  assert(runtimeChecks.failureClear.status === "clear", "backup failure alert did not clear after success");
+  assert(runtimeChecks.integrityAudit.schema === "atlas-enterprise.backup-integrity-periodic-audit.v1", "backup integrity periodic audit schema is missing");
+  assert(runtimeChecks.integrityAudit.status === "passed" && runtimeChecks.integrityAudit.checkedCount === 2, "backup integrity audit did not pass valid backups");
+  assert(runtimeChecks.integrityAuditFailed.status === "failed", "backup integrity audit did not fail invalid backup");
   assert(runtimeChecks.dryRun.migrationPlan.status === "migration-required", "backup version migration regression did not report migration");
   assert(runtimeChecks.dryRun.migrationSteps.includes("database-2-to-3"), "backup version migration step is missing");
   assert(runtimeChecks.plaintextHasChecksum && runtimeChecks.plaintextHasRetentionPolicy, "plaintext backup downgrade risk controls are missing");

@@ -8,6 +8,9 @@ const restoreAuditReportFormatVersion = "atlas-enterprise.restore-audit-report.v
 const backupScheduleHealthFormatVersion = "atlas-enterprise.backup-schedule-health-report.v1";
 const backupOffsiteCopyFormatVersion = "atlas-enterprise.backup-offsite-copy-report.v1";
 const backupRtoFormatVersion = "atlas-enterprise.backup-rto-report.v1";
+const backupCapacityGrowthFormatVersion = "atlas-enterprise.backup-capacity-growth-report.v1";
+const backupFailureAlertFormatVersion = "atlas-enterprise.backup-failure-alert-report.v1";
+const backupIntegrityAuditFormatVersion = "atlas-enterprise.backup-integrity-periodic-audit.v1";
 const backupSchedulePolicy = {
   schema: "atlas-enterprise.backup-schedule-policy.v1",
   intervalHours: 24,
@@ -17,6 +20,15 @@ const backupSchedulePolicy = {
 const backupRtoPolicy = {
   schema: "atlas-enterprise.backup-rto-policy.v1",
   targetMs: 5000,
+};
+const backupCapacityPolicy = {
+  schema: "atlas-enterprise.backup-capacity-policy.v1",
+  warningGrowthRatio: 0.25,
+  failureGrowthRatio: 0.5,
+};
+const backupFailureAlertPolicy = {
+  schema: "atlas-enterprise.backup-failure-alert-policy.v1",
+  alertAfterConsecutiveFailures: 1,
 };
 const supportedBackupDatabaseVersions = [2, databaseVersion];
 const backupRetentionPolicy = {
@@ -600,6 +612,67 @@ export const indexedDbBackupRepository = {
       readiness: drill.readiness,
       status: durationMs <= targetMs && drill.readiness === "ready" ? "within-target" : "outside-target",
       drill,
+    };
+  },
+
+  monitorBackupCapacityGrowth(previousMetadata, currentEnvelope) {
+    const previousBytes = Number(previousMetadata?.sizeBytes || previousMetadata?.encryptedPayloadBytes || 0);
+    const currentBytes = Number(currentEnvelope?.sizeBytes || currentEnvelope?.encryptedPayload?.length || stableStringify(currentEnvelope || {}).length);
+    const growthRatio = previousBytes > 0 ? (currentBytes - previousBytes) / previousBytes : 0;
+    const status = growthRatio >= backupCapacityPolicy.failureGrowthRatio
+      ? "failed"
+      : (growthRatio >= backupCapacityPolicy.warningGrowthRatio ? "warning" : "healthy");
+    return {
+      schema: backupCapacityGrowthFormatVersion,
+      checkedAt: new Date().toISOString(),
+      policy: backupCapacityPolicy,
+      previousBytes,
+      currentBytes,
+      growthRatio: Number(growthRatio.toFixed(4)),
+      status,
+    };
+  },
+
+  validateBackupFailureAlert(failureEvents) {
+    const events = Array.isArray(failureEvents) ? failureEvents : [];
+    const consecutiveFailures = events.slice().reverse().findIndex((event) => event?.status === "success");
+    const failureCount = consecutiveFailures === -1 ? events.length : consecutiveFailures;
+    const shouldAlert = failureCount >= backupFailureAlertPolicy.alertAfterConsecutiveFailures;
+    return {
+      schema: backupFailureAlertFormatVersion,
+      checkedAt: new Date().toISOString(),
+      policy: backupFailureAlertPolicy,
+      failureCount,
+      shouldAlert,
+      status: shouldAlert ? "alert" : "clear",
+      latestFailure: events.slice().reverse().find((event) => event?.status === "failure") || null,
+    };
+  },
+
+  async runBackupIntegrityPeriodicAudit(backups) {
+    const backupList = Array.isArray(backups) ? backups : [];
+    const results = [];
+    for (const item of backupList) {
+      const encryptedEnvelopeValid = item?.backupFormatVersion === encryptedBackupFormatVersion
+        && item.payloadEncoding === "base64"
+        && Boolean(item.checksum)
+        && Boolean(item.encryptedPayload)
+        && Boolean(item.kdf?.salt)
+        && Boolean(item.encryption?.iv);
+      results.push({
+        backupFormatVersion: item?.backupFormatVersion || item?.schema || "N/A",
+        valid: item?.backupFormatVersion ? encryptedEnvelopeValid : await this.validateBackup(item),
+        checksum: item?.checksum || "N/A",
+      });
+    }
+    const failed = results.filter((result) => !result.valid).length;
+    return {
+      schema: backupIntegrityAuditFormatVersion,
+      auditedAt: new Date().toISOString(),
+      checkedCount: results.length,
+      failedCount: failed,
+      status: failed === 0 ? "passed" : "failed",
+      results,
     };
   },
 
