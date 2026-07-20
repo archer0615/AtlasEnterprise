@@ -6,7 +6,7 @@ import { chromium } from "playwright";
 
 const root = process.cwd();
 const frontendRoot = path.join(root, "frontend");
-const outputRoot = path.join(root, "docs", "roadmap", "visual-artifacts");
+const outputRoot = process.env.VISUAL_ARTIFACT_OUTPUT_DIR || path.join(root, "docs", "roadmap", "visual-artifacts");
 
 const contentTypes = {
   ".html": "text/html; charset=utf-8",

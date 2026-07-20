@@ -1,10 +1,12 @@
-import { readFile, stat } from "node:fs/promises";
+import { mkdtemp, readFile, stat } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import zlib from "node:zlib";
 
 const root = process.cwd();
-const outputRoot = path.join(root, "docs", "roadmap", "visual-artifacts");
-const manifestPath = path.join(outputRoot, "visual-baselines.json");
+const baselineRoot = path.join(root, "docs", "roadmap", "visual-artifacts");
+const currentOutputRoot = await mkdtemp(path.join(os.tmpdir(), "atlas-visual-current-"));
+const manifestPath = path.join(currentOutputRoot, "visual-baselines.json");
 const screenshots = [
   "playwright-desktop-dashboard.png",
   "playwright-mobile-dashboard.png",
@@ -13,7 +15,7 @@ const maxPixelDriftRatio = 0.35;
 
 const baselines = new Map();
 for (const screenshot of screenshots) {
-  const baselinePath = path.join(outputRoot, screenshot);
+  const baselinePath = path.join(baselineRoot, screenshot);
   try {
     baselines.set(screenshot, await readFile(baselinePath));
   } catch {
@@ -21,6 +23,7 @@ for (const screenshot of screenshots) {
   }
 }
 
+process.env.VISUAL_ARTIFACT_OUTPUT_DIR = currentOutputRoot;
 await import("./capture-playwright-screenshots.mjs");
 
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
@@ -28,7 +31,7 @@ assert(manifest.schema === "atlas-visual-baselines.v1", "visual baseline manifes
 assert(Array.isArray(manifest.artifacts), "visual baseline manifest missing artifacts");
 
 for (const screenshot of screenshots) {
-  const screenshotPath = path.join(outputRoot, screenshot);
+  const screenshotPath = path.join(currentOutputRoot, screenshot);
   const info = await stat(screenshotPath);
   if (!info.isFile() || info.size < 10_000) {
     throw new Error(`${screenshot} is missing or unexpectedly small`);
