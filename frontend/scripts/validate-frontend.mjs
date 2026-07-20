@@ -16,15 +16,17 @@ const dashboardModel = await readFile(path.join(frontendRoot, "src", "dashboard-
 const styles = await readFile(path.join(frontendRoot, "src", "styles.css"), "utf8");
 const dashboard = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-snapshot.json"), "utf8"));
 const dashboards = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-snapshots.json"), "utf8"));
+const dashboardFieldTraceability = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-field-traceability.json"), "utf8"));
 
 for (const id of [
   "metricGrid", "scenarioList", "actionList", "dashboardSwitcher", "saveScenarioButton",
   "releaseDashboardPanel", "sampleExportButton", "sampleBackupButton", "sampleLoaderPanel",
   "validationHistoryPanel", "cacheVersionText", "reportVersionPanel", "offlineRepairButton",
   "offlineRepairPanel", "reportVersionHistoryPanel", "exportValidationButton", "validationExportPanel",
-  "offlineRepairAuditPanel", "persistentAuditPanel", "reportDiffPanel", "validationFailureDiagnosisPanel",
+  "offlineRepairAuditPanel", "restoreAuditPanel", "persistentAuditPanel", "reportDiffPanel", "validationFailureDiagnosisPanel",
   "deleteScenarioButton", "resetScenariosButton", "runtimeFeedback", "scenarioNameInput",
   "scenarioScoreInput", "exportBackupButton", "importBackupInput", "restoreConfirmInput",
+  "exportEncryptedBackupButton", "backupPassphraseInput", "backupConflictPolicySelect",
   "applyBackupButton", "backupPreview", "backupDryRunPanel", "scenarioComparisonPanel",
   "portfolioReportPanel", "exportPreviewPanel", "recommendationControlPanel",
   "recommendationHistoryPanel", "recommendationFilterInput", "loanScenarioPanel",
@@ -46,11 +48,15 @@ assert(!html.includes("internal-knowledge"), "internal knowledge section should 
 for (const token of [
   'from "./dashboard-model.js"', 'from "./indexeddb-runtime.js"', "indexedDbScenarioRepository",
   "indexedDbBackupRepository", "restoreConfirmInput", "previewBackup", "applyBackup",
-  "validateScenarioInput", "formatBackupPreview", "formatBackupDryRun", "renderPortfolioReport",
+  "exportEncryptedBackup", "decryptBackupForPreview", "atlas-pwa-runtime-encrypted-backup.json",
+  "backupConflictPolicySelect", "conflictPolicy", "translateMigrationStatus", "遷移狀態",
+  "validateScenarioInput", "formatBackupPreview", "formatBackupDryRun", "renderBackupDryRun", "renderPortfolioReport",
+  "translateStoreName",
   "renderRecommendationControls", "renderRecommendationHistory", "renderScenarioComparison",
   "renderLoanScenarioPanel", "setRecommendationDecision", "exportPortfolioReport",
   "wrapExportReport", "repairOfflineData", "buildReportVersionHistory", "exportValidationResult",
   "renderOfflineRepairAudit", "persistAuditEntry", "renderPersistentAudit", "buildReportDiff",
+  "buildRestoreAuditReport", "renderRestoreAudit", "restoreAuditReports", "translateConflictPolicy",
   "renderReportDiff", "diagnoseValidationRecord", "renderValidationFailureDiagnosis",
   "auditRetentionPolicy", "reportDiffFixtures", "validationFailureFixtures",
   "buildPortfolioReportPayload", "renderExportPreview", "calculateEditableLoan", "resetLoanInputs",
@@ -69,6 +75,15 @@ for (const token of [
   '"atlas-pwa-runtime"', '"settings"', '"scenarios"', '"recommendationDecisions"',
   "indexedDbScenarioRepository", "indexedDbRecommendationDecisionRepository", "indexedDbBackupRepository",
   "async delete(scenarioId)", "async clear()", "backupSchemaVersion", "validateBackup",
+  "dryRunImport", "sha256Hex", "stableStringify", "checksum",
+  "BroadcastChannel", "acquireLock", "releaseLock", "migrationLockKey", "publishCoordinationMessage",
+  "saveWithVersionCheck", "aggregateVersion", "Scenario version conflict", "scenario-saved",
+  "replaceAllStaged", "Scenario staging validation failed", "stagingResult",
+  "replaceAllBackupStoresStaged", "Backup staging validation failed", "recommendationDecisions: await", "settings: await", "auditEntries: await", "storePlan",
+  "createStoreImportPlan", "mergeWithoutReplacing", "skip-existing", "conflictKeys",
+  "createBackupMigrationPlan", "migrateBackupToCurrent", "migrationHistory", "supportedBackupDatabaseVersions", "migrationPlan", "unsupported-version",
+  "exportEncryptedBackup", "decryptEncryptedBackup", "deriveBackupKey", "PBKDF2", "AES-GCM", "encryptedBackupFormatVersion",
+  "minimizeBackupData", "backupRecordFieldAllowlist", "maskBackupSensitiveFields", "validateBackupRetentionPolicy",
   "scenarioIds.has", "indexedDbMigrationRepository", "databaseVersion", "indexedDbAuditRepository", '"auditEntries"',
 ]) {
   assert(indexedDbRuntime.includes(token), `IndexedDB runtime missing ${token}`);
@@ -81,7 +96,8 @@ new Function(dashboardModel.replaceAll("export const", "const").replaceAll("expo
 for (const token of [
   ".dashboard-prototype", ".dashboard-switcher", ".runtime-panels", ".user-summary",
   ".primary-actions", ".advanced-controls", ".mobile-toolbar", ".export-preview",
-  ".invalid-input", ".scenario-comparison", ".profile-settings", ".profile-grid", ".scenario-templates", ".template-list", "@media (max-width: 860px)",
+  ".invalid-input", ".scenario-comparison", ".profile-settings", ".profile-grid", ".scenario-templates", ".template-list",
+  ".dry-run-grid", ".dry-run-card", ".dry-run-detail", ".dry-run-note", ".dry-run-warning", "@media (max-width: 860px)",
 ]) {
   assert(styles.includes(token), `styles missing ${token}`);
 }
@@ -91,6 +107,8 @@ assert(dashboard.label, "dashboard fixture must expose a label");
 assert(dashboard.scenarios.length >= 3, "dashboard fixture must expose at least three scenarios");
 assert(dashboard.actions.length >= 3, "dashboard fixture must expose at least three actions");
 assert(dashboards.snapshots.length >= 3, "dashboard fixture collection must expose at least three snapshots");
+assert(dashboardFieldTraceability.schema === "dashboard-field-traceability.v1", "dashboard field traceability schema is missing");
+assert(dashboardFieldTraceability.formulaSources["FORM-DECISION-SCORE"], "dashboard field traceability must map decision score formula");
 
 for (const snapshot of dashboards.snapshots) {
   assert(snapshot.snapshotId, "dashboard snapshot missing snapshotId");

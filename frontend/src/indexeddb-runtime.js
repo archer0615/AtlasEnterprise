@@ -1,7 +1,31 @@
 const databaseName = "atlas-pwa-runtime";
 const databaseVersion = 3;
 const backupSchemaVersion = "atlas-pwa-runtime-backup.v1";
+const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1";
+const supportedBackupDatabaseVersions = [2, databaseVersion];
+const backupRetentionPolicy = {
+  schema: "atlas-enterprise.backup-retention-policy.v1",
+  auditRetentionDays: 90,
+  retainedAuditActions: ["backup-restore", "scenario-delete", "offline-repair"],
+};
+const backupSensitiveFieldNames = new Set([
+  "passphrase",
+  "password",
+  "secret",
+  "token",
+  "credential",
+  "authorization",
+  "email",
+  "phone",
+  "address",
+  "nationalId",
+  "taxId",
+]);
 const migrationRecordKey = "schema";
+const migrationLockKey = "migration-lock";
+const coordinationChannelName = "atlas-pwa-runtime-coordination";
+const lockTimeoutMs = 30000;
+const runtimeTabId = `tab-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 const stores = {
   metadata: "metadata",
   recommendationDecisions: "recommendationDecisions",
@@ -9,8 +33,126 @@ const stores = {
   settings: "settings",
   auditEntries: "auditEntries",
 };
+const backupRecordFieldAllowlist = {
+  [stores.scenarios]: ["scenarioId", "name", "score", "status", "sourceSnapshotId", "aggregateVersion", "updatedAt", "savedAt"],
+  [stores.recommendationDecisions]: ["decisionId", "decision", "fixtureId", "snapshotId", "status", "score", "decidedAt"],
+  [stores.settings]: ["key", "value"],
+  [stores.auditEntries]: ["auditId", "action", "recordedAt", "schema", "payload"],
+};
 
 let databasePromise;
+const coordinationChannel = "BroadcastChannel" in window ? new BroadcastChannel(coordinationChannelName) : null;
+
+function publishCoordinationMessage(message) {
+  const payload = { tabId: runtimeTabId, occurredAt: new Date().toISOString(), ...message };
+  coordinationChannel?.postMessage(payload);
+  return payload;
+}
+
+function isExpiredLock(lock) {
+  return !lock?.acquiredAt || Date.now() - Date.parse(lock.acquiredAt) > lockTimeoutMs;
+}
+
+function stableStringify(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map((item) => stableStringify(item)).join(",")}]`;
+  }
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+async function sha256Hex(value) {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+function backupPayload(backup) {
+  return {
+    schema: backup?.schema,
+    databaseVersion: backup?.databaseVersion,
+    retentionPolicy: backup?.retentionPolicy,
+    scenarios: backup?.scenarios || [],
+    recommendationDecisions: backup?.recommendationDecisions || [],
+    settings: backup?.settings || [],
+    auditEntries: backup?.auditEntries || [],
+  };
+}
+
+function isBackupSensitiveField(key) {
+  const normalized = String(key || "").replace(/[-_\s]/g, "").toLowerCase();
+  return [...backupSensitiveFieldNames].some((field) => normalized === field.toLowerCase() || normalized.endsWith(field.toLowerCase()));
+}
+
+function maskBackupSensitiveFields(value) {
+  if (Array.isArray(value)) {
+    return value.map((item) => maskBackupSensitiveFields(item));
+  }
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, fieldValue]) => [
+      key,
+      isBackupSensitiveField(key) ? "[MASKED]" : maskBackupSensitiveFields(fieldValue),
+    ]));
+  }
+  return value;
+}
+
+function minimizeBackupData(backup) {
+  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries"];
+  const minimized = Object.fromEntries(allowedBackupFields.filter((field) => backup[field] !== undefined).map((field) => [field, backup[field]]));
+  minimized.scenarios = minimizeBackupRecords(stores.scenarios, minimized.scenarios || []);
+  minimized.recommendationDecisions = minimizeBackupRecords(stores.recommendationDecisions, minimized.recommendationDecisions || []);
+  minimized.settings = minimizeBackupRecords(stores.settings, minimized.settings || []);
+  minimized.auditEntries = minimizeBackupRecords(stores.auditEntries, minimized.auditEntries || []);
+  return minimized;
+}
+
+function minimizeBackupRecords(storeName, records) {
+  const allowlist = backupRecordFieldAllowlist[storeName] || [];
+  return records.map((record) => Object.fromEntries(allowlist.filter((field) => record?.[field] !== undefined).map((field) => [field, record[field]])));
+}
+
+function validateBackupRetentionPolicy(backup, now = new Date()) {
+  const cutoff = new Date(now.getTime() - backupRetentionPolicy.auditRetentionDays * 24 * 60 * 60 * 1000);
+  const retainedActions = new Set(backupRetentionPolicy.retainedAuditActions);
+  const retainedAuditEntries = (backup.auditEntries || []).filter((entry) => {
+    const recordedAt = Date.parse(entry?.recordedAt || "");
+    return retainedActions.has(entry?.action) || (!Number.isNaN(recordedAt) && recordedAt >= cutoff.getTime());
+  });
+  return {
+    ...backup,
+    retentionPolicy: backupRetentionPolicy,
+    auditEntries: retainedAuditEntries,
+  };
+}
+
+function prepareBackupForExport(backup) {
+  return validateBackupRetentionPolicy(maskBackupSensitiveFields(minimizeBackupData(backup)));
+}
+
+function toBase64(bytes) {
+  return btoa(String.fromCharCode(...new Uint8Array(bytes)));
+}
+
+function fromBase64(value) {
+  return Uint8Array.from(atob(value), (char) => char.charCodeAt(0));
+}
+
+async function deriveBackupKey(passphrase, salt, iterations) {
+  if (!passphrase || passphrase.length < 8) {
+    throw new Error("Backup passphrase must be at least 8 characters");
+  }
+  const baseKey = await crypto.subtle.importKey("raw", new TextEncoder().encode(passphrase), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt, iterations, hash: "SHA-256" },
+    baseKey,
+    { name: "AES-GCM", length: 256 },
+    false,
+    ["encrypt", "decrypt"],
+  );
+}
 
 function openDatabase() {
   if (databasePromise) return databasePromise;
@@ -92,6 +234,32 @@ export const indexedDbMigrationRepository = {
     await withStore(stores.metadata, "readwrite", (store) => store.put({ key: migrationRecordKey, value }));
     return value;
   },
+
+  async acquireLock(reason = "migration") {
+    const currentLock = await withStore(stores.metadata, "readonly", (store) => store.get(migrationLockKey));
+    if (currentLock?.value && currentLock.value.ownerTabId !== runtimeTabId && !isExpiredLock(currentLock.value)) {
+      throw new Error("Another Atlas tab is already changing local data");
+    }
+    const value = {
+      ownerTabId: runtimeTabId,
+      reason,
+      databaseVersion,
+      targetDatabaseVersion: databaseVersion,
+      acquiredAt: new Date().toISOString(),
+      expiresAt: new Date(Date.now() + lockTimeoutMs).toISOString(),
+    };
+    await withStore(stores.metadata, "readwrite", (store) => store.put({ key: migrationLockKey, value }));
+    publishCoordinationMessage({ messageType: "lock-acquired", recordType: "metadata", recordId: migrationLockKey, targetVersion: databaseVersion, reason });
+    return value;
+  },
+
+  async releaseLock(reason = "migration") {
+    const currentLock = await withStore(stores.metadata, "readonly", (store) => store.get(migrationLockKey));
+    if (currentLock?.value?.ownerTabId === runtimeTabId || isExpiredLock(currentLock?.value)) {
+      await withStore(stores.metadata, "readwrite", (store) => store.delete(migrationLockKey));
+      publishCoordinationMessage({ messageType: "lock-released", recordType: "metadata", recordId: migrationLockKey, baseVersion: databaseVersion, reason });
+    }
+  },
 };
 
 export const indexedDbScenarioRepository = {
@@ -100,7 +268,41 @@ export const indexedDbScenarioRepository = {
   },
 
   async save(scenario) {
-    await withStore(stores.scenarios, "readwrite", (store) => store.put(scenario));
+    await this.saveWithVersionCheck(scenario, scenario.baseVersion ?? scenario.aggregateVersion ?? 0);
+  },
+
+  async saveWithVersionCheck(scenario, baseVersion = 0) {
+    const database = await openDatabase();
+
+    return new Promise((resolve, reject) => {
+      const transaction = database.transaction(stores.scenarios, "readwrite");
+      const store = transaction.objectStore(stores.scenarios);
+      const getRequest = store.get(scenario.scenarioId);
+
+      getRequest.onerror = () => reject(getRequest.error);
+      getRequest.onsuccess = () => {
+        const current = getRequest.result;
+        const currentVersion = current?.aggregateVersion || 0;
+        if (current && currentVersion !== baseVersion) {
+          reject(new Error("Scenario version conflict"));
+          transaction.abort();
+          return;
+        }
+        const nextVersion = currentVersion + 1;
+        const now = new Date().toISOString();
+        const record = {
+          ...scenario,
+          aggregateVersion: nextVersion,
+          updatedAt: now,
+          savedAt: scenario.savedAt || now,
+        };
+        delete record.baseVersion;
+        store.put(record);
+        publishCoordinationMessage({ messageType: "scenario-saved", recordType: "scenario", recordId: record.scenarioId, baseVersion, targetVersion: nextVersion });
+      };
+      transaction.onerror = () => reject(transaction.error);
+      transaction.oncomplete = () => resolve();
+    });
   },
 
   async delete(scenarioId) {
@@ -131,6 +333,34 @@ export const indexedDbScenarioRepository = {
       }
       transaction.onerror = () => reject(transaction.error);
       transaction.oncomplete = () => resolve();
+    });
+  },
+
+  async replaceAllStaged(scenarios) {
+    const stagedRecords = scenarios.map((scenario) => ({
+      ...scenario,
+      aggregateVersion: scenario.aggregateVersion || 1,
+      updatedAt: scenario.updatedAt || new Date().toISOString(),
+      savedAt: scenario.savedAt || scenario.updatedAt || new Date().toISOString(),
+    }));
+    const stagedIds = new Set();
+    for (const record of stagedRecords) {
+      if (!record.scenarioId || stagedIds.has(record.scenarioId)) {
+        throw new Error("Scenario staging validation failed");
+      }
+      stagedIds.add(record.scenarioId);
+    }
+    const database = await openDatabase();
+
+    return new Promise((resolve, reject) => {
+      const transaction = database.transaction(stores.scenarios, "readwrite");
+      const store = transaction.objectStore(stores.scenarios);
+      store.clear();
+      for (const record of stagedRecords) {
+        store.put(record);
+      }
+      transaction.onerror = () => reject(transaction.error);
+      transaction.oncomplete = () => resolve({ staged: stagedRecords.length, committed: stagedRecords.length, rejected: 0 });
     });
   },
 };
@@ -182,35 +412,257 @@ export const indexedDbAuditRepository = {
 export const indexedDbBackupRepository = {
   async exportBackup() {
     await indexedDbMigrationRepository.markCurrent();
-    return {
+    const backup = prepareBackupForExport({
       schema: backupSchemaVersion,
       exportedAt: new Date().toISOString(),
       databaseVersion,
       scenarios: await indexedDbScenarioRepository.list(),
+      recommendationDecisions: await indexedDbRecommendationDecisionRepository.list(),
+      settings: await getAll(stores.settings),
+      auditEntries: await indexedDbAuditRepository.list(),
+    });
+    backup.checksum = await sha256Hex(stableStringify(backupPayload(backup)));
+    return backup;
+  },
+
+  async exportEncryptedBackup(passphrase) {
+    const backup = await this.exportBackup();
+    const payload = stableStringify(backup);
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const iterations = 120000;
+    const key = await deriveBackupKey(passphrase, salt, iterations);
+    const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(payload));
+    return {
+      backupFormatVersion: encryptedBackupFormatVersion,
+      applicationVersion: "atlas-enterprise-pwa.v1",
+      databaseSchemaVersion: databaseVersion,
+      exportTimestamp: backup.exportedAt,
+      payloadEncoding: "base64",
+      kdf: { name: "PBKDF2", hash: "SHA-256", iterations, salt: toBase64(salt) },
+      encryption: { name: "AES-GCM", iv: toBase64(iv), tagLength: 128 },
+      checksum: await sha256Hex(payload),
+      encryptedPayload: toBase64(encrypted),
     };
   },
 
-  async importBackup(backup) {
-    if (backup?.schema !== backupSchemaVersion || !Array.isArray(backup.scenarios)) {
-      throw new Error("Unsupported backup schema");
+  async decryptEncryptedBackup(envelope, passphrase) {
+    if (envelope?.backupFormatVersion !== encryptedBackupFormatVersion || envelope.payloadEncoding !== "base64") {
+      throw new Error("Unsupported encrypted backup format");
     }
-    await indexedDbScenarioRepository.replaceAll(backup.scenarios);
+    const salt = fromBase64(envelope.kdf?.salt || "");
+    const iv = fromBase64(envelope.encryption?.iv || "");
+    const encryptedPayload = fromBase64(envelope.encryptedPayload || "");
+    const key = await deriveBackupKey(passphrase, salt, envelope.kdf?.iterations || 0);
+    const decrypted = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, encryptedPayload);
+    const payloadText = new TextDecoder().decode(decrypted);
+    if (await sha256Hex(payloadText) !== envelope.checksum) {
+      throw new Error("Encrypted backup checksum mismatch");
+    }
+    const backup = JSON.parse(payloadText);
+    if (!await this.validateBackup(backup)) {
+      throw new Error("Encrypted backup payload is invalid");
+    }
+    return backup;
   },
 
-  validateBackup(backup) {
+  async importBackup(backup, options = {}) {
+    if (!await this.validateBackup(backup)) {
+      throw new Error("Unsupported backup schema");
+    }
+    const migratedBackup = migrateBackupToCurrent(backup);
+    await indexedDbMigrationRepository.acquireLock("backup-restore");
+    try {
+      const stagingResult = await replaceAllBackupStoresStaged(migratedBackup, options);
+      publishCoordinationMessage({ messageType: "backup-restored", recordType: "user-stores", targetVersion: databaseVersion, stagingResult });
+      return stagingResult;
+    } finally {
+      await indexedDbMigrationRepository.releaseLock("backup-restore");
+    }
+  },
+
+  async dryRunImport(backup) {
+    if (!await this.validateBackup(backup)) {
+      throw new Error("Unsupported backup schema");
+    }
+    const migratedBackup = migrateBackupToCurrent(backup);
+    const currentScenarios = await indexedDbScenarioRepository.list();
+    const currentRecommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
+    const currentSettings = await getAll(stores.settings);
+    const currentAuditEntries = await indexedDbAuditRepository.list();
+    const existingIds = new Set(currentScenarios.map((scenario) => scenario.scenarioId));
+    const updates = migratedBackup.scenarios.filter((scenario) => existingIds.has(scenario.scenarioId));
+    const creates = migratedBackup.scenarios.filter((scenario) => !existingIds.has(scenario.scenarioId));
+    const storePlan = [
+      createStoreImportPlan(stores.scenarios, "scenarioId", currentScenarios, migratedBackup.scenarios),
+      createStoreImportPlan(stores.recommendationDecisions, "decisionId", currentRecommendationDecisions, migratedBackup.recommendationDecisions || []),
+      createStoreImportPlan(stores.settings, "key", currentSettings, migratedBackup.settings || []),
+      createStoreImportPlan(stores.auditEntries, "auditId", currentAuditEntries, migratedBackup.auditEntries || []),
+    ];
+    const migrationPlan = createBackupMigrationPlan(backup.databaseVersion || 0);
+    return {
+      sourceBackupFormatVersion: backup.schema,
+      sourceDatabaseSchemaVersion: backup.databaseVersion || 0,
+      targetDatabaseSchemaVersion: databaseVersion,
+      migrationPlan,
+      migrationSteps: migrationPlan.steps,
+      migratedDatabaseSchemaVersion: migratedBackup.databaseVersion,
+      creates: creates.length,
+      updates: updates.length,
+      skips: 0,
+      rejects: 0,
+      conflicts: storePlan.reduce((total, item) => total + item.conflicts, 0),
+      storePlan,
+      checksum: backup.checksum || "N/A",
+    };
+  },
+
+  async validateBackup(backup) {
     if (backup?.schema !== backupSchemaVersion || !Array.isArray(backup.scenarios)) {
       return false;
     }
+    if (!supportedBackupDatabaseVersions.includes(backup.databaseVersion || 0)) {
+      return false;
+    }
+    if (backup.checksum) {
+      const expected = await sha256Hex(stableStringify(backupPayload(backup)));
+      if (backup.checksum !== expected) {
+        return false;
+      }
+    }
+    if (!["recommendationDecisions", "settings", "auditEntries"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
+      return false;
+    }
+    if (backup.retentionPolicy && backup.retentionPolicy.schema !== backupRetentionPolicy.schema) {
+      return false;
+    }
     const scenarioIds = new Set();
-    return backup.scenarios.every((scenario) => {
+    const scenarioValid = backup.scenarios.every((scenario) => {
       if (!scenario?.scenarioId || scenarioIds.has(scenario.scenarioId)) {
         return false;
       }
       scenarioIds.add(scenario.scenarioId);
       return typeof scenario.name === "string"
         && scenario.name.trim().length >= 2
-        && typeof scenario.score === "string"
+        && (typeof scenario.score === "string" || Number.isFinite(scenario.score))
         && typeof scenario.status === "string";
     });
+    const decisionIds = new Set();
+    const decisionsValid = (backup.recommendationDecisions || []).every((decision) => {
+      if (!decision?.decisionId || decisionIds.has(decision.decisionId)) return false;
+      decisionIds.add(decision.decisionId);
+      return typeof decision.fixtureId === "string" && typeof decision.decision === "string";
+    });
+    const settingKeys = new Set();
+    const settingsValid = (backup.settings || []).every((setting) => {
+      if (!setting?.key || settingKeys.has(setting.key)) return false;
+      settingKeys.add(setting.key);
+      return typeof setting.value === "string";
+    });
+    const auditIds = new Set();
+    const auditValid = (backup.auditEntries || []).every((entry) => {
+      if (!entry?.auditId || auditIds.has(entry.auditId)) return false;
+      auditIds.add(entry.auditId);
+      return typeof entry.action === "string" && typeof entry.recordedAt === "string";
+    });
+    return scenarioValid && decisionsValid && settingsValid && auditValid;
   },
 };
+
+function createBackupMigrationPlan(sourceDatabaseVersion) {
+  const requiresMigration = sourceDatabaseVersion !== databaseVersion;
+  const supported = supportedBackupDatabaseVersions.includes(sourceDatabaseVersion);
+  return {
+    requiresMigration,
+    supported,
+    status: requiresMigration ? (supported ? "migration-required" : "unsupported-version") : "current-version",
+    steps: requiresMigration ? [`database-${sourceDatabaseVersion}-to-${databaseVersion}`] : [],
+    message: requiresMigration
+      ? (supported ? "匯入前會套用版本遷移。" : "此備份版本尚無可用遷移路徑。")
+      : "備份版本與目前資料庫一致。",
+  };
+}
+
+function migrateBackupToCurrent(backup) {
+  const sourceDatabaseVersion = backup.databaseVersion || 0;
+  const migrationPlan = createBackupMigrationPlan(sourceDatabaseVersion);
+  if (!migrationPlan.supported) throw new Error("Unsupported backup migration path");
+  const migrated = JSON.parse(JSON.stringify(backup));
+  migrated.recommendationDecisions = migrated.recommendationDecisions || [];
+  migrated.settings = migrated.settings || [];
+  migrated.auditEntries = migrated.auditEntries || [];
+  migrated.scenarios = (migrated.scenarios || []).map((scenario) => ({
+    ...scenario,
+    score: String(scenario.score),
+    status: scenario.status || "review",
+  }));
+  migrated.databaseVersion = databaseVersion;
+  migrated.migrationHistory = [
+    ...(migrated.migrationHistory || []),
+    ...migrationPlan.steps.map((step) => ({ step, migratedAt: new Date().toISOString(), sourceDatabaseVersion, targetDatabaseVersion: databaseVersion })),
+  ];
+  delete migrated.checksum;
+  return migrated;
+}
+
+function createStoreImportPlan(storeName, keyField, currentRecords, incomingRecords) {
+  const currentKeys = new Set(currentRecords.map((record) => record?.[keyField]).filter(Boolean));
+  const conflictKeys = incomingRecords.map((record) => record?.[keyField]).filter((key) => key && currentKeys.has(key));
+  return {
+    storeName,
+    keyField,
+    incoming: incomingRecords.length,
+    current: currentRecords.length,
+    creates: incomingRecords.length - conflictKeys.length,
+    conflicts: conflictKeys.length,
+    conflictKeys: conflictKeys.slice(0, 5),
+  };
+}
+
+async function replaceAllBackupStoresStaged(backup, options = {}) {
+  const valid = await indexedDbBackupRepository.validateBackup(backup);
+  if (!valid) throw new Error("Backup staging validation failed");
+  const conflictPolicy = options.conflictPolicy || "replace-all";
+  const database = await openDatabase();
+  let plan = [
+    { storeName: stores.scenarios, records: backup.scenarios || [] },
+    { storeName: stores.recommendationDecisions, records: backup.recommendationDecisions || [] },
+    { storeName: stores.settings, records: backup.settings || [] },
+    { storeName: stores.auditEntries, records: backup.auditEntries || [] },
+  ];
+  if (conflictPolicy === "skip-existing") {
+    const [currentScenarios, currentDecisions, currentSettings, currentAudits] = await Promise.all([
+      indexedDbScenarioRepository.list(),
+      indexedDbRecommendationDecisionRepository.list(),
+      getAll(stores.settings),
+      indexedDbAuditRepository.list(),
+    ]);
+    plan = [
+      mergeWithoutReplacing(stores.scenarios, "scenarioId", currentScenarios, backup.scenarios || []),
+      mergeWithoutReplacing(stores.recommendationDecisions, "decisionId", currentDecisions, backup.recommendationDecisions || []),
+      mergeWithoutReplacing(stores.settings, "key", currentSettings, backup.settings || []),
+      mergeWithoutReplacing(stores.auditEntries, "auditId", currentAudits, backup.auditEntries || []),
+    ];
+  }
+  return new Promise((resolve, reject) => {
+    const transaction = database.transaction(plan.map((item) => item.storeName), "readwrite");
+    for (const item of plan) {
+      const store = transaction.objectStore(item.storeName);
+      store.clear();
+      for (const record of item.records) store.put(record);
+    }
+    transaction.onerror = () => reject(transaction.error);
+    transaction.oncomplete = () => resolve({
+      staged: true,
+      conflictPolicy,
+      replacedStoreCount: plan.length,
+      restoredRecords: Object.fromEntries(plan.map((item) => [item.storeName, item.records.length])),
+    });
+  });
+}
+
+function mergeWithoutReplacing(storeName, keyField, currentRecords, incomingRecords) {
+  const currentKeys = new Set(currentRecords.map((record) => record?.[keyField]).filter(Boolean));
+  const creates = incomingRecords.filter((record) => !currentKeys.has(record?.[keyField]));
+  return { storeName, records: [...currentRecords, ...creates] };
+}
