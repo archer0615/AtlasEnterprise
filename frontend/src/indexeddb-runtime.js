@@ -2,6 +2,9 @@ const databaseName = "atlas-pwa-runtime";
 const databaseVersion = 3;
 const backupSchemaVersion = "atlas-pwa-runtime-backup.v1";
 const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1";
+const keyRotationFormatVersion = "atlas-enterprise.backup-key-rotation-report.v1";
+const disasterRecoveryDrillFormatVersion = "atlas-enterprise.backup-disaster-recovery-drill.v1";
+const restoreAuditReportFormatVersion = "atlas-enterprise.restore-audit-report.v1";
 const supportedBackupDatabaseVersions = [2, databaseVersion];
 const backupRetentionPolicy = {
   schema: "atlas-enterprise.backup-retention-policy.v1",
@@ -427,23 +430,7 @@ export const indexedDbBackupRepository = {
 
   async exportEncryptedBackup(passphrase) {
     const backup = await this.exportBackup();
-    const payload = stableStringify(backup);
-    const salt = crypto.getRandomValues(new Uint8Array(16));
-    const iv = crypto.getRandomValues(new Uint8Array(12));
-    const iterations = 120000;
-    const key = await deriveBackupKey(passphrase, salt, iterations);
-    const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(payload));
-    return {
-      backupFormatVersion: encryptedBackupFormatVersion,
-      applicationVersion: "atlas-enterprise-pwa.v1",
-      databaseSchemaVersion: databaseVersion,
-      exportTimestamp: backup.exportedAt,
-      payloadEncoding: "base64",
-      kdf: { name: "PBKDF2", hash: "SHA-256", iterations, salt: toBase64(salt) },
-      encryption: { name: "AES-GCM", iv: toBase64(iv), tagLength: 128 },
-      checksum: await sha256Hex(payload),
-      encryptedPayload: toBase64(encrypted),
-    };
+    return this.exportEncryptedBackupForPayload(backup, passphrase);
   },
 
   async decryptEncryptedBackup(envelope, passphrase) {
@@ -464,6 +451,90 @@ export const indexedDbBackupRepository = {
       throw new Error("Encrypted backup payload is invalid");
     }
     return backup;
+  },
+
+  async rotateEncryptedBackupKey(envelope, currentPassphrase, nextPassphrase) {
+    const backup = await this.decryptEncryptedBackup(envelope, currentPassphrase);
+    const rotatedEnvelope = await this.exportEncryptedBackupForPayload(backup, nextPassphrase);
+    return {
+      envelope: rotatedEnvelope,
+      report: {
+        schema: keyRotationFormatVersion,
+        rotatedAt: new Date().toISOString(),
+        sourceBackupFormatVersion: envelope.backupFormatVersion,
+        targetBackupFormatVersion: rotatedEnvelope.backupFormatVersion,
+        databaseSchemaVersion: rotatedEnvelope.databaseSchemaVersion,
+        payloadChecksumPreserved: envelope.checksum === rotatedEnvelope.checksum,
+        kdfChanged: envelope.kdf?.salt !== rotatedEnvelope.kdf?.salt || envelope.kdf?.iterations !== rotatedEnvelope.kdf?.iterations,
+        encryptionIvChanged: envelope.encryption?.iv !== rotatedEnvelope.encryption?.iv,
+      },
+    };
+  },
+
+  async exportEncryptedBackupForPayload(backup, passphrase) {
+    if (!await this.validateBackup(backup)) {
+      throw new Error("Unsupported backup schema");
+    }
+    const payload = stableStringify(backup);
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const iterations = 120000;
+    const key = await deriveBackupKey(passphrase, salt, iterations);
+    const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(payload));
+    return {
+      backupFormatVersion: encryptedBackupFormatVersion,
+      applicationVersion: "atlas-enterprise-pwa.v1",
+      databaseSchemaVersion: backup.databaseVersion || databaseVersion,
+      exportTimestamp: backup.exportedAt || new Date().toISOString(),
+      payloadEncoding: "base64",
+      kdf: { name: "PBKDF2", hash: "SHA-256", iterations, salt: toBase64(salt) },
+      encryption: { name: "AES-GCM", iv: toBase64(iv), tagLength: 128 },
+      checksum: await sha256Hex(payload),
+      encryptedPayload: toBase64(encrypted),
+    };
+  },
+
+  async runDisasterRecoveryDrill(backup) {
+    if (!await this.validateBackup(backup)) {
+      throw new Error("Unsupported backup schema");
+    }
+    const before = {
+      scenarios: (await indexedDbScenarioRepository.list()).length,
+      recommendationDecisions: (await indexedDbRecommendationDecisionRepository.list()).length,
+      settings: (await getAll(stores.settings)).length,
+      auditEntries: (await indexedDbAuditRepository.list()).length,
+    };
+    const dryRun = await this.dryRunImport(backup);
+    const after = {
+      scenarios: (await indexedDbScenarioRepository.list()).length,
+      recommendationDecisions: (await indexedDbRecommendationDecisionRepository.list()).length,
+      settings: (await getAll(stores.settings)).length,
+      auditEntries: (await indexedDbAuditRepository.list()).length,
+    };
+    const mutationFree = stableStringify(before) === stableStringify(after);
+    return {
+      schema: disasterRecoveryDrillFormatVersion,
+      drilledAt: new Date().toISOString(),
+      sourceBackupFormatVersion: backup.schema,
+      sourceDatabaseSchemaVersion: backup.databaseVersion || 0,
+      targetDatabaseSchemaVersion: databaseVersion,
+      checksum: backup.checksum || "N/A",
+      mutationFree,
+      dryRun,
+      readiness: mutationFree && dryRun.migrationPlan?.supported !== false && dryRun.rejects === 0 ? "ready" : "blocked",
+      storeCountsBefore: before,
+      storeCountsAfter: after,
+    };
+  },
+
+  validateRestoreAuditReport(report) {
+    if (report?.schema !== restoreAuditReportFormatVersion) return false;
+    if (!report.restoredAt || Number.isNaN(Date.parse(report.restoredAt))) return false;
+    if (!["replace-all", "skip-existing"].includes(report.conflictPolicy)) return false;
+    if (!Number.isFinite(report.scenarioCount) || report.scenarioCount < 0) return false;
+    if (!report.restoredRecords || typeof report.restoredRecords !== "object") return false;
+    return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries]
+      .every((storeName) => Number.isFinite(report.restoredRecords[storeName] || 0));
   },
 
   async importBackup(backup, options = {}) {

@@ -61,6 +61,11 @@ assert(runtime.includes("backupRecordFieldAllowlist"), "Backup record field allo
 assert(runtime.includes("maskBackupSensitiveFields"), "Backup sensitive field masking is missing");
 assert(runtime.includes("validateBackupRetentionPolicy"), "Backup retention policy validation is missing");
 assert(runtime.includes("backupRetentionPolicy"), "Backup retention policy metadata is missing");
+assert(runtime.includes("runDisasterRecoveryDrill"), "Backup disaster recovery drill is missing");
+assert(runtime.includes("rotateEncryptedBackupKey"), "Backup key rotation workflow is missing");
+assert(runtime.includes("validateRestoreAuditReport"), "Backup restore audit report validation is missing");
+assert(runtime.includes("backup-disaster-recovery-drill.v1"), "Backup disaster recovery drill report schema is missing");
+assert(runtime.includes("backup-key-rotation-report.v1"), "Backup key rotation report schema is missing");
 assert(runtime.includes("scenarioIds.has"), "Backup duplicate scenario ID validation is missing");
 assert(runtime.includes("scenario.name.trim().length >= 2"), "Backup scenario name validation is missing");
 assert(runtime.includes("indexedDbMigrationRepository"), "Migration repository adapter is missing");
@@ -93,6 +98,7 @@ assert(main.includes("persistAuditEntry"), "Audit persistence workflow is missin
 assert(main.includes("buildRestoreAuditReport"), "Multi-store restore audit report builder is missing");
 assert(main.includes("renderRestoreAudit"), "Multi-store restore audit renderer is missing");
 assert(main.includes("restoreAuditReports"), "Multi-store restore audit export is missing");
+assert(main.includes("__atlasDebugState"), "Runtime debug state for restore audit validation is missing");
 assert(main.includes("buildReportDiff"), "Report diff comparison workflow is missing");
 assert(main.includes("diagnoseValidationRecord"), "Validation failure diagnosis workflow is missing");
 assert(main.includes("auditRetentionPolicy"), "Audit retention policy is missing");

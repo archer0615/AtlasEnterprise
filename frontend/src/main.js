@@ -1059,6 +1059,15 @@ scenarioTemplateList?.addEventListener("click", (event) => {
 applyScenarioTemplateButton?.addEventListener("click", applyScenarioTemplate);
 saveScenarioTemplateButton?.addEventListener("click", () => saveScenarioFromTemplate().catch((error) => setRuntimeFeedback(error.message)));
 
+Object.defineProperty(window, "__atlasDebugState", {
+  configurable: true,
+  get: () => ({
+    restoreAuditReports,
+    offlineRepairAudit,
+    persistentAuditEntries,
+  }),
+});
+
 window.addEventListener("hashchange", openDocumentFromHash);
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 

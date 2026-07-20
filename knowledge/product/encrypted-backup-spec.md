@@ -66,6 +66,9 @@ Encrypted backup files must include:
 - Restore preview must report target stores and record counts.
 - Restore dry run must report create, update, skip, reject, and conflict counts.
 - Applying restore must run inside a bounded transaction plan and record an audit entry.
+- Backup disaster recovery drill must validate the same payload and produce a mutation-free readiness report before live restore.
+- Restore audit report validation must verify schema, timestamp, conflict policy, store counts, and restored record totals.
+- Backup key rotation must decrypt with the current passphrase, re-encrypt with the next passphrase, and preserve the plaintext checksum.
 
 ## Validation Matrix
 
@@ -77,6 +80,9 @@ Encrypted backup files must include:
 | Unsupported backup format version | Restore is rejected before decryption. |
 | Unsupported database schema version | Migration plan is required before restore. |
 | Duplicate record keys in payload | Restore is rejected or requires explicit conflict policy. |
+| Disaster recovery drill | Dry run completes and proves no local mutation. |
+| Restore audit report | Report validates before being accepted as recovery evidence. |
+| Key rotation | Old passphrase no longer opens rotated envelope; new passphrase restores the same payload checksum. |
 
 ## Current Implementation Mapping
 
@@ -87,6 +93,9 @@ Encrypted backup files must include:
 - Current UI exposes passphrase entry, encrypted backup export, encrypted backup import preview, and dry-run restore preview.
 - Current backup payload covers scenarios, recommendation decisions, settings, and audit entries.
 - Current runtime applies backup data minimization, sensitive field masking, and audit retention validation before checksum generation.
+- Current runtime can run a mutation-free backup disaster recovery drill and return a readiness report.
+- Current runtime validates restore audit report structure before accepting restore evidence.
+- Current runtime can rotate encrypted backup keys while preserving the plaintext payload checksum.
 - Current runtime validates scenario IDs, names, scores, and status before restore.
 - Current runtime verifies checksum when checksum metadata is present.
 - Plaintext export remains available for local validation and fixture compatibility.

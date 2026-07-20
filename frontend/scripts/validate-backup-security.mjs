@@ -105,6 +105,9 @@ try {
     const duplicateBackup = JSON.parse(JSON.stringify(backup));
     duplicateBackup.scenarios = [duplicateBackup.scenarios[0], { ...duplicateBackup.scenarios[0] }];
     const encrypted = await module.indexedDbBackupRepository.exportEncryptedBackup("correct-passphrase");
+    const rotation = await module.indexedDbBackupRepository.rotateEncryptedBackupKey(encrypted, "correct-passphrase", "rotated-passphrase");
+    const rotatedBackup = await module.indexedDbBackupRepository.decryptEncryptedBackup(rotation.envelope, "rotated-passphrase");
+    const disasterRecoveryDrill = await module.indexedDbBackupRepository.runDisasterRecoveryDrill(backup);
     const tamperedEnvelope = { ...encrypted, encryptedPayload: encrypted.encryptedPayload.replace(/.$/, encrypted.encryptedPayload.endsWith("A") ? "B" : "A") };
 
     const failures = {};
@@ -129,6 +132,12 @@ try {
     } catch {
       failures.encryptedTamperRejected = true;
     }
+    try {
+      await module.indexedDbBackupRepository.decryptEncryptedBackup(rotation.envelope, "correct-passphrase");
+      failures.rotatedOldPassphraseRejected = false;
+    } catch {
+      failures.rotatedOldPassphraseRejected = true;
+    }
     const after = await module.indexedDbScenarioRepository.list();
 
     return {
@@ -136,6 +145,11 @@ try {
       scenarioCountBefore: before.length,
       scenarioCountAfter: after.length,
       encryptedEnvelopeFields: Object.keys(encrypted).sort(),
+      rotatedEnvelopeFields: Object.keys(rotation.envelope).sort(),
+      rotationReport: rotation.report,
+      rotatedBackupValid: await module.indexedDbBackupRepository.validateBackup(rotatedBackup),
+      rotatedChecksumMatches: rotatedBackup.checksum === backup.checksum,
+      disasterRecoveryDrill,
       plaintextHasChecksum: Boolean(backup.checksum),
       plaintextHasRetentionPolicy: Boolean(backup.retentionPolicy),
       dryRun: await module.indexedDbBackupRepository.dryRunImport({ ...backup, databaseVersion: 2, checksum: undefined }),
@@ -148,11 +162,23 @@ try {
   assert(runtimeChecks.failures.duplicateKeysRejected, "duplicate backup keys were not rejected");
   assert(runtimeChecks.failures.wrongPassphraseRejected, "wrong passphrase did not fail decrypt");
   assert(runtimeChecks.failures.encryptedTamperRejected, "tampered encrypted payload did not fail decrypt");
+  assert(runtimeChecks.failures.rotatedOldPassphraseRejected, "rotated encrypted backup still opened with old passphrase");
   assert(runtimeChecks.scenarioCountBefore === runtimeChecks.scenarioCountAfter, "failure path mutated local scenario data");
+  assert(runtimeChecks.rotatedBackupValid, "rotated encrypted backup did not decrypt to a valid backup");
+  assert(runtimeChecks.rotatedChecksumMatches, "backup key rotation changed the plaintext payload checksum");
+  assert(runtimeChecks.rotationReport.schema === "atlas-enterprise.backup-key-rotation-report.v1", "backup key rotation report schema is missing");
+  assert(runtimeChecks.rotationReport.payloadChecksumPreserved, "backup key rotation report did not prove checksum preservation");
+  assert(runtimeChecks.rotationReport.kdfChanged, "backup key rotation did not change KDF metadata");
+  assert(runtimeChecks.rotationReport.encryptionIvChanged, "backup key rotation did not change encryption IV");
+  assert(runtimeChecks.disasterRecoveryDrill.schema === "atlas-enterprise.backup-disaster-recovery-drill.v1", "disaster recovery drill report schema is missing");
+  assert(runtimeChecks.disasterRecoveryDrill.readiness === "ready", "disaster recovery drill did not report ready");
+  assert(runtimeChecks.disasterRecoveryDrill.mutationFree, "disaster recovery drill mutated local data");
+  assert(runtimeChecks.disasterRecoveryDrill.dryRun.storePlan.length === 4, "disaster recovery drill did not cover all backup stores");
   assert(runtimeChecks.dryRun.migrationPlan.status === "migration-required", "backup version migration regression did not report migration");
   assert(runtimeChecks.dryRun.migrationSteps.includes("database-2-to-3"), "backup version migration step is missing");
   assert(runtimeChecks.plaintextHasChecksum && runtimeChecks.plaintextHasRetentionPolicy, "plaintext backup downgrade risk controls are missing");
   assert(JSON.stringify(runtimeChecks.encryptedEnvelopeFields) === JSON.stringify(["applicationVersion", "backupFormatVersion", "checksum", "databaseSchemaVersion", "encryptedPayload", "encryption", "exportTimestamp", "kdf", "payloadEncoding"].sort()), "encrypted backup metadata is not minimized");
+  assert(JSON.stringify(runtimeChecks.rotatedEnvelopeFields) === JSON.stringify(runtimeChecks.encryptedEnvelopeFields), "rotated encrypted backup metadata is not minimized");
 
   await page.locator(".advanced-controls summary").click();
   await page.click("#applyBackupButton");
@@ -171,6 +197,11 @@ try {
   await page.waitForFunction(() => document.querySelector("#restoreAuditPanel")?.textContent.includes("atlas-enterprise.restore-audit-report.v1"));
   const restoreAuditText = await page.locator("#restoreAuditPanel").textContent();
   assert(restoreAuditText.includes("atlas-enterprise.restore-audit-report.v1"), "restore audit report evidence was not rendered");
+  const auditReportValid = await page.evaluate(async () => {
+    const module = await import("./src/indexeddb-runtime.js");
+    return module.indexedDbBackupRepository.validateRestoreAuditReport(window.__atlasDebugState.restoreAuditReports[0]);
+  });
+  assert(auditReportValid, "restore audit report structure did not pass validation");
 
   const lockPage = await context.newPage();
   await lockPage.goto(`http://127.0.0.1:${port}/`, { waitUntil: "networkidle" });
