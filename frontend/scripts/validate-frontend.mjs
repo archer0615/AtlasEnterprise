@@ -35,6 +35,7 @@ for (const id of [
   "profileIncomeInput", "profileAssetsInput", "profileDebtInput", "profileGoalSelect",
   "saveProfileButton", "resetProfileButton", "profileSummaryPanel",
   "scenarioTemplateList", "scenarioTemplatePreview", "applyScenarioTemplateButton", "saveScenarioTemplateButton",
+  "help",
 ]) {
   assert(html.includes(`id="${id}"`), `${id} is missing`);
 }
@@ -96,9 +97,17 @@ for (const token of [
   ".dashboard-prototype", ".dashboard-switcher", ".runtime-panels", ".user-summary",
   ".primary-actions", ".advanced-controls", ".mobile-toolbar", ".export-preview",
   ".invalid-input", ".scenario-comparison", ".profile-settings", ".profile-grid", ".scenario-templates", ".template-list",
+  ".help-screen", ".help-flow", ".help-checklist",
   ".dry-run-grid", ".dry-run-card", ".dry-run-detail", ".dry-run-note", ".dry-run-warning", "@media (max-width: 860px)",
 ]) {
   assert(styles.includes(token), `styles missing ${token}`);
+}
+
+for (const token of [
+  "完整操作流程", "設定使用者資料", "切換財務情境", "新增或套用情境",
+  "處理建議決策", "匯出報表與驗證", "備份、還原與修復",
+]) {
+  assert(html.includes(token), `help screen missing ${token}`);
 }
 
 assert(dashboard.metrics.length === 4, "dashboard fixture must expose four metrics");

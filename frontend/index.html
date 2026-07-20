@@ -19,6 +19,7 @@
           </div>
         </div>
         <nav class="workflow-nav" aria-label="主要工作流程">
+          <a href="#help">使用說明</a>
           <a href="#dashboard">儀表板</a>
           <a href="#portfolio">投資報表</a>
           <a href="#recommendation">建議管理</a>
@@ -27,6 +28,7 @@
       </aside>
       <main class="workspace">
         <nav class="mobile-toolbar" aria-label="行動版工作流程導覽">
+          <a href="#help">說明</a>
           <a href="#dashboard">儀表板</a>
           <a href="#portfolio">報表</a>
           <a href="#recommendation">建議</a>
@@ -43,6 +45,80 @@
           <div><span>1</span><strong>檢視目前狀態</strong><small>從儀表板確認財務情境、分數與待辦事項。</small></div>
           <div><span>2</span><strong>處理建議與情境</strong><small>新增情境、接受或拒絕建議，保留本機操作紀錄。</small></div>
           <div><span>3</span><strong>匯出與備份</strong><small>匯出報表、驗證結果與本機備份。</small></div>
+        </section>
+        <section id="help" class="help-screen" aria-label="系統使用說明">
+          <div class="help-header">
+            <div>
+              <p class="eyebrow">使用說明</p>
+              <h3>完整操作流程</h3>
+              <p class="section-help">依序完成資料設定、情境管理、建議決策、報表匯出、備份還原與維護稽核。</p>
+            </div>
+            <span>建議順序 1-6</span>
+          </div>
+          <div class="help-flow">
+            <article>
+              <span>1</span>
+              <h4>設定使用者資料</h4>
+              <p>在「基本財務設定」輸入月收入、資產、負債與目標偏好，按「儲存資料」後，系統會更新本機摘要。</p>
+              <strong>位置：使用者資料</strong>
+            </article>
+            <article>
+              <span>2</span>
+              <h4>切換財務情境</h4>
+              <p>在「當前財務情境」使用情境切換按鈕查看不同儀表板，確認分數、指標、情境列表與建議行動。</p>
+              <strong>位置：財務儀表板</strong>
+            </article>
+            <article>
+              <span>3</span>
+              <h4>新增或套用情境</h4>
+              <p>輸入情境名稱與分數後儲存，或先選擇情境範本再套用。新增情境會出現在情境列表與情境比較。</p>
+              <strong>位置：情境操作、情境範本</strong>
+            </article>
+            <article>
+              <span>4</span>
+              <h4>處理建議決策</h4>
+              <p>查看建議狀態與分數，按「接受建議」或「拒絕建議」，再用篩選器檢視最近決策紀錄。</p>
+              <strong>位置：建議管理</strong>
+            </article>
+            <article>
+              <span>5</span>
+              <h4>匯出報表與驗證</h4>
+              <p>使用「匯出報表」下載投資報表，或在「驗證與維護」匯出驗證結果，保留發布、快取與稽核證據。</p>
+              <strong>位置：投資報表、驗證與維護</strong>
+            </article>
+            <article>
+              <span>6</span>
+              <h4>備份、還原與修復</h4>
+              <p>在進階資料操作匯出備份或加密備份；匯入前先看預演結果，勾選確認後套用。離線資料異常時按「修復離線資料」。</p>
+              <strong>位置：進階資料操作、驗證與維護</strong>
+            </article>
+          </div>
+          <div class="help-checklist" aria-label="操作檢查清單">
+            <div>
+              <h4>每日使用</h4>
+              <ul>
+                <li>確認發布狀態與驗證歷史。</li>
+                <li>檢視當前財務情境與建議行動。</li>
+                <li>記錄接受或拒絕建議的原因。</li>
+              </ul>
+            </div>
+            <div>
+              <h4>變更前</h4>
+              <ul>
+                <li>先匯出備份或加密備份。</li>
+                <li>確認情境比較是否符合預期。</li>
+                <li>還原前檢查新增、覆蓋、衝突與 checksum。</li>
+              </ul>
+            </div>
+            <div>
+              <h4>維護時</h4>
+              <ul>
+                <li>匯出驗證結果作為稽核證據。</li>
+                <li>執行離線資料修復並查看修復稽核。</li>
+                <li>保留備份、還原與發布封存紀錄。</li>
+              </ul>
+            </div>
+          </div>
         </section>
         <section class="profile-settings" aria-label="使用者資料設定">
           <div>
