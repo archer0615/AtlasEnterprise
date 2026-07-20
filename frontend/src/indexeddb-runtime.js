@@ -11,6 +11,9 @@ const backupRtoFormatVersion = "atlas-enterprise.backup-rto-report.v1";
 const backupCapacityGrowthFormatVersion = "atlas-enterprise.backup-capacity-growth-report.v1";
 const backupFailureAlertFormatVersion = "atlas-enterprise.backup-failure-alert-report.v1";
 const backupIntegrityAuditFormatVersion = "atlas-enterprise.backup-integrity-periodic-audit.v1";
+const backupAccessPermissionAuditFormatVersion = "atlas-enterprise.backup-access-permission-audit.v1";
+const backupDeletionProtectionValidationFormatVersion = "atlas-enterprise.backup-deletion-protection-validation.v1";
+const backupComplianceEvidenceArchiveFormatVersion = "atlas-enterprise.backup-compliance-evidence-archive.v1";
 const backupSchedulePolicy = {
   schema: "atlas-enterprise.backup-schedule-policy.v1",
   intervalHours: 24,
@@ -29,6 +32,25 @@ const backupCapacityPolicy = {
 const backupFailureAlertPolicy = {
   schema: "atlas-enterprise.backup-failure-alert-policy.v1",
   alertAfterConsecutiveFailures: 1,
+};
+const backupAccessPermissionPolicy = {
+  schema: "atlas-enterprise.backup-access-permission-policy.v1",
+  allowedRoles: ["backup-admin", "compliance-auditor"],
+  exportOperations: ["backup-export", "backup-encrypted-export", "backup-restore", "backup-delete", "backup-evidence-archive"],
+  requireMfa: true,
+};
+const backupDeletionProtectionPolicy = {
+  schema: "atlas-enterprise.backup-deletion-protection-policy.v1",
+  protectedOperations: ["backup-delete", "backup-purge", "backup-retention-prune"],
+  requiredApprovals: 2,
+  requireLegalHoldCheck: true,
+  requireRecentIntegrityAudit: true,
+};
+const backupComplianceEvidencePolicy = {
+  schema: "atlas-enterprise.backup-compliance-evidence-policy.v1",
+  requiredEvidenceTypes: ["access-permission-audit", "deletion-protection-validation", "integrity-audit", "retention-policy", "restore-audit"],
+  archiveRetentionYears: 7,
+  immutableArchiveRequired: true,
 };
 const supportedBackupDatabaseVersions = [2, databaseVersion];
 const backupRetentionPolicy = {
@@ -674,6 +696,88 @@ export const indexedDbBackupRepository = {
       status: failed === 0 ? "passed" : "failed",
       results,
     };
+  },
+
+  auditBackupAccessPermissions(assignments) {
+    const records = Array.isArray(assignments) ? assignments : [];
+    const reviewed = records.map((record) => {
+      const operations = Array.isArray(record?.operations) ? record.operations : [];
+      const forbiddenOperations = operations.filter((operation) => !backupAccessPermissionPolicy.exportOperations.includes(operation));
+      const allowedRole = backupAccessPermissionPolicy.allowedRoles.includes(record?.role);
+      const mfaSatisfied = !backupAccessPermissionPolicy.requireMfa || record?.mfaEnabled === true;
+      return {
+        principalId: record?.principalId || "unknown",
+        role: record?.role || "unknown",
+        operations,
+        allowedRole,
+        mfaSatisfied,
+        forbiddenOperations,
+        status: allowedRole && mfaSatisfied && forbiddenOperations.length === 0 ? "compliant" : "violation",
+      };
+    });
+    const violations = reviewed.filter((record) => record.status === "violation");
+    return {
+      schema: backupAccessPermissionAuditFormatVersion,
+      auditedAt: new Date().toISOString(),
+      policy: backupAccessPermissionPolicy,
+      reviewedCount: reviewed.length,
+      violationCount: violations.length,
+      status: violations.length === 0 && reviewed.length > 0 ? "passed" : "failed",
+      reviewed,
+    };
+  },
+
+  validateBackupDeletionProtection(request) {
+    const approvals = Array.isArray(request?.approvals) ? request.approvals : [];
+    const uniqueApprovers = new Set(approvals.map((approval) => approval?.approverId).filter(Boolean));
+    const operationProtected = backupDeletionProtectionPolicy.protectedOperations.includes(request?.operation);
+    const approvalSatisfied = uniqueApprovers.size >= backupDeletionProtectionPolicy.requiredApprovals;
+    const legalHoldSatisfied = !backupDeletionProtectionPolicy.requireLegalHoldCheck || request?.legalHoldClear === true;
+    const integrityAuditSatisfied = !backupDeletionProtectionPolicy.requireRecentIntegrityAudit || request?.recentIntegrityAuditStatus === "passed";
+    const protectedFromDeletion = operationProtected && (!approvalSatisfied || !legalHoldSatisfied || !integrityAuditSatisfied);
+    return {
+      schema: backupDeletionProtectionValidationFormatVersion,
+      validatedAt: new Date().toISOString(),
+      policy: backupDeletionProtectionPolicy,
+      backupId: request?.backupId || "unknown",
+      operation: request?.operation || "unknown",
+      operationProtected,
+      approvalCount: uniqueApprovers.size,
+      approvalSatisfied,
+      legalHoldSatisfied,
+      integrityAuditSatisfied,
+      protectedFromDeletion,
+      status: operationProtected && approvalSatisfied && legalHoldSatisfied && integrityAuditSatisfied ? "approved" : "blocked",
+    };
+  },
+
+  async archiveBackupComplianceEvidence(evidencePackage) {
+    const evidenceItems = Array.isArray(evidencePackage?.items) ? evidencePackage.items : [];
+    const presentTypes = new Set(evidenceItems.map((item) => item?.type).filter(Boolean));
+    const missingEvidenceTypes = backupComplianceEvidencePolicy.requiredEvidenceTypes.filter((type) => !presentTypes.has(type));
+    const archiveManifest = {
+      schema: backupComplianceEvidenceArchiveFormatVersion,
+      archivedAt: new Date().toISOString(),
+      policy: backupComplianceEvidencePolicy,
+      archiveId: evidencePackage?.archiveId || `backup-compliance-${Date.now()}`,
+      immutable: evidencePackage?.immutable === true,
+      retentionUntil: evidencePackage?.retentionUntil || "N/A",
+      evidenceCount: evidenceItems.length,
+      missingEvidenceTypes,
+      evidenceItems: evidenceItems.map((item) => ({
+        type: item?.type || "unknown",
+        schema: item?.schema || "N/A",
+        checksum: item?.checksum || "N/A",
+      })),
+    };
+    archiveManifest.checksum = await sha256Hex(stableStringify({
+      archiveId: archiveManifest.archiveId,
+      immutable: archiveManifest.immutable,
+      retentionUntil: archiveManifest.retentionUntil,
+      evidenceItems: archiveManifest.evidenceItems,
+    }));
+    archiveManifest.status = archiveManifest.immutable && missingEvidenceTypes.length === 0 ? "archived" : "incomplete";
+    return archiveManifest;
   },
 
   async importBackup(backup, options = {}) {

@@ -120,6 +120,44 @@ try {
     const failureClear = module.indexedDbBackupRepository.validateBackupFailureAlert([{ status: "failure" }, { status: "success" }]);
     const integrityAudit = await module.indexedDbBackupRepository.runBackupIntegrityPeriodicAudit([backup, encrypted]);
     const integrityAuditFailed = await module.indexedDbBackupRepository.runBackupIntegrityPeriodicAudit([backup, { ...encrypted, checksum: "" }]);
+    const accessPermissionAudit = module.indexedDbBackupRepository.auditBackupAccessPermissions([
+      { principalId: "ops-1", role: "backup-admin", mfaEnabled: true, operations: ["backup-export", "backup-restore"] },
+      { principalId: "audit-1", role: "compliance-auditor", mfaEnabled: true, operations: ["backup-evidence-archive"] },
+    ]);
+    const accessPermissionViolation = module.indexedDbBackupRepository.auditBackupAccessPermissions([
+      { principalId: "support-1", role: "support-agent", mfaEnabled: false, operations: ["backup-delete"] },
+    ]);
+    const deletionProtectionBlocked = module.indexedDbBackupRepository.validateBackupDeletionProtection({
+      backupId: "daily-2026-07-20",
+      operation: "backup-delete",
+      approvals: [{ approverId: "owner-1" }],
+      legalHoldClear: false,
+      recentIntegrityAuditStatus: "passed",
+    });
+    const deletionProtectionApproved = module.indexedDbBackupRepository.validateBackupDeletionProtection({
+      backupId: "daily-2026-07-20",
+      operation: "backup-delete",
+      approvals: [{ approverId: "owner-1" }, { approverId: "risk-1" }],
+      legalHoldClear: true,
+      recentIntegrityAuditStatus: "passed",
+    });
+    const complianceEvidenceArchive = await module.indexedDbBackupRepository.archiveBackupComplianceEvidence({
+      archiveId: "backup-compliance-2026-07-20",
+      immutable: true,
+      retentionUntil: "2033-07-20T00:00:00.000Z",
+      items: [
+        { type: "access-permission-audit", schema: accessPermissionAudit.schema, checksum: "access-checksum" },
+        { type: "deletion-protection-validation", schema: deletionProtectionApproved.schema, checksum: "delete-checksum" },
+        { type: "integrity-audit", schema: integrityAudit.schema, checksum: "integrity-checksum" },
+        { type: "retention-policy", schema: backup.retentionPolicy.schema, checksum: "retention-checksum" },
+        { type: "restore-audit", schema: "atlas-enterprise.restore-audit-report.v1", checksum: "restore-checksum" },
+      ],
+    });
+    const complianceEvidenceIncomplete = await module.indexedDbBackupRepository.archiveBackupComplianceEvidence({
+      archiveId: "backup-compliance-incomplete",
+      immutable: false,
+      items: [{ type: "access-permission-audit", schema: accessPermissionAudit.schema, checksum: "access-checksum" }],
+    });
     const tamperedEnvelope = { ...encrypted, encryptedPayload: encrypted.encryptedPayload.replace(/.$/, encrypted.encryptedPayload.endsWith("A") ? "B" : "A") };
 
     const failures = {};
@@ -174,6 +212,12 @@ try {
       failureClear,
       integrityAudit,
       integrityAuditFailed,
+      accessPermissionAudit,
+      accessPermissionViolation,
+      deletionProtectionBlocked,
+      deletionProtectionApproved,
+      complianceEvidenceArchive,
+      complianceEvidenceIncomplete,
       plaintextHasChecksum: Boolean(backup.checksum),
       plaintextHasRetentionPolicy: Boolean(backup.retentionPolicy),
       dryRun: await module.indexedDbBackupRepository.dryRunImport({ ...backup, databaseVersion: 2, checksum: undefined }),
@@ -216,6 +260,15 @@ try {
   assert(runtimeChecks.integrityAudit.schema === "atlas-enterprise.backup-integrity-periodic-audit.v1", "backup integrity periodic audit schema is missing");
   assert(runtimeChecks.integrityAudit.status === "passed" && runtimeChecks.integrityAudit.checkedCount === 2, "backup integrity audit did not pass valid backups");
   assert(runtimeChecks.integrityAuditFailed.status === "failed", "backup integrity audit did not fail invalid backup");
+  assert(runtimeChecks.accessPermissionAudit.schema === "atlas-enterprise.backup-access-permission-audit.v1", "backup access permission audit schema is missing");
+  assert(runtimeChecks.accessPermissionAudit.status === "passed" && runtimeChecks.accessPermissionAudit.violationCount === 0, "backup access permission audit did not pass authorized users");
+  assert(runtimeChecks.accessPermissionViolation.status === "failed" && runtimeChecks.accessPermissionViolation.violationCount === 1, "backup access permission audit did not fail unauthorized users");
+  assert(runtimeChecks.deletionProtectionBlocked.schema === "atlas-enterprise.backup-deletion-protection-validation.v1", "backup deletion protection validation schema is missing");
+  assert(runtimeChecks.deletionProtectionBlocked.status === "blocked" && runtimeChecks.deletionProtectionBlocked.protectedFromDeletion, "backup deletion protection did not block unsafe delete");
+  assert(runtimeChecks.deletionProtectionApproved.status === "approved" && !runtimeChecks.deletionProtectionApproved.protectedFromDeletion, "backup deletion protection did not approve controlled delete");
+  assert(runtimeChecks.complianceEvidenceArchive.schema === "atlas-enterprise.backup-compliance-evidence-archive.v1", "backup compliance evidence archive schema is missing");
+  assert(runtimeChecks.complianceEvidenceArchive.status === "archived" && runtimeChecks.complianceEvidenceArchive.evidenceCount === 5, "backup compliance evidence archive did not seal complete evidence");
+  assert(runtimeChecks.complianceEvidenceIncomplete.status === "incomplete", "backup compliance evidence archive did not flag incomplete evidence");
   assert(runtimeChecks.dryRun.migrationPlan.status === "migration-required", "backup version migration regression did not report migration");
   assert(runtimeChecks.dryRun.migrationSteps.includes("database-2-to-3"), "backup version migration step is missing");
   assert(runtimeChecks.plaintextHasChecksum && runtimeChecks.plaintextHasRetentionPolicy, "plaintext backup downgrade risk controls are missing");
