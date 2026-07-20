@@ -3,7 +3,7 @@
   "title": "Backup Governance and Testing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/backup-automation/governance-and-testing.md",
-  "sourceHash": "eae1f20c99f5605e6ac713b059cd4f831f2b903b0098b72b0e53bf243f93fed6",
+  "sourceHash": "6ceafc72455e55f18857eb171f1e078862e59efde82c38945141063d7fff47a0",
   "headings": [
     {
       "level": 1,
@@ -23,9 +23,21 @@
     },
     {
       "level": 2,
+      "text": "Backup Access Permission Audit"
+    },
+    {
+      "level": 2,
+      "text": "Backup Deletion Protection Validation"
+    },
+    {
+      "level": 2,
+      "text": "Backup Compliance Evidence Archiving"
+    },
+    {
+      "level": 2,
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Backup Governance and Testing\n\n## Purpose\nThis split document isolates backup governance, security, audit, retention, restore verification, testing, and edge cases from the parent BackupAutomation specification.\n\n## Source\n- Parent specification: [BackupAutomation](../backup-automation.md)\n\n## Governance\nGovernance covers encryption, access control, retention, restore readiness, audit, storage protection, and failure recovery.\n\n## Testing\nTesting covers backup creation, integrity validation, retention, restore metadata, permission checks, failure recovery, and edge cases.\n\n",
+  "bodyMarkdown": "# Backup Governance and Testing\n\n## Purpose\nThis split document isolates backup governance, security, audit, retention, restore verification, testing, and edge cases from the parent BackupAutomation specification.\n\n## Source\n- Parent specification: [BackupAutomation](../backup-automation.md)\n\n## Governance\nGovernance covers encryption, access control, retention, restore readiness, audit, storage protection, and failure recovery.\n\n## Backup Access Permission Audit\nBackup access permission audit verifies that backup export, encrypted export, restore, delete, and evidence archive operations are limited to `backup-admin` and `compliance-auditor` roles with MFA enabled. Any unapproved role, missing MFA state, or unknown backup operation fails the audit and must be recorded as `atlas-enterprise.backup-access-permission-audit.v1` evidence.\n\n## Backup Deletion Protection Validation\nBackup deletion protection validation treats backup delete, purge, and retention prune as protected operations. Protected deletion is blocked unless two unique approvals are present, legal hold is clear, and the latest integrity audit passed. The validation report uses `atlas-enterprise.backup-deletion-protection-validation.v1` so unsafe deletion attempts remain auditable.\n\n## Backup Compliance Evidence Archiving\nBackup compliance evidence archiving seals access permission audit, deletion protection validation, integrity audit, retention policy, and restore audit evidence into an immutable archive with a seven-year retention expectation. Missing evidence or a mutable archive marks `atlas-enterprise.backup-compliance-evidence-archive.v1` incomplete.\n\n## Testing\nTesting covers backup creation, integrity validation, retention, restore metadata, permission checks, failure recovery, and edge cases.\n",
   "references": []
 }

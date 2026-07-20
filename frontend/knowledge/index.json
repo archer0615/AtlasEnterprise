@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-20T05:31:39.067Z",
-  "buildId": "2743be8b292f",
+  "generatedAt": "2026-07-20T08:50:25.229Z",
+  "buildId": "e0835f1b1d33",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -2160,7 +2160,7 @@
       "title": "Backup Governance and Testing",
       "category": "framework",
       "path": "knowledge/framework/automations/backup-automation/governance-and-testing.md",
-      "sourceHash": "eae1f20c99f5605e6ac713b059cd4f831f2b903b0098b72b0e53bf243f93fed6",
+      "sourceHash": "6ceafc72455e55f18857eb171f1e078862e59efde82c38945141063d7fff47a0",
       "summary": "# Backup Governance and Testing ## Purpose This split document isolates backup governance, security, audit, retention, restore verification, testing, and edge cases from the parent BackupAutomation specification. ## Source - Parent specif"
     },
     {
@@ -3320,7 +3320,7 @@
       "title": "Encrypted Backup Spec",
       "category": "product",
       "path": "knowledge/product/encrypted-backup-spec.md",
-      "sourceHash": "3bd16530b86d97d8beb440bdd6e15cc76c34f37cf78e7cd368a7244a25422728",
+      "sourceHash": "e12439348b3c73796ab824d1de06aad9c1d7680da7276cb01c7f74f00dd7f7ac",
       "summary": "# Encrypted Backup Spec Document Path: knowledge/product/encrypted-backup-spec.md Document Type: Atlas Enterprise Canonical Specification Version: 1.3 Status: Canonical Specification Domain: Product Capability Bounded Context: Data Safety"
     },
     {
