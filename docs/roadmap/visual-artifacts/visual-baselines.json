@@ -13,7 +13,7 @@
         "width": 1440,
         "height": 2408
       },
-      "sha256": "555fd8696bd760cfcd8e2ab0c62cffc28e2c742da822690a39be9493395ca81b"
+      "sha256": "356809beaf5951942739865a73d3603dc0151bbc5b0f223a8e79d1cfdcace3b5"
     },
     {
       "name": "playwright-mobile-dashboard.png",
@@ -26,7 +26,7 @@
         "width": 390,
         "height": 5117
       },
-      "sha256": "a52365e7f3d89631d3c0c5b7127020d4dbb98f8d8c3ddc88fccc5ffba9f20938"
+      "sha256": "efa694cb05bf1fd05f067aa5bdd4c77de5f887da37bca13734e6683bdf87da4c"
     }
   ]
 }
