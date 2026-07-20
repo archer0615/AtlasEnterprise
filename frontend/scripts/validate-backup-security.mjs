@@ -108,6 +108,11 @@ try {
     const rotation = await module.indexedDbBackupRepository.rotateEncryptedBackupKey(encrypted, "correct-passphrase", "rotated-passphrase");
     const rotatedBackup = await module.indexedDbBackupRepository.decryptEncryptedBackup(rotation.envelope, "rotated-passphrase");
     const disasterRecoveryDrill = await module.indexedDbBackupRepository.runDisasterRecoveryDrill(backup);
+    const scheduleHealthy = module.indexedDbBackupRepository.validateBackupScheduleHealth({ exportedAt: new Date().toISOString() });
+    const scheduleFailed = module.indexedDbBackupRepository.validateBackupScheduleHealth({ exportedAt: "2026-01-01T00:00:00.000Z" }, new Date("2026-01-04T01:00:00.000Z"));
+    const offsiteCopy = await module.indexedDbBackupRepository.validateOffsiteCopy(encrypted, { ...encrypted });
+    const offsiteMismatch = await module.indexedDbBackupRepository.validateOffsiteCopy(encrypted, { ...encrypted, checksum: "mismatch" });
+    const rtoReport = await module.indexedDbBackupRepository.validateRecoveryTimeObjective(backup, 5000);
     const tamperedEnvelope = { ...encrypted, encryptedPayload: encrypted.encryptedPayload.replace(/.$/, encrypted.encryptedPayload.endsWith("A") ? "B" : "A") };
 
     const failures = {};
@@ -150,6 +155,11 @@ try {
       rotatedBackupValid: await module.indexedDbBackupRepository.validateBackup(rotatedBackup),
       rotatedChecksumMatches: rotatedBackup.checksum === backup.checksum,
       disasterRecoveryDrill,
+      scheduleHealthy,
+      scheduleFailed,
+      offsiteCopy,
+      offsiteMismatch,
+      rtoReport,
       plaintextHasChecksum: Boolean(backup.checksum),
       plaintextHasRetentionPolicy: Boolean(backup.retentionPolicy),
       dryRun: await module.indexedDbBackupRepository.dryRunImport({ ...backup, databaseVersion: 2, checksum: undefined }),
@@ -174,6 +184,14 @@ try {
   assert(runtimeChecks.disasterRecoveryDrill.readiness === "ready", "disaster recovery drill did not report ready");
   assert(runtimeChecks.disasterRecoveryDrill.mutationFree, "disaster recovery drill mutated local data");
   assert(runtimeChecks.disasterRecoveryDrill.dryRun.storePlan.length === 4, "disaster recovery drill did not cover all backup stores");
+  assert(runtimeChecks.scheduleHealthy.schema === "atlas-enterprise.backup-schedule-health-report.v1", "backup schedule health report schema is missing");
+  assert(runtimeChecks.scheduleHealthy.status === "healthy", "fresh backup schedule did not report healthy");
+  assert(runtimeChecks.scheduleFailed.status === "failed", "stale backup schedule did not report failed");
+  assert(runtimeChecks.offsiteCopy.schema === "atlas-enterprise.backup-offsite-copy-report.v1", "backup offsite copy report schema is missing");
+  assert(runtimeChecks.offsiteCopy.status === "verified", "matching offsite backup copy did not verify");
+  assert(runtimeChecks.offsiteMismatch.status === "mismatch", "mismatched offsite backup copy was not rejected");
+  assert(runtimeChecks.rtoReport.schema === "atlas-enterprise.backup-rto-report.v1", "backup RTO report schema is missing");
+  assert(runtimeChecks.rtoReport.status === "within-target", `backup RTO validation exceeded target: ${runtimeChecks.rtoReport.durationMs}ms`);
   assert(runtimeChecks.dryRun.migrationPlan.status === "migration-required", "backup version migration regression did not report migration");
   assert(runtimeChecks.dryRun.migrationSteps.includes("database-2-to-3"), "backup version migration step is missing");
   assert(runtimeChecks.plaintextHasChecksum && runtimeChecks.plaintextHasRetentionPolicy, "plaintext backup downgrade risk controls are missing");

@@ -66,6 +66,12 @@ assert(runtime.includes("rotateEncryptedBackupKey"), "Backup key rotation workfl
 assert(runtime.includes("validateRestoreAuditReport"), "Backup restore audit report validation is missing");
 assert(runtime.includes("backup-disaster-recovery-drill.v1"), "Backup disaster recovery drill report schema is missing");
 assert(runtime.includes("backup-key-rotation-report.v1"), "Backup key rotation report schema is missing");
+assert(runtime.includes("validateBackupScheduleHealth"), "Backup schedule health validation is missing");
+assert(runtime.includes("validateOffsiteCopy"), "Backup offsite copy validation is missing");
+assert(runtime.includes("validateRecoveryTimeObjective"), "Backup RTO validation is missing");
+assert(runtime.includes("backup-schedule-health-report.v1"), "Backup schedule health report schema is missing");
+assert(runtime.includes("backup-offsite-copy-report.v1"), "Backup offsite copy report schema is missing");
+assert(runtime.includes("backup-rto-report.v1"), "Backup RTO report schema is missing");
 assert(runtime.includes("scenarioIds.has"), "Backup duplicate scenario ID validation is missing");
 assert(runtime.includes("scenario.name.trim().length >= 2"), "Backup scenario name validation is missing");
 assert(runtime.includes("indexedDbMigrationRepository"), "Migration repository adapter is missing");

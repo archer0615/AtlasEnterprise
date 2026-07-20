@@ -69,6 +69,9 @@ Encrypted backup files must include:
 - Backup disaster recovery drill must validate the same payload and produce a mutation-free readiness report before live restore.
 - Restore audit report validation must verify schema, timestamp, conflict policy, store counts, and restored record totals.
 - Backup key rotation must decrypt with the current passphrase, re-encrypt with the next passphrase, and preserve the plaintext checksum.
+- Backup schedule health check must report healthy, warning, or failed based on the last successful backup timestamp.
+- Backup offsite copy validation must compare encrypted envelope metadata and payload checksum before marking the copy verified.
+- Backup RTO validation must measure drill duration against the configured recovery time target.
 
 ## Validation Matrix
 
@@ -83,6 +86,9 @@ Encrypted backup files must include:
 | Disaster recovery drill | Dry run completes and proves no local mutation. |
 | Restore audit report | Report validates before being accepted as recovery evidence. |
 | Key rotation | Old passphrase no longer opens rotated envelope; new passphrase restores the same payload checksum. |
+| Schedule health check | Fresh backup reports healthy; stale backup reports warning or failed. |
+| Offsite copy validation | Matching encrypted copy verifies; checksum mismatch reports mismatch. |
+| RTO validation | Drill duration is measured and compared with target. |
 
 ## Current Implementation Mapping
 
@@ -96,6 +102,9 @@ Encrypted backup files must include:
 - Current runtime can run a mutation-free backup disaster recovery drill and return a readiness report.
 - Current runtime validates restore audit report structure before accepting restore evidence.
 - Current runtime can rotate encrypted backup keys while preserving the plaintext payload checksum.
+- Current runtime validates backup schedule health with a 24-hour interval policy, 30-hour warning threshold, and 48-hour failure threshold.
+- Current runtime validates offsite encrypted copy metadata and checksum match before reporting the copy verified.
+- Current runtime validates recovery time objective by timing a disaster recovery drill against the configured target.
 - Current runtime validates scenario IDs, names, scores, and status before restore.
 - Current runtime verifies checksum when checksum metadata is present.
 - Plaintext export remains available for local validation and fixture compatibility.

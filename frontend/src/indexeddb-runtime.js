@@ -5,6 +5,19 @@ const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1";
 const keyRotationFormatVersion = "atlas-enterprise.backup-key-rotation-report.v1";
 const disasterRecoveryDrillFormatVersion = "atlas-enterprise.backup-disaster-recovery-drill.v1";
 const restoreAuditReportFormatVersion = "atlas-enterprise.restore-audit-report.v1";
+const backupScheduleHealthFormatVersion = "atlas-enterprise.backup-schedule-health-report.v1";
+const backupOffsiteCopyFormatVersion = "atlas-enterprise.backup-offsite-copy-report.v1";
+const backupRtoFormatVersion = "atlas-enterprise.backup-rto-report.v1";
+const backupSchedulePolicy = {
+  schema: "atlas-enterprise.backup-schedule-policy.v1",
+  intervalHours: 24,
+  warningAfterHours: 30,
+  failureAfterHours: 48,
+};
+const backupRtoPolicy = {
+  schema: "atlas-enterprise.backup-rto-policy.v1",
+  targetMs: 5000,
+};
 const supportedBackupDatabaseVersions = [2, databaseVersion];
 const backupRetentionPolicy = {
   schema: "atlas-enterprise.backup-retention-policy.v1",
@@ -535,6 +548,59 @@ export const indexedDbBackupRepository = {
     if (!report.restoredRecords || typeof report.restoredRecords !== "object") return false;
     return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries]
       .every((storeName) => Number.isFinite(report.restoredRecords[storeName] || 0));
+  },
+
+  validateBackupScheduleHealth(lastBackupMetadata, now = new Date()) {
+    const exportedAt = Date.parse(lastBackupMetadata?.exportedAt || lastBackupMetadata?.exportTimestamp || "");
+    const ageHours = Number.isNaN(exportedAt) ? Infinity : (now.getTime() - exportedAt) / (60 * 60 * 1000);
+    const status = ageHours <= backupSchedulePolicy.warningAfterHours
+      ? "healthy"
+      : (ageHours <= backupSchedulePolicy.failureAfterHours ? "warning" : "failed");
+    return {
+      schema: backupScheduleHealthFormatVersion,
+      checkedAt: now.toISOString(),
+      policy: backupSchedulePolicy,
+      lastBackupAt: Number.isNaN(exportedAt) ? "N/A" : new Date(exportedAt).toISOString(),
+      ageHours: Number.isFinite(ageHours) ? Number(ageHours.toFixed(2)) : null,
+      status,
+      due: status !== "healthy",
+    };
+  },
+
+  async validateOffsiteCopy(sourceEnvelope, offsiteEnvelope) {
+    const sourceChecksum = sourceEnvelope?.checksum || "";
+    const offsiteChecksum = offsiteEnvelope?.checksum || "";
+    const metadataMatches = sourceEnvelope?.backupFormatVersion === offsiteEnvelope?.backupFormatVersion
+      && sourceEnvelope?.databaseSchemaVersion === offsiteEnvelope?.databaseSchemaVersion
+      && sourceEnvelope?.payloadEncoding === offsiteEnvelope?.payloadEncoding;
+    return {
+      schema: backupOffsiteCopyFormatVersion,
+      checkedAt: new Date().toISOString(),
+      sourceBackupFormatVersion: sourceEnvelope?.backupFormatVersion || "N/A",
+      offsiteBackupFormatVersion: offsiteEnvelope?.backupFormatVersion || "N/A",
+      checksumMatches: Boolean(sourceChecksum) && sourceChecksum === offsiteChecksum,
+      metadataMatches,
+      encryptedPayloadPresent: Boolean(offsiteEnvelope?.encryptedPayload),
+      status: Boolean(sourceChecksum) && sourceChecksum === offsiteChecksum && metadataMatches && Boolean(offsiteEnvelope?.encryptedPayload)
+        ? "verified"
+        : "mismatch",
+    };
+  },
+
+  async validateRecoveryTimeObjective(backup, targetMs = backupRtoPolicy.targetMs) {
+    const startedAt = performance.now();
+    const drill = await this.runDisasterRecoveryDrill(backup);
+    const durationMs = Math.round(performance.now() - startedAt);
+    return {
+      schema: backupRtoFormatVersion,
+      checkedAt: new Date().toISOString(),
+      policy: { ...backupRtoPolicy, targetMs },
+      durationMs,
+      targetMet: durationMs <= targetMs,
+      readiness: drill.readiness,
+      status: durationMs <= targetMs && drill.readiness === "ready" ? "within-target" : "outside-target",
+      drill,
+    };
   },
 
   async importBackup(backup, options = {}) {
