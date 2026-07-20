@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -38,8 +39,8 @@ for (const item of requiredItems) {
   assert(report.includes(item), `Release operations report missing item: ${item}`);
 }
 
-assert(packageJson.scripts.validate.includes("validate:release-operations"), "Full validation must include release operations validation");
-assert(packageJson.scripts.validate.includes("validate:release-acceptance"), "Full validation must include release acceptance validation");
+await assertValidationProfileIncludes(root, "validate:release-operations", assert);
+await assertValidationProfileIncludes(root, "validate:release-acceptance", assert);
 assert(requiredItems.length === 20, "Release operations validation must cover exactly 20 items");
 assert(acceptance.includes("PWA Release Acceptance Twenty Items Report"), "Release acceptance report is missing");
 

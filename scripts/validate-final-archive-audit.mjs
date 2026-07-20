@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -39,7 +40,7 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:final-archive-audit"], "Final archive audit validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:final-archive-audit"), "Full validation must include final archive audit validation");
+await assertValidationProfileIncludes(root, "validate:final-archive-audit", assert);
 assert(requiredItems.length === 20, "Final archive audit validation must cover exactly 20 items");
 assert(retirementLock.includes("PWA Archive Retirement Lock Twenty Items Report"), "Archive retirement lock report is missing");
 

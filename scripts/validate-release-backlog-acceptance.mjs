@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -39,7 +40,7 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:release-backlog-acceptance"], "Release backlog acceptance validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:release-backlog-acceptance"), "Full validation must include release backlog acceptance validation");
+await assertValidationProfileIncludes(root, "validate:release-backlog-acceptance", assert);
 assert(requiredItems.length === 20, "Release backlog acceptance validation must cover exactly 20 items");
 assert(candidate.includes("PWA Candidate Readiness Twenty Items Report"), "Candidate readiness report is missing");
 

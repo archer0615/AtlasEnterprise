@@ -37,17 +37,8 @@ jobs:
       - name: Build static PWA artifacts
         run: npm run build
 
-      - name: Validate repository
-        run: npm run validate
-
-      - name: Validate PWA
-        run: npm run validate:pwa
-
-      - name: Validate offline cache
-        run: npm run validate:offline
-
-      - name: Validate GitHub Pages deployment
-        run: npm run validate:deployment
+      - name: Validate release profile
+        run: npm run validate:release
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

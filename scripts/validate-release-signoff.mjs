@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -40,8 +41,8 @@ for (const item of requiredItems) {
 
 assert(packageJson.scripts["validate:release-signoff"], "Release signoff validation script is missing");
 assert(packageJson.scripts["validate:archive-closure"], "Archive closure validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:release-signoff"), "Full validation must include release signoff validation");
-assert(packageJson.scripts.validate.includes("validate:archive-closure"), "Full validation must include archive closure validation");
+await assertValidationProfileIncludes(root, "validate:release-signoff", assert);
+await assertValidationProfileIncludes(root, "validate:archive-closure", assert);
 assert(requiredItems.length === 20, "Release signoff validation must cover exactly 20 items");
 assert(archiveClosure.includes("PWA Archive Closure Twenty Items Report"), "Archive closure report is missing");
 

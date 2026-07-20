@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -24,8 +25,8 @@ const uniqueSteps = new Set(steps);
 
 assert(packageJson.scripts["validate:long-task-governance"], "Long task governance validation script is missing");
 assert(packageJson.scripts["validate:release-operations"], "Release operations validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:long-task-governance"), "Full validation must include long task governance");
-assert(packageJson.scripts.validate.includes("validate:release-operations"), "Full validation must include release operations validation");
+await assertValidationProfileIncludes(root, "validate:long-task-governance", assert);
+await assertValidationProfileIncludes(root, "validate:release-operations", assert);
 assert(steps.length === 20, `Long task must contain exactly 20 steps, found ${steps.length}`);
 assert(uniqueSteps.size === steps.length, "Long task contains duplicate steps");
 assert(steps[0] === "validate", "Long task must start with full validation");

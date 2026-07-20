@@ -1,0 +1,185 @@
+{
+  "schema": "atlas-enterprise.specification-runtime-traceability.v1",
+  "updatedAt": "2026-07-20",
+  "runtimeBoundary": {
+    "canonicalSource": "knowledge/**/*.md",
+    "generatedOutput": "frontend/knowledge/**",
+    "v1Runtime": [
+      "Static PWA",
+      "Browser Runtime",
+      "Offline-first Service Worker",
+      "IndexedDB Persistence",
+      "Generated Knowledge JSON",
+      "Local Calculation Runtime",
+      "Simulator Fixtures"
+    ],
+    "futureOptionalOnly": [
+      "backend/",
+      "database/",
+      "ai/",
+      "ASP.NET Core",
+      "PostgreSQL",
+      "EF Core",
+      "Server REST API",
+      "Cloud Database",
+      "Authentication Server",
+      "Multi-device Sync"
+    ]
+  },
+  "items": [
+    {
+      "domain": "User",
+      "specification": ["knowledge/catalog/entity-catalog.md", "knowledge/security/permission-framework.md"],
+      "runtimeModel": ["frontend/src/main.js"],
+      "repository": ["frontend/src/indexeddb-runtime.js"],
+      "serviceOrProjection": ["frontend/src/main.js"],
+      "fixture": ["frontend/fixtures/dashboard-snapshots.json"],
+      "ui": ["frontend/index.html", "frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-frontend.mjs", "frontend/scripts/test-local-repository-adapters.mjs"],
+      "status": "Implemented for local profile/settings; server identity is Not Implemented"
+    },
+    {
+      "domain": "Asset",
+      "specification": ["knowledge/entity/Asset.md", "knowledge/catalog/entity-catalog.md"],
+      "runtimeModel": ["frontend/fixtures/dashboard-snapshots.json"],
+      "repository": [],
+      "serviceOrProjection": ["frontend/src/main.js"],
+      "fixture": ["frontend/fixtures/dashboard-snapshots.json"],
+      "ui": ["frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-frontend.mjs"],
+      "status": "Implemented through dashboard fixture projection"
+    },
+    {
+      "domain": "Liability",
+      "specification": ["knowledge/entity/Liability.md", "knowledge/entity/liability/identity-and-lifecycle.md"],
+      "runtimeModel": ["frontend/fixtures/dashboard-snapshots.json"],
+      "repository": [],
+      "serviceOrProjection": ["frontend/src/main.js"],
+      "fixture": ["frontend/fixtures/dashboard-snapshots.json"],
+      "ui": ["frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-frontend.mjs"],
+      "status": "Implemented through dashboard and loan-facing fixture projection"
+    },
+    {
+      "domain": "Loan/Mortgage",
+      "specification": ["knowledge/entity/Mortgage.md", "knowledge/entity/loan/amortization-spec.md", "knowledge/workflow/loan-workflow.md"],
+      "runtimeModel": ["frontend/src/main.js"],
+      "repository": [],
+      "serviceOrProjection": ["frontend/src/main.js", "simulator/scripts/run-simulator.mjs"],
+      "fixture": ["simulator/fixtures/", "frontend/fixtures/scenario-results.json"],
+      "ui": ["frontend/index.html", "frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-frontend.mjs", "simulator/scripts/validate-fixtures.mjs"],
+      "status": "Implemented for local calculation and simulator fixtures"
+    },
+    {
+      "domain": "Income",
+      "specification": ["knowledge/catalog/domain-model-catalog.md", "knowledge/supporting/cashflow.md"],
+      "runtimeModel": ["frontend/fixtures/dashboard-snapshots.json"],
+      "repository": [],
+      "serviceOrProjection": ["simulator/scripts/run-simulator.mjs"],
+      "fixture": ["simulator/fixtures/"],
+      "ui": [],
+      "test": ["simulator/scripts/validate-fixtures.mjs"],
+      "status": "Implemented in fixtures; no standalone UI repository"
+    },
+    {
+      "domain": "Expense",
+      "specification": ["knowledge/catalog/domain-model-catalog.md", "knowledge/supporting/cashflow.md"],
+      "runtimeModel": ["frontend/fixtures/dashboard-snapshots.json"],
+      "repository": [],
+      "serviceOrProjection": ["simulator/scripts/run-simulator.mjs"],
+      "fixture": ["simulator/fixtures/"],
+      "ui": [],
+      "test": ["simulator/scripts/validate-fixtures.mjs"],
+      "status": "Implemented in fixtures; no standalone UI repository"
+    },
+    {
+      "domain": "CashFlow",
+      "specification": ["knowledge/supporting/cashflow.md", "docs/specification/08A-CashFlowEngine-Architecture.md", "docs/specification/08B-CashFlowEngine-Formula.md"],
+      "runtimeModel": ["frontend/fixtures/dashboard-snapshots.json"],
+      "repository": [],
+      "serviceOrProjection": ["simulator/scripts/run-simulator.mjs"],
+      "fixture": ["simulator/fixtures/", "frontend/fixtures/scenario-results.json"],
+      "ui": ["frontend/src/main.js"],
+      "test": ["simulator/scripts/validate-formula-registry.mjs", "simulator/scripts/validate-simulator-output.mjs"],
+      "status": "Implemented through simulator and dashboard projections"
+    },
+    {
+      "domain": "Goal",
+      "specification": ["knowledge/entity/Goal.md", "knowledge/workflow/goal-workflow.md", "knowledge/reporting/goal-dashboard.md"],
+      "runtimeModel": ["frontend/fixtures/dashboard-snapshots.json"],
+      "repository": [],
+      "serviceOrProjection": ["frontend/src/main.js"],
+      "fixture": ["frontend/fixtures/dashboard-snapshots.json"],
+      "ui": ["frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-frontend.mjs"],
+      "status": "Implemented through dashboard fixture projection"
+    },
+    {
+      "domain": "Portfolio",
+      "specification": ["knowledge/entity/Portfolio.md", "knowledge/supporting/portfolio.md", "knowledge/workflow/portfolio-workflow.md"],
+      "runtimeModel": ["frontend/fixtures/dashboard-snapshots.json", "frontend/reports/export-report-sample.json"],
+      "repository": [],
+      "serviceOrProjection": ["frontend/src/main.js"],
+      "fixture": ["frontend/fixtures/dashboard-snapshots.json"],
+      "ui": ["frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-portfolio-reporting-contract.mjs"],
+      "status": "Implemented for report projection and export"
+    },
+    {
+      "domain": "Position",
+      "specification": ["knowledge/entity/Position.md", "knowledge/supporting/portfolio/holdings-and-allocation.md"],
+      "runtimeModel": ["frontend/fixtures/dashboard-snapshots.json"],
+      "repository": [],
+      "serviceOrProjection": ["frontend/src/main.js"],
+      "fixture": ["frontend/fixtures/dashboard-snapshots.json"],
+      "ui": ["frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-portfolio-reporting-contract.mjs"],
+      "status": "Implemented through portfolio fixture/report projection"
+    },
+    {
+      "domain": "Scenario",
+      "specification": ["knowledge/catalog/system-modules/scenario-engine.md", "knowledge/workflow/decision-workflow.md"],
+      "runtimeModel": ["frontend/src/main.js", "frontend/src/indexeddb-runtime.js"],
+      "repository": ["indexedDbScenarioRepository"],
+      "serviceOrProjection": ["frontend/src/main.js", "simulator/scripts/run-simulator.mjs"],
+      "fixture": ["simulator/fixtures/", "frontend/fixtures/scenario-results.json"],
+      "ui": ["frontend/index.html", "frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-dashboard-fixture-drift.mjs", "frontend/scripts/validate-runtime-fixture-drift.mjs", "simulator/scripts/validate-fixtures.mjs"],
+      "status": "Implemented"
+    },
+    {
+      "domain": "Decision",
+      "specification": ["knowledge/workflow/decision-workflow.md", "knowledge/supporting/decision-evaluation.md"],
+      "runtimeModel": ["frontend/src/main.js", "frontend/src/indexeddb-runtime.js"],
+      "repository": ["indexedDbRecommendationDecisionRepository", "indexedDbAuditRepository"],
+      "serviceOrProjection": ["frontend/src/main.js"],
+      "fixture": ["frontend/fixtures/scenario-results.json"],
+      "ui": ["frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-browser-workflow.mjs", "frontend/scripts/validate-frontend.mjs"],
+      "status": "Implemented for local recommendation decisions"
+    },
+    {
+      "domain": "Recommendation",
+      "specification": ["knowledge/entity/recommendation/lifecycle-and-execution.md", "knowledge/supporting/recommendation-lifecycle.md"],
+      "runtimeModel": ["frontend/src/main.js", "frontend/src/indexeddb-runtime.js"],
+      "repository": ["indexedDbRecommendationDecisionRepository"],
+      "serviceOrProjection": ["frontend/src/main.js"],
+      "fixture": ["frontend/fixtures/scenario-results.json"],
+      "ui": ["frontend/src/main.js"],
+      "test": ["frontend/scripts/validate-browser-workflow.mjs", "simulator/scripts/validate-score-policy.mjs"],
+      "status": "Implemented for fixture-backed recommendations and local decisions"
+    },
+    {
+      "domain": "Notification",
+      "specification": ["knowledge/entity/Notification.md", "knowledge/framework/automations/notification-dispatch-automation.md"],
+      "runtimeModel": [],
+      "repository": [],
+      "serviceOrProjection": [],
+      "fixture": [],
+      "ui": [],
+      "test": [],
+      "status": "Not Implemented in v1 runtime; knowledge specification only"
+    }
+  ]
+}

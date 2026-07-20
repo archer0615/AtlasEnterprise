@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -39,7 +40,7 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:evidence-freeze-review"], "Evidence freeze review validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:evidence-freeze-review"), "Full validation must include evidence freeze review validation");
+await assertValidationProfileIncludes(root, "validate:evidence-freeze-review", assert);
 assert(requiredItems.length === 20, "Evidence freeze review validation must cover exactly 20 items");
 assert(backlog.includes("PWA Release Backlog Acceptance Twenty Items Report"), "Release backlog acceptance report is missing");
 

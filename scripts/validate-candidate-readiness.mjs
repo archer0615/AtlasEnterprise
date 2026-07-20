@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -38,7 +39,7 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:candidate-readiness"], "Candidate readiness validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:candidate-readiness"), "Full validation must include candidate readiness validation");
+await assertValidationProfileIncludes(root, "validate:candidate-readiness", assert);
 assert(requiredItems.length === 20, "Candidate readiness validation must cover exactly 20 items");
 
 console.log("Candidate readiness validation passed with 20 items.");

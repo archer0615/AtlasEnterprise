@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -40,8 +41,8 @@ for (const item of requiredItems) {
 
 assert(packageJson.scripts["validate:maintenance-readiness"], "Maintenance readiness validation script is missing");
 assert(packageJson.scripts["validate:next-release-planning"], "Next release planning validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:maintenance-readiness"), "Full validation must include maintenance readiness validation");
-assert(packageJson.scripts.validate.includes("validate:next-release-planning"), "Full validation must include next release planning validation");
+await assertValidationProfileIncludes(root, "validate:maintenance-readiness", assert);
+await assertValidationProfileIncludes(root, "validate:next-release-planning", assert);
 assert(requiredItems.length === 20, "Maintenance readiness validation must cover exactly 20 items");
 assert(nextRelease.includes("PWA Next Release Planning Twenty Items Report"), "Next release planning report is missing");
 

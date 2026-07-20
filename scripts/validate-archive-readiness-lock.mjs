@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -39,7 +40,7 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:archive-readiness-lock"], "Archive readiness lock validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:archive-readiness-lock"), "Full validation must include archive readiness lock validation");
+await assertValidationProfileIncludes(root, "validate:archive-readiness-lock", assert);
 assert(requiredItems.length === 20, "Archive readiness lock validation must cover exactly 20 items");
 assert(handoff.includes("PWA Handoff Readiness Review Twenty Items Report"), "Handoff readiness review report is missing");
 

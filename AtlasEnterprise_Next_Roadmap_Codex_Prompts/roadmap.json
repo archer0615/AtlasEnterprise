@@ -1,0 +1,27 @@
+{
+  "project": "AtlasEnterprise",
+  "architecture": "Static-first Local-first Offline-first GitHub Pages PWA",
+  "order": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+  ],
+  "priority": {
+    "P0": "01-08",
+    "P1": "09-13",
+    "P2": "14-16"
+  }
+}

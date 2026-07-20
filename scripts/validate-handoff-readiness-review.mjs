@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -39,7 +40,7 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:handoff-readiness-review"], "Handoff readiness review validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:handoff-readiness-review"), "Full validation must include handoff readiness review validation");
+await assertValidationProfileIncludes(root, "validate:handoff-readiness-review", assert);
 assert(requiredItems.length === 20, "Handoff readiness review validation must cover exactly 20 items");
 assert(closure.includes("PWA Release Closure Lock Twenty Items Report"), "Release closure lock report is missing");
 

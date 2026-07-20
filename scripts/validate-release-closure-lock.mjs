@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -39,7 +40,7 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:release-closure-lock"], "Release closure lock validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:release-closure-lock"), "Full validation must include release closure lock validation");
+await assertValidationProfileIncludes(root, "validate:release-closure-lock", assert);
 assert(requiredItems.length === 20, "Release closure lock validation must cover exactly 20 items");
 assert(finalReview.includes("PWA Final Release Review Twenty Items Report"), "Final release review report is missing");
 

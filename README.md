@@ -40,6 +40,12 @@ The repository is being organized around that PWA v1 architecture.
 
 ## Document entry points
 
+- [Current status](docs/status/current-status.md)
+- [Feature matrix](docs/status/feature-matrix.md)
+- [Architecture status](docs/status/architecture-status.md)
+- [Validation status](docs/status/validation-status.md)
+- [Next priority](docs/status/next-priority.md)
+- [Specification runtime traceability](docs/status/specification-runtime-traceability.json)
 - [Document governance report](docs/roadmap/document-governance-report-2026-07-15.md)
 - [Document link enrichment plan](docs/roadmap/document-link-enrichment-plan.md)
 - [Large document split batch 1](docs/roadmap/large-document-split-plan-batch-1.md)

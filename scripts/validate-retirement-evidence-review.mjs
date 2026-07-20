@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -39,7 +40,7 @@ for (const item of requiredItems) {
 }
 
 assert(packageJson.scripts["validate:retirement-evidence-review"], "Retirement evidence review validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:retirement-evidence-review"), "Full validation must include retirement evidence review validation");
+await assertValidationProfileIncludes(root, "validate:retirement-evidence-review", assert);
 assert(requiredItems.length === 20, "Retirement evidence review validation must cover exactly 20 items");
 assert(monitoring.includes("PWA Post-Archive Monitoring Twenty Items Report"), "Post-archive monitoring report is missing");
 

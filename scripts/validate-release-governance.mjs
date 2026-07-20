@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { assertValidationProfileIncludes } from "./validation-profile-assertions.mjs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -16,7 +17,7 @@ const validationHistory = JSON.parse(await readFile(path.join(root, "docs", "rep
 
 assert(packageJson.scripts["task:long"], "Long task command consolidation is missing");
 assert(packageJson.scripts["validate:release-governance"], "Release governance validation script is missing");
-assert(packageJson.scripts.validate.includes("validate:release-governance"), "Full validation must include release governance validation");
+await assertValidationProfileIncludes(root, "validate:release-governance", assert);
 
 for (const token of [
   "auditRetentionPolicy",
