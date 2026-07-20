@@ -3,7 +3,7 @@
   "title": "Command Governance and Testing",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/command/governance-and-testing.md",
-  "sourceHash": "e2705035c661583f6d58ffd865600d55b286d868d96d1a27011b0f821448346f",
+  "sourceHash": "ae4c514eeefcedc689309e823bc69b415421dacfee49e61b5069df603036bc18",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Command Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates command validation, security, audit, performance, testing, edge cases, and consistency checks from the parent Command Catalog.\r\n\r\n## Source\r\n- Parent specification: [Command Catalog](../command-catalog.md)\r\n\r\n## Governance\r\nGovernance covers idempotency, validation, permissions, transaction scope, concurrency, event emission, audit, error catalog, and retry behavior.\r\n\r\n## Testing\r\nTesting covers command validation, permission checks, idempotency, aggregate mutation, event emission, repository interaction, concurrency, rollback, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Command Governance and Testing\n\n## Purpose\nThis split document isolates command validation, security, audit, performance, testing, edge cases, and consistency checks from the parent Command Catalog.\n\n## Source\n- Parent specification: [Command Catalog](../command-catalog.md)\n\n## Governance\nGovernance covers idempotency, validation, permissions, transaction scope, concurrency, event emission, audit, error catalog, and retry behavior.\n\n## Testing\nTesting covers command validation, permission checks, idempotency, aggregate mutation, event emission, repository interaction, concurrency, rollback, and edge cases.\n\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Goal Execution Workflow and Policies",
   "category": "framework",
   "canonicalPath": "knowledge/framework/goal-execution/workflow-and-policies.md",
-  "sourceHash": "1fdc1872783df1c3e2cceec58eb114cf6ab2084b9430d255f6dd9ae079350eab",
+  "sourceHash": "ec88c01f496343b8ada1c9e84f6992ccec20587cfe0469bdc98e4276a2b6e761",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Workflow Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Execution Workflow and Policies\n\n## Purpose\n\nThis split document isolates Goal Execution phases, modes, policies, monitoring, state machine, commands, and domain events from the canonical `knowledge/framework/goal-execution-framework.md` parent.\n\n## Covered Sections\n\n- Execution Phases\n- Execution Modes\n- Execution Policies\n- Execution Monitoring\n- Validation Rules\n- Business Rules\n- State Machine\n- Commands\n- Domain Events\n\n## Workflow Rules\n\n- Execution phases must preserve preparation, validation, scheduling, execution, monitoring, verification, completion, rollback, retry, and archive evidence.\n- Manual, automatic, scheduled, event-driven, workflow-driven, simulation, dry-run, batch, parallel, and incremental modes must enforce the same authorization and audit boundaries.\n- Retry, timeout, cancellation, rollback, compensation, and approval policies must be explicit in execution events.\n",
+  "bodyMarkdown": "# Goal Execution Workflow and Policies\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal Execution phases, modes, policies, monitoring, state machine, commands, and domain events from the canonical `knowledge/framework/goal-execution-framework.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Execution Phases\r\n- Execution Modes\r\n- Execution Policies\r\n- Execution Monitoring\r\n- Validation Rules\r\n- Business Rules\r\n- State Machine\r\n- Commands\r\n- Domain Events\r\n\r\n## Workflow Rules\r\n\r\n- Execution phases must preserve preparation, validation, scheduling, execution, monitoring, verification, completion, rollback, retry, and archive evidence.\r\n- Manual, automatic, scheduled, event-driven, workflow-driven, simulation, dry-run, batch, parallel, and incremental modes must enforce the same authorization and audit boundaries.\r\n- Retry, timeout, cancellation, rollback, compensation, and approval policies must be explicit in execution events.\r\n",
   "references": []
 }

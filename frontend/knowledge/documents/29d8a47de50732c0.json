@@ -3,7 +3,7 @@
   "title": "Decision Optimization Objectives and Constraints",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/decision-optimization/objectives-and-constraints.md",
-  "sourceHash": "4933d1ee5bcc878e33c43cb1ae1f55f5fbc5bebb20e1797cdfcac99873aedc39",
+  "sourceHash": "60b77e70e94a31efc43efe54872e1e8e65b55163ec86f4bf59a882ed43cad194",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Algorithms"
     }
   ],
-  "bodyMarkdown": "# Decision Optimization Objectives and Constraints\r\n\r\n## Purpose\r\nThis split document isolates Decision Optimization objectives, constraints, algorithms, and scoring behavior from the parent Decision Optimization specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Optimization](../decision-optimization.md)\r\n\r\n## Objectives\r\nObjectives include financial return, cash flow stability, risk reduction, goal achievement, portfolio balance, liquidity, tax efficiency, debt optimization, time optimization, priority optimization, user preference alignment, execution feasibility, and business value.\r\n\r\n## Constraints\r\nConstraints include hard, soft, budget, cash flow, risk, goal, scenario, portfolio, execution, user preference, compliance, and regulatory constraints.\r\n\r\n## Algorithms\r\nAlgorithms include weighted optimization, constraint satisfaction, multi-objective optimization, Pareto optimization, heuristic optimization, rule-based optimization, scenario optimization, incremental optimization, sensitivity analysis, and trade-off analysis.\r\n\r\n",
+  "bodyMarkdown": "# Decision Optimization Objectives and Constraints\n\n## Purpose\nThis split document isolates Decision Optimization objectives, constraints, algorithms, and scoring behavior from the parent Decision Optimization specification.\n\n## Source\n- Parent specification: [Decision Optimization](../decision-optimization.md)\n\n## Objectives\nObjectives include financial return, cash flow stability, risk reduction, goal achievement, portfolio balance, liquidity, tax efficiency, debt optimization, time optimization, priority optimization, user preference alignment, execution feasibility, and business value.\n\n## Constraints\nConstraints include hard, soft, budget, cash flow, risk, goal, scenario, portfolio, execution, user preference, compliance, and regulatory constraints.\n\n## Algorithms\nAlgorithms include weighted optimization, constraint satisfaction, multi-objective optimization, Pareto optimization, heuristic optimization, rule-based optimization, scenario optimization, incremental optimization, sensitivity analysis, and trade-off analysis.\n\n",
   "references": []
 }

@@ -18,6 +18,7 @@ const requiredShellAssets = [
   "fixtures/dashboard-snapshot.json",
   "fixtures/dashboard-snapshots.json",
   "fixtures/dashboard-runtime-snapshots.json",
+  "fixtures/dashboard-field-traceability.json",
   "fixtures/scenario-results.json",
   "fixtures/generated-fixture-cache-policy.json",
   "knowledge/index.json",

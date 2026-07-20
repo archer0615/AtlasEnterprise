@@ -3,7 +3,7 @@
   "title": "Bounded Context Governance",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/bounded-context/governance.md",
-  "sourceHash": "3cf9690c2117e99916c85494d0f2607cf53f4b8d2e50b3e03a27c7697f70836d",
+  "sourceHash": "06af29b3f94784678c211d46457f8c00191590b2a910f05b528e1efff19efdb2",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Bounded Context Governance\r\n\r\n## Purpose\r\nThis split document isolates bounded context governance, validation, security, audit, testing, and consistency verification from the parent Bounded Context Catalog.\r\n\r\n## Source\r\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\r\n\r\n## Governance\r\nGovernance covers context ownership, data boundaries, permission mapping, audit ownership, transaction boundaries, API ownership, repository access, and integration rules.\r\n\r\n## Testing\r\nTesting covers context isolation, integration contracts, command routing, event routing, permission mapping, data ownership, migration safety, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Bounded Context Governance\n\n## Purpose\nThis split document isolates bounded context governance, validation, security, audit, testing, and consistency verification from the parent Bounded Context Catalog.\n\n## Source\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\n\n## Governance\nGovernance covers context ownership, data boundaries, permission mapping, audit ownership, transaction boundaries, API ownership, repository access, and integration rules.\n\n## Testing\nTesting covers context isolation, integration contracts, command routing, event routing, permission mapping, data ownership, migration safety, and edge cases.\n\n",
   "references": []
 }

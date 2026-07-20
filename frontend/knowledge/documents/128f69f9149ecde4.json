@@ -3,7 +3,7 @@
   "title": "Cache Refresh Governance and Testing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/cache-refresh-automation/governance-and-testing.md",
-  "sourceHash": "1f7f2d5cb029a2dfcdee0e967469e9d3b8a9ba3a7fe0acf329621762c0dd58b3",
+  "sourceHash": "5574e03e0559e0c0d23e409dadead9139a803f33913471250af7872d9084d6bf",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Cache Refresh Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates cache refresh governance, validation, audit, retry, testing, and edge cases from the parent CacheRefreshAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [CacheRefreshAutomation](../cache-refresh-automation.md)\r\n\r\n## Governance\r\nGovernance covers cache key ownership, tenant isolation, permission-aware projections, stale-state markers, retry behavior, and failure recovery.\r\n\r\n## Testing\r\nTesting covers trigger matching, invalidation, rebuild, stale markers, retry, concurrency, audit, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Cache Refresh Governance and Testing\n\n## Purpose\nThis split document isolates cache refresh governance, validation, audit, retry, testing, and edge cases from the parent CacheRefreshAutomation specification.\n\n## Source\n- Parent specification: [CacheRefreshAutomation](../cache-refresh-automation.md)\n\n## Governance\nGovernance covers cache key ownership, tenant isolation, permission-aware projections, stale-state markers, retry behavior, and failure recovery.\n\n## Testing\nTesting covers trigger matching, invalidation, rebuild, stale markers, retry, concurrency, audit, and edge cases.\n\n",
   "references": []
 }

@@ -2,13 +2,13 @@
 
 Document Path: knowledge/product/dashboard-formula-traceability.md
 Document Type: Atlas Enterprise Canonical Specification
-Version: 1.0
+Version: 1.1
 Status: Canonical Specification
 Domain: Product Capability
 Bounded Context: Dashboard
 Owner: Project Atlas
 Source of Truth: Atlas Dashboard Formula Traceability Source of Truth
-Last Updated: 2026-07-16
+Last Updated: 2026-07-20
 
 ## Purpose
 
@@ -34,12 +34,14 @@ Maps dashboard snapshot fields to formula, KPI, scenario, and domain knowledge s
 - Every scenario score must be numeric and reproducible from fixture assumptions or simulator output.
 - Every next action must be tied to a scenario, metric, recommendation, or rule.
 - User-visible dashboard strings must pass readable UTF-8 validation.
+- Every metric `formulaIds` value must resolve through `frontend/fixtures/dashboard-field-traceability.json`.
+- Field traceability must be validated by `npm run validate:dashboard-field-traceability`.
 
 ## Known Gaps
 
 - Current dashboard snapshots are fixture-backed rather than generated from a production calculation service.
-- Some metrics have document-level traceability but do not yet map to a named formula identifier.
-- Formula identifiers should be added when the formula catalog is expanded.
+- Formula identifiers are now machine-mapped to canonical knowledge sources for visible dashboard metrics.
+- Runtime service projection remains fixture-backed until production calculation service output owns dashboard generation.
 
 ## Related Specifications
 
@@ -47,3 +49,4 @@ Maps dashboard snapshot fields to formula, KPI, scenario, and domain knowledge s
 - `knowledge/product/current-capability-matrix.md`
 - `knowledge/product/simulator-formula-coverage.md`
 - `frontend/fixtures/dashboard-snapshots.json`
+- `frontend/fixtures/dashboard-field-traceability.json`

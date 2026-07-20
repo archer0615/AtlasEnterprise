@@ -3,7 +3,7 @@
   "title": "Goal Progress Execution and Dashboard",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-progress-tracking/execution-and-dashboard.md",
-  "sourceHash": "75b38461d52efccc5ed8ac0d864e5b12a18e95f9b67483b29945fa6f6cdea2f6",
+  "sourceHash": "8ae2d4092783006d698f5afb4dc75c955add6436cfacd1a1947053a71e0c869f",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Goal Progress Execution and Dashboard\r\n\r\n## Purpose\r\nThis split document isolates Goal Progress commands, state machine, APIs, persistence, dashboard projection, audit, and testing from the parent Goal Progress Tracking specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\r\n\r\n## Commands\r\n- RefreshGoalProgress\r\n- RecalculateGoalProgress\r\n- UpdateGoalProgress\r\n- FreezeProgress\r\n- ResumeProgress\r\n- ResetProgress\r\n- ArchiveProgress\r\n- RestoreProgress\r\n\r\n## Domain Events\r\n- GoalProgressUpdated\r\n- GoalProgressRecalculated\r\n- GoalCompleted\r\n- GoalDelayed\r\n- GoalAheadOfSchedule\r\n- GoalBehindSchedule\r\n- GoalHealthChanged\r\n- GoalForecastChanged\r\n- GoalProgressReset\r\n\r\n## Dashboard Projection\r\nDashboard projection exposes progress summary, forecast, health, variance, confidence, and stale-state indicators without owning canonical Goal state.\r\n\r\n## Testing\r\nTesting covers calculation, integration, concurrency, performance, API, cache, audit, and edge-case behavior.\r\n\r\n",
+  "bodyMarkdown": "# Goal Progress Execution and Dashboard\n\n## Purpose\nThis split document isolates Goal Progress commands, state machine, APIs, persistence, dashboard projection, audit, and testing from the parent Goal Progress Tracking specification.\n\n## Source\n- Parent specification: [Goal Progress Tracking](../goal-progress-tracking.md)\n\n## Commands\n- RefreshGoalProgress\n- RecalculateGoalProgress\n- UpdateGoalProgress\n- FreezeProgress\n- ResumeProgress\n- ResetProgress\n- ArchiveProgress\n- RestoreProgress\n\n## Domain Events\n- GoalProgressUpdated\n- GoalProgressRecalculated\n- GoalCompleted\n- GoalDelayed\n- GoalAheadOfSchedule\n- GoalBehindSchedule\n- GoalHealthChanged\n- GoalForecastChanged\n- GoalProgressReset\n\n## Dashboard Projection\nDashboard projection exposes progress summary, forecast, health, variance, confidence, and stale-state indicators without owning canonical Goal state.\n\n## Testing\nTesting covers calculation, integration, concurrency, performance, API, cache, audit, and edge-case behavior.\n\n",
   "references": []
 }

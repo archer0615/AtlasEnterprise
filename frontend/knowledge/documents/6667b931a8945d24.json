@@ -3,7 +3,7 @@
   "title": "Loan Scenario Integration",
   "category": "entity",
   "canonicalPath": "knowledge/entity/loan/scenario-integration.md",
-  "sourceHash": "3e1fa687c85ab2c740e146cdedd165ffebccddcf79a123223eba18986e8bbd84",
+  "sourceHash": "7d8385d566a6f8aa69ce8b1088161859da59a6a0402bc1c677869660af1f79f9",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Loan Scenario Integration\n\n## Purpose\n\nThis split document isolates Loan scenario and simulator integration behavior from the larger Loan entity specification.\n\n## Source\n\n- Parent specification: [Loan Entity Specification](../Loan.md)\n\n## Scenario Rules\n\n- Loan scenarios must include baseline, alternative, and stress variants when used for decision comparison.\n- Rate shock scenarios must include current rate, reset rate, refinancing rate, fees, and remaining term.\n- Scenario output must include explanation and warning references.\n- Fixture outputs must remain deterministic for the same assumptions and formula versions.\n\n## Dashboard Rules\n\n- Dashboard snapshots may summarize Loan scenario outputs through fixture-backed metrics.\n- Dashboard display must not become the source of truth for Loan data.\n- Persisted dashboard scenario selection is a UI preference only.\n\n## Related References\n\n- [Loan Entity Specification](../Loan.md)\n- [Scenario Framework](../../framework/scenario-framework.md)\n- [Loan Refinancing Fixture](../../../simulator/fixtures/loan-refinancing-rate-shock.json)\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\n",
+  "bodyMarkdown": "# Loan Scenario Integration\r\n\r\n## Purpose\r\n\r\nThis split document isolates Loan scenario and simulator integration behavior from the larger Loan entity specification.\r\n\r\n## Source\r\n\r\n- Parent specification: [Loan Entity Specification](../Loan.md)\r\n\r\n## Scenario Rules\r\n\r\n- Loan scenarios must include baseline, alternative, and stress variants when used for decision comparison.\r\n- Rate shock scenarios must include current rate, reset rate, refinancing rate, fees, and remaining term.\r\n- Scenario output must include explanation and warning references.\r\n- Fixture outputs must remain deterministic for the same assumptions and formula versions.\r\n\r\n## Dashboard Rules\r\n\r\n- Dashboard snapshots may summarize Loan scenario outputs through fixture-backed metrics.\r\n- Dashboard display must not become the source of truth for Loan data.\r\n- Persisted dashboard scenario selection is a UI preference only.\r\n\r\n## Related References\r\n\r\n- [Loan Entity Specification](../Loan.md)\r\n- [Scenario Framework](../../framework/scenario-framework.md)\r\n- [Loan Refinancing Fixture](../../../simulator/fixtures/loan-refinancing-rate-shock.json)\r\n- [Dashboard Scenario Switching Report](../../../docs/roadmap/dashboard-scenario-switching-report.md)\r\n",
   "references": []
 }

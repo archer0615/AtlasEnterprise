@@ -3,7 +3,7 @@
   "title": "Service Catalog Governance",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/service-catalog/governance.md",
-  "sourceHash": "b72e6238f64bedf7bcd862427a4f84d1c5acee49ec6f99a4015f502f0215100c",
+  "sourceHash": "174086452d22aaeede99732f24210d6ca410f0f7991ba0abf22cf58b4a752933",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Service Catalog Governance\r\n\r\n## Purpose\r\nThis split document isolates service ownership, orchestration rules, validation rules, security, audit, testing, and consistency checks from the parent Service Catalog.\r\n\r\n## Source\r\n- Parent specification: [Service Catalog](../service-catalog.md)\r\n\r\n## Governance\r\nService governance ensures application services do not own domain invariants, domain services do not perform persistence orchestration, permissions are checked at application boundaries, and audit records preserve command intent.\r\n\r\n## Testing\r\nTesting covers service routing, command orchestration, query projection, permission checks, domain validation, audit emission, transaction boundaries, and catalog consistency.\r\n\r\n",
+  "bodyMarkdown": "# Service Catalog Governance\n\n## Purpose\nThis split document isolates service ownership, orchestration rules, validation rules, security, audit, testing, and consistency checks from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Governance\nService governance ensures application services do not own domain invariants, domain services do not perform persistence orchestration, permissions are checked at application boundaries, and audit records preserve command intent.\n\n## Testing\nTesting covers service routing, command orchestration, query projection, permission checks, domain validation, audit emission, transaction boundaries, and catalog consistency.\n\n",
   "references": []
 }

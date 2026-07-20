@@ -3,7 +3,7 @@
   "title": "Cache Refresh Trigger and Scope",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/cache-refresh-automation/trigger-and-scope.md",
-  "sourceHash": "4a227f03337d6468046d4651d95a41aeb40281c34911d39d4d93ea650615be73",
+  "sourceHash": "80d2e4b0bc76c107efe496c3714094f7a130fea0c0bc8563154ec4a1aac37370",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Cache Scope"
     }
   ],
-  "bodyMarkdown": "# Cache Refresh Trigger and Scope\r\n\r\n## Purpose\r\nThis split document isolates cache refresh triggers, cache scope, and refresh eligibility from the parent CacheRefreshAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [CacheRefreshAutomation](../cache-refresh-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include source data changes, projection updates, stale cache windows, manual refresh, scheduled refresh, and dependency invalidation.\r\n\r\n## Cache Scope\r\nCache scope includes dashboard, report, search, scenario, recommendation, decision, goal, portfolio, and notification projections.\r\n\r\n",
+  "bodyMarkdown": "# Cache Refresh Trigger and Scope\n\n## Purpose\nThis split document isolates cache refresh triggers, cache scope, and refresh eligibility from the parent CacheRefreshAutomation specification.\n\n## Source\n- Parent specification: [CacheRefreshAutomation](../cache-refresh-automation.md)\n\n## Trigger Scope\nTriggers include source data changes, projection updates, stale cache windows, manual refresh, scheduled refresh, and dependency invalidation.\n\n## Cache Scope\nCache scope includes dashboard, report, search, scenario, recommendation, decision, goal, portfolio, and notification projections.\n\n",
   "references": []
 }

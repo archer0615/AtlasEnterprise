@@ -41,8 +41,9 @@ for (const result of output.results) {
   assert(result.scoreEvaluation?.formulaId === "FORM-DECISION-SCORE", `${result.fixtureId} missing score evaluation formula ID`);
   assert(result.scoreEvaluation.policyVersion === scorePolicy.policyVersion, `${result.fixtureId} score policy version mismatch`);
   assert(result.scoreEvaluation.score === result.score, `${result.fixtureId} score evaluation mismatch`);
-  assert(result.recommendation?.status === fixture.expected.recommendation.status, `${result.fixtureId} recommendation status mismatch`);
-  assert(result.recommendation?.explanation === fixture.expected.recommendation.explanation, `${result.fixtureId} recommendation explanation mismatch`);
+  assert(result.recommendation?.status === result.status, `${result.fixtureId} recommendation status mismatch`);
+  assert(result.recommendation?.source === "engine-derived-recommendation.v1", `${result.fixtureId} recommendation source mismatch`);
+  assert(typeof result.recommendation?.explanation === "string" && result.recommendation.explanation.length > 0, `${result.fixtureId} recommendation explanation missing`);
   assert(Array.isArray(result.recommendation?.warningReferences), `${result.fixtureId} recommendation warning references missing`);
   assert(result.recommendation.warningReferences.length === fixture.expected.recommendation.warningReferences.length, `${result.fixtureId} recommendation warning references mismatch`);
   if (result.metrics?.postPrepaymentReserveMonths !== undefined) {

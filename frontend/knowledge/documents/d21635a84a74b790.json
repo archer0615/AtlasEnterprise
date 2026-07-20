@@ -3,7 +3,7 @@
   "title": "Decision Dashboard Governance and Testing",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/decision-dashboard/governance-and-testing.md",
-  "sourceHash": "fa25985233483e991263d96baabdb5792314975a7f023d0d89d9d2179bd94add",
+  "sourceHash": "440ef850028825fb6243ca8f0f6d4832365f086377f7fbd0e521be625676d6e0",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Dashboard Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates dashboard governance, permissions, masking, audit, performance, testing, edge cases, and consistency checks from the parent Decision Dashboard specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\r\n\r\n## Governance\r\nGovernance covers permission-aware visibility, household isolation, tenant isolation, source timestamp display, stale-state indicators, masking, audit, and projection freshness.\r\n\r\n## Testing\r\nTesting covers metrics, projections, filtering, scenario switching, action triggering, masking, empty states, stale states, performance, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Decision Dashboard Governance and Testing\n\n## Purpose\nThis split document isolates dashboard governance, permissions, masking, audit, performance, testing, edge cases, and consistency checks from the parent Decision Dashboard specification.\n\n## Source\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\n\n## Governance\nGovernance covers permission-aware visibility, household isolation, tenant isolation, source timestamp display, stale-state indicators, masking, audit, and projection freshness.\n\n## Testing\nTesting covers metrics, projections, filtering, scenario switching, action triggering, masking, empty states, stale states, performance, and edge cases.\n\n",
   "references": []
 }

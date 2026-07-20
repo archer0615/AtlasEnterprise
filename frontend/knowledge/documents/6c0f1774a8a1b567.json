@@ -3,7 +3,7 @@
   "title": "api-and-persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/user/api-and-persistence.md",
-  "sourceHash": "40e53fc17e916eeb72275e3ceb923dfd9ddd1931512f28700c1ad05300ed1a17",
+  "sourceHash": "67c01995f63ea71fc10aaf846bfe86b284628b3f9e4f18e943b5b4e57af7b8fb",
   "headings": [
     {
       "level": 2,
@@ -18,6 +18,6 @@
       "text": "API"
     }
   ],
-  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# User API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates User commands, events, repository, services, API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping, and cache strategy from the parent User Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [User Entity Specification](../User.md)\r\n\r\n## API\r\nUser APIs expose create, update, profile, preference, membership, archive, restore, detail, summary, and search behavior under permission boundaries.\r\n\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# User API and Persistence\n\n## Purpose\nThis split document isolates User commands, events, repository, services, API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping, and cache strategy from the parent User Entity Specification.\n\n## Source\n- Parent specification: [User Entity Specification](../User.md)\n\n## API\nUser APIs expose create, update, profile, preference, membership, archive, restore, detail, summary, and search behavior under permission boundaries.\n\n",
   "references": []
 }

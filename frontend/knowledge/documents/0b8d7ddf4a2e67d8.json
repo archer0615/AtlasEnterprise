@@ -3,7 +3,7 @@
   "title": "Mortgage Governance and Testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/mortgage/governance-and-testing.md",
-  "sourceHash": "0e807807ae733a0a6b2fb239cf80d8593acc61cfff6639173fd60f5d4d6a7f1c",
+  "sourceHash": "913cd8da05b1b6d342e8dc5ecabd7d4456815ac98939329c06425552de82fb5a",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Mortgage Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Mortgage security, audit, observability, performance, diagrams, testing, edge cases, error catalog, data migration, and consistency verification from the parent Mortgage Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\r\n\r\n## Governance\r\nGovernance covers permission checks, financial data masking, audit trail, domain event audit, observability, performance, cache invalidation, and data migration.\r\n\r\n## Testing\r\nTesting covers creation, payment, early repayment, refinance, close, archive, restore, replay, concurrency, stale amortization, invalid collateral, edge cases, and final consistency matrix checks.\r\n\r\n",
+  "bodyMarkdown": "# Mortgage Governance and Testing\n\n## Purpose\nThis split document isolates Mortgage security, audit, observability, performance, diagrams, testing, edge cases, error catalog, data migration, and consistency verification from the parent Mortgage Entity Specification.\n\n## Source\n- Parent specification: [Mortgage Entity Specification](../Mortgage.md)\n\n## Governance\nGovernance covers permission checks, financial data masking, audit trail, domain event audit, observability, performance, cache invalidation, and data migration.\n\n## Testing\nTesting covers creation, payment, early repayment, refinance, close, archive, restore, replay, concurrency, stale amortization, invalid collateral, edge cases, and final consistency matrix checks.\n\n",
   "references": []
 }

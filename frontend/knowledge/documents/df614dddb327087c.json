@@ -3,7 +3,7 @@
   "title": "Backup Governance and Testing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/backup-automation/governance-and-testing.md",
-  "sourceHash": "1bb2fc2120666801c183089f4a1523065e6c2068758d63e243a7455fc1f148f8",
+  "sourceHash": "eae1f20c99f5605e6ac713b059cd4f831f2b903b0098b72b0e53bf243f93fed6",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Backup Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates backup governance, security, audit, retention, restore verification, testing, and edge cases from the parent BackupAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [BackupAutomation](../backup-automation.md)\r\n\r\n## Governance\r\nGovernance covers encryption, access control, retention, restore readiness, audit, storage protection, and failure recovery.\r\n\r\n## Testing\r\nTesting covers backup creation, integrity validation, retention, restore metadata, permission checks, failure recovery, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Backup Governance and Testing\n\n## Purpose\nThis split document isolates backup governance, security, audit, retention, restore verification, testing, and edge cases from the parent BackupAutomation specification.\n\n## Source\n- Parent specification: [BackupAutomation](../backup-automation.md)\n\n## Governance\nGovernance covers encryption, access control, retention, restore readiness, audit, storage protection, and failure recovery.\n\n## Testing\nTesting covers backup creation, integrity validation, retention, restore metadata, permission checks, failure recovery, and edge cases.\n\n",
   "references": []
 }

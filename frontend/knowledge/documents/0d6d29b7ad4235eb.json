@@ -3,7 +3,7 @@
   "title": "Notification Dispatch Execution",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/notification-dispatch-automation/execution.md",
-  "sourceHash": "296aa56889dc33f7707f461da8256df36774120f24544500f6ce9fe1cce0737a",
+  "sourceHash": "62f26ae7750bec78665cbd6d7c964950e5ff203602d08e87051fe2bad4a7fe6e",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Execution"
     }
   ],
-  "bodyMarkdown": "# Notification Dispatch Execution\r\n\r\n## Purpose\r\nThis split document isolates notification dispatch execution, provider calls, retry behavior, and status updates from the parent NotificationDispatchAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [NotificationDispatchAutomation](../notification-dispatch-automation.md)\r\n\r\n## Execution\r\nExecution selects recipients, applies preferences and permissions, formats payloads, invokes providers, records delivery status, schedules retry, and updates notification projections.\r\n\r\n",
+  "bodyMarkdown": "# Notification Dispatch Execution\n\n## Purpose\nThis split document isolates notification dispatch execution, provider calls, retry behavior, and status updates from the parent NotificationDispatchAutomation specification.\n\n## Source\n- Parent specification: [NotificationDispatchAutomation](../notification-dispatch-automation.md)\n\n## Execution\nExecution selects recipients, applies preferences and permissions, formats payloads, invokes providers, records delivery status, schedules retry, and updates notification projections.\n\n",
   "references": []
 }

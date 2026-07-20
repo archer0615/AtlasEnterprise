@@ -1,19 +1,21 @@
-import { calculateRecommendationScore, createFormulaEvaluation } from "./formula-contract.mjs";
+import { calculateRecommendationScore, createFormulaEvaluation, deriveRecommendation } from "./formula-contract.mjs";
 
 export function evaluateScenarioFixture(fixture, computeMetrics) {
   const metrics = computeMetrics(fixture);
   const scoreEvaluation = calculateRecommendationScore(fixture, metrics);
+  const recommendation = deriveRecommendation(scoreEvaluation, fixture);
   return {
     fixtureId: fixture.fixtureId,
     asOfDate: fixture.asOfDate,
     assumptionVersion: fixture.assumptionVersion,
     formulaVersion: fixture.formulaVersion,
-    status: fixture.expected.recommendation.status,
+    status: recommendation.status,
     score: scoreEvaluation.score,
     recommendation: {
-      status: fixture.expected.recommendation.status,
-      explanation: fixture.expected.recommendation.explanation,
-      warningReferences: fixture.expected.recommendation.warningReferences || [],
+      status: recommendation.status,
+      explanation: recommendation.explanation,
+      warningReferences: recommendation.warningReferences,
+      source: recommendation.source,
       executionTrace: {
         sourceFixtureId: fixture.fixtureId,
         scorePolicyVersion: scoreEvaluation.policyVersion,

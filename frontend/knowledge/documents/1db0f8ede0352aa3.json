@@ -3,7 +3,7 @@
   "title": "Decision Dashboard Rules and Lifecycle",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/decision-dashboard/rules-and-lifecycle.md",
-  "sourceHash": "1d502a02189e12df42facacb5a36ece6d8fb74c6bdb19e6d67d443dee5ebfebc",
+  "sourceHash": "28bbe145ba87400f00cdbea99bf7347bc276efb862b6cbb32c785ac540c1b3cd",
   "headings": [
     {
       "level": 1,
@@ -34,6 +34,6 @@
       "text": "State and Refresh"
     }
   ],
-  "bodyMarkdown": "# Decision Dashboard Rules and Lifecycle\r\n\r\n## Purpose\r\nThis split document isolates Decision Dashboard lifecycle, validation rules, business rules, permissions, refresh behavior, and state handling from the parent Decision Dashboard specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\r\n\r\n## Lifecycle\r\nDecision Dashboard lifecycle covers dashboard definition, widget configuration, filter configuration, refresh, sharing, export, archive, restore, deletion, and dashboard history.\r\n\r\n## Validation Rules\r\nValidation covers dashboard creation and update, widget configuration, filter allowlist, layout, refresh policy, permission, cache key generation, state transition, export format, sorting, pagination, and source projection availability.\r\n\r\n## Business Rules\r\nDecision Dashboard is a governed read model for monitoring Decisions. It must not mutate Decision, Recommendation, Goal, Portfolio, CashFlow, Risk, Scenario, Simulation, Workflow, Automation, Notification, or User source data.\r\n\r\n## State and Refresh\r\nRefresh operations update projections and cached values without mutating source domain data. Created, Configured, Active, Refreshing, Refreshed, Shared, Exported, Archived, Restored, Deleted, and Failed transitions must be auditable.\r\n",
+  "bodyMarkdown": "# Decision Dashboard Rules and Lifecycle\n\n## Purpose\nThis split document isolates Decision Dashboard lifecycle, validation rules, business rules, permissions, refresh behavior, and state handling from the parent Decision Dashboard specification.\n\n## Source\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\n\n## Lifecycle\nDecision Dashboard lifecycle covers dashboard definition, widget configuration, filter configuration, refresh, sharing, export, archive, restore, deletion, and dashboard history.\n\n## Validation Rules\nValidation covers dashboard creation and update, widget configuration, filter allowlist, layout, refresh policy, permission, cache key generation, state transition, export format, sorting, pagination, and source projection availability.\n\n## Business Rules\nDecision Dashboard is a governed read model for monitoring Decisions. It must not mutate Decision, Recommendation, Goal, Portfolio, CashFlow, Risk, Scenario, Simulation, Workflow, Automation, Notification, or User source data.\n\n## State and Refresh\nRefresh operations update projections and cached values without mutating source domain data. Created, Configured, Active, Refreshing, Refreshed, Shared, Exported, Archived, Restored, Deleted, and Failed transitions must be auditable.\n",
   "references": []
 }

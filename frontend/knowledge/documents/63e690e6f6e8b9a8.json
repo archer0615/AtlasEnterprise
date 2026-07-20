@@ -3,7 +3,7 @@
   "title": "Risk Budget Allocation and Limits",
   "category": "framework",
   "canonicalPath": "knowledge/framework/risk-budget/allocation-and-limits.md",
-  "sourceHash": "d7ef72564171b60eeaf4c8c7c17c325680f730be7458182948ce307ef2ef8b19",
+  "sourceHash": "5fc3d84a7181910190b393826d39dc0249963aefa9ee0b4afc263370acc9a027",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Risk Budget Allocation and Limits\n\n## Purpose\n\nThis split document isolates risk budget allocation and limit rules from the larger Risk Budget Framework.\n\n## Source\n\n- Parent specification: [Risk Budget Framework](../risk-budget-framework.md)\n\n## Allocation Rules\n\n- Risk budget allocation must account for goals, portfolios, and life stages.\n- Allocations must remain explainable and comparable across competing goals.\n- Risk budget use must be traceable to assumptions and scenario inputs.\n\n## Limit Rules\n\n- Risk limits represent maximum acceptable risk consumption.\n- Concentration limits should prevent excessive exposure to a single asset, market, or goal.\n- Limit changes must be versioned and auditable.\n\n## Related References\n\n- [Risk Framework](../risk-framework.md)\n- [Goal Funding Framework](../goal-funding-framework.md)\n- [Portfolio Performance Framework](../portfolio-performance-framework.md)\n",
+  "bodyMarkdown": "# Risk Budget Allocation and Limits\r\n\r\n## Purpose\r\n\r\nThis split document isolates risk budget allocation and limit rules from the larger Risk Budget Framework.\r\n\r\n## Source\r\n\r\n- Parent specification: [Risk Budget Framework](../risk-budget-framework.md)\r\n\r\n## Allocation Rules\r\n\r\n- Risk budget allocation must account for goals, portfolios, and life stages.\r\n- Allocations must remain explainable and comparable across competing goals.\r\n- Risk budget use must be traceable to assumptions and scenario inputs.\r\n\r\n## Limit Rules\r\n\r\n- Risk limits represent maximum acceptable risk consumption.\r\n- Concentration limits should prevent excessive exposure to a single asset, market, or goal.\r\n- Limit changes must be versioned and auditable.\r\n\r\n## Related References\r\n\r\n- [Risk Framework](../risk-framework.md)\r\n- [Goal Funding Framework](../goal-funding-framework.md)\r\n- [Portfolio Performance Framework](../portfolio-performance-framework.md)\r\n",
   "references": []
 }

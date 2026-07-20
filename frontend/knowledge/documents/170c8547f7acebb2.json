@@ -3,7 +3,7 @@
   "title": "Investment Policy Execution and Governance",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/investment-policy/execution-and-governance.md",
-  "sourceHash": "3e73335ecee098579f59ee24635e54f1f0727e972161d277418efc5adff401b0",
+  "sourceHash": "3e9079e2a4f22f8c5656cf6ebd1c9b4e772c9a86fd2ab79e3593a16b7002c98e",
   "headings": [
     {
       "level": 1,
@@ -38,6 +38,6 @@
       "text": "Testing Matrix"
     }
   ],
-  "bodyMarkdown": "# Investment Policy Execution and Governance\r\n\r\n## Purpose\r\nThis split document isolates executable Investment Policy commands, validation, API, testing, and governance from the parent Investment Policy Knowledge Base.\r\n\r\n## Source\r\n- Parent specification: [Investment Policy Knowledge Base](../investment-policy.md)\r\n\r\n## Investment Policy Contract\r\nInvestment Policy owns household policy constraints, target allocation rules, review cadence, exception handling, and policy evidence.\r\n\r\n## Commands\r\n- CreateInvestmentPolicy\r\n- UpdateInvestmentPolicy\r\n- ApproveInvestmentPolicy\r\n- ReviewInvestmentPolicy\r\n- ArchiveInvestmentPolicy\r\n\r\n## Validation Rules\r\n- Policy must define approved asset classes.\r\n- Target allocation must remain inside policy constraints.\r\n- Portfolio changes must validate against policy before execution.\r\n- Policy review must preserve previous policy evidence.\r\n\r\n## API Contract\r\nInvestment Policy APIs expose create, read, update, approve, review, archive, and search behavior under permission control.\r\n\r\n## Testing Matrix\r\nTesting covers policy creation, invalid allocation, policy exception, review cadence, archive protection, and replay from audit history.\r\n\r\n",
+  "bodyMarkdown": "# Investment Policy Execution and Governance\n\n## Purpose\nThis split document isolates executable Investment Policy commands, validation, API, testing, and governance from the parent Investment Policy Knowledge Base.\n\n## Source\n- Parent specification: [Investment Policy Knowledge Base](../investment-policy.md)\n\n## Investment Policy Contract\nInvestment Policy owns household policy constraints, target allocation rules, review cadence, exception handling, and policy evidence.\n\n## Commands\n- CreateInvestmentPolicy\n- UpdateInvestmentPolicy\n- ApproveInvestmentPolicy\n- ReviewInvestmentPolicy\n- ArchiveInvestmentPolicy\n\n## Validation Rules\n- Policy must define approved asset classes.\n- Target allocation must remain inside policy constraints.\n- Portfolio changes must validate against policy before execution.\n- Policy review must preserve previous policy evidence.\n\n## API Contract\nInvestment Policy APIs expose create, read, update, approve, review, archive, and search behavior under permission control.\n\n## Testing Matrix\nTesting covers policy creation, invalid allocation, policy exception, review cadence, archive protection, and replay from audit history.\n\n",
   "references": []
 }

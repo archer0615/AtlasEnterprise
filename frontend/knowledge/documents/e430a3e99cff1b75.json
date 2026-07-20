@@ -3,7 +3,7 @@
   "title": "Report Generation Execution",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/report-generation-automation/execution.md",
-  "sourceHash": "6638490e64f342e487d8b29ba5d85beb701989b8fcf378e090e8c4959611088e",
+  "sourceHash": "ebb988b39f1f9a7735b7804ba1c78f2dc7e5ead65e77bf3dcaff40cb9de0d52b",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Execution"
     }
   ],
-  "bodyMarkdown": "# Report Generation Execution\r\n\r\n## Purpose\r\nThis split document isolates report generation execution, rendering, export, notification, and status behavior from the parent ReportGenerationAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [ReportGenerationAutomation](../report-generation-automation.md)\r\n\r\n## Execution\r\nExecution collects source data, validates permissions, builds report projection, renders the output, stores artifact metadata, records audit, and notifies authorized recipients.\r\n\r\n",
+  "bodyMarkdown": "# Report Generation Execution\n\n## Purpose\nThis split document isolates report generation execution, rendering, export, notification, and status behavior from the parent ReportGenerationAutomation specification.\n\n## Source\n- Parent specification: [ReportGenerationAutomation](../report-generation-automation.md)\n\n## Execution\nExecution collects source data, validates permissions, builds report projection, renders the output, stores artifact metadata, records audit, and notifies authorized recipients.\n\n",
   "references": []
 }

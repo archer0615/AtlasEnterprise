@@ -3,7 +3,7 @@
   "title": "Integration Governance and Testing",
   "category": "integration",
   "canonicalPath": "knowledge/integration/integration/governance-and-testing.md",
-  "sourceHash": "cd0badcc3236a573df69fef6751c5684a382f1ebd4ecd86b3d9cd765796f7cdb",
+  "sourceHash": "b3f17cd44318391385850d181a2cc8a066f76bd1f477eeea33f17fa1af21cb86",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Integration Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates integration matrices, governance, validation, audit, performance, testing, edge cases, and consistency checks from the parent Integration Framework.\r\n\r\n## Source\r\n- Parent specification: [Integration Framework](../integration-framework.md)\r\n\r\n## Governance\r\nGovernance covers integration matrix, system matrix, module matrix, application-service external matrix, domain-event external matrix, message external matrix, API external matrix, security, audit, and performance.\r\n\r\n## Testing\r\nTesting covers contract tests, authentication, authorization, retry, timeout, rate limiting, circuit breaker, webhook callback, polling, mapping, and failure recovery.\r\n\r\n",
+  "bodyMarkdown": "# Integration Governance and Testing\n\n## Purpose\nThis split document isolates integration matrices, governance, validation, audit, performance, testing, edge cases, and consistency checks from the parent Integration Framework.\n\n## Source\n- Parent specification: [Integration Framework](../integration-framework.md)\n\n## Governance\nGovernance covers integration matrix, system matrix, module matrix, application-service external matrix, domain-event external matrix, message external matrix, API external matrix, security, audit, and performance.\n\n## Testing\nTesting covers contract tests, authentication, authorization, retry, timeout, rate limiting, circuit breaker, webhook callback, polling, mapping, and failure recovery.\n\n",
   "references": []
 }

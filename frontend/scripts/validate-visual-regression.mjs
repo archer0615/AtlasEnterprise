@@ -4,6 +4,7 @@ import zlib from "node:zlib";
 
 const root = process.cwd();
 const outputRoot = path.join(root, "docs", "roadmap", "visual-artifacts");
+const manifestPath = path.join(outputRoot, "visual-baselines.json");
 const screenshots = [
   "playwright-desktop-dashboard.png",
   "playwright-mobile-dashboard.png",
@@ -22,12 +23,18 @@ for (const screenshot of screenshots) {
 
 await import("./capture-playwright-screenshots.mjs");
 
+const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+assert(manifest.schema === "atlas-visual-baselines.v1", "visual baseline manifest schema mismatch");
+assert(Array.isArray(manifest.artifacts), "visual baseline manifest missing artifacts");
+
 for (const screenshot of screenshots) {
   const screenshotPath = path.join(outputRoot, screenshot);
   const info = await stat(screenshotPath);
   if (!info.isFile() || info.size < 10_000) {
     throw new Error(`${screenshot} is missing or unexpectedly small`);
   }
+  const manifestArtifact = manifest.artifacts.find((artifact) => artifact.name === screenshot);
+  assert(manifestArtifact, `${screenshot} missing from visual baseline manifest`);
 
   const baseline = baselines.get(screenshot);
   if (!baseline || process.env.CI === "true") {
@@ -35,7 +42,10 @@ for (const screenshot of screenshots) {
   }
 
   const current = await readFile(screenshotPath);
-  const diffRatio = calculatePngPixelDiffRatio(decodePng(baseline), decodePng(current));
+  const currentPng = decodePng(current);
+  assert(manifestArtifact.dimensions?.width === currentPng.width, `${screenshot} manifest width mismatch`);
+  assert(manifestArtifact.dimensions?.height === currentPng.height, `${screenshot} manifest height mismatch`);
+  const diffRatio = calculatePngPixelDiffRatio(decodePng(baseline), currentPng);
   console.log(`${screenshot} pixel drift ${formatPercent(diffRatio)}`);
   if (diffRatio > maxPixelDriftRatio) {
     throw new Error(`${screenshot} pixel drift ${formatPercent(diffRatio)} exceeds ${formatPercent(maxPixelDriftRatio)}`);
@@ -43,6 +53,10 @@ for (const screenshot of screenshots) {
 }
 
 console.log("Visual regression pixel validation passed.");
+
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
+}
 
 function calculatePngPixelDiffRatio(expected, actual) {
   if (expected.width !== actual.width || expected.height !== actual.height) {

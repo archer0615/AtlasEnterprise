@@ -3,7 +3,7 @@
   "title": "Decision Governance and Testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/decision/governance-and-testing.md",
-  "sourceHash": "f97b92012cfa11e44cd59721976029dbc2b4c38f070b0ac0273a1964bef7b438",
+  "sourceHash": "978d20debe1e9519ec84a1b43af47e71dd1549f24fbad8c2617f598a121171bd",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Decision Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Decision security, audit, performance, examples, diagrams, testing, edge cases, and consistency checks from the parent Decision Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Entity Specification](../Decision.md)\r\n\r\n## Governance\r\nGovernance covers household isolation, permission masking, approval evidence, rejection evidence, snapshot protection, audit, retention, and explainability references.\r\n\r\n## Testing\r\nTesting covers creation, scoring validation, approve, reject, defer, execute, archive, restore, concurrency, masking, cache invalidation, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Decision Governance and Testing\n\n## Purpose\nThis split document isolates Decision security, audit, performance, examples, diagrams, testing, edge cases, and consistency checks from the parent Decision Entity Specification.\n\n## Source\n- Parent specification: [Decision Entity Specification](../Decision.md)\n\n## Governance\nGovernance covers household isolation, permission masking, approval evidence, rejection evidence, snapshot protection, audit, retention, and explainability references.\n\n## Testing\nTesting covers creation, scoring validation, approve, reject, defer, execute, archive, restore, concurrency, masking, cache invalidation, and edge cases.\n\n",
   "references": []
 }

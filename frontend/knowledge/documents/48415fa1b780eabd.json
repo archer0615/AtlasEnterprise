@@ -3,7 +3,7 @@
   "title": "Recommendation Evaluation Scoring and Ranking",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-evaluation/scoring-and-ranking.md",
-  "sourceHash": "880a7f0cb128a846e396cf3ed7e670e9a1fd4ff80c92cb8cb0ed6cc21d1ffa87",
+  "sourceHash": "2317ac5ab81137a39da410c8d34bde5fde18f293baa4feb3002e9d8bafadc3d3",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Recommendation Evaluation Scoring and Ranking\n\n## Purpose\n\nThis split document isolates scoring and ranking behavior from the larger Recommendation Evaluation overview.\n\n## Source\n\n- Parent specification: [Recommendation Evaluation Overview](../recommendation-evaluation.md)\n\n## Scoring Rules\n\n- Scores must be deterministic for the same Recommendation inputs.\n- Score components must remain traceable to Decision, Goal, Scenario, Portfolio, CashFlow, Risk, Optimization, and Simulation data.\n- Score reductions must preserve explanation and warning references.\n- Score display must not replace the canonical Recommendation lifecycle state.\n\n## Ranking Rules\n\n- Ranking must preserve household scope and permission boundaries.\n- Ranking must account for priority, urgency, risk, and feasibility.\n- Ranking changes must be auditable when used for execution or dashboard display.\n\n## Related References\n\n- [Recommendation Entity](../../entity/Recommendation.md)\n- [Decision Evaluation](../decision-evaluation.md)\n- [Recommendation Priority Framework](../../framework/recommendation-priority-framework.md)\n",
+  "bodyMarkdown": "# Recommendation Evaluation Scoring and Ranking\r\n\r\n## Purpose\r\n\r\nThis split document isolates scoring and ranking behavior from the larger Recommendation Evaluation overview.\r\n\r\n## Source\r\n\r\n- Parent specification: [Recommendation Evaluation Overview](../recommendation-evaluation.md)\r\n\r\n## Scoring Rules\r\n\r\n- Scores must be deterministic for the same Recommendation inputs.\r\n- Score components must remain traceable to Decision, Goal, Scenario, Portfolio, CashFlow, Risk, Optimization, and Simulation data.\r\n- Score reductions must preserve explanation and warning references.\r\n- Score display must not replace the canonical Recommendation lifecycle state.\r\n\r\n## Ranking Rules\r\n\r\n- Ranking must preserve household scope and permission boundaries.\r\n- Ranking must account for priority, urgency, risk, and feasibility.\r\n- Ranking changes must be auditable when used for execution or dashboard display.\r\n\r\n## Related References\r\n\r\n- [Recommendation Entity](../../entity/Recommendation.md)\r\n- [Decision Evaluation](../decision-evaluation.md)\r\n- [Recommendation Priority Framework](../../framework/recommendation-priority-framework.md)\r\n",
   "references": []
 }

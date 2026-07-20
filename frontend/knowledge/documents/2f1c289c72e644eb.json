@@ -1,0 +1,47 @@
+{
+  "id": "2f1c289c72e644eb",
+  "title": "Import Version Migration",
+  "category": "product",
+  "canonicalPath": "knowledge/product/import-version-migration.md",
+  "sourceHash": "c30dac37bd5bc6c4dfdaca4c9c1263f9119e29047a9fa74ea96d5a2df06a339c",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Import Version Migration"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Version Inputs"
+    },
+    {
+      "level": 2,
+      "text": "Migration Rules"
+    },
+    {
+      "level": 2,
+      "text": "Import Pipeline"
+    },
+    {
+      "level": 2,
+      "text": "Dry-run Contract"
+    },
+    {
+      "level": 2,
+      "text": "Validation Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Current Implementation Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "# Import Version Migration\n\nDocument Path: knowledge/product/import-version-migration.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.5\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: Data Safety\nOwner: Project Atlas\nSource of Truth: Atlas Import Version Migration Source of Truth\nLast Updated: 2026-07-20\n\n## Purpose\n\nDefines how Atlas imports backups across backup format versions and IndexedDB schema versions.\n\n## Version Inputs\n\nImport validation must read:\n\n- Backup format version.\n- Application version.\n- IndexedDB database schema version.\n- Store-level schema version when present.\n- Aggregate version when present.\n- Export timestamp.\n- Migration history metadata when present.\n\n## Migration Rules\n\n- Migration functions must be deterministic and idempotent.\n- Historical migration functions must not be rewritten after release.\n- Unsupported future backup versions must be rejected.\n- Unsupported old backup versions must be rejected unless a migration path exists.\n- Destructive migration must require backup preview and explicit restore confirmation.\n- Migration failure must leave the current IndexedDB database readable and unchanged.\n- Imported records must be validated after migration and before commit.\n\n## Import Pipeline\n\n1. Parse backup envelope.\n2. Validate backup format version.\n3. Validate checksum and decrypt payload when encrypted backup is used.\n4. Build migration plan from source schema to current schema.\n5. Run migration in memory or staging records.\n6. Validate migrated records against current repository rules.\n7. Produce dry-run result.\n8. Apply only after explicit confirmation.\n9. Record import audit entry.\n\n## Dry-run Contract\n\nDry run must report:\n\n| Field | Purpose |\n| --- | --- |\n| `sourceBackupFormatVersion` | Backup format being imported. |\n| `sourceDatabaseSchemaVersion` | Source IndexedDB schema. |\n| `targetDatabaseSchemaVersion` | Current IndexedDB schema. |\n| `migrationSteps` | Ordered migration identifiers. |\n| `creates` | Records that would be inserted. |\n| `updates` | Records that would replace existing records. |\n| `skips` | Records that would be ignored. |\n| `rejects` | Records that fail validation. |\n| `conflicts` | Records requiring conflict policy. |\n\n## Validation Matrix\n\n| Case | Expected Result |\n| --- | --- |\n| Current backup version | Import validates without migration. |\n| Older supported backup version | Migration plan is shown before apply. |\n| Older unsupported backup version | Import is rejected. |\n| Future backup version | Import is rejected. |\n| Missing schema metadata | Import is rejected unless legacy fallback is explicitly defined. |\n| Migrated invalid record | Import is rejected before mutation. |\n\n## Current Implementation Mapping\n\n- Current runtime stores `databaseVersion` and `backupSchemaVersion` in metadata.\n- Current backup import accepts only `atlas-pwa-runtime-backup.v1`.\n- Current import applies scenario records through a staged same-transaction restore path after validation.\n- Current import dry-run reports create, update, skip, reject, conflict, schema version, migration step, and checksum fields.\n- Current UI renders dry-run create, update, skip, reject, version, migration, and checksum fields before restore confirmation.\n- Current UI exposes conflict policy selection with replace-all and skip-existing modes before restore.\n- Current dry-run includes a migration plan object with status, support flag, step list, and user-facing message.\n- Current UI renders migration status and support messaging before restore confirmation.\n- Current runtime executes supported backup migration from database version 2 to the current database version before staged restore.\n- Current runtime records migration history entries on migrated backup payloads.\n- Unsupported backup database versions are rejected before restore.\n\n## Related Specifications\n\n- `knowledge/product/encrypted-backup-spec.md`\n- `knowledge/product/offline-cache-and-local-state.md`\n- `knowledge/product/current-capability-matrix.md`\n- `docs/database/05-DatabaseDesign.md`\n- `frontend/src/indexeddb-runtime.js`\n",
+  "references": []
+}

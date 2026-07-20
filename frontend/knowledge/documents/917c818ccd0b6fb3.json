@@ -3,7 +3,7 @@
   "title": "Bounded Context Integrations",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/bounded-context/integrations.md",
-  "sourceHash": "9bfe5997d8317c6f77a8f00360fcb0e1e0ca7168f1385164f0f073cd511a4a86",
+  "sourceHash": "c40db4e438ed28b6dd2860c1dfa959446a73e35ec6259616706cf1e920eb0315",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Boundary Rules"
     }
   ],
-  "bodyMarkdown": "# Bounded Context Integrations\r\n\r\n## Purpose\r\nThis split document isolates bounded context integration, command, event, repository, API, and message relationships from the parent Bounded Context Catalog.\r\n\r\n## Source\r\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\r\n\r\n## Integration Scope\r\nIntegration covers context-to-context messages, domain events, application service orchestration, query projections, reporting feeds, workflow interactions, automation triggers, and external dependencies.\r\n\r\n## Boundary Rules\r\nContexts must integrate through explicit APIs, commands, events, messages, or projections without bypassing aggregate ownership boundaries.\r\n\r\n",
+  "bodyMarkdown": "# Bounded Context Integrations\n\n## Purpose\nThis split document isolates bounded context integration, command, event, repository, API, and message relationships from the parent Bounded Context Catalog.\n\n## Source\n- Parent specification: [Bounded Context Catalog](../bounded-context-catalog.md)\n\n## Integration Scope\nIntegration covers context-to-context messages, domain events, application service orchestration, query projections, reporting feeds, workflow interactions, automation triggers, and external dependencies.\n\n## Boundary Rules\nContexts must integrate through explicit APIs, commands, events, messages, or projections without bypassing aggregate ownership boundaries.\n\n",
   "references": []
 }

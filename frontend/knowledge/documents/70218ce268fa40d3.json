@@ -3,7 +3,7 @@
   "title": "Decision Dashboard Data and Interactions",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/decision-dashboard/data-and-interactions.md",
-  "sourceHash": "46b4131602ad80558424101e21f6e25bf4e8e927d5331a70e6c29c4100a94b23",
+  "sourceHash": "dd8a9c710d253910dfca2f8ad47e2f0d3737864eefe3f94efd6e2f7d57f4c722",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Interactions"
     }
   ],
-  "bodyMarkdown": "# Decision Dashboard Data and Interactions\r\n\r\n## Purpose\r\nThis split document isolates decision dashboard data sources, projections, interaction behavior, and refresh rules from the parent Decision Dashboard specification.\r\n\r\n## Source\r\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\r\n\r\n## Data Sources\r\nDashboard data consumes Decision, Recommendation, Scenario, Decision History, Decision Metrics, Decision Audit, Decision Insights, Portfolio, CashFlow, Goal, and User preferences.\r\n\r\n## Interactions\r\nInteractions include filtering, search, sorting, scenario switching, decision selection, action triggering, refresh, and empty or error states.\r\n\r\n",
+  "bodyMarkdown": "# Decision Dashboard Data and Interactions\n\n## Purpose\nThis split document isolates decision dashboard data sources, projections, interaction behavior, and refresh rules from the parent Decision Dashboard specification.\n\n## Source\n- Parent specification: [Decision Dashboard](../decision-dashboard.md)\n\n## Data Sources\nDashboard data consumes Decision, Recommendation, Scenario, Decision History, Decision Metrics, Decision Audit, Decision Insights, Portfolio, CashFlow, Goal, and User preferences.\n\n## Interactions\nInteractions include filtering, search, sorting, scenario switching, decision selection, action triggering, refresh, and empty or error states.\n\n",
   "references": []
 }

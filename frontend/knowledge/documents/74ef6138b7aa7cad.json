@@ -3,7 +3,7 @@
   "title": "Brokerage Import Trigger and Scope",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/brokerage-import-automation/trigger-and-scope.md",
-  "sourceHash": "53469d2386acf0e8a9903b972724c1bd6cf33083d882eb6d79c581082e50d355",
+  "sourceHash": "5a1bbf744b2758f7b91d80bf3b0f5ad4e88e4e8fdf66d06794c4b8c5408156b6",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Import Scope"
     }
   ],
-  "bodyMarkdown": "# Brokerage Import Trigger and Scope\r\n\r\n## Purpose\r\nThis split document isolates brokerage import triggers, account scope, source eligibility, and import boundaries from the parent BrokerageImportAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [BrokerageImportAutomation](../brokerage-import-automation.md)\r\n\r\n## Trigger Scope\r\nTriggers include scheduled brokerage import, manual import, external webhook, credential refresh, missing valuation recovery, and reconciliation refresh.\r\n\r\n## Import Scope\r\nImport scope includes accounts, positions, trades, dividends, fees, valuations, currency, and source timestamps under tenant and household boundaries.\r\n\r\n",
+  "bodyMarkdown": "# Brokerage Import Trigger and Scope\n\n## Purpose\nThis split document isolates brokerage import triggers, account scope, source eligibility, and import boundaries from the parent BrokerageImportAutomation specification.\n\n## Source\n- Parent specification: [BrokerageImportAutomation](../brokerage-import-automation.md)\n\n## Trigger Scope\nTriggers include scheduled brokerage import, manual import, external webhook, credential refresh, missing valuation recovery, and reconciliation refresh.\n\n## Import Scope\nImport scope includes accounts, positions, trades, dividends, fees, valuations, currency, and source timestamps under tenant and household boundaries.\n\n",
   "references": []
 }

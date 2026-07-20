@@ -3,7 +3,7 @@
   "title": "Entity Catalog Entries",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/entity-catalog/catalog-entries.md",
-  "sourceHash": "65756cd6d8cb13b1c7282bee365978f7f73a85438a579ba27ff776e82a4a4106",
+  "sourceHash": "84a3e5bb5dd7f8c6370138230bd97aa142e6dd3392c03d34eefff1639770bd9d",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Entry Contract"
     }
   ],
-  "bodyMarkdown": "# Entity Catalog Entries\r\n\r\n## Purpose\r\nThis split document isolates entity catalog definitions from the parent Entity Catalog.\r\n\r\n## Source\r\n- Parent specification: [Entity Catalog](../entity-catalog.md)\r\n\r\n## Entity Entries\r\nEntity catalog entries include User, Household, Asset, Liability, Goal, Portfolio, Holding, Property, Mortgage, Scenario, Decision, Recommendation, Notification, Policy, and Configuration.\r\n\r\n## Entry Contract\r\nEach entity entry preserves identity, aggregate owner, lifecycle, properties, commands, events, repository, API, security, audit, and persistence mapping.\r\n\r\n",
+  "bodyMarkdown": "# Entity Catalog Entries\n\n## Purpose\nThis split document isolates entity catalog definitions from the parent Entity Catalog.\n\n## Source\n- Parent specification: [Entity Catalog](../entity-catalog.md)\n\n## Entity Entries\nEntity catalog entries include User, Household, Asset, Liability, Goal, Portfolio, Holding, Property, Mortgage, Scenario, Decision, Recommendation, Notification, Policy, and Configuration.\n\n## Entry Contract\nEach entity entry preserves identity, aggregate owner, lifecycle, properties, commands, events, repository, API, security, audit, and persistence mapping.\n\n",
   "references": []
 }

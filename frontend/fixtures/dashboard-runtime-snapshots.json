@@ -1,6 +1,6 @@
 {
   "generatedBy": "dashboard-runtime-generator.v1",
-  "generatedAt": "2026-07-17T08:54:00.498Z",
+  "generatedAt": "2026-07-20T03:33:56.499Z",
   "defaultSnapshotId": "dashboard-fixture-2026-07-15",
   "snapshots": [
     {
@@ -68,7 +68,7 @@
       "schemaVersion": "dashboard-snapshot.v2",
       "runtimeBinding": {
         "sourceFixtureId": "mortgage-prepayment-baseline-2026",
-        "simulatorGeneratedAt": "2026-07-17T07:28:20.651Z",
+        "simulatorGeneratedAt": "2026-07-20T03:33:33.354Z",
         "score": 72,
         "status": "conditional",
         "formulaIds": [
@@ -143,7 +143,7 @@
       "schemaVersion": "dashboard-snapshot.v2",
       "runtimeBinding": {
         "sourceFixtureId": "home-upgrade-2031-baseline",
-        "simulatorGeneratedAt": "2026-07-17T07:28:20.651Z",
+        "simulatorGeneratedAt": "2026-07-20T03:33:33.354Z",
         "score": 61,
         "status": "defer",
         "formulaIds": [
@@ -217,7 +217,7 @@
       "schemaVersion": "dashboard-snapshot.v2",
       "runtimeBinding": {
         "sourceFixtureId": "retirement-readiness-stress",
-        "simulatorGeneratedAt": "2026-07-17T07:28:20.651Z",
+        "simulatorGeneratedAt": "2026-07-20T03:33:33.354Z",
         "score": 69,
         "status": "monitor",
         "formulaIds": [
@@ -291,7 +291,7 @@
       "schemaVersion": "dashboard-snapshot.v2",
       "runtimeBinding": {
         "sourceFixtureId": "loan-refinancing-rate-shock",
-        "simulatorGeneratedAt": "2026-07-17T07:28:20.651Z",
+        "simulatorGeneratedAt": "2026-07-20T03:33:33.354Z",
         "score": 66,
         "status": "conditional",
         "formulaIds": [
@@ -366,7 +366,7 @@
       "schemaVersion": "dashboard-snapshot.v2",
       "runtimeBinding": {
         "sourceFixtureId": "investment-drawdown-stress",
-        "simulatorGeneratedAt": "2026-07-17T07:28:20.651Z",
+        "simulatorGeneratedAt": "2026-07-20T03:33:33.354Z",
         "score": 71,
         "status": "monitor",
         "formulaIds": [

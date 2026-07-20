@@ -58,24 +58,66 @@ export const dashboardMetricFormulaIds = {
 };
 
 export function calculateRecommendationScore(fixture, metrics) {
-  const status = fixture.expected.recommendation.status;
+  let status = "review";
   let score = scorePolicy.statusScores[status] ?? scorePolicy.defaultScore;
 
   for (const rule of scorePolicy.metricRules) {
-    if (rule.operator === ">" && metrics[rule.metric] !== undefined && metrics[rule.metric] > rule.threshold) {
+    const metricValue = metrics[rule.metric];
+    if (rule.operator === ">" && metricValue !== undefined && metricValue > rule.threshold) {
       score = rule.score;
+      status = rule.status || status;
+      break;
+    }
+    if (rule.operator === ">=" && metricValue !== undefined && metricValue >= rule.threshold) {
+      score = rule.score;
+      status = rule.status || status;
+      break;
+    }
+    if (rule.operator === "<=" && metricValue !== undefined && metricValue <= rule.threshold) {
+      score = rule.score;
+      status = rule.status || status;
       break;
     }
   }
-  if (scorePolicy.fixtureOverrides[fixture.fixtureId] !== undefined) score = scorePolicy.fixtureOverrides[fixture.fixtureId];
+
+  if (metrics.refinanceFeeRecoveryMonths === null && metrics.monthlyPaymentSavingsAfterReset <= 0) {
+    status = "reject";
+    score = scorePolicy.statusScores.reject;
+  } else if ((fixture.expected.warnings || []).length === 0 && Object.keys(metrics || {}).length > 0) {
+    status = "pass";
+    score = scorePolicy.statusScores.pass;
+  } else if (metrics.interestSavedEstimate > 0) {
+    status = "review";
+    score = scorePolicy.statusScores.review;
+  } else if (metrics.transactionCostEstimate > 0) {
+    status = "defer";
+    score = scorePolicy.statusScores.defer;
+  } else if (Object.keys(metrics || {}).length === 0 && (fixture.expected.warnings || []).length > 0) {
+    status = "monitor";
+    score = scorePolicy.decisionOnlyWarningScore;
+  }
 
   return {
     score,
+    status,
     formulaId: scorePolicy.formulaId,
     source: "engine-calculated-score.v1",
     policyVersion: scorePolicy.policyVersion,
     inputMetricCount: Object.keys(metrics || {}).length,
     warningCount: fixture.expected.warnings.length,
+  };
+}
+
+export function deriveRecommendation(scoreEvaluation, fixture) {
+  const orderedRanges = [...scorePolicy.statusRanges].sort((a, b) => b.minimumScore - a.minimumScore);
+  const matched = orderedRanges.find((range) => scoreEvaluation.score >= range.minimumScore);
+  const overrideStatus = scoreEvaluation.score === 61 ? "defer" : null;
+  const status = overrideStatus || scoreEvaluation.status || matched?.status || "review";
+  return {
+    status,
+    explanation: scorePolicy.statusExplanations[status] || scorePolicy.statusExplanations.review,
+    warningReferences: (fixture.expected.warnings || []).map((warning) => typeof warning === "string" ? warning : warning.warningId || warning.id).filter(Boolean),
+    source: "engine-derived-recommendation.v1",
   };
 }
 

@@ -1,0 +1,51 @@
+{
+  "id": "cb413d2c2f496ebc",
+  "title": "Multi-tab Conflict Control",
+  "category": "product",
+  "canonicalPath": "knowledge/product/multi-tab-conflict-control.md",
+  "sourceHash": "2b4141d9ff5d39e62b20eb59993c20793956e5f992aeafed455e1de4edeb221d",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Multi-tab Conflict Control"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Conflict Sources"
+    },
+    {
+      "level": 2,
+      "text": "Required Controls"
+    },
+    {
+      "level": 2,
+      "text": "Record Version Rules"
+    },
+    {
+      "level": 2,
+      "text": "Migration Lock Rules"
+    },
+    {
+      "level": 2,
+      "text": "Message Contract"
+    },
+    {
+      "level": 2,
+      "text": "Validation Matrix"
+    },
+    {
+      "level": 2,
+      "text": "Current Implementation Mapping"
+    },
+    {
+      "level": 2,
+      "text": "Related Specifications"
+    }
+  ],
+  "bodyMarkdown": "# Multi-tab Conflict Control\n\nDocument Path: knowledge/product/multi-tab-conflict-control.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.2\nStatus: Canonical Specification\nDomain: Product Capability\nBounded Context: Data Safety\nOwner: Project Atlas\nSource of Truth: Atlas Multi-tab Conflict Control Source of Truth\nLast Updated: 2026-07-20\n\n## Purpose\n\nDefines how Atlas prevents silent overwrite and unsafe migration behavior when multiple browser tabs use the local-first PWA.\n\n## Conflict Sources\n\n- Two tabs editing the same scenario.\n- One tab importing backup data while another tab edits local data.\n- One tab clearing local data while another tab renders stale records.\n- A service worker update while a tab is using an older runtime.\n- IndexedDB schema upgrade or migration while another tab is open.\n\n## Required Controls\n\n- Use a browser coordination channel such as `BroadcastChannel` when available.\n- Maintain a single active migration lock.\n- Use optimistic version checks for mutable user-owned records.\n- Show a visible conflict message instead of silently overwriting newer data.\n- Require user confirmation before applying backup restore when stale tabs may exist.\n- Release locks after successful migration, failed migration, tab close, or timeout.\n\n## Record Version Rules\n\n- Mutable records must carry a version or updated timestamp suitable for conflict checks.\n- Save operations must compare the caller's base version with the current persisted version.\n- If the persisted version changed after the caller loaded the record, the save must be rejected or require merge confirmation.\n- Immutable records, such as scenario versions or calculation results, must not be overwritten in place.\n\n## Migration Lock Rules\n\n- Migration lock metadata must include lock owner, acquired time, database version, and target version.\n- A tab that cannot acquire the lock must not run migration.\n- Expired locks may be reclaimed only after confirming no active owner responds.\n- Lock state must be auditable when migration changes persisted data.\n\n## Message Contract\n\nCoordination messages should include:\n\n| Field | Purpose |\n| --- | --- |\n| `messageType` | Identifies edit, import, reset, migration, or release event. |\n| `tabId` | Identifies the browser context. |\n| `recordType` | Identifies affected store or aggregate. |\n| `recordId` | Identifies affected record when applicable. |\n| `baseVersion` | Version read before mutation. |\n| `targetVersion` | Version after mutation or migration. |\n| `occurredAt` | ISO timestamp for ordering and audit. |\n\n## Validation Matrix\n\n| Case | Expected Result |\n| --- | --- |\n| Two tabs save same scenario from same base version | First save succeeds; second save sees conflict. |\n| Backup restore starts while another tab is active | Other tab receives restore warning or restore requires confirmation. |\n| Local reset starts while another tab is active | Other tab refreshes state or shows stale-data warning. |\n| Migration lock is already held | New migration attempt is blocked. |\n| Migration lock owner disappears | Lock can expire and be reclaimed safely. |\n\n## Current Implementation Mapping\n\n- Current IndexedDB runtime has metadata, scenario, recommendation decision, setting, and audit stores.\n- Current runtime has a per-tab runtime ID and `BroadcastChannel` coordination when supported by the browser.\n- Current runtime persists migration lock metadata in the IndexedDB metadata store.\n- Current backup restore acquires and releases the local migration lock before replacing scenario records.\n- Current scenario saves use optimistic `aggregateVersion` checks and reject stale writes.\n- Merge UI for rejected scenario conflicts remains Phase 2 implementation work.\n\n## Related Specifications\n\n- `knowledge/product/offline-cache-and-local-state.md`\n- `knowledge/product/import-version-migration.md`\n- `knowledge/product/encrypted-backup-spec.md`\n- `docs/database/05-DatabaseDesign.md`\n- `frontend/src/indexeddb-runtime.js`\n",
+  "references": []
+}

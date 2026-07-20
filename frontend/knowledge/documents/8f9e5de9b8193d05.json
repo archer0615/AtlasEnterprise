@@ -3,7 +3,7 @@
   "title": "Recommendation Lifecycle and Execution",
   "category": "entity",
   "canonicalPath": "knowledge/entity/recommendation/lifecycle-and-execution.md",
-  "sourceHash": "25aed18914582c7daeaf2465c6ded9c14517e8a3c08e0b3b6583be737d38b17c",
+  "sourceHash": "afe66da0b7e71fa54144ecaa01f5fe7a78df342a12c9dc5e82752dd34ec1ec4b",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Lifecycle Rules"
     }
   ],
-  "bodyMarkdown": "# Recommendation Lifecycle and Execution\n\n## Purpose\n\nThis split document isolates Recommendation lifecycle, command, event, execution, and follow-up concerns from the canonical `knowledge/entity/Recommendation.md` parent.\n\n## Covered Sections\n\n- Version, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy\n- ArchivedAt, DeletedAt\n- CorrelationId, CausationId\n- Validation Rules\n- Business Rules\n- State Machine\n- Commands\n- Domain Events\n- Repository\n- Domain Service Interaction\n- Application Service Interaction\n\n## Lifecycle Rules\n\n- Recommendation lifecycle must preserve generation, assignment, acceptance, rejection, expiration, archive, deletion, and follow-up evidence.\n- CorrelationId and CausationId connect recommendation generation to decisions, scenarios, and execution plans.\n- Accepted recommendations may create or update execution planning records only through approved application service commands.\n",
+  "bodyMarkdown": "# Recommendation Lifecycle and Execution\r\n\r\n## Purpose\r\n\r\nThis split document isolates Recommendation lifecycle, command, event, execution, and follow-up concerns from the canonical `knowledge/entity/Recommendation.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- Version, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy\r\n- ArchivedAt, DeletedAt\r\n- CorrelationId, CausationId\r\n- Validation Rules\r\n- Business Rules\r\n- State Machine\r\n- Commands\r\n- Domain Events\r\n- Repository\r\n- Domain Service Interaction\r\n- Application Service Interaction\r\n\r\n## Lifecycle Rules\r\n\r\n- Recommendation lifecycle must preserve generation, assignment, acceptance, rejection, expiration, archive, deletion, and follow-up evidence.\r\n- CorrelationId and CausationId connect recommendation generation to decisions, scenarios, and execution plans.\r\n- Accepted recommendations may create or update execution planning records only through approved application service commands.\r\n",
   "references": []
 }

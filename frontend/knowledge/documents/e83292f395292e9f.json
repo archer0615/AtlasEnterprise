@@ -3,7 +3,7 @@
   "title": "Goal Dashboard Scope and Architecture",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/goal-dashboard/scope-and-architecture.md",
-  "sourceHash": "7b8b6e8c49b5fd306e460c9e1978f66099a3e419605248ad1984f4235a6c92ce",
+  "sourceHash": "c31ae9c144f71bf817c5eeef15d81efebe3c9c8a2d3ff00c1ae02f9ae86e6045",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Boundary Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Dashboard Scope and Architecture\n\n## Purpose\n\nThis split document isolates Goal Dashboard overview, ownership, data sources, refresh strategy, relationships, and dashboard architecture from the canonical `knowledge/reporting/goal-dashboard.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-dashboard.md`\n- Domain: Goal dashboard\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Goal Dashboard Overview\n- Purpose and business meaning\n- Dashboard lifecycle, ownership, data sources, and refresh strategy\n- Relationships with Goal, Milestone, Task, Goal Progress, Goal Metrics, Goal Review, Decision, Recommendation, Scenario, Portfolio, CashFlow, Notification, and User\n- Dashboard Architecture\n\n## Boundary Rules\n\n- Goal Dashboard is a read-oriented dashboard projection and must not mutate GoalPlan, metrics, review, decision, recommendation, scenario, portfolio, or cashflow source records.\n- Dashboard rendering must keep aggregation, snapshot, real-time, historical, forecast, cache, export, and permission concerns explicit.\n- Refresh behavior must preserve source timestamps, versions, HouseholdId, TenantId when applicable, and authorization scope.\n",
+  "bodyMarkdown": "# Goal Dashboard Scope and Architecture\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal Dashboard overview, ownership, data sources, refresh strategy, relationships, and dashboard architecture from the canonical `knowledge/reporting/goal-dashboard.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/reporting/goal-dashboard.md`\r\n- Domain: Goal dashboard\r\n- Status: Enterprise Specification\r\n\r\n## Covered Sections\r\n\r\n- Goal Dashboard Overview\r\n- Purpose and business meaning\r\n- Dashboard lifecycle, ownership, data sources, and refresh strategy\r\n- Relationships with Goal, Milestone, Task, Goal Progress, Goal Metrics, Goal Review, Decision, Recommendation, Scenario, Portfolio, CashFlow, Notification, and User\r\n- Dashboard Architecture\r\n\r\n## Boundary Rules\r\n\r\n- Goal Dashboard is a read-oriented dashboard projection and must not mutate GoalPlan, metrics, review, decision, recommendation, scenario, portfolio, or cashflow source records.\r\n- Dashboard rendering must keep aggregation, snapshot, real-time, historical, forecast, cache, export, and permission concerns explicit.\r\n- Refresh behavior must preserve source timestamps, versions, HouseholdId, TenantId when applicable, and authorization scope.\r\n",
   "references": []
 }

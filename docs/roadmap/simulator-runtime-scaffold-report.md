@@ -8,13 +8,14 @@ This report records the first simulator runtime scaffold.
 
 - Reads simulator fixture JSON files from `simulator/fixtures/`.
 - Produces deterministic summary output at `simulator/outputs/scenario-results.json`.
-- Uses expected fixture recommendation data until executable simulation formulas exist.
+- Uses runtime formula metrics, score policy, and engine-derived recommendation output instead of expected recommendation explanation passthrough.
 - Emits `formulaEvaluation.contractVersion` for each result.
 - Records formula input validation status, checked field count, violations, evaluated metric count, and formula version.
 - Routes runtime fixture evaluation through `formula-runtime-service.mjs`.
 - Uses `formula-contract.mjs` for shared input validation and formula ID mapping.
 - Emits `scoreEvaluation` with `FORM-DECISION-SCORE` metadata.
 - Calculates deterministic recommendation scores through the runtime service.
+- Derives recommendation status, explanation, warning references, and source metadata through the runtime service.
 - Reads score thresholds from `score-policy.mjs`.
 - Persists score policy in `simulator/config/score-policy.json`.
 - Generates dashboard runtime bindings from simulator output.
@@ -47,9 +48,9 @@ This report records the first simulator runtime scaffold.
 
 ## Follow-up
 
-- Replace expected-output passthrough with formula-backed calculations.
+- Continue replacing remaining fixture-backed metric gaps with formula-backed calculations.
 - Add output tolerance comparison against fixture expectations.
-- Replace fixture-backed status and score passthrough with production calculation service responses.
+- Replace module-based recommendation derivation with production calculation service responses when the service exists.
 - Replace module-based score policy with persisted configuration when the calculation service is introduced.
 - Replace runtime dashboard fixture generation with the production dashboard projection service.
 - Move cache policy enforcement into deployment validation when hosting is introduced.

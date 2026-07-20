@@ -1,0 +1,38 @@
+{
+  "schema": "dashboard-field-traceability.v1",
+  "generatedAt": "2026-07-20T00:00:00.000Z",
+  "formulaSources": {
+    "FORM-PMT": [
+      "knowledge/entity/Loan.md",
+      "knowledge/workflow/loan-workflow.md"
+    ],
+    "FORM-CF-COVERAGE": [
+      "knowledge/supporting/cashflow.md",
+      "knowledge/reporting/kpi-definitions.md"
+    ],
+    "FORM-DECISION-SCORE": [
+      "knowledge/supporting/scoring-model.md",
+      "knowledge/supporting/decision-evaluation.md"
+    ],
+    "FORM-SWR": [
+      "knowledge/product/retirement-withdrawal-sustainability.md",
+      "knowledge/framework/retirement-planning-framework.md"
+    ],
+    "FORM-WITHDRAWAL-SUSTAINABILITY": [
+      "knowledge/product/retirement-withdrawal-sustainability.md",
+      "knowledge/workflow/retirement-workflow.md"
+    ],
+    "FORM-REFI-BREAK-EVEN": [
+      "knowledge/entity/Loan.md",
+      "knowledge/workflow/loan-workflow.md"
+    ],
+    "FORM-PORTFOLIO-DRAWDOWN": [
+      "knowledge/product/portfolio-drawdown-attribution.md",
+      "knowledge/framework/portfolio-performance-framework.md"
+    ],
+    "FORM-DRAWDOWN-ATTRIBUTION": [
+      "knowledge/product/portfolio-drawdown-attribution.md",
+      "knowledge/workflow/portfolio-workflow.md"
+    ]
+  }
+}

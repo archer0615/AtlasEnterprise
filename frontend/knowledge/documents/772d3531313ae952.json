@@ -3,7 +3,7 @@
   "title": "Repository Query and Persistence Rules",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/repository/query-and-persistence-rules.md",
-  "sourceHash": "1233a9dced7b4850fb74d363c7974618b3bd3867b4287a633090dc1360ed52b7",
+  "sourceHash": "0c405069ab187725674479a071873f4fc970da8ded88ee7ed3bd42744b51f649",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Persistence Rules"
     }
   ],
-  "bodyMarkdown": "# Repository Query and Persistence Rules\r\n\r\n## Purpose\r\nThis split document isolates repository query, persistence, specification, filtering, sorting, aggregation, projection, and concurrency rules from the parent Repository Catalog.\r\n\r\n## Source\r\n- Parent specification: [Repository Catalog](../repository-catalog.md)\r\n\r\n## Query Rules\r\nQuery rules cover tenant filters, household filters, permission-aware projections, pagination, sorting, filtering, search, aggregation, and read model separation.\r\n\r\n## Persistence Rules\r\nPersistence rules cover aggregate root loading, optimistic concurrency, soft delete, audit fields, transaction boundaries, index usage, and cache invalidation.\r\n\r\n",
+  "bodyMarkdown": "# Repository Query and Persistence Rules\n\n## Purpose\nThis split document isolates repository query, persistence, specification, filtering, sorting, aggregation, projection, and concurrency rules from the parent Repository Catalog.\n\n## Source\n- Parent specification: [Repository Catalog](../repository-catalog.md)\n\n## Query Rules\nQuery rules cover tenant filters, household filters, permission-aware projections, pagination, sorting, filtering, search, aggregation, and read model separation.\n\n## Persistence Rules\nPersistence rules cover aggregate root loading, optimistic concurrency, soft delete, audit fields, transaction boundaries, index usage, and cache invalidation.\n\n",
   "references": []
 }

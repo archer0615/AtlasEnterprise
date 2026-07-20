@@ -2,13 +2,13 @@
 
 Document Path: knowledge/product/simulator-formula-coverage.md
 Document Type: Atlas Enterprise Canonical Specification
-Version: 1.0
+Version: 1.1
 Status: Canonical Specification
 Domain: Product Capability
 Bounded Context: Simulator
 Owner: Project Atlas
 Source of Truth: Atlas Simulator Formula Coverage Source of Truth
-Last Updated: 2026-07-16
+Last Updated: 2026-07-20
 
 ## Purpose
 
@@ -35,6 +35,13 @@ Tracks simulator formula coverage across current fixtures, expected calculations
 - Validation fixture.
 - Replay and audit requirements.
 
+## Runtime Recommendation Coverage
+
+- Runtime simulator output derives recommendation status, explanation, warning references, and source metadata from formula runtime service output.
+- Recommendation output must include `engine-derived-recommendation.v1` as source.
+- Score output must remain traceable to `FORM-DECISION-SCORE` and the active score policy version.
+- Fixture expected recommendation explanation is no longer the runtime source of truth.
+
 ## Validation
 
 - `npm run validate:fixtures`
@@ -46,6 +53,7 @@ Tracks simulator formula coverage across current fixtures, expected calculations
 - Portfolio drawdown attribution formula.
 - Retirement withdrawal sustainability formula.
 - Dashboard metric-to-formula ID mapping.
+- Production calculation service projection for recommendation text and execution guidance.
 
 ## Related Specifications
 

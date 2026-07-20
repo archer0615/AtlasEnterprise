@@ -1,0 +1,32 @@
+{
+  "schema": "atlas-visual-baselines.v1",
+  "source": "frontend/scripts/capture-playwright-screenshots.mjs",
+  "artifacts": [
+    {
+      "name": "playwright-desktop-dashboard.png",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 1100
+      },
+      "dimensions": {
+        "width": 1440,
+        "height": 2408
+      },
+      "sha256": "555fd8696bd760cfcd8e2ab0c62cffc28e2c742da822690a39be9493395ca81b"
+    },
+    {
+      "name": "playwright-mobile-dashboard.png",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 1200
+      },
+      "dimensions": {
+        "width": 390,
+        "height": 5117
+      },
+      "sha256": "a52365e7f3d89631d3c0c5b7127020d4dbb98f8d8c3ddc88fccc5ffba9f20938"
+    }
+  ]
+}

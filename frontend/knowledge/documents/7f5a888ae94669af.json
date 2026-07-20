@@ -3,7 +3,7 @@
   "title": "Inbox Process Governance and Testing",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automations/inbox-process-automation/governance-and-testing.md",
-  "sourceHash": "8f40e537124301bdb0d8c4c0c08a7cf89b8e6b0aeef1f1473c476a1b3fee8d82",
+  "sourceHash": "4502afd786dab7f1fb2aa6a989e770a07ccbcc9ce9a1ce66b2a07cca9e3e8d77",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Inbox Process Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates inbox process governance, validation, audit, retry, dead-letter handling, testing, and edge cases from the parent InboxProcessAutomation specification.\r\n\r\n## Source\r\n- Parent specification: [InboxProcessAutomation](../inbox-process-automation.md)\r\n\r\n## Governance\r\nGovernance covers idempotency, ordering, duplicate prevention, retry limits, dead-letter rules, audit, replay control, and message compatibility.\r\n\r\n## Testing\r\nTesting covers message selection, handler success, handler failure, retry, ordering, idempotency, dead-letter, replay, audit, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Inbox Process Governance and Testing\n\n## Purpose\nThis split document isolates inbox process governance, validation, audit, retry, dead-letter handling, testing, and edge cases from the parent InboxProcessAutomation specification.\n\n## Source\n- Parent specification: [InboxProcessAutomation](../inbox-process-automation.md)\n\n## Governance\nGovernance covers idempotency, ordering, duplicate prevention, retry limits, dead-letter rules, audit, replay control, and message compatibility.\n\n## Testing\nTesting covers message selection, handler success, handler failure, retry, ordering, idempotency, dead-letter, replay, audit, and edge cases.\n\n",
   "references": []
 }

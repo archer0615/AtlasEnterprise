@@ -3,7 +3,7 @@
   "title": "Domain Service Matrices and Dependencies",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/domain-service/matrices-and-dependencies.md",
-  "sourceHash": "45f37e09245c5d80b6a19b6028e92c6f8ebc5b47dc75e1a1a6e0473fb17c326f",
+  "sourceHash": "318900a9a015d9c4e0adab697e0da18962014e2ab460e2cebf4a54b12a78fcdd",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Dependency Rules"
     }
   ],
-  "bodyMarkdown": "# Domain Service Matrices and Dependencies\r\n\r\n## Purpose\r\nThis split document isolates domain service matrices and dependency mapping from the parent Domain Service Catalog.\r\n\r\n## Source\r\n- Parent specification: [Domain Service Catalog](../domain-service-catalog.md)\r\n\r\n## Matrices\r\nMatrices include service ownership, aggregate, entity, repository, rule, engine, dependency, value object, enumeration, calculation engine, rule engine, projection engine, simulation engine, optimization engine, business capability, calculation, validation, decision, projection, optimization, and simulation mapping.\r\n\r\n## Dependency Rules\r\nDomain service dependencies must preserve aggregate ownership, avoid persistence orchestration, and keep calculation/rule behavior deterministic.\r\n\r\n",
+  "bodyMarkdown": "# Domain Service Matrices and Dependencies\n\n## Purpose\nThis split document isolates domain service matrices and dependency mapping from the parent Domain Service Catalog.\n\n## Source\n- Parent specification: [Domain Service Catalog](../domain-service-catalog.md)\n\n## Matrices\nMatrices include service ownership, aggregate, entity, repository, rule, engine, dependency, value object, enumeration, calculation engine, rule engine, projection engine, simulation engine, optimization engine, business capability, calculation, validation, decision, projection, optimization, and simulation mapping.\n\n## Dependency Rules\nDomain service dependencies must preserve aggregate ownership, avoid persistence orchestration, and keep calculation/rule behavior deterministic.\n\n",
   "references": []
 }

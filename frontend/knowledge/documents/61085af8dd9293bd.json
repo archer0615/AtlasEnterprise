@@ -3,7 +3,7 @@
   "title": "Goal Lifecycle States and Transitions",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-lifecycle-management/states-and-transitions.md",
-  "sourceHash": "8862dff1e80ca328bd91a62f0fbedd9c4deeab366233ad6f4bfaac5ad68e2819",
+  "sourceHash": "7202b9f2598fff0f0788b6233d52bd2ab1605ec7a3d27f4081cf601c62123d37",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Transition Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Lifecycle States and Transitions\r\n\r\n## Purpose\r\nThis split document isolates Goal lifecycle stages, legal transitions, illegal transitions, triggers, preconditions, postconditions, invariants, rollback, and recovery strategy from the parent Goal Lifecycle Management specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Lifecycle Management](../goal-lifecycle-management.md)\r\n\r\n## Stages\r\nGoal lifecycle stages include Draft, Planning, Ready, Active, Paused, Blocked, Waiting, Reviewing, Completed, Succeeded, Failed, Cancelled, Archived, Deleted, Restored, Expired, Merged, Split, Template, Snapshot, and Historical.\r\n\r\n## Transition Rules\r\nTransitions must preserve source state, target state, trigger, validation result, operator, timestamp, and audit reference.\r\n\r\n",
+  "bodyMarkdown": "# Goal Lifecycle States and Transitions\n\n## Purpose\nThis split document isolates Goal lifecycle stages, legal transitions, illegal transitions, triggers, preconditions, postconditions, invariants, rollback, and recovery strategy from the parent Goal Lifecycle Management specification.\n\n## Source\n- Parent specification: [Goal Lifecycle Management](../goal-lifecycle-management.md)\n\n## Stages\nGoal lifecycle stages include Draft, Planning, Ready, Active, Paused, Blocked, Waiting, Reviewing, Completed, Succeeded, Failed, Cancelled, Archived, Deleted, Restored, Expired, Merged, Split, Template, Snapshot, and Historical.\n\n## Transition Rules\nTransitions must preserve source state, target state, trigger, validation result, operator, timestamp, and audit reference.\n\n",
   "references": []
 }

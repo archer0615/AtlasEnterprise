@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T07:28:20.651Z",
+  "generatedAt": "2026-07-20T03:33:33.354Z",
   "mode": "fixture-runtime-scaffold",
   "results": [
     {
@@ -11,10 +11,11 @@
       "score": 61,
       "recommendation": {
         "status": "defer",
-        "explanation": "Delay commitment until down payment and transaction cost assumptions are covered.",
+        "explanation": "Formula evaluation indicates commitment should be deferred until funding or constraint gaps improve.",
         "warningReferences": [
           "down-payment-gap-remains"
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "home-upgrade-2031-baseline",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -42,6 +43,7 @@
       },
       "scoreEvaluation": {
         "score": 61,
+        "status": "defer",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -58,10 +60,11 @@
       "score": 71,
       "recommendation": {
         "status": "monitor",
-        "explanation": "Liquidity survives the drawdown, but goal funding margin should remain under review.",
+        "explanation": "Formula evaluation requires ongoing monitoring because risk or readiness margin is limited.",
         "warningReferences": [
           "portfolio-drawdown-reduces-goal-margin"
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "investment-drawdown-stress",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -91,6 +94,7 @@
       },
       "scoreEvaluation": {
         "score": 71,
+        "status": "monitor",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -107,10 +111,11 @@
       "score": 82,
       "recommendation": {
         "status": "review",
-        "explanation": "Prepayment improves monthly payment pressure, but reserve preservation must be checked first.",
+        "explanation": "Formula evaluation is favorable but still requires review before execution.",
         "warningReferences": [
           "Preserve emergency reserve before prepayment."
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "loan-amortization-prepayment-impact",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -143,6 +148,7 @@
       },
       "scoreEvaluation": {
         "score": 82,
+        "status": "review",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -159,8 +165,9 @@
       "score": 88,
       "recommendation": {
         "status": "pass",
-        "explanation": "Schedule math is stable for monthly payment, first-period split, and remaining balance.",
+        "explanation": "Formula evaluation indicates the scenario is currently within the acceptable decision range.",
         "warningReferences": [],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "loan-amortization-schedule-baseline",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -193,6 +200,7 @@
       },
       "scoreEvaluation": {
         "score": 88,
+        "status": "pass",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -209,10 +217,11 @@
       "score": 58,
       "recommendation": {
         "status": "conditional",
-        "explanation": "Refinancing remains conditional because full fee recovery is longer than the aggregate-fee scenario.",
+        "explanation": "Formula evaluation supports conditional execution with explicit constraint checks.",
         "warningReferences": [
           "fee-stack-extends-break-even"
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "loan-refinancing-fee-breakdown",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -243,6 +252,7 @@
       },
       "scoreEvaluation": {
         "score": 58,
+        "status": "conditional",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -259,10 +269,11 @@
       "score": 20,
       "recommendation": {
         "status": "reject",
-        "explanation": "Refinance does not create monthly savings and fee recovery is not available.",
+        "explanation": "Formula evaluation does not support execution under the current assumptions.",
         "warningReferences": [
           "Reject refinance when monthly savings are zero or negative."
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "loan-refinancing-no-savings-boundary",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -294,6 +305,7 @@
       },
       "scoreEvaluation": {
         "score": 20,
+        "status": "reject",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -310,11 +322,12 @@
       "score": 66,
       "recommendation": {
         "status": "conditional",
-        "explanation": "Refinance only if fee recovery remains acceptable under the reset-rate scenario.",
+        "explanation": "Formula evaluation supports conditional execution with explicit constraint checks.",
         "warningReferences": [
           "refinance-fee-must-be-recovered",
           "rate-reset-pressure"
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "loan-refinancing-rate-shock",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -347,6 +360,7 @@
       },
       "scoreEvaluation": {
         "score": 66,
+        "status": "conditional",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -363,10 +377,11 @@
       "score": 72,
       "recommendation": {
         "status": "conditional",
-        "explanation": "Proceed only if emergency reserve remains above target after prepayment.",
+        "explanation": "Formula evaluation supports conditional execution with explicit constraint checks.",
         "warningReferences": [
           "reserve-must-remain-above-target"
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "mortgage-prepayment-baseline-2026",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -396,6 +411,7 @@
       },
       "scoreEvaluation": {
         "score": 72,
+        "status": "conditional",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -412,10 +428,11 @@
       "score": 64,
       "recommendation": {
         "status": "monitor",
-        "explanation": "Equity exposure explains most drawdown risk and should drive mitigation planning.",
+        "explanation": "Formula evaluation requires ongoing monitoring because risk or readiness margin is limited.",
         "warningReferences": [
           "equity-dominates-drawdown"
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "portfolio-drawdown-attribution-stress",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -449,6 +466,7 @@
       },
       "scoreEvaluation": {
         "score": 64,
+        "status": "monitor",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -465,10 +483,11 @@
       "score": 69,
       "recommendation": {
         "status": "monitor",
-        "explanation": "Keep retirement plan under monitoring because stress returns reduce readiness margin.",
+        "explanation": "Formula evaluation requires ongoing monitoring because risk or readiness margin is limited.",
         "warningReferences": [
           "return-assumption-sensitive"
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "retirement-readiness-stress",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -494,6 +513,7 @@
       },
       "scoreEvaluation": {
         "score": 69,
+        "status": "monitor",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",
@@ -510,11 +530,12 @@
       "score": 42,
       "recommendation": {
         "status": "at-risk",
-        "explanation": "Withdrawal need materially exceeds the safe withdrawal threshold under baseline and stress views.",
+        "explanation": "Formula evaluation indicates material risk that requires mitigation before execution.",
         "warningReferences": [
           "withdrawal-rate-above-safe-threshold",
           "stress-withdrawal-gap"
         ],
+        "source": "engine-derived-recommendation.v1",
         "executionTrace": {
           "sourceFixtureId": "retirement-withdrawal-sustainability-stress",
           "scorePolicyVersion": "decision-score-policy.v1",
@@ -548,6 +569,7 @@
       },
       "scoreEvaluation": {
         "score": 42,
+        "status": "at-risk",
         "formulaId": "FORM-DECISION-SCORE",
         "source": "engine-calculated-score.v1",
         "policyVersion": "decision-score-policy.v1",

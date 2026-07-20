@@ -3,7 +3,7 @@
   "title": "Position Governance and Testing",
   "category": "entity",
   "canonicalPath": "knowledge/entity/position/governance-and-testing.md",
-  "sourceHash": "38fa7b04ee2720864f961ef9b3b22b1effffc233b3e85cb2fb48d799e6547834",
+  "sourceHash": "adc6d0c118f1d3180d8a960801547cfd031be497cdbdff5376b9f049e3a81632",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Testing"
     }
   ],
-  "bodyMarkdown": "# Position Governance and Testing\r\n\r\n## Purpose\r\nThis split document isolates Position security, audit, observability, performance, examples, diagrams, testing, edge cases, error catalog, migration, and consistency verification from the parent Position Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Position Entity Specification](../Position.md)\r\n\r\n## Governance\r\nGovernance covers tenant isolation, portfolio ownership, financial data masking, audit, stale valuation handling, and migration compatibility.\r\n\r\n## Testing\r\nTesting covers position creation, quantity validation, cost basis calculation, valuation update, archive, restore, concurrency, cache invalidation, and edge cases.\r\n\r\n",
+  "bodyMarkdown": "# Position Governance and Testing\n\n## Purpose\nThis split document isolates Position security, audit, observability, performance, examples, diagrams, testing, edge cases, error catalog, migration, and consistency verification from the parent Position Entity Specification.\n\n## Source\n- Parent specification: [Position Entity Specification](../Position.md)\n\n## Governance\nGovernance covers tenant isolation, portfolio ownership, financial data masking, audit, stale valuation handling, and migration compatibility.\n\n## Testing\nTesting covers position creation, quantity validation, cost basis calculation, valuation update, archive, restore, concurrency, cache invalidation, and edge cases.\n\n",
   "references": []
 }

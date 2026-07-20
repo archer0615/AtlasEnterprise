@@ -24,7 +24,7 @@ for (const [status, score] of Object.entries(scorePolicy.statusScores)) {
 
 for (const rule of scorePolicy.metricRules) {
   assert(rule.metric, "score policy metric rule missing metric");
-  assert([">"].includes(rule.operator), `${rule.metric} uses unsupported operator`);
+  assert([">", ">=", "<="].includes(rule.operator), `${rule.metric} uses unsupported operator`);
   assert(Number.isFinite(rule.threshold), `${rule.metric} threshold must be numeric`);
   assert(Number.isFinite(rule.score), `${rule.metric} score must be numeric`);
 }

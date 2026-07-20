@@ -3,7 +3,7 @@
   "title": "Automation Catalog and Triggers",
   "category": "framework",
   "canonicalPath": "knowledge/framework/automation/catalog-and-triggers.md",
-  "sourceHash": "b7bafb99d622d35c85f16bae2d6a0fa6c05d3b1b3bd7201401ab995bb8d8c412",
+  "sourceHash": "9c5a5608066021be2c80d2c2be69f60f9699f2c4200ecc93154d07f38013f4a1",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Trigger Model"
     }
   ],
-  "bodyMarkdown": "# Automation Catalog and Triggers\r\n\r\n## Purpose\r\nThis split document isolates automation catalog, trigger matrix, condition matrix, and action matrix from the parent Automation Framework.\r\n\r\n## Source\r\n- Parent specification: [Automation Framework](../automation-framework.md)\r\n\r\n## Catalog Scope\r\nAutomation definitions coordinate scheduled, event-driven, workflow-driven, and rule-driven behavior across Atlas modules.\r\n\r\n## Trigger Model\r\nAutomation triggers map source events, schedules, workflow states, rule outputs, commands, domain events, and projection changes to action execution.\r\n\r\n",
+  "bodyMarkdown": "# Automation Catalog and Triggers\n\n## Purpose\nThis split document isolates automation catalog, trigger matrix, condition matrix, and action matrix from the parent Automation Framework.\n\n## Source\n- Parent specification: [Automation Framework](../automation-framework.md)\n\n## Catalog Scope\nAutomation definitions coordinate scheduled, event-driven, workflow-driven, and rule-driven behavior across Atlas modules.\n\n## Trigger Model\nAutomation triggers map source events, schedules, workflow states, rule outputs, commands, domain events, and projection changes to action execution.\n\n",
   "references": []
 }

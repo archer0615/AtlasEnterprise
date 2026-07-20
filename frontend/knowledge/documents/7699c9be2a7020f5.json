@@ -3,7 +3,7 @@
   "title": "Recommendation Execution Planning",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/recommendation-execution/execution-planning.md",
-  "sourceHash": "19bcf2c953022f067ec1ce28b1cb162334e3b281583e65261787f10fa3689db8",
+  "sourceHash": "0b5f12bc37d6160dd131f77cb7421f45423618ffd6cd6374aa759714c7b0f5ed",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Related References"
     }
   ],
-  "bodyMarkdown": "# Recommendation Execution Planning\n\n## Purpose\n\nThis split document isolates execution planning rules from the larger Recommendation Execution overview.\n\n## Source\n\n- Parent specification: [Recommendation Execution Overview](../recommendation-execution.md)\n\n## Planning Rules\n\n- Execution must preserve Recommendation ownership and lifecycle state.\n- Execution steps must be traceable to the Recommendation that produced them.\n- Execution plans must include validation, audit, and rollback considerations.\n- Execution should not create new decision categories or bypass existing rule catalogs.\n\n## Evidence Rules\n\n- Capture the actor, timestamp, recommendation ID, and execution context.\n- Preserve warning references that constrained or qualified the recommendation.\n- Keep execution evidence auditable and permission-aware.\n\n## Related References\n\n- [Recommendation Entity](../../entity/Recommendation.md)\n- [Recommendation Execution](../recommendation-execution.md)\n- [Audit Framework](../../security/audit-framework.md)\n",
+  "bodyMarkdown": "# Recommendation Execution Planning\r\n\r\n## Purpose\r\n\r\nThis split document isolates execution planning rules from the larger Recommendation Execution overview.\r\n\r\n## Source\r\n\r\n- Parent specification: [Recommendation Execution Overview](../recommendation-execution.md)\r\n\r\n## Planning Rules\r\n\r\n- Execution must preserve Recommendation ownership and lifecycle state.\r\n- Execution steps must be traceable to the Recommendation that produced them.\r\n- Execution plans must include validation, audit, and rollback considerations.\r\n- Execution should not create new decision categories or bypass existing rule catalogs.\r\n\r\n## Evidence Rules\r\n\r\n- Capture the actor, timestamp, recommendation ID, and execution context.\r\n- Preserve warning references that constrained or qualified the recommendation.\r\n- Keep execution evidence auditable and permission-aware.\r\n\r\n## Related References\r\n\r\n- [Recommendation Entity](../../entity/Recommendation.md)\r\n- [Recommendation Execution](../recommendation-execution.md)\r\n- [Audit Framework](../../security/audit-framework.md)\r\n",
   "references": []
 }

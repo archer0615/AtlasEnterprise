@@ -3,7 +3,7 @@
   "title": "System Module Dependencies",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/system-module/dependencies.md",
-  "sourceHash": "c3069d166212be1ba46b57749a23c5c695fe7ac306e33b570adb30e131c58e06",
+  "sourceHash": "8c72b27423fd3e771dd16bdd2625ad555df1905bef1a892d102df131a8d52fce",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Boundary Rules"
     }
   ],
-  "bodyMarkdown": "# System Module Dependencies\r\n\r\n## Purpose\r\nThis split document isolates system module dependency mapping from the parent System Module Catalog.\r\n\r\n## Source\r\n- Parent specification: [System Module Catalog](../system-module-catalog.md)\r\n\r\n## Dependency Scope\r\nDependencies include module-to-module calls, event subscriptions, external integrations, background jobs, schedulers, automations, repositories, shared value objects, and reporting projections.\r\n\r\n## Boundary Rules\r\nModules must preserve explicit ownership, avoid hidden cross-module writes, and expose integrations through approved APIs, events, or message contracts.\r\n\r\n",
+  "bodyMarkdown": "# System Module Dependencies\n\n## Purpose\nThis split document isolates system module dependency mapping from the parent System Module Catalog.\n\n## Source\n- Parent specification: [System Module Catalog](../system-module-catalog.md)\n\n## Dependency Scope\nDependencies include module-to-module calls, event subscriptions, external integrations, background jobs, schedulers, automations, repositories, shared value objects, and reporting projections.\n\n## Boundary Rules\nModules must preserve explicit ownership, avoid hidden cross-module writes, and expose integrations through approved APIs, events, or message contracts.\n\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Recommendation Identity and Scoring",
   "category": "entity",
   "canonicalPath": "knowledge/entity/recommendation/identity-and-scoring.md",
-  "sourceHash": "278653a5c9b88fd2c24bd88965eaa7773d4d3fbe0c6e245ff4a86def6c9acbb5",
+  "sourceHash": "f2cd4a3cdb9e2100edb47f9b478f7b477d3275cb31976087f4f59c21a154864b",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Scoring Rules"
     }
   ],
-  "bodyMarkdown": "# Recommendation Identity and Scoring\n\n## Purpose\n\nThis split document isolates Recommendation identity, scoring, rationale, explainability, risk, benefit, cost, confidence, and assignment fields from the canonical `knowledge/entity/Recommendation.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/entity/Recommendation.md`\n- Entity: Recommendation\n- Domain: Decision and recommendation workflows\n\n## Covered Sections\n\n- Document Control\n- Entity Overview\n- RecommendationId, HouseholdId, DecisionId, ScenarioId, GoalIds\n- RecommendationType, Priority, RecommendationScore, Status\n- Rationale, ExplainabilityRef, RiskAssessment\n- ExpectedBenefit, Cost, Confidence\n- ExpirationAt, AssignedUserId, FollowUpActionId\n\n## Scoring Rules\n\n- RecommendationScore, Priority, Confidence, RiskAssessment, ExpectedBenefit, and Cost must be explainable.\n- Recommendation must preserve GoalIds and scenario evidence used during generation.\n- Expired recommendations must not be executed without refresh or reapproval.\n",
+  "bodyMarkdown": "# Recommendation Identity and Scoring\r\n\r\n## Purpose\r\n\r\nThis split document isolates Recommendation identity, scoring, rationale, explainability, risk, benefit, cost, confidence, and assignment fields from the canonical `knowledge/entity/Recommendation.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/entity/Recommendation.md`\r\n- Entity: Recommendation\r\n- Domain: Decision and recommendation workflows\r\n\r\n## Covered Sections\r\n\r\n- Document Control\r\n- Entity Overview\r\n- RecommendationId, HouseholdId, DecisionId, ScenarioId, GoalIds\r\n- RecommendationType, Priority, RecommendationScore, Status\r\n- Rationale, ExplainabilityRef, RiskAssessment\r\n- ExpectedBenefit, Cost, Confidence\r\n- ExpirationAt, AssignedUserId, FollowUpActionId\r\n\r\n## Scoring Rules\r\n\r\n- RecommendationScore, Priority, Confidence, RiskAssessment, ExpectedBenefit, and Cost must be explainable.\r\n- Recommendation must preserve GoalIds and scenario evidence used during generation.\r\n- Expired recommendations must not be executed without refresh or reapproval.\r\n",
   "references": []
 }

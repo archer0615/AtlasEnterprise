@@ -3,7 +3,7 @@
   "title": "Domain Event Catalog Entries",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/domain-event/catalog-entries.md",
-  "sourceHash": "0ff15014e88b779a89179a3d55cdfb9ca1111cd5268b8f12fb095653d49951c6",
+  "sourceHash": "7442253bd3695e890492cfeba6b445fd39fb16e457e5844e7b64765ced99e710",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Entry Contract"
     }
   ],
-  "bodyMarkdown": "# Domain Event Catalog Entries\r\n\r\n## Purpose\r\nThis split document isolates domain event definitions from the parent Domain Event Catalog.\r\n\r\n## Source\r\n- Parent specification: [Domain Event Catalog](../domain-event-catalog.md)\r\n\r\n## Event Groups\r\nDomain events cover cash flow, investment, loan, home, insurance, retirement, decision, rule, and system event groups.\r\n\r\n## Entry Contract\r\nEach event entry preserves event code, name, aggregate owner, publisher, payload, trigger command, consumers, ordering, idempotency, audit classification, and replay behavior.\r\n\r\n",
+  "bodyMarkdown": "# Domain Event Catalog Entries\n\n## Purpose\nThis split document isolates domain event definitions from the parent Domain Event Catalog.\n\n## Source\n- Parent specification: [Domain Event Catalog](../domain-event-catalog.md)\n\n## Event Groups\nDomain events cover cash flow, investment, loan, home, insurance, retirement, decision, rule, and system event groups.\n\n## Entry Contract\nEach event entry preserves event code, name, aggregate owner, publisher, payload, trigger command, consumers, ordering, idempotency, audit classification, and replay behavior.\n\n",
   "references": []
 }

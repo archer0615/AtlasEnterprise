@@ -3,7 +3,7 @@
   "title": "ExecutionPlan Execution Workflow",
   "category": "entity",
   "canonicalPath": "knowledge/entity/execution-plan/execution-workflow.md",
-  "sourceHash": "ffb98e9d235f9e12f9d34c229e181f94c792cdf3a24570ffb577380a5931e30c",
+  "sourceHash": "4fe90fa5b70c7ff23f952ba331d4452c16aefbb75d79194bec7550ba4d505bfd",
   "headings": [
     {
       "level": 1,
@@ -22,6 +22,6 @@
       "text": "Workflow Rules"
     }
   ],
-  "bodyMarkdown": "# ExecutionPlan Execution Workflow\n\n## Purpose\n\nThis split document isolates ExecutionPlan execution workflow, progress, automation, ownership, approval, and result concerns from the canonical `knowledge/entity/ExecutionPlan.md` parent.\n\n## Covered Sections\n\n- EstimatedDuration, EstimatedCost, ExpectedBenefit\n- RiskLevel, Progress\n- StartDate, TargetDate, CompletedDate\n- IsAutomated, IsRecurring\n- Owner, Approver\n- ExecutionResult, FailureReason\n- Validation Rules\n- Business Rules\n- State Machine\n- Commands\n- Domain Events\n\n## Workflow Rules\n\n- ExecutionPlan status changes must preserve approval, result, failure, and audit context.\n- Automated and recurring plans must keep execution strategy, owner, approver, and target date explicit.\n- ExecutionPlan progress is derived from approved execution workflow and ActionPlan completion evidence.\n",
+  "bodyMarkdown": "# ExecutionPlan Execution Workflow\r\n\r\n## Purpose\r\n\r\nThis split document isolates ExecutionPlan execution workflow, progress, automation, ownership, approval, and result concerns from the canonical `knowledge/entity/ExecutionPlan.md` parent.\r\n\r\n## Covered Sections\r\n\r\n- EstimatedDuration, EstimatedCost, ExpectedBenefit\r\n- RiskLevel, Progress\r\n- StartDate, TargetDate, CompletedDate\r\n- IsAutomated, IsRecurring\r\n- Owner, Approver\r\n- ExecutionResult, FailureReason\r\n- Validation Rules\r\n- Business Rules\r\n- State Machine\r\n- Commands\r\n- Domain Events\r\n\r\n## Workflow Rules\r\n\r\n- ExecutionPlan status changes must preserve approval, result, failure, and audit context.\r\n- Automated and recurring plans must keep execution strategy, owner, approver, and target date explicit.\r\n- ExecutionPlan progress is derived from approved execution workflow and ActionPlan completion evidence.\r\n",
   "references": []
 }

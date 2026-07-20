@@ -3,7 +3,7 @@
   "title": "Service Catalog Execution Controls",
   "category": "catalog",
   "canonicalPath": "knowledge/catalog/service-catalog/execution-controls.md",
-  "sourceHash": "a2a18c6ced7c6226dabd6ce99df2b2459322e83ed7f3fe7bcc98524f1e4f3f65",
+  "sourceHash": "c016283949a3dcb6aa02bcf0821692136acf2961c57f3e68c9916311c555f17d",
   "headings": [
     {
       "level": 1,
@@ -30,6 +30,6 @@
       "text": "Parent Sections"
     }
   ],
-  "bodyMarkdown": "# Service Catalog Execution Controls\r\n\r\n## Purpose\r\nThis split document isolates Service execution control guidance from the parent Service Catalog.\r\n\r\n## Source\r\n- Parent specification: [Service Catalog](../service-catalog.md)\r\n\r\n## Catalog Scope\r\nService execution controls cover Validation Rules, Business Rules, Security, Audit, Performance, Mermaid diagrams, Testing, Edge Cases, Final Consistency Matrix, Completion Checklist, and Version History.\r\n\r\n## Execution Control Contract\r\nEach Service remains catalog-aligned across validation, business rules, security, audit, performance, observability, testing, workflow behavior, integration behavior, and failure strategy.\r\n\r\n## Parent Sections\r\n- Validation Rules\r\n- Business Rules\r\n- Security\r\n- Audit\r\n- Performance\r\n- Mermaid\r\n- Testing\r\n- Edge Cases\r\n- Final Consistency Matrix\r\n- Completion Checklist\r\n- Version History\r\n",
+  "bodyMarkdown": "# Service Catalog Execution Controls\n\n## Purpose\nThis split document isolates Service execution control guidance from the parent Service Catalog.\n\n## Source\n- Parent specification: [Service Catalog](../service-catalog.md)\n\n## Catalog Scope\nService execution controls cover Validation Rules, Business Rules, Security, Audit, Performance, Mermaid diagrams, Testing, Edge Cases, Final Consistency Matrix, Completion Checklist, and Version History.\n\n## Execution Control Contract\nEach Service remains catalog-aligned across validation, business rules, security, audit, performance, observability, testing, workflow behavior, integration behavior, and failure strategy.\n\n## Parent Sections\n- Validation Rules\n- Business Rules\n- Security\n- Audit\n- Performance\n- Mermaid\n- Testing\n- Edge Cases\n- Final Consistency Matrix\n- Completion Checklist\n- Version History\n",
   "references": []
 }

@@ -3,7 +3,7 @@
   "title": "Goal Optimization Strategy and Objectives",
   "category": "supporting",
   "canonicalPath": "knowledge/supporting/goal-optimization/strategy-and-objectives.md",
-  "sourceHash": "f890e7178668e2366ba58f2e1c0bf3f49c67c2afa570347906b1370c1708db97",
+  "sourceHash": "f68ae9b83e973f12fbc0fd74b46602216b2069cec07ac7322b74538e138ca42f",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Objectives"
     }
   ],
-  "bodyMarkdown": "# Goal Optimization Strategy and Objectives\r\n\r\n## Purpose\r\nThis split document isolates optimization strategies, objective functions, constraints, and scoring behavior from the parent Goal Optimization specification.\r\n\r\n## Source\r\n- Parent specification: [Goal Optimization](../goal-optimization.md)\r\n\r\n## Strategies\r\nStrategies include time, financial, cash flow, priority, dependency, risk, portfolio, scenario, recommendation, decision, resource, milestone, sequence, and multi-goal optimization.\r\n\r\n## Objectives\r\nObjective functions include time efficiency, financial efficiency, cash flow feasibility, priority alignment, dependency clearance, risk reduction, portfolio fit, scenario advantage, recommendation value, decision readiness, and milestone reliability.\r\n\r\n",
+  "bodyMarkdown": "# Goal Optimization Strategy and Objectives\n\n## Purpose\nThis split document isolates optimization strategies, objective functions, constraints, and scoring behavior from the parent Goal Optimization specification.\n\n## Source\n- Parent specification: [Goal Optimization](../goal-optimization.md)\n\n## Strategies\nStrategies include time, financial, cash flow, priority, dependency, risk, portfolio, scenario, recommendation, decision, resource, milestone, sequence, and multi-goal optimization.\n\n## Objectives\nObjective functions include time efficiency, financial efficiency, cash flow feasibility, priority alignment, dependency clearance, risk reduction, portfolio fit, scenario advantage, recommendation value, decision readiness, and milestone reliability.\n\n",
   "references": []
 }

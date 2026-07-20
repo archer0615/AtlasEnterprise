@@ -3,7 +3,7 @@
   "title": "api-and-persistence",
   "category": "entity",
   "canonicalPath": "knowledge/entity/position/api-and-persistence.md",
-  "sourceHash": "e2864bcdae5237280be804af009d702d68ca0986a1570b4638c6a8837a96db1f",
+  "sourceHash": "c8a07f5355f549ff6f4e174762323f34c628b60c1b6eb00b9a8709bbe1426aca",
   "headings": [
     {
       "level": 2,
@@ -22,6 +22,6 @@
       "text": "Persistence"
     }
   ],
-  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Position API and Persistence\r\n\r\n## Purpose\r\nThis split document isolates Position commands, events, repository, services, Future Cloud Architecture API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping, and cache strategy from the parent Position Entity Specification.\r\n\r\n## Source\r\n- Parent specification: [Position Entity Specification](../Position.md)\r\n\r\n## API\r\nPosition APIs expose create, update, detail, search, valuation, archive, restore, and delete behavior under portfolio and permission boundaries.\r\n\r\n## Persistence\r\nPersistence covers position table mapping, indexes, constraints, Future Cloud Mapping precision, optimistic concurrency, cache invalidation, and portfolio projection refresh.\r\n\r\n",
+  "bodyMarkdown": "> **ADR-001 PWA Runtime Alignment:** Atlas v1 uses PWA v1 Runtime, Browser Runtime, and IndexedDB Runtime. Future Cloud Architecture is optional future mapping and must not be required for v1.\\r\\n\\r\\n# Position API and Persistence\n\n## Purpose\nThis split document isolates Position commands, events, repository, services, Future Cloud Architecture API, DTOs, PWA Runtime Mapping / Future Cloud Mapping, Future Cloud Mapping DDL, Future Cloud Mapping, and cache strategy from the parent Position Entity Specification.\n\n## Source\n- Parent specification: [Position Entity Specification](../Position.md)\n\n## API\nPosition APIs expose create, update, detail, search, valuation, archive, restore, and delete behavior under portfolio and permission boundaries.\n\n## Persistence\nPersistence covers position table mapping, indexes, constraints, Future Cloud Mapping precision, optimistic concurrency, cache invalidation, and portfolio projection refresh.\n\n",
   "references": []
 }

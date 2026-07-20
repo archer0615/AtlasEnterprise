@@ -3,7 +3,7 @@
   "title": "Goal Dashboard Widgets and KPIs",
   "category": "reporting",
   "canonicalPath": "knowledge/reporting/goal-dashboard/widgets-and-kpis.md",
-  "sourceHash": "bec236d45c1f8bc63c4e745780d125009ef2f1742ac8e2f57711a5b4cd5b3b56",
+  "sourceHash": "07c288031dbe6cbca06ff3244d3675107acd2b31feec847608c15d3a3c59f5bd",
   "headings": [
     {
       "level": 1,
@@ -26,6 +26,6 @@
       "text": "Boundary Rules"
     }
   ],
-  "bodyMarkdown": "# Goal Dashboard Widgets and KPIs\n\n## Purpose\n\nThis split document isolates Goal Dashboard widgets, KPIs, filters, refresh rules, validation, business rules, and state behavior from the canonical `knowledge/reporting/goal-dashboard.md` parent.\n\n## Canonical Parent\n\n- Parent: `knowledge/reporting/goal-dashboard.md`\n- Domain: Goal dashboard\n- Status: Enterprise Specification\n\n## Covered Sections\n\n- Dashboard Widgets\n- Dashboard KPIs\n- Dashboard Filters\n- Dashboard Refresh Rules\n- Validation Rules\n- Business Rules\n- State Machine\n\n## Boundary Rules\n\n- Widgets must declare source projections, layout behavior, visibility, refresh requirements, authorization, and empty-state behavior.\n- KPIs must preserve calculation source, unit, version, time window, and masking rules.\n- Filters and refresh rules must not expose unauthorized goals, household data, tenant data, financial records, or user-specific dashboard configuration.\n",
+  "bodyMarkdown": "# Goal Dashboard Widgets and KPIs\r\n\r\n## Purpose\r\n\r\nThis split document isolates Goal Dashboard widgets, KPIs, filters, refresh rules, validation, business rules, and state behavior from the canonical `knowledge/reporting/goal-dashboard.md` parent.\r\n\r\n## Canonical Parent\r\n\r\n- Parent: `knowledge/reporting/goal-dashboard.md`\r\n- Domain: Goal dashboard\r\n- Status: Enterprise Specification\r\n\r\n## Covered Sections\r\n\r\n- Dashboard Widgets\r\n- Dashboard KPIs\r\n- Dashboard Filters\r\n- Dashboard Refresh Rules\r\n- Validation Rules\r\n- Business Rules\r\n- State Machine\r\n\r\n## Boundary Rules\r\n\r\n- Widgets must declare source projections, layout behavior, visibility, refresh requirements, authorization, and empty-state behavior.\r\n- KPIs must preserve calculation source, unit, version, time window, and masking rules.\r\n- Filters and refresh rules must not expose unauthorized goals, household data, tenant data, financial records, or user-specific dashboard configuration.\r\n",
   "references": []
 }
