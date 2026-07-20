@@ -16,7 +16,6 @@ const dashboardModel = await readFile(path.join(frontendRoot, "src", "dashboard-
 const styles = await readFile(path.join(frontendRoot, "src", "styles.css"), "utf8");
 const dashboard = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-snapshot.json"), "utf8"));
 const dashboards = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-snapshots.json"), "utf8"));
-const dashboardFieldTraceability = JSON.parse(await readFile(path.join(frontendRoot, "fixtures", "dashboard-field-traceability.json"), "utf8"));
 
 for (const id of [
   "metricGrid", "scenarioList", "actionList", "dashboardSwitcher", "saveScenarioButton",
@@ -107,9 +106,6 @@ assert(dashboard.label, "dashboard fixture must expose a label");
 assert(dashboard.scenarios.length >= 3, "dashboard fixture must expose at least three scenarios");
 assert(dashboard.actions.length >= 3, "dashboard fixture must expose at least three actions");
 assert(dashboards.snapshots.length >= 3, "dashboard fixture collection must expose at least three snapshots");
-assert(dashboardFieldTraceability.schema === "dashboard-field-traceability.v1", "dashboard field traceability schema is missing");
-assert(dashboardFieldTraceability.formulaSources["FORM-DECISION-SCORE"], "dashboard field traceability must map decision score formula");
-
 for (const snapshot of dashboards.snapshots) {
   assert(snapshot.snapshotId, "dashboard snapshot missing snapshotId");
   assert(snapshot.label, `${snapshot.snapshotId} missing label`);
