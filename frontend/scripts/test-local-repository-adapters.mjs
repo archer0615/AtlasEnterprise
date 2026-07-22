@@ -3,7 +3,10 @@ import path from "node:path";
 
 const root = process.cwd();
 const runtime = await readFile(path.join(root, "frontend", "src", "indexeddb-runtime.js"), "utf8");
-const main = await readFile(path.join(root, "frontend", "src", "main.js"), "utf8");
+const main = [
+  await readFile(path.join(root, "frontend", "src", "main.js"), "utf8"),
+  await readFile(path.join(root, "frontend", "src", "legacy-main.js"), "utf8"),
+].join("\n");
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);

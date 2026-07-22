@@ -9,7 +9,10 @@ function assert(condition, message) {
 }
 
 const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
-const main = await readFile(path.join(root, "frontend", "src", "main.js"), "utf8");
+const main = [
+  await readFile(path.join(root, "frontend", "src", "main.js"), "utf8"),
+  await readFile(path.join(root, "frontend", "src", "legacy-main.js"), "utf8"),
+].join("\n");
 const html = await readFile(path.join(root, "frontend", "index.html"), "utf8");
 const runtime = await readFile(path.join(root, "frontend", "src", "indexeddb-runtime.js"), "utf8");
 const releaseNote = await readFile(path.join(root, "docs", "reports", "pwa-generated-release-note.md"), "utf8").catch(() => "");

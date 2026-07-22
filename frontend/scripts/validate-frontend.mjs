@@ -10,6 +10,8 @@ function assert(condition, message) {
 
 const html = await readFile(path.join(frontendRoot, "index.html"), "utf8");
 const main = await readFile(path.join(frontendRoot, "src", "main.js"), "utf8");
+const legacyMain = await readFile(path.join(frontendRoot, "src", "legacy-main.js"), "utf8");
+const runtimeSource = `${main}\n${legacyMain}`;
 const indexedDbRuntime = await readFile(path.join(frontendRoot, "src", "indexeddb-runtime.js"), "utf8");
 const repositoryInterface = await readFile(path.join(root, "docs", "architecture", "pwa-repository-interface.md"), "utf8");
 const dashboardModel = await readFile(path.join(frontendRoot, "src", "dashboard-model.js"), "utf8");
@@ -64,7 +66,7 @@ for (const token of [
   "loadUserProfile", "saveUserProfile", "resetUserProfile", "profile-save",
   "scenarioTemplates", "renderScenarioTemplates", "applyScenarioTemplate", "saveScenarioFromTemplate",
 ]) {
-  assert(main.includes(token), `main.js missing ${token}`);
+  assert(runtimeSource.includes(token), `frontend runtime missing ${token}`);
 }
 
 for (const token of ["legacySnapshotIdKeys", "atlas.dashboard.snapshotId"]) {

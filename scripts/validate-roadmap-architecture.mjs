@@ -17,7 +17,10 @@ const frontendMap = await readText("docs", "architecture", "frontend-module-map.
 const localData = await readText("docs", "architecture", "local-data-platform.md");
 const runner = await readText("scripts", "run-validation-profile.mjs");
 const indexedDbRuntime = await readText("frontend", "src", "indexeddb-runtime.js");
-const main = await readText("frontend", "src", "main.js");
+const main = [
+  await readText("frontend", "src", "main.js"),
+  await readText("frontend", "src", "legacy-main.js"),
+].join("\n");
 const futureReport = await readText("docs", "roadmap", "future-architecture-boundary-execution-report.md");
 const modularizationReport = await readText("docs", "roadmap", "frontend-modularization-execution-report.md");
 const localDataReport = await readText("docs", "roadmap", "local-data-platform-execution-report.md");
