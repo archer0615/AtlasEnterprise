@@ -183,6 +183,23 @@
           <div id="expenseListPanel" class="report-list"></div>
           <div id="cashFlowPanel" class="decision-log" aria-live="polite"></div>
         </section>
+        <section id="goals" class="profile-settings goal-health-panel" aria-label="目標與財務健康管理">
+          <div>
+            <p class="eyebrow">本機目標資料</p>
+            <h3>目標與財務健康</h3>
+          </div>
+          <div class="profile-grid">
+            <label><span>目標名稱</span><input id="goalNameInput" type="text" placeholder="例如 緊急預備金" /></label>
+            <label><span>目標類型</span><select id="goalTypeInput"><option value="emergency-fund">緊急預備金</option><option value="retirement">退休</option><option value="home">購屋</option><option value="education">教育</option><option value="debt-reduction">降債</option><option value="investment">投資</option><option value="purchase">購買</option><option value="other">其他</option></select></label>
+            <label><span>目標金額</span><input id="goalTargetAmountInput" type="text" inputmode="decimal" placeholder="例如 600000" /></label>
+            <label><span>目前金額</span><input id="goalCurrentAmountInput" type="text" inputmode="decimal" placeholder="例如 150000" /></label>
+            <label><span>目標日期</span><input id="goalTargetDateInput" type="date" /></label>
+            <button id="createGoalButton" type="button">新增目標</button>
+          </div>
+          <div id="goalListPanel" class="report-list"></div>
+          <div id="goalProgressPanel" class="decision-log" aria-live="polite"></div>
+          <div id="financialHealthPanel" class="decision-log" aria-live="polite"></div>
+        </section>
         <section class="release-dashboard" aria-label="發布狀態">
           <div>
             <h3>發布狀態</h3>

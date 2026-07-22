@@ -40,6 +40,7 @@ for (const id of [
   "liabilityNameInput", "liabilityTypeInput", "liabilityCurrencyInput", "liabilityBalanceInput", "createLiabilityButton", "liabilityListPanel", "netWorthPanel",
   "incomeNameInput", "incomeTypeInput", "incomeAmountInput", "incomeFrequencyInput", "createIncomeButton", "incomeListPanel",
   "expenseNameInput", "expenseTypeInput", "expenseAmountInput", "expenseFrequencyInput", "createExpenseButton", "expenseListPanel", "cashFlowPanel",
+  "goalNameInput", "goalTypeInput", "goalTargetAmountInput", "goalCurrentAmountInput", "goalTargetDateInput", "createGoalButton", "goalListPanel", "goalProgressPanel", "financialHealthPanel",
   "scenarioTemplateList", "scenarioTemplatePreview", "applyScenarioTemplateButton", "saveScenarioTemplateButton",
   "help",
 ]) {

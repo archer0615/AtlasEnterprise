@@ -1,5 +1,5 @@
 const databaseName = "atlas-pwa-runtime";
-const databaseVersion = 5;
+const databaseVersion = 6;
 const backupSchemaVersion = "atlas-pwa-runtime-backup.v1";
 const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1";
 const keyRotationFormatVersion = "atlas-enterprise.backup-key-rotation-report.v1";
@@ -86,6 +86,7 @@ const stores = {
   liabilities: "liabilities",
   incomes: "incomes",
   expenses: "expenses",
+  goals: "goals",
 };
 const backupRecordFieldAllowlist = {
   [stores.scenarios]: ["scenarioId", "name", "score", "status", "sourceSnapshotId", "aggregateVersion", "updatedAt", "savedAt"],
@@ -96,6 +97,7 @@ const backupRecordFieldAllowlist = {
   [stores.liabilities]: ["id", "ownerId", "name", "liabilityType", "currency", "outstandingBalance", "asOfDate", "status", "description", "createdAt", "updatedAt", "archivedAt", "version"],
   [stores.incomes]: ["id", "ownerId", "name", "incomeType", "amount", "currency", "frequency", "startDate", "endDate", "occurrenceDate", "status", "description", "createdAt", "updatedAt", "archivedAt", "version"],
   [stores.expenses]: ["id", "ownerId", "name", "expenseType", "amount", "currency", "frequency", "startDate", "endDate", "occurrenceDate", "status", "description", "createdAt", "updatedAt", "archivedAt", "version"],
+  [stores.goals]: ["id", "ownerId", "name", "goalType", "targetAmount", "currentAmount", "currency", "priority", "startDate", "targetDate", "status", "description", "parentGoalId", "scenarioId", "createdAt", "updatedAt", "archivedAt", "version"],
 };
 
 let databasePromise;
@@ -141,6 +143,7 @@ function backupPayload(backup) {
     liabilities: backup?.liabilities || [],
     incomes: backup?.incomes || [],
     expenses: backup?.expenses || [],
+    goals: backup?.goals || [],
   };
 }
 
@@ -163,7 +166,7 @@ function maskBackupSensitiveFields(value) {
 }
 
 function minimizeBackupData(backup) {
-  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses"];
+  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals"];
   const minimized = Object.fromEntries(allowedBackupFields.filter((field) => backup[field] !== undefined).map((field) => [field, backup[field]]));
   minimized.scenarios = minimizeBackupRecords(stores.scenarios, minimized.scenarios || []);
   minimized.recommendationDecisions = minimizeBackupRecords(stores.recommendationDecisions, minimized.recommendationDecisions || []);
@@ -173,6 +176,7 @@ function minimizeBackupData(backup) {
   minimized.liabilities = minimizeBackupRecords(stores.liabilities, minimized.liabilities || []);
   minimized.incomes = minimizeBackupRecords(stores.incomes, minimized.incomes || []);
   minimized.expenses = minimizeBackupRecords(stores.expenses, minimized.expenses || []);
+  minimized.goals = minimizeBackupRecords(stores.goals, minimized.goals || []);
   return minimized;
 }
 
@@ -264,6 +268,10 @@ function openDatabase() {
       if (!database.objectStoreNames.contains(stores.expenses)) {
         const store = database.createObjectStore(stores.expenses, { keyPath: "id" });
         ["ownerId", "status", "expenseType", "currency", "frequency", "startDate", "endDate", "updatedAt"].forEach((indexName) => store.createIndex(indexName, indexName));
+      }
+      if (!database.objectStoreNames.contains(stores.goals)) {
+        const store = database.createObjectStore(stores.goals, { keyPath: "id" });
+        ["ownerId", "status", "goalType", "currency", "priority", "targetDate", "parentGoalId", "updatedAt"].forEach((indexName) => store.createIndex(indexName, indexName));
       }
     };
 
@@ -507,6 +515,8 @@ function filterFinancialRecords(items, ownerId, query = {}, typeField) {
     if (!query.includeArchived && record.status === "archived") return false;
     if (query.status && record.status !== query.status) return false;
     if (query.type && record[typeField] !== query.type) return false;
+    if (query.goalType && record.goalType !== query.goalType) return false;
+    if (query.priority && record.priority !== query.priority) return false;
     if (query.currency && record.currency !== query.currency) return false;
     if (search && !String(record.name || "").toLowerCase().includes(search)) return false;
     return true;
@@ -563,6 +573,20 @@ function createFinancialRepository({ storeName, typeField, notFoundCode, existsC
         return !Number.isNaN(recordStart) && recordStart <= end && (Number.isNaN(recordEnd) || recordEnd >= start);
       });
     },
+    async listByStatus(ownerId, status) {
+      return this.listByOwner(ownerId, { status, includeArchived: true });
+    },
+    async listByTargetDateRange(ownerId, period = {}) {
+      const start = Date.parse(period.start || "0001-01-01");
+      const end = Date.parse(period.end || "9999-12-31");
+      return (await this.listByOwner(ownerId, { includeArchived: period.includeArchived === true })).filter((record) => {
+        const targetDate = Date.parse(record.targetDate || "");
+        return !Number.isNaN(targetDate) && targetDate >= start && targetDate <= end;
+      });
+    },
+    async listByParentGoal(ownerId, parentGoalId) {
+      return (await this.listByOwner(ownerId, { includeArchived: true })).filter((record) => record.parentGoalId === parentGoalId);
+    },
   };
 }
 
@@ -594,6 +618,13 @@ export const indexedDbExpenseRepository = createFinancialRepository({
   existsCode: "ATLAS_EXPENSE_ALREADY_EXISTS",
 });
 
+export const indexedDbGoalRepository = createFinancialRepository({
+  storeName: stores.goals,
+  typeField: "goalType",
+  notFoundCode: "ATLAS_GOAL_NOT_FOUND",
+  existsCode: "ATLAS_GOAL_ALREADY_EXISTS",
+});
+
 export const indexedDbBackupRepository = {
   async exportBackup() {
     await indexedDbMigrationRepository.markCurrent();
@@ -609,6 +640,7 @@ export const indexedDbBackupRepository = {
       liabilities: await getAll(stores.liabilities),
       incomes: await getAll(stores.incomes),
       expenses: await getAll(stores.expenses),
+      goals: await getAll(stores.goals),
     });
     backup.checksum = await sha256Hex(stableStringify(backupPayload(backup)));
     return backup;
@@ -719,7 +751,7 @@ export const indexedDbBackupRepository = {
     if (!["replace-all", "skip-existing"].includes(report.conflictPolicy)) return false;
     if (!Number.isFinite(report.scenarioCount) || report.scenarioCount < 0) return false;
     if (!report.restoredRecords || typeof report.restoredRecords !== "object") return false;
-    return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries]
+    return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries, stores.assets, stores.liabilities, stores.incomes, stores.expenses, stores.goals]
       .every((storeName) => Number.isFinite(report.restoredRecords[storeName] || 0));
   },
 
@@ -947,6 +979,7 @@ export const indexedDbBackupRepository = {
     const currentLiabilities = await getAll(stores.liabilities);
     const currentIncomes = await getAll(stores.incomes);
     const currentExpenses = await getAll(stores.expenses);
+    const currentGoals = await getAll(stores.goals);
     const existingIds = new Set(currentScenarios.map((scenario) => scenario.scenarioId));
     const updates = migratedBackup.scenarios.filter((scenario) => existingIds.has(scenario.scenarioId));
     const creates = migratedBackup.scenarios.filter((scenario) => !existingIds.has(scenario.scenarioId));
@@ -959,6 +992,7 @@ export const indexedDbBackupRepository = {
       createStoreImportPlan(stores.liabilities, "id", currentLiabilities, migratedBackup.liabilities || []),
       createStoreImportPlan(stores.incomes, "id", currentIncomes, migratedBackup.incomes || []),
       createStoreImportPlan(stores.expenses, "id", currentExpenses, migratedBackup.expenses || []),
+      createStoreImportPlan(stores.goals, "id", currentGoals, migratedBackup.goals || []),
     ];
     const migrationPlan = createBackupMigrationPlan(backup.databaseVersion || 0);
     return {
@@ -991,7 +1025,7 @@ export const indexedDbBackupRepository = {
         return false;
       }
     }
-    if (!["recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
+    if (!["recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
       return false;
     }
     if (backup.retentionPolicy && backup.retentionPolicy.schema !== backupRetentionPolicy.schema) {
@@ -1050,7 +1084,18 @@ export const indexedDbBackupRepository = {
       expenseIds.add(expense.id);
       return typeof expense.ownerId === "string" && typeof expense.name === "string" && Number.isFinite(Number(expense.amount));
     });
-    return scenarioValid && decisionsValid && settingsValid && auditValid && assetsValid && liabilitiesValid && incomesValid && expensesValid;
+    const goalIds = new Set();
+    const goalsValid = (backup.goals || []).every((goal) => {
+      if (!goal?.id || goalIds.has(goal.id)) return false;
+      goalIds.add(goal.id);
+      if (goal.parentGoalId && goal.parentGoalId === goal.id) return false;
+      return typeof goal.ownerId === "string"
+        && typeof goal.name === "string"
+        && Number.isFinite(Number(goal.targetAmount))
+        && Number(goal.targetAmount) > 0
+        && Number.isFinite(Number(goal.currentAmount));
+    });
+    return scenarioValid && decisionsValid && settingsValid && auditValid && assetsValid && liabilitiesValid && incomesValid && expensesValid && goalsValid;
   },
 };
 
@@ -1080,6 +1125,7 @@ function migrateBackupToCurrent(backup) {
   migrated.liabilities = migrated.liabilities || [];
   migrated.incomes = migrated.incomes || [];
   migrated.expenses = migrated.expenses || [];
+  migrated.goals = migrated.goals || [];
   migrated.scenarios = (migrated.scenarios || []).map((scenario) => ({
     ...scenario,
     score: String(scenario.score),
@@ -1122,9 +1168,10 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
     { storeName: stores.liabilities, records: backup.liabilities || [] },
     { storeName: stores.incomes, records: backup.incomes || [] },
     { storeName: stores.expenses, records: backup.expenses || [] },
+    { storeName: stores.goals, records: backup.goals || [] },
   ];
   if (conflictPolicy === "skip-existing") {
-    const [currentScenarios, currentDecisions, currentSettings, currentAudits, currentAssets, currentLiabilities, currentIncomes, currentExpenses] = await Promise.all([
+    const [currentScenarios, currentDecisions, currentSettings, currentAudits, currentAssets, currentLiabilities, currentIncomes, currentExpenses, currentGoals] = await Promise.all([
       indexedDbScenarioRepository.list(),
       indexedDbRecommendationDecisionRepository.list(),
       getAll(stores.settings),
@@ -1133,6 +1180,7 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
       getAll(stores.liabilities),
       getAll(stores.incomes),
       getAll(stores.expenses),
+      getAll(stores.goals),
     ]);
     plan = [
       mergeWithoutReplacing(stores.scenarios, "scenarioId", currentScenarios, backup.scenarios || []),
@@ -1143,6 +1191,7 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
       mergeWithoutReplacing(stores.liabilities, "id", currentLiabilities, backup.liabilities || []),
       mergeWithoutReplacing(stores.incomes, "id", currentIncomes, backup.incomes || []),
       mergeWithoutReplacing(stores.expenses, "id", currentExpenses, backup.expenses || []),
+      mergeWithoutReplacing(stores.goals, "id", currentGoals, backup.goals || []),
     ];
   }
   return new Promise((resolve, reject) => {

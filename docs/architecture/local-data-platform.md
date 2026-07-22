@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | Database name | `atlas-pwa-runtime` |
-| Database version | `5` |
+| Database version | `6` |
 | Backup schema | `atlas-pwa-runtime-backup.v1` |
 | Encrypted backup schema | `atlas-pwa-runtime-encrypted-backup.v1` |
 | Coordination channel | `atlas-pwa-runtime-coordination` |
@@ -24,6 +24,7 @@
 | `liabilities` | `id` | Local liability portfolio records. |
 | `incomes` | `id` | Local recurring and one-time income records. |
 | `expenses` | `id` | Local recurring and one-time expense records. |
+| `goals` | `id` | Local goal records and lifecycle state. |
 
 Financial stores declare owner, status, type, currency, frequency where applicable, effective date, and update-time indexes. No secondary indexes are currently declared for non-financial stores, and their query behavior remains full-store read plus in-memory projection.
 
@@ -31,10 +32,11 @@ Financial stores declare owner, status, type, currency, frequency where applicab
 
 | Source Version | Target Version | Status |
 | --- | --- | --- |
-| `2` | `5` | Supported backup import path. |
-| `3` | `5` | Supported asset and liability store migration path. |
-| `4` | `5` | Supported income, expense, and cashflow store migration path. |
-| `5` | `5` | Current idempotent path. |
+| `2` | `6` | Supported backup import path. |
+| `3` | `6` | Supported asset and liability store migration path. |
+| `4` | `6` | Supported income, expense, and cashflow store migration path. |
+| `5` | `6` | Supported goal and financial health store migration path. |
+| `6` | `6` | Current idempotent path. |
 
 Migration must be idempotent. A failed import must leave the current stores intact unless the staged restore completes.
 
@@ -73,6 +75,7 @@ Migration must be idempotent. A failed import must leave the current stores inta
 | Database version `2` | Legacy compatible | Migrated to current |
 | Database version `3` | Legacy compatible | Migrated to current |
 | Database version `4` | Legacy compatible | Migrated to current |
-| Database version `5` | Current | Direct import |
+| Database version `5` | Legacy compatible | Migrated to current |
+| Database version `6` | Current | Direct import |
 
 Rollback policy: if migration or import validation fails, keep existing local stores and report the failure through dry-run or restore feedback.

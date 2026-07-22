@@ -29,6 +29,14 @@ body {
   display: block;
 }
 
+.goal-health-panel {
+  display: none;
+}
+
+.goal-health-panel:target {
+  display: block;
+}
+
 button,
 input {
   font: inherit;

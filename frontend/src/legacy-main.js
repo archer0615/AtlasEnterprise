@@ -1,5 +1,5 @@
 import { dashboardStorage, fallbackDashboardSnapshot, normalizeDashboardCollection } from "./dashboard-model.js";
-import { indexedDbAssetRepository, indexedDbAuditRepository, indexedDbBackupRepository, indexedDbExpenseRepository, indexedDbIncomeRepository, indexedDbLiabilityRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
+import { indexedDbAssetRepository, indexedDbAuditRepository, indexedDbBackupRepository, indexedDbExpenseRepository, indexedDbGoalRepository, indexedDbIncomeRepository, indexedDbLiabilityRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
 import { createCurrentOwnerProvider } from "./application/ownership/current-owner-provider.js";
 import { createAssetApplicationService } from "./application/assets/asset-application-service.js";
 import { createLiabilityApplicationService } from "./application/liabilities/liability-application-service.js";
@@ -7,6 +7,9 @@ import { projectNetWorth } from "./runtime/net-worth-projection.js";
 import { createIncomeApplicationService } from "./application/incomes/income-application-service.js";
 import { createExpenseApplicationService } from "./application/expenses/expense-application-service.js";
 import { projectCashFlow } from "./runtime/cashflow-projection.js";
+import { createGoalApplicationService } from "./application/goals/goal-application-service.js";
+import { projectGoalProgress } from "./runtime/goal-progress-projection.js";
+import { projectFinancialHealth } from "./runtime/financial-health-projection.js";
 
 const state = { documents: [], searchDocuments: new Map(), categories: [], selectedCategory: "all", selectedDocumentId: "", query: "" };
 const storageKeys = { dashboardSnapshotId: dashboardStorage.snapshotIdKey };
@@ -111,12 +114,22 @@ const expenseFrequencyInput = $("#expenseFrequencyInput");
 const createExpenseButton = $("#createExpenseButton");
 const expenseListPanel = $("#expenseListPanel");
 const cashFlowPanel = $("#cashFlowPanel");
+const goalNameInput = $("#goalNameInput");
+const goalTypeInput = $("#goalTypeInput");
+const goalTargetAmountInput = $("#goalTargetAmountInput");
+const goalCurrentAmountInput = $("#goalCurrentAmountInput");
+const goalTargetDateInput = $("#goalTargetDateInput");
+const createGoalButton = $("#createGoalButton");
+const goalListPanel = $("#goalListPanel");
+const goalProgressPanel = $("#goalProgressPanel");
+const financialHealthPanel = $("#financialHealthPanel");
 
 const ownerProvider = createCurrentOwnerProvider(indexedDbSettingsRepository);
 const assetService = createAssetApplicationService({ repository: indexedDbAssetRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 const liabilityService = createLiabilityApplicationService({ repository: indexedDbLiabilityRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 const incomeService = createIncomeApplicationService({ repository: indexedDbIncomeRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 const expenseService = createExpenseApplicationService({ repository: indexedDbExpenseRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
+const goalService = createGoalApplicationService({ repository: indexedDbGoalRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -1053,6 +1066,19 @@ async function refreshLocalCashFlowData() {
   renderCashFlowProjection(incomes, expenses);
 }
 
+async function refreshLocalGoalHealthData() {
+  const [goals, assets, liabilities, incomes, expenses] = await Promise.all([
+    goalService.listGoals({ includeArchived: true }),
+    assetService.listAssets({ includeArchived: true }),
+    liabilityService.listLiabilities({ includeArchived: true }),
+    incomeService.listIncomes({ includeArchived: true }),
+    expenseService.listExpenses({ includeArchived: true }),
+  ]);
+  renderGoalList(goals);
+  renderGoalProgress(goals, assets, liabilities, incomes, expenses);
+  renderFinancialHealth(goals, assets, liabilities, incomes, expenses);
+}
+
 function renderAssetList(assets) {
   if (!assetListPanel) return;
   assetListPanel.innerHTML = assets.length
@@ -1093,6 +1119,38 @@ function renderCashFlowProjection(incomes, expenses) {
     `支出合計：${formatDisplayToken(projection.totalExpense)}`,
     `淨現金流：${formatDisplayToken(projection.netCashFlow)}`,
     projection.warnings.length ? `提醒：${projection.warnings.join(", ")}` : `幣別：${projection.currency}`,
+  ].join("\n");
+}
+
+function renderGoalList(goals) {
+  if (!goalListPanel) return;
+  goalListPanel.innerHTML = goals.length
+    ? goals.map((goal) => `<div class="runtime-row"><span>${escapeHtml(goal.name)} / ${escapeHtml(goal.goalType)} / ${escapeHtml(goal.status)}</span><strong>${escapeHtml(formatDisplayToken(goal.currentAmount))} / ${escapeHtml(formatDisplayToken(goal.targetAmount))}</strong><button type="button" data-goal-action="activate" data-goal-id="${escapeAttribute(goal.id)}">啟用</button><button type="button" data-goal-action="deactivate" data-goal-id="${escapeAttribute(goal.id)}">停用</button><button type="button" data-goal-action="complete" data-goal-id="${escapeAttribute(goal.id)}">完成</button><button type="button" data-goal-action="archive" data-goal-id="${escapeAttribute(goal.id)}">${goal.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
+    : `<div class="empty-runtime">尚未建立目標資料。</div>`;
+}
+
+function renderGoalProgress(goals, assets, liabilities, incomes, expenses) {
+  if (!goalProgressPanel) return;
+  const projection = projectGoalProgress({ goals, assets, liabilities, incomes, expenses });
+  goalProgressPanel.textContent = [
+    `目標數：${projection.goalCount}`,
+    `完成數：${projection.completedCount}`,
+    `平均進度：${projection.averageProgress}%`,
+    projection.warnings.length ? `提醒：${projection.warnings.join(", ")}` : `幣別：${projection.currency}`,
+  ].join("\n");
+}
+
+function renderFinancialHealth(goals, assets, liabilities, incomes, expenses) {
+  if (!financialHealthPanel) return;
+  const now = new Date();
+  const periodStart = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1)).toISOString().slice(0, 10);
+  const periodEnd = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 0)).toISOString().slice(0, 10);
+  const projection = projectFinancialHealth({ goals, assets, liabilities, incomes, expenses, periodStart, periodEnd });
+  financialHealthPanel.textContent = [
+    `健康分數：${projection.score}`,
+    `分類：${projection.classification}`,
+    ...projection.metrics.map((metric) => `${metric.id}：${metric.value ?? "N/A"}`),
+    projection.warnings.length ? `提醒：${projection.warnings.join(", ")}` : "資料完整",
   ].join("\n");
 }
 
@@ -1169,6 +1227,25 @@ async function createExpenseFromInput() {
   await refreshLocalCashFlowData();
 }
 
+async function createGoalFromInput() {
+  const result = await goalService.createGoal({
+    name: goalNameInput.value,
+    goalType: goalTypeInput.value,
+    targetAmount: goalTargetAmountInput.value,
+    currentAmount: goalCurrentAmountInput.value,
+    currency: "TWD",
+    priority: "medium",
+    startDate: new Date().toISOString().slice(0, 10),
+    targetDate: goalTargetDateInput.value || new Date().toISOString().slice(0, 10),
+    status: "draft",
+  });
+  if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
+  goalNameInput.value = "";
+  goalTargetAmountInput.value = "";
+  goalCurrentAmountInput.value = "";
+  await refreshLocalGoalHealthData();
+}
+
 categoryNav?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-category]");
   if (!button) return;
@@ -1229,6 +1306,7 @@ createAssetButton?.addEventListener("click", () => createAssetFromInput().catch(
 createLiabilityButton?.addEventListener("click", () => createLiabilityFromInput().catch((error) => setRuntimeFeedback(error.message)));
 createIncomeButton?.addEventListener("click", () => createIncomeFromInput().catch((error) => setRuntimeFeedback(error.message)));
 createExpenseButton?.addEventListener("click", () => createExpenseFromInput().catch((error) => setRuntimeFeedback(error.message)));
+createGoalButton?.addEventListener("click", () => createGoalFromInput().catch((error) => setRuntimeFeedback(error.message)));
 assetListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-asset-archive]");
   if (!button) return;
@@ -1257,6 +1335,20 @@ expenseListPanel?.addEventListener("click", (event) => {
     expense?.status === "archived" ? expenseService.restoreExpense(expense.id) : expenseService.archiveExpense(expense.id)
   )).then(refreshLocalCashFlowData).catch((error) => setRuntimeFeedback(error.message));
 });
+goalListPanel?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-goal-id]");
+  if (!button) return;
+  const actions = {
+    activate: goalService.activateGoal,
+    deactivate: goalService.deactivateGoal,
+    complete: goalService.completeGoal,
+    archive: async (id) => {
+      const goal = await goalService.getGoal(id);
+      return goal?.status === "archived" ? goalService.restoreGoal(id) : goalService.archiveGoal(id);
+    },
+  };
+  actions[button.dataset.goalAction]?.(button.dataset.goalId).then(refreshLocalGoalHealthData).catch((error) => setRuntimeFeedback(error.message));
+});
 scenarioTemplateList?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-template-id]");
   if (!button) return;
@@ -1283,4 +1375,5 @@ renderReleaseDashboard().catch(() => {});
 loadUserProfile().catch(() => {});
 refreshLocalFinancialData().catch(() => {});
 refreshLocalCashFlowData().catch(() => {});
+refreshLocalGoalHealthData().catch(() => {});
 renderScenarioTemplates();

@@ -41,7 +41,7 @@ for (const id of ["persistentAuditPanel", "reportDiffPanel", "validationFailureD
   assert(html.includes(`id="${id}"`), `${id} is missing from release dashboard`);
 }
 
-for (const token of ["indexedDbAuditRepository", "auditEntries", "databaseVersion = 5"]) {
+for (const token of ["indexedDbAuditRepository", "auditEntries", "databaseVersion = 6"]) {
   assert(runtime.includes(token), `IndexedDB runtime missing ${token}`);
 }
 

@@ -76,7 +76,7 @@ for (const requiredText of [
 for (const requiredText of [
   "atlas-pwa-runtime",
   "Database version",
-  "`5`",
+  "`6`",
   "metadata",
   "scenarios",
   "recommendationDecisions",
@@ -94,7 +94,7 @@ for (const requiredText of [
 
 for (const runtimeText of [
   'const databaseName = "atlas-pwa-runtime"',
-  "const databaseVersion = 5",
+  "const databaseVersion = 6",
   'const backupSchemaVersion = "atlas-pwa-runtime-backup.v1"',
   'const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1"',
   'const coordinationChannelName = "atlas-pwa-runtime-coordination"',
