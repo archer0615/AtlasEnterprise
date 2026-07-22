@@ -1,9 +1,12 @@
 import { dashboardStorage, fallbackDashboardSnapshot, normalizeDashboardCollection } from "./dashboard-model.js";
-import { indexedDbAssetRepository, indexedDbAuditRepository, indexedDbBackupRepository, indexedDbLiabilityRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
+import { indexedDbAssetRepository, indexedDbAuditRepository, indexedDbBackupRepository, indexedDbExpenseRepository, indexedDbIncomeRepository, indexedDbLiabilityRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
 import { createCurrentOwnerProvider } from "./application/ownership/current-owner-provider.js";
 import { createAssetApplicationService } from "./application/assets/asset-application-service.js";
 import { createLiabilityApplicationService } from "./application/liabilities/liability-application-service.js";
 import { projectNetWorth } from "./runtime/net-worth-projection.js";
+import { createIncomeApplicationService } from "./application/incomes/income-application-service.js";
+import { createExpenseApplicationService } from "./application/expenses/expense-application-service.js";
+import { projectCashFlow } from "./runtime/cashflow-projection.js";
 
 const state = { documents: [], searchDocuments: new Map(), categories: [], selectedCategory: "all", selectedDocumentId: "", query: "" };
 const storageKeys = { dashboardSnapshotId: dashboardStorage.snapshotIdKey };
@@ -95,10 +98,25 @@ const liabilityBalanceInput = $("#liabilityBalanceInput");
 const createLiabilityButton = $("#createLiabilityButton");
 const liabilityListPanel = $("#liabilityListPanel");
 const netWorthPanel = $("#netWorthPanel");
+const incomeNameInput = $("#incomeNameInput");
+const incomeTypeInput = $("#incomeTypeInput");
+const incomeAmountInput = $("#incomeAmountInput");
+const incomeFrequencyInput = $("#incomeFrequencyInput");
+const createIncomeButton = $("#createIncomeButton");
+const incomeListPanel = $("#incomeListPanel");
+const expenseNameInput = $("#expenseNameInput");
+const expenseTypeInput = $("#expenseTypeInput");
+const expenseAmountInput = $("#expenseAmountInput");
+const expenseFrequencyInput = $("#expenseFrequencyInput");
+const createExpenseButton = $("#createExpenseButton");
+const expenseListPanel = $("#expenseListPanel");
+const cashFlowPanel = $("#cashFlowPanel");
 
 const ownerProvider = createCurrentOwnerProvider(indexedDbSettingsRepository);
 const assetService = createAssetApplicationService({ repository: indexedDbAssetRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 const liabilityService = createLiabilityApplicationService({ repository: indexedDbLiabilityRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
+const incomeService = createIncomeApplicationService({ repository: indexedDbIncomeRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
+const expenseService = createExpenseApplicationService({ repository: indexedDbExpenseRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -1025,6 +1043,16 @@ async function refreshLocalFinancialData() {
   renderNetWorthProjection(assets, liabilities);
 }
 
+async function refreshLocalCashFlowData() {
+  const [incomes, expenses] = await Promise.all([
+    incomeService.listIncomes({ includeArchived: true }),
+    expenseService.listExpenses({ includeArchived: true }),
+  ]);
+  renderIncomeList(incomes);
+  renderExpenseList(expenses);
+  renderCashFlowProjection(incomes, expenses);
+}
+
 function renderAssetList(assets) {
   if (!assetListPanel) return;
   assetListPanel.innerHTML = assets.length
@@ -1037,6 +1065,35 @@ function renderLiabilityList(liabilities) {
   liabilityListPanel.innerHTML = liabilities.length
     ? liabilities.map((liability) => `<div class="runtime-row"><span>${escapeHtml(liability.name)} / ${escapeHtml(liability.liabilityType)} / ${escapeHtml(liability.currency)}</span><strong>${escapeHtml(formatDisplayToken(liability.outstandingBalance))}</strong><button type="button" data-liability-archive="${escapeAttribute(liability.id)}">${liability.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
     : `<div class="empty-runtime">尚未建立負債，本機儀表板會顯示空狀態。</div>`;
+}
+
+function renderIncomeList(incomes) {
+  if (!incomeListPanel) return;
+  incomeListPanel.innerHTML = incomes.length
+    ? incomes.map((income) => `<div class="runtime-row"><span>${escapeHtml(income.name)} / ${escapeHtml(income.incomeType)} / ${escapeHtml(income.frequency)}</span><strong>${escapeHtml(formatDisplayToken(income.amount))}</strong><button type="button" data-income-archive="${escapeAttribute(income.id)}">${income.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
+    : `<div class="empty-runtime">尚未建立收入資料。</div>`;
+}
+
+function renderExpenseList(expenses) {
+  if (!expenseListPanel) return;
+  expenseListPanel.innerHTML = expenses.length
+    ? expenses.map((expense) => `<div class="runtime-row"><span>${escapeHtml(expense.name)} / ${escapeHtml(expense.expenseType)} / ${escapeHtml(expense.frequency)}</span><strong>${escapeHtml(formatDisplayToken(expense.amount))}</strong><button type="button" data-expense-archive="${escapeAttribute(expense.id)}">${expense.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
+    : `<div class="empty-runtime">尚未建立支出資料。</div>`;
+}
+
+function renderCashFlowProjection(incomes, expenses) {
+  if (!cashFlowPanel) return;
+  const now = new Date();
+  const periodStart = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1)).toISOString().slice(0, 10);
+  const periodEnd = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 0)).toISOString().slice(0, 10);
+  const projection = projectCashFlow({ incomes, expenses, periodStart, periodEnd });
+  cashFlowPanel.textContent = [
+    `期間：${projection.periodStart} 至 ${projection.periodEnd}`,
+    `收入合計：${formatDisplayToken(projection.totalIncome)}`,
+    `支出合計：${formatDisplayToken(projection.totalExpense)}`,
+    `淨現金流：${formatDisplayToken(projection.netCashFlow)}`,
+    projection.warnings.length ? `提醒：${projection.warnings.join(", ")}` : `幣別：${projection.currency}`,
+  ].join("\n");
 }
 
 function renderNetWorthProjection(assets, liabilities) {
@@ -1078,6 +1135,38 @@ async function createLiabilityFromInput() {
   liabilityNameInput.value = "";
   liabilityBalanceInput.value = "";
   await refreshLocalFinancialData();
+}
+
+async function createIncomeFromInput() {
+  const result = await incomeService.createIncome({
+    name: incomeNameInput.value,
+    incomeType: incomeTypeInput.value,
+    amount: incomeAmountInput.value,
+    currency: "TWD",
+    frequency: incomeFrequencyInput.value,
+    startDate: new Date().toISOString().slice(0, 10),
+    status: "active",
+  });
+  if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
+  incomeNameInput.value = "";
+  incomeAmountInput.value = "";
+  await refreshLocalCashFlowData();
+}
+
+async function createExpenseFromInput() {
+  const result = await expenseService.createExpense({
+    name: expenseNameInput.value,
+    expenseType: expenseTypeInput.value,
+    amount: expenseAmountInput.value,
+    currency: "TWD",
+    frequency: expenseFrequencyInput.value,
+    startDate: new Date().toISOString().slice(0, 10),
+    status: "active",
+  });
+  if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
+  expenseNameInput.value = "";
+  expenseAmountInput.value = "";
+  await refreshLocalCashFlowData();
 }
 
 categoryNav?.addEventListener("click", (event) => {
@@ -1138,6 +1227,8 @@ saveProfileButton?.addEventListener("click", () => saveUserProfile().catch((erro
 resetProfileButton?.addEventListener("click", () => resetUserProfile().catch((error) => setRuntimeFeedback(error.message)));
 createAssetButton?.addEventListener("click", () => createAssetFromInput().catch((error) => setRuntimeFeedback(error.message)));
 createLiabilityButton?.addEventListener("click", () => createLiabilityFromInput().catch((error) => setRuntimeFeedback(error.message)));
+createIncomeButton?.addEventListener("click", () => createIncomeFromInput().catch((error) => setRuntimeFeedback(error.message)));
+createExpenseButton?.addEventListener("click", () => createExpenseFromInput().catch((error) => setRuntimeFeedback(error.message)));
 assetListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-asset-archive]");
   if (!button) return;
@@ -1151,6 +1242,20 @@ liabilityListPanel?.addEventListener("click", (event) => {
   liabilityService.getLiability(button.dataset.liabilityArchive).then((liability) => (
     liability?.status === "archived" ? liabilityService.restoreLiability(liability.id) : liabilityService.archiveLiability(liability.id)
   )).then(refreshLocalFinancialData).catch((error) => setRuntimeFeedback(error.message));
+});
+incomeListPanel?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-income-archive]");
+  if (!button) return;
+  incomeService.getIncome(button.dataset.incomeArchive).then((income) => (
+    income?.status === "archived" ? incomeService.restoreIncome(income.id) : incomeService.archiveIncome(income.id)
+  )).then(refreshLocalCashFlowData).catch((error) => setRuntimeFeedback(error.message));
+});
+expenseListPanel?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-expense-archive]");
+  if (!button) return;
+  expenseService.getExpense(button.dataset.expenseArchive).then((expense) => (
+    expense?.status === "archived" ? expenseService.restoreExpense(expense.id) : expenseService.archiveExpense(expense.id)
+  )).then(refreshLocalCashFlowData).catch((error) => setRuntimeFeedback(error.message));
 });
 scenarioTemplateList?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-template-id]");
@@ -1177,4 +1282,5 @@ loadDashboard();
 renderReleaseDashboard().catch(() => {});
 loadUserProfile().catch(() => {});
 refreshLocalFinancialData().catch(() => {});
+refreshLocalCashFlowData().catch(() => {});
 renderScenarioTemplates();

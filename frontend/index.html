@@ -160,6 +160,29 @@
           <div id="liabilityListPanel" class="report-list"></div>
           <div id="netWorthPanel" class="decision-log" aria-live="polite"></div>
         </section>
+        <section id="cashflow" class="profile-settings cashflow-panel" aria-label="收支與現金流管理">
+          <div>
+            <p class="eyebrow">本機現金流資料</p>
+            <h3>收入、支出與現金流</h3>
+          </div>
+          <div class="profile-grid">
+            <label><span>收入名稱</span><input id="incomeNameInput" type="text" placeholder="例如 薪資" /></label>
+            <label><span>收入類型</span><select id="incomeTypeInput"><option value="salary">薪資</option><option value="bonus">獎金</option><option value="dividend">股利</option><option value="interest">利息</option><option value="rental">租金</option><option value="other">其他</option></select></label>
+            <label><span>收入金額</span><input id="incomeAmountInput" type="text" inputmode="decimal" placeholder="例如 120000" /></label>
+            <label><span>頻率</span><select id="incomeFrequencyInput"><option value="monthly">每月</option><option value="quarterly">每季</option><option value="semiannual">每半年</option><option value="annual">每年</option><option value="one-time">一次性</option></select></label>
+            <button id="createIncomeButton" type="button">新增收入</button>
+          </div>
+          <div id="incomeListPanel" class="report-list"></div>
+          <div class="profile-grid">
+            <label><span>支出名稱</span><input id="expenseNameInput" type="text" placeholder="例如 房貸" /></label>
+            <label><span>支出類型</span><select id="expenseTypeInput"><option value="housing">住房</option><option value="food">飲食</option><option value="transport">交通</option><option value="insurance">保險</option><option value="loan-payment">貸款</option><option value="tax">稅務</option><option value="other">其他</option></select></label>
+            <label><span>支出金額</span><input id="expenseAmountInput" type="text" inputmode="decimal" placeholder="例如 45000" /></label>
+            <label><span>頻率</span><select id="expenseFrequencyInput"><option value="monthly">每月</option><option value="quarterly">每季</option><option value="semiannual">每半年</option><option value="annual">每年</option><option value="one-time">一次性</option></select></label>
+            <button id="createExpenseButton" type="button">新增支出</button>
+          </div>
+          <div id="expenseListPanel" class="report-list"></div>
+          <div id="cashFlowPanel" class="decision-log" aria-live="polite"></div>
+        </section>
         <section class="release-dashboard" aria-label="發布狀態">
           <div>
             <h3>發布狀態</h3>

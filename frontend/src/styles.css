@@ -21,6 +21,14 @@ body {
   display: block;
 }
 
+.cashflow-panel {
+  display: none;
+}
+
+.cashflow-panel:target {
+  display: block;
+}
+
 button,
 input {
   font: inherit;
