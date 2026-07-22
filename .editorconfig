@@ -1,0 +1,16 @@
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{md,txt,js,mjs,cjs,json,jsonc,css,scss,html,xml,yml,yaml,toml,sql,cs,csproj,sh}]
+end_of_line = lf
+indent_style = space
+
+[*.{ps1,bat,cmd,sln}]
+end_of_line = crlf
+
+[*.md]
+trim_trailing_whitespace = false
