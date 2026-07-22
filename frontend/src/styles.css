@@ -13,6 +13,14 @@ body {
   margin: 0;
 }
 
+.asset-liability-panel {
+  display: none;
+}
+
+.asset-liability-panel:target {
+  display: block;
+}
+
 button,
 input {
   font: inherit;

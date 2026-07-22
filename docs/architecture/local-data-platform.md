@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | Database name | `atlas-pwa-runtime` |
-| Database version | `3` |
+| Database version | `4` |
 | Backup schema | `atlas-pwa-runtime-backup.v1` |
 | Encrypted backup schema | `atlas-pwa-runtime-encrypted-backup.v1` |
 | Coordination channel | `atlas-pwa-runtime-coordination` |
@@ -27,8 +27,9 @@ No secondary indexes are currently declared. Query behavior is full-store read p
 
 | Source Version | Target Version | Status |
 | --- | --- | --- |
-| `2` | `3` | Supported backup import path. |
-| `3` | `3` | Current idempotent path. |
+| `2` | `4` | Supported backup import path. |
+| `3` | `4` | Supported asset and liability store migration path. |
+| `4` | `4` | Current idempotent path. |
 
 Migration must be idempotent. A failed import must leave the current stores intact unless the staged restore completes.
 
@@ -65,6 +66,7 @@ Migration must be idempotent. A failed import must leave the current stores inta
 | Plain backup | `atlas-pwa-runtime-backup.v1` | Supported |
 | Encrypted backup | `atlas-pwa-runtime-encrypted-backup.v1` | Supported after passphrase decrypt |
 | Database version `2` | Legacy compatible | Migrated to current |
-| Database version `3` | Current | Direct import |
+| Database version `3` | Legacy compatible | Migrated to current |
+| Database version `4` | Current | Direct import |
 
 Rollback policy: if migration or import validation fails, keep existing local stores and report the failure through dry-run or restore feedback.

@@ -137,6 +137,29 @@
           </div>
           <div id="profileSummaryPanel" class="report-list"></div>
         </section>
+        <section id="assets" class="profile-settings asset-liability-panel" aria-label="資產與負債管理">
+          <div>
+            <p class="eyebrow">本機財務資料</p>
+            <h3>資產與負債</h3>
+          </div>
+          <div class="profile-grid">
+            <label><span>資產名稱</span><input id="assetNameInput" type="text" placeholder="例如 現金帳戶" /></label>
+            <label><span>資產類型</span><select id="assetTypeInput"><option value="cash">現金</option><option value="investment">投資</option><option value="property">房產</option><option value="retirement">退休</option><option value="other">其他</option></select></label>
+            <label><span>幣別</span><select id="assetCurrencyInput"><option value="TWD">TWD</option><option value="USD">USD</option></select></label>
+            <label><span>目前價值</span><input id="assetValueInput" type="text" inputmode="decimal" placeholder="例如 300000" /></label>
+            <button id="createAssetButton" type="button">新增資產</button>
+          </div>
+          <div id="assetListPanel" class="report-list"></div>
+          <div class="profile-grid">
+            <label><span>負債名稱</span><input id="liabilityNameInput" type="text" placeholder="例如 房貸" /></label>
+            <label><span>負債類型</span><select id="liabilityTypeInput"><option value="mortgage">房貸</option><option value="loan">貸款</option><option value="credit">信用</option><option value="tax">稅務</option><option value="other">其他</option></select></label>
+            <label><span>幣別</span><select id="liabilityCurrencyInput"><option value="TWD">TWD</option><option value="USD">USD</option></select></label>
+            <label><span>未償餘額</span><input id="liabilityBalanceInput" type="text" inputmode="decimal" placeholder="例如 1200000" /></label>
+            <button id="createLiabilityButton" type="button">新增負債</button>
+          </div>
+          <div id="liabilityListPanel" class="report-list"></div>
+          <div id="netWorthPanel" class="decision-log" aria-live="polite"></div>
+        </section>
         <section class="release-dashboard" aria-label="發布狀態">
           <div>
             <h3>發布狀態</h3>

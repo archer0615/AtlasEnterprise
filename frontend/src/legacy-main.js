@@ -1,5 +1,9 @@
 import { dashboardStorage, fallbackDashboardSnapshot, normalizeDashboardCollection } from "./dashboard-model.js";
-import { indexedDbAuditRepository, indexedDbBackupRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
+import { indexedDbAssetRepository, indexedDbAuditRepository, indexedDbBackupRepository, indexedDbLiabilityRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
+import { createCurrentOwnerProvider } from "./application/ownership/current-owner-provider.js";
+import { createAssetApplicationService } from "./application/assets/asset-application-service.js";
+import { createLiabilityApplicationService } from "./application/liabilities/liability-application-service.js";
+import { projectNetWorth } from "./runtime/net-worth-projection.js";
 
 const state = { documents: [], searchDocuments: new Map(), categories: [], selectedCategory: "all", selectedDocumentId: "", query: "" };
 const storageKeys = { dashboardSnapshotId: dashboardStorage.snapshotIdKey };
@@ -78,6 +82,23 @@ const scenarioTemplateList = $("#scenarioTemplateList");
 const scenarioTemplatePreview = $("#scenarioTemplatePreview");
 const applyScenarioTemplateButton = $("#applyScenarioTemplateButton");
 const saveScenarioTemplateButton = $("#saveScenarioTemplateButton");
+const assetNameInput = $("#assetNameInput");
+const assetTypeInput = $("#assetTypeInput");
+const assetCurrencyInput = $("#assetCurrencyInput");
+const assetValueInput = $("#assetValueInput");
+const createAssetButton = $("#createAssetButton");
+const assetListPanel = $("#assetListPanel");
+const liabilityNameInput = $("#liabilityNameInput");
+const liabilityTypeInput = $("#liabilityTypeInput");
+const liabilityCurrencyInput = $("#liabilityCurrencyInput");
+const liabilityBalanceInput = $("#liabilityBalanceInput");
+const createLiabilityButton = $("#createLiabilityButton");
+const liabilityListPanel = $("#liabilityListPanel");
+const netWorthPanel = $("#netWorthPanel");
+
+const ownerProvider = createCurrentOwnerProvider(indexedDbSettingsRepository);
+const assetService = createAssetApplicationService({ repository: indexedDbAssetRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
+const liabilityService = createLiabilityApplicationService({ repository: indexedDbLiabilityRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -994,6 +1015,71 @@ function escapeAttribute(value) {
   return escapeHtml(value).replaceAll('"', "&quot;");
 }
 
+async function refreshLocalFinancialData() {
+  const [assets, liabilities] = await Promise.all([
+    assetService.listAssets({ includeArchived: true }),
+    liabilityService.listLiabilities({ includeArchived: true }),
+  ]);
+  renderAssetList(assets);
+  renderLiabilityList(liabilities);
+  renderNetWorthProjection(assets, liabilities);
+}
+
+function renderAssetList(assets) {
+  if (!assetListPanel) return;
+  assetListPanel.innerHTML = assets.length
+    ? assets.map((asset) => `<div class="runtime-row"><span>${escapeHtml(asset.name)} / ${escapeHtml(asset.assetType)} / ${escapeHtml(asset.currency)}</span><strong>${escapeHtml(formatDisplayToken(asset.currentValue))}</strong><button type="button" data-asset-archive="${escapeAttribute(asset.id)}">${asset.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
+    : `<div class="empty-runtime">尚未建立資產，本機儀表板會顯示空狀態。</div>`;
+}
+
+function renderLiabilityList(liabilities) {
+  if (!liabilityListPanel) return;
+  liabilityListPanel.innerHTML = liabilities.length
+    ? liabilities.map((liability) => `<div class="runtime-row"><span>${escapeHtml(liability.name)} / ${escapeHtml(liability.liabilityType)} / ${escapeHtml(liability.currency)}</span><strong>${escapeHtml(formatDisplayToken(liability.outstandingBalance))}</strong><button type="button" data-liability-archive="${escapeAttribute(liability.id)}">${liability.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
+    : `<div class="empty-runtime">尚未建立負債，本機儀表板會顯示空狀態。</div>`;
+}
+
+function renderNetWorthProjection(assets, liabilities) {
+  if (!netWorthPanel) return;
+  const projection = projectNetWorth({ assets, liabilities });
+  netWorthPanel.textContent = [
+    `資產合計：${formatDisplayToken(projection.totalAssets)}`,
+    `負債合計：${formatDisplayToken(projection.totalLiabilities)}`,
+    `淨值：${formatDisplayToken(projection.netWorth)}`,
+    projection.multiCurrency ? "多幣別資料尚未換匯，請分別檢視。" : `幣別：${projection.currency}`,
+  ].join("\n");
+}
+
+async function createAssetFromInput() {
+  const result = await assetService.createAsset({
+    name: assetNameInput.value,
+    assetType: assetTypeInput.value,
+    currency: assetCurrencyInput.value,
+    currentValue: assetValueInput.value,
+    valuationDate: new Date().toISOString().slice(0, 10),
+    status: "active",
+  });
+  if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
+  assetNameInput.value = "";
+  assetValueInput.value = "";
+  await refreshLocalFinancialData();
+}
+
+async function createLiabilityFromInput() {
+  const result = await liabilityService.createLiability({
+    name: liabilityNameInput.value,
+    liabilityType: liabilityTypeInput.value,
+    currency: liabilityCurrencyInput.value,
+    outstandingBalance: liabilityBalanceInput.value,
+    asOfDate: new Date().toISOString().slice(0, 10),
+    status: "active",
+  });
+  if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
+  liabilityNameInput.value = "";
+  liabilityBalanceInput.value = "";
+  await refreshLocalFinancialData();
+}
+
 categoryNav?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-category]");
   if (!button) return;
@@ -1050,6 +1136,22 @@ calculateLoanButton.addEventListener("click", () => {
 resetLoanButton.addEventListener("click", resetLoanInputs);
 saveProfileButton?.addEventListener("click", () => saveUserProfile().catch((error) => setRuntimeFeedback(error.message)));
 resetProfileButton?.addEventListener("click", () => resetUserProfile().catch((error) => setRuntimeFeedback(error.message)));
+createAssetButton?.addEventListener("click", () => createAssetFromInput().catch((error) => setRuntimeFeedback(error.message)));
+createLiabilityButton?.addEventListener("click", () => createLiabilityFromInput().catch((error) => setRuntimeFeedback(error.message)));
+assetListPanel?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-asset-archive]");
+  if (!button) return;
+  assetService.getAsset(button.dataset.assetArchive).then((asset) => (
+    asset?.status === "archived" ? assetService.restoreAsset(asset.id) : assetService.archiveAsset(asset.id)
+  )).then(refreshLocalFinancialData).catch((error) => setRuntimeFeedback(error.message));
+});
+liabilityListPanel?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-liability-archive]");
+  if (!button) return;
+  liabilityService.getLiability(button.dataset.liabilityArchive).then((liability) => (
+    liability?.status === "archived" ? liabilityService.restoreLiability(liability.id) : liabilityService.archiveLiability(liability.id)
+  )).then(refreshLocalFinancialData).catch((error) => setRuntimeFeedback(error.message));
+});
 scenarioTemplateList?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-template-id]");
   if (!button) return;
@@ -1074,4 +1176,5 @@ if ("serviceWorker" in navigator) window.addEventListener("load", () => navigato
 loadDashboard();
 renderReleaseDashboard().catch(() => {});
 loadUserProfile().catch(() => {});
+refreshLocalFinancialData().catch(() => {});
 renderScenarioTemplates();

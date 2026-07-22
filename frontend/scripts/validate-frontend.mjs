@@ -36,6 +36,8 @@ for (const id of [
   "calculateLoanButton", "resetLoanButton", "loanEditableOutput",
   "profileIncomeInput", "profileAssetsInput", "profileDebtInput", "profileGoalSelect",
   "saveProfileButton", "resetProfileButton", "profileSummaryPanel",
+  "assetNameInput", "assetTypeInput", "assetCurrencyInput", "assetValueInput", "createAssetButton", "assetListPanel",
+  "liabilityNameInput", "liabilityTypeInput", "liabilityCurrencyInput", "liabilityBalanceInput", "createLiabilityButton", "liabilityListPanel", "netWorthPanel",
   "scenarioTemplateList", "scenarioTemplatePreview", "applyScenarioTemplateButton", "saveScenarioTemplateButton",
   "help",
 ]) {

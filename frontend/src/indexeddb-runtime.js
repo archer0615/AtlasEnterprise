@@ -1,5 +1,5 @@
 const databaseName = "atlas-pwa-runtime";
-const databaseVersion = 3;
+const databaseVersion = 4;
 const backupSchemaVersion = "atlas-pwa-runtime-backup.v1";
 const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1";
 const keyRotationFormatVersion = "atlas-enterprise.backup-key-rotation-report.v1";
@@ -52,7 +52,7 @@ const backupComplianceEvidencePolicy = {
   archiveRetentionYears: 7,
   immutableArchiveRequired: true,
 };
-const supportedBackupDatabaseVersions = [2, databaseVersion];
+const supportedBackupDatabaseVersions = [2, 3, databaseVersion];
 const backupRetentionPolicy = {
   schema: "atlas-enterprise.backup-retention-policy.v1",
   auditRetentionDays: 90,
@@ -82,12 +82,16 @@ const stores = {
   scenarios: "scenarios",
   settings: "settings",
   auditEntries: "auditEntries",
+  assets: "assets",
+  liabilities: "liabilities",
 };
 const backupRecordFieldAllowlist = {
   [stores.scenarios]: ["scenarioId", "name", "score", "status", "sourceSnapshotId", "aggregateVersion", "updatedAt", "savedAt"],
   [stores.recommendationDecisions]: ["decisionId", "decision", "fixtureId", "snapshotId", "status", "score", "decidedAt"],
   [stores.settings]: ["key", "value"],
   [stores.auditEntries]: ["auditId", "action", "recordedAt", "schema", "payload"],
+  [stores.assets]: ["id", "ownerId", "name", "assetType", "currency", "currentValue", "valuationDate", "status", "description", "createdAt", "updatedAt", "archivedAt", "version"],
+  [stores.liabilities]: ["id", "ownerId", "name", "liabilityType", "currency", "outstandingBalance", "asOfDate", "status", "description", "createdAt", "updatedAt", "archivedAt", "version"],
 };
 
 let databasePromise;
@@ -129,6 +133,8 @@ function backupPayload(backup) {
     recommendationDecisions: backup?.recommendationDecisions || [],
     settings: backup?.settings || [],
     auditEntries: backup?.auditEntries || [],
+    assets: backup?.assets || [],
+    liabilities: backup?.liabilities || [],
   };
 }
 
@@ -151,12 +157,14 @@ function maskBackupSensitiveFields(value) {
 }
 
 function minimizeBackupData(backup) {
-  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries"];
+  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities"];
   const minimized = Object.fromEntries(allowedBackupFields.filter((field) => backup[field] !== undefined).map((field) => [field, backup[field]]));
   minimized.scenarios = minimizeBackupRecords(stores.scenarios, minimized.scenarios || []);
   minimized.recommendationDecisions = minimizeBackupRecords(stores.recommendationDecisions, minimized.recommendationDecisions || []);
   minimized.settings = minimizeBackupRecords(stores.settings, minimized.settings || []);
   minimized.auditEntries = minimizeBackupRecords(stores.auditEntries, minimized.auditEntries || []);
+  minimized.assets = minimizeBackupRecords(stores.assets, minimized.assets || []);
+  minimized.liabilities = minimizeBackupRecords(stores.liabilities, minimized.liabilities || []);
   return minimized;
 }
 
@@ -232,6 +240,14 @@ function openDatabase() {
       }
       if (!database.objectStoreNames.contains(stores.auditEntries)) {
         database.createObjectStore(stores.auditEntries, { keyPath: "auditId" });
+      }
+      if (!database.objectStoreNames.contains(stores.assets)) {
+        const store = database.createObjectStore(stores.assets, { keyPath: "id" });
+        ["ownerId", "status", "assetType", "currency", "valuationDate", "updatedAt"].forEach((indexName) => store.createIndex(indexName, indexName));
+      }
+      if (!database.objectStoreNames.contains(stores.liabilities)) {
+        const store = database.createObjectStore(stores.liabilities, { keyPath: "id" });
+        ["ownerId", "status", "liabilityType", "currency", "asOfDate", "updatedAt"].forEach((indexName) => store.createIndex(indexName, indexName));
       }
     };
 
@@ -460,6 +476,85 @@ export const indexedDbAuditRepository = {
   },
 };
 
+function sortFinancialRecords(items, sort = "updatedAt") {
+  return [...items].sort((a, b) => {
+    if (sort === "name") return String(a.name).localeCompare(String(b.name)) || String(a.id).localeCompare(String(b.id));
+    const primary = String(b.updatedAt || "").localeCompare(String(a.updatedAt || ""));
+    return primary || String(a.name).localeCompare(String(b.name)) || String(a.id).localeCompare(String(b.id));
+  });
+}
+
+function filterFinancialRecords(items, ownerId, query = {}, typeField) {
+  const search = String(query.search || "").trim().toLowerCase();
+  return sortFinancialRecords(items.filter((record) => {
+    if (record.ownerId !== ownerId) return false;
+    if (!query.includeArchived && record.status === "archived") return false;
+    if (query.status && record.status !== query.status) return false;
+    if (query.type && record[typeField] !== query.type) return false;
+    if (query.currency && record.currency !== query.currency) return false;
+    if (search && !String(record.name || "").toLowerCase().includes(search)) return false;
+    return true;
+  }), query.sort);
+}
+
+function createFinancialRepository({ storeName, typeField, notFoundCode, existsCode }) {
+  return {
+    async getById(id) {
+      const record = await withStore(storeName, "readonly", (store) => store.get(id));
+      return record ? Object.freeze({ ...record }) : null;
+    },
+    async listByOwner(ownerId, query = {}) {
+      return filterFinancialRecords(await getAll(storeName), ownerId, query, typeField).map((record) => Object.freeze({ ...record }));
+    },
+    async create(record) {
+      if (await this.existsByOwnerAndName(record.ownerId, record.name)) throw new Error(existsCode);
+      await withStore(storeName, "readwrite", (store) => store.add({ ...record }));
+      return Object.freeze({ ...record });
+    },
+    async update(record) {
+      const existing = await this.getById(record.id);
+      if (!existing) throw new Error(notFoundCode);
+      if (existing.ownerId !== record.ownerId) throw new Error(`${notFoundCode.replace("NOT_FOUND", "OWNER_MISMATCH")}`);
+      await withStore(storeName, "readwrite", (store) => store.put({ ...record }));
+      return Object.freeze({ ...record });
+    },
+    async archive(id, metadata = {}) {
+      const existing = await this.getById(id);
+      if (!existing) throw new Error(notFoundCode);
+      const record = { ...existing, ...metadata, status: "archived" };
+      await withStore(storeName, "readwrite", (store) => store.put(record));
+      return Object.freeze(record);
+    },
+    async restore(id, metadata = {}) {
+      const existing = await this.getById(id);
+      if (!existing) throw new Error(notFoundCode);
+      const record = { ...existing, ...metadata, status: "active", archivedAt: "" };
+      await withStore(storeName, "readwrite", (store) => store.put(record));
+      return Object.freeze(record);
+    },
+    async existsByOwnerAndName(ownerId, name, excludeId = "") {
+      return (await getAll(storeName)).some((record) => record.ownerId === ownerId && record.id !== excludeId && String(record.name).toLowerCase() === String(name).toLowerCase());
+    },
+    async countByOwner(ownerId) {
+      return (await this.listByOwner(ownerId, { includeArchived: true })).length;
+    },
+  };
+}
+
+export const indexedDbAssetRepository = createFinancialRepository({
+  storeName: stores.assets,
+  typeField: "assetType",
+  notFoundCode: "ATLAS_ASSET_NOT_FOUND",
+  existsCode: "ATLAS_ASSET_ALREADY_EXISTS",
+});
+
+export const indexedDbLiabilityRepository = createFinancialRepository({
+  storeName: stores.liabilities,
+  typeField: "liabilityType",
+  notFoundCode: "ATLAS_LIABILITY_NOT_FOUND",
+  existsCode: "ATLAS_LIABILITY_ALREADY_EXISTS",
+});
+
 export const indexedDbBackupRepository = {
   async exportBackup() {
     await indexedDbMigrationRepository.markCurrent();
@@ -471,6 +566,8 @@ export const indexedDbBackupRepository = {
       recommendationDecisions: await indexedDbRecommendationDecisionRepository.list(),
       settings: await getAll(stores.settings),
       auditEntries: await indexedDbAuditRepository.list(),
+      assets: await getAll(stores.assets),
+      liabilities: await getAll(stores.liabilities),
     });
     backup.checksum = await sha256Hex(stableStringify(backupPayload(backup)));
     return backup;
@@ -805,6 +902,8 @@ export const indexedDbBackupRepository = {
     const currentRecommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
     const currentSettings = await getAll(stores.settings);
     const currentAuditEntries = await indexedDbAuditRepository.list();
+    const currentAssets = await getAll(stores.assets);
+    const currentLiabilities = await getAll(stores.liabilities);
     const existingIds = new Set(currentScenarios.map((scenario) => scenario.scenarioId));
     const updates = migratedBackup.scenarios.filter((scenario) => existingIds.has(scenario.scenarioId));
     const creates = migratedBackup.scenarios.filter((scenario) => !existingIds.has(scenario.scenarioId));
@@ -813,6 +912,8 @@ export const indexedDbBackupRepository = {
       createStoreImportPlan(stores.recommendationDecisions, "decisionId", currentRecommendationDecisions, migratedBackup.recommendationDecisions || []),
       createStoreImportPlan(stores.settings, "key", currentSettings, migratedBackup.settings || []),
       createStoreImportPlan(stores.auditEntries, "auditId", currentAuditEntries, migratedBackup.auditEntries || []),
+      createStoreImportPlan(stores.assets, "id", currentAssets, migratedBackup.assets || []),
+      createStoreImportPlan(stores.liabilities, "id", currentLiabilities, migratedBackup.liabilities || []),
     ];
     const migrationPlan = createBackupMigrationPlan(backup.databaseVersion || 0);
     return {
@@ -845,7 +946,7 @@ export const indexedDbBackupRepository = {
         return false;
       }
     }
-    if (!["recommendationDecisions", "settings", "auditEntries"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
+    if (!["recommendationDecisions", "settings", "auditEntries", "assets", "liabilities"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
       return false;
     }
     if (backup.retentionPolicy && backup.retentionPolicy.schema !== backupRetentionPolicy.schema) {
@@ -880,7 +981,19 @@ export const indexedDbBackupRepository = {
       auditIds.add(entry.auditId);
       return typeof entry.action === "string" && typeof entry.recordedAt === "string";
     });
-    return scenarioValid && decisionsValid && settingsValid && auditValid;
+    const assetIds = new Set();
+    const assetsValid = (backup.assets || []).every((asset) => {
+      if (!asset?.id || assetIds.has(asset.id)) return false;
+      assetIds.add(asset.id);
+      return typeof asset.ownerId === "string" && typeof asset.name === "string" && Number.isFinite(Number(asset.currentValue));
+    });
+    const liabilityIds = new Set();
+    const liabilitiesValid = (backup.liabilities || []).every((liability) => {
+      if (!liability?.id || liabilityIds.has(liability.id)) return false;
+      liabilityIds.add(liability.id);
+      return typeof liability.ownerId === "string" && typeof liability.name === "string" && Number.isFinite(Number(liability.outstandingBalance));
+    });
+    return scenarioValid && decisionsValid && settingsValid && auditValid && assetsValid && liabilitiesValid;
   },
 };
 
@@ -906,6 +1019,8 @@ function migrateBackupToCurrent(backup) {
   migrated.recommendationDecisions = migrated.recommendationDecisions || [];
   migrated.settings = migrated.settings || [];
   migrated.auditEntries = migrated.auditEntries || [];
+  migrated.assets = migrated.assets || [];
+  migrated.liabilities = migrated.liabilities || [];
   migrated.scenarios = (migrated.scenarios || []).map((scenario) => ({
     ...scenario,
     score: String(scenario.score),
@@ -944,19 +1059,25 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
     { storeName: stores.recommendationDecisions, records: backup.recommendationDecisions || [] },
     { storeName: stores.settings, records: backup.settings || [] },
     { storeName: stores.auditEntries, records: backup.auditEntries || [] },
+    { storeName: stores.assets, records: backup.assets || [] },
+    { storeName: stores.liabilities, records: backup.liabilities || [] },
   ];
   if (conflictPolicy === "skip-existing") {
-    const [currentScenarios, currentDecisions, currentSettings, currentAudits] = await Promise.all([
+    const [currentScenarios, currentDecisions, currentSettings, currentAudits, currentAssets, currentLiabilities] = await Promise.all([
       indexedDbScenarioRepository.list(),
       indexedDbRecommendationDecisionRepository.list(),
       getAll(stores.settings),
       indexedDbAuditRepository.list(),
+      getAll(stores.assets),
+      getAll(stores.liabilities),
     ]);
     plan = [
       mergeWithoutReplacing(stores.scenarios, "scenarioId", currentScenarios, backup.scenarios || []),
       mergeWithoutReplacing(stores.recommendationDecisions, "decisionId", currentDecisions, backup.recommendationDecisions || []),
       mergeWithoutReplacing(stores.settings, "key", currentSettings, backup.settings || []),
       mergeWithoutReplacing(stores.auditEntries, "auditId", currentAudits, backup.auditEntries || []),
+      mergeWithoutReplacing(stores.assets, "id", currentAssets, backup.assets || []),
+      mergeWithoutReplacing(stores.liabilities, "id", currentLiabilities, backup.liabilities || []),
     ];
   }
   return new Promise((resolve, reject) => {
