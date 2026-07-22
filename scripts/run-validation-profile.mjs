@@ -10,6 +10,7 @@ const logPathRoot = "docs/reports/validation-profiles";
 const profiles = {
   quick: [
     "validate:frontend",
+    "validate:runtime-boundaries",
     "validate:status-traceability",
     "validate:roadmap-architecture",
     "test:runtime-projection",
@@ -31,6 +32,7 @@ const profiles = {
   ],
   feature: [
     "validate:frontend",
+    "validate:runtime-boundaries",
     "validate:status-traceability",
     "validate:roadmap-architecture",
     "test:runtime-projection",
@@ -59,6 +61,7 @@ const profiles = {
   ],
   full: [
     "validate:frontend",
+    "validate:runtime-boundaries",
     "validate:status-traceability",
     "validate:roadmap-architecture",
     "test:runtime-projection",
@@ -99,6 +102,7 @@ const profiles = {
   ],
   release: [
     "validate:frontend",
+    "validate:runtime-boundaries",
     "validate:status-traceability",
     "validate:roadmap-architecture",
     "test:runtime-projection",

@@ -91,7 +91,8 @@ const backupRecordFieldAllowlist = {
 };
 
 let databasePromise;
-const coordinationChannel = "BroadcastChannel" in window ? new BroadcastChannel(coordinationChannelName) : null;
+const browserRuntime = typeof globalThis !== "undefined" ? globalThis : {};
+const coordinationChannel = "BroadcastChannel" in browserRuntime ? new BroadcastChannel(coordinationChannelName) : null;
 
 function publishCoordinationMessage(message) {
   const payload = { tabId: runtimeTabId, occurredAt: new Date().toISOString(), ...message };

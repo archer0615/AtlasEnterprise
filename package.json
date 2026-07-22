@@ -6,6 +6,7 @@
   "scripts": {
     "build:knowledge": "node frontend/scripts/build-knowledge-index.mjs",
     "validate:frontend": "node frontend/scripts/validate-frontend.mjs",
+    "validate:runtime-boundaries": "node frontend/scripts/validate-runtime-boundaries.mjs",
     "validate:status-traceability": "node scripts/validate-status-traceability.mjs",
     "validate:roadmap-architecture": "node scripts/validate-roadmap-architecture.mjs",
     "validate:roadmap-data-projection": "node scripts/validate-roadmap-data-projection.mjs",
