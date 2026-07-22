@@ -18,6 +18,7 @@ const healthDoc = await readText("docs", "architecture", "financial-health-goal.
 const scenarioDoc = await readText("docs", "architecture", "scenario-workbench.md");
 const explainDoc = await readText("docs", "architecture", "decision-recommendation-explainability.md");
 const runner = await readText("scripts", "run-validation-profile.mjs");
+const validationProfiles = await readText("scripts", "validation-profiles.json");
 
 for (const exportName of ["calculateGoalProgress", "calculateFinancialHealth", "createScenarioRun", "compareScenarioRuns", "createDecisionExplanation"]) {
   assert(moduleText.includes(`export function ${exportName}`), `Decision workbench missing export: ${exportName}`);
@@ -52,6 +53,6 @@ for (const reportName of [
 
 assert(packageJson.scripts["test:decision-workbench"], "Missing test:decision-workbench script");
 assert(packageJson.scripts["validate:roadmap-decision-workbench"], "Missing validate:roadmap-decision-workbench script");
-assert(runner.includes('"validate:roadmap-decision-workbench"'), "Validation profiles must include decision workbench validation");
+assert(runner.includes('"validate:roadmap-decision-workbench"') || validationProfiles.includes('"command": "npm run validate:roadmap-decision-workbench"'), "Validation profiles must include decision workbench validation");
 
 console.log("Roadmap decision workbench validation passed.");

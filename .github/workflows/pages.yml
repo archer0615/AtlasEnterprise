@@ -1,6 +1,7 @@
 name: Deploy Atlas PWA to GitHub Pages
 
 on:
+  pull_request:
   push:
     branches:
       - master
@@ -34,21 +35,34 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Build static PWA artifacts
-        run: npm run build
+      - name: Pull request validation
+        if: github.event_name == 'pull_request'
+        run: npm run validate:feature
 
-      - name: Validate release profile
+      - name: Main branch validation
+        if: github.event_name == 'push'
+        run: npm run validate:full
+
+      - name: Manual release validation
+        if: github.event_name == 'workflow_dispatch'
         run: npm run validate:release
 
+      - name: Build static PWA artifacts
+        if: github.event_name != 'pull_request'
+        run: npm run build
+
       - name: Configure Pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
 
       - name: Upload static PWA artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: frontend
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

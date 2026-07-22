@@ -13,6 +13,7 @@ async function readText(...segments) {
 
 const packageJson = JSON.parse(await readText("package.json"));
 const runner = await readText("scripts", "run-validation-profile.mjs");
+const manifest = await readText("scripts", "validation-profiles.json");
 const profileDoc = await readText("docs", "status", "validation-profiles.md");
 const workflow = await readText(".github", "workflows", "pages.yml");
 
@@ -25,19 +26,21 @@ assert(packageJson.scripts["validate:profiles"], "Missing package script: valida
 assert(packageJson.scripts["validate:profiles"].includes("validate-validation-profiles.mjs"), "Profile metadata validator is not wired");
 
 for (const profileName of ["quick", "feature", "full", "release"]) {
-  assert(runner.includes(`${profileName}: [`), `Runner missing profile: ${profileName}`);
+  assert(manifest.includes(`"${profileName}"`), `Manifest missing profile: ${profileName}`);
   assert(profileDoc.includes(`validate:${profileName}`), `Profile doc missing validate:${profileName}`);
 }
 
-for (const requiredText of ["scriptName", "durationMs", "exitCode", "logPath", "docs/reports/validation-profiles"]) {
+for (const requiredText of ["id", "durationMs", "exitCode", "logPath", ".tmp"]) {
   assert(runner.includes(requiredText), `Runner missing metadata: ${requiredText}`);
 }
 
 for (const releaseGate of ["validate:release-governance", "validate:archive-closure", "validate:retirement-evidence-review", "validate:release-closure-lock"]) {
-  assert(runner.includes(releaseGate), `Release profile missing gate: ${releaseGate}`);
+  assert(manifest.includes(releaseGate), `Release profile missing gate: ${releaseGate}`);
 }
 
-assert(workflow.includes("npm run validate:release"), "GitHub Pages workflow must use the release validation profile");
+assert(workflow.includes("npm run validate:feature"), "Pull request workflow must use the feature validation profile");
+assert(workflow.includes("npm run validate:full"), "Main branch workflow must use the full validation profile");
+assert(workflow.includes("npm run validate:release"), "Manual release workflow must use the release validation profile");
 assert(workflow.includes("Build static PWA artifacts"), "GitHub Pages workflow must build static PWA artifacts");
 
 console.log("Validation profile metadata validation passed.");

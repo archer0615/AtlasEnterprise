@@ -18,6 +18,7 @@ const accessibilityDoc = await readText("docs", "architecture", "accessibility-r
 const releaseDoc = await readText("docs", "architecture", "release-candidate-hardening.md");
 const masterReport = await readText("docs", "roadmap", "master-codex-execution-report.md");
 const runner = await readText("scripts", "run-validation-profile.mjs");
+const validationProfiles = await readText("scripts", "validation-profiles.json");
 
 for (const exportName of ["accessibilityChecklist", "responsiveViewports", "performanceBudgets", "evaluatePerformanceBudget", "createReleaseAcceptanceMatrix", "createReleaseHardeningChecklist", "createMasterExecutionStatus"]) {
   assert(moduleText.includes(exportName), `Readiness policy missing: ${exportName}`);
@@ -52,6 +53,6 @@ for (const promptId of ["01", "02", "03", "04", "05", "06", "07", "08", "09", "1
 
 assert(packageJson.scripts["test:readiness-policy"], "Missing test:readiness-policy script");
 assert(packageJson.scripts["validate:roadmap-final-readiness"], "Missing validate:roadmap-final-readiness script");
-assert(runner.includes('"validate:roadmap-final-readiness"'), "Validation profiles must include final readiness validation");
+assert(runner.includes('"validate:roadmap-final-readiness"') || validationProfiles.includes('"command": "npm run validate:roadmap-final-readiness"'), "Validation profiles must include final readiness validation");
 
 console.log("Roadmap final readiness validation passed.");

@@ -16,6 +16,7 @@ const runtimeBoundary = await readText("docs", "architecture", "runtime-boundary
 const frontendMap = await readText("docs", "architecture", "frontend-module-map.md");
 const localData = await readText("docs", "architecture", "local-data-platform.md");
 const runner = await readText("scripts", "run-validation-profile.mjs");
+const validationProfiles = await readText("scripts", "validation-profiles.json");
 const indexedDbRuntime = await readText("frontend", "src", "indexeddb-runtime.js");
 const main = [
   await readText("frontend", "src", "main.js"),
@@ -109,6 +110,7 @@ for (const report of [futureReport, modularizationReport, localDataReport]) {
 }
 
 assert(packageJson.scripts["validate:roadmap-architecture"], "Missing validate:roadmap-architecture script");
-assert(runner.includes('"validate:roadmap-architecture"'), "Validation profiles must include roadmap architecture validation");
+assert(runner.includes("validation-profiles.json"), "Validation runner must load profile manifest");
+assert(validationProfiles.includes('"command": "npm run validate:roadmap-architecture"'), "Validation profiles must include roadmap architecture validation");
 
 console.log("Roadmap architecture validation passed.");

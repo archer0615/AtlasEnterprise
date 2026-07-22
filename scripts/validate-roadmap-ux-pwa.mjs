@@ -19,6 +19,7 @@ const knowledgeDoc = await readText("docs", "architecture", "knowledge-explorer-
 const designDoc = await readText("docs", "architecture", "home-navigation-design-system.md");
 const pwaDoc = await readText("docs", "architecture", "pwa-offline-update-storage.md");
 const runner = await readText("scripts", "run-validation-profile.mjs");
+const validationProfiles = await readText("scripts", "validation-profiles.json");
 
 for (const exportName of ["rankKnowledgeDocuments", "buildCommandPalette", "createRecentSearches", "buildRelatedDocuments", "buildRelationshipGraph"]) {
   assert(knowledgeModule.includes(`export function ${exportName}`), `Knowledge explorer missing export: ${exportName}`);
@@ -57,6 +58,6 @@ for (const reportName of [
 
 assert(packageJson.scripts["test:knowledge-pwa-ux"], "Missing test:knowledge-pwa-ux script");
 assert(packageJson.scripts["validate:roadmap-ux-pwa"], "Missing validate:roadmap-ux-pwa script");
-assert(runner.includes('"validate:roadmap-ux-pwa"'), "Validation profiles must include UX/PWA validation");
+assert(runner.includes('"validate:roadmap-ux-pwa"') || validationProfiles.includes('"command": "npm run validate:roadmap-ux-pwa"'), "Validation profiles must include UX/PWA validation");
 
 console.log("Roadmap UX/PWA validation passed.");

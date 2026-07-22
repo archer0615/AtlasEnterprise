@@ -4,6 +4,7 @@ import path from "node:path";
 const root = process.cwd();
 const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
 const runner = await readFile(path.join(root, "scripts", "run-validation-profile.mjs"), "utf8");
+const validationProfiles = await readFile(path.join(root, "scripts", "validation-profiles.json"), "utf8");
 const cachePolicy = JSON.parse(await readFile(path.join(root, "frontend", "fixtures", "generated-fixture-cache-policy.json"), "utf8"));
 const dashboardRuntime = JSON.parse(await readFile(path.join(root, "frontend", "fixtures", "dashboard-runtime-snapshots.json"), "utf8"));
 const artifactManifest = JSON.parse(await readFile(path.join(root, "deployment", "artifact-manifest.json"), "utf8"));
@@ -13,7 +14,7 @@ function assert(condition, message) {
 }
 
 assert(packageJson.scripts["validate:release"], "release validation profile script is missing");
-assert(runner.includes('"validate:deployment"'), "release validation profile must include deployment validation");
+assert(runner.includes('"validate:deployment"') || validationProfiles.includes('"command": "npm run validate:deployment"'), "release validation profile must include deployment validation");
 assert(cachePolicy.policyVersion === "generated-fixture-cache-policy.v2", "deployment cache policy version mismatch");
 assert(dashboardRuntime.generatedBy === "dashboard-runtime-generator.v1", "deployment dashboard runtime artifact missing generator marker");
 assert(dashboardRuntime.snapshots.every((snapshot) => snapshot.runtimeBinding?.scorePolicyVersion), "deployment dashboard runtime snapshots missing score policy version");
