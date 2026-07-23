@@ -17,3 +17,4 @@ assert.ok(context.controllers.pwa);
 context.dispose();
 
 console.log("Feature integration tests passed.");
+process.exit(0);
