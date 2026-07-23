@@ -23,6 +23,9 @@
           <a href="#dashboard">儀表板</a>
           <a href="#portfolio">投資報表</a>
           <a href="#recommendation">建議管理</a>
+          <a class="batch-nav-link" href="#execution">執行規劃</a>
+          <a class="batch-nav-link" href="#calendar">行事曆</a>
+          <a class="batch-nav-link" href="#notifications">通知</a>
           <a href="#loan">貸款試算</a>
         </nav>
       </aside>
@@ -307,6 +310,20 @@
                 </select>
               </div>
               <div id="recommendationHistoryPanel" class="decision-log"></div>
+            </section>
+            <section id="execution" class="batch-readonly-panel">
+              <h4>執行規劃</h4>
+              <div id="executionPlanPanel" class="report-list" aria-live="polite"></div>
+              <div id="actionPlanPanel" class="report-list" aria-live="polite"></div>
+            </section>
+            <section id="calendar" class="batch-readonly-panel">
+              <h4>行事曆</h4>
+              <div id="businessCalendarPanel" class="report-list" aria-live="polite"></div>
+              <div id="schedulerStatusPanel" class="decision-log" aria-live="polite"></div>
+            </section>
+            <section id="notifications" class="batch-readonly-panel">
+              <h4>通知</h4>
+              <div id="notificationListPanel" class="report-list" aria-live="polite"></div>
             </section>
             <section id="loan">
               <h4>貸款試算</h4>

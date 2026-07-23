@@ -34,6 +34,7 @@ for (const id of [
   "exportPortfolioReportButton", "recommendationDecisionLog", "acceptRecommendationButton",
   "rejectRecommendationButton", "loanBalanceInput", "loanRateInput", "loanMonthsInput",
   "calculateLoanButton", "resetLoanButton", "loanEditableOutput",
+  "executionPlanPanel", "actionPlanPanel", "businessCalendarPanel", "schedulerStatusPanel", "notificationListPanel",
   "profileIncomeInput", "profileAssetsInput", "profileDebtInput", "profileGoalSelect",
   "saveProfileButton", "resetProfileButton", "profileSummaryPanel",
   "assetNameInput", "assetTypeInput", "assetCurrencyInput", "assetValueInput", "createAssetButton", "assetListPanel",

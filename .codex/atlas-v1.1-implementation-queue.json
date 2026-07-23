@@ -7,12 +7,18 @@
     {
       "batchId": "BATCH-001",
       "priority": "Must",
-      "status": "Pending",
+      "status": "Complete",
       "candidateIds": ["CAND-001", "CAND-002", "CAND-003"],
       "dependencies": [],
       "validationProfiles": ["quick", "feature", "visual-regression"],
       "risk": "Medium",
-      "nextAction": "Generate detailed Codex implementation prompt for read-only execution, notification, and calendar surfaces."
+      "nextAction": "Complete. Continue with BATCH-002.",
+      "startedAt": "2026-07-23T10:10:00.000+08:00",
+      "completedAt": "2026-07-23T10:10:00.000+08:00",
+      "startingCommit": "c665703130b69e3fa0ef2942baeba21583b65655",
+      "endingCommit": "recorded in final git log after commit",
+      "validationResult": "quick, feature, full, visual-regression, and release dry-run passed",
+      "implementationReport": "docs/implementation/v1.1-batch-001-implementation-report.md"
     },
     {
       "batchId": "BATCH-002",
@@ -22,7 +28,7 @@
       "dependencies": ["BATCH-001"],
       "validationProfiles": ["quick", "full"],
       "risk": "Medium",
-      "nextAction": "Add notification dedupe and backup coverage plan after read-only surfaces exist."
+      "nextAction": "Generate detailed Codex implementation prompt for notification dedupe and backup coverage plan."
     },
     {
       "batchId": "BATCH-003",

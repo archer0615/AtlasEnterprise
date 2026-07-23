@@ -10,6 +10,10 @@ import { projectCashFlow } from "./runtime/cashflow-projection.js";
 import { createGoalApplicationService } from "./application/goals/goal-application-service.js";
 import { projectGoalProgress } from "./runtime/goal-progress-projection.js";
 import { projectFinancialHealth } from "./runtime/financial-health-projection.js";
+import { createActionPlansFromExecutionPlan } from "./runtime/action-plan-runtime.js";
+import { buildBusinessCalendar } from "./runtime/business-calendar-runtime.js";
+import { createExecutionPlanFromRecommendation } from "./runtime/execution-plan-runtime.js";
+import { evaluateScheduler } from "./runtime/scheduler-runtime.js";
 
 const state = { documents: [], searchDocuments: new Map(), categories: [], selectedCategory: "all", selectedDocumentId: "", query: "" };
 const storageKeys = { dashboardSnapshotId: dashboardStorage.snapshotIdKey };
@@ -34,6 +38,11 @@ const exportPreviewPanel = $("#exportPreviewPanel");
 const recommendationControlPanel = $("#recommendationControlPanel");
 const recommendationHistoryPanel = $("#recommendationHistoryPanel");
 const recommendationFilterInput = $("#recommendationFilterInput");
+const executionPlanPanel = $("#executionPlanPanel");
+const actionPlanPanel = $("#actionPlanPanel");
+const businessCalendarPanel = $("#businessCalendarPanel");
+const schedulerStatusPanel = $("#schedulerStatusPanel");
+const notificationListPanel = $("#notificationListPanel");
 const loanScenarioPanel = $("#loanScenarioPanel");
 const exportPortfolioReportButton = $("#exportPortfolioReportButton");
 const recommendationDecisionLog = $("#recommendationDecisionLog");
@@ -264,6 +273,7 @@ function renderDashboard(snapshot) {
   renderScenarioComparison(snapshot);
   renderPortfolioReport(snapshot);
   renderRecommendationControls(snapshot);
+  renderSelectedBatchReadModels(snapshot);
   renderLoanScenarioPanel(snapshot);
   renderExportPreview(snapshot);
 }
@@ -331,6 +341,117 @@ function renderRecommendationHistory() {
   recommendationHistoryPanel.textContent = items.length
     ? items.map((item) => `${translateDecision(item.decision)} / ${item.fixtureId} / ${item.decidedAt}`).join("\n")
     : "尚無符合條件的建議歷史。";
+}
+
+function renderSelectedBatchReadModels(snapshot) {
+  const executionPlan = buildReadOnlyExecutionPlan(snapshot);
+  renderExecutionPlanPreview(executionPlan);
+  const actionPlans = executionPlan ? createActionPlansFromExecutionPlan(executionPlan, readOnlyRuntimeContext()) : [];
+  renderActionPlanPreview(actionPlans);
+  const calendarEntries = buildBusinessCalendar({
+    ownerId: "local-owner",
+    recommendations: [buildReadOnlyRecommendation(snapshot)].filter(Boolean),
+    executionPlans: executionPlan ? [executionPlan] : [],
+    actionPlans,
+  }, readOnlyRuntimeContext());
+  renderBusinessCalendarPreview(calendarEntries);
+  const scheduler = evaluateScheduler({
+    ownerId: "local-owner",
+    asOfDate: snapshot.asOfDate,
+    calendarEntries,
+    automationResults: [],
+  }, readOnlyRuntimeContext());
+  renderSchedulerPreview(scheduler);
+  renderNotificationPreview(scheduler.notifications);
+}
+
+function buildReadOnlyExecutionPlan(snapshot) {
+  const recommendation = buildReadOnlyRecommendation(snapshot);
+  if (!recommendation) return null;
+  const latest = recommendationDecisions
+    .filter((item) => item.fixtureId === recommendation.sourceDecisionId || item.snapshotId === snapshot.snapshotId)
+    .sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")))[0];
+  if (latest?.decision !== "accepted") return null;
+  const result = createExecutionPlanFromRecommendation(
+    { ...recommendation, status: "accepted" },
+    { status: "committed", decisionId: latest.decisionId },
+    readOnlyRuntimeContext(),
+  );
+  return result.ok ? result.record : null;
+}
+
+function buildReadOnlyRecommendation(snapshot) {
+  const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
+  if (!result?.recommendation) return null;
+  return Object.freeze({
+    id: `recommendation-${result.fixtureId}`,
+    ownerId: "local-owner",
+    title: snapshot.label || result.fixtureId,
+    type: "cashflow",
+    priority: result.score < 65 ? "high" : "medium",
+    status: result.recommendation.status === "accept" ? "accepted" : "pending-review",
+    sourceScenarioId: snapshot.snapshotId,
+    sourceDecisionId: result.fixtureId,
+    ruleReferences: Object.freeze([result.recommendation.source || "engine-derived-recommendation.v1"]),
+    constraintReferences: Object.freeze(result.recommendation.warningReferences || []),
+    recommendationDate: result.asOfDate || snapshot.asOfDate,
+    expiresAt: result.asOfDate || snapshot.asOfDate,
+    summary: result.recommendation.explanation || "",
+    supportingEvidence: Object.freeze({ score: result.score }),
+    warnings: Object.freeze(result.recommendation.warningReferences || []),
+    dataCompleteness: 1,
+  });
+}
+
+function renderExecutionPlanPreview(executionPlan) {
+  if (!executionPlanPanel) return;
+  if (!executionPlan) {
+    executionPlanPanel.innerHTML = `<div class="empty-runtime">接受目前建議後，這裡會顯示本機唯讀執行計畫。</div>`;
+    return;
+  }
+  executionPlanPanel.innerHTML = [
+    `<div class="runtime-row"><span>建議</span><strong>${escapeHtml(executionPlan.recommendationId)}</strong></div>`,
+    `<div class="runtime-row"><span>目標日期</span><strong>${escapeHtml(executionPlan.targetDate)}</strong></div>`,
+    `<div class="runtime-row"><span>狀態</span><strong>${escapeHtml(executionPlan.status)}</strong></div>`,
+    ...executionPlan.steps.map((step) => `<div class="runtime-row"><span>${escapeHtml(step.order)}. ${escapeHtml(step.title)}</span><strong>${escapeHtml(step.status)}</strong></div>`),
+  ].join("");
+}
+
+function renderActionPlanPreview(actionPlans) {
+  if (!actionPlanPanel) return;
+  actionPlanPanel.innerHTML = actionPlans.length
+    ? actionPlans.map((action) => `<div class="runtime-row"><span>${escapeHtml(action.title)}</span><strong>${escapeHtml(action.targetDate)} / ${escapeHtml(action.status)}</strong></div>`).join("")
+    : `<div class="empty-runtime">尚無行動計畫預覽。</div>`;
+}
+
+function renderBusinessCalendarPreview(calendarEntries) {
+  if (!businessCalendarPanel) return;
+  businessCalendarPanel.innerHTML = calendarEntries.length
+    ? calendarEntries.map((entry) => `<div class="runtime-row"><span>${escapeHtml(entry.title)}</span><strong>${escapeHtml(entry.dueDate)} / ${escapeHtml(entry.type)}</strong></div>`).join("")
+    : `<div class="empty-runtime">尚無 upcoming review 或目標日期。</div>`;
+}
+
+function renderSchedulerPreview(scheduler) {
+  if (!schedulerStatusPanel) return;
+  schedulerStatusPanel.textContent = [
+    `Due items: ${scheduler.schedulerState.dueCount}`,
+    `Generated notifications: ${scheduler.schedulerState.generatedNotificationCount}`,
+    `Review queue: ${scheduler.schedulerState.reviewQueueCount}`,
+  ].join("\n");
+}
+
+function renderNotificationPreview(notifications) {
+  if (!notificationListPanel) return;
+  notificationListPanel.innerHTML = notifications.length
+    ? notifications.map((notification) => `<div class="runtime-row"><span>${escapeHtml(notification.title)}</span><strong>${escapeHtml(notification.priority)} / ${escapeHtml(notification.readState)}</strong></div>`).join("")
+    : `<div class="empty-runtime">目前沒有到期通知。</div>`;
+}
+
+function readOnlyRuntimeContext() {
+  return {
+    now: () => new Date(`${currentSnapshot().asOfDate || "2026-07-23"}T00:00:00.000Z`),
+    createId: () => `readonly-${selectedDashboardSnapshotId}`,
+  };
 }
 
 function renderLoanScenarioPanel(snapshot) {

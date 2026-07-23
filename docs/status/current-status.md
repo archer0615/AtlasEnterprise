@@ -27,6 +27,7 @@ Atlas v1.0.0 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
 - IndexedDB repositories for scenarios, recommendation decisions, settings, audit entries, backup export, encrypted backup export, dry-run restore, staged restore, merge restore, and migration metadata.
 - Simulator fixtures, formula registry validation, score policy validation, dashboard runtime snapshots, dashboard fixture drift validation, and runtime fixture drift validation.
 - v1.1 planning governance, candidate gates, dependency map, implementation queue, risk register, acceptance baseline, and validation plan.
+- v1.1 BATCH-001 read-only execution, action planning, calendar, scheduler status, and notification surfaces.
 
 ## Evidence
 

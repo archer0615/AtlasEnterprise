@@ -50,6 +50,7 @@ try {
     "#validationExportPanel", "#offlineRepairButton", "#offlineRepairPanel", "#offlineRepairAuditPanel",
     "#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel",
     "#recommendationHistoryPanel", "#resetLoanButton", "#metricGrid", "#scenarioList", "#actionList",
+    "#executionPlanPanel", "#actionPlanPanel", "#businessCalendarPanel", "#schedulerStatusPanel", "#notificationListPanel",
     "#profileIncomeInput", "#profileAssetsInput", "#profileDebtInput", "#profileGoalSelect",
     "#saveProfileButton", "#resetProfileButton", "#profileSummaryPanel",
     "#scenarioTemplateList", "#scenarioTemplatePreview", "#applyScenarioTemplateButton", "#saveScenarioTemplateButton",
