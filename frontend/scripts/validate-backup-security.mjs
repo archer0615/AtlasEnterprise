@@ -82,7 +82,7 @@ try {
   });
 
   const topLevelFields = Object.keys(result.backup).sort();
-  const allowedFields = ["auditEntries", "checksum", "databaseVersion", "exportedAt", "recommendationDecisions", "retentionPolicy", "scenarios", "schema", "settings"].sort();
+  const allowedFields = ["assets", "auditEntries", "checksum", "databaseVersion", "expenses", "exportedAt", "goals", "incomes", "liabilities", "recommendationDecisions", "retentionPolicy", "scenarios", "schema", "settings"].sort();
   assert(JSON.stringify(topLevelFields) === JSON.stringify(allowedFields), `backup export fields are not minimized: ${topLevelFields.join(",")}`);
   assert(result.valid, "sampled backup export did not pass validation");
   assert(result.backup.retentionPolicy?.auditRetentionDays === 90, "backup retention policy metadata is missing");
@@ -241,7 +241,7 @@ try {
   assert(runtimeChecks.disasterRecoveryDrill.schema === "atlas-enterprise.backup-disaster-recovery-drill.v1", "disaster recovery drill report schema is missing");
   assert(runtimeChecks.disasterRecoveryDrill.readiness === "ready", "disaster recovery drill did not report ready");
   assert(runtimeChecks.disasterRecoveryDrill.mutationFree, "disaster recovery drill mutated local data");
-  assert(runtimeChecks.disasterRecoveryDrill.dryRun.storePlan.length === 4, "disaster recovery drill did not cover all backup stores");
+  assert(runtimeChecks.disasterRecoveryDrill.dryRun.storePlan.length === 9, "disaster recovery drill did not cover all backup stores");
   assert(runtimeChecks.scheduleHealthy.schema === "atlas-enterprise.backup-schedule-health-report.v1", "backup schedule health report schema is missing");
   assert(runtimeChecks.scheduleHealthy.status === "healthy", "fresh backup schedule did not report healthy");
   assert(runtimeChecks.scheduleFailed.status === "failed", "stale backup schedule did not report failed");

@@ -1102,11 +1102,21 @@ export const indexedDbBackupRepository = {
 function createBackupMigrationPlan(sourceDatabaseVersion) {
   const requiresMigration = sourceDatabaseVersion !== databaseVersion;
   const supported = supportedBackupDatabaseVersions.includes(sourceDatabaseVersion);
+  const migrationSteps = [];
+  if (requiresMigration && supported) {
+    const orderedVersions = [...supportedBackupDatabaseVersions]
+      .filter((version, index, versions) => versions.indexOf(version) === index)
+      .sort((a, b) => a - b);
+    const sourceIndex = orderedVersions.indexOf(sourceDatabaseVersion);
+    for (let index = sourceIndex; index < orderedVersions.length - 1; index += 1) {
+      migrationSteps.push(`database-${orderedVersions[index]}-to-${orderedVersions[index + 1]}`);
+    }
+  }
   return {
     requiresMigration,
     supported,
     status: requiresMigration ? (supported ? "migration-required" : "unsupported-version") : "current-version",
-    steps: requiresMigration ? [`database-${sourceDatabaseVersion}-to-${databaseVersion}`] : [],
+    steps: migrationSteps,
     message: requiresMigration
       ? (supported ? "匯入前會套用版本遷移。" : "此備份版本尚無可用遷移路徑。")
       : "備份版本與目前資料庫一致。",
