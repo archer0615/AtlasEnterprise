@@ -48,6 +48,8 @@
     "test:goal-financial-health-domain": "node frontend/scripts/test-goal-financial-health-domain.mjs",
     "test:goal-financial-health-application": "node frontend/scripts/test-goal-financial-health-application.mjs",
     "test:goal-financial-health-runtime-boundary": "node frontend/scripts/test-goal-financial-health-runtime-boundary.mjs",
+    "test:recommendation-execution-domain": "node frontend/scripts/test-recommendation-execution-domain.mjs",
+    "test:recommendation-execution-application": "node frontend/scripts/test-recommendation-execution-application.mjs",
     "validate:browser-workflow": "node frontend/scripts/validate-browser-workflow.mjs",
     "test:backup-restore-e2e": "node frontend/scripts/test-backup-restore-e2e.mjs",
     "validate:backup-security": "node frontend/scripts/validate-backup-security.mjs",
