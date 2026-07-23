@@ -1,8 +1,9 @@
 # Next Priority
 
-1. Keep `knowledge/**/*.md` as the only canonical source and regenerate `frontend/knowledge/**` through `npm run build:knowledge`.
-2. Keep v1 runtime dependency-free from backend, cloud database, authentication server, and sync services.
-3. Expand traceability coverage from entity-level rows into field-level runtime mappings only where UI or fixture evidence exists.
-4. Keep simulator and dashboard fixtures deterministic and validated before changing generated runtime snapshots.
-5. Run `npm run validate:frontend` before changes that affect knowledge, PWA, offline runtime, simulator-facing fixtures, or IndexedDB stores.
-6. Mark unsupported runtime surfaces as `Not Implemented` instead of implying hidden backend or cloud behavior.
+1. Generate the detailed Codex implementation prompt for v1.1 BATCH-001.
+2. Keep BATCH-001 limited to read-only execution, notification, and calendar surfaces.
+3. Do not add domains, business concepts, formulas, state-machine states, IndexedDB migrations, service worker changes, backend, cloud runtime, remote database, external analytics, AI, or automated financial execution.
+4. Use existing Atlas catalog naming and canonical knowledge references from `docs/roadmap/v1.1-candidate-inventory.md`.
+5. Validate BATCH-001 with `npm run validate:quick`, `npm run validate:feature`, and `npm run validate:visual-regression`.
+6. Keep rejected, deferred, needs-specification, and needs-architecture-decision candidates out of `.codex/atlas-v1.1-implementation-queue.json` active batches.
+7. Mark unsupported runtime surfaces as `Not Implemented` instead of implying hidden backend or cloud behavior.

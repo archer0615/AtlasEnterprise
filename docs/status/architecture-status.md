@@ -7,6 +7,7 @@
 - Offline-first: service worker and cache validation protect the static shell and generated data.
 - Build-time knowledge: canonical Markdown is transformed into frontend JSON before deployment.
 - Local calculation: dashboard, loan, recommendation, simulator, and fixture checks run without a server dependency.
+- Planning governance: v1.1 candidates are gated by canonical source, static-first, local-first, offline-first, no-backend, no-cloud, no-new-business-concept, schema safety, security, accessibility, and validation criteria.
 
 ## Runtime Stores
 
@@ -17,6 +18,10 @@
 | `recommendationDecisions` | `decisionId` | Implemented | Local recommendation decision log. |
 | `settings` | `key` | Implemented | Runtime preferences and profile settings. |
 | `auditEntries` | `auditId` | Implemented | Persistent audit records for backup, restore, offline repair, and decisions. |
+
+## v1.1 Architecture Constraint
+
+The first v1.1 batch has no database migration planned. Contract-only stores for recommendations, execution plans, action plans, notifications, calendar entries, automation rules, and scheduler state require migration, backup, restore, owner-index, audit, and validation evidence before persistence implementation.
 
 ## Optional Architecture Boundary
 

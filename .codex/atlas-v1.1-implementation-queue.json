@@ -1,0 +1,55 @@
+{
+  "version": "1.1",
+  "generatedAt": "2026-07-23T00:00:00.000+08:00",
+  "baselineCommit": "71dc590ddbe6e9165faf90b9eeea81b8c6a510f7",
+  "status": "Planning",
+  "batches": [
+    {
+      "batchId": "BATCH-001",
+      "priority": "Must",
+      "status": "Pending",
+      "candidateIds": ["CAND-001", "CAND-002", "CAND-003"],
+      "dependencies": [],
+      "validationProfiles": ["quick", "feature", "visual-regression"],
+      "risk": "Medium",
+      "nextAction": "Generate detailed Codex implementation prompt for read-only execution, notification, and calendar surfaces."
+    },
+    {
+      "batchId": "BATCH-002",
+      "priority": "Should",
+      "status": "Pending",
+      "candidateIds": ["CAND-004", "CAND-005"],
+      "dependencies": ["BATCH-001"],
+      "validationProfiles": ["quick", "full"],
+      "risk": "Medium",
+      "nextAction": "Add notification dedupe and backup coverage plan after read-only surfaces exist."
+    },
+    {
+      "batchId": "BATCH-003",
+      "priority": "Should",
+      "status": "Pending",
+      "candidateIds": ["CAND-006", "CAND-010"],
+      "dependencies": [],
+      "validationProfiles": ["quick"],
+      "risk": "Low",
+      "nextAction": "Align command/event traceability and status documentation."
+    },
+    {
+      "batchId": "BATCH-004",
+      "priority": "Must",
+      "status": "Pending",
+      "candidateIds": ["CAND-007", "CAND-008"],
+      "dependencies": ["BATCH-001"],
+      "validationProfiles": ["feature", "full", "visual-regression"],
+      "risk": "Medium",
+      "nextAction": "Harden accessibility announcements and security static audit after UI changes."
+    }
+  ],
+  "excluded": [
+    { "candidateId": "CAND-011", "reason": "Exchange rate runtime requires future canonical specification and cannot use external API under static-first constraints." },
+    { "candidateId": "CAND-012", "reason": "Insurance runtime is not canonically specified." },
+    { "candidateId": "CAND-013", "reason": "Position persistence requires schema, migration, backup, and architecture decision." },
+    { "candidateId": "CAND-014", "reason": "CSV import requires entity-level mapping specification." },
+    { "candidateId": "CAND-015", "reason": "Push, email, SMS, and remote scheduler require backend or cloud runtime." }
+  ]
+}

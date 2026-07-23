@@ -14,6 +14,13 @@
 | Portfolio export report | Implemented | `frontend/src/main.js`, `frontend/reports/export-report-sample.json` | JSON report versioning and sample export. |
 | Backup and restore | Implemented | `frontend/src/indexeddb-runtime.js` | Plain/encrypted backup, dry run, staged restore, merge policy. |
 | Simulator fixtures | Implemented | `simulator/fixtures/`, `simulator/scripts/` | Local fixture validation and deterministic output checks. |
+| Recommendation runtime | Implemented | `frontend/src/domain/recommendation/`, `frontend/src/runtime/recommendation-runtime.js` | Local pure runtime and application service tests. |
+| Execution planning runtime | Implemented | `frontend/src/runtime/execution-plan-runtime.js`, `frontend/src/runtime/action-plan-runtime.js` | Runtime complete; read-only UI surface is a v1.1 candidate. |
+| Notification runtime | Implemented | `frontend/src/domain/notification/`, `frontend/src/runtime/notification-runtime.js` | Local records only; no push, email, SMS, or cloud runtime. |
+| Business calendar runtime | Implemented | `frontend/src/runtime/business-calendar-runtime.js` | Runtime complete; timeline UI surface is a v1.1 candidate. |
+| Automation runtime | Implemented | `frontend/src/runtime/automation-runtime.js` | Generates review outputs only; no automatic financial execution. |
+| Scheduler runtime | Implemented | `frontend/src/runtime/scheduler-runtime.js` | On-demand local evaluation only. |
+| v1.1 roadmap governance | Planning | `docs/roadmap/v1.1-roadmap.md`, `.codex/atlas-v1.1-implementation-queue.json` | Planning only; not runtime implementation. |
 | Backend API | Prototype only | `backend/README.md`, `backend/*.mjs` | Not required for v1 PWA runtime. |
 | Database | Future optional | `database/README.md` | Not required for v1 PWA runtime. |
 | AI integration | Future optional | `ai/README.md` | Not required for v1 PWA runtime. |
