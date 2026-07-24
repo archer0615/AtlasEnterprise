@@ -9,6 +9,7 @@ const APP_SHELL = [
   "src/main.js",
   "src/legacy-main.js",
   "src/app/bootstrap.js",
+  "src/validation-contract.js",
   "src/app/application-context.js",
   "src/app/application-lifecycle.js",
   "src/app/application-error-handler.js",

@@ -1,8 +1,15 @@
 import { createFrontendCompositionRoot } from "./composition-root.js";
 import { createApplicationLifecycle } from "./application-lifecycle.js";
 import { handleApplicationError } from "./application-error-handler.js";
+import { validateRuntimeConfiguration } from "../validation-contract.js";
 
 export async function bootstrapApplication(options = {}) {
+  const runtimeValidation = validateRuntimeConfiguration(options.runtimeOverrides || {});
+  if (!runtimeValidation.ok) {
+    const error = new Error(runtimeValidation.error.message);
+    error.code = runtimeValidation.error.code;
+    throw error;
+  }
   const compositionRoot = createFrontendCompositionRoot(options);
   const lifecycle = createApplicationLifecycle({
     initialize: compositionRoot.initialize,

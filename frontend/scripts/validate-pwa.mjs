@@ -9,6 +9,7 @@ const requiredFiles = [
   "sw.js",
   "sw-version.js",
   "src/main.js",
+  "src/validation-contract.js",
   "src/indexeddb-runtime.js",
   "src/security-boundary.js",
   "src/pwa-runtime-resilience.js",

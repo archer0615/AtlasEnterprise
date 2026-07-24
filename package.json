@@ -42,6 +42,7 @@
     "test:persistence-hardening": "node frontend/scripts/test-persistence-hardening.mjs",
     "test:pwa-runtime-resilience": "node frontend/scripts/test-pwa-runtime-resilience.mjs",
     "test:frontend-security-hardening": "node frontend/scripts/test-frontend-security-hardening.mjs",
+    "test:validation-contract-hardening": "node frontend/scripts/test-validation-contract-hardening.mjs",
     "test:feature-lifecycle": "node frontend/scripts/test-feature-lifecycle.mjs",
     "test:feature-integration": "node frontend/scripts/test-feature-integration.mjs",
     "test:asset-liability-domain": "node frontend/scripts/test-asset-liability-domain.mjs",
