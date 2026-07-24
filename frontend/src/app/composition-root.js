@@ -17,13 +17,16 @@ import { createProfileController } from "../features/profile/profile-controller.
 import { createNavigationController } from "../features/navigation/navigation-controller.js";
 import { createPwaController } from "../features/pwa/pwa-controller.js";
 
-export function createFrontendCompositionRoot({ documentRef = document, runtimeOverrides = {}, loadRuntime = () => import("../legacy-main.js") } = {}) {
+export function createFrontendCompositionRoot({ documentRef = document, runtimeOverrides = {}, loadRuntime = () => import("../legacy-main.js"), backupRepository = null } = {}) {
   const runtimeContext = createRuntimeContext(runtimeOverrides);
   const errorBoundary = createApplicationErrorBoundary({ logger: runtimeContext.logger });
   const stateEvents = createStateEventBus();
   const listeners = createEventListenerRegistry();
   const dom = createDomRegistry(documentRef);
-  const shared = Object.freeze({ dom, listeners, runtimeContext, errorBoundary, stateEvents });
+  const platform = Object.freeze({
+    getBackupRepository: async () => backupRepository || (await import("../indexeddb-runtime.js")).indexedDbBackupRepository,
+  });
+  const shared = Object.freeze({ dom, listeners, runtimeContext, errorBoundary, stateEvents, platform });
   const services = createRuntimeRegistry("service");
   const stores = createRuntimeRegistry("store");
   const routes = createRuntimeRegistry("route");
@@ -126,11 +129,22 @@ function registerFeatures(services, shared) {
     knowledge: createKnowledgeController,
     loan: createLoanController,
     portfolio: createPortfolioController,
-    backup: createBackupController,
+    backup: (sharedContext) => createBackupController({ ...sharedContext, backupRepository: createLazyBackupRepository(sharedContext.platform) }),
     profile: createProfileController,
     navigation: createNavigationController,
     pwa: createPwaController,
   };
   for (const [id, factory] of Object.entries(factories)) services.register(`feature.${id}`, () => factory(shared), { scope: "feature" });
   return Object.freeze(Object.fromEntries(Object.keys(factories).map((id) => [id, services.resolve(`feature.${id}`)])));
+}
+
+function createLazyBackupRepository(platform) {
+  return Object.freeze({
+    async dryRunImport(backup) {
+      return (await platform.getBackupRepository()).dryRunImport(backup);
+    },
+    async importBackup(backup, options) {
+      return (await platform.getBackupRepository()).importBackup(backup, options);
+    },
+  });
 }

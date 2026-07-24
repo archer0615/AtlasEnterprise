@@ -1,6 +1,6 @@
 import { normalizeIncome, validateIncome } from "../../domain/income/income-validation.js";
 
-export function createIncomeApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => crypto.randomUUID() }) {
+export function createIncomeApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => `income-${now().getTime()}` }) {
   async function ownerId() { return (await ownerProvider.getCurrentOwner()).ownerId; }
   async function listIncomes(query = {}) { return repository.listByOwner(await ownerId(), query); }
   async function createIncome(input) {
@@ -43,5 +43,5 @@ export function createIncomeApplicationService({ repository, ownerProvider, audi
 
 function missing() { return { ok: false, errors: [{ code: "ATLAS_INCOME_NOT_FOUND", field: "id", message: "Income not found", rule: "owner-isolation", valueCategory: "identifier" }] }; }
 function audit(eventType, record, now) {
-  return { auditId: `${eventType}-${record.id}-${Date.now()}`, action: eventType, recordedAt: now().toISOString(), schema: "atlas-enterprise.audit-entry.v1", detail: { entityType: "Income", entityId: record.id, ownerId: record.ownerId, result: "ok" } };
+  return { auditId: `${eventType}-${record.id}-${now().getTime()}`, action: eventType, recordedAt: now().toISOString(), schema: "atlas-enterprise.audit-entry.v1", detail: { entityType: "Income", entityId: record.id, ownerId: record.ownerId, result: "ok" } };
 }

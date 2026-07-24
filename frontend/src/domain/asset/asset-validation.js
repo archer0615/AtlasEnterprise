@@ -20,7 +20,7 @@ export function normalizeAsset(input = {}, context = {}) {
   const now = context.now?.() || new Date();
   const timestamp = now.toISOString();
   return Object.freeze({
-    id: input.id || context.createId?.() || `asset-${Date.now()}`,
+    id: input.id || context.createId?.() || `asset-${now.getTime()}`,
     ownerId: input.ownerId,
     name: String(input.name || "").trim(),
     assetType: input.assetType || "other",

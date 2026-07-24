@@ -3,7 +3,7 @@ import { automationTypes, calendarEntryTypes, notificationPriorities, notificati
 export function normalizeNotification(input = {}, context = {}) {
   const timestamp = nowIso(context);
   return Object.freeze({
-    id: input.id || context.createId?.() || `notification-${Date.now()}`,
+    id: input.id || context.createId?.() || `notification-${new Date(timestamp).getTime()}`,
     ownerId: input.ownerId,
     type: input.type || "scheduler",
     title: String(input.title || "").trim(),
@@ -37,7 +37,7 @@ export function validateNotification(record = {}, options = {}) {
 export function normalizeCalendarEntry(input = {}, context = {}) {
   const timestamp = nowIso(context);
   return Object.freeze({
-    id: input.id || context.createId?.() || `calendar-entry-${Date.now()}`,
+    id: input.id || context.createId?.() || `calendar-entry-${new Date(timestamp).getTime()}`,
     ownerId: input.ownerId,
     type: input.type || "recommendation-review",
     sourceType: input.sourceType || "",
@@ -65,7 +65,7 @@ export function validateCalendarEntry(record = {}) {
 export function normalizeAutomationRule(input = {}, context = {}) {
   const timestamp = nowIso(context);
   return Object.freeze({
-    id: input.id || context.createId?.() || `automation-rule-${Date.now()}`,
+    id: input.id || context.createId?.() || `automation-rule-${new Date(timestamp).getTime()}`,
     ownerId: input.ownerId,
     type: input.type || "review-reminder",
     title: String(input.title || "").trim(),

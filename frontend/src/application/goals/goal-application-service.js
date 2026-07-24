@@ -1,7 +1,7 @@
 import { transitionGoal } from "../../domain/goal/goal-lifecycle.js";
 import { normalizeGoal, validateGoal, validateGoalDependency } from "../../domain/goal/goal-validation.js";
 
-export function createGoalApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => crypto.randomUUID() }) {
+export function createGoalApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => `goal-${now().getTime()}` }) {
   async function ownerId() { return (await ownerProvider.getCurrentOwner()).ownerId; }
   async function listGoals(query = {}) { return repository.listByOwner(await ownerId(), query); }
   async function getGoal(id) {

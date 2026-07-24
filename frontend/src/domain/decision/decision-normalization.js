@@ -1,6 +1,6 @@
 export function normalizeDecision(input = {}, context = {}) {
   const timestamp = (context.now?.() || new Date()).toISOString();
-  const id = input.id || input.decisionId || context.createId?.() || `decision-${Date.now()}`;
+  const id = input.id || input.decisionId || context.createId?.() || `decision-${new Date(timestamp).getTime()}`;
   return Object.freeze({
     id,
     decisionId: id,

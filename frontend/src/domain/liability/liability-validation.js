@@ -20,7 +20,7 @@ export function normalizeLiability(input = {}, context = {}) {
   const now = context.now?.() || new Date();
   const timestamp = now.toISOString();
   return Object.freeze({
-    id: input.id || context.createId?.() || `liability-${Date.now()}`,
+    id: input.id || context.createId?.() || `liability-${now.getTime()}`,
     ownerId: input.ownerId,
     name: String(input.name || "").trim(),
     liabilityType: input.liabilityType || "other",

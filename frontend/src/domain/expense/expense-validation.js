@@ -4,7 +4,7 @@ export function normalizeExpense(input = {}, context = {}) {
   const now = context.now?.() || new Date();
   const timestamp = now.toISOString();
   return Object.freeze({
-    id: input.id || context.createId?.() || `expense-${Date.now()}`,
+    id: input.id || context.createId?.() || `expense-${now.getTime()}`,
     ownerId: input.ownerId,
     name: String(input.name || "").trim(),
     expenseType: input.expenseType || "other",

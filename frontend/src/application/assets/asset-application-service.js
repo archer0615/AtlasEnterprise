@@ -1,6 +1,6 @@
 import { normalizeAsset, validateAsset } from "../../domain/asset/asset-validation.js";
 
-export function createAssetApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => crypto.randomUUID() }) {
+export function createAssetApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => `asset-${now().getTime()}` }) {
   async function ownerId() {
     return (await ownerProvider.getCurrentOwner()).ownerId;
   }
@@ -52,5 +52,5 @@ export function createAssetApplicationService({ repository, ownerProvider, audit
 }
 
 function audit(eventType, record, now) {
-  return { auditId: `${eventType}-${record.id}-${Date.now()}`, action: eventType, recordedAt: now().toISOString(), schema: "atlas-enterprise.audit-entry.v1", detail: { entityType: "Asset", entityId: record.id, ownerId: record.ownerId, result: "ok" } };
+  return { auditId: `${eventType}-${record.id}-${now().getTime()}`, action: eventType, recordedAt: now().toISOString(), schema: "atlas-enterprise.audit-entry.v1", detail: { entityType: "Asset", entityId: record.id, ownerId: record.ownerId, result: "ok" } };
 }

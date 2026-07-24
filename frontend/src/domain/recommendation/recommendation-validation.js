@@ -3,7 +3,7 @@ import { actionPlanStatuses, executionPlanStatuses, recommendationPriorities, re
 export function normalizeRecommendation(input = {}, context = {}) {
   const timestamp = nowIso(context);
   return Object.freeze({
-    id: input.id || context.createId?.() || `recommendation-${Date.now()}`,
+    id: input.id || context.createId?.() || `recommendation-${new Date(timestamp).getTime()}`,
     ownerId: input.ownerId,
     title: String(input.title || "").trim(),
     type: input.type || "cashflow",
@@ -46,7 +46,7 @@ export function validateRecommendation(record = {}, options = {}) {
 export function normalizeExecutionPlan(input = {}, context = {}) {
   const timestamp = nowIso(context);
   return Object.freeze({
-    id: input.id || context.createId?.() || `execution-plan-${Date.now()}`,
+    id: input.id || context.createId?.() || `execution-plan-${new Date(timestamp).getTime()}`,
     ownerId: input.ownerId,
     recommendationId: input.recommendationId,
     decisionId: input.decisionId || "",
@@ -76,7 +76,7 @@ export function validateExecutionPlan(record = {}) {
 export function normalizeActionPlan(input = {}, context = {}) {
   const timestamp = nowIso(context);
   return Object.freeze({
-    id: input.id || context.createId?.() || `action-plan-${Date.now()}`,
+    id: input.id || context.createId?.() || `action-plan-${new Date(timestamp).getTime()}`,
     ownerId: input.ownerId,
     executionPlanId: input.executionPlanId,
     actionType: input.actionType || "planning-task",

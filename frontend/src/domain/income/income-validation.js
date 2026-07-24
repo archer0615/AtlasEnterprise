@@ -4,7 +4,7 @@ export function normalizeIncome(input = {}, context = {}) {
   const now = context.now?.() || new Date();
   const timestamp = now.toISOString();
   return Object.freeze({
-    id: input.id || context.createId?.() || `income-${Date.now()}`,
+    id: input.id || context.createId?.() || `income-${now.getTime()}`,
     ownerId: input.ownerId,
     name: String(input.name || "").trim(),
     incomeType: input.incomeType || "other",

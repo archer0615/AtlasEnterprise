@@ -1,6 +1,6 @@
 import { normalizeLiability, validateLiability } from "../../domain/liability/liability-validation.js";
 
-export function createLiabilityApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => crypto.randomUUID() }) {
+export function createLiabilityApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => `liability-${now().getTime()}` }) {
   async function ownerId() {
     return (await ownerProvider.getCurrentOwner()).ownerId;
   }
@@ -52,5 +52,5 @@ export function createLiabilityApplicationService({ repository, ownerProvider, a
 }
 
 function audit(eventType, record, now) {
-  return { auditId: `${eventType}-${record.id}-${Date.now()}`, action: eventType, recordedAt: now().toISOString(), schema: "atlas-enterprise.audit-entry.v1", detail: { entityType: "Liability", entityId: record.id, ownerId: record.ownerId, result: "ok" } };
+  return { auditId: `${eventType}-${record.id}-${now().getTime()}`, action: eventType, recordedAt: now().toISOString(), schema: "atlas-enterprise.audit-entry.v1", detail: { entityType: "Liability", entityId: record.id, ownerId: record.ownerId, result: "ok" } };
 }

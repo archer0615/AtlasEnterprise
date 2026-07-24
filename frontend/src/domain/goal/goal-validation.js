@@ -4,7 +4,7 @@ export function normalizeGoal(input = {}, context = {}) {
   const now = context.now?.() || new Date();
   const timestamp = now.toISOString();
   return Object.freeze({
-    id: input.id || context.createId?.() || `goal-${Date.now()}`,
+    id: input.id || context.createId?.() || `goal-${now.getTime()}`,
     ownerId: input.ownerId,
     name: String(input.name || "").trim(),
     goalType: input.goalType || "other",

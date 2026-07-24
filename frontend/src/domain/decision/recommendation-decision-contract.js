@@ -10,7 +10,7 @@ export const recommendationDecisionContract = Object.freeze({
 export function normalizeRecommendationDecision(input = {}, context = {}) {
   const timestamp = (context.now?.() || new Date()).toISOString();
   return Object.freeze({
-    decisionId: input.decisionId || context.createId?.() || `recommendation-decision-${Date.now()}`,
+    decisionId: input.decisionId || context.createId?.() || `recommendation-decision-${new Date(timestamp).getTime()}`,
     ownerId: input.ownerId,
     recommendationId: input.recommendationId,
     scenarioId: input.scenarioId || "",

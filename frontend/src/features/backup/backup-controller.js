@@ -1,6 +1,6 @@
 import { renderBackupDryRun, renderBackupState, renderRestoreAudit } from "./backup-view.js";
 
-export function createBackupController({ dom, listeners }) {
+export function createBackupController({ dom, listeners, backupRepository }) {
   let pendingBackup = null;
   let pendingDryRun = null;
 
@@ -10,16 +10,14 @@ export function createBackupController({ dom, listeners }) {
       listeners.add(dom.optional("#importBackupInput"), "change", async (event) => {
         const file = event.target.files?.[0];
         if (!file) return;
-        const { indexedDbBackupRepository } = await import("../../indexeddb-runtime.js");
         pendingBackup = JSON.parse(await file.text());
-        pendingDryRun = await indexedDbBackupRepository.dryRunImport(pendingBackup);
+        pendingDryRun = await backupRepository.dryRunImport(pendingBackup);
         renderBackupDryRun(dom.optional("#backupDryRunPanel"), pendingDryRun);
       });
       listeners.add(dom.optional("#applyBackupButton"), "click", async () => {
         if (!pendingBackup) return;
-        const { indexedDbBackupRepository } = await import("../../indexeddb-runtime.js");
         const conflictPolicy = dom.optional("#backupConflictPolicySelect")?.value || "replace";
-        const result = await indexedDbBackupRepository.importBackup(pendingBackup, { conflictPolicy });
+        const result = await backupRepository.importBackup(pendingBackup, { conflictPolicy });
         renderRestoreAudit(dom.optional("#restoreAuditPanel"), result, conflictPolicy);
         const scenarioList = dom.optional("#scenarioList");
         if (scenarioList) {

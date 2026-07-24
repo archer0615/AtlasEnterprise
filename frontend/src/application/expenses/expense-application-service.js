@@ -1,6 +1,6 @@
 import { normalizeExpense, validateExpense } from "../../domain/expense/expense-validation.js";
 
-export function createExpenseApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => crypto.randomUUID() }) {
+export function createExpenseApplicationService({ repository, ownerProvider, auditRepository = null, now = () => new Date(), createId = () => `expense-${now().getTime()}` }) {
   async function ownerId() { return (await ownerProvider.getCurrentOwner()).ownerId; }
   async function listExpenses(query = {}) { return repository.listByOwner(await ownerId(), query); }
   async function createExpense(input) {
@@ -43,5 +43,5 @@ export function createExpenseApplicationService({ repository, ownerProvider, aud
 
 function missing() { return { ok: false, errors: [{ code: "ATLAS_EXPENSE_NOT_FOUND", field: "id", message: "Expense not found", rule: "owner-isolation", valueCategory: "identifier" }] }; }
 function audit(eventType, record, now) {
-  return { auditId: `${eventType}-${record.id}-${Date.now()}`, action: eventType, recordedAt: now().toISOString(), schema: "atlas-enterprise.audit-entry.v1", detail: { entityType: "Expense", entityId: record.id, ownerId: record.ownerId, result: "ok" } };
+  return { auditId: `${eventType}-${record.id}-${now().getTime()}`, action: eventType, recordedAt: now().toISOString(), schema: "atlas-enterprise.audit-entry.v1", detail: { entityType: "Expense", entityId: record.id, ownerId: record.ownerId, result: "ok" } };
 }

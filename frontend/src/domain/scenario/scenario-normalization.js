@@ -1,6 +1,6 @@
 export function normalizeScenario(input = {}, context = {}) {
   const timestamp = (context.now?.() || new Date()).toISOString();
-  const id = input.id || input.scenarioId || context.createId?.() || `scenario-${Date.now()}`;
+  const id = input.id || input.scenarioId || context.createId?.() || `scenario-${new Date(timestamp).getTime()}`;
   return Object.freeze({
     id,
     scenarioId: id,
