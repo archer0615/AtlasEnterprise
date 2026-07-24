@@ -2,9 +2,12 @@
   "name": "Atlas Enterprise Knowledge",
   "short_name": "Atlas",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#f5f2ed",
   "theme_color": "#1f6f78",
+  "categories": ["finance", "productivity"],
   "icons": [
     {
       "src": "icons/atlas-icon.svg",

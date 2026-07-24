@@ -6,6 +6,7 @@ export function createRuntimeContext(overrides = {}) {
     logger: overrides.logger || console,
     storage: overrides.storage || null,
     cache: overrides.cache || null,
+    browserRuntime: overrides.browserRuntime || globalThis,
     theme: overrides.theme || "system",
     localization: Object.freeze({ locale: overrides.locale || "zh-TW" }),
     permission: Object.freeze({ mode: "local-user", ...(overrides.permission || {}) }),

@@ -12,7 +12,9 @@ const APP_SHELL = [
   "src/app/application-context.js",
   "src/app/application-lifecycle.js",
   "src/app/application-error-handler.js",
+  "src/app/composition-root.js",
   "src/app/dom-registry.js",
+  "src/pwa-runtime-resilience.js",
   "src/application/ownership/current-owner-provider.js",
   "src/application/assets/asset-application-service.js",
   "src/application/incomes/income-application-service.js",
@@ -73,6 +75,27 @@ self.addEventListener("activate", (event) => {
     ))
   );
   self.clients.claim();
+});
+
+self.addEventListener("message", (event) => {
+  const message = event.data || {};
+  if (message.type === "ATLAS_SW_SKIP_WAITING") {
+    self.skipWaiting();
+    return;
+  }
+  if (message.type !== "ATLAS_SW_HEALTH") return;
+
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const keys = await cache.keys();
+    event.ports?.[0]?.postMessage({
+      schema: "atlas-enterprise.service-worker-health.v1",
+      status: "ready",
+      cacheName: CACHE_NAME,
+      cachedRequestCount: keys.length,
+      appShellCount: APP_SHELL.length
+    });
+  })());
 });
 
 self.addEventListener("fetch", (event) => {

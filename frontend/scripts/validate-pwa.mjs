@@ -10,6 +10,7 @@ const requiredFiles = [
   "sw-version.js",
   "src/main.js",
   "src/indexeddb-runtime.js",
+  "src/pwa-runtime-resilience.js",
   "src/dashboard-model.js",
   "src/styles.css",
   "fixtures/dashboard-snapshot.json",
@@ -42,6 +43,12 @@ if (manifest.display !== "standalone") {
 if (!manifest.start_url) {
   throw new Error("manifest.start_url is required");
 }
+if (manifest.scope !== "./") {
+  throw new Error("manifest.scope must stay within the frontend app");
+}
+if (manifest.orientation !== "any") {
+  throw new Error("manifest.orientation must support desktop and mobile recovery");
+}
 if (!Array.isArray(manifest.icons) || manifest.icons.length === 0) {
   throw new Error("manifest.icons must include at least one icon");
 }
@@ -50,6 +57,9 @@ const serviceWorker = await readFile(path.join(frontendRoot, "sw.js"), "utf8");
 const serviceWorkerVersion = await readFile(path.join(frontendRoot, "sw-version.js"), "utf8");
 if (!serviceWorker.includes('importScripts("sw-version.js")')) {
   throw new Error("service worker must import sw-version.js");
+}
+if (!serviceWorker.includes("ATLAS_SW_HEALTH") || !serviceWorker.includes("ATLAS_SW_SKIP_WAITING")) {
+  throw new Error("service worker must expose health and update lifecycle messages");
 }
 for (const file of requiredFiles.filter((item) => item !== "sw.js")) {
   const url = file.replaceAll("\\", "/");

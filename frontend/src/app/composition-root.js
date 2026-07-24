@@ -16,6 +16,7 @@ import { createBackupController } from "../features/backup/backup-controller.js"
 import { createProfileController } from "../features/profile/profile-controller.js";
 import { createNavigationController } from "../features/navigation/navigation-controller.js";
 import { createPwaController } from "../features/pwa/pwa-controller.js";
+import { createPwaRuntimeSnapshot, createPwaRecoveryPlan, validatePwaRuntimeSnapshot } from "../pwa-runtime-resilience.js";
 
 export function createFrontendCompositionRoot({ documentRef = document, runtimeOverrides = {}, loadRuntime = () => import("../legacy-main.js"), backupRepository = null } = {}) {
   const runtimeContext = createRuntimeContext(runtimeOverrides);
@@ -90,6 +91,7 @@ function registerInfrastructure(services, shared) {
   services.register("dom", () => shared.dom, { scope: "singleton" });
   services.register("event-listeners", () => shared.listeners, { scope: "singleton" });
   services.register("error-boundary", () => shared.errorBoundary, { scope: "singleton" });
+  services.register("pwa-runtime-resilience", () => createPwaRuntimeResilienceService(shared), { scope: "singleton" });
 }
 
 function registerStores(stores, shared) {
@@ -122,6 +124,7 @@ function registerDashboard(dashboards) {
 }
 
 function registerFeatures(services, shared) {
+  const featureShared = Object.freeze({ ...shared, services });
   const factories = {
     dashboard: createDashboardController,
     scenario: createScenarioController,
@@ -134,7 +137,7 @@ function registerFeatures(services, shared) {
     navigation: createNavigationController,
     pwa: createPwaController,
   };
-  for (const [id, factory] of Object.entries(factories)) services.register(`feature.${id}`, () => factory(shared), { scope: "feature" });
+  for (const [id, factory] of Object.entries(factories)) services.register(`feature.${id}`, () => factory(featureShared), { scope: "feature" });
   return Object.freeze(Object.fromEntries(Object.keys(factories).map((id) => [id, services.resolve(`feature.${id}`)])));
 }
 
@@ -145,6 +148,36 @@ function createLazyBackupRepository(platform) {
     },
     async importBackup(backup, options) {
       return (await platform.getBackupRepository()).importBackup(backup, options);
+    },
+  });
+}
+
+function createPwaRuntimeResilienceService(shared) {
+  let snapshot = createPwaRuntimeSnapshot();
+
+  function publish(type, payload) {
+    shared.stateEvents.publish(`pwa.${type}`, payload);
+  }
+
+  return Object.freeze({
+    update(input = {}) {
+      snapshot = createPwaRuntimeSnapshot(input);
+      publish("runtime-health-changed", snapshot);
+      return snapshot;
+    },
+    snapshot() {
+      return snapshot;
+    },
+    recoveryPlan() {
+      return createPwaRecoveryPlan(snapshot);
+    },
+    validate() {
+      return validatePwaRuntimeSnapshot(snapshot);
+    },
+    reset() {
+      snapshot = createPwaRuntimeSnapshot();
+      publish("runtime-health-reset", snapshot);
+      return snapshot;
     },
   });
 }
