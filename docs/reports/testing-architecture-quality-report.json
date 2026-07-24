@@ -1,0 +1,522 @@
+{
+  "generatedAt": "2026-07-24T10:12:25.966Z",
+  "runner": "Node.js built-in assert with npm validation profiles",
+  "assertionLibrary": "node:assert/strict",
+  "mockLibrary": "Repository-local fakes and explicit dependency injection only",
+  "browserFramework": "Playwright for browser and visual validation",
+  "coverageTool": "Static module reference baseline; executable line/branch coverage is not configured",
+  "mutationTool": "Not configured; guarded as Not Applicable",
+  "testFileCount": 88,
+  "productionFileCount": 151,
+  "inventory": {
+    "Domain": {
+      "fileCount": 9,
+      "files": [
+        "frontend\\scripts\\test-asset-liability-domain.mjs",
+        "frontend\\scripts\\test-goal-financial-health-domain.mjs",
+        "frontend\\scripts\\test-income-expense-cashflow-domain.mjs",
+        "frontend\\scripts\\test-notification-automation-domain.mjs",
+        "frontend\\scripts\\test-recommendation-execution-domain.mjs",
+        "frontend\\scripts\\test-scenario-decision-domain.mjs",
+        "simulator\\scripts\\validate-fixtures.mjs",
+        "simulator\\scripts\\validate-formula-registry.mjs",
+        "simulator\\scripts\\validate-score-policy.mjs"
+      ]
+    },
+    "Application": {
+      "fileCount": 10,
+      "files": [
+        "frontend\\scripts\\test-application-bootstrap.mjs",
+        "frontend\\scripts\\test-asset-liability-application.mjs",
+        "frontend\\scripts\\test-decision-workbench.mjs",
+        "frontend\\scripts\\test-goal-financial-health-application.mjs",
+        "frontend\\scripts\\test-income-expense-cashflow-application.mjs",
+        "frontend\\scripts\\test-notification-automation-application.mjs",
+        "frontend\\scripts\\test-readiness-policy.mjs",
+        "frontend\\scripts\\test-recommendation-execution-application.mjs",
+        "frontend\\scripts\\test-scenario-decision-application.mjs",
+        "scripts\\validate-roadmap-decision-workbench.mjs"
+      ]
+    },
+    "Infrastructure": {
+      "fileCount": 3,
+      "files": [
+        "frontend\\scripts\\test-local-repository-adapters.mjs",
+        "frontend\\scripts\\test-persistence-hardening.mjs",
+        "frontend\\scripts\\validate-portfolio-reporting-contract.mjs"
+      ]
+    },
+    "Contract": {
+      "fileCount": 4,
+      "files": [
+        "frontend\\scripts\\test-validation-contract-hardening.mjs",
+        "frontend\\scripts\\validate-cache-invalidation.mjs",
+        "frontend\\scripts\\validate-portfolio-reporting-contract.mjs",
+        "scripts\\validate-validation-profiles.mjs"
+      ]
+    },
+    "Architecture": {
+      "fileCount": 8,
+      "files": [
+        "frontend\\scripts\\test-asset-liability-runtime-boundary.mjs",
+        "frontend\\scripts\\test-goal-financial-health-runtime-boundary.mjs",
+        "frontend\\scripts\\test-income-expense-cashflow-runtime-boundary.mjs",
+        "frontend\\scripts\\test-runtime-boundary-cleanup.mjs",
+        "frontend\\scripts\\validate-dashboard-field-traceability.mjs",
+        "scripts\\validate-roadmap-architecture.mjs",
+        "scripts\\validate-status-traceability.mjs",
+        "scripts\\validate-validation-profiles.mjs"
+      ]
+    },
+    "Feature": {
+      "fileCount": 6,
+      "files": [
+        "backend\\test-dashboard-projection-service.mjs",
+        "backend\\validate-dashboard-projection-api.mjs",
+        "frontend\\scripts\\test-feature-integration.mjs",
+        "frontend\\scripts\\test-feature-lifecycle.mjs",
+        "frontend\\scripts\\validate-dashboard-field-traceability.mjs",
+        "frontend\\scripts\\validate-dashboard-fixture-drift.mjs"
+      ]
+    },
+    "UI": {
+      "fileCount": 10,
+      "files": [
+        "frontend\\scripts\\test-asset-liability-domain.mjs",
+        "frontend\\scripts\\test-dom-registry.mjs",
+        "frontend\\scripts\\test-goal-financial-health-domain.mjs",
+        "frontend\\scripts\\test-income-expense-cashflow-domain.mjs",
+        "frontend\\scripts\\test-knowledge-pwa-ux.mjs",
+        "frontend\\scripts\\test-notification-automation-domain.mjs",
+        "frontend\\scripts\\test-recommendation-execution-domain.mjs",
+        "frontend\\scripts\\test-scenario-decision-domain.mjs",
+        "frontend\\scripts\\validate-browser-workflow.mjs",
+        "frontend\\scripts\\validate-visual-regression.mjs"
+      ]
+    },
+    "E2E": {
+      "fileCount": 2,
+      "files": [
+        "frontend\\scripts\\test-backup-restore-e2e.mjs",
+        "frontend\\scripts\\validate-browser-workflow.mjs"
+      ]
+    },
+    "Security": {
+      "fileCount": 2,
+      "files": [
+        "frontend\\scripts\\test-frontend-security-hardening.mjs",
+        "frontend\\scripts\\validate-backup-security.mjs"
+      ]
+    },
+    "Validation": {
+      "fileCount": 55,
+      "files": [
+        "backend\\validate-dashboard-projection-api.mjs",
+        "frontend\\scripts\\test-validation-contract-hardening.mjs",
+        "frontend\\scripts\\validate-backup-security.mjs",
+        "frontend\\scripts\\validate-browser-workflow.mjs",
+        "frontend\\scripts\\validate-cache-invalidation.mjs",
+        "frontend\\scripts\\validate-dashboard-field-traceability.mjs",
+        "frontend\\scripts\\validate-dashboard-fixture-drift.mjs",
+        "frontend\\scripts\\validate-frontend.mjs",
+        "frontend\\scripts\\validate-generated-fixture-cache-policy.mjs",
+        "frontend\\scripts\\validate-offline-cache.mjs",
+        "frontend\\scripts\\validate-portfolio-reporting-contract.mjs",
+        "frontend\\scripts\\validate-pwa.mjs",
+        "frontend\\scripts\\validate-runtime-boundaries.mjs",
+        "frontend\\scripts\\validate-runtime-fixture-drift.mjs",
+        "frontend\\scripts\\validate-visual-regression.mjs",
+        "scripts\\validate-archive-closure-verification.mjs",
+        "scripts\\validate-archive-closure.mjs",
+        "scripts\\validate-archive-readiness-lock.mjs",
+        "scripts\\validate-archive-retirement-lock.mjs",
+        "scripts\\validate-candidate-readiness.mjs",
+        "scripts\\validate-deployment.mjs",
+        "scripts\\validate-encoding-cleanup.mjs",
+        "scripts\\validate-evidence-freeze-review.mjs",
+        "scripts\\validate-final-archive-audit.mjs",
+        "scripts\\validate-final-release-review.mjs",
+        "scripts\\validate-handoff-readiness-review.mjs",
+        "scripts\\validate-long-task-governance.mjs",
+        "scripts\\validate-maintenance-readiness.mjs",
+        "scripts\\validate-next-release-planning.mjs",
+        "scripts\\validate-planning-baseline.mjs",
+        "scripts\\validate-post-archive-monitoring.mjs",
+        "scripts\\validate-post-release-monitoring.mjs",
+        "scripts\\validate-preview-smoke.mjs",
+        "scripts\\validate-release-acceptance.mjs",
+        "scripts\\validate-release-backlog-acceptance.mjs",
+        "scripts\\validate-release-closure-lock.mjs",
+        "scripts\\validate-release-evidence-lock.mjs",
+        "scripts\\validate-release-governance.mjs",
+        "scripts\\validate-release-operations.mjs",
+        "scripts\\validate-release-preflight.mjs",
+        "scripts\\validate-release-signoff.mjs",
+        "scripts\\validate-retirement-closure-verification.mjs",
+        "scripts\\validate-retirement-evidence-review.mjs",
+        "scripts\\validate-roadmap-architecture.mjs",
+        "scripts\\validate-roadmap-data-projection.mjs",
+        "scripts\\validate-roadmap-decision-workbench.mjs",
+        "scripts\\validate-roadmap-final-readiness.mjs",
+        "scripts\\validate-roadmap-ux-pwa.mjs",
+        "scripts\\validate-status-traceability.mjs",
+        "scripts\\validate-test-quality-governance.mjs",
+        "scripts\\validate-validation-profiles.mjs",
+        "simulator\\scripts\\validate-fixtures.mjs",
+        "simulator\\scripts\\validate-formula-registry.mjs",
+        "simulator\\scripts\\validate-score-policy.mjs",
+        "simulator\\scripts\\validate-simulator-output.mjs"
+      ]
+    },
+    "Persistence": {
+      "fileCount": 6,
+      "files": [
+        "frontend\\scripts\\test-backup-restore-e2e.mjs",
+        "frontend\\scripts\\test-persistence-hardening.mjs",
+        "frontend\\scripts\\validate-backup-security.mjs",
+        "frontend\\scripts\\validate-cache-invalidation.mjs",
+        "frontend\\scripts\\validate-generated-fixture-cache-policy.mjs",
+        "frontend\\scripts\\validate-offline-cache.mjs"
+      ]
+    },
+    "PWA": {
+      "fileCount": 7,
+      "files": [
+        "frontend\\scripts\\test-knowledge-pwa-ux.mjs",
+        "frontend\\scripts\\test-pwa-runtime-resilience.mjs",
+        "frontend\\scripts\\validate-cache-invalidation.mjs",
+        "frontend\\scripts\\validate-generated-fixture-cache-policy.mjs",
+        "frontend\\scripts\\validate-offline-cache.mjs",
+        "frontend\\scripts\\validate-pwa.mjs",
+        "scripts\\validate-roadmap-ux-pwa.mjs"
+      ]
+    },
+    "Accessibility": {
+      "fileCount": 0,
+      "files": []
+    },
+    "Performance": {
+      "fileCount": 1,
+      "files": [
+        "scripts\\benchmark-quality-baseline.mjs"
+      ]
+    }
+  },
+  "staticCoverageBaseline": {
+    "type": "static-import-reference",
+    "productionFileCount": 151,
+    "coveredProductionFiles": 64,
+    "coveragePercent": 42.38,
+    "byLayer": {
+      "domain": {
+        "productionFileCount": 35,
+        "coveredProductionFiles": 14,
+        "coveragePercent": 40,
+        "uncoveredFiles": [
+          "frontend\\src\\domain\\asset\\asset-contract.js",
+          "frontend\\src\\domain\\asset\\asset-status.js",
+          "frontend\\src\\domain\\decision\\decision-contract.js",
+          "frontend\\src\\domain\\decision\\decision-status.js",
+          "frontend\\src\\domain\\decision\\decision-type.js",
+          "frontend\\src\\domain\\decision\\recommendation-decision-contract.js",
+          "frontend\\src\\domain\\expense\\expense-contract.js",
+          "frontend\\src\\domain\\expense\\expense-status.js",
+          "frontend\\src\\domain\\goal\\goal-contract.js",
+          "frontend\\src\\domain\\goal\\goal-status.js",
+          "frontend\\src\\domain\\income\\income-contract.js",
+          "frontend\\src\\domain\\income\\income-status.js",
+          "frontend\\src\\domain\\liability\\liability-contract.js",
+          "frontend\\src\\domain\\liability\\liability-status.js",
+          "frontend\\src\\domain\\notification\\notification-contract.js",
+          "frontend\\src\\domain\\notification\\notification-status.js",
+          "frontend\\src\\domain\\recommendation\\recommendation-contract.js",
+          "frontend\\src\\domain\\recommendation\\recommendation-status.js",
+          "frontend\\src\\domain\\scenario\\scenario-assumption-validation.js",
+          "frontend\\src\\domain\\scenario\\scenario-contract.js",
+          "frontend\\src\\domain\\scenario\\scenario-type.js"
+        ]
+      },
+      "application": {
+        "productionFileCount": 15,
+        "coveredProductionFiles": 14,
+        "coveragePercent": 93.33,
+        "uncoveredFiles": [
+          "frontend\\src\\application\\ownership\\current-owner-provider.js"
+        ]
+      },
+      "runtime": {
+        "productionFileCount": 16,
+        "coveredProductionFiles": 15,
+        "coveragePercent": 93.75,
+        "uncoveredFiles": [
+          "frontend\\src\\runtime\\notification-runtime.js"
+        ]
+      },
+      "repositories": {
+        "productionFileCount": 17,
+        "coveredProductionFiles": 0,
+        "coveragePercent": 0,
+        "uncoveredFiles": [
+          "frontend\\src\\repositories\\action-plan-repository.js",
+          "frontend\\src\\repositories\\asset-repository.js",
+          "frontend\\src\\repositories\\audit-repository.js",
+          "frontend\\src\\repositories\\automation-repository.js",
+          "frontend\\src\\repositories\\backup-repository.js",
+          "frontend\\src\\repositories\\calendar-repository.js",
+          "frontend\\src\\repositories\\execution-plan-repository.js",
+          "frontend\\src\\repositories\\expense-repository.js",
+          "frontend\\src\\repositories\\goal-repository.js",
+          "frontend\\src\\repositories\\income-repository.js",
+          "frontend\\src\\repositories\\liability-repository.js",
+          "frontend\\src\\repositories\\notification-repository.js",
+          "frontend\\src\\repositories\\recommendation-decision-repository.js",
+          "frontend\\src\\repositories\\recommendation-repository.js",
+          "frontend\\src\\repositories\\scenario-repository.js",
+          "frontend\\src\\repositories\\scheduler-repository.js",
+          "frontend\\src\\repositories\\settings-repository.js"
+        ]
+      },
+      "features": {
+        "productionFileCount": 20,
+        "coveredProductionFiles": 0,
+        "coveragePercent": 0,
+        "uncoveredFiles": [
+          "frontend\\src\\features\\backup\\backup-controller.js",
+          "frontend\\src\\features\\backup\\backup-view.js",
+          "frontend\\src\\features\\dashboard\\dashboard-controller.js",
+          "frontend\\src\\features\\dashboard\\dashboard-view.js",
+          "frontend\\src\\features\\decision\\decision-controller.js",
+          "frontend\\src\\features\\decision\\decision-view.js",
+          "frontend\\src\\features\\knowledge\\knowledge-controller.js",
+          "frontend\\src\\features\\knowledge\\knowledge-view.js",
+          "frontend\\src\\features\\loan\\loan-controller.js",
+          "frontend\\src\\features\\loan\\loan-view.js",
+          "frontend\\src\\features\\navigation\\navigation-controller.js",
+          "frontend\\src\\features\\navigation\\navigation-view.js",
+          "frontend\\src\\features\\portfolio\\portfolio-controller.js",
+          "frontend\\src\\features\\portfolio\\portfolio-view.js",
+          "frontend\\src\\features\\profile\\profile-controller.js",
+          "frontend\\src\\features\\profile\\profile-view.js",
+          "frontend\\src\\features\\pwa\\pwa-controller.js",
+          "frontend\\src\\features\\pwa\\pwa-view.js",
+          "frontend\\src\\features\\scenario\\scenario-controller.js",
+          "frontend\\src\\features\\scenario\\scenario-view.js"
+        ]
+      },
+      "shared": {
+        "productionFileCount": 6,
+        "coveredProductionFiles": 2,
+        "coveragePercent": 33.33,
+        "uncoveredFiles": [
+          "frontend\\src\\shared\\async-state.js",
+          "frontend\\src\\shared\\file-download.js",
+          "frontend\\src\\shared\\formatting.js",
+          "frontend\\src\\shared\\ui-notification.js"
+        ]
+      },
+      "infrastructure": {
+        "productionFileCount": 15,
+        "coveredProductionFiles": 0,
+        "coveragePercent": 0,
+        "uncoveredFiles": [
+          "frontend\\src\\infrastructure\\indexeddb\\database.js",
+          "frontend\\src\\infrastructure\\indexeddb\\error-mapping.js",
+          "frontend\\src\\infrastructure\\indexeddb\\migration-runner.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\action-plan-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\audit-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\automation-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\calendar-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\execution-plan-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\notification-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\recommendation-decision-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\recommendation-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\scenario-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\scheduler-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\repositories\\settings-indexeddb-repository.js",
+          "frontend\\src\\infrastructure\\indexeddb\\transaction.js"
+        ]
+      }
+    }
+  },
+  "gapMatrix": [
+    {
+      "module": "domain",
+      "layer": "domain",
+      "risk": "High",
+      "existingTests": [
+        "Domain",
+        "UI"
+      ],
+      "missingTests": [
+        "frontend\\src\\domain\\asset\\asset-contract.js",
+        "frontend\\src\\domain\\asset\\asset-status.js",
+        "frontend\\src\\domain\\decision\\decision-contract.js",
+        "frontend\\src\\domain\\decision\\decision-status.js",
+        "frontend\\src\\domain\\decision\\decision-type.js",
+        "frontend\\src\\domain\\decision\\recommendation-decision-contract.js",
+        "frontend\\src\\domain\\expense\\expense-contract.js",
+        "frontend\\src\\domain\\expense\\expense-status.js",
+        "frontend\\src\\domain\\goal\\goal-contract.js",
+        "frontend\\src\\domain\\goal\\goal-status.js",
+        "frontend\\src\\domain\\income\\income-contract.js",
+        "frontend\\src\\domain\\income\\income-status.js",
+        "frontend\\src\\domain\\liability\\liability-contract.js",
+        "frontend\\src\\domain\\liability\\liability-status.js",
+        "frontend\\src\\domain\\notification\\notification-contract.js",
+        "frontend\\src\\domain\\notification\\notification-status.js",
+        "frontend\\src\\domain\\recommendation\\recommendation-contract.js",
+        "frontend\\src\\domain\\recommendation\\recommendation-status.js",
+        "frontend\\src\\domain\\scenario\\scenario-assumption-validation.js",
+        "frontend\\src\\domain\\scenario\\scenario-contract.js"
+      ],
+      "addedTests": [
+        "quality-governance"
+      ],
+      "finalCoverage": "40% static module reference",
+      "remainingGap": "21 production files are not directly referenced by test scripts"
+    },
+    {
+      "module": "application",
+      "layer": "application",
+      "risk": "High",
+      "existingTests": [
+        "Application"
+      ],
+      "missingTests": [
+        "frontend\\src\\application\\ownership\\current-owner-provider.js"
+      ],
+      "addedTests": [
+        "quality-governance"
+      ],
+      "finalCoverage": "93.33% static module reference",
+      "remainingGap": "1 production files are not directly referenced by test scripts"
+    },
+    {
+      "module": "runtime",
+      "layer": "runtime",
+      "risk": "Medium",
+      "existingTests": [
+        "Architecture",
+        "Validation",
+        "PWA"
+      ],
+      "missingTests": [
+        "frontend\\src\\runtime\\notification-runtime.js"
+      ],
+      "addedTests": [
+        "quality-governance"
+      ],
+      "finalCoverage": "93.75% static module reference",
+      "remainingGap": "1 production files are not directly referenced by test scripts"
+    },
+    {
+      "module": "repositories",
+      "layer": "repositories",
+      "risk": "High",
+      "existingTests": [],
+      "missingTests": [
+        "frontend\\src\\repositories\\action-plan-repository.js",
+        "frontend\\src\\repositories\\asset-repository.js",
+        "frontend\\src\\repositories\\audit-repository.js",
+        "frontend\\src\\repositories\\automation-repository.js",
+        "frontend\\src\\repositories\\backup-repository.js",
+        "frontend\\src\\repositories\\calendar-repository.js",
+        "frontend\\src\\repositories\\execution-plan-repository.js",
+        "frontend\\src\\repositories\\expense-repository.js",
+        "frontend\\src\\repositories\\goal-repository.js",
+        "frontend\\src\\repositories\\income-repository.js",
+        "frontend\\src\\repositories\\liability-repository.js",
+        "frontend\\src\\repositories\\notification-repository.js",
+        "frontend\\src\\repositories\\recommendation-decision-repository.js",
+        "frontend\\src\\repositories\\recommendation-repository.js",
+        "frontend\\src\\repositories\\scenario-repository.js",
+        "frontend\\src\\repositories\\scheduler-repository.js",
+        "frontend\\src\\repositories\\settings-repository.js"
+      ],
+      "addedTests": [
+        "quality-governance"
+      ],
+      "finalCoverage": "0% static module reference",
+      "remainingGap": "17 production files are not directly referenced by test scripts"
+    },
+    {
+      "module": "features",
+      "layer": "features",
+      "risk": "Medium",
+      "existingTests": [],
+      "missingTests": [
+        "frontend\\src\\features\\backup\\backup-controller.js",
+        "frontend\\src\\features\\backup\\backup-view.js",
+        "frontend\\src\\features\\dashboard\\dashboard-controller.js",
+        "frontend\\src\\features\\dashboard\\dashboard-view.js",
+        "frontend\\src\\features\\decision\\decision-controller.js",
+        "frontend\\src\\features\\decision\\decision-view.js",
+        "frontend\\src\\features\\knowledge\\knowledge-controller.js",
+        "frontend\\src\\features\\knowledge\\knowledge-view.js",
+        "frontend\\src\\features\\loan\\loan-controller.js",
+        "frontend\\src\\features\\loan\\loan-view.js",
+        "frontend\\src\\features\\navigation\\navigation-controller.js",
+        "frontend\\src\\features\\navigation\\navigation-view.js",
+        "frontend\\src\\features\\portfolio\\portfolio-controller.js",
+        "frontend\\src\\features\\portfolio\\portfolio-view.js",
+        "frontend\\src\\features\\profile\\profile-controller.js",
+        "frontend\\src\\features\\profile\\profile-view.js",
+        "frontend\\src\\features\\pwa\\pwa-controller.js",
+        "frontend\\src\\features\\pwa\\pwa-view.js",
+        "frontend\\src\\features\\scenario\\scenario-controller.js",
+        "frontend\\src\\features\\scenario\\scenario-view.js"
+      ],
+      "addedTests": [
+        "quality-governance"
+      ],
+      "finalCoverage": "0% static module reference",
+      "remainingGap": "20 production files are not directly referenced by test scripts"
+    },
+    {
+      "module": "shared",
+      "layer": "shared",
+      "risk": "Medium",
+      "existingTests": [],
+      "missingTests": [
+        "frontend\\src\\shared\\async-state.js",
+        "frontend\\src\\shared\\file-download.js",
+        "frontend\\src\\shared\\formatting.js",
+        "frontend\\src\\shared\\ui-notification.js"
+      ],
+      "addedTests": [
+        "quality-governance"
+      ],
+      "finalCoverage": "33.33% static module reference",
+      "remainingGap": "4 production files are not directly referenced by test scripts"
+    },
+    {
+      "module": "infrastructure",
+      "layer": "infrastructure",
+      "risk": "High",
+      "existingTests": [],
+      "missingTests": [
+        "frontend\\src\\infrastructure\\indexeddb\\database.js",
+        "frontend\\src\\infrastructure\\indexeddb\\error-mapping.js",
+        "frontend\\src\\infrastructure\\indexeddb\\migration-runner.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\action-plan-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\audit-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\automation-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\calendar-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\execution-plan-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\notification-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\recommendation-decision-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\recommendation-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\scenario-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\scheduler-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\repositories\\settings-indexeddb-repository.js",
+        "frontend\\src\\infrastructure\\indexeddb\\transaction.js"
+      ],
+      "addedTests": [
+        "quality-governance"
+      ],
+      "finalCoverage": "0% static module reference",
+      "remainingGap": "15 production files are not directly referenced by test scripts"
+    }
+  ],
+  "violations": []
+}

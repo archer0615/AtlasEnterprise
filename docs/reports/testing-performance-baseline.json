@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-07-24T10:15:34.809Z",
+  "tool": "node:perf_hooks",
+  "results": [
+    {
+      "scenario": "net-worth-projection-large-dataset",
+      "datasetSize": "5000 assets, 5000 liabilities",
+      "warmUp": 1,
+      "iterations": 50,
+      "averageMs": 2.797,
+      "p95Ms": 4.216,
+      "regressionThresholdMs": 25,
+      "memoryObservation": "process heap observed only; no leak assertion configured",
+      "mainThreadObservation": "single Node.js process benchmark",
+      "result": "PASS"
+    },
+    {
+      "scenario": "cashflow-projection-annual-window",
+      "datasetSize": "500 monthly incomes, 500 monthly expenses",
+      "warmUp": 1,
+      "iterations": 20,
+      "averageMs": 33.816,
+      "p95Ms": 37.554,
+      "regressionThresholdMs": 120,
+      "memoryObservation": "process heap observed only; no leak assertion configured",
+      "mainThreadObservation": "single Node.js process benchmark",
+      "result": "PASS"
+    }
+  ]
+}
