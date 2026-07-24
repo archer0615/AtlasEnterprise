@@ -50,6 +50,8 @@
     "test:goal-financial-health-runtime-boundary": "node frontend/scripts/test-goal-financial-health-runtime-boundary.mjs",
     "test:recommendation-execution-domain": "node frontend/scripts/test-recommendation-execution-domain.mjs",
     "test:recommendation-execution-application": "node frontend/scripts/test-recommendation-execution-application.mjs",
+    "test:scenario-decision-domain": "node frontend/scripts/test-scenario-decision-domain.mjs",
+    "test:scenario-decision-application": "node frontend/scripts/test-scenario-decision-application.mjs",
     "test:notification-automation-domain": "node frontend/scripts/test-notification-automation-domain.mjs",
     "test:notification-automation-application": "node frontend/scripts/test-notification-automation-application.mjs",
     "validate:browser-workflow": "node frontend/scripts/validate-browser-workflow.mjs",

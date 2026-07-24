@@ -15,6 +15,7 @@ Atlas v1 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
 - Knowledge index generation from canonical Markdown into frontend JSON.
 - PWA shell with manifest, service worker, offline cache validation, and GitHub Pages workflow.
 - Dashboard snapshot rendering, scenario switching, local scenario comparison, recommendation decisions, loan calculation panel, export report preview, and validation export.
+- Domain contracts and command services for Scenario and Decision local runtime, including lifecycle/state-machine validation and recommendation disposition audit evidence.
 - IndexedDB repositories for scenarios, recommendation decisions, settings, audit entries, backup export, encrypted backup export, dry-run restore, staged restore, merge restore, and migration metadata.
 - Simulator fixtures, formula registry validation, score policy validation, dashboard runtime snapshots, dashboard fixture drift validation, and runtime fixture drift validation.
 

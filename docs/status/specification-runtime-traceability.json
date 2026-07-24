@@ -1,6 +1,6 @@
 {
   "schema": "atlas-enterprise.specification-runtime-traceability.v1",
-  "updatedAt": "2026-07-20",
+  "updatedAt": "2026-07-24",
   "runtimeBoundary": {
     "canonicalSource": "knowledge/**/*.md",
     "generatedOutput": "frontend/knowledge/**",
@@ -140,24 +140,24 @@
     {
       "domain": "Scenario",
       "specification": ["knowledge/catalog/system-modules/scenario-engine.md", "knowledge/workflow/decision-workflow.md"],
-      "runtimeModel": ["frontend/src/main.js", "frontend/src/indexeddb-runtime.js"],
-      "repository": ["indexedDbScenarioRepository"],
-      "serviceOrProjection": ["frontend/src/main.js", "simulator/scripts/run-simulator.mjs"],
+      "runtimeModel": ["frontend/src/domain/scenario/scenario-contract.js", "frontend/src/domain/scenario/scenario-validation.js", "frontend/src/domain/scenario/scenario-status.js", "frontend/src/indexeddb-runtime.js"],
+      "repository": ["frontend/src/repositories/scenario-repository.js", "indexedDbScenarioRepository"],
+      "serviceOrProjection": ["frontend/src/application/scenarios/scenario-application-service.js", "frontend/src/runtime-projection.js", "simulator/scripts/run-simulator.mjs"],
       "fixture": ["simulator/fixtures/", "frontend/fixtures/scenario-results.json"],
       "ui": ["frontend/index.html", "frontend/src/main.js"],
-      "test": ["frontend/scripts/validate-dashboard-fixture-drift.mjs", "frontend/scripts/validate-runtime-fixture-drift.mjs", "simulator/scripts/validate-fixtures.mjs"],
-      "status": "Implemented"
+      "test": ["frontend/scripts/test-scenario-decision-domain.mjs", "frontend/scripts/test-scenario-decision-application.mjs", "frontend/scripts/validate-dashboard-fixture-drift.mjs", "frontend/scripts/validate-runtime-fixture-drift.mjs", "simulator/scripts/validate-fixtures.mjs"],
+      "status": "Implemented for local domain contract, command service, lifecycle validation, IndexedDB compatibility, and derived projection input"
     },
     {
       "domain": "Decision",
       "specification": ["knowledge/workflow/decision-workflow.md", "knowledge/supporting/decision-evaluation.md"],
-      "runtimeModel": ["frontend/src/main.js", "frontend/src/indexeddb-runtime.js"],
-      "repository": ["indexedDbRecommendationDecisionRepository", "indexedDbAuditRepository"],
-      "serviceOrProjection": ["frontend/src/main.js"],
+      "runtimeModel": ["frontend/src/domain/decision/decision-contract.js", "frontend/src/domain/decision/decision-validation.js", "frontend/src/domain/decision/decision-state-machine.js", "frontend/src/domain/decision/recommendation-decision-contract.js", "frontend/src/indexeddb-runtime.js"],
+      "repository": ["frontend/src/repositories/recommendation-decision-repository.js", "frontend/src/repositories/audit-repository.js", "indexedDbRecommendationDecisionRepository", "indexedDbAuditRepository"],
+      "serviceOrProjection": ["frontend/src/application/decisions/decision-application-service.js", "frontend/src/main.js"],
       "fixture": ["frontend/fixtures/scenario-results.json"],
       "ui": ["frontend/src/main.js"],
-      "test": ["frontend/scripts/validate-browser-workflow.mjs", "frontend/scripts/validate-frontend.mjs"],
-      "status": "Implemented for local recommendation decisions"
+      "test": ["frontend/scripts/test-scenario-decision-domain.mjs", "frontend/scripts/test-scenario-decision-application.mjs", "frontend/scripts/validate-browser-workflow.mjs", "frontend/scripts/validate-frontend.mjs"],
+      "status": "Implemented for local decision contract, state machine, recommendation disposition evidence, and audit command service"
     },
     {
       "domain": "Recommendation",
