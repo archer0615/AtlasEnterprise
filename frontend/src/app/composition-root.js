@@ -4,6 +4,8 @@ import { createRuntimeContext } from "./runtime-context.js";
 import { createRuntimeRegistry } from "./runtime-registry.js";
 import { createProviderTree } from "./provider-tree.js";
 import { createApplicationErrorBoundary } from "./application-error-boundary.js";
+import { createStateEventBus } from "./state-events.js";
+import { createStateStore, createStateTree } from "./state-store.js";
 import { createDashboardController } from "../features/dashboard/dashboard-controller.js";
 import { createScenarioController } from "../features/scenario/scenario-controller.js";
 import { createDecisionController } from "../features/decision/decision-controller.js";
@@ -18,31 +20,36 @@ import { createPwaController } from "../features/pwa/pwa-controller.js";
 export function createFrontendCompositionRoot({ documentRef = document, runtimeOverrides = {}, loadRuntime = () => import("../legacy-main.js") } = {}) {
   const runtimeContext = createRuntimeContext(runtimeOverrides);
   const errorBoundary = createApplicationErrorBoundary({ logger: runtimeContext.logger });
+  const stateEvents = createStateEventBus();
   const listeners = createEventListenerRegistry();
   const dom = createDomRegistry(documentRef);
-  const shared = Object.freeze({ dom, listeners, runtimeContext, errorBoundary });
+  const shared = Object.freeze({ dom, listeners, runtimeContext, errorBoundary, stateEvents });
   const services = createRuntimeRegistry("service");
   const stores = createRuntimeRegistry("store");
   const routes = createRuntimeRegistry("route");
   const dashboards = createRuntimeRegistry("dashboard");
 
   registerInfrastructure(services, shared);
-  registerStores(stores);
+  registerStores(stores, shared);
+  const stateTree = createStateTree({ stores, eventBus: stateEvents });
   registerRoutes(routes);
   registerDashboard(dashboards);
   const controllers = registerFeatures(services, shared);
-  const providers = createProviderTree({ runtime: runtimeContext, dom, listeners, services, stores, routes, dashboards, errorBoundary });
+  const providers = createProviderTree({ runtime: runtimeContext, stateTree, stateEvents, dom, listeners, services, stores, routes, dashboards, errorBoundary });
 
   return Object.freeze({
     runtimeContext,
     providers,
     services,
     stores,
+    stateTree,
+    stateEvents,
     routes,
     dashboards,
     controllers,
     async initialize() {
       await loadRuntime();
+      stateTree.initialize();
       Object.values(controllers).forEach((controller) => controller.initialize?.());
       return true;
     },
@@ -53,16 +60,24 @@ export function createFrontendCompositionRoot({ documentRef = document, runtimeO
       await stores.persist();
     },
     async restore(snapshot) {
-      await stores.restore(snapshot);
+      stateTree.restore(snapshot);
+    },
+    backup() {
+      return stateTree.backup();
+    },
+    resetState() {
+      return stateTree.reset();
     },
     dispose() {
       Object.values(controllers).forEach((controller) => controller.dispose?.());
       providers.dispose();
       dashboards.dispose();
       routes.dispose();
+      stateTree.dispose();
       stores.dispose();
       services.dispose();
       errorBoundary.dispose();
+      stateEvents.dispose();
       listeners.dispose();
     },
   });
@@ -74,8 +89,23 @@ function registerInfrastructure(services, shared) {
   services.register("error-boundary", () => shared.errorBoundary, { scope: "singleton" });
 }
 
-function registerStores(stores) {
-  stores.register("runtime-memory", () => ({ hydrate() {}, persist() {}, restore() {}, dispose() {} }), { persistence: "memory" });
+function registerStores(stores, shared) {
+  const definitions = [
+    { id: "runtime", classification: "Runtime Store", initialState: { status: "created" }, persistence: "memory" },
+    { id: "session", classification: "Session Store", initialState: { status: "active", expiresAt: "" }, persistence: "session" },
+    { id: "user", classification: "User Store", initialState: { ownerId: "local-user" }, persistence: "indexeddb" },
+    { id: "dashboard", classification: "Dashboard Store", initialState: { selectedScenarioId: "", refreshCount: 0 }, persistence: "memory" },
+    { id: "navigation", classification: "Navigation Store", initialState: { currentRoute: "dashboard" }, persistence: "session" },
+    { id: "notification", classification: "Notification Store", initialState: { items: [] }, persistence: "memory" },
+    { id: "dialog", classification: "Dialog Store", initialState: { activeDialog: "" }, persistence: "memory" },
+    { id: "theme", classification: "Theme Store", initialState: { mode: shared.runtimeContext.theme }, persistence: "settings" },
+    { id: "preference", classification: "Preference Store", initialState: { locale: shared.runtimeContext.localization.locale }, persistence: "settings" },
+    { id: "cache", classification: "Cache Store", initialState: { entries: {}, metrics: { hits: 0, misses: 0 } }, persistence: "memory", ttlMs: 300000 },
+    { id: "feature", classification: "Feature Store", initialState: { initialized: [] }, persistence: "memory" },
+  ];
+  for (const definition of definitions) {
+    stores.register(definition.id, () => createStateStore({ ...definition, eventBus: shared.stateEvents }), { classification: definition.classification, persistence: definition.persistence });
+  }
 }
 
 function registerRoutes(routes) {
@@ -85,7 +115,7 @@ function registerRoutes(routes) {
 }
 
 function registerDashboard(dashboards) {
-  dashboards.register("dashboard-overview", () => ({ id: "dashboard-overview", layout: "main", permission: "local-user", cache: "runtime-memory" }), { region: "main" });
+  dashboards.register("dashboard-overview", () => ({ id: "dashboard-overview", layout: "main", permission: "local-user", cache: "cache" }), { region: "main" });
 }
 
 function registerFeatures(services, shared) {
