@@ -102,12 +102,48 @@ const backupRecordFieldAllowlist = {
 
 let databasePromise;
 const browserRuntime = typeof globalThis !== "undefined" ? globalThis : {};
-const coordinationChannel = "BroadcastChannel" in browserRuntime ? new BroadcastChannel(coordinationChannelName) : null;
+let coordinationChannel = "BroadcastChannel" in browserRuntime ? new BroadcastChannel(coordinationChannelName) : null;
+
+const persistenceInventory = Object.freeze({
+  databaseName,
+  databaseVersion,
+  backupSchemaVersion,
+  stores: Object.freeze({
+    [stores.metadata]: Object.freeze({ keyPath: "key", responsibility: "Migration metadata, migration lock, and runtime coordination metadata.", indexes: Object.freeze([]), backup: false, restore: false }),
+    [stores.scenarios]: Object.freeze({ keyPath: "scenarioId", responsibility: "Local saved Scenario records.", indexes: Object.freeze([]), backup: true, restore: true }),
+    [stores.recommendationDecisions]: Object.freeze({ keyPath: "decisionId", responsibility: "RecommendationDecision disposition evidence.", indexes: Object.freeze([]), backup: true, restore: true }),
+    [stores.settings]: Object.freeze({ keyPath: "key", responsibility: "Runtime preference settings.", indexes: Object.freeze([]), backup: true, restore: true }),
+    [stores.auditEntries]: Object.freeze({ keyPath: "auditId", responsibility: "Persistent audit entries.", indexes: Object.freeze([]), backup: true, restore: true }),
+    [stores.assets]: Object.freeze({ keyPath: "id", responsibility: "Local Asset records.", indexes: Object.freeze(["ownerId", "status", "assetType", "currency", "valuationDate", "updatedAt"]), backup: true, restore: true }),
+    [stores.liabilities]: Object.freeze({ keyPath: "id", responsibility: "Local Liability records.", indexes: Object.freeze(["ownerId", "status", "liabilityType", "currency", "asOfDate", "updatedAt"]), backup: true, restore: true }),
+    [stores.incomes]: Object.freeze({ keyPath: "id", responsibility: "Local Income records.", indexes: Object.freeze(["ownerId", "status", "incomeType", "currency", "frequency", "startDate", "endDate", "updatedAt"]), backup: true, restore: true }),
+    [stores.expenses]: Object.freeze({ keyPath: "id", responsibility: "Local Expense records.", indexes: Object.freeze(["ownerId", "status", "expenseType", "currency", "frequency", "startDate", "endDate", "updatedAt"]), backup: true, restore: true }),
+    [stores.goals]: Object.freeze({ keyPath: "id", responsibility: "Local Goal records.", indexes: Object.freeze(["ownerId", "status", "goalType", "currency", "priority", "targetDate", "parentGoalId", "updatedAt"]), backup: true, restore: true }),
+  }),
+});
 
 function publishCoordinationMessage(message) {
   const payload = { tabId: runtimeTabId, occurredAt: new Date().toISOString(), ...message };
-  coordinationChannel?.postMessage(payload);
+  try {
+    coordinationChannel?.postMessage(payload);
+  } catch {
+    coordinationChannel = null;
+  }
   return payload;
+}
+
+export function getIndexedDbPersistenceInventory() {
+  return persistenceInventory;
+}
+
+export async function disposeIndexedDbRuntime() {
+  const currentPromise = databasePromise;
+  databasePromise = undefined;
+  if (currentPromise) {
+    await currentPromise.then((database) => database.close()).catch(() => {});
+  }
+  coordinationChannel?.close?.();
+  coordinationChannel = null;
 }
 
 function isExpiredLock(lock) {
@@ -185,6 +221,21 @@ function minimizeBackupRecords(storeName, records) {
   return records.map((record) => Object.fromEntries(allowlist.filter((field) => record?.[field] !== undefined).map((field) => [field, record[field]])));
 }
 
+function hasUnsafeObjectKey(value) {
+  if (Array.isArray(value)) return value.some((item) => hasUnsafeObjectKey(item));
+  if (!value || typeof value !== "object") return false;
+  return Object.keys(value).some((key) => ["__proto__", "prototype", "constructor"].includes(key) || hasUnsafeObjectKey(value[key]));
+}
+
+function sanitizeBackupForRestore(backup) {
+  return minimizeBackupData({
+    ...backup,
+    exportedAt: backup.exportedAt,
+    databaseVersion: backup.databaseVersion,
+    retentionPolicy: backup.retentionPolicy,
+  });
+}
+
 function validateBackupRetentionPolicy(backup, now = new Date()) {
   const cutoff = new Date(now.getTime() - backupRetentionPolicy.auditRetentionDays * 24 * 60 * 60 * 1000);
   const retainedActions = new Set(backupRetentionPolicy.retainedAuditActions);
@@ -229,12 +280,15 @@ function openDatabase() {
   if (databasePromise) return databasePromise;
 
   databasePromise = new Promise((resolve, reject) => {
-    if (!("indexedDB" in window)) {
+    const runtimeWindow = browserRuntime.window || browserRuntime;
+    const indexedDbFactory = runtimeWindow.indexedDB;
+    if (!indexedDbFactory) {
+      databasePromise = undefined;
       reject(new Error("IndexedDB is not available"));
       return;
     }
 
-    const request = indexedDB.open(databaseName, databaseVersion);
+    const request = indexedDbFactory.open(databaseName, databaseVersion);
 
     request.onupgradeneeded = () => {
       const database = request.result;
@@ -275,14 +329,29 @@ function openDatabase() {
       }
     };
 
-    request.onerror = () => reject(request.error);
-    request.onsuccess = () => resolve(request.result);
+    request.onblocked = () => {
+      publishCoordinationMessage({ messageType: "database-upgrade-blocked", recordType: "metadata", targetVersion: databaseVersion });
+    };
+    request.onerror = () => {
+      databasePromise = undefined;
+      reject(request.error);
+    };
+    request.onsuccess = () => {
+      const database = request.result;
+      database.onversionchange = () => {
+        database.close();
+        databasePromise = undefined;
+        publishCoordinationMessage({ messageType: "database-version-change-closed", recordType: "metadata", targetVersion: databaseVersion });
+      };
+      resolve(database);
+    };
   });
 
   return databasePromise;
 }
 
 async function withStore(storeName, mode, action) {
+  if (!Object.values(stores).includes(storeName)) throw new Error(`Unknown IndexedDB store: ${storeName}`);
   const database = await openDatabase();
 
   return new Promise((resolve, reject) => {
@@ -955,7 +1024,7 @@ export const indexedDbBackupRepository = {
     if (!await this.validateBackup(backup)) {
       throw new Error("Unsupported backup schema");
     }
-    const migratedBackup = migrateBackupToCurrent(backup);
+    const migratedBackup = sanitizeBackupForRestore(migrateBackupToCurrent(backup));
     await indexedDbMigrationRepository.acquireLock("backup-restore");
     try {
       const stagingResult = await replaceAllBackupStoresStaged(migratedBackup, options);
@@ -970,7 +1039,7 @@ export const indexedDbBackupRepository = {
     if (!await this.validateBackup(backup)) {
       throw new Error("Unsupported backup schema");
     }
-    const migratedBackup = migrateBackupToCurrent(backup);
+    const migratedBackup = sanitizeBackupForRestore(migrateBackupToCurrent(backup));
     const currentScenarios = await indexedDbScenarioRepository.list();
     const currentRecommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
     const currentSettings = await getAll(stores.settings);
@@ -1013,6 +1082,10 @@ export const indexedDbBackupRepository = {
   },
 
   async validateBackup(backup) {
+    const allowedBackupFields = new Set(["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "checksum"]);
+    if (!backup || hasUnsafeObjectKey(backup) || Object.keys(backup).some((field) => !allowedBackupFields.has(field))) {
+      return false;
+    }
     if (backup?.schema !== backupSchemaVersion || !Array.isArray(backup.scenarios)) {
       return false;
     }
@@ -1212,6 +1285,7 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
       for (const record of item.records) store.put(record);
     }
     transaction.onerror = () => reject(transaction.error);
+    transaction.onabort = () => reject(transaction.error || new Error("Backup restore transaction aborted"));
     transaction.oncomplete = () => resolve({
       staged: true,
       conflictPolicy,

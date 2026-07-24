@@ -39,6 +39,7 @@
     "test:event-listener-registry": "node frontend/scripts/test-event-listener-registry.mjs",
     "test:state-management": "node frontend/scripts/test-state-management.mjs",
     "test:runtime-boundary-cleanup": "node frontend/scripts/test-runtime-boundary-cleanup.mjs",
+    "test:persistence-hardening": "node frontend/scripts/test-persistence-hardening.mjs",
     "test:feature-lifecycle": "node frontend/scripts/test-feature-lifecycle.mjs",
     "test:feature-integration": "node frontend/scripts/test-feature-integration.mjs",
     "test:asset-liability-domain": "node frontend/scripts/test-asset-liability-domain.mjs",
