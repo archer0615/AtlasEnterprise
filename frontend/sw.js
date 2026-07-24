@@ -14,6 +14,7 @@ const APP_SHELL = [
   "src/app/application-error-handler.js",
   "src/app/composition-root.js",
   "src/app/dom-registry.js",
+  "src/security-boundary.js",
   "src/pwa-runtime-resilience.js",
   "src/application/ownership/current-owner-provider.js",
   "src/application/assets/asset-application-service.js",
@@ -79,11 +80,12 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("message", (event) => {
   const message = event.data || {};
+  const allowedMessages = ["ATLAS_SW_HEALTH", "ATLAS_SW_SKIP_WAITING"];
+  if (!allowedMessages.includes(message.type)) return;
   if (message.type === "ATLAS_SW_SKIP_WAITING") {
     self.skipWaiting();
     return;
   }
-  if (message.type !== "ATLAS_SW_HEALTH") return;
 
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);

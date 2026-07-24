@@ -6,7 +6,7 @@ export function createRuntimeContext(overrides = {}) {
     logger: overrides.logger || console,
     storage: overrides.storage || null,
     cache: overrides.cache || null,
-    browserRuntime: overrides.browserRuntime || globalThis,
+    browserRuntime: createBrowserRuntimeContract(overrides.browserRuntime),
     theme: overrides.theme || "system",
     localization: Object.freeze({ locale: overrides.locale || "zh-TW" }),
     permission: Object.freeze({ mode: "local-user", ...(overrides.permission || {}) }),
@@ -16,5 +16,20 @@ export function createRuntimeContext(overrides = {}) {
     version: overrides.version || "0.1.0",
     buildInformation: Object.freeze({ source: "static-pwa", ...(overrides.buildInformation || {}) }),
     runtimeMetadata: Object.freeze({ runtimeId: overrides.runtimeId || "atlas-frontend-runtime", createdAt: now().toISOString() }),
+  });
+}
+
+function createBrowserRuntimeContract(browserRuntime = globalThis) {
+  const navigatorRef = browserRuntime?.navigator;
+  const serviceWorker = navigatorRef?.serviceWorker
+    ? Object.freeze({ controller: navigatorRef.serviceWorker.controller || null })
+    : null;
+  return Object.freeze({
+    navigator: navigatorRef
+      ? Object.freeze({
+        onLine: navigatorRef.onLine !== false,
+        serviceWorker,
+      })
+      : null,
   });
 }

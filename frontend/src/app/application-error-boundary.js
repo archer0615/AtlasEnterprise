@@ -1,10 +1,16 @@
+import { createUserFacingError, redactSensitiveData } from "../security-boundary.js";
+
 export function createApplicationErrorBoundary({ logger = console } = {}) {
   const errors = [];
   return Object.freeze({
     capture(error, boundary = "Application") {
-      const entry = Object.freeze({ boundary, message: error?.message || String(error), occurredAt: new Date().toISOString() });
+      const entry = createUserFacingError(error, boundary);
       errors.push(entry);
-      logger.error?.(`[${boundary}]`, error);
+      logger.error?.(`[${boundary}]`, redactSensitiveData({
+        name: error?.name,
+        code: error?.code,
+        message: error?.message || String(error),
+      }));
       return entry;
     },
     list() {

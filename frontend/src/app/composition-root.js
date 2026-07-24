@@ -17,6 +17,7 @@ import { createProfileController } from "../features/profile/profile-controller.
 import { createNavigationController } from "../features/navigation/navigation-controller.js";
 import { createPwaController } from "../features/pwa/pwa-controller.js";
 import { createPwaRuntimeSnapshot, createPwaRecoveryPlan, validatePwaRuntimeSnapshot } from "../pwa-runtime-resilience.js";
+import { authorizeLocalRuntime } from "../security-boundary.js";
 
 export function createFrontendCompositionRoot({ documentRef = document, runtimeOverrides = {}, loadRuntime = () => import("../legacy-main.js"), backupRepository = null } = {}) {
   const runtimeContext = createRuntimeContext(runtimeOverrides);
@@ -92,6 +93,7 @@ function registerInfrastructure(services, shared) {
   services.register("event-listeners", () => shared.listeners, { scope: "singleton" });
   services.register("error-boundary", () => shared.errorBoundary, { scope: "singleton" });
   services.register("pwa-runtime-resilience", () => createPwaRuntimeResilienceService(shared), { scope: "singleton" });
+  services.register("frontend-authorization", () => createFrontendAuthorizationService(shared), { scope: "singleton" });
 }
 
 function registerStores(stores, shared) {
@@ -178,6 +180,24 @@ function createPwaRuntimeResilienceService(shared) {
       snapshot = createPwaRuntimeSnapshot();
       publish("runtime-health-reset", snapshot);
       return snapshot;
+    },
+  });
+}
+
+function createFrontendAuthorizationService(shared) {
+  return Object.freeze({
+    evaluate(requirement = {}) {
+      return authorizeLocalRuntime(shared.runtimeContext, requirement);
+    },
+    assertAllowed(requirement = {}) {
+      const result = authorizeLocalRuntime(shared.runtimeContext, requirement);
+      if (!result.ok) {
+        const error = new Error("Frontend authorization denied");
+        error.code = "ATLAS_FRONTEND_FORBIDDEN";
+        error.reason = result.reason;
+        throw error;
+      }
+      return result;
     },
   });
 }

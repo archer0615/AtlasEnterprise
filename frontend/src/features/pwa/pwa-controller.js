@@ -2,8 +2,10 @@ import { renderPwaState } from "./pwa-view.js";
 
 export function createPwaController({ dom, services, runtimeContext }) {
   const resilience = services.resolve("pwa-runtime-resilience");
+  const authorization = services.resolve("frontend-authorization");
 
   function updateRuntimeHealth(input = {}) {
+    authorization.assertAllowed({ boundary: "pwa-runtime-health", sessionStatus: input.sessionStatus || "active" });
     return resilience.update({
       serviceWorker: {
         registered: Boolean(input.registered),

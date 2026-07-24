@@ -2,6 +2,7 @@ import { dashboardStorage, fallbackDashboardSnapshot, normalizeDashboardCollecti
 import { indexedDbAssetRepository, indexedDbAuditRepository, indexedDbBackupRepository, indexedDbExpenseRepository, indexedDbGoalRepository, indexedDbIncomeRepository, indexedDbLiabilityRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
 import { createCurrentOwnerProvider } from "./application/ownership/current-owner-provider.js";
 import { createAssetApplicationService } from "./application/assets/asset-application-service.js";
+import { sanitizeDownloadFilename } from "./security-boundary.js";
 import { createLiabilityApplicationService } from "./application/liabilities/liability-application-service.js";
 import { projectNetWorth } from "./runtime/net-worth-projection.js";
 import { createIncomeApplicationService } from "./application/incomes/income-application-service.js";
@@ -822,7 +823,7 @@ function downloadJson(payload, filename) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = filename;
+  link.download = sanitizeDownloadFilename(filename);
   link.click();
   URL.revokeObjectURL(url);
 }
