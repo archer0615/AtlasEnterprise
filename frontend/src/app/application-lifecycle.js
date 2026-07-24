@@ -1,21 +1,57 @@
-export function createApplicationLifecycle({ initialize, dispose }) {
-  let initialized = false;
+export function createApplicationLifecycle({ initialize, hydrate, persist, restore, dispose }) {
+  let status = "created";
 
   return {
     async initialize() {
-      if (initialized) return false;
+      if (status !== "created" && status !== "disposed") return false;
+      status = "initializing";
       await initialize();
-      initialized = true;
+      await hydrate?.();
+      status = "running";
+      return true;
+    },
+    async suspend() {
+      if (status !== "running") return false;
+      await persist?.();
+      status = "suspended";
+      return true;
+    },
+    async resume() {
+      if (status !== "suspended") return false;
+      await hydrate?.();
+      status = "running";
+      return true;
+    },
+    async restore(snapshot) {
+      if (status === "disposed") return false;
+      await restore?.(snapshot);
+      status = "ready";
+      return true;
+    },
+    async reload(snapshot) {
+      await this.shutdown();
+      status = "created";
+      await restore?.(snapshot);
+      return this.initialize();
+    },
+    async shutdown() {
+      if (status === "disposed") return false;
+      await persist?.();
+      dispose?.();
+      status = "disposed";
       return true;
     },
     dispose() {
-      if (!initialized) return false;
+      if (status === "disposed" || status === "created") return false;
       dispose?.();
-      initialized = false;
+      status = "disposed";
       return true;
     },
     isInitialized() {
-      return initialized;
+      return status === "running" || status === "suspended" || status === "ready";
+    },
+    getStatus() {
+      return status;
     },
   };
 }
