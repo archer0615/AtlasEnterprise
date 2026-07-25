@@ -46,9 +46,9 @@ try {
 
   for (const selector of [
     "#releaseDashboardPanel", "#sampleExportButton", "#sampleBackupButton", "#releaseNoteButton", "#releaseNotePanel", "#cacheVersionText",
-    "#reportVersionPanel", "#reportVersionHistoryPanel", "#exportValidationButton",
+    "#reportVersionPanel", "#reportVersionHistoryPanel", "#exportValidationButton", "#generateValidationSummaryButton",
     "#validationExportPanel", "#offlineRepairButton", "#offlineRepairPanel", "#offlineRepairAuditPanel",
-    "#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel",
+    "#exportPreviewPanel", "#scenarioComparisonPanel", "#scenarioComparisonSortInput", "#backupDryRunPanel",
     "#recommendationHistoryPanel", "#exportRecommendationHistoryButton", "#resetLoanButton", "#metricGrid", "#scenarioList", "#actionList",
     "#profileIncomeInput", "#profileAssetsInput", "#profileDebtInput", "#profileGoalSelect",
     "#saveProfileButton", "#resetProfileButton", "#profileSummaryPanel",

@@ -223,6 +223,7 @@
             <div id="reportVersionHistoryPanel" class="decision-log"></div>
             <div class="dashboard-actions compact-actions">
               <button id="exportValidationButton" type="button">匯出驗證結果</button>
+              <button id="generateValidationSummaryButton" type="button">產生驗證摘要</button>
               <button id="offlineRepairButton" type="button">修復離線資料</button>
             </div>
             <div id="validationExportPanel" class="decision-log"></div>
@@ -284,6 +285,13 @@
           </div>
           <div class="scenario-comparison">
             <h4>情境比較</h4>
+            <div class="dashboard-actions compact-actions">
+              <select id="scenarioComparisonSortInput" aria-label="情境比較排序">
+                <option value="delta-desc">差異由高到低</option>
+                <option value="delta-asc">差異由低到高</option>
+                <option value="name-asc">名稱排序</option>
+              </select>
+            </div>
             <div id="scenarioComparisonPanel" class="report-list"></div>
           </div>
           <div class="runtime-panels">

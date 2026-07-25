@@ -30,6 +30,7 @@ const metricGrid = $("#metricGrid");
 const scenarioList = $("#scenarioList");
 const actionList = $("#actionList");
 const scenarioComparisonPanel = $("#scenarioComparisonPanel");
+const scenarioComparisonSortInput = $("#scenarioComparisonSortInput");
 const portfolioReportPanel = $("#portfolioReportPanel");
 const exportPreviewPanel = $("#exportPreviewPanel");
 const recommendationControlPanel = $("#recommendationControlPanel");
@@ -74,6 +75,7 @@ const cacheVersionFooter = $("#cacheVersionFooter");
 const reportVersionPanel = $("#reportVersionPanel");
 const reportVersionHistoryPanel = $("#reportVersionHistoryPanel");
 const exportValidationButton = $("#exportValidationButton");
+const generateValidationSummaryButton = $("#generateValidationSummaryButton");
 const validationExportPanel = $("#validationExportPanel");
 const offlineRepairButton = $("#offlineRepairButton");
 const offlineRepairPanel = $("#offlineRepairPanel");
@@ -279,12 +281,26 @@ function renderScenarioComparison(snapshot) {
     scenarioComparisonPanel.innerHTML = `<div class="empty-runtime">尚無本機情境可比較。</div>`;
     return;
   }
-  scenarioComparisonPanel.innerHTML = localScenarios.map((scenario) => {
+  scenarioComparisonPanel.innerHTML = sortScenarioComparisonSource(localScenarios).map((scenario) => {
     const score = Number(String(scenario.score).replace(/[^\d.-]/g, ""));
     const delta = Number.isFinite(score) && Number.isFinite(baselineScore) ? score - baselineScore : null;
     const deltaText = delta === null ? "無法比較" : `${delta >= 0 ? "+" : ""}${delta}`;
     return `<div class="runtime-row"><span>${escapeHtml(scenario.name)}</span><strong>${escapeHtml(deltaText)}</strong></div>`;
   }).join("");
+}
+
+function sortScenarioComparisonSource(scenarios) {
+  const mode = scenarioComparisonSortInput?.value || "delta-desc";
+  const baselineSnapshot = dashboardSnapshots.find((item) => item.snapshotId === selectedDashboardSnapshotId) || dashboardSnapshots[0];
+  const baselineScore = Number(baselineSnapshot?.metrics?.find((metric) => /score/i.test(metric.label))?.value ?? baselineSnapshot?.scenarios?.[0]?.score ?? 0);
+  return [...scenarios].sort((left, right) => {
+    if (mode === "name-asc") return String(left.name || "").localeCompare(String(right.name || ""));
+    const leftDelta = Number(String(left.score).replace(/[^\d.-]/g, "")) - baselineScore;
+    const rightDelta = Number(String(right.score).replace(/[^\d.-]/g, "")) - baselineScore;
+    const safeLeft = Number.isFinite(leftDelta) ? leftDelta : Number.NEGATIVE_INFINITY;
+    const safeRight = Number.isFinite(rightDelta) ? rightDelta : Number.NEGATIVE_INFINITY;
+    return mode === "delta-asc" ? safeLeft - safeRight : safeRight - safeLeft;
+  });
 }
 
 function getRuntimeSnapshot(snapshot) {
@@ -989,6 +1005,21 @@ function exportValidationResult() {
   setRuntimeFeedback("已匯出驗證結果。");
 }
 
+function generateValidationSummary() {
+  const latest = latestValidationRecord || {};
+  const passed = validationHistoryRecords.filter((item) => item.status === "passed").length;
+  const failed = validationHistoryRecords.filter((item) => item.status && item.status !== "passed").length;
+  validationExportPanel.textContent = [
+    "Validation Summary",
+    `Latest: ${latest.status || "N/A"} / ${latest.command || "N/A"}`,
+    `Recorded: ${latest.recordedAt || "N/A"}`,
+    `History: ${validationHistoryRecords.length} total / ${passed} passed / ${failed} other`,
+    `Cache: ${currentCacheVersion || "N/A"}`,
+    `Restore audits: ${restoreAuditReports.length}`,
+  ].join("\n");
+  setRuntimeFeedback("Validation summary generated.");
+}
+
 async function persistAuditEntry(action, detail = {}) {
   const entry = {
     auditId: `audit-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -1342,6 +1373,7 @@ dashboardSwitcher.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-snapshot-id]");
   if (button) renderDashboardById(button.dataset.snapshotId);
 });
+scenarioComparisonSortInput.addEventListener("change", () => renderDashboardById(selectedDashboardSnapshotId));
 searchInput?.addEventListener("input", (event) => {
   state.query = event.target.value;
   renderList();
@@ -1374,6 +1406,7 @@ sampleExportButton.addEventListener("click", () => loadSample("reports/export-re
 sampleBackupButton.addEventListener("click", () => loadSampleBackup().catch((error) => setRuntimeFeedback(error.message)));
 releaseNoteButton.addEventListener("click", () => loadReleaseNote().catch((error) => setRuntimeFeedback(error.message)));
 exportValidationButton.addEventListener("click", exportValidationResult);
+generateValidationSummaryButton.addEventListener("click", generateValidationSummary);
 offlineRepairButton.addEventListener("click", () => repairOfflineData().catch((error) => setRuntimeFeedback(error.message)));
 calculateLoanButton.addEventListener("click", () => {
   try {
