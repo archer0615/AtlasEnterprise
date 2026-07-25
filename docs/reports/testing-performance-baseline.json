@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T10:15:34.809Z",
+  "generatedAt": "2026-07-25T09:53:38.828Z",
   "tool": "node:perf_hooks",
   "results": [
     {
@@ -7,8 +7,8 @@
       "datasetSize": "5000 assets, 5000 liabilities",
       "warmUp": 1,
       "iterations": 50,
-      "averageMs": 2.797,
-      "p95Ms": 4.216,
+      "averageMs": 1.391,
+      "p95Ms": 2.252,
       "regressionThresholdMs": 25,
       "memoryObservation": "process heap observed only; no leak assertion configured",
       "mainThreadObservation": "single Node.js process benchmark",
@@ -19,8 +19,8 @@
       "datasetSize": "500 monthly incomes, 500 monthly expenses",
       "warmUp": 1,
       "iterations": 20,
-      "averageMs": 33.816,
-      "p95Ms": 37.554,
+      "averageMs": 18.646,
+      "p95Ms": 20.977,
       "regressionThresholdMs": 120,
       "memoryObservation": "process heap observed only; no leak assertion configured",
       "mainThreadObservation": "single Node.js process benchmark",
