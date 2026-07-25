@@ -35,6 +35,7 @@ const exportPreviewPanel = $("#exportPreviewPanel");
 const recommendationControlPanel = $("#recommendationControlPanel");
 const recommendationHistoryPanel = $("#recommendationHistoryPanel");
 const recommendationFilterInput = $("#recommendationFilterInput");
+const exportRecommendationHistoryButton = $("#exportRecommendationHistoryButton");
 const loanScenarioPanel = $("#loanScenarioPanel");
 const exportPortfolioReportButton = $("#exportPortfolioReportButton");
 const recommendationDecisionLog = $("#recommendationDecisionLog");
@@ -332,6 +333,29 @@ function renderRecommendationHistory() {
   recommendationHistoryPanel.textContent = items.length
     ? items.map((item) => `${translateDecision(item.decision)} / ${item.fixtureId} / ${item.decidedAt}`).join("\n")
     : "尚無符合條件的建議歷史。";
+}
+
+function exportRecommendationHistory() {
+  const filter = recommendationFilterInput.value;
+  const items = recommendationDecisions
+    .filter((item) => filter === "all" || item.decision === filter)
+    .sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")));
+  downloadJson({
+    schema: "atlas-enterprise.recommendation-history.v1",
+    exportedAt: new Date().toISOString(),
+    filter,
+    count: items.length,
+    items: items.map((item) => ({
+      decisionId: item.decisionId,
+      decision: item.decision,
+      fixtureId: item.fixtureId,
+      snapshotId: item.snapshotId,
+      status: item.status,
+      score: item.score,
+      decidedAt: item.decidedAt,
+    })),
+  }, `atlas-recommendation-history-${filter}.json`);
+  setRuntimeFeedback(`Recommendation history exported: ${items.length}`);
 }
 
 function renderLoanScenarioPanel(snapshot) {
@@ -1289,6 +1313,7 @@ applyBackupButton.addEventListener("click", () => applyBackup().catch((error) =>
 acceptRecommendationButton.addEventListener("click", () => setRecommendationDecision("accepted").catch((error) => setRuntimeFeedback(error.message)));
 rejectRecommendationButton.addEventListener("click", () => setRecommendationDecision("rejected").catch((error) => setRuntimeFeedback(error.message)));
 recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
+exportRecommendationHistoryButton.addEventListener("click", exportRecommendationHistory);
 sampleExportButton.addEventListener("click", () => loadSample("reports/export-report-sample.json", exportPreviewPanel).catch((error) => setRuntimeFeedback(error.message)));
 sampleBackupButton.addEventListener("click", () => loadSample("reports/backup-sample.json", sampleLoaderPanel).catch((error) => setRuntimeFeedback(error.message)));
 exportValidationButton.addEventListener("click", exportValidationResult);

@@ -49,7 +49,7 @@ try {
     "#reportVersionPanel", "#reportVersionHistoryPanel", "#exportValidationButton",
     "#validationExportPanel", "#offlineRepairButton", "#offlineRepairPanel", "#offlineRepairAuditPanel",
     "#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel",
-    "#recommendationHistoryPanel", "#resetLoanButton", "#metricGrid", "#scenarioList", "#actionList",
+    "#recommendationHistoryPanel", "#exportRecommendationHistoryButton", "#resetLoanButton", "#metricGrid", "#scenarioList", "#actionList",
     "#profileIncomeInput", "#profileAssetsInput", "#profileDebtInput", "#profileGoalSelect",
     "#saveProfileButton", "#resetProfileButton", "#profileSummaryPanel",
     "#scenarioTemplateList", "#scenarioTemplatePreview", "#applyScenarioTemplateButton", "#saveScenarioTemplateButton",
