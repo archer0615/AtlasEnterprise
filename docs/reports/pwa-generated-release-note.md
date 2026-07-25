@@ -5,17 +5,17 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
-fc11606 refactor(frontend): harden validation contracts
-27e3471 refactor(frontend): harden security boundaries
-3a95310 refactor(frontend): harden offline pwa resilience
-8a735fc refactor(frontend): harden persistence backup restore
-422e65c refactor(frontend): clean runtime boundaries
+aedbcb7 Prevent validation report side effects
+0970725 Refresh dry-run validation reports
+4a12495 Refresh release validation reports
+d1ad1fb Refresh validation baseline reports
+a44caf8 push
 ```
 
 ## Working Tree
 
 ```
-clean after release note commit
+clean
 ```
 
 ## Validation Status Summary
