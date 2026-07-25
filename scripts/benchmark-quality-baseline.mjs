@@ -7,6 +7,7 @@ import { projectNetWorth } from "../frontend/src/runtime/net-worth-projection.js
 const root = process.cwd();
 const reportDir = path.join(root, "docs", "reports");
 const reportPath = path.join(reportDir, "testing-performance-baseline.json");
+const shouldUpdateReport = process.argv.includes("--update-report");
 
 const scenarios = [
   {
@@ -62,14 +63,16 @@ const report = {
   results,
 };
 
-await mkdir(reportDir, { recursive: true });
-await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+if (shouldUpdateReport) {
+  await mkdir(reportDir, { recursive: true });
+  await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+}
 
 console.log("Atlas Performance Baseline");
 for (const result of results) {
   console.log(`${result.scenario}: p95 ${result.p95Ms}ms / threshold ${result.regressionThresholdMs}ms - ${result.result}`);
 }
-console.log(`Report: ${path.relative(root, reportPath)}`);
+console.log(`Report: ${path.relative(root, reportPath)}${shouldUpdateReport ? "" : " (not updated)"}`);
 
 if (results.some((result) => result.result !== "PASS")) process.exit(1);
 

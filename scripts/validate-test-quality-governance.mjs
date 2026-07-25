@@ -4,6 +4,7 @@ import path from "node:path";
 const root = process.cwd();
 const reportDir = path.join(root, "docs", "reports");
 const reportPath = path.join(reportDir, "testing-architecture-quality-report.json");
+const shouldUpdateReport = process.argv.includes("--update-report");
 
 const sourceRoots = ["frontend", "backend", "simulator", "scripts"];
 const testScriptPattern = /(^|[\\/])(test-|validate-|benchmark-)[^\\/]+\.mjs$/;
@@ -81,8 +82,10 @@ const report = {
   violations,
 };
 
-await mkdir(reportDir, { recursive: true });
-await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+if (shouldUpdateReport) {
+  await mkdir(reportDir, { recursive: true });
+  await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+}
 
 console.log("Atlas Test Quality Governance");
 console.log(`Test files: ${testFiles.length}`);
@@ -92,7 +95,7 @@ for (const [category, entries] of Object.entries(inventory)) {
   console.log(`${category}: ${entries.fileCount}`);
 }
 console.log(`Violations: ${violations.length}`);
-console.log(`Report: ${path.relative(root, reportPath)}`);
+console.log(`Report: ${path.relative(root, reportPath)}${shouldUpdateReport ? "" : " (not updated)"}`);
 
 if (violations.length) {
   for (const violation of violations) {
