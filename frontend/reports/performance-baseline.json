@@ -1,0 +1,18 @@
+{
+  "schema": "atlas-enterprise.performance-baseline.v1",
+  "generatedAt": "2026-07-25T09:57:57.818Z",
+  "results": [
+    {
+      "scenario": "net-worth-projection-large-dataset",
+      "p95Ms": 2.465,
+      "regressionThresholdMs": 25,
+      "result": "PASS"
+    },
+    {
+      "scenario": "cashflow-projection-annual-window",
+      "p95Ms": 38.17,
+      "regressionThresholdMs": 120,
+      "result": "PASS"
+    }
+  ]
+}

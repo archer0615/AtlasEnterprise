@@ -227,6 +227,8 @@
               <button id="offlineRepairButton" type="button">修復離線資料</button>
             </div>
             <div id="validationExportPanel" class="decision-log"></div>
+            <div id="performanceBudgetTrendPanel" class="decision-log"></div>
+            <div id="releaseEvidenceArchivePanel" class="decision-log"></div>
             <div id="offlineRepairPanel" class="decision-log"></div>
             <div id="offlineRepairAuditPanel" class="decision-log"></div>
             <div id="restoreAuditPanel" class="decision-log"></div>
@@ -245,8 +247,8 @@
             <span id="dashboardDate">尚未載入</span>
           </div>
           <div class="dashboard-actions primary-actions" aria-label="情境操作">
-            <input id="scenarioNameInput" type="text" placeholder="情境名稱" />
-            <input id="scenarioScoreInput" type="text" placeholder="分數或 N/A" />
+            <input id="scenarioNameInput" type="text" placeholder="情境名稱" aria-label="情境名稱" />
+            <input id="scenarioScoreInput" type="text" placeholder="分數或 N/A" aria-label="情境分數" />
             <button id="saveScenarioButton" type="button">儲存情境</button>
           </div>
           <div class="scenario-templates" aria-label="情境範本管理">
@@ -266,7 +268,7 @@
               <button id="deleteScenarioButton" type="button">刪除最新情境</button>
               <button id="resetScenariosButton" type="button">重設情境</button>
               <button id="exportBackupButton" type="button">匯出備份</button>
-              <input id="backupPassphraseInput" type="password" placeholder="加密密碼" autocomplete="new-password" />
+              <input id="backupPassphraseInput" type="password" placeholder="加密密碼" autocomplete="new-password" aria-label="備份加密密碼" />
               <button id="exportEncryptedBackupButton" type="button">匯出加密備份</button>
               <label><span>匯入備份</span><input id="importBackupInput" type="file" accept="application/json" /></label>
               <label><span>衝突策略</span><select id="backupConflictPolicySelect"><option value="replace-all">覆蓋本機</option><option value="skip-existing">保留本機</option></select></label>
@@ -322,9 +324,9 @@
             <section id="loan">
               <h4>貸款試算</h4>
               <div class="dashboard-actions compact-actions">
-                <input id="loanBalanceInput" type="text" placeholder="本金" inputmode="decimal" />
-                <input id="loanRateInput" type="text" placeholder="利率 %" inputmode="decimal" />
-                <input id="loanMonthsInput" type="text" placeholder="期數(月)" inputmode="numeric" />
+                <input id="loanBalanceInput" type="text" placeholder="本金" inputmode="decimal" aria-label="貸款本金" />
+                <input id="loanRateInput" type="text" placeholder="利率 %" inputmode="decimal" aria-label="貸款利率" />
+                <input id="loanMonthsInput" type="text" placeholder="期數(月)" inputmode="numeric" aria-label="貸款期數" />
                 <button id="calculateLoanButton" type="button">計算</button>
                 <button id="resetLoanButton" type="button">重設</button>
               </div>

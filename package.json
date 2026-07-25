@@ -65,6 +65,7 @@
     "test:notification-automation-application": "node frontend/scripts/test-notification-automation-application.mjs",
     "validate:browser-workflow": "node frontend/scripts/validate-browser-workflow.mjs",
     "validate:screenshot-metadata": "node frontend/scripts/validate-screenshot-metadata.mjs",
+    "validate:accessibility-smoke": "node frontend/scripts/validate-accessibility-smoke.mjs",
     "test:backup-restore-e2e": "node frontend/scripts/test-backup-restore-e2e.mjs",
     "validate:backup-security": "node frontend/scripts/validate-backup-security.mjs",
     "validate:deployment": "node scripts/validate-deployment.mjs",

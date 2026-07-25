@@ -77,6 +77,8 @@ const reportVersionHistoryPanel = $("#reportVersionHistoryPanel");
 const exportValidationButton = $("#exportValidationButton");
 const generateValidationSummaryButton = $("#generateValidationSummaryButton");
 const validationExportPanel = $("#validationExportPanel");
+const performanceBudgetTrendPanel = $("#performanceBudgetTrendPanel");
+const releaseEvidenceArchivePanel = $("#releaseEvidenceArchivePanel");
 const offlineRepairButton = $("#offlineRepairButton");
 const offlineRepairPanel = $("#offlineRepairPanel");
 const offlineRepairAuditPanel = $("#offlineRepairAuditPanel");
@@ -928,6 +930,32 @@ async function renderReleaseDashboard() {
   renderRestoreAudit();
   renderReportDiff(latest);
   renderValidationFailureDiagnosis(latest);
+  renderPerformanceBudgetTrend();
+  renderReleaseEvidenceArchive();
+}
+
+async function renderPerformanceBudgetTrend() {
+  const report = await loadJsonOrNull("reports/performance-baseline.json").catch(() => null);
+  if (!performanceBudgetTrendPanel || !report?.results) return;
+  performanceBudgetTrendPanel.textContent = [
+    "Performance Budget Trend",
+    ...report.results.map((item) => `${item.scenario}: p95 ${item.p95Ms}ms / budget ${item.regressionThresholdMs}ms / ${item.result}`),
+  ].join("\n");
+}
+
+async function renderReleaseEvidenceArchive() {
+  if (!releaseEvidenceArchivePanel) return;
+  const evidence = [
+    "release-note.md",
+    "validation-history.json",
+    "backup-sample.json",
+    "export-report-sample.json",
+  ];
+  releaseEvidenceArchivePanel.textContent = [
+    "Release Evidence Archive",
+    ...evidence.map((item) => `frontend/reports/${item}`),
+    "docs/roadmap/visual-artifacts/visual-baselines.json",
+  ].join("\n");
 }
 
 function renderValidationHistoryPanel(records) {
