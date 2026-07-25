@@ -2,16 +2,24 @@
 
 ## Priority Backlog
 
-1. Release status dashboard inside the PWA.
-2. Validation history display inside the PWA.
-3. Sample export and backup loaders inside the UI.
-4. Screenshot metadata validation.
-5. Cache version visibility in the footer or status area.
-6. Scenario comparison sorting.
-7. Recommendation history export.
-8. Backup restore conflict details.
-9. User-facing release notes panel.
-10. One-click local validation summary generation.
+1. Release status dashboard inside the PWA. Status: Done.
+2. Validation history display inside the PWA. Status: Done.
+3. Sample export and backup loaders inside the UI. Status: Done.
+4. Screenshot metadata validation. Status: Done.
+5. Cache version visibility in the footer or status area. Status: Done.
+6. Scenario comparison sorting. Status: Done.
+7. Recommendation history export. Status: Done.
+8. Backup restore conflict details. Status: Done.
+9. User-facing release notes panel. Status: Done.
+10. One-click local validation summary generation. Status: Done.
+
+## Next Backlog Candidates
+
+1. Accessibility coverage expansion.
+2. Performance budget trend display.
+3. Validation history export from the PWA.
+4. Release evidence archive browser.
+5. Mobile help-screen readability sampling.
 
 ## Acceptance Notes
 
