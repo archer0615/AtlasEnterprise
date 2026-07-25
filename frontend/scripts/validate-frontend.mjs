@@ -22,7 +22,7 @@ const dashboards = JSON.parse(await readFile(path.join(frontendRoot, "fixtures",
 for (const id of [
   "metricGrid", "scenarioList", "actionList", "dashboardSwitcher", "saveScenarioButton",
   "releaseDashboardPanel", "sampleExportButton", "sampleBackupButton", "sampleLoaderPanel",
-  "validationHistoryPanel", "cacheVersionText", "reportVersionPanel", "offlineRepairButton",
+  "validationHistoryPanel", "cacheVersionText", "cacheVersionFooter", "reportVersionPanel", "offlineRepairButton",
   "offlineRepairPanel", "reportVersionHistoryPanel", "exportValidationButton", "validationExportPanel",
   "offlineRepairAuditPanel", "restoreAuditPanel", "persistentAuditPanel", "reportDiffPanel", "validationFailureDiagnosisPanel",
   "deleteScenarioButton", "resetScenariosButton", "runtimeFeedback", "scenarioNameInput",
@@ -101,7 +101,7 @@ assert(repositoryInterface.includes("IndexedDB scenario adapter"), "Repository I
 new Function(dashboardModel.replaceAll("export const", "const").replaceAll("export function", "function"));
 
 for (const token of [
-  ".dashboard-prototype", ".dashboard-switcher", ".runtime-panels", ".user-summary",
+  ".dashboard-prototype", ".dashboard-switcher", ".runtime-panels", ".runtime-footer", ".user-summary",
   ".primary-actions", ".advanced-controls", ".mobile-toolbar", ".export-preview",
   ".invalid-input", ".scenario-comparison", ".profile-settings", ".profile-grid", ".scenario-templates", ".template-list",
   ".help-screen", ".help-flow", ".help-checklist",

@@ -786,6 +786,22 @@ select {
   white-space: pre-wrap;
 }
 
+.validation-history-row {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid #e1e8e5;
+  padding-top: 8px;
+}
+
+.validation-history-row span,
+.validation-history-row small {
+  color: #627572;
+}
+
+.validation-history-row strong {
+  color: #1f6f78;
+}
+
 .export-preview {
   max-height: 220px;
   overflow: auto;
@@ -923,6 +939,23 @@ select {
   margin: 0;
 }
 
+.runtime-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #d7dfdc;
+  color: #627572;
+  font-size: 12px;
+  margin-top: 20px;
+  padding-top: 14px;
+}
+
+.runtime-footer strong {
+  color: #315c5f;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
 .empty-state {
   color: #627572;
 }
@@ -955,6 +988,15 @@ select {
   .help-header {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .runtime-footer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .runtime-footer strong {
+    text-align: left;
   }
 
   .status {

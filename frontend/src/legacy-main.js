@@ -68,6 +68,7 @@ const sampleBackupButton = $("#sampleBackupButton");
 const sampleLoaderPanel = $("#sampleLoaderPanel");
 const validationHistoryPanel = $("#validationHistoryPanel");
 const cacheVersionText = $("#cacheVersionText");
+const cacheVersionFooter = $("#cacheVersionFooter");
 const reportVersionPanel = $("#reportVersionPanel");
 const reportVersionHistoryPanel = $("#reportVersionHistoryPanel");
 const exportValidationButton = $("#exportValidationButton");
@@ -875,10 +876,11 @@ async function renderReleaseDashboard() {
     ["提交", latest?.commit || "N/A"],
     ["驗證", latest?.command || "npm run validate"],
   ].map(([label, value]) => `<div class="runtime-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("");
-  validationHistoryPanel.textContent = latest ? `${latest.recordedAt}\n${latest.scope.join("、")}` : "尚無驗證歷史。";
+  renderValidationHistoryPanel(validationHistoryRecords);
   const cacheName = swVersion.match(/atlas-knowledge-[a-z0-9]+/)?.[0] || "快取版本未載入";
   currentCacheVersion = cacheName;
   cacheVersionText.textContent = `快取版本：${cacheName}`;
+  cacheVersionFooter.textContent = `快取版本：${cacheName}`;
   reportVersionPanel.textContent = [
     "匯出報表版本：export-report.v2",
     "中文化結構：localizedPayload",
@@ -891,6 +893,18 @@ async function renderReleaseDashboard() {
   renderRestoreAudit();
   renderReportDiff(latest);
   renderValidationFailureDiagnosis(latest);
+}
+
+function renderValidationHistoryPanel(records) {
+  const items = records.slice(-5).reverse();
+  if (!items.length) {
+    validationHistoryPanel.innerHTML = `<div class="empty-runtime">No validation history.</div>`;
+    return;
+  }
+  validationHistoryPanel.innerHTML = items.map((item) => {
+    const scope = Array.isArray(item.scope) ? item.scope.join(", ") : "N/A";
+    return `<div class="validation-history-row"><span>${escapeHtml(item.recordedAt || "N/A")}</span><strong>${escapeHtml(item.status || "N/A")}</strong><small>${escapeHtml(item.command || "N/A")} / ${escapeHtml(scope)}</small></div>`;
+  }).join("");
 }
 
 async function repairOfflineData() {
