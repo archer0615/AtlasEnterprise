@@ -45,7 +45,7 @@ try {
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "networkidle" });
 
   for (const selector of [
-    "#releaseDashboardPanel", "#sampleExportButton", "#sampleBackupButton", "#cacheVersionText",
+    "#releaseDashboardPanel", "#sampleExportButton", "#sampleBackupButton", "#releaseNoteButton", "#releaseNotePanel", "#cacheVersionText",
     "#reportVersionPanel", "#reportVersionHistoryPanel", "#exportValidationButton",
     "#validationExportPanel", "#offlineRepairButton", "#offlineRepairPanel", "#offlineRepairAuditPanel",
     "#exportPreviewPanel", "#scenarioComparisonPanel", "#backupDryRunPanel",

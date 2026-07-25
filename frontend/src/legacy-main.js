@@ -65,7 +65,9 @@ const runtimeFeedback = $("#runtimeFeedback");
 const releaseDashboardPanel = $("#releaseDashboardPanel");
 const sampleExportButton = $("#sampleExportButton");
 const sampleBackupButton = $("#sampleBackupButton");
+const releaseNoteButton = $("#releaseNoteButton");
 const sampleLoaderPanel = $("#sampleLoaderPanel");
+const releaseNotePanel = $("#releaseNotePanel");
 const validationHistoryPanel = $("#validationHistoryPanel");
 const cacheVersionText = $("#cacheVersionText");
 const cacheVersionFooter = $("#cacheVersionFooter");
@@ -620,8 +622,9 @@ async function applyBackup() {
   if (!restoreConfirmInput.checked) throw new Error("請先勾選確認覆蓋本機情境。");
   if (!pendingBackup) throw new Error("請先匯入並預覽備份。");
   const conflictPolicy = backupConflictPolicySelect.value;
+  const dryRun = await indexedDbBackupRepository.dryRunImport(pendingBackup);
   const stagingResult = await indexedDbBackupRepository.importBackup(pendingBackup, { conflictPolicy });
-  const restoreAuditReport = buildRestoreAuditReport(pendingBackup, conflictPolicy, stagingResult);
+  const restoreAuditReport = buildRestoreAuditReport(pendingBackup, conflictPolicy, stagingResult, dryRun);
   restoreAuditReports = [restoreAuditReport, ...restoreAuditReports].slice(0, 5);
   await persistAuditEntry("backup-restore", restoreAuditReport);
   pendingBackup = null;
@@ -789,7 +792,14 @@ function renderBackupDryRun(dryRun) {
   ].join("");
 }
 
-function buildRestoreAuditReport(backup, conflictPolicy, stagingResult) {
+function buildRestoreAuditReport(backup, conflictPolicy, stagingResult, dryRun) {
+  const conflictDetails = (dryRun?.storePlan || [])
+    .filter((item) => item.conflicts > 0)
+    .map((item) => ({
+      storeName: item.storeName,
+      conflicts: item.conflicts,
+      conflictKeys: item.conflictKeys || [],
+    }));
   const restoredRecords = stagingResult?.restoredRecords || {};
   return {
     schema: "atlas-enterprise.restore-audit-report.v1",
@@ -800,6 +810,7 @@ function buildRestoreAuditReport(backup, conflictPolicy, stagingResult) {
     conflictPolicy,
     scenarioCount: backup.scenarios.length,
     restoredRecords,
+    conflictDetails,
     replacedStoreCount: stagingResult?.replacedStoreCount || 0,
     stagingResult,
   };
@@ -812,8 +823,16 @@ function renderRestoreAudit() {
       `${report.restoredAt} / ${report.schema}`,
       `策略：${translateConflictPolicy(report.conflictPolicy)} / Store：${report.replacedStoreCount}`,
       `還原：${Object.entries(report.restoredRecords).map(([storeName, count]) => `${translateStoreName(storeName)} ${count}`).join("、") || "N/A"}`,
+      `Conflicts: ${formatRestoreConflictDetails(report.conflictDetails)}`,
     ].join("\n")).join("\n\n")
     : "尚無多Store還原稽核。";
+}
+
+function formatRestoreConflictDetails(conflictDetails = []) {
+  if (!conflictDetails.length) return "none";
+  return conflictDetails
+    .map((item) => `${translateStoreName(item.storeName)} ${item.conflicts}${item.conflictKeys?.length ? ` (${item.conflictKeys.join(", ")})` : ""}`)
+    .join("; ");
 }
 
 function translateConflictPolicy(policy) {
@@ -1038,6 +1057,29 @@ async function loadSample(path, target) {
   }
   target.textContent = JSON.stringify(sample, null, 2);
   sampleLoaderPanel.textContent = `已載入範例：${path}`;
+}
+
+async function loadSampleBackup() {
+  const sample = await loadJsonOrNull("reports/backup-sample.json");
+  if (!sample) {
+    sampleLoaderPanel.textContent = "Backup sample unavailable.";
+    return;
+  }
+  if (!await indexedDbBackupRepository.validateBackup(sample)) throw new Error("Backup sample is invalid");
+  pendingBackup = sample;
+  const dryRun = await indexedDbBackupRepository.dryRunImport(sample);
+  backupPreview.textContent = formatBackupPreview(sample);
+  backupDryRunPanel.innerHTML = renderBackupDryRun(dryRun);
+  sampleLoaderPanel.textContent = "Backup sample loaded into restore preview.";
+}
+
+async function loadReleaseNote() {
+  const response = await fetch("reports/release-note.md", { cache: "no-cache" });
+  if (!response.ok) {
+    releaseNotePanel.textContent = "Release note unavailable.";
+    return;
+  }
+  releaseNotePanel.textContent = await response.text();
 }
 
 function openDocumentFromHash() {
@@ -1329,7 +1371,8 @@ rejectRecommendationButton.addEventListener("click", () => setRecommendationDeci
 recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
 exportRecommendationHistoryButton.addEventListener("click", exportRecommendationHistory);
 sampleExportButton.addEventListener("click", () => loadSample("reports/export-report-sample.json", exportPreviewPanel).catch((error) => setRuntimeFeedback(error.message)));
-sampleBackupButton.addEventListener("click", () => loadSample("reports/backup-sample.json", sampleLoaderPanel).catch((error) => setRuntimeFeedback(error.message)));
+sampleBackupButton.addEventListener("click", () => loadSampleBackup().catch((error) => setRuntimeFeedback(error.message)));
+releaseNoteButton.addEventListener("click", () => loadReleaseNote().catch((error) => setRuntimeFeedback(error.message)));
 exportValidationButton.addEventListener("click", exportValidationResult);
 offlineRepairButton.addEventListener("click", () => repairOfflineData().catch((error) => setRuntimeFeedback(error.message)));
 calculateLoanButton.addEventListener("click", () => {
