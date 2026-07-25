@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-25T09:53:15.193Z",
+  "generatedAt": "2026-07-25T09:54:35.940Z",
   "runner": "Node.js built-in assert with npm validation profiles",
   "assertionLibrary": "node:assert/strict",
   "mockLibrary": "Repository-local fakes and explicit dependency injection only",
