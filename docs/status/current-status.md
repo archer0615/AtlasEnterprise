@@ -4,12 +4,13 @@ Atlas v1.0.0 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
 
 ## v1.1 Planning Status
 
-- Current planning branch: `planning/v1.1-enhancement-governance`.
+- Current branch: `master`.
 - Baseline commit: `71dc590ddbe6e9165faf90b9eeea81b8c6a510f7`.
 - Latest release tag found locally: none for v1.0.0.
 - Planning output: `docs/roadmap/v1.1-roadmap.md` and `.codex/atlas-v1.1-implementation-queue.json`.
-- Next selected batch: BATCH-001, read-only execution, notification, and calendar surfaces.
-- No runtime implementation, schema migration, catalog change, service worker change, release version change, backend, cloud runtime, or remote database is part of this planning commit.
+- Completed batches: BATCH-001 read-only execution, notification, and calendar surfaces; BATCH-002 notification duplicate prevention and backup coverage planning; BATCH-003 command/event traceability and status documentation alignment.
+- Next selected batch: BATCH-004, accessibility status announcements and security static audit.
+- No schema migration, catalog change, service worker change, release version change, backend, cloud runtime, or remote database is part of the current v1.1 queue state.
 
 ## Runtime Boundary
 
@@ -29,6 +30,8 @@ Atlas v1.0.0 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
 - Simulator fixtures, formula registry validation, score policy validation, dashboard runtime snapshots, dashboard fixture drift validation, and runtime fixture drift validation.
 - v1.1 planning governance, candidate gates, dependency map, implementation queue, risk register, acceptance baseline, and validation plan.
 - v1.1 BATCH-001 read-only execution, action planning, calendar, scheduler status, and notification surfaces.
+- v1.1 BATCH-002 notification duplicate prevention and backup coverage plan.
+- v1.1 BATCH-003 command/event traceability matrix and status documentation alignment.
 
 ## Evidence
 

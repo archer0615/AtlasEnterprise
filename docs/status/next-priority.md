@@ -6,10 +6,10 @@
 4. Expand traceability coverage from entity-level rows into field-level runtime mappings only where UI or fixture evidence exists.
 5. Keep simulator and dashboard fixtures deterministic and validated before changing generated runtime snapshots.
 6. Run `npm run validate:frontend` before changes that affect knowledge, PWA, offline runtime, simulator-facing fixtures, or IndexedDB stores.
-7. Generate the detailed Codex implementation prompt for v1.1 BATCH-003.
-8. Keep BATCH-003 limited to command/event traceability and status documentation alignment.
+7. Generate the detailed Codex implementation prompt for v1.1 BATCH-004.
+8. Keep BATCH-004 limited to accessibility status announcements and security static audit for innerHTML and URL handling.
 9. Do not add domains, business concepts, formulas, state-machine states, IndexedDB migrations, service worker changes, backend, cloud runtime, remote database, external analytics, AI, or automated financial execution.
 10. Use existing Atlas catalog naming and canonical knowledge references from `docs/roadmap/v1.1-candidate-inventory.md`.
-11. Validate BATCH-003 with `npm run validate:quick` and `git diff --check`.
+11. Validate BATCH-004 with `npm run validate:feature`, `npm run validate:full`, and `npm run validate:visual-regression`.
 12. Keep rejected, deferred, needs-specification, and needs-architecture-decision candidates out of `.codex/atlas-v1.1-implementation-queue.json` active batches.
 13. Mark unsupported runtime surfaces as `Not Implemented` instead of implying hidden backend or cloud behavior.

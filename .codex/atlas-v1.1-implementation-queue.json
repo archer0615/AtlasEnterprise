@@ -37,12 +37,16 @@
     {
       "batchId": "BATCH-003",
       "priority": "Should",
-      "status": "Pending",
+      "status": "Complete",
       "candidateIds": ["CAND-006", "CAND-010"],
       "dependencies": [],
       "validationProfiles": ["quick"],
       "risk": "Low",
-      "nextAction": "Align command/event traceability and status documentation."
+      "nextAction": "Complete. Continue with BATCH-004.",
+      "startedAt": "2026-07-26T23:06:00.000+08:00",
+      "completedAt": "2026-07-26T23:10:00.000+08:00",
+      "validationResult": "quick and diff check passed",
+      "implementationReport": "docs/implementation/v1.1-batch-003-implementation-report.md"
     },
     {
       "batchId": "BATCH-004",
