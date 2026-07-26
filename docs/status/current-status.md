@@ -1,6 +1,15 @@
 # Current Status
 
-Atlas v1 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
+Atlas v1.0.0 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
+
+## v1.1 Planning Status
+
+- Current planning branch: `planning/v1.1-enhancement-governance`.
+- Baseline commit: `71dc590ddbe6e9165faf90b9eeea81b8c6a510f7`.
+- Latest release tag found locally: none for v1.0.0.
+- Planning output: `docs/roadmap/v1.1-roadmap.md` and `.codex/atlas-v1.1-implementation-queue.json`.
+- Next selected batch: BATCH-001, read-only execution, notification, and calendar surfaces.
+- No runtime implementation, schema migration, catalog change, service worker change, release version change, backend, cloud runtime, or remote database is part of this planning commit.
 
 ## Runtime Boundary
 
@@ -18,6 +27,8 @@ Atlas v1 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
 - Domain contracts and command services for Scenario and Decision local runtime, including lifecycle/state-machine validation and recommendation disposition audit evidence.
 - IndexedDB repositories for scenarios, recommendation decisions, settings, audit entries, backup export, encrypted backup export, dry-run restore, staged restore, merge restore, and migration metadata.
 - Simulator fixtures, formula registry validation, score policy validation, dashboard runtime snapshots, dashboard fixture drift validation, and runtime fixture drift validation.
+- v1.1 planning governance, candidate gates, dependency map, implementation queue, risk register, acceptance baseline, and validation plan.
+- v1.1 BATCH-001 read-only execution, action planning, calendar, scheduler status, and notification surfaces.
 
 ## Evidence
 

@@ -8,6 +8,7 @@
 - Build-time knowledge: canonical Markdown is transformed into frontend JSON before deployment.
 - Local calculation: dashboard, loan, recommendation, simulator, and fixture checks run without a server dependency.
 - Scenario and Decision local runtime: pure domain contracts, command services, lifecycle/state-machine validation, repository contracts, and audit evidence run without DOM or IndexedDB dependencies in domain code.
+- Planning governance: v1.1 candidates are gated by canonical source, static-first, local-first, offline-first, no-backend, no-cloud, no-new-business-concept, schema safety, security, accessibility, and validation criteria.
 
 ## Runtime Stores
 
@@ -25,6 +26,10 @@
 - Decision stores user decision state and rationale evidence; state changes must pass the domain state machine.
 - RecommendationDecision stores disposition evidence and does not mutate the source recommendation.
 - Decision Audit stores append-only evidence and does not contain backup payloads or secrets.
+
+## v1.1 Architecture Constraint
+
+The first v1.1 batch has no database migration planned. Contract-only stores for recommendations, execution plans, action plans, notifications, calendar entries, automation rules, and scheduler state require migration, backup, restore, owner-index, audit, and validation evidence before persistence implementation.
 
 ## Optional Architecture Boundary
 
