@@ -3,7 +3,7 @@ import { normalizeNotification } from "../domain/notification/notification-valid
 export function generateNotifications(input = {}, context = {}) {
   const dueItems = Array.isArray(input.dueItems) ? input.dueItems : [];
   const automationResults = Array.isArray(input.automationResults) ? input.automationResults : [];
-  return Object.freeze([
+  const generated = [
     ...dueItems.map((item) => normalizeNotification({
       ownerId: item.ownerId,
       type: item.notificationType || item.sourceType || "calendar",
@@ -26,7 +26,8 @@ export function generateNotifications(input = {}, context = {}) {
       status: "new",
       readState: "unread",
     }, context)),
-  ]);
+  ];
+  return Object.freeze(dedupeNotifications(generated));
 }
 
 export function markNotificationRead(notification = {}, context = {}) {
@@ -35,4 +36,20 @@ export function markNotificationRead(notification = {}, context = {}) {
 
 export function markNotificationUnread(notification = {}, context = {}) {
   return normalizeNotification({ ...notification, status: "unread", readState: "unread" }, { ...context, createId: () => notification.id });
+}
+
+function dedupeNotifications(notifications) {
+  const seen = new Set();
+  return notifications.filter((notification) => {
+    const key = [
+      notification.ownerId,
+      notification.sourceType,
+      notification.sourceId,
+      notification.type,
+      notification.createdAt.slice(0, 10),
+    ].map((value) => String(value || "").trim()).join("|");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }

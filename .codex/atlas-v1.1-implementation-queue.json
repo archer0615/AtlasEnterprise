@@ -23,12 +23,16 @@
     {
       "batchId": "BATCH-002",
       "priority": "Should",
-      "status": "Pending",
+      "status": "Complete",
       "candidateIds": ["CAND-004", "CAND-005"],
       "dependencies": ["BATCH-001"],
       "validationProfiles": ["quick", "full"],
       "risk": "Medium",
-      "nextAction": "Generate detailed Codex implementation prompt for notification dedupe and backup coverage plan."
+      "nextAction": "Complete. Continue with BATCH-003.",
+      "startedAt": "2026-07-26T23:00:00.000+08:00",
+      "completedAt": "2026-07-26T23:05:00.000+08:00",
+      "validationResult": "test:notification-automation-domain, quick, and full passed",
+      "implementationReport": "docs/implementation/v1.1-batch-002-implementation-report.md"
     },
     {
       "batchId": "BATCH-003",

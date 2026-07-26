@@ -41,4 +41,12 @@ assert.equal(projectCalendarSummary({ calendarEntries: calendar, asOfDate: "2026
 assert.equal(projectSchedulerSummary({ schedulerState: scheduled.schedulerState }).generatedNotifications, 2);
 assert.equal(projectAutomationSummary({ rules: [rule], results: automationResults }).automationAlerts, 1);
 
+const duplicatedCalendar = [calendar[0], { ...calendar[0], id: "calendar-entry-duplicate" }];
+const duplicatedAutomationResults = [automationResults[0], { ...automationResults[0], id: "automation-result-duplicate" }];
+const dedupedSchedule = evaluateScheduler({ ownerId: "owner-1", asOfDate: "2026-07-23", calendarEntries: duplicatedCalendar, automationResults: duplicatedAutomationResults }, context);
+assert.equal(dedupedSchedule.dueItems.length, 2);
+assert.equal(dedupedSchedule.reviewQueue.length, 4);
+assert.equal(dedupedSchedule.notifications.length, 2);
+assert.equal(projectSchedulerSummary({ schedulerState: dedupedSchedule.schedulerState }).generatedNotifications, 2);
+
 console.log("Notification automation domain tests passed.");
