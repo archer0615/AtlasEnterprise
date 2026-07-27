@@ -45,6 +45,7 @@ try {
   const result = await page.evaluate(async () => {
     const module = await import("./src/indexeddb-runtime.js");
     const inventory = module.getIndexedDbPersistenceInventory();
+    const owner = { ownerId: "owner-indexeddb", householdId: "household-indexeddb" };
     const database = await new Promise((resolve, reject) => {
       const request = indexedDB.open("atlas-pwa-runtime", inventory.databaseVersion);
       request.onerror = () => reject(request.error);
@@ -52,19 +53,39 @@ try {
     });
     const storeNames = [...database.objectStoreNames];
     const scenarios = database.transaction("scenarios", "readonly").objectStore("scenarios");
+    const positions = database.transaction("positions", "readonly").objectStore("positions");
+    const scenarioKeyPath = scenarios.keyPath;
+    const positionKeyPath = positions.keyPath;
     database.close();
+    await module.indexedDbPositionRepository.create({
+      positionId: "position-indexeddb-1",
+      ownerId: owner.ownerId,
+      householdId: owner.householdId,
+      portfolioId: "portfolio-indexeddb-1",
+      assetId: "asset-indexeddb-1",
+      quantity: 3,
+      marketValue: 300,
+    });
+    const listed = await module.indexedDbPositionRepository.listByPortfolio("portfolio-indexeddb-1", owner);
+    const hidden = await module.indexedDbPositionRepository.getById("position-indexeddb-1", { ownerId: "other", householdId: "other" });
     return {
       databaseVersion: inventory.databaseVersion,
       hasPositionsStore: storeNames.includes("positions"),
       hasScenariosStore: storeNames.includes("scenarios"),
-      scenarioKeyPath: scenarios.keyPath,
+      scenarioKeyPath,
+      positionKeyPath,
       inventoryHasPositions: Boolean(inventory.stores.positions),
+      listedCount: listed.length,
+      hidden,
     };
   });
   assert(result.hasScenariosStore, "existing scenarios store must remain available");
   assert(result.scenarioKeyPath === "scenarioId", "existing scenario key path changed");
-  assert(!result.hasPositionsStore, "positions IndexedDB store must not exist before selected migration batch");
-  assert(!result.inventoryHasPositions, "positions inventory must not exist before selected migration batch");
+  assert(result.hasPositionsStore, "positions IndexedDB store must exist after selected migration batch");
+  assert(result.positionKeyPath === "positionId", "positions key path changed");
+  assert(result.inventoryHasPositions, "positions inventory must exist after selected migration batch");
+  assert(result.listedCount === 1, "indexedDbPositionRepository did not list owner portfolio records");
+  assert(result.hidden === null, "indexedDbPositionRepository leaked cross-owner position");
   await page.close();
   console.log("Position IndexedDB migration gate tests passed.");
 } finally {

@@ -112,11 +112,11 @@ function validateCellSecurity(record, rowNumber) {
   return errors;
 }
 
-function buildReport(records, errors) {
+function buildReport(records, errors, mode = "dry-run") {
   return Object.freeze({
-    schema: "atlas-enterprise.csv-import-dry-run.v1",
+    schema: mode === "commit" ? "atlas-enterprise.csv-import-commit.v1" : "atlas-enterprise.csv-import-dry-run.v1",
     accepted: errors.length === 0,
-    mode: "dry-run",
+    mode,
     rowCount: records.length + errors.filter((item) => item.row > 1).length,
     acceptedCount: records.length,
     rejectedCount: errors.length,

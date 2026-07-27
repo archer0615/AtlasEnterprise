@@ -26,16 +26,17 @@ assert(!/indexedDB|localStorage|sessionStorage|caches/.test(stateStoreText), "St
 const module = await import("../src/indexeddb-runtime.js");
 const inventory = module.getIndexedDbPersistenceInventory();
 assert.equal(inventory.databaseName, "atlas-pwa-runtime");
-assert.equal(inventory.databaseVersion, 6);
-assert.deepEqual(Object.keys(inventory.stores), ["metadata", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals"]);
+assert.equal(inventory.databaseVersion, 7);
+assert.deepEqual(Object.keys(inventory.stores), ["metadata", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions"]);
 assert.equal(inventory.stores.metadata.backup, false);
 assert.equal(inventory.stores.scenarios.keyPath, "scenarioId");
 assert(inventory.stores.assets.indexes.includes("ownerId"));
+assert.equal(inventory.stores.positions.keyPath, "positionId");
 
 const validBackup = {
-  schema: "atlas-pwa-runtime-backup.v1",
+  schema: "atlas-pwa-runtime-backup.v2",
   exportedAt: "2026-07-24T00:00:00.000Z",
-  databaseVersion: 6,
+  databaseVersion: 7,
   scenarios: [{ scenarioId: "scenario-1", name: "Valid Scenario", score: "10", status: "review", unexpectedRuntimeField: "should-be-sanitized" }],
   recommendationDecisions: [],
   settings: [],
@@ -45,14 +46,16 @@ const validBackup = {
   incomes: [],
   expenses: [],
   goals: [],
+  positions: [],
 };
 
 assert.equal(await module.indexedDbBackupRepository.validateBackup(validBackup), true, "valid backup fixture must pass validation");
+assert.equal(await module.indexedDbBackupRepository.validateBackup({ ...validBackup, schema: "atlas-pwa-runtime-backup.v1", databaseVersion: 6, positions: undefined }), true, "legacy v1 backup fixture must pass validation");
 assert.equal(await module.indexedDbBackupRepository.validateBackup({ ...validBackup, unknownStore: [] }), false, "unknown top-level backup fields must be rejected");
 assert.equal(await module.indexedDbBackupRepository.validateBackup({ ...validBackup, databaseVersion: 999 }), false, "future database versions must be rejected");
 const duplicateBackup = { ...validBackup, scenarios: [validBackup.scenarios[0], { ...validBackup.scenarios[0] }] };
 assert.equal(await module.indexedDbBackupRepository.validateBackup(duplicateBackup), false, "duplicate primary keys must be rejected");
-const pollutedBackup = JSON.parse(`{"schema":"atlas-pwa-runtime-backup.v1","databaseVersion":6,"scenarios":[],"__proto__":{"polluted":true}}`);
+const pollutedBackup = JSON.parse(`{"schema":"atlas-pwa-runtime-backup.v2","databaseVersion":7,"scenarios":[],"positions":[],"__proto__":{"polluted":true}}`);
 assert.equal(await module.indexedDbBackupRepository.validateBackup(pollutedBackup), false, "prototype pollution payload must be rejected");
 await module.disposeIndexedDbRuntime();
 

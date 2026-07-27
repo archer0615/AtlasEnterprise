@@ -59,16 +59,16 @@ try {
     legacyBackup.databaseVersion = 2;
     delete legacyBackup.checksum;
     const legacyDryRun = await module.indexedDbBackupRepository.dryRunImport(legacyBackup);
-    const futureBackup = { ...currentBackup, schema: "atlas-pwa-runtime-backup.v2", positions: [] };
+    const legacyPositionBackup = { ...currentBackup, schema: "atlas-pwa-runtime-backup.v1", positions: [] };
     const unknownBackup = { ...currentBackup, schema: "atlas-pwa-runtime-backup.unknown" };
     const encrypted = await module.indexedDbBackupRepository.exportEncryptedBackup("compatibility-passphrase");
     const decrypted = await module.indexedDbBackupRepository.decryptEncryptedBackup(encrypted, "compatibility-passphrase");
     const futureEncrypted = await module.indexedDbBackupRepository.exportEncryptedBackup("compatibility-passphrase");
-    const futurePlaintext = { ...decrypted, schema: "atlas-pwa-runtime-backup.v2" };
+    const legacyPlaintextWithPositions = { ...decrypted, schema: "atlas-pwa-runtime-backup.v1", positions: [] };
     const before = await module.indexedDbScenarioRepository.list();
     let futureRejectedBeforeMutation = false;
     try {
-      await module.indexedDbBackupRepository.importBackup(futureBackup);
+      await module.indexedDbBackupRepository.importBackup(legacyPositionBackup);
     } catch {
       futureRejectedBeforeMutation = true;
     }
@@ -79,12 +79,16 @@ try {
       legacyDryRun,
       currentValid: await module.indexedDbBackupRepository.validateBackup(currentBackup),
       legacyValid: await module.indexedDbBackupRepository.validateBackup(legacyBackup),
-      futureValid: await module.indexedDbBackupRepository.validateBackup(futureBackup),
+      currentVersion: currentBackup.schema,
+      currentDatabaseVersion: currentBackup.databaseVersion,
+      hasPositionsArray: Array.isArray(currentBackup.positions),
+      legacyPositionValid: await module.indexedDbBackupRepository.validateBackup(legacyPositionBackup),
       unknownValid: await module.indexedDbBackupRepository.validateBackup(unknownBackup),
       decryptedValid: await module.indexedDbBackupRepository.validateBackup(decrypted),
       decryptedVersion: decrypted.schema,
+      decryptedHasPositionsArray: Array.isArray(decrypted.positions),
       futureEncryptedEnvelopeVersion: futureEncrypted.backupFormatVersion,
-      futurePlaintextRejectedAfterDecrypt: !await module.indexedDbBackupRepository.validateBackup(futurePlaintext),
+      legacyPlaintextWithPositionsRejectedAfterDecrypt: !await module.indexedDbBackupRepository.validateBackup(legacyPlaintextWithPositions),
       futureRejectedBeforeMutation,
       scenarioCountBefore: before.length,
       scenarioCountAfter: after.length,
@@ -92,21 +96,25 @@ try {
   });
 
   assert(result.currentValid, "current backup payload was not accepted");
+  assert(result.currentVersion === "atlas-pwa-runtime-backup.v2", "current backup payload did not use v2 schema");
+  assert(result.currentDatabaseVersion === 7, "current backup payload did not use database v7");
+  assert(result.hasPositionsArray, "current backup payload did not include positions array");
   assert(result.legacyValid, "legacy compatible backup payload was not accepted");
-  assert(result.currentDryRun.sourceBackupFormatVersion === "atlas-pwa-runtime-backup.v1", "dry-run did not report payload version");
+  assert(result.currentDryRun.sourceBackupFormatVersion === "atlas-pwa-runtime-backup.v2", "dry-run did not report payload version");
   assert(result.currentDryRun.migrationPlan.status === "current-version", "current backup dry-run did not report current version");
   assert(result.legacyDryRun.migrationPlan.status === "migration-required", "legacy backup dry-run did not report migration-required");
   assert(result.legacyDryRun.migrationSteps.includes("database-2-to-3"), "legacy backup dry-run did not include migration chain");
-  assert(result.currentDryRun.storePlan.length === 9, "backup dry-run did not cover current restore stores");
-  assert(result.currentDryRun.storePlan.every((item) => item.storeName !== "positions"), "positions appeared in backup dry-run before schema acceptance");
-  assert(!result.futureValid, "future backup version was not rejected");
+  assert(result.currentDryRun.storePlan.length === 10, "backup dry-run did not cover current restore stores");
+  assert(result.currentDryRun.storePlan.some((item) => item.storeName === "positions"), "positions did not appear in backup dry-run after schema acceptance");
+  assert(!result.legacyPositionValid, "legacy backup with positions was not rejected");
   assert(!result.unknownValid, "unknown backup version was not rejected");
-  assert(result.futureRejectedBeforeMutation, "future backup import did not reject before mutation");
-  assert(result.scenarioCountBefore === result.scenarioCountAfter, "future backup rejection mutated local data");
+  assert(result.futureRejectedBeforeMutation, "legacy positions backup import did not reject before mutation");
+  assert(result.scenarioCountBefore === result.scenarioCountAfter, "legacy positions backup rejection mutated local data");
   assert(result.decryptedValid, "encrypted backup did not decrypt to a valid plaintext backup");
-  assert(result.decryptedVersion === "atlas-pwa-runtime-backup.v1", "decrypted backup did not expose plaintext schema version");
+  assert(result.decryptedVersion === "atlas-pwa-runtime-backup.v2", "decrypted backup did not expose plaintext schema version");
+  assert(result.decryptedHasPositionsArray, "decrypted v2 backup did not include positions array");
   assert(result.futureEncryptedEnvelopeVersion === "atlas-pwa-runtime-encrypted-backup.v1", "encrypted envelope format version changed unexpectedly");
-  assert(result.futurePlaintextRejectedAfterDecrypt, "future plaintext was not rejected after decrypt step");
+  assert(result.legacyPlaintextWithPositionsRejectedAfterDecrypt, "legacy plaintext with positions was not rejected after decrypt step");
 
   const serviceWorker = await readFile(path.join(frontendRoot, "sw.js"), "utf8");
   assert(!serviceWorker.includes("backup"), "service worker cache references backup payloads");

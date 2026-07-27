@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted for planning, not approved for payload changes.
+Accepted for payload changes.
 
 ## Context
 
@@ -14,7 +14,8 @@ Any backup payload change must introduce an explicit backup schema version and c
 
 Required versioning behavior:
 
-- Current payload version remains readable.
+- `atlas-pwa-runtime-backup.v1` payloads remain readable.
+- `atlas-pwa-runtime-backup.v2` is the current export schema and includes `positions`.
 - New payload versions require dry-run compatibility output.
 - Future unknown versions must be rejected safely.
 - Encrypted backup compatibility must be validated.
@@ -28,6 +29,8 @@ Required versioning behavior:
 | Current | Future | Restore allowed if future runtime preserves current schema. |
 | Future | Current | Reject with dry-run report. |
 | Unknown | Any | Reject with validation error. |
+| v1 | v2 | Restore allowed after migration to database v7 with empty positions. |
+| v2 | v2 | Restore allowed after dry-run, including positions. |
 
 ## Constraints
 
@@ -42,3 +45,7 @@ Required versioning behavior:
 - `npm run validate:backup-security`
 - `npm run validate:offline`
 - `npm run validate:feature`
+
+## Update 2026-07-27
+
+Backup schema v2 is implemented for the Position persistence batch. v1 remains accepted for restore, v2 is the current export format, and unknown or unsupported schemas are rejected before mutation.

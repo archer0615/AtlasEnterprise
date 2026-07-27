@@ -36,16 +36,18 @@ assert(positionAdr.includes("portfolioId"), "Position ADR does not require portf
 assert(positionAdr.includes("No migration may be added without backup and restore E2E coverage."), "Position ADR is missing migration backup gate");
 assert(backupAdr.includes("Any backup payload change must introduce an explicit backup schema version"), "Backup ADR does not gate payload changes");
 
-assert(!runtime.includes("positions:"), "Runtime already exposes positions store metadata before executable migration coverage");
-assert(!runtime.includes("indexedDbPositionRepository"), "Position repository was introduced before repository contract coverage");
-assert(!runtime.includes("[stores.positions]"), "Position backup allowlist exists before backup schema version gate");
-assert(!runtime.includes("positions: await"), "Position backup export exists before backup compatibility coverage");
+assert(runtime.includes("positions: \"positions\""), "Runtime does not expose positions store metadata after executable migration coverage");
+assert(runtime.includes("indexedDbPositionRepository"), "Position repository is missing after repository contract coverage");
+assert(runtime.includes("[stores.positions]"), "Position backup allowlist is missing after backup schema version gate");
+assert(runtime.includes("positions: await getAll(stores.positions)"), "Position backup export is missing after backup compatibility coverage");
+assert(runtime.includes("atlas-pwa-runtime-backup.v2"), "Backup schema v2 is missing after positions payload acceptance");
 
 assert(runtimeBoundary.includes("Runtime Boundary Validation"), "Runtime boundary validation must remain executable");
 assert(packageJson.scripts["test:position-persistence-gates"] === "node frontend/scripts/test-position-persistence-gates.mjs", "Position gate test script is not registered");
 assert(packageJson.scripts["validate:runtime-boundaries"], "Runtime boundary validation script is not registered");
 assert(packageJson.scripts["test:backup-restore-e2e"], "Backup restore E2E script is not registered");
 assert(packageJson.scripts["validate:backup-security"], "Backup security validation script is not registered");
+assert(packageJson.scripts["test:position-indexeddb-migration"], "Position IndexedDB migration script is not registered");
 assert(packageJson.scripts["validate:feature"], "Feature validation script is not registered");
 
 console.log("Position persistence gate tests passed.");

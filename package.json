@@ -72,6 +72,7 @@
     "test:csv-import-dry-run": "node frontend/scripts/test-csv-import-security.mjs",
     "test:csv-import-fixtures": "node frontend/scripts/test-csv-import-fixtures.mjs",
     "test:csv-import-security": "node frontend/scripts/test-csv-import-security.mjs",
+    "test:csv-import-write-path": "node frontend/scripts/test-csv-import-write-path.mjs",
     "test:position-repository-contract": "node frontend/scripts/test-position-repository-contract.mjs",
     "test:position-indexeddb-migration": "node frontend/scripts/test-position-indexeddb-migration.mjs",
     "test:backup-schema-v2-fixtures": "node frontend/scripts/test-backup-schema-v2-fixtures.mjs",

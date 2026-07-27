@@ -1,6 +1,9 @@
+import { normalizePosition } from "./domain/position/position-repository-contract.js";
+
 const databaseName = "atlas-pwa-runtime";
-const databaseVersion = 6;
-const backupSchemaVersion = "atlas-pwa-runtime-backup.v1";
+const databaseVersion = 7;
+const backupSchemaVersion = "atlas-pwa-runtime-backup.v2";
+const legacyBackupSchemaVersions = new Set(["atlas-pwa-runtime-backup.v1"]);
 const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1";
 const keyRotationFormatVersion = "atlas-enterprise.backup-key-rotation-report.v1";
 const disasterRecoveryDrillFormatVersion = "atlas-enterprise.backup-disaster-recovery-drill.v1";
@@ -52,7 +55,7 @@ const backupComplianceEvidencePolicy = {
   archiveRetentionYears: 7,
   immutableArchiveRequired: true,
 };
-const supportedBackupDatabaseVersions = [2, 3, 4, databaseVersion];
+const supportedBackupDatabaseVersions = [2, 3, 4, 6, databaseVersion];
 const backupRetentionPolicy = {
   schema: "atlas-enterprise.backup-retention-policy.v1",
   auditRetentionDays: 90,
@@ -87,6 +90,7 @@ const stores = {
   incomes: "incomes",
   expenses: "expenses",
   goals: "goals",
+  positions: "positions",
 };
 const backupRecordFieldAllowlist = {
   [stores.scenarios]: ["scenarioId", "name", "score", "status", "sourceSnapshotId", "aggregateVersion", "updatedAt", "savedAt"],
@@ -98,6 +102,7 @@ const backupRecordFieldAllowlist = {
   [stores.incomes]: ["id", "ownerId", "name", "incomeType", "amount", "currency", "frequency", "startDate", "endDate", "occurrenceDate", "status", "description", "createdAt", "updatedAt", "archivedAt", "version"],
   [stores.expenses]: ["id", "ownerId", "name", "expenseType", "amount", "currency", "frequency", "startDate", "endDate", "occurrenceDate", "status", "description", "createdAt", "updatedAt", "archivedAt", "version"],
   [stores.goals]: ["id", "ownerId", "name", "goalType", "targetAmount", "currentAmount", "currency", "priority", "startDate", "targetDate", "status", "description", "parentGoalId", "scenarioId", "createdAt", "updatedAt", "archivedAt", "version"],
+  [stores.positions]: ["positionId", "ownerId", "householdId", "portfolioId", "assetId", "quantity", "unitCost", "marketValue", "currency", "status", "updatedAt"],
 };
 
 let databasePromise;
@@ -119,6 +124,7 @@ const persistenceInventory = Object.freeze({
     [stores.incomes]: Object.freeze({ keyPath: "id", responsibility: "Local Income records.", indexes: Object.freeze(["ownerId", "status", "incomeType", "currency", "frequency", "startDate", "endDate", "updatedAt"]), backup: true, restore: true }),
     [stores.expenses]: Object.freeze({ keyPath: "id", responsibility: "Local Expense records.", indexes: Object.freeze(["ownerId", "status", "expenseType", "currency", "frequency", "startDate", "endDate", "updatedAt"]), backup: true, restore: true }),
     [stores.goals]: Object.freeze({ keyPath: "id", responsibility: "Local Goal records.", indexes: Object.freeze(["ownerId", "status", "goalType", "currency", "priority", "targetDate", "parentGoalId", "updatedAt"]), backup: true, restore: true }),
+    [stores.positions]: Object.freeze({ keyPath: "positionId", responsibility: "Local Position records for owner-scoped portfolio holdings.", indexes: Object.freeze(["ownerId", "householdId", "portfolioId", "assetId", "status", "updatedAt"]), backup: true, restore: true }),
   }),
 });
 
@@ -180,6 +186,7 @@ function backupPayload(backup) {
     incomes: backup?.incomes || [],
     expenses: backup?.expenses || [],
     goals: backup?.goals || [],
+    ...(backup?.schema === backupSchemaVersion || backup?.positions !== undefined ? { positions: backup?.positions || [] } : {}),
   };
 }
 
@@ -202,7 +209,7 @@ function maskBackupSensitiveFields(value) {
 }
 
 function minimizeBackupData(backup) {
-  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals"];
+  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions"];
   const minimized = Object.fromEntries(allowedBackupFields.filter((field) => backup[field] !== undefined).map((field) => [field, backup[field]]));
   minimized.scenarios = minimizeBackupRecords(stores.scenarios, minimized.scenarios || []);
   minimized.recommendationDecisions = minimizeBackupRecords(stores.recommendationDecisions, minimized.recommendationDecisions || []);
@@ -213,6 +220,7 @@ function minimizeBackupData(backup) {
   minimized.incomes = minimizeBackupRecords(stores.incomes, minimized.incomes || []);
   minimized.expenses = minimizeBackupRecords(stores.expenses, minimized.expenses || []);
   minimized.goals = minimizeBackupRecords(stores.goals, minimized.goals || []);
+  minimized.positions = minimizeBackupRecords(stores.positions, minimized.positions || []);
   return minimized;
 }
 
@@ -326,6 +334,10 @@ function openDatabase() {
       if (!database.objectStoreNames.contains(stores.goals)) {
         const store = database.createObjectStore(stores.goals, { keyPath: "id" });
         ["ownerId", "status", "goalType", "currency", "priority", "targetDate", "parentGoalId", "updatedAt"].forEach((indexName) => store.createIndex(indexName, indexName));
+      }
+      if (!database.objectStoreNames.contains(stores.positions)) {
+        const store = database.createObjectStore(stores.positions, { keyPath: "positionId" });
+        ["ownerId", "householdId", "portfolioId", "assetId", "status", "updatedAt"].forEach((indexName) => store.createIndex(indexName, indexName));
       }
     };
 
@@ -694,6 +706,44 @@ export const indexedDbGoalRepository = createFinancialRepository({
   existsCode: "ATLAS_GOAL_ALREADY_EXISTS",
 });
 
+export const indexedDbPositionRepository = {
+  async create(position) {
+    const normalized = normalizePosition(position);
+    if (!normalized.positionId || !normalized.ownerId || !normalized.householdId || !normalized.portfolioId) {
+      throw new Error("Position requires positionId, ownerId, householdId, and portfolioId");
+    }
+    if (await withStore(stores.positions, "readonly", (store) => store.get(normalized.positionId))) {
+      throw new Error("Position already exists");
+    }
+    await withStore(stores.positions, "readwrite", (store) => store.add({ ...normalized }));
+    return normalized;
+  },
+
+  async update(positionId, patch, ownerContext) {
+    const existing = await this.getById(positionId, ownerContext);
+    if (!existing) return null;
+    const updated = normalizePosition({ ...existing, ...patch, positionId: existing.positionId });
+    await withStore(stores.positions, "readwrite", (store) => store.put({ ...updated }));
+    return updated;
+  },
+
+  async getById(positionId, ownerContext = {}) {
+    const record = await withStore(stores.positions, "readonly", (store) => store.get(positionId));
+    if (!record || record.ownerId !== ownerContext.ownerId || record.householdId !== ownerContext.householdId) return null;
+    return Object.freeze({ ...record });
+  },
+
+  async listByOwner(ownerContext = {}) {
+    return (await getAll(stores.positions))
+      .filter((record) => record.ownerId === ownerContext.ownerId && record.householdId === ownerContext.householdId)
+      .map((record) => Object.freeze({ ...record }));
+  },
+
+  async listByPortfolio(portfolioId, ownerContext = {}) {
+    return (await this.listByOwner(ownerContext)).filter((record) => record.portfolioId === portfolioId);
+  },
+};
+
 export const indexedDbBackupRepository = {
   async exportBackup() {
     await indexedDbMigrationRepository.markCurrent();
@@ -710,6 +760,7 @@ export const indexedDbBackupRepository = {
       incomes: await getAll(stores.incomes),
       expenses: await getAll(stores.expenses),
       goals: await getAll(stores.goals),
+      positions: await getAll(stores.positions),
     });
     backup.checksum = await sha256Hex(stableStringify(backupPayload(backup)));
     return backup;
@@ -820,7 +871,7 @@ export const indexedDbBackupRepository = {
     if (!["replace-all", "skip-existing"].includes(report.conflictPolicy)) return false;
     if (!Number.isFinite(report.scenarioCount) || report.scenarioCount < 0) return false;
     if (!report.restoredRecords || typeof report.restoredRecords !== "object") return false;
-    return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries, stores.assets, stores.liabilities, stores.incomes, stores.expenses, stores.goals]
+    return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries, stores.assets, stores.liabilities, stores.incomes, stores.expenses, stores.goals, stores.positions]
       .every((storeName) => Number.isFinite(report.restoredRecords[storeName] || 0));
   },
 
@@ -1049,6 +1100,7 @@ export const indexedDbBackupRepository = {
     const currentIncomes = await getAll(stores.incomes);
     const currentExpenses = await getAll(stores.expenses);
     const currentGoals = await getAll(stores.goals);
+    const currentPositions = await getAll(stores.positions);
     const existingIds = new Set(currentScenarios.map((scenario) => scenario.scenarioId));
     const updates = migratedBackup.scenarios.filter((scenario) => existingIds.has(scenario.scenarioId));
     const creates = migratedBackup.scenarios.filter((scenario) => !existingIds.has(scenario.scenarioId));
@@ -1062,6 +1114,7 @@ export const indexedDbBackupRepository = {
       createStoreImportPlan(stores.incomes, "id", currentIncomes, migratedBackup.incomes || []),
       createStoreImportPlan(stores.expenses, "id", currentExpenses, migratedBackup.expenses || []),
       createStoreImportPlan(stores.goals, "id", currentGoals, migratedBackup.goals || []),
+      createStoreImportPlan(stores.positions, "positionId", currentPositions, migratedBackup.positions || []),
     ];
     const migrationPlan = createBackupMigrationPlan(backup.databaseVersion || 0);
     return {
@@ -1082,11 +1135,14 @@ export const indexedDbBackupRepository = {
   },
 
   async validateBackup(backup) {
-    const allowedBackupFields = new Set(["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "checksum"]);
+    const allowedBackupFields = new Set(["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions", "checksum"]);
     if (!backup || hasUnsafeObjectKey(backup) || Object.keys(backup).some((field) => !allowedBackupFields.has(field))) {
       return false;
     }
-    if (backup?.schema !== backupSchemaVersion || !Array.isArray(backup.scenarios)) {
+    if ((backup?.schema !== backupSchemaVersion && !legacyBackupSchemaVersions.has(backup?.schema)) || !Array.isArray(backup.scenarios)) {
+      return false;
+    }
+    if (backup.schema !== backupSchemaVersion && backup.positions !== undefined) {
       return false;
     }
     if (!supportedBackupDatabaseVersions.includes(backup.databaseVersion || 0)) {
@@ -1098,7 +1154,7 @@ export const indexedDbBackupRepository = {
         return false;
       }
     }
-    if (!["recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
+    if (!["recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
       return false;
     }
     if (backup.retentionPolicy && backup.retentionPolicy.schema !== backupRetentionPolicy.schema) {
@@ -1168,7 +1224,21 @@ export const indexedDbBackupRepository = {
         && Number(goal.targetAmount) > 0
         && Number.isFinite(Number(goal.currentAmount));
     });
-    return scenarioValid && decisionsValid && settingsValid && auditValid && assetsValid && liabilitiesValid && incomesValid && expensesValid && goalsValid;
+    const positionIds = new Set();
+    const positionsValid = (backup.positions || []).every((position) => {
+      if (!position?.positionId || positionIds.has(position.positionId)) return false;
+      positionIds.add(position.positionId);
+      try {
+        const normalized = normalizePosition(position);
+        return Boolean(normalized.ownerId && normalized.householdId && normalized.portfolioId)
+          && Number.isFinite(normalized.quantity)
+          && normalized.quantity >= 0
+          && Number.isFinite(normalized.marketValue);
+      } catch {
+        return false;
+      }
+    });
+    return scenarioValid && decisionsValid && settingsValid && auditValid && assetsValid && liabilitiesValid && incomesValid && expensesValid && goalsValid && positionsValid;
   },
 };
 
@@ -1209,12 +1279,14 @@ function migrateBackupToCurrent(backup) {
   migrated.incomes = migrated.incomes || [];
   migrated.expenses = migrated.expenses || [];
   migrated.goals = migrated.goals || [];
+  migrated.positions = migrated.positions || [];
   migrated.scenarios = (migrated.scenarios || []).map((scenario) => ({
     ...scenario,
     score: String(scenario.score),
     status: scenario.status || "review",
   }));
   migrated.databaseVersion = databaseVersion;
+  migrated.schema = backupSchemaVersion;
   migrated.migrationHistory = [
     ...(migrated.migrationHistory || []),
     ...migrationPlan.steps.map((step) => ({ step, migratedAt: new Date().toISOString(), sourceDatabaseVersion, targetDatabaseVersion: databaseVersion })),
@@ -1252,9 +1324,10 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
     { storeName: stores.incomes, records: backup.incomes || [] },
     { storeName: stores.expenses, records: backup.expenses || [] },
     { storeName: stores.goals, records: backup.goals || [] },
+    { storeName: stores.positions, records: backup.positions || [] },
   ];
   if (conflictPolicy === "skip-existing") {
-    const [currentScenarios, currentDecisions, currentSettings, currentAudits, currentAssets, currentLiabilities, currentIncomes, currentExpenses, currentGoals] = await Promise.all([
+    const [currentScenarios, currentDecisions, currentSettings, currentAudits, currentAssets, currentLiabilities, currentIncomes, currentExpenses, currentGoals, currentPositions] = await Promise.all([
       indexedDbScenarioRepository.list(),
       indexedDbRecommendationDecisionRepository.list(),
       getAll(stores.settings),
@@ -1264,6 +1337,7 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
       getAll(stores.incomes),
       getAll(stores.expenses),
       getAll(stores.goals),
+      getAll(stores.positions),
     ]);
     plan = [
       mergeWithoutReplacing(stores.scenarios, "scenarioId", currentScenarios, backup.scenarios || []),
@@ -1275,6 +1349,7 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
       mergeWithoutReplacing(stores.incomes, "id", currentIncomes, backup.incomes || []),
       mergeWithoutReplacing(stores.expenses, "id", currentExpenses, backup.expenses || []),
       mergeWithoutReplacing(stores.goals, "id", currentGoals, backup.goals || []),
+      mergeWithoutReplacing(stores.positions, "positionId", currentPositions, backup.positions || []),
     ];
   }
   return new Promise((resolve, reject) => {

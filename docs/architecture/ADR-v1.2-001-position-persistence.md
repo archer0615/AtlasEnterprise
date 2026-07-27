@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted for planning, not approved for runtime implementation.
+Accepted for runtime implementation.
 
 ## Context
 
@@ -15,10 +15,10 @@ Position persistence may only proceed after a dedicated implementation batch pro
 Required store shape:
 
 - Store name: `positions`
-- Required indexes: `ownerId`, `portfolioId`, `assetType`, `updatedAt`
+- Required indexes: `ownerId`, `householdId`, `portfolioId`, `assetId`, `status`, `updatedAt`
 - Required ownership fields: `positionId`, `ownerId`, `householdId`, `portfolioId`
-- Required valuation fields: `quantity`, `unitCost`, `marketValue`, `currency`, `valuationDate`
-- Required audit fields: `createdAt`, `updatedAt`, `version`
+- Required valuation fields: `quantity`, `unitCost`, `marketValue`, `currency`
+- Required audit fields: `updatedAt`
 
 ## Constraints
 
@@ -31,7 +31,7 @@ Required store shape:
 
 ## Consequences
 
-Position persistence remains blocked for runtime until ADR-v1.2-002 backup schema versioning is accepted and tests exist. This ADR narrows the architecture but does not authorize code changes.
+Position persistence is enabled through a dedicated IndexedDB v7 migration batch. Backup schema v2 includes Position payloads so export, restore dry-run, and restore staging remain schema-explicit.
 
 ## Required Validation Before Runtime
 
@@ -45,4 +45,4 @@ Position persistence remains blocked for runtime until ADR-v1.2-002 backup schem
 
 ## Update 2026-07-27
 
-Position repository contract and IndexedDB migration gate tests now exist. The actual `positions` IndexedDB store remains blocked until a dedicated implementation batch is selected.
+Position repository contract and IndexedDB migration tests now cover the implemented `positions` IndexedDB store. The runtime exports Position records only through backup schema v2.

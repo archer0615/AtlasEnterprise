@@ -83,7 +83,7 @@ for (const requiredText of [
   "settings",
   "auditEntries",
   "migration-lock",
-  "atlas-pwa-runtime-backup.v1",
+  "atlas-pwa-runtime-backup.v2",
   "atlas-pwa-runtime-encrypted-backup.v1",
   "atlas-pwa-runtime-coordination",
   "No secondary indexes",
@@ -94,8 +94,8 @@ for (const requiredText of [
 
 for (const runtimeText of [
   'const databaseName = "atlas-pwa-runtime"',
-  "const databaseVersion = 6",
-  'const backupSchemaVersion = "atlas-pwa-runtime-backup.v1"',
+  "const databaseVersion = 7",
+  'const backupSchemaVersion = "atlas-pwa-runtime-backup.v2"',
   'const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1"',
   'const coordinationChannelName = "atlas-pwa-runtime-coordination"',
   'const migrationLockKey = "migration-lock"',
