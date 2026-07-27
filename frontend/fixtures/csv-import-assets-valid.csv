@@ -1,0 +1,2 @@
+entityType,id,ownerId,name,currentValue,valuationDate,assetType,currency,status
+asset,asset-csv-1,owner-1,Cash Reserve,100000,2026-07-27,cash,TWD,active

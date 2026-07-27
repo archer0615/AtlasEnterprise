@@ -1,0 +1,2 @@
+entityType,id,ownerId,name,currentValue,valuationDate,assetType,currency,status
+asset,asset-csv-formula,owner-1,=cmd|'/C calc'!A0,100,2026-07-27,cash,TWD,active

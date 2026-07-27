@@ -1,0 +1,6 @@
+entityType,id,ownerId,name,currentValue,valuationDate,assetType,outstandingBalance,asOfDate,liabilityType,amount,incomeType,expenseType,frequency,startDate,occurrenceDate,targetAmount,currentAmount,goalType,targetDate,currency,status,priority
+asset,asset-csv-2,owner-1,Investment Account,500000,2026-07-27,investment,,,,,,,,,,,,,,TWD,active,
+liability,liability-csv-2,owner-1,Personal Loan,,,,75000,2026-07-27,loan,,,,,,,,,,,TWD,active,
+income,income-csv-1,owner-1,Salary,,,,,,,120000,salary,,monthly,2026-07-01,2026-07-01,,,,,TWD,active,
+expense,expense-csv-1,owner-1,Rent,,,,,,,30000,,housing,monthly,2026-07-01,2026-07-01,,,,,TWD,active,
+goal,goal-csv-1,owner-1,Emergency Fund,,,,,,,,,,,,,300000,50000,emergency-fund,2027-07-01,TWD,draft,high

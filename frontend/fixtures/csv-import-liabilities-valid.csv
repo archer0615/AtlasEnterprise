@@ -1,0 +1,2 @@
+entityType,id,ownerId,name,outstandingBalance,asOfDate,liabilityType,currency,status
+liability,liability-csv-1,owner-1,Mortgage Balance,2500000,2026-07-27,mortgage,TWD,active
