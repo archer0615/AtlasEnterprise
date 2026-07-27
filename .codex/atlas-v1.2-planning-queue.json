@@ -1,0 +1,42 @@
+{
+  "version": "1.2",
+  "generatedAt": "2026-07-27T00:00:00.000+08:00",
+  "baselineTag": "v1.1.0",
+  "status": "Planning",
+  "batches": [
+    {
+      "batchId": "BATCH-001",
+      "priority": "Must",
+      "status": "Pending",
+      "candidateIds": ["CAND-101", "CAND-103"],
+      "dependencies": [],
+      "validationProfiles": ["quick"],
+      "risk": "Medium",
+      "nextAction": "Complete canonical specifications for Insurance and CSV import before runtime implementation."
+    },
+    {
+      "batchId": "BATCH-002",
+      "priority": "Must",
+      "status": "Pending",
+      "candidateIds": ["CAND-102", "CAND-105"],
+      "dependencies": ["BATCH-001"],
+      "validationProfiles": ["quick", "feature"],
+      "risk": "High",
+      "nextAction": "Write ADRs for Position persistence and backup schema versioning."
+    },
+    {
+      "batchId": "BATCH-003",
+      "priority": "Could",
+      "status": "Deferred",
+      "candidateIds": ["CAND-104", "CAND-106", "CAND-107"],
+      "dependencies": [],
+      "validationProfiles": ["quick"],
+      "risk": "Medium",
+      "nextAction": "Collect measured performance evidence and keep external/cloud capabilities research-only."
+    }
+  ],
+  "excluded": [
+    { "candidateId": "CAND-106", "reason": "Exchange rate runtime remains blocked by static-first and external API constraints until ADR changes the boundary." },
+    { "candidateId": "CAND-107", "reason": "Remote notification runtime remains blocked by backend/cloud runtime constraints until ADR changes the boundary." }
+  ]
+}
