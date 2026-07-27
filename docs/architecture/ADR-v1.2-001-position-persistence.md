@@ -38,5 +38,11 @@ Position persistence remains blocked for runtime until ADR-v1.2-002 backup schem
 - `npm run test:backup-restore-e2e`
 - `npm run validate:backup-security`
 - `npm run test:local-repositories`
+- `npm run test:position-repository-contract`
+- `npm run test:position-indexeddb-migration`
 - `npm run validate:runtime-boundaries`
 - `npm run validate:feature`
+
+## Update 2026-07-27
+
+Position repository contract and IndexedDB migration gate tests now exist. The actual `positions` IndexedDB store remains blocked until a dedicated implementation batch is selected.
