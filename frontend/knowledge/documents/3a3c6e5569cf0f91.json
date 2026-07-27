@@ -1,0 +1,47 @@
+{
+  "id": "3a3c6e5569cf0f91",
+  "title": "CSV Import Canonical Specification",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/csv-import.md",
+  "sourceHash": "a43d413d2e86ead5c63779018f8f953ef33d3c2d8c57c9b48322249be037e8e7",
+  "headings": [
+    {
+      "level": 1,
+      "text": "CSV Import Canonical Specification"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Supported Initial Entities"
+    },
+    {
+      "level": 2,
+      "text": "Import Modes"
+    },
+    {
+      "level": 2,
+      "text": "Required Columns"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Error Report"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Implementation Gate"
+    }
+  ],
+  "bodyMarkdown": "# CSV Import Canonical Specification\n\nDocument Path: knowledge/supporting/csv-import.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Planning\nDomain: Import/Export\nBounded Context: Local Data Operations\nOwner: Product Knowledge\n\n## Purpose\n\nCSV Import defines local-only data intake for supported Atlas entities. It is a controlled data operation with dry-run validation, deterministic mapping, audit evidence, and no network dependency.\n\n## Supported Initial Entities\n\nInitial mapping is limited to:\n\n- Asset\n- Liability\n- Income\n- Expense\n- Goal\n\nPolicy and Position imports require their own accepted specification and ADR before inclusion.\n\n## Import Modes\n\n| Mode | Behavior |\n| --- | --- |\n| DryRun | Parse and validate without writing data. |\n| AppendOnly | Create valid new records and reject duplicates. |\n| ReplaceById | Replace records only when id, ownerId, and entity type match. |\n\nPartial import behavior must be explicit. The default is dry-run first, then all-or-nothing write for accepted rows.\n\n## Required Columns\n\nEvery CSV row requires:\n\n- entityType\n- id\n- ownerId\n- name\n- amount or value\n- currency\n- effectiveDate\n\nEntity-specific columns must be ignored unless listed in the accepted mapping table for that entity.\n\n## Validation Rules\n\n- CSV parser must reject formula injection prefixes in exported error reports.\n- entityType must be allowlisted.\n- id and ownerId must be stable non-empty strings.\n- Numeric fields must be finite and non-negative unless a future entity spec permits otherwise.\n- currency must match supported currency codes.\n- Unknown columns are reported as warnings in dry-run.\n- Duplicate rows are reported before writes.\n- Malformed rows block the import.\n\n## Error Report\n\nDry-run returns:\n\n- importId\n- rowNumber\n- entityType\n- field\n- severity\n- message\n- proposedAction\n\nError reports must be renderable with escaped text only.\n\n## Audit\n\nEvery import attempt records importId, operator, timestamp, mode, row count, accepted count, rejected count, checksum, result, and correlationId.\n\n## Implementation Gate\n\nRuntime implementation requires:\n\n- Parser selection.\n- Fixture CSV files.\n- Malformed CSV tests.\n- Security audit.\n- Backup compatibility review.\n- Accessibility coverage for error reports.\n",
+  "references": []
+}

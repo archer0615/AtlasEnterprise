@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-24T10:07:43.148Z",
-  "buildId": "e0835f1b1d33",
+  "generatedAt": "2026-07-27T03:41:41.991Z",
+  "buildId": "5fa92fcc8708",
   "source": "knowledge/",
   "strategy": "BUILD_COPY_FROM_KNOWLEDGE",
   "categories": [
@@ -3852,6 +3852,14 @@
       "summary": "# knowledge/constraint-rules.md # Atlas Constraint Rules Version: 1.0 ## Purpose Defines mandatory constraints enforced by the Decision Engine. Constraint rules are evaluated independently from scoring rules. A scenario may receive a high"
     },
     {
+      "id": "3a3c6e5569cf0f91",
+      "title": "CSV Import Canonical Specification",
+      "category": "supporting",
+      "path": "knowledge/supporting/csv-import.md",
+      "sourceHash": "a43d413d2e86ead5c63779018f8f953ef33d3c2d8c57c9b48322249be037e8e7",
+      "summary": "# CSV Import Canonical Specification Document Path: knowledge/supporting/csv-import.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Planning Domain: Import/Export Bounded Context: Local Data Operations Owner"
+    },
+    {
       "id": "27623d1901c62828",
       "title": "Decision Analytics Overview",
       "category": "supporting",
@@ -4666,6 +4674,14 @@
       "path": "knowledge/supporting/goal-review/execution-and-audit.md",
       "sourceHash": "33aceae2b33fe1b7a8f614dc8245ae8e0479580396d3983ae497b8fc58bdcd1f",
       "summary": "# Goal Review Execution and Audit ## Purpose This split document isolates Goal Review commands, state machine behavior, persistence, API, audit, and testing concerns from the parent Goal Review specification. ## Source - Parent specificat"
+    },
+    {
+      "id": "f50de1703e4f5351",
+      "title": "Insurance Canonical Specification",
+      "category": "supporting",
+      "path": "knowledge/supporting/insurance.md",
+      "sourceHash": "67b9d53709cc6fc87fd53afa2405fd75cb891545a8f6699f1c8ef143a4e06a71",
+      "summary": "# Insurance Canonical Specification Document Path: knowledge/supporting/insurance.md Document Type: Atlas Enterprise Canonical Specification Version: 1.0 Status: Planning Domain: Insurance Bounded Context: Protection Planning Owner: Produc"
     },
     {
       "id": "971dcdd40701204a",

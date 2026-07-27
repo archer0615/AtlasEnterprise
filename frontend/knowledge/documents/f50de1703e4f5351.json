@@ -1,0 +1,51 @@
+{
+  "id": "f50de1703e4f5351",
+  "title": "Insurance Canonical Specification",
+  "category": "supporting",
+  "canonicalPath": "knowledge/supporting/insurance.md",
+  "sourceHash": "67b9d53709cc6fc87fd53afa2405fd75cb891545a8f6699f1c8ef143a4e06a71",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Insurance Canonical Specification"
+    },
+    {
+      "level": 2,
+      "text": "Purpose"
+    },
+    {
+      "level": 2,
+      "text": "Runtime Boundary"
+    },
+    {
+      "level": 2,
+      "text": "Aggregate"
+    },
+    {
+      "level": 2,
+      "text": "Commands"
+    },
+    {
+      "level": 2,
+      "text": "State Machine"
+    },
+    {
+      "level": 2,
+      "text": "Validation Rules"
+    },
+    {
+      "level": 2,
+      "text": "Reporting Visibility"
+    },
+    {
+      "level": 2,
+      "text": "Audit"
+    },
+    {
+      "level": 2,
+      "text": "Implementation Gate"
+    }
+  ],
+  "bodyMarkdown": "# Insurance Canonical Specification\n\nDocument Path: knowledge/supporting/insurance.md\nDocument Type: Atlas Enterprise Canonical Specification\nVersion: 1.0\nStatus: Planning\nDomain: Insurance\nBounded Context: Protection Planning\nOwner: Product Knowledge\n\n## Purpose\n\nInsurance defines protection planning records used by Atlas to evaluate coverage, premium burden, beneficiary readiness, and claim-related decision context. It is decision-support only and does not issue, sell, bind, underwrite, or execute insurance policies.\n\n## Runtime Boundary\n\nInsurance is not runtime-ready in v1.2 until an implementation batch separately proves persistence, backup, restore, owner isolation, audit, and UI validation. Current scope is canonical specification only.\n\nUnsupported behavior:\n\n- No external carrier integration.\n- No premium payment execution.\n- No claim submission execution.\n- No underwriting automation.\n- No remote policy document storage.\n- No backend, cloud database, or scheduler requirement.\n\n## Aggregate\n\nAggregate Name: Policy\nAggregate Root: Policy\nBusiness Meaning: Policy represents a local protection planning record owned by a household.\n\nRequired identity:\n\n- policyId\n- householdId\n- ownerId\n- policyType\n- policyStatus\n- coverageAmount\n- premiumAmount\n- premiumFrequency\n- effectiveDate\n- renewalDate\n- beneficiarySummary\n- createdAt\n- updatedAt\n\n## Commands\n\n| Command | Purpose | Mutation Boundary | Event |\n| --- | --- | --- | --- |\n| IssuePolicy | Create a local policy planning record. | One Policy | PolicyIssued |\n| PayPremium | Record a local premium fact for planning. | One Policy | PremiumPaid |\n| UpdateCoverage | Update coverage amount or beneficiary summary. | One Policy | CoverageUpdated |\n| SubmitClaim | Record local claim planning evidence. | One Policy | ClaimSubmitted |\n| RecordClaimPayment | Record local claim payment evidence. | One Policy | ClaimPaid |\n\n## State Machine\n\nAllowed policy states:\n\n- Draft\n- Active\n- Lapsed\n- Cancelled\n- Claimed\n- Closed\n\nTransitions must be deterministic, auditable, owner-scoped, and idempotent. Closed policies cannot be mutated except for archive or restore behavior defined by a future persistence ADR.\n\n## Validation Rules\n\n- policyId, householdId, ownerId, policyType, and policyStatus are required.\n- coverageAmount and premiumAmount must be finite non-negative numbers.\n- premiumFrequency must be one of monthly, quarterly, semiannual, annual, or one-time.\n- effectiveDate cannot be after renewalDate when both are present.\n- beneficiarySummary must not contain secrets, tokens, raw identity documents, or remote URLs.\n- Policy commands require idempotency keys.\n\n## Reporting Visibility\n\nInsurance reporting may show coverage amount, premium burden, status, and renewal timing. Reports must mask restricted beneficiary details and must not imply carrier-confirmed coverage.\n\n## Audit\n\nEvery command records operator, householdId, policyId, command name, event name, timestamp, correlationId, prior state, next state, and validation result.\n\n## Implementation Gate\n\nRuntime implementation requires:\n\n- Repository contract.\n- IndexedDB schema decision.\n- Backup and restore compatibility decision.\n- Owner isolation tests.\n- Command and application tests.\n- UI accessibility and security validation.\n",
+  "references": []
+}

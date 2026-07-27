@@ -7,22 +7,28 @@
     {
       "batchId": "BATCH-001",
       "priority": "Must",
-      "status": "Pending",
+      "status": "Complete",
       "candidateIds": ["CAND-101", "CAND-103"],
       "dependencies": [],
       "validationProfiles": ["quick"],
       "risk": "Medium",
-      "nextAction": "Complete canonical specifications for Insurance and CSV import before runtime implementation."
+      "nextAction": "Complete. Continue with BATCH-002 ADRs.",
+      "completedAt": "2026-07-27T00:00:00.000+08:00",
+      "validationResult": "status-traceability, roadmap-architecture, and planning-baseline passed",
+      "implementationReport": "docs/roadmap/v1.2-batch-001-specification-report.md"
     },
     {
       "batchId": "BATCH-002",
       "priority": "Must",
-      "status": "Pending",
+      "status": "Complete",
       "candidateIds": ["CAND-102", "CAND-105"],
       "dependencies": ["BATCH-001"],
       "validationProfiles": ["quick", "feature"],
       "risk": "High",
-      "nextAction": "Write ADRs for Position persistence and backup schema versioning."
+      "nextAction": "Complete. Select first runtime-safe v1.2 implementation batch only after validation scope is created.",
+      "completedAt": "2026-07-27T00:00:00.000+08:00",
+      "validationResult": "roadmap-architecture, backup-security, and planning-baseline passed",
+      "implementationReport": "docs/roadmap/v1.2-batch-002-adr-report.md"
     },
     {
       "batchId": "BATCH-003",
