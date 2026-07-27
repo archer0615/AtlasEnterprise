@@ -9,6 +9,16 @@ Atlas validation is split into explicit profiles so day-to-day work can stay fas
 | Full | `npm run validate:full` | Broad repository validation without release/archive retirement closure gates. | Integration readiness |
 | Release | `npm run validate:release` | Full release gate including release governance, archive, closure, monitoring, and retirement validations. | Release readiness |
 
+## v1.2 Gate Tests
+
+The quick, feature, full, and release profiles include these v1.2 pre-implementation gates:
+
+- `npm run test:position-persistence-gates`
+- `npm run test:backup-schema-compatibility`
+- `npm run test:csv-import-security`
+
+These gates keep Position persistence, backup schema changes, and CSV import runtime work blocked until executable safety evidence exists.
+
 ## Default Command
 
 `npm run validate` intentionally maps to `npm run validate:quick`.
