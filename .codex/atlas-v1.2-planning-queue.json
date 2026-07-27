@@ -33,12 +33,26 @@
     {
       "batchId": "BATCH-003",
       "priority": "Could",
-      "status": "Deferred",
+      "status": "Complete",
       "candidateIds": ["CAND-104", "CAND-106", "CAND-107"],
       "dependencies": [],
       "validationProfiles": ["quick"],
       "risk": "Medium",
-      "nextAction": "Collect measured performance evidence and keep external/cloud capabilities research-only."
+      "nextAction": "Complete as validation-planning evidence. Runtime implementation remains unselected.",
+      "completedAt": "2026-07-27T00:00:00.000+08:00",
+      "validationResult": "status-traceability, roadmap-architecture, and feature passed",
+      "implementationReport": "docs/roadmap/v1.2-release-evidence-update.md"
+    },
+    {
+      "batchId": "BATCH-004",
+      "priority": "Should",
+      "status": "Pending",
+      "candidateIds": ["CAND-102", "CAND-103", "CAND-101"],
+      "dependencies": ["BATCH-001", "BATCH-002", "BATCH-003"],
+      "validationProfiles": ["feature"],
+      "risk": "Medium",
+      "nextAction": "Create executable validation tests before selecting runtime implementation.",
+      "validationResult": "feature passed for planning evidence"
     }
   ],
   "excluded": [
