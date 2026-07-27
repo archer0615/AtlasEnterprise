@@ -12,6 +12,7 @@ Atlas Enterprise v1.0.0 is a local-first, offline-first, static-first financial 
 - Recommendation and execution planning runtime
 - Notification, automation, scheduler, and business calendar runtime
 - Backup, restore, PWA, offline, and validation gates
+- v1.2 validation gates for Position persistence, backup schema compatibility, and CSV import security
 
 ## Not Included
 
