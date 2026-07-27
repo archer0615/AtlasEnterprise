@@ -68,6 +68,7 @@
     "validate:accessibility-smoke": "node frontend/scripts/validate-accessibility-smoke.mjs",
     "test:backup-restore-e2e": "node frontend/scripts/test-backup-restore-e2e.mjs",
     "validate:backup-security": "node frontend/scripts/validate-backup-security.mjs",
+    "validate:static-security-audit": "node frontend/scripts/validate-static-security-audit.mjs",
     "validate:deployment": "node scripts/validate-deployment.mjs",
     "validate:preview-smoke": "node scripts/validate-preview-smoke.mjs",
     "validate:release-governance": "node scripts/validate-release-governance.mjs",

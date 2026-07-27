@@ -51,12 +51,16 @@
     {
       "batchId": "BATCH-004",
       "priority": "Must",
-      "status": "Pending",
+      "status": "Complete",
       "candidateIds": ["CAND-007", "CAND-008"],
       "dependencies": ["BATCH-001"],
       "validationProfiles": ["feature", "full", "visual-regression"],
       "risk": "Medium",
-      "nextAction": "Harden accessibility announcements and security static audit after UI changes."
+      "nextAction": "Complete. Continue with v1.1 release certification.",
+      "startedAt": "2026-07-27T00:00:00.000+08:00",
+      "completedAt": "2026-07-27T00:00:00.000+08:00",
+      "validationResult": "static security audit, accessibility smoke, feature, full, and visual-regression passed",
+      "implementationReport": "docs/implementation/v1.1-batch-004-implementation-report.md"
     }
   ],
   "excluded": [

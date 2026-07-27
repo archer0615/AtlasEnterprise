@@ -250,7 +250,7 @@ async function openDocument(id) {
   const doc = state.documents.find((item) => item.id === id);
   if (!doc) return;
   state.selectedDocumentId = id;
-  window.history.replaceState(null, "", `#doc=${id}`);
+  window.history.replaceState(null, "", `#doc=${encodeURIComponent(id)}`);
   renderList();
   const response = await fetch(`knowledge/documents/${doc.id}.json`);
   if (!response.ok) {
@@ -777,7 +777,9 @@ async function applyBackup() {
 }
 
 function setRuntimeFeedback(message) {
-  runtimeFeedback.textContent = message;
+  const safeMessage = String(message || "");
+  runtimeFeedback.textContent = safeMessage;
+  if (statusText) statusText.textContent = safeMessage;
 }
 
 function profileStorageKey() {

@@ -39,6 +39,9 @@ try {
     assert(await page.locator(selector).count() >= 1, `${selector} is missing`);
   }
 
+  const statusAnnouncements = await page.locator('[role="status"][aria-live][aria-atomic="true"]').count();
+  assert(statusAnnouncements >= 2, "status announcements must expose atomic aria-live regions");
+
   const buttonsWithoutText = await page.locator("button").evaluateAll((buttons) => buttons.filter((button) => !button.textContent.trim() && !button.getAttribute("aria-label")).length);
   assert(buttonsWithoutText === 0, "button missing text or aria-label");
 

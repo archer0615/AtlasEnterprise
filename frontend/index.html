@@ -42,7 +42,7 @@
             <p class="eyebrow">本機優先營運工具</p>
             <h2 id="pageTitle">財務決策總覽</h2>
           </div>
-          <div class="status" id="statusText">系統已就緒</div>
+          <div class="status" id="statusText" role="status" aria-live="polite" aria-atomic="true">系統已就緒</div>
         </header>
         <section class="user-summary" aria-label="使用者流程摘要">
           <div><span>1</span><strong>檢視目前狀態</strong><small>從儀表板確認財務情境、分數與待辦事項。</small></div>
@@ -281,7 +281,7 @@
           </details>
           <div class="backup-preview" id="backupPreview"></div>
           <div class="backup-dry-run" id="backupDryRunPanel"></div>
-          <div class="runtime-feedback" id="runtimeFeedback" role="status" aria-live="polite"></div>
+          <div class="runtime-feedback" id="runtimeFeedback" role="status" aria-live="polite" aria-atomic="true"></div>
           <div class="dashboard-switcher" id="dashboardSwitcher" aria-label="儀表板情境切換"></div>
           <div class="metric-grid" id="metricGrid"></div>
           <div class="decision-panels">
