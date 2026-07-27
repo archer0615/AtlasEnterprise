@@ -203,6 +203,18 @@
           <div id="goalProgressPanel" class="decision-log" aria-live="polite"></div>
           <div id="financialHealthPanel" class="decision-log" aria-live="polite"></div>
         </section>
+        <section id="csv-import" class="profile-settings csv-import-panel" aria-label="CSV 匯入預演">
+          <div>
+            <p class="eyebrow">本機資料匯入</p>
+            <h3>CSV 匯入預演</h3>
+          </div>
+          <div class="dashboard-actions compact-actions">
+            <label><span>CSV 檔案</span><input id="csvImportInput" type="file" accept=".csv,text/csv" /></label>
+            <button id="csvDryRunButton" type="button">執行預演</button>
+            <button id="csvClearPreviewButton" type="button">清除預覽</button>
+          </div>
+          <div id="csvImportDryRunPanel" class="decision-log" aria-live="polite"></div>
+        </section>
         <section class="release-dashboard" aria-label="發布狀態">
           <div>
             <h3>發布狀態</h3>

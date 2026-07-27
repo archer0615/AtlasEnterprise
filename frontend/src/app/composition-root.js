@@ -16,6 +16,7 @@ import { createBackupController } from "../features/backup/backup-controller.js"
 import { createProfileController } from "../features/profile/profile-controller.js";
 import { createNavigationController } from "../features/navigation/navigation-controller.js";
 import { createPwaController } from "../features/pwa/pwa-controller.js";
+import { createCsvImportController } from "../features/import/csv-import-controller.js";
 import { createPwaRuntimeSnapshot, createPwaRecoveryPlan, validatePwaRuntimeSnapshot } from "../pwa-runtime-resilience.js";
 import { authorizeLocalRuntime } from "../security-boundary.js";
 
@@ -138,6 +139,7 @@ function registerFeatures(services, shared) {
     profile: createProfileController,
     navigation: createNavigationController,
     pwa: createPwaController,
+    csvImport: createCsvImportController,
   };
   for (const [id, factory] of Object.entries(factories)) services.register(`feature.${id}`, () => factory(featureShared), { scope: "feature" });
   return Object.freeze(Object.fromEntries(Object.keys(factories).map((id) => [id, services.resolve(`feature.${id}`)])));
