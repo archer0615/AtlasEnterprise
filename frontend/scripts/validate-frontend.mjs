@@ -29,7 +29,7 @@ for (const id of [
   "scenarioScoreInput", "exportBackupButton", "importBackupInput", "restoreConfirmInput",
   "exportEncryptedBackupButton", "backupPassphraseInput", "backupConflictPolicySelect",
   "applyBackupButton", "backupPreview", "backupDryRunPanel", "scenarioComparisonPanel", "scenarioComparisonSortInput",
-  "portfolioReportPanel", "exportPreviewPanel", "recommendationControlPanel",
+  "portfolioReportPanel", "positionPanel", "exportPreviewPanel", "recommendationControlPanel",
   "recommendationHistoryPanel", "recommendationFilterInput", "exportRecommendationHistoryButton", "loanScenarioPanel",
   "exportPortfolioReportButton", "recommendationDecisionLog", "acceptRecommendationButton",
   "rejectRecommendationButton", "loanBalanceInput", "loanRateInput", "loanMonthsInput",

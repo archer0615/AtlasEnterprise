@@ -1,3 +1,14 @@
 export function renderPortfolioState(element, state) {
   if (element) element.dataset.portfolioState = state;
 }
+
+export function renderPositionPanel(element, state = {}) {
+  if (!element) return;
+  element.dataset.positionState = state.status || "unknown";
+  element.textContent = [
+    "持倉資料",
+    `狀態：${state.status || "unknown"}`,
+    `Store：${state.storeName || "positions"}`,
+    `Backup：${state.backupSchema || "atlas-pwa-runtime-backup.v2"}`,
+  ].join("\n");
+}

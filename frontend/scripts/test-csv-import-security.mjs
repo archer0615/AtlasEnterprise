@@ -34,6 +34,13 @@ assert(valid.accepted, "valid CSV fixture was rejected");
 assert(valid.records.length === 2, "valid CSV fixture did not parse expected records");
 assert(valid.writeCount === 0, "CSV import dry-run must not write");
 
+const validPosition = dryRunCsvImport(
+  "entityType,id,ownerId,name,householdId,portfolioId,assetId,quantity,unitCost,marketValue,currency,status\nposition,p1,owner-1,Position A,household-1,portfolio-1,asset-1,2,10,20,TWD,active",
+  { ownerId: "owner-1" },
+);
+assert(validPosition.accepted, "valid position CSV fixture was rejected");
+assert(validPosition.records[0].record.positionId === "p1", "position CSV did not map id to positionId");
+
 const securityPlan = await readFile(path.join(root, "docs", "roadmap", "v1.2-csv-import-security-tests.md"), "utf8");
 for (const [, , expectedCode] of cases) {
   assert(securityPlan.toLowerCase().includes(expectedCode.replaceAll("_", " ").toLowerCase().split(" ")[0]), `CSV security plan does not cover ${expectedCode}`);

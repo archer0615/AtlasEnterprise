@@ -59,4 +59,19 @@ assert.equal(missingAtomic.accepted, false);
 assert.equal(missingAtomic.writeCount, 0);
 assert(missingAtomic.errors.some((item) => item.code === "MISSING_ATOMIC_REPOSITORY"));
 
+const positionCsv = [
+  "entityType,id,ownerId,name,householdId,portfolioId,assetId,quantity,unitCost,marketValue,currency,status",
+  "position,position-write-1,owner-1,CSV Position,household-1,portfolio-1,asset-1,4,25,100,TWD,active",
+].join("\n");
+const positionRepository = createAtomicRepository();
+const positionCommit = await commitCsvImport(positionCsv, {
+  ownerId: "owner-1",
+  repositories: { position: positionRepository },
+  clock: { now: () => new Date("2026-07-27T00:00:00.000Z") },
+});
+
+assert.equal(positionCommit.accepted, true);
+assert.equal(positionCommit.writeCount, 1);
+assert.equal(positionRepository.records[0].positionId, "position-write-1");
+
 console.log("CSV import write path tests passed.");

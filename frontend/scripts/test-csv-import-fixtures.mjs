@@ -12,6 +12,7 @@ const validFixtures = [
   "csv-import-assets-valid.csv",
   "csv-import-liabilities-valid.csv",
   "csv-import-mixed-valid.csv",
+  "csv-import-positions-valid.csv",
 ];
 for (const name of validFixtures) {
   const result = dryRunCsvImport(await fixture(name), { ownerId: "owner-1" });

@@ -48,7 +48,7 @@ try {
     "#releaseDashboardPanel", "#sampleExportButton", "#sampleBackupButton", "#releaseNoteButton", "#releaseNotePanel", "#cacheVersionText",
     "#reportVersionPanel", "#reportVersionHistoryPanel", "#exportValidationButton", "#generateValidationSummaryButton",
     "#validationExportPanel", "#performanceBudgetTrendPanel", "#releaseEvidenceArchivePanel", "#offlineRepairButton", "#offlineRepairPanel", "#offlineRepairAuditPanel",
-    "#exportPreviewPanel", "#scenarioComparisonPanel", "#scenarioComparisonSortInput", "#backupDryRunPanel",
+    "#exportPreviewPanel", "#positionPanel", "#scenarioComparisonPanel", "#scenarioComparisonSortInput", "#backupDryRunPanel",
     "#recommendationHistoryPanel", "#exportRecommendationHistoryButton", "#resetLoanButton", "#metricGrid", "#scenarioList", "#actionList",
     "#executionPlanPanel", "#actionPlanPanel", "#businessCalendarPanel", "#schedulerStatusPanel", "#notificationListPanel",
     "#profileIncomeInput", "#profileAssetsInput", "#profileDebtInput", "#profileGoalSelect",

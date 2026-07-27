@@ -1,0 +1,2 @@
+entityType,id,ownerId,name,householdId,portfolioId,assetId,quantity,unitCost,marketValue,currency,status
+position,position-1,owner-1,Core Equity Position,household-1,portfolio-1,asset-1,10,80,1000,TWD,active

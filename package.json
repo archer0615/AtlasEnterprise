@@ -75,6 +75,7 @@
     "test:csv-import-write-path": "node frontend/scripts/test-csv-import-write-path.mjs",
     "test:position-repository-contract": "node frontend/scripts/test-position-repository-contract.mjs",
     "test:position-indexeddb-migration": "node frontend/scripts/test-position-indexeddb-migration.mjs",
+    "test:position-ui-entry": "node frontend/scripts/test-position-ui-entry.mjs",
     "test:backup-schema-v2-fixtures": "node frontend/scripts/test-backup-schema-v2-fixtures.mjs",
     "validate:csv-import-browser-smoke": "node frontend/scripts/validate-csv-import-browser-smoke.mjs",
     "validate:backup-security": "node frontend/scripts/validate-backup-security.mjs",
