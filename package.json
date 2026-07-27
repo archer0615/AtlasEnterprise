@@ -69,6 +69,7 @@
     "test:backup-restore-e2e": "node frontend/scripts/test-backup-restore-e2e.mjs",
     "test:position-persistence-gates": "node frontend/scripts/test-position-persistence-gates.mjs",
     "test:backup-schema-compatibility": "node frontend/scripts/test-backup-schema-compatibility.mjs",
+    "test:csv-import-dry-run": "node frontend/scripts/test-csv-import-security.mjs",
     "test:csv-import-security": "node frontend/scripts/test-csv-import-security.mjs",
     "validate:backup-security": "node frontend/scripts/validate-backup-security.mjs",
     "validate:static-security-audit": "node frontend/scripts/validate-static-security-audit.mjs",
