@@ -42,6 +42,7 @@ Atlas v1.0.0 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
 - v1.2.2 final readiness, candidate readiness, release evidence lock, and closure evidence recorded.
 - v1.2.2 final release review, archive readiness lock, and post-release monitoring evidence recorded.
 - v1.2.2 maintenance readiness, archive closure verification, and handoff readiness review evidence recorded.
+- v1.2.2 release closure lock, post-archive monitoring, final archive audit, and remote evidence blocker status recorded.
 
 ## Evidence
 
