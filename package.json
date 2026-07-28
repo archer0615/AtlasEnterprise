@@ -15,6 +15,7 @@
     "validate:roadmap-decision-workbench": "node scripts/validate-roadmap-decision-workbench.mjs",
     "validate:roadmap-ux-pwa": "node scripts/validate-roadmap-ux-pwa.mjs",
     "validate:roadmap-final-readiness": "node scripts/validate-roadmap-final-readiness.mjs",
+    "validate:v1.2.2-planning": "node scripts/validate-v1-2-2-planning.mjs",
     "validate:profiles": "node scripts/validate-validation-profiles.mjs",
     "validate:quick": "node scripts/run-validation-profile.mjs quick",
     "validate:feature": "node scripts/run-validation-profile.mjs feature",
