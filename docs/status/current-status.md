@@ -40,6 +40,7 @@ Atlas v1.0.0 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
 - v1.2.2 release dry-run validation, GitHub Pages workflow evidence, visual baseline refresh, and next runtime batch selection.
 - v1.2.2 selected next items closed: position reporting UI status, insurance runtime validation plan, and CSV write path expansion archive.
 - v1.2.2 final readiness, candidate readiness, release evidence lock, and closure evidence recorded.
+- v1.2.2 final release review, archive readiness lock, and post-release monitoring evidence recorded.
 
 ## Evidence
 
