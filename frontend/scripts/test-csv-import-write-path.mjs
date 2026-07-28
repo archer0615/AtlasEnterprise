@@ -6,13 +6,17 @@ function createAtomicRepository() {
   return {
     records,
     async createManyAtomic(incoming) {
-      if (incoming.some((record) => records.some((existing) => existing.id === record.id))) {
+      if (incoming.some((record) => records.some((existing) => recordKey(existing) === recordKey(record)))) {
         throw new Error("duplicate id");
       }
       records.push(...incoming);
       return incoming;
     },
   };
+}
+
+function recordKey(record) {
+  return record.id || record.positionId || record.policyId;
 }
 
 const validCsv = [
@@ -90,11 +94,12 @@ assert.equal(insuranceCommit.writeCount, 1);
 assert.equal(insuranceRepository.records[0].policyId, "insurance-write-1");
 
 const multiEntityCsv = [
-  "entityType,id,ownerId,name,liabilityType,incomeType,expenseType,goalType,currency,outstandingBalance,asOfDate,status,frequency,amount,startDate,occurrenceDate,targetAmount,currentAmount,targetDate,priority",
-  "liability,liability-write-1,owner-1,CSV Liability,loan,,,,TWD,5000,2026-07-27,active,,,,,,,,",
-  "income,income-write-1,owner-1,CSV Income,,salary,,,TWD,,2026-07-27,active,monthly,120000,2026-07-27,2026-07-27,,,,",
-  "expense,expense-write-1,owner-1,CSV Expense,,,food,,TWD,,2026-07-27,active,monthly,30000,2026-07-27,2026-07-27,,,,",
-  "goal,goal-write-1,owner-1,CSV Goal,,,,emergency-fund,TWD,,2026-07-27,active,,,2026-07-27,,100000,1000,2027-07-27,high",
+  "entityType,id,ownerId,name,liabilityType,incomeType,expenseType,goalType,currency,outstandingBalance,asOfDate,status,frequency,amount,startDate,occurrenceDate,targetAmount,currentAmount,targetDate,priority,householdId,providerName,coverageType,coverageAmount,premiumAmount,premiumFrequency,beneficiarySummary,effectiveDate",
+  "liability,liability-write-1,owner-1,CSV Liability,loan,,,,TWD,5000,2026-07-27,active,,,,,,,,,,,,,,,,",
+  "income,income-write-1,owner-1,CSV Income,,salary,,,TWD,,2026-07-27,active,monthly,120000,2026-07-27,2026-07-27,,,,,,,,,,,,",
+  "expense,expense-write-1,owner-1,CSV Expense,,,food,,TWD,,2026-07-27,active,monthly,30000,2026-07-27,2026-07-27,,,,,,,,,,,,",
+  "goal,goal-write-1,owner-1,CSV Goal,,,,emergency-fund,TWD,,2026-07-27,active,,,2026-07-27,,100000,1000,2027-07-27,high,,,,,,,,",
+  "insurance,insurance-write-2,owner-1,CSV Insurance,,,,,TWD,,2026-07-28,active,,,,,,,,,household-1,Atlas Life,life,3000000,2500,monthly,Family,2026-07-28",
 ].join("\n");
 const multiCommitInput = {};
 const multiCommit = await commitCsvImport(multiEntityCsv, {
@@ -104,6 +109,7 @@ const multiCommit = await commitCsvImport(multiEntityCsv, {
     income: createAtomicRepository(),
     expense: createAtomicRepository(),
     goal: createAtomicRepository(),
+    insurance: createAtomicRepository(),
   },
   unitOfWork: {
     async createManyAtomic(groupedRecords) {
@@ -115,11 +121,12 @@ const multiCommit = await commitCsvImport(multiEntityCsv, {
 });
 
 assert.equal(multiCommit.accepted, true);
-assert.equal(multiCommit.writeCount, 4);
-assert.deepEqual(Object.keys(multiCommitInput).sort(), ["expense", "goal", "income", "liability"]);
+assert.equal(multiCommit.writeCount, 5);
+assert.deepEqual(Object.keys(multiCommitInput).sort(), ["expense", "goal", "income", "insurance", "liability"]);
 assert(multiCommit.records.some((item) => item.entityType === "liability" && item.record.id === "liability-write-1"));
 assert(multiCommit.records.some((item) => item.entityType === "income" && item.record.id === "income-write-1"));
 assert(multiCommit.records.some((item) => item.entityType === "expense" && item.record.id === "expense-write-1"));
 assert(multiCommit.records.some((item) => item.entityType === "goal" && item.record.id === "goal-write-1"));
+assert(multiCommit.records.some((item) => item.entityType === "insurance" && item.record.policyId === "insurance-write-2"));
 
 console.log("CSV import write path tests passed.");

@@ -43,7 +43,7 @@ export function createInsuranceController({ dom, listeners }) {
           beneficiarySummary: value("#insuranceBeneficiaryInput"),
           effectiveDate: value("#insuranceEffectiveDateInput"),
         });
-        await render(result.ok ? "保單已新增。" : result.errors.map((item) => item.code).join(", "));
+        await render(result.ok ? "保單已新增。" : formatErrors(result.errors));
       });
       listeners.add(dom.optional("#insurancePolicyListPanel"), "click", async (event) => {
         const button = event.target?.closest?.("[data-insurance-action]");
@@ -53,11 +53,15 @@ export function createInsuranceController({ dom, listeners }) {
         const result = action === "cancel"
           ? await service.cancelPolicy(policyId)
           : await service.updatePolicy(policyId, { premiumAmount: Number(value("#insurancePremiumAmountInput") || 0) });
-        await render(result.ok ? "保單已更新。" : result.errors.map((item) => item.code).join(", "));
+        await render(result.ok ? "保單已更新。" : formatErrors(result.errors));
       });
     },
     dispose() {},
   };
+}
+
+function formatErrors(errors = []) {
+  return errors.map((item) => `${item.code}${item.message ? ` ${item.message}` : ""}`).join(", ");
 }
 
 function escapeHtml(value) {

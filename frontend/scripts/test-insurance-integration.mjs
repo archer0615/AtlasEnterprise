@@ -53,6 +53,10 @@ try {
   const panel = await page.locator("#insurancePolicyListPanel").textContent();
   assert(panel.includes("Atlas Life"), "insurance UI did not render provider");
   assert(panel.includes("保單數：1"), "insurance UI did not render policy count");
+  await page.click("#createInsurancePolicyButton");
+  await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("ATLAS_INSURANCE_POLICY_ALREADY_EXISTS"));
+  const duplicatePanel = await page.locator("#insurancePolicyListPanel").textContent();
+  assert(duplicatePanel.includes("Insurance policy name already exists"), "insurance duplicate UI did not render readable error");
   await page.fill("#insurancePremiumAmountInput", "2750");
   await page.click("[data-insurance-action='increase-premium']");
   await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("2750"));
