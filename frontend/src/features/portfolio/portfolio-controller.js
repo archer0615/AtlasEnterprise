@@ -6,6 +6,7 @@ export function createPortfolioController({ dom }) {
       renderPortfolioState(dom.optional("#portfolioReportPanel"), "ready");
       renderPositionPanel(dom.optional("#positionPanel"), {
         status: "ready",
+        mode: "reporting-readonly",
         storeName: "positions",
         backupSchema: "atlas-pwa-runtime-backup.v2",
       });

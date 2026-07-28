@@ -74,4 +74,37 @@ assert.equal(positionCommit.accepted, true);
 assert.equal(positionCommit.writeCount, 1);
 assert.equal(positionRepository.records[0].positionId, "position-write-1");
 
+const multiEntityCsv = [
+  "entityType,id,ownerId,name,liabilityType,incomeType,expenseType,goalType,currency,outstandingBalance,asOfDate,status,frequency,amount,startDate,occurrenceDate,targetAmount,currentAmount,targetDate,priority",
+  "liability,liability-write-1,owner-1,CSV Liability,loan,,,,TWD,5000,2026-07-27,active,,,,,,,,",
+  "income,income-write-1,owner-1,CSV Income,,salary,,,TWD,,2026-07-27,active,monthly,120000,2026-07-27,2026-07-27,,,,",
+  "expense,expense-write-1,owner-1,CSV Expense,,,food,,TWD,,2026-07-27,active,monthly,30000,2026-07-27,2026-07-27,,,,",
+  "goal,goal-write-1,owner-1,CSV Goal,,,,emergency-fund,TWD,,2026-07-27,active,,,2026-07-27,,100000,1000,2027-07-27,high",
+].join("\n");
+const multiCommitInput = {};
+const multiCommit = await commitCsvImport(multiEntityCsv, {
+  ownerId: "owner-1",
+  repositories: {
+    liability: createAtomicRepository(),
+    income: createAtomicRepository(),
+    expense: createAtomicRepository(),
+    goal: createAtomicRepository(),
+  },
+  unitOfWork: {
+    async createManyAtomic(groupedRecords) {
+      Object.assign(multiCommitInput, groupedRecords);
+      return groupedRecords;
+    },
+  },
+  clock: { now: () => new Date("2026-07-27T00:00:00.000Z") },
+});
+
+assert.equal(multiCommit.accepted, true);
+assert.equal(multiCommit.writeCount, 4);
+assert.deepEqual(Object.keys(multiCommitInput).sort(), ["expense", "goal", "income", "liability"]);
+assert(multiCommit.records.some((item) => item.entityType === "liability" && item.record.id === "liability-write-1"));
+assert(multiCommit.records.some((item) => item.entityType === "income" && item.record.id === "income-write-1"));
+assert(multiCommit.records.some((item) => item.entityType === "expense" && item.record.id === "expense-write-1"));
+assert(multiCommit.records.some((item) => item.entityType === "goal" && item.record.id === "goal-write-1"));
+
 console.log("CSV import write path tests passed.");
