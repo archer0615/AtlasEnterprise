@@ -53,6 +53,9 @@ try {
   const panel = await page.locator("#insurancePolicyListPanel").textContent();
   assert(panel.includes("Atlas Life"), "insurance UI did not render provider");
   assert(panel.includes("保單數：1"), "insurance UI did not render policy count");
+  assert(panel.includes("保障總額：TWD 3000000"), "insurance UI did not render coverage summary");
+  assert(panel.includes("每月保費：2500"), "insurance UI did not render monthly premium summary");
+  assert(panel.includes("InsurancePolicyCreated"), "insurance UI did not render audit history");
   await page.click("#createInsurancePolicyButton");
   await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("ATLAS_INSURANCE_POLICY_ALREADY_EXISTS"));
   const duplicatePanel = await page.locator("#insurancePolicyListPanel").textContent();
@@ -60,8 +63,10 @@ try {
   await page.fill("#insurancePremiumAmountInput", "2750");
   await page.click("[data-insurance-action='increase-premium']");
   await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("2750"));
+  await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("InsurancePolicyUpdated"));
   await page.click("[data-insurance-action='cancel']");
   await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("cancelled"));
+  await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("InsurancePolicyCancelled"));
 
   await page.setInputFiles("#csvImportInput", {
     name: "csv-import-insurance-valid.csv",

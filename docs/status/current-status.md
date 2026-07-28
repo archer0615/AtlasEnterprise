@@ -35,6 +35,7 @@ Atlas v1.0.0 is a Static-first, Local-first, Offline-first GitHub Pages PWA.
 - v1.2.2 insurance CSV import mapping, local insurance policy UI entry, and browser integration coverage.
 - v1.2.2 insurance CSV commit path, update/cancel UI actions, and backup restore browser validation.
 - v1.2.2 insurance duplicate-name UI feedback, owner-isolation browser validation, and multi-entity CSV commit coverage.
+- v1.2.2 insurance coverage summary, audit history UI, and restore conflict policy browser validation.
 
 ## Evidence
 

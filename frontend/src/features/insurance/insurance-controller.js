@@ -14,12 +14,17 @@ export function createInsuranceController({ dom, listeners }) {
     const panel = dom.optional("#insurancePolicyListPanel");
     if (!panel) return;
     const policies = await service.listPolicies({ includeArchived: true });
+    const summary = summarizeCoverage(policies);
+    const audits = (await indexedDbAuditRepository.list()).filter((entry) => entry?.detail?.entityType === "InsurancePolicy").slice(-5).reverse();
     panel.dataset.insuranceState = "ready";
     panel.dataset.insuranceMode = "local-indexeddb";
     panel.innerHTML = [
       message ? `<p>${escapeHtml(message)}</p>` : "",
       `<p>保單數：${policies.length}</p>`,
+      `<p>保障總額：${escapeHtml(summary.currency)} ${summary.coverageAmount} / 每月保費：${summary.monthlyPremium}</p>`,
+      `<p>保障類型：${escapeHtml(summary.coverageTypes.join("、") || "無")}</p>`,
       ...policies.map((policy) => `<article><strong>${escapeHtml(policy.policyName)}</strong><span>${escapeHtml(policy.providerName)} / ${escapeHtml(policy.coverageType)} / ${escapeHtml(policy.status)}</span><small>${escapeHtml(policy.currency)} ${policy.coverageAmount}，保費 ${policy.premiumAmount} ${escapeHtml(policy.premiumFrequency)}</small><button type="button" data-insurance-action="increase-premium" data-policy-id="${escapeHtml(policy.policyId)}">更新保費</button><button type="button" data-insurance-action="cancel" data-policy-id="${escapeHtml(policy.policyId)}">取消保單</button></article>`),
+      audits.length ? `<div><strong>保險稽核</strong>${audits.map((entry) => `<small>${escapeHtml(entry.action)} ${escapeHtml(entry.detail?.entityId || "")}</small>`).join("")}</div>` : "",
     ].join("");
   }
 
@@ -62,6 +67,24 @@ export function createInsuranceController({ dom, listeners }) {
 
 function formatErrors(errors = []) {
   return errors.map((item) => `${item.code}${item.message ? ` ${item.message}` : ""}`).join(", ");
+}
+
+function summarizeCoverage(policies = []) {
+  const activePolicies = policies.filter((policy) => policy.status !== "cancelled");
+  const coverageAmount = activePolicies.reduce((total, policy) => total + Number(policy.coverageAmount || 0), 0);
+  const monthlyPremium = activePolicies.reduce((total, policy) => total + normalizeMonthlyPremium(policy), 0);
+  return {
+    currency: activePolicies[0]?.currency || "TWD",
+    coverageAmount,
+    monthlyPremium,
+    coverageTypes: [...new Set(activePolicies.map((policy) => policy.coverageType).filter(Boolean))],
+  };
+}
+
+function normalizeMonthlyPremium(policy = {}) {
+  const amount = Number(policy.premiumAmount || 0);
+  const factors = { monthly: 1, quarterly: 1 / 3, semiannual: 1 / 6, annual: 1 / 12 };
+  return Math.round(amount * (factors[policy.premiumFrequency] || 1));
 }
 
 function escapeHtml(value) {

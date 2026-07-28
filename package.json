@@ -70,6 +70,7 @@
     "test:insurance-integration": "node frontend/scripts/test-insurance-integration.mjs",
     "test:insurance-backup-restore-browser": "node frontend/scripts/test-insurance-backup-restore-browser.mjs",
     "test:insurance-owner-isolation-browser": "node frontend/scripts/test-insurance-owner-isolation-browser.mjs",
+    "test:insurance-restore-conflict-browser": "node frontend/scripts/test-insurance-restore-conflict-browser.mjs",
     "validate:browser-workflow": "node frontend/scripts/validate-browser-workflow.mjs",
     "validate:screenshot-metadata": "node frontend/scripts/validate-screenshot-metadata.mjs",
     "validate:accessibility-smoke": "node frontend/scripts/validate-accessibility-smoke.mjs",
