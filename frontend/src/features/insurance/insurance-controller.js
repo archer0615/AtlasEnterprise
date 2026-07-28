@@ -1,21 +1,29 @@
 import { createInsuranceApplicationService } from "../../application/insurance/insurance-application-service.js";
-import { indexedDbAuditRepository, indexedDbInsurancePolicyRepository } from "../../indexeddb-runtime.js";
 
-export function createInsuranceController({ dom, listeners }) {
+export function createInsuranceController({ dom, listeners, platform }) {
   const ownerProvider = { getCurrentOwner: async () => ({ ownerId: "owner-1" }) };
-  const service = createInsuranceApplicationService({
-    repository: indexedDbInsurancePolicyRepository,
-    ownerProvider,
-    auditRepository: indexedDbAuditRepository,
-    createId: () => `insurance-policy-${Date.now()}`,
-  });
+  let servicePromise = null;
+
+  async function getService() {
+    servicePromise = servicePromise || Promise.all([
+      platform.getInsurancePolicyRepository(),
+      platform.getAuditRepository(),
+    ]).then(([repository, auditRepository]) => createInsuranceApplicationService({
+      repository,
+      ownerProvider,
+      auditRepository,
+      createId: () => `insurance-policy-${Date.now()}`,
+    }));
+    return servicePromise;
+  }
 
   async function render(message = "") {
     const panel = dom.optional("#insurancePolicyListPanel");
     if (!panel) return;
+    const service = await getService();
     const policies = await service.listPolicies({ includeArchived: true });
     const summary = summarizeCoverage(policies);
-    const audits = (await indexedDbAuditRepository.list()).filter((entry) => entry?.detail?.entityType === "InsurancePolicy").slice(-5).reverse();
+    const audits = (await (await platform.getAuditRepository()).list()).filter((entry) => entry?.detail?.entityType === "InsurancePolicy").slice(-5).reverse();
     panel.dataset.insuranceState = "ready";
     panel.dataset.insuranceMode = "local-indexeddb";
     panel.innerHTML = [
@@ -36,6 +44,7 @@ export function createInsuranceController({ dom, listeners }) {
     initialize() {
       render();
       listeners.add(dom.optional("#createInsurancePolicyButton"), "click", async () => {
+        const service = await getService();
         const result = await service.createPolicy({
           householdId: "household-1",
           providerName: value("#insuranceProviderInput"),
@@ -53,6 +62,7 @@ export function createInsuranceController({ dom, listeners }) {
       listeners.add(dom.optional("#insurancePolicyListPanel"), "click", async (event) => {
         const button = event.target?.closest?.("[data-insurance-action]");
         if (!button) return;
+        const service = await getService();
         const policyId = button.dataset.policyId;
         const action = button.dataset.insuranceAction;
         const result = action === "cancel"

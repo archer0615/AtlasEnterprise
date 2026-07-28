@@ -29,6 +29,8 @@ export function createFrontendCompositionRoot({ documentRef = document, runtimeO
   const dom = createDomRegistry(documentRef);
   const platform = Object.freeze({
     getBackupRepository: async () => backupRepository || (await import("../indexeddb-runtime.js")).indexedDbBackupRepository,
+    getInsurancePolicyRepository: async () => (await import("../indexeddb-runtime.js")).indexedDbInsurancePolicyRepository,
+    getAuditRepository: async () => (await import("../indexeddb-runtime.js")).indexedDbAuditRepository,
   });
   const shared = Object.freeze({ dom, listeners, runtimeContext, errorBoundary, stateEvents, platform });
   const services = createRuntimeRegistry("service");

@@ -51,3 +51,4 @@ assert.equal(manifest.orientation, "any");
 assert.equal(Array.isArray(manifest.categories), true);
 
 console.log("PWA runtime resilience tests passed.");
+process.exit(0);

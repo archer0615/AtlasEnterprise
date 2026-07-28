@@ -16,8 +16,9 @@ The quick, feature, full, and release profiles include these v1.2 pre-implementa
 - `npm run test:position-persistence-gates`
 - `npm run test:backup-schema-compatibility`
 - `npm run test:csv-import-security`
+- `npm run test:insurance-runtime-validation`
 
-These gates keep Position persistence, backup schema changes, and CSV import runtime work blocked until executable safety evidence exists.
+These gates keep Position persistence, backup schema changes, CSV import runtime work, and insurance runtime changes tied to executable safety evidence.
 
 ## Default Command
 

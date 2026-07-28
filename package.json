@@ -71,6 +71,7 @@
     "test:insurance-backup-restore-browser": "node frontend/scripts/test-insurance-backup-restore-browser.mjs",
     "test:insurance-owner-isolation-browser": "node frontend/scripts/test-insurance-owner-isolation-browser.mjs",
     "test:insurance-restore-conflict-browser": "node frontend/scripts/test-insurance-restore-conflict-browser.mjs",
+    "test:insurance-runtime-validation": "npm run test:insurance-policy-domain && npm run test:insurance-policy-application && npm run test:insurance-indexeddb-repository && npm run test:insurance-integration && npm run test:insurance-backup-restore-browser && npm run test:insurance-owner-isolation-browser && npm run test:insurance-restore-conflict-browser",
     "validate:browser-workflow": "node frontend/scripts/validate-browser-workflow.mjs",
     "validate:screenshot-metadata": "node frontend/scripts/validate-screenshot-metadata.mjs",
     "validate:accessibility-smoke": "node frontend/scripts/validate-accessibility-smoke.mjs",
