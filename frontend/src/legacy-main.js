@@ -999,6 +999,7 @@ function translateStoreName(storeName) {
     recommendationDecisions: "建議決策",
     settings: "設定",
     auditEntries: "稽核紀錄",
+    insurancePolicies: "保險保單",
   };
   return labels[storeName] || storeName;
 }

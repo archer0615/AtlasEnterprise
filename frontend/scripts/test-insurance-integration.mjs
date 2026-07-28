@@ -53,6 +53,11 @@ try {
   const panel = await page.locator("#insurancePolicyListPanel").textContent();
   assert(panel.includes("Atlas Life"), "insurance UI did not render provider");
   assert(panel.includes("保單數：1"), "insurance UI did not render policy count");
+  await page.fill("#insurancePremiumAmountInput", "2750");
+  await page.click("[data-insurance-action='increase-premium']");
+  await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("2750"));
+  await page.click("[data-insurance-action='cancel']");
+  await page.waitForFunction(() => document.querySelector("#insurancePolicyListPanel")?.textContent.includes("cancelled"));
 
   await page.setInputFiles("#csvImportInput", {
     name: "csv-import-insurance-valid.csv",

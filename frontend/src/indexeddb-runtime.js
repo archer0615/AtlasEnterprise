@@ -736,6 +736,17 @@ export const indexedDbInsurancePolicyRepository = {
     await withStore(stores.insurancePolicies, "readwrite", (store) => store.add({ ...record }));
     return Object.freeze({ ...record });
   },
+  async createManyAtomic(records = []) {
+    const normalizedRecords = records.map((record) => ({ ...record }));
+    for (const record of normalizedRecords) {
+      if (!record.policyId || !record.ownerId) throw new Error("ATLAS_INSURANCE_POLICY_INVALID");
+      if (await this.existsByOwnerAndName(record.ownerId, record.policyName)) throw new Error("ATLAS_INSURANCE_POLICY_ALREADY_EXISTS");
+    }
+    await withStore(stores.insurancePolicies, "readwrite", (store) => {
+      for (const record of normalizedRecords) store.add({ ...record });
+    });
+    return normalizedRecords.map((record) => Object.freeze({ ...record }));
+  },
   async update(record) {
     const existing = await this.getById(record.policyId);
     if (!existing) throw new Error("ATLAS_INSURANCE_POLICY_NOT_FOUND");

@@ -19,7 +19,7 @@ export function createInsuranceController({ dom, listeners }) {
     panel.innerHTML = [
       message ? `<p>${escapeHtml(message)}</p>` : "",
       `<p>保單數：${policies.length}</p>`,
-      ...policies.map((policy) => `<article><strong>${escapeHtml(policy.policyName)}</strong><span>${escapeHtml(policy.providerName)} / ${escapeHtml(policy.coverageType)} / ${escapeHtml(policy.status)}</span><small>${escapeHtml(policy.currency)} ${policy.coverageAmount}，保費 ${policy.premiumAmount} ${escapeHtml(policy.premiumFrequency)}</small></article>`),
+      ...policies.map((policy) => `<article><strong>${escapeHtml(policy.policyName)}</strong><span>${escapeHtml(policy.providerName)} / ${escapeHtml(policy.coverageType)} / ${escapeHtml(policy.status)}</span><small>${escapeHtml(policy.currency)} ${policy.coverageAmount}，保費 ${policy.premiumAmount} ${escapeHtml(policy.premiumFrequency)}</small><button type="button" data-insurance-action="increase-premium" data-policy-id="${escapeHtml(policy.policyId)}">更新保費</button><button type="button" data-insurance-action="cancel" data-policy-id="${escapeHtml(policy.policyId)}">取消保單</button></article>`),
     ].join("");
   }
 
@@ -44,6 +44,16 @@ export function createInsuranceController({ dom, listeners }) {
           effectiveDate: value("#insuranceEffectiveDateInput"),
         });
         await render(result.ok ? "保單已新增。" : result.errors.map((item) => item.code).join(", "));
+      });
+      listeners.add(dom.optional("#insurancePolicyListPanel"), "click", async (event) => {
+        const button = event.target?.closest?.("[data-insurance-action]");
+        if (!button) return;
+        const policyId = button.dataset.policyId;
+        const action = button.dataset.insuranceAction;
+        const result = action === "cancel"
+          ? await service.cancelPolicy(policyId)
+          : await service.updatePolicy(policyId, { premiumAmount: Number(value("#insurancePremiumAmountInput") || 0) });
+        await render(result.ok ? "保單已更新。" : result.errors.map((item) => item.code).join(", "));
       });
     },
     dispose() {},
