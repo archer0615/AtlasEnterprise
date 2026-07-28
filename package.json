@@ -67,6 +67,7 @@
     "test:insurance-policy-domain": "node frontend/scripts/test-insurance-policy-domain.mjs",
     "test:insurance-policy-application": "node frontend/scripts/test-insurance-policy-application.mjs",
     "test:insurance-indexeddb-repository": "node frontend/scripts/test-insurance-indexeddb-repository.mjs",
+    "test:insurance-integration": "node frontend/scripts/test-insurance-integration.mjs",
     "validate:browser-workflow": "node frontend/scripts/validate-browser-workflow.mjs",
     "validate:screenshot-metadata": "node frontend/scripts/validate-screenshot-metadata.mjs",
     "validate:accessibility-smoke": "node frontend/scripts/validate-accessibility-smoke.mjs",

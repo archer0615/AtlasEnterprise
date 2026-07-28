@@ -27,6 +27,7 @@
           <a class="batch-nav-link" href="#calendar">行事曆</a>
           <a class="batch-nav-link" href="#notifications">通知</a>
           <a href="#loan">貸款試算</a>
+          <a href="#insurance">保險</a>
         </nav>
       </aside>
       <main class="workspace">
@@ -36,6 +37,7 @@
           <a href="#portfolio">報表</a>
           <a href="#recommendation">建議</a>
           <a href="#loan">貸款</a>
+          <a href="#insurance">保險</a>
         </nav>
         <header class="topbar">
           <div>
@@ -214,6 +216,24 @@
             <button id="csvClearPreviewButton" type="button">清除預覽</button>
           </div>
           <div id="csvImportDryRunPanel" class="decision-log" aria-live="polite"></div>
+        </section>
+        <section id="insurance" class="profile-settings insurance-panel" aria-label="保險保單管理">
+          <div>
+            <p class="eyebrow">本機保險資料</p>
+            <h3>保險保單</h3>
+          </div>
+          <div class="profile-grid">
+            <label><span>保險公司</span><input id="insuranceProviderInput" type="text" placeholder="例如 Atlas Life" /></label>
+            <label><span>保單名稱</span><input id="insurancePolicyNameInput" type="text" placeholder="例如 家庭保障" /></label>
+            <label><span>保障類型</span><select id="insuranceCoverageTypeInput"><option value="life">壽險</option><option value="health">醫療</option><option value="property">財產</option><option value="disability">失能</option><option value="liability">責任</option></select></label>
+            <label><span>保障金額</span><input id="insuranceCoverageAmountInput" type="text" inputmode="decimal" placeholder="例如 3000000" /></label>
+            <label><span>保費</span><input id="insurancePremiumAmountInput" type="text" inputmode="decimal" placeholder="例如 2500" /></label>
+            <label><span>繳費頻率</span><select id="insurancePremiumFrequencyInput"><option value="monthly">每月</option><option value="quarterly">每季</option><option value="semiannual">每半年</option><option value="annual">每年</option></select></label>
+            <label><span>受益摘要</span><input id="insuranceBeneficiaryInput" type="text" placeholder="例如 家庭" /></label>
+            <label><span>生效日</span><input id="insuranceEffectiveDateInput" type="date" /></label>
+            <button id="createInsurancePolicyButton" type="button">新增保單</button>
+          </div>
+          <div id="insurancePolicyListPanel" class="report-list" aria-live="polite"></div>
         </section>
         <section class="release-dashboard" aria-label="發布狀態">
           <div>

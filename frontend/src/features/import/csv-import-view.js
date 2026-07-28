@@ -16,5 +16,9 @@ export function renderCsvImportDryRun(element, result) {
     lines.push("錯誤");
     lines.push(...result.errors.map((error) => `第 ${error.row} 列 ${error.field || "欄位"} ${error.code} ${error.message}`));
   }
+  if (result.records.length > 0) {
+    lines.push("接受項目");
+    lines.push(...result.records.map((item) => `${item.entityType}:${item.record.policyId || item.record.positionId || item.record.id || ""}`));
+  }
   element.textContent = lines.join("\n");
 }

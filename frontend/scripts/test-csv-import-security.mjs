@@ -41,6 +41,13 @@ const validPosition = dryRunCsvImport(
 assert(validPosition.accepted, "valid position CSV fixture was rejected");
 assert(validPosition.records[0].record.positionId === "p1", "position CSV did not map id to positionId");
 
+const validInsurance = dryRunCsvImport(
+  "entityType,id,ownerId,name,householdId,providerName,coverageType,coverageAmount,premiumAmount,premiumFrequency,currency,status,beneficiarySummary,effectiveDate\ninsurance,insurance-1,owner-1,Policy A,household-1,Atlas Life,life,3000000,2500,monthly,TWD,active,Family,2026-07-28",
+  { ownerId: "owner-1" },
+);
+assert(validInsurance.accepted, "valid insurance CSV fixture was rejected");
+assert(validInsurance.records[0].record.policyId === "insurance-1", "insurance CSV did not map id to policyId");
+
 const securityPlan = await readFile(path.join(root, "docs", "roadmap", "v1.2-csv-import-security-tests.md"), "utf8");
 for (const [, , expectedCode] of cases) {
   assert(securityPlan.toLowerCase().includes(expectedCode.replaceAll("_", " ").toLowerCase().split(" ")[0]), `CSV security plan does not cover ${expectedCode}`);

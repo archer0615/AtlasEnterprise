@@ -2,6 +2,7 @@ import { normalizeAsset, validateAsset } from "../asset/asset-validation.js";
 import { normalizeExpense, validateExpense } from "../expense/expense-validation.js";
 import { normalizeGoal, validateGoal } from "../goal/goal-validation.js";
 import { normalizeIncome, validateIncome } from "../income/income-validation.js";
+import { normalizeInsurancePolicy, validateInsurancePolicy } from "../insurance/insurance-policy-contract.js";
 import { normalizeLiability, validateLiability } from "../liability/liability-validation.js";
 import { normalizePosition } from "../position/position-repository-contract.js";
 
@@ -13,6 +14,7 @@ const entityAdapters = {
   expense: { normalize: normalizeExpense, validate: validateExpense },
   goal: { normalize: normalizeGoal, validate: validateGoal },
   income: { normalize: normalizeIncome, validate: validateIncome },
+  insurance: { normalize: normalizeCsvInsurancePolicy, validate: validateInsurancePolicy },
   liability: { normalize: normalizeLiability, validate: validateLiability },
   position: { normalize: normalizeCsvPosition, validate: validateCsvPosition },
 };
@@ -36,7 +38,7 @@ export function dryRunCsvImport(csvText, options = {}) {
     const rawRecord = Object.fromEntries(headers.map((header, index) => [header, row[index] || ""]));
     const entityType = String(rawRecord.entityType || "").trim().toLowerCase();
     const adapter = entityAdapters[entityType];
-    const primaryId = rawRecord.id || rawRecord.positionId;
+    const primaryId = rawRecord.id || rawRecord.positionId || rawRecord.policyId;
     const recordKey = `${entityType}:${rawRecord.ownerId}:${primaryId}`;
     if (!adapter) rowErrors.push(error("UNKNOWN_ENTITY", rowNumber, "entityType", "CSV row entityType is not supported."));
     if (!primaryId) rowErrors.push(error("MISSING_REQUIRED_FIELD", rowNumber, "id", "CSV row id is required."));
@@ -114,6 +116,18 @@ function normalizeCsvPosition(input = {}, context = {}) {
     assetId: input.assetId || input.id,
     updatedAt: input.updatedAt || timestamp,
   });
+}
+
+function normalizeCsvInsurancePolicy(input = {}, context = {}) {
+  const timestamp = context.now?.().toISOString?.() || new Date(0).toISOString();
+  return normalizeInsurancePolicy({
+    ...input,
+    policyId: input.policyId || input.id,
+    householdId: input.householdId || context.householdId || "household-1",
+    providerName: input.providerName || input.provider || "",
+    policyName: input.policyName || input.name || "",
+    updatedAt: input.updatedAt || timestamp,
+  }, context);
 }
 
 function validateCsvPosition(input = {}) {

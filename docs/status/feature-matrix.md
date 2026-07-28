@@ -26,6 +26,7 @@
 | v1.1 BATCH-001 surfaces | Implemented | `frontend/index.html`, `frontend/src/legacy-main.js` | Read-only execution, action, calendar, scheduler, and notification panels using existing runtime. |
 | v1.1 BATCH-002 notification and backup planning | Implemented | `frontend/src/runtime/notification-runtime.js`, `docs/roadmap/v1.1-backup-coverage-plan.md` | Duplicate local notification generation is suppressed; contract-only backup coverage gates are documented. |
 | v1.1 BATCH-003 traceability/status alignment | Implemented | `docs/roadmap/v1.1-command-event-traceability-matrix.md`, `docs/status/current-status.md` | Command/event evidence and current status are aligned without runtime changes. |
+| Insurance policy runtime | Implemented | `frontend/src/domain/insurance/`, `frontend/src/application/insurance/`, `frontend/src/features/insurance/insurance-controller.js`, `frontend/scripts/test-insurance-integration.mjs` | Local IndexedDB policy creation/listing plus CSV dry-run import mapping and browser integration coverage. |
 | Backend API | Prototype only | `backend/README.md`, `backend/*.mjs` | Not required for v1 PWA runtime. |
 | Database | Future optional | `database/README.md` | Not required for v1 PWA runtime. |
 | AI integration | Future optional | `ai/README.md` | Not required for v1 PWA runtime. |

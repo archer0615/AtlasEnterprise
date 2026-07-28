@@ -1,0 +1,2 @@
+entityType,id,ownerId,name,householdId,providerName,coverageType,coverageAmount,premiumAmount,premiumFrequency,currency,status,beneficiarySummary,effectiveDate,renewalDate
+insurance,insurance-import-1,owner-1,家庭保障,household-1,Atlas Life,life,3000000,2500,monthly,TWD,active,Family,2026-07-28,2027-07-28
