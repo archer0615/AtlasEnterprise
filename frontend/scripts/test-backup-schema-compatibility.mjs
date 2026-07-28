@@ -97,14 +97,14 @@ try {
 
   assert(result.currentValid, "current backup payload was not accepted");
   assert(result.currentVersion === "atlas-pwa-runtime-backup.v2", "current backup payload did not use v2 schema");
-  assert(result.currentDatabaseVersion === 7, "current backup payload did not use database v7");
+  assert(result.currentDatabaseVersion === 8, "current backup payload did not use database v8");
   assert(result.hasPositionsArray, "current backup payload did not include positions array");
   assert(result.legacyValid, "legacy compatible backup payload was not accepted");
   assert(result.currentDryRun.sourceBackupFormatVersion === "atlas-pwa-runtime-backup.v2", "dry-run did not report payload version");
   assert(result.currentDryRun.migrationPlan.status === "current-version", "current backup dry-run did not report current version");
   assert(result.legacyDryRun.migrationPlan.status === "migration-required", "legacy backup dry-run did not report migration-required");
   assert(result.legacyDryRun.migrationSteps.includes("database-2-to-3"), "legacy backup dry-run did not include migration chain");
-  assert(result.currentDryRun.storePlan.length === 10, "backup dry-run did not cover current restore stores");
+  assert(result.currentDryRun.storePlan.length === 11, "backup dry-run did not cover current restore stores");
   assert(result.currentDryRun.storePlan.some((item) => item.storeName === "positions"), "positions did not appear in backup dry-run after schema acceptance");
   assert(!result.legacyPositionValid, "legacy backup with positions was not rejected");
   assert(!result.unknownValid, "unknown backup version was not rejected");

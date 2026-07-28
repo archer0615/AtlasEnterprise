@@ -29,7 +29,7 @@ Required versioning behavior:
 | Current | Future | Restore allowed if future runtime preserves current schema. |
 | Future | Current | Reject with dry-run report. |
 | Unknown | Any | Reject with validation error. |
-| v1 | v2 | Restore allowed after migration to database v7 with empty positions. |
+| v1 | v2 | Restore allowed after migration to database v8 with empty positions and insurance policies. |
 | v2 | v2 | Restore allowed after dry-run, including positions. |
 
 ## Constraints

@@ -4,7 +4,7 @@ import { renderBackupDryRun, renderRestoreAudit } from "../src/features/backup/b
 const dryRunElement = { textContent: "" };
 renderBackupDryRun(dryRunElement, {
   migrationPlan: { status: "migration-required" },
-  migrationSteps: ["database-2-to-3", "database-6-to-7"],
+  migrationSteps: ["database-2-to-3", "database-6-to-7", "database-7-to-8"],
   creates: 3,
   updates: 2,
   conflicts: 1,
@@ -12,7 +12,7 @@ renderBackupDryRun(dryRunElement, {
 
 assert(dryRunElement.textContent.includes("備份預覽"));
 assert(dryRunElement.textContent.includes("遷移狀態：需要遷移"));
-assert(dryRunElement.textContent.includes("database-6-to-7"));
+assert(dryRunElement.textContent.includes("database-7-to-8"));
 assert(dryRunElement.textContent.includes("衝突：1"));
 
 const auditElement = { textContent: "" };

@@ -1,7 +1,7 @@
 import { normalizePosition } from "./domain/position/position-repository-contract.js";
 
 const databaseName = "atlas-pwa-runtime";
-const databaseVersion = 7;
+const databaseVersion = 8;
 const backupSchemaVersion = "atlas-pwa-runtime-backup.v2";
 const legacyBackupSchemaVersions = new Set(["atlas-pwa-runtime-backup.v1"]);
 const encryptedBackupFormatVersion = "atlas-pwa-runtime-encrypted-backup.v1";
@@ -55,7 +55,7 @@ const backupComplianceEvidencePolicy = {
   archiveRetentionYears: 7,
   immutableArchiveRequired: true,
 };
-const supportedBackupDatabaseVersions = [2, 3, 4, 6, databaseVersion];
+const supportedBackupDatabaseVersions = [2, 3, 4, 6, 7, databaseVersion];
 const backupRetentionPolicy = {
   schema: "atlas-enterprise.backup-retention-policy.v1",
   auditRetentionDays: 90,
@@ -91,6 +91,7 @@ const stores = {
   expenses: "expenses",
   goals: "goals",
   positions: "positions",
+  insurancePolicies: "insurancePolicies",
 };
 const backupRecordFieldAllowlist = {
   [stores.scenarios]: ["scenarioId", "name", "score", "status", "sourceSnapshotId", "aggregateVersion", "updatedAt", "savedAt"],
@@ -103,6 +104,7 @@ const backupRecordFieldAllowlist = {
   [stores.expenses]: ["id", "ownerId", "name", "expenseType", "amount", "currency", "frequency", "startDate", "endDate", "occurrenceDate", "status", "description", "createdAt", "updatedAt", "archivedAt", "version"],
   [stores.goals]: ["id", "ownerId", "name", "goalType", "targetAmount", "currentAmount", "currency", "priority", "startDate", "targetDate", "status", "description", "parentGoalId", "scenarioId", "createdAt", "updatedAt", "archivedAt", "version"],
   [stores.positions]: ["positionId", "ownerId", "householdId", "portfolioId", "assetId", "quantity", "unitCost", "marketValue", "currency", "status", "updatedAt"],
+  [stores.insurancePolicies]: ["policyId", "ownerId", "householdId", "providerName", "policyName", "coverageType", "coverageAmount", "premiumAmount", "premiumFrequency", "currency", "status", "beneficiarySummary", "effectiveDate", "renewalDate", "updatedAt"],
 };
 
 let databasePromise;
@@ -125,6 +127,7 @@ const persistenceInventory = Object.freeze({
     [stores.expenses]: Object.freeze({ keyPath: "id", responsibility: "Local Expense records.", indexes: Object.freeze(["ownerId", "status", "expenseType", "currency", "frequency", "startDate", "endDate", "updatedAt"]), backup: true, restore: true }),
     [stores.goals]: Object.freeze({ keyPath: "id", responsibility: "Local Goal records.", indexes: Object.freeze(["ownerId", "status", "goalType", "currency", "priority", "targetDate", "parentGoalId", "updatedAt"]), backup: true, restore: true }),
     [stores.positions]: Object.freeze({ keyPath: "positionId", responsibility: "Local Position records for owner-scoped portfolio holdings.", indexes: Object.freeze(["ownerId", "householdId", "portfolioId", "assetId", "status", "updatedAt"]), backup: true, restore: true }),
+    [stores.insurancePolicies]: Object.freeze({ keyPath: "policyId", responsibility: "Local Insurance policy records.", indexes: Object.freeze(["ownerId", "householdId", "status", "coverageType", "providerName", "updatedAt"]), backup: true, restore: true }),
   }),
 });
 
@@ -187,6 +190,7 @@ function backupPayload(backup) {
     expenses: backup?.expenses || [],
     goals: backup?.goals || [],
     ...(backup?.schema === backupSchemaVersion || backup?.positions !== undefined ? { positions: backup?.positions || [] } : {}),
+    ...(backup?.schema === backupSchemaVersion || backup?.insurancePolicies !== undefined ? { insurancePolicies: backup?.insurancePolicies || [] } : {}),
   };
 }
 
@@ -209,7 +213,7 @@ function maskBackupSensitiveFields(value) {
 }
 
 function minimizeBackupData(backup) {
-  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions"];
+  const allowedBackupFields = ["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions", "insurancePolicies"];
   const minimized = Object.fromEntries(allowedBackupFields.filter((field) => backup[field] !== undefined).map((field) => [field, backup[field]]));
   minimized.scenarios = minimizeBackupRecords(stores.scenarios, minimized.scenarios || []);
   minimized.recommendationDecisions = minimizeBackupRecords(stores.recommendationDecisions, minimized.recommendationDecisions || []);
@@ -221,6 +225,7 @@ function minimizeBackupData(backup) {
   minimized.expenses = minimizeBackupRecords(stores.expenses, minimized.expenses || []);
   minimized.goals = minimizeBackupRecords(stores.goals, minimized.goals || []);
   minimized.positions = minimizeBackupRecords(stores.positions, minimized.positions || []);
+  minimized.insurancePolicies = minimizeBackupRecords(stores.insurancePolicies, minimized.insurancePolicies || []);
   return minimized;
 }
 
@@ -338,6 +343,10 @@ function openDatabase() {
       if (!database.objectStoreNames.contains(stores.positions)) {
         const store = database.createObjectStore(stores.positions, { keyPath: "positionId" });
         ["ownerId", "householdId", "portfolioId", "assetId", "status", "updatedAt"].forEach((indexName) => store.createIndex(indexName, indexName));
+      }
+      if (!database.objectStoreNames.contains(stores.insurancePolicies)) {
+        const store = database.createObjectStore(stores.insurancePolicies, { keyPath: "policyId" });
+        ["ownerId", "householdId", "status", "coverageType", "providerName", "updatedAt"].forEach((indexName) => store.createIndex(indexName, indexName));
       }
     };
 
@@ -706,6 +715,42 @@ export const indexedDbGoalRepository = createFinancialRepository({
   existsCode: "ATLAS_GOAL_ALREADY_EXISTS",
 });
 
+export const indexedDbInsurancePolicyRepository = {
+  async getById(policyId) {
+    const record = await withStore(stores.insurancePolicies, "readonly", (store) => store.get(policyId));
+    return record ? Object.freeze({ ...record }) : null;
+  },
+  async listByOwner(ownerId, query = {}) {
+    const search = String(query.search || "").trim().toLowerCase();
+    return (await getAll(stores.insurancePolicies)).filter((record) => {
+      if (record.ownerId !== ownerId) return false;
+      if (query.includeArchived !== true && record.status === "cancelled") return false;
+      if (query.status && record.status !== query.status) return false;
+      if (query.coverageType && record.coverageType !== query.coverageType) return false;
+      if (search && !String(record.policyName || "").toLowerCase().includes(search)) return false;
+      return true;
+    }).map((record) => Object.freeze({ ...record }));
+  },
+  async create(record) {
+    if (await this.existsByOwnerAndName(record.ownerId, record.policyName)) throw new Error("ATLAS_INSURANCE_POLICY_ALREADY_EXISTS");
+    await withStore(stores.insurancePolicies, "readwrite", (store) => store.add({ ...record }));
+    return Object.freeze({ ...record });
+  },
+  async update(record) {
+    const existing = await this.getById(record.policyId);
+    if (!existing) throw new Error("ATLAS_INSURANCE_POLICY_NOT_FOUND");
+    if (existing.ownerId !== record.ownerId) throw new Error("ATLAS_INSURANCE_POLICY_OWNER_MISMATCH");
+    await withStore(stores.insurancePolicies, "readwrite", (store) => store.put({ ...record }));
+    return Object.freeze({ ...record });
+  },
+  async existsByOwnerAndName(ownerId, policyName, excludeId = "") {
+    return (await getAll(stores.insurancePolicies)).some((record) => record.ownerId === ownerId && record.policyId !== excludeId && String(record.policyName).toLowerCase() === String(policyName).toLowerCase());
+  },
+  async countByOwner(ownerId) {
+    return (await this.listByOwner(ownerId, { includeArchived: true })).length;
+  },
+};
+
 export const indexedDbPositionRepository = {
   async create(position) {
     const normalized = normalizePosition(position);
@@ -761,6 +806,7 @@ export const indexedDbBackupRepository = {
       expenses: await getAll(stores.expenses),
       goals: await getAll(stores.goals),
       positions: await getAll(stores.positions),
+      insurancePolicies: await getAll(stores.insurancePolicies),
     });
     backup.checksum = await sha256Hex(stableStringify(backupPayload(backup)));
     return backup;
@@ -871,7 +917,7 @@ export const indexedDbBackupRepository = {
     if (!["replace-all", "skip-existing"].includes(report.conflictPolicy)) return false;
     if (!Number.isFinite(report.scenarioCount) || report.scenarioCount < 0) return false;
     if (!report.restoredRecords || typeof report.restoredRecords !== "object") return false;
-    return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries, stores.assets, stores.liabilities, stores.incomes, stores.expenses, stores.goals, stores.positions]
+    return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries, stores.assets, stores.liabilities, stores.incomes, stores.expenses, stores.goals, stores.positions, stores.insurancePolicies]
       .every((storeName) => Number.isFinite(report.restoredRecords[storeName] || 0));
   },
 
@@ -1101,6 +1147,7 @@ export const indexedDbBackupRepository = {
     const currentExpenses = await getAll(stores.expenses);
     const currentGoals = await getAll(stores.goals);
     const currentPositions = await getAll(stores.positions);
+    const currentInsurancePolicies = await getAll(stores.insurancePolicies);
     const existingIds = new Set(currentScenarios.map((scenario) => scenario.scenarioId));
     const updates = migratedBackup.scenarios.filter((scenario) => existingIds.has(scenario.scenarioId));
     const creates = migratedBackup.scenarios.filter((scenario) => !existingIds.has(scenario.scenarioId));
@@ -1115,6 +1162,7 @@ export const indexedDbBackupRepository = {
       createStoreImportPlan(stores.expenses, "id", currentExpenses, migratedBackup.expenses || []),
       createStoreImportPlan(stores.goals, "id", currentGoals, migratedBackup.goals || []),
       createStoreImportPlan(stores.positions, "positionId", currentPositions, migratedBackup.positions || []),
+      createStoreImportPlan(stores.insurancePolicies, "policyId", currentInsurancePolicies, migratedBackup.insurancePolicies || []),
     ];
     const migrationPlan = createBackupMigrationPlan(backup.databaseVersion || 0);
     return {
@@ -1135,14 +1183,14 @@ export const indexedDbBackupRepository = {
   },
 
   async validateBackup(backup) {
-    const allowedBackupFields = new Set(["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions", "checksum"]);
+    const allowedBackupFields = new Set(["schema", "exportedAt", "databaseVersion", "retentionPolicy", "scenarios", "recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions", "insurancePolicies", "checksum"]);
     if (!backup || hasUnsafeObjectKey(backup) || Object.keys(backup).some((field) => !allowedBackupFields.has(field))) {
       return false;
     }
     if ((backup?.schema !== backupSchemaVersion && !legacyBackupSchemaVersions.has(backup?.schema)) || !Array.isArray(backup.scenarios)) {
       return false;
     }
-    if (backup.schema !== backupSchemaVersion && backup.positions !== undefined) {
+    if (backup.schema !== backupSchemaVersion && (backup.positions !== undefined || backup.insurancePolicies !== undefined)) {
       return false;
     }
     if (!supportedBackupDatabaseVersions.includes(backup.databaseVersion || 0)) {
@@ -1154,7 +1202,7 @@ export const indexedDbBackupRepository = {
         return false;
       }
     }
-    if (!["recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
+    if (!["recommendationDecisions", "settings", "auditEntries", "assets", "liabilities", "incomes", "expenses", "goals", "positions", "insurancePolicies"].every((field) => backup[field] === undefined || Array.isArray(backup[field]))) {
       return false;
     }
     if (backup.retentionPolicy && backup.retentionPolicy.schema !== backupRetentionPolicy.schema) {
@@ -1238,7 +1286,20 @@ export const indexedDbBackupRepository = {
         return false;
       }
     });
-    return scenarioValid && decisionsValid && settingsValid && auditValid && assetsValid && liabilitiesValid && incomesValid && expensesValid && goalsValid && positionsValid;
+    const insurancePolicyIds = new Set();
+    const insurancePoliciesValid = (backup.insurancePolicies || []).every((policy) => {
+      if (!policy?.policyId || insurancePolicyIds.has(policy.policyId)) return false;
+      insurancePolicyIds.add(policy.policyId);
+      return typeof policy.ownerId === "string"
+        && typeof policy.householdId === "string"
+        && typeof policy.policyName === "string"
+        && typeof policy.providerName === "string"
+        && Number.isFinite(Number(policy.coverageAmount))
+        && Number(policy.coverageAmount) > 0
+        && Number.isFinite(Number(policy.premiumAmount))
+        && Number(policy.premiumAmount) >= 0;
+    });
+    return scenarioValid && decisionsValid && settingsValid && auditValid && assetsValid && liabilitiesValid && incomesValid && expensesValid && goalsValid && positionsValid && insurancePoliciesValid;
   },
 };
 
@@ -1280,6 +1341,7 @@ function migrateBackupToCurrent(backup) {
   migrated.expenses = migrated.expenses || [];
   migrated.goals = migrated.goals || [];
   migrated.positions = migrated.positions || [];
+  migrated.insurancePolicies = migrated.insurancePolicies || [];
   migrated.scenarios = (migrated.scenarios || []).map((scenario) => ({
     ...scenario,
     score: String(scenario.score),
@@ -1325,9 +1387,10 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
     { storeName: stores.expenses, records: backup.expenses || [] },
     { storeName: stores.goals, records: backup.goals || [] },
     { storeName: stores.positions, records: backup.positions || [] },
+    { storeName: stores.insurancePolicies, records: backup.insurancePolicies || [] },
   ];
   if (conflictPolicy === "skip-existing") {
-    const [currentScenarios, currentDecisions, currentSettings, currentAudits, currentAssets, currentLiabilities, currentIncomes, currentExpenses, currentGoals, currentPositions] = await Promise.all([
+    const [currentScenarios, currentDecisions, currentSettings, currentAudits, currentAssets, currentLiabilities, currentIncomes, currentExpenses, currentGoals, currentPositions, currentInsurancePolicies] = await Promise.all([
       indexedDbScenarioRepository.list(),
       indexedDbRecommendationDecisionRepository.list(),
       getAll(stores.settings),
@@ -1338,6 +1401,7 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
       getAll(stores.expenses),
       getAll(stores.goals),
       getAll(stores.positions),
+      getAll(stores.insurancePolicies),
     ]);
     plan = [
       mergeWithoutReplacing(stores.scenarios, "scenarioId", currentScenarios, backup.scenarios || []),
@@ -1350,6 +1414,7 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
       mergeWithoutReplacing(stores.expenses, "id", currentExpenses, backup.expenses || []),
       mergeWithoutReplacing(stores.goals, "id", currentGoals, backup.goals || []),
       mergeWithoutReplacing(stores.positions, "positionId", currentPositions, backup.positions || []),
+      mergeWithoutReplacing(stores.insurancePolicies, "policyId", currentInsurancePolicies, backup.insurancePolicies || []),
     ];
   }
   return new Promise((resolve, reject) => {

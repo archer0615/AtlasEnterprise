@@ -8,8 +8,8 @@ const compatibilityTest = await readFile(path.join(root, "frontend", "scripts", 
 
 const v2Fixture = {
   schema: "atlas-pwa-runtime-backup.v2",
-  databaseVersion: 7,
-  schemaCapabilities: ["positions"],
+  databaseVersion: 8,
+  schemaCapabilities: ["positions", "insurancePolicies"],
   scenarios: [],
   positions: [
     {
