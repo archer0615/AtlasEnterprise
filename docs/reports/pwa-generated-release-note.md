@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
-1bb8698 docs(release): record v1.1 validation history
-d7c370a feat(v1.1): complete batch 004 accessibility security
-c6a9de2 docs(v1.1): complete batch 003 traceability alignment
-a49fad2 feat(v1.1): complete batch 002 notification dedupe
-0fc6a65 docs(roadmap): prepare v1.1 batch 002
+0ca9d2f fix(release): align governance gate with indexeddb v7
+9433c91 Add position UI and CSV import support
+24032bd Implement position persistence and backup v2
+0e1eb00 Document v1.2.1 release and migration batches
+8e2cb14 Add CSV dry-run UI validation gates
 ```
 
 ## Working Tree
