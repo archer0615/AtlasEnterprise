@@ -14,6 +14,7 @@
 | Recommendation decisions | Implemented | `frontend/src/main.js`, `frontend/src/indexeddb-runtime.js` | Accept/reject/defer decision persistence and audit trail. |
 | Loan panel | Implemented | `frontend/src/main.js` | Local amortized payment calculation and input validation. |
 | Portfolio export report | Implemented | `frontend/src/main.js`, `frontend/reports/export-report-sample.json` | JSON report versioning and sample export. |
+| Position reporting UI | Implemented | `frontend/src/features/portfolio/portfolio-view.js`, `frontend/scripts/test-position-ui-entry.mjs` | Read-only position count, market value summary, backup schema notice, empty state, and accessibility labels. |
 | Backup and restore | Implemented | `frontend/src/indexeddb-runtime.js` | Plain/encrypted backup, dry run, staged restore, merge policy. |
 | Simulator fixtures | Implemented | `simulator/fixtures/`, `simulator/scripts/` | Local fixture validation and deterministic output checks. |
 | Recommendation runtime | Implemented | `frontend/src/domain/recommendation/`, `frontend/src/runtime/recommendation-runtime.js` | Local pure runtime and application service tests. |

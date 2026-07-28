@@ -3,7 +3,7 @@ import { createPortfolioController } from "../src/features/portfolio/portfolio-c
 
 const elements = new Map([
   ["#portfolioReportPanel", { dataset: {}, textContent: "" }],
-  ["#positionPanel", { dataset: {}, textContent: "" }],
+  ["#positionPanel", { dataset: {}, textContent: "", setAttribute(name, value) { this[name] = value; } }],
 ]);
 
 const controller = createPortfolioController({
@@ -18,6 +18,12 @@ assert.equal(elements.get("#positionPanel").dataset.positionMode, "reporting-rea
 assert(elements.get("#positionPanel").textContent.includes("positions"));
 assert(elements.get("#positionPanel").textContent.includes("atlas-pwa-runtime-backup.v2"));
 assert(elements.get("#positionPanel").textContent.includes("reporting-readonly"));
-assert(!/buy|sell|rebalance/i.test(elements.get("#positionPanel").textContent));
+assert(elements.get("#positionPanel").textContent.includes("持倉數：0"));
+assert(elements.get("#positionPanel").textContent.includes("市值合計：MIXED 0") || elements.get("#positionPanel").textContent.includes("市值合計：TWD 0"));
+assert(elements.get("#positionPanel").textContent.includes("目前沒有持倉資料"));
+assert.equal(elements.get("#positionPanel").role, "region");
+assert.equal(elements.get("#positionPanel")["aria-label"], "持倉資料唯讀報表");
+assert.equal(elements.get("#positionPanel").tabIndex, 0);
+assert(!/broker sync|automated trade/i.test(elements.get("#positionPanel").textContent));
 
 console.log("Position UI entry tests passed.");
