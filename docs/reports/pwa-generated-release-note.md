@@ -5,17 +5,17 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+83673f9 Record release report and validation history
 cc912fd Update visual baselines and insurance restore wait
 9d32bae chore(v1.2.2): record final archive remote evidence status
 21a6fef chore(v1.2.2): record maintenance archive handoff evidence
 8fe5c58 chore(v1.2.2): record final review archive monitoring
-4a0dd8d chore(v1.2.2): record final readiness evidence
 ```
 
 ## Working Tree
 
 ```
-M docs/reports/validation-history.json
+clean
 ```
 
 ## Validation Status Summary
