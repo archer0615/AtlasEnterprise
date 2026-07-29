@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+b6b466d Record post-tag release follow-up evidence
 db6cae3 Record v1.2.2 release evidence
 7a08984 Refresh generated release note
 83673f9 Record release report and validation history
 cc912fd Update visual baselines and insurance restore wait
-9d32bae chore(v1.2.2): record final archive remote evidence status
 ```
 
 ## Working Tree
