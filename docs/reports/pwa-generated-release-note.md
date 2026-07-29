@@ -5,17 +5,17 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
-0ca9d2f fix(release): align governance gate with indexeddb v7
-9433c91 Add position UI and CSV import support
-24032bd Implement position persistence and backup v2
-0e1eb00 Document v1.2.1 release and migration batches
-8e2cb14 Add CSV dry-run UI validation gates
+cc912fd Update visual baselines and insurance restore wait
+9d32bae chore(v1.2.2): record final archive remote evidence status
+21a6fef chore(v1.2.2): record maintenance archive handoff evidence
+8fe5c58 chore(v1.2.2): record final review archive monitoring
+4a0dd8d chore(v1.2.2): record final readiness evidence
 ```
 
 ## Working Tree
 
 ```
-clean
+M docs/reports/validation-history.json
 ```
 
 ## Validation Status Summary
