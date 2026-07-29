@@ -92,15 +92,7 @@ try {
   }
   await page.check("#restoreConfirmInput");
   await page.click("#applyBackupButton");
-  await page.waitForFunction(async () => {
-    const module = await import("./src/indexeddb-runtime.js");
-    return (await module.indexedDbInsurancePolicyRepository.listByOwner("owner-1", { includeArchived: true })).some((policy) => policy.policyId === "insurance-restore-browser-1");
-  });
-
-  const restoredCount = await page.evaluate(async () => {
-    const module = await import("./src/indexeddb-runtime.js");
-    return (await module.indexedDbInsurancePolicyRepository.listByOwner("owner-1", { includeArchived: true })).length;
-  });
+  const restoredCount = await waitForRestoredInsurancePolicy(page, "owner-1", "insurance-restore-browser-1");
   assert(restoredCount >= 1, "insurance backup restore did not persist policies");
 
   await page.close();
@@ -108,4 +100,19 @@ try {
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));
+}
+
+async function waitForRestoredInsurancePolicy(page, ownerId, policyId) {
+  const deadline = Date.now() + 5000;
+  let latestCount = 0;
+  while (Date.now() < deadline) {
+    latestCount = await page.evaluate(async ({ ownerId, policyId }) => {
+      const module = await import("./src/indexeddb-runtime.js");
+      const policies = await module.indexedDbInsurancePolicyRepository.listByOwner(ownerId, { includeArchived: true });
+      return policies.some((policy) => policy.policyId === policyId) ? policies.length : 0;
+    }, { ownerId, policyId });
+    if (latestCount >= 1) return latestCount;
+    await page.waitForTimeout(100);
+  }
+  return latestCount;
 }
