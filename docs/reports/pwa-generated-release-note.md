@@ -5,11 +5,11 @@ Date: 2026-07-17
 ## Local Commit Summary
 
 ```
+45e0fd9 Record continued release evidence refresh
 b6b466d Record post-tag release follow-up evidence
 db6cae3 Record v1.2.2 release evidence
 7a08984 Refresh generated release note
 83673f9 Record release report and validation history
-cc912fd Update visual baselines and insurance restore wait
 ```
 
 ## Working Tree
