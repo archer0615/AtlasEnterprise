@@ -18,6 +18,7 @@ const entityAdapters = {
   liability: { normalize: normalizeLiability, validate: validateLiability },
   position: { normalize: normalizeCsvPosition, validate: validateCsvPosition },
 };
+const positionCsvColumns = new Set(["entityType", "id", "positionId", "ownerId", "householdId", "portfolioId", "assetId", "quantity", "unitCost", "marketValue", "currency", "status", "updatedAt", "name"]);
 
 export function dryRunCsvImport(csvText, options = {}) {
   const ownerId = options.ownerId || "";
@@ -47,6 +48,7 @@ export function dryRunCsvImport(csvText, options = {}) {
     if (seen.has(recordKey)) rowErrors.push(error("DUPLICATE_ID", rowNumber, "id", "CSV row duplicates an entity id for the same owner."));
     seen.add(recordKey);
     rowErrors.push(...validateCellSecurity(rawRecord, rowNumber));
+    if (entityType === "position") rowErrors.push(...validatePositionColumns(rawRecord, rowNumber));
     if (adapter) {
       const normalized = adapter.normalize(rawRecord, options.context);
       const domainErrors = adapter.validate(normalized).map((item) => error(item.code, rowNumber, item.field, item.message));
@@ -100,7 +102,7 @@ function validateHeaders(headers) {
   for (const header of headers) {
     if (forbiddenPrototypeColumns.has(header)) errors.push(error("PROTOTYPE_POLLUTION_COLUMN", 1, header, "CSV header is not allowed."));
   }
-  for (const required of ["entityType", "id", "ownerId", "name"]) {
+  for (const required of ["entityType", "ownerId"]) {
     if (!headers.includes(required)) errors.push(error("MISSING_REQUIRED_COLUMN", 1, required, "CSV required column is missing."));
   }
   return errors;
@@ -136,9 +138,19 @@ function validateCsvPosition(input = {}) {
   if (!input.ownerId) errors.push(error("ATLAS_POSITION_OWNER_REQUIRED", "ownerId", "Position owner is required", "owner-required"));
   if (!input.householdId) errors.push(error("ATLAS_POSITION_HOUSEHOLD_REQUIRED", "householdId", "Position household is required", "household-required"));
   if (!input.portfolioId) errors.push(error("ATLAS_POSITION_PORTFOLIO_REQUIRED", "portfolioId", "Position portfolio is required", "portfolio-required"));
-  if (!Number.isFinite(input.quantity) || input.quantity < 0) errors.push(error("ATLAS_POSITION_QUANTITY_INVALID", "quantity", "Position quantity must be non-negative", "quantity"));
+  if (!input.assetId) errors.push(error("ATLAS_POSITION_ASSET_REQUIRED", "assetId", "Position asset is required", "asset-required"));
+  if (!Number.isFinite(input.quantity) || input.quantity <= 0) errors.push(error("ATLAS_POSITION_QUANTITY_INVALID", "quantity", "Position quantity must be greater than zero", "quantity"));
   if (!Number.isFinite(input.marketValue)) errors.push(error("ATLAS_POSITION_MARKET_VALUE_INVALID", "marketValue", "Position market value must be finite", "market-value"));
+  if (!input.currency) errors.push(error("ATLAS_POSITION_CURRENCY_REQUIRED", "currency", "Position currency is required", "currency-required"));
+  if (!input.status) errors.push(error("ATLAS_POSITION_STATUS_REQUIRED", "status", "Position status is required", "status-required"));
+  if (!input.updatedAt || Number.isNaN(Date.parse(input.updatedAt))) errors.push(error("ATLAS_POSITION_UPDATED_AT_INVALID", "updatedAt", "Position updatedAt must be a valid ISO timestamp", "updated-at"));
   return errors;
+}
+
+function validatePositionColumns(record, rowNumber) {
+  return Object.keys(record)
+    .filter((field) => record[field] !== "" && !positionCsvColumns.has(field))
+    .map((field) => error("UNSUPPORTED_COLUMN", rowNumber, field, "CSV column is not supported for Position import."));
 }
 
 function validateCellSecurity(record, rowNumber) {
