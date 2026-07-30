@@ -64,10 +64,15 @@ assert.equal(missingAtomic.writeCount, 0);
 assert(missingAtomic.errors.some((item) => item.code === "MISSING_ATOMIC_REPOSITORY"));
 
 const positionCsv = [
-  "entityType,id,ownerId,name,householdId,portfolioId,assetId,quantity,unitCost,marketValue,currency,status",
-  "position,position-write-1,owner-1,CSV Position,household-1,portfolio-1,asset-1,4,25,100,TWD,active",
+  "entityType,id,ownerId,householdId,portfolioId,assetId,quantity,unitCost,marketValue,currency,status,updatedAt",
+  "position,position-write-1,owner-1,household-1,portfolio-1,asset-1,4,25,100,TWD,active,2026-07-27T00:00:00.000Z",
 ].join("\n");
-const positionRepository = createAtomicRepository();
+const positionRepository = {
+  ...createAtomicRepository(),
+  async getById(positionId, ownerContext) {
+    return this.records.find((record) => record.positionId === positionId && record.ownerId === ownerContext.ownerId && record.householdId === ownerContext.householdId) || null;
+  },
+};
 const positionCommit = await commitCsvImport(positionCsv, {
   ownerId: "owner-1",
   repositories: { position: positionRepository },
@@ -77,6 +82,18 @@ const positionCommit = await commitCsvImport(positionCsv, {
 assert.equal(positionCommit.accepted, true);
 assert.equal(positionCommit.writeCount, 1);
 assert.equal(positionRepository.records[0].positionId, "position-write-1");
+
+const conflictingPositionCsv = [
+  "entityType,id,ownerId,householdId,portfolioId,assetId,quantity,unitCost,marketValue,currency,status,updatedAt",
+  "position,position-write-1,owner-1,household-1,portfolio-1,asset-1,5,25,125,TWD,active,2026-07-27T00:00:00.000Z",
+].join("\n");
+const conflictCommit = await commitCsvImport(conflictingPositionCsv, {
+  ownerId: "owner-1",
+  repositories: { position: positionRepository },
+});
+assert.equal(conflictCommit.accepted, false);
+assert(conflictCommit.errors.some((item) => item.code === "CSV_EXISTING_RECORD_CONFLICT"));
+assert.equal(positionRepository.records.length, 1);
 
 const insuranceCsv = [
   "entityType,id,ownerId,name,householdId,providerName,coverageType,coverageAmount,premiumAmount,premiumFrequency,currency,status,beneficiarySummary,effectiveDate",

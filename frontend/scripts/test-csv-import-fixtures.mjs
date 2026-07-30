@@ -29,4 +29,18 @@ const duplicate = dryRunCsvImport(await fixture("csv-import-duplicate-ids.csv"),
 assert.equal(duplicate.accepted, false);
 assert(duplicate.errors.some((error) => error.code === "DUPLICATE_ID"));
 
+const invalidPositionQuantity = dryRunCsvImport([
+  "entityType,id,ownerId,householdId,portfolioId,assetId,quantity,marketValue,currency,status,updatedAt",
+  "position,position-zero,owner-1,household-1,portfolio-1,asset-1,0,100,TWD,active,2026-07-27T00:00:00.000Z",
+].join("\n"), { ownerId: "owner-1" });
+assert.equal(invalidPositionQuantity.accepted, false);
+assert(invalidPositionQuantity.errors.some((error) => error.code === "ATLAS_POSITION_QUANTITY_INVALID"));
+
+const unsupportedPositionColumn = dryRunCsvImport([
+  "entityType,id,ownerId,householdId,portfolioId,assetId,quantity,marketValue,currency,status,updatedAt,brokerAccount",
+  "position,position-extra,owner-1,household-1,portfolio-1,asset-1,1,100,TWD,active,2026-07-27T00:00:00.000Z,external-1",
+].join("\n"), { ownerId: "owner-1" });
+assert.equal(unsupportedPositionColumn.accepted, false);
+assert(unsupportedPositionColumn.errors.some((error) => error.code === "UNSUPPORTED_COLUMN" && error.field === "brokerAccount"));
+
 console.log("CSV import fixture tests passed.");

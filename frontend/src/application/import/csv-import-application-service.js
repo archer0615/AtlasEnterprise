@@ -15,6 +15,12 @@ export async function commitCsvImport(csvText, options = {}) {
     if (!repository?.createManyAtomic) {
       return buildCommitReport([], [error("MISSING_ATOMIC_REPOSITORY", 0, item.entityType, "CSV write path requires an atomic entity repository.")]);
     }
+    if (item.entityType === "position" && repository.getById) {
+      const existing = await repository.getById(item.record.positionId, { ownerId: item.record.ownerId, householdId: item.record.householdId });
+      if (existing && JSON.stringify(existing) !== JSON.stringify(item.record)) {
+        return buildCommitReport([], [error("CSV_EXISTING_RECORD_CONFLICT", 0, "positionId", "CSV Position row conflicts with an existing local Position record.")]);
+      }
+    }
     grouped.set(item.entityType, [...(grouped.get(item.entityType) || []), item.record]);
   }
   if (grouped.size > 1 && !unitOfWork?.createManyAtomic) {
