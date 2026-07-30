@@ -925,7 +925,7 @@ export const indexedDbBackupRepository = {
   validateRestoreAuditReport(report) {
     if (report?.schema !== restoreAuditReportFormatVersion) return false;
     if (!report.restoredAt || Number.isNaN(Date.parse(report.restoredAt))) return false;
-    if (!["replace-all", "skip-existing"].includes(report.conflictPolicy)) return false;
+    if (!["replace-all", "skip-existing", "replace-conflicts", "skip-conflicts", "stage-only"].includes(report.conflictPolicy)) return false;
     if (!Number.isFinite(report.scenarioCount) || report.scenarioCount < 0) return false;
     if (!report.restoredRecords || typeof report.restoredRecords !== "object") return false;
     return [stores.scenarios, stores.recommendationDecisions, stores.settings, stores.auditEntries, stores.assets, stores.liabilities, stores.incomes, stores.expenses, stores.goals, stores.positions, stores.insurancePolicies]
@@ -1385,7 +1385,24 @@ function createStoreImportPlan(storeName, keyField, currentRecords, incomingReco
 async function replaceAllBackupStoresStaged(backup, options = {}) {
   const valid = await indexedDbBackupRepository.validateBackup(backup);
   if (!valid) throw new Error("Backup staging validation failed");
-  const conflictPolicy = options.conflictPolicy || "replace-all";
+  const conflictPolicy = normalizeRestoreConflictPolicy(options.conflictPolicy);
+  if (conflictPolicy === "stage-only") {
+    const dryRun = await indexedDbBackupRepository.dryRunImport(backup);
+    return {
+      staged: false,
+      conflictPolicy,
+      replacedStoreCount: 0,
+      restoredRecords: Object.fromEntries(dryRun.storePlan.map((item) => [item.storeName, 0])),
+      skippedConflicts: dryRun.conflicts,
+      conflictDetails: dryRun.storePlan.filter((item) => item.conflicts > 0).map((item) => ({
+        storeName: item.storeName,
+        keyField: item.keyField,
+        conflictType: "same-key",
+        policy: conflictPolicy,
+        conflictKeys: item.conflictKeys,
+      })),
+    };
+  }
   const database = await openDatabase();
   let plan = [
     { storeName: stores.scenarios, records: backup.scenarios || [] },
@@ -1442,12 +1459,33 @@ async function replaceAllBackupStoresStaged(backup, options = {}) {
       conflictPolicy,
       replacedStoreCount: plan.length,
       restoredRecords: Object.fromEntries(plan.map((item) => [item.storeName, item.records.length])),
+      skippedConflicts: plan.reduce((total, item) => total + (item.skippedConflicts || 0), 0),
+      conflictDetails: plan.flatMap((item) => item.conflictDetails || []),
     });
   });
 }
 
 function mergeWithoutReplacing(storeName, keyField, currentRecords, incomingRecords) {
   const currentKeys = new Set(currentRecords.map((record) => record?.[keyField]).filter(Boolean));
+  const skipped = incomingRecords.filter((record) => currentKeys.has(record?.[keyField]));
   const creates = incomingRecords.filter((record) => !currentKeys.has(record?.[keyField]));
-  return { storeName, records: [...currentRecords, ...creates] };
+  return {
+    storeName,
+    records: [...currentRecords, ...creates],
+    skippedConflicts: skipped.length,
+    conflictDetails: skipped.length > 0 ? [{
+      storeName,
+      keyField,
+      conflictType: "same-key",
+      policy: "skip-existing",
+      conflictKeys: skipped.map((record) => record?.[keyField]).filter(Boolean).slice(0, 5),
+    }] : [],
+  };
+}
+
+function normalizeRestoreConflictPolicy(policy = "replace-all") {
+  if (policy === "skip-conflicts") return "skip-existing";
+  if (policy === "replace-conflicts") return "replace-all";
+  if (policy === "stage-only") return "stage-only";
+  return policy === "skip-existing" ? "skip-existing" : "replace-all";
 }

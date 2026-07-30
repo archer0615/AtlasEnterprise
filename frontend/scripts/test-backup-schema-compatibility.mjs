@@ -66,6 +66,17 @@ try {
     const futureEncrypted = await module.indexedDbBackupRepository.exportEncryptedBackup("compatibility-passphrase");
     const legacyPlaintextWithPositions = { ...decrypted, schema: "atlas-pwa-runtime-backup.v1", positions: [] };
     const before = await module.indexedDbScenarioRepository.list();
+    const conflictBackup = JSON.parse(JSON.stringify(currentBackup));
+    conflictBackup.scenarios = [
+      { scenarioId: "backup-compat-current", name: "Backup Compatibility Replacement", score: 92, status: "review", updatedAt: "2026-07-28T00:00:00.000Z" },
+    ];
+    delete conflictBackup.checksum;
+    const stageOnly = await module.indexedDbBackupRepository.importBackup(conflictBackup, { conflictPolicy: "stage-only" });
+    const afterStageOnly = await module.indexedDbScenarioRepository.list();
+    const skipConflicts = await module.indexedDbBackupRepository.importBackup(conflictBackup, { conflictPolicy: "skip-conflicts" });
+    const afterSkipConflicts = await module.indexedDbScenarioRepository.list();
+    const replaceConflicts = await module.indexedDbBackupRepository.importBackup(conflictBackup, { conflictPolicy: "replace-conflicts" });
+    const afterReplaceConflicts = await module.indexedDbScenarioRepository.list();
     let futureRejectedBeforeMutation = false;
     try {
       await module.indexedDbBackupRepository.importBackup(legacyPositionBackup);
@@ -90,6 +101,12 @@ try {
       futureEncryptedEnvelopeVersion: futureEncrypted.backupFormatVersion,
       legacyPlaintextWithPositionsRejectedAfterDecrypt: !await module.indexedDbBackupRepository.validateBackup(legacyPlaintextWithPositions),
       futureRejectedBeforeMutation,
+      stageOnly,
+      skipConflicts,
+      replaceConflicts,
+      stageOnlyPreservedScenario: afterStageOnly.find((scenario) => scenario.scenarioId === "backup-compat-current")?.name,
+      skipConflictsPreservedScenario: afterSkipConflicts.find((scenario) => scenario.scenarioId === "backup-compat-current")?.name,
+      replaceConflictsScenario: afterReplaceConflicts.find((scenario) => scenario.scenarioId === "backup-compat-current")?.name,
       scenarioCountBefore: before.length,
       scenarioCountAfter: after.length,
     };
@@ -110,6 +127,15 @@ try {
   assert(!result.unknownValid, "unknown backup version was not rejected");
   assert(result.futureRejectedBeforeMutation, "legacy positions backup import did not reject before mutation");
   assert(result.scenarioCountBefore === result.scenarioCountAfter, "legacy positions backup rejection mutated local data");
+  assert(!result.stageOnly.staged, "stage-only restore should not stage mutation");
+  assert(result.stageOnly.skippedConflicts >= 1, "stage-only restore did not report conflicts");
+  assert(result.stageOnly.conflictDetails.some((item) => item.storeName === "scenarios" && item.conflictType === "same-key"), "stage-only restore did not include scenario conflict details");
+  assert(result.stageOnlyPreservedScenario === "Backup Compatibility Current", "stage-only restore mutated existing scenario");
+  assert(result.skipConflicts.conflictPolicy === "skip-existing", "skip-conflicts alias did not normalize to skip-existing");
+  assert(result.skipConflicts.skippedConflicts >= 1, "skip-conflicts restore did not count skipped conflicts");
+  assert(result.skipConflictsPreservedScenario === "Backup Compatibility Current", "skip-conflicts replaced an existing scenario");
+  assert(result.replaceConflicts.conflictPolicy === "replace-all", "replace-conflicts alias did not normalize to replace-all");
+  assert(result.replaceConflictsScenario === "Backup Compatibility Replacement", "replace-conflicts did not replace existing scenario");
   assert(result.decryptedValid, "encrypted backup did not decrypt to a valid plaintext backup");
   assert(result.decryptedVersion === "atlas-pwa-runtime-backup.v2", "decrypted backup did not expose plaintext schema version");
   assert(result.decryptedHasPositionsArray, "decrypted v2 backup did not include positions array");
