@@ -335,6 +335,9 @@ function updateNavigationState() {
     "#goals": "#data",
     "#insurance": "#data",
     "#csv-import": "#settings",
+    "#csv-import-settings": "#settings",
+    "#backup-settings": "#settings",
+    "#maintenance-settings": "#settings",
     "#loan": "#dashboard",
     "#portfolio": "#dashboard",
     "#execution": "#dashboard",
@@ -344,7 +347,8 @@ function updateNavigationState() {
   const navHash = activeMap[activeHash] || activeHash;
   if (activeHash === "#settings") document.querySelector("#settings")?.setAttribute("open", "");
   if (activeHash === "#help") document.querySelector("#help")?.setAttribute("open", "");
-  if (["#csv-import", "#settings"].includes(activeHash)) document.querySelector("#settings")?.setAttribute("open", "");
+  if (["#csv-import", "#csv-import-settings", "#backup-settings", "#maintenance-settings", "#settings"].includes(activeHash)) document.querySelector("#settings")?.setAttribute("open", "");
+  if (activeHash === "#maintenance-settings") document.querySelector("#maintenance-settings details")?.setAttribute("open", "");
   document.querySelectorAll(".workflow-nav a, .mobile-toolbar a").forEach((link) => {
     const isActive = link.getAttribute("href") === navHash;
     link.classList.toggle("active", isActive);
@@ -523,7 +527,7 @@ function buildReadOnlyRecommendation(snapshot) {
 function renderExecutionPlanPreview(executionPlan) {
   if (!executionPlanPanel) return;
   if (!executionPlan) {
-    executionPlanPanel.innerHTML = `<div class="empty-runtime">接受目前建議後，這裡會顯示本機唯讀執行計畫。</div>`;
+    executionPlanPanel.innerHTML = `<div class="empty-runtime">尚無執行計畫。先到 <a href="#recommendation">建議決策</a> 接受或轉入一項建議。</div>`;
     return;
   }
   executionPlanPanel.innerHTML = [
@@ -538,7 +542,7 @@ function renderActionPlanPreview(actionPlans) {
   if (!actionPlanPanel) return;
   actionPlanPanel.innerHTML = actionPlans.length
     ? actionPlans.map((action) => `<div class="runtime-row"><span>${escapeHtml(action.title)}</span><strong>${escapeHtml(action.targetDate)} / ${escapeHtml(action.status)}</strong></div>`).join("")
-    : `<div class="empty-runtime">尚無行動計畫預覽。</div>`;
+    : `<div class="empty-runtime">尚無自動行動。可先用下方「本機行動追蹤」建立手動下一步。</div>`;
 }
 
 function renderBusinessCalendarPreview(calendarEntries) {
@@ -919,9 +923,16 @@ function renderLocalActionReminder() {
   const today = new Date().toISOString().slice(0, 10);
   const due = localActions.filter((action) => action.status !== "done" && action.dueDate && action.dueDate <= today);
   const upcoming = localActions.filter((action) => action.status !== "done" && action.dueDate && action.dueDate > today);
-  localActionReminderPanel.textContent = due.length
-    ? `到期提醒：${due.length} 個行動需要處理`
-    : `近期行動：${upcoming.length} 個`;
+  const openCount = localActions.filter((action) => action.status !== "done").length;
+  const doneCount = localActions.filter((action) => action.status === "done").length;
+  const nextDueDate = [...upcoming].sort((a, b) => String(a.dueDate).localeCompare(String(b.dueDate)))[0]?.dueDate || "未設定";
+  localActionReminderPanel.innerHTML = [
+    `<div class="runtime-row"><span>未完成</span><strong>${openCount} 個</strong></div>`,
+    `<div class="runtime-row"><span>已到期</span><strong>${due.length} 個</strong></div>`,
+    `<div class="runtime-row"><span>已完成</span><strong>${doneCount} 個</strong></div>`,
+    `<div class="runtime-row"><span>下一期限</span><strong>${escapeHtml(nextDueDate)}</strong></div>`,
+  ].join("");
+  exportLocalActionsButton?.toggleAttribute("disabled", localActions.length === 0);
 }
 
 async function addLocalAction() {

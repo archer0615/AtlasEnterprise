@@ -53,7 +53,7 @@ try {
   });
   await page.reload({ waitUntil: "networkidle" });
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Persisted action"));
-  await page.waitForFunction(() => document.querySelector("#localActionReminderPanel")?.textContent.includes("到期提醒"));
+  await page.waitForFunction(() => document.querySelector("#localActionReminderPanel")?.textContent.includes("已到期"));
   await page.waitForFunction(() => document.querySelector("#businessCalendarPanel")?.textContent.includes("Persisted action"));
   await page.waitForFunction(() => document.querySelector("#notificationListPanel")?.textContent.includes("行動到期"));
 

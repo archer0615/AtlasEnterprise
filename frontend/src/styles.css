@@ -435,6 +435,11 @@ summary:focus-visible {
   padding: 14px;
 }
 
+.settings-group:target {
+  border-color: #52796f;
+  box-shadow: 0 0 0 3px rgba(82, 121, 111, 0.16);
+}
+
 .settings-group h3 {
   margin: 0 0 8px;
 }
@@ -1137,6 +1142,11 @@ summary:focus-visible {
   cursor: pointer;
   font-size: 12px;
   font-weight: 800;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .rationale-field textarea {

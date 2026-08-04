@@ -300,12 +300,12 @@
             <small>備份、匯入、驗證、發布狀態</small>
           </summary>
         <div class="settings-links" aria-label="設定快速入口">
-          <a href="#settings">CSV 匯入預演</a>
-          <a href="#settings">情境備份還原</a>
-          <a href="#settings">發布與驗證</a>
+          <a href="#csv-import-settings">CSV 匯入預演</a>
+          <a href="#backup-settings">情境備份還原</a>
+          <a href="#maintenance-settings">發布與驗證</a>
         </div>
         <section class="settings-grid" aria-label="設定分組">
-          <div class="settings-group">
+          <div id="csv-import-settings" class="settings-group">
             <h3>資料匯入</h3>
             <p class="section-help">CSV 匯入只做預演，確認欄位、筆數與錯誤後再進入寫入流程。</p>
             <div class="dashboard-actions compact-actions">
@@ -315,7 +315,7 @@
             </div>
             <div id="csvImportDryRunPanel" class="decision-log" aria-live="polite"></div>
           </div>
-          <div class="settings-group danger-zone">
+          <div id="backup-settings" class="settings-group danger-zone">
             <h3>備份與還原</h3>
             <p class="section-help">重要操作前先匯出備份；套用備份會改變本機資料。</p>
             <div class="dashboard-actions" aria-label="進階資料操作控制">
@@ -331,7 +331,7 @@
             <div class="backup-dry-run" id="backupDryRunPanel"></div>
             <div id="restoreAuditPanel" class="decision-log"></div>
           </div>
-          <div class="settings-group developer-mode">
+          <div id="maintenance-settings" class="settings-group developer-mode">
             <details>
               <summary>發布狀態</summary>
               <div id="releaseDashboardPanel" class="report-list"></div>
