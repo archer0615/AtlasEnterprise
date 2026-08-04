@@ -1,5 +1,5 @@
 import { dashboardStorage, fallbackDashboardSnapshot, normalizeDashboardCollection } from "./dashboard-model.js";
-import { indexedDbAssetRepository, indexedDbAuditRepository, indexedDbBackupRepository, indexedDbExpenseRepository, indexedDbGoalRepository, indexedDbIncomeRepository, indexedDbLiabilityRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
+import { indexedDbAssetRepository, indexedDbAuditRepository, indexedDbBackupRepository, indexedDbExpenseRepository, indexedDbGoalRepository, indexedDbIncomeRepository, indexedDbInsurancePolicyRepository, indexedDbLiabilityRepository, indexedDbMigrationRepository, indexedDbRecommendationDecisionRepository, indexedDbScenarioRepository, indexedDbSettingsRepository } from "./indexeddb-runtime.js";
 import { createCurrentOwnerProvider } from "./application/ownership/current-owner-provider.js";
 import { createAssetApplicationService } from "./application/assets/asset-application-service.js";
 import { sanitizeDownloadFilename } from "./security-boundary.js";
@@ -9,6 +9,7 @@ import { createIncomeApplicationService } from "./application/incomes/income-app
 import { createExpenseApplicationService } from "./application/expenses/expense-application-service.js";
 import { projectCashFlow } from "./runtime/cashflow-projection.js";
 import { createGoalApplicationService } from "./application/goals/goal-application-service.js";
+import { createInsuranceApplicationService } from "./application/insurance/insurance-application-service.js";
 import { projectGoalProgress } from "./runtime/goal-progress-projection.js";
 import { projectFinancialHealth } from "./runtime/financial-health-projection.js";
 import { createActionPlansFromExecutionPlan } from "./runtime/action-plan-runtime.js";
@@ -57,6 +58,7 @@ const loanScenarioPanel = $("#loanScenarioPanel");
 const exportPortfolioReportButton = $("#exportPortfolioReportButton");
 const recommendationDecisionLog = $("#recommendationDecisionLog");
 const recommendationRationaleInput = $("#recommendationRationaleInput");
+const rationaleTemplates = document.querySelector(".rationale-templates");
 const acceptRecommendationButton = $("#acceptRecommendationButton");
 const rejectRecommendationButton = $("#rejectRecommendationButton");
 const deferRecommendationButton = $("#deferRecommendationButton");
@@ -157,7 +159,10 @@ const csvClearPreviewButton = $("#csvClearPreviewButton");
 const csvImportDryRunPanel = $("#csvImportDryRunPanel");
 const localActionTitleInput = $("#localActionTitleInput");
 const localActionDueInput = $("#localActionDueInput");
+const localActionFilterInput = $("#localActionFilterInput");
 const addLocalActionButton = $("#addLocalActionButton");
+const exportLocalActionsButton = $("#exportLocalActionsButton");
+const localActionReminderPanel = $("#localActionReminderPanel");
 const localActionListPanel = $("#localActionListPanel");
 
 const ownerProvider = createCurrentOwnerProvider(indexedDbSettingsRepository);
@@ -166,6 +171,7 @@ const liabilityService = createLiabilityApplicationService({ repository: indexed
 const incomeService = createIncomeApplicationService({ repository: indexedDbIncomeRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 const expenseService = createExpenseApplicationService({ repository: indexedDbExpenseRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 const goalService = createGoalApplicationService({ repository: indexedDbGoalRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
+const insuranceService = createInsuranceApplicationService({ repository: indexedDbInsurancePolicyRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
 
 let dashboardSnapshots = [fallbackDashboardSnapshot];
 let runtimeSnapshots = [];
@@ -463,15 +469,17 @@ function renderSelectedBatchReadModels(snapshot) {
     executionPlans: executionPlan ? [executionPlan] : [],
     actionPlans,
   }, readOnlyRuntimeContext());
-  renderBusinessCalendarPreview(calendarEntries);
+  const localCalendarEntries = buildLocalActionCalendarEntries();
+  renderBusinessCalendarPreview([...calendarEntries, ...localCalendarEntries]);
   const scheduler = evaluateScheduler({
     ownerId: "local-owner",
     asOfDate: snapshot.asOfDate,
-    calendarEntries,
+    calendarEntries: [...calendarEntries, ...localCalendarEntries],
     automationResults: [],
   }, readOnlyRuntimeContext());
-  renderSchedulerPreview(scheduler);
-  renderNotificationPreview(scheduler.notifications);
+  const localNotifications = buildLocalActionNotifications();
+  renderSchedulerPreview({ ...scheduler, schedulerState: { ...scheduler.schedulerState, generatedNotificationCount: scheduler.schedulerState.generatedNotificationCount + localNotifications.length } });
+  renderNotificationPreview([...scheduler.notifications, ...localNotifications]);
 }
 
 function buildReadOnlyExecutionPlan(snapshot) {
@@ -538,6 +546,27 @@ function renderBusinessCalendarPreview(calendarEntries) {
   businessCalendarPanel.innerHTML = calendarEntries.length
     ? calendarEntries.map((entry) => `<div class="runtime-row"><span>${escapeHtml(entry.title)}</span><strong>${escapeHtml(entry.dueDate)} / ${escapeHtml(entry.type)}</strong></div>`).join("")
     : `<div class="empty-runtime">尚無 upcoming review 或目標日期。</div>`;
+}
+
+function buildLocalActionCalendarEntries() {
+  return localActions
+    .filter((action) => action.status !== "done" && action.dueDate)
+    .map((action) => ({
+      title: action.title,
+      dueDate: action.dueDate,
+      type: action.sourceRecommendationId ? "recommendation-action" : "local-action",
+    }));
+}
+
+function buildLocalActionNotifications() {
+  const today = new Date().toISOString().slice(0, 10);
+  return localActions
+    .filter((action) => action.status !== "done" && action.dueDate && action.dueDate <= today)
+    .map((action) => ({
+      title: `行動到期：${action.title}`,
+      priority: "medium",
+      readState: "unread",
+    }));
 }
 
 function renderSchedulerPreview(scheduler) {
@@ -727,7 +756,7 @@ function translateKnowledgeText(value) {
 }
 
 function translateStatus(value) {
-  const translations = { accepted: "已接受", "at-risk": "有風險", conditional: "有條件", defer: "延後", evaluated: "已評估", IndexedDB: "本機儲存", monitor: "監控", proceed: "可執行", reject: "拒絕", rejected: "已拒絕" };
+  const translations = { accepted: "已接受", "at-risk": "有風險", conditional: "有條件", defer: "延後", done: "完成", evaluated: "已評估", IndexedDB: "本機儲存", monitor: "監控", "pending-review": "待處理", proceed: "可執行", reject: "拒絕", rejected: "已拒絕" };
   return translations[value] || value;
 }
 
@@ -863,6 +892,7 @@ async function loadLocalActions() {
   const stored = await readStoredValue(localActionStorageKey());
   localActions = stored ? JSON.parse(stored) : [];
   renderLocalActions();
+  renderDashboardById(selectedDashboardSnapshotId);
 }
 
 function persistLocalActions() {
@@ -871,10 +901,27 @@ function persistLocalActions() {
 
 function renderLocalActions() {
   if (!localActionListPanel) return;
-  const sorted = [...localActions].sort((a, b) => String(a.dueDate || "").localeCompare(String(b.dueDate || "")));
+  const filter = localActionFilterInput?.value || "open";
+  const source = localActions.filter((action) => {
+    if (filter === "all") return true;
+    if (filter === "open") return action.status !== "done";
+    return action.status === filter;
+  });
+  const sorted = [...source].sort((a, b) => String(a.dueDate || "").localeCompare(String(b.dueDate || "")));
   localActionListPanel.innerHTML = sorted.length
     ? sorted.map((action) => `<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><button type="button" data-local-action="done" data-action-id="${escapeAttribute(action.id)}">完成</button><button type="button" data-local-action="defer" data-action-id="${escapeAttribute(action.id)}">延後</button><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`).join("")
     : `<div class="empty-runtime">尚無本機行動。<a href="#execution">新增下一步行動</a></div>`;
+  renderLocalActionReminder();
+}
+
+function renderLocalActionReminder() {
+  if (!localActionReminderPanel) return;
+  const today = new Date().toISOString().slice(0, 10);
+  const due = localActions.filter((action) => action.status !== "done" && action.dueDate && action.dueDate <= today);
+  const upcoming = localActions.filter((action) => action.status !== "done" && action.dueDate && action.dueDate > today);
+  localActionReminderPanel.textContent = due.length
+    ? `到期提醒：${due.length} 個行動需要處理`
+    : `近期行動：${upcoming.length} 個`;
 }
 
 async function addLocalAction() {
@@ -893,6 +940,7 @@ async function addLocalAction() {
   if (localActionDueInput) localActionDueInput.value = "";
   await persistAuditEntry("local-action-create", { title, snapshotId: selectedDashboardSnapshotId });
   renderLocalActions();
+  renderDashboardById(selectedDashboardSnapshotId);
   setRuntimeFeedback("本機行動已新增。");
 }
 
@@ -918,6 +966,7 @@ async function createActionFromRecommendation() {
   persistLocalActions();
   await persistAuditEntry("recommendation-to-action", { fixtureId: sourceRecommendationId, snapshotId: snapshot.snapshotId });
   renderLocalActions();
+  renderDashboardById(selectedDashboardSnapshotId);
   setRuntimeFeedback("建議已轉成本機行動。");
 }
 
@@ -935,7 +984,18 @@ async function updateLocalAction(actionId, action) {
   persistLocalActions();
   await persistAuditEntry("local-action-update", { actionId, action });
   renderLocalActions();
+  renderDashboardById(selectedDashboardSnapshotId);
   setRuntimeFeedback("本機行動已更新。");
+}
+
+function exportLocalActions() {
+  downloadJson({
+    schema: "atlas-enterprise.local-actions.v1",
+    exportedAt: new Date().toISOString(),
+    count: localActions.length,
+    actions: localActions,
+  }, "atlas-local-actions.json");
+  setRuntimeFeedback("本機行動已匯出。");
 }
 
 function parseProfileNumber(value) {
@@ -1528,8 +1588,12 @@ function renderGoalSummary(goals) {
   renderSummaryCard(goalSummaryPanel, "目標進度", `${Math.round(average)}%`, `目標 ${activeGoals.length} 個`, "#goals");
 }
 
-function renderInsuranceSummary() {
-  renderSummaryCard(insuranceSummaryPanel, "保險保單", "待補齊", "建立保單後顯示保障摘要", "#insurance");
+async function renderInsuranceSummary() {
+  const policies = await insuranceService.listPolicies({ includeArchived: true }).catch(() => []);
+  const activePolicies = policies.filter((policy) => policy.status !== "cancelled");
+  const coverage = activePolicies.reduce((total, policy) => total + Number(policy.coverageAmount || 0), 0);
+  const premium = activePolicies.reduce((total, policy) => total + Number(policy.premiumAmount || 0), 0);
+  renderSummaryCard(insuranceSummaryPanel, "保險保單", `${activePolicies.length} 張`, `保障 ${formatMoney(coverage)} / 保費 ${formatMoney(premium)}`, "#insurance");
 }
 
 async function previewCsvImport() {
@@ -1760,6 +1824,11 @@ deferRecommendationButton?.addEventListener("click", () => setRecommendationDeci
 createActionFromRecommendationButton?.addEventListener("click", () => createActionFromRecommendation().catch((error) => setRuntimeFeedback(error.message)));
 recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
 exportRecommendationHistoryButton.addEventListener("click", exportRecommendationHistory);
+rationaleTemplates?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-rationale-template]");
+  if (!button || !recommendationRationaleInput) return;
+  recommendationRationaleInput.value = button.dataset.rationaleTemplate || "";
+});
 sampleExportButton.addEventListener("click", () => loadSample("reports/export-report-sample.json", exportPreviewPanel).catch((error) => setRuntimeFeedback(error.message)));
 sampleBackupButton.addEventListener("click", () => loadSampleBackup().catch((error) => setRuntimeFeedback(error.message)));
 releaseNoteButton.addEventListener("click", () => loadReleaseNote().catch((error) => setRuntimeFeedback(error.message)));
@@ -1834,6 +1903,8 @@ saveScenarioTemplateButton?.addEventListener("click", () => saveScenarioFromTemp
 csvDryRunButton?.addEventListener("click", () => previewCsvImport().catch((error) => setRuntimeFeedback(error.message)));
 csvClearPreviewButton?.addEventListener("click", clearCsvImportPreview);
 addLocalActionButton?.addEventListener("click", () => addLocalAction().catch((error) => setRuntimeFeedback(error.message)));
+exportLocalActionsButton?.addEventListener("click", exportLocalActions);
+localActionFilterInput?.addEventListener("change", renderLocalActions);
 localActionListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-local-action]");
   if (!button) return;
@@ -1862,6 +1933,6 @@ loadUserProfile().catch(() => {});
 refreshLocalFinancialData().catch(() => {});
 refreshLocalCashFlowData().catch(() => {});
 refreshLocalGoalHealthData().catch(() => {});
-renderInsuranceSummary();
+renderInsuranceSummary().catch(() => {});
 loadLocalActions().catch(() => {});
 renderScenarioTemplates();

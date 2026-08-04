@@ -447,6 +447,12 @@ summary:focus-visible {
   background: #f7f9f8;
 }
 
+.developer-mode summary {
+  cursor: pointer;
+  color: #243130;
+  font-weight: 800;
+}
+
 .advanced-panel {
   display: none;
 }
@@ -1084,6 +1090,12 @@ summary:focus-visible {
   font-size: 14px;
 }
 
+#localActionReminderPanel {
+  border-left: 4px solid #f0c766;
+  background: #f7f9f8;
+  padding: 8px 10px;
+}
+
 .local-action-row {
   align-items: center;
 }
@@ -1108,6 +1120,23 @@ summary:focus-visible {
   font-size: 13px;
   font-weight: 700;
   margin-top: 10px;
+}
+
+.rationale-templates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.rationale-templates button {
+  border: 1px solid #c9d5d1;
+  background: #f7f9f8;
+  color: #243130;
+  padding: 7px 9px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 .rationale-field textarea {
