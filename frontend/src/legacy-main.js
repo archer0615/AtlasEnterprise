@@ -440,9 +440,9 @@ function renderRecommendationHistory() {
     .filter((item) => filter === "all" || item.decision === filter)
     .sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")))
     .slice(0, 5);
-  recommendationHistoryPanel.textContent = items.length
-    ? items.map((item) => `${translateDecision(item.decision)} / ${item.fixtureId} / ${item.decidedAt}`).join("\n")
-    : "尚無符合條件的建議歷史。";
+  recommendationHistoryPanel.innerHTML = items.length
+    ? items.map((item) => `<div class="recommendation-history-item"><strong>${escapeHtml(translateDecision(item.decision))}</strong><span>${escapeHtml(item.fixtureId)}</span><small>${escapeHtml(item.decidedAt)}</small></div>`).join("")
+    : `<div class="empty-runtime">尚無符合條件的建議歷史。</div>`;
 }
 
 function exportRecommendationHistory() {
@@ -937,7 +937,7 @@ function renderGroupedLocalActions(actions) {
     const group = getLocalActionGroupLabel(action);
     const heading = group === currentGroup ? "" : `<h6 class="local-action-group">${escapeHtml(group)}</h6>`;
     currentGroup = group;
-    return `${heading}<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><button type="button" data-local-action="done" data-action-id="${escapeAttribute(action.id)}">完成</button><button type="button" data-local-action="defer" data-action-id="${escapeAttribute(action.id)}">延後</button><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`;
+    return `${heading}<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><select data-local-action-status="${escapeAttribute(action.id)}" aria-label="行動狀態：${escapeAttribute(action.title)}"><option value="pending-review" ${action.status === "pending-review" ? "selected" : ""}>待處理</option><option value="defer" ${action.status === "defer" ? "selected" : ""}>延後</option><option value="done" ${action.status === "done" ? "selected" : ""}>完成</option></select><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`;
   }).join("");
 }
 
@@ -1034,6 +1034,7 @@ async function updateLocalAction(actionId, action) {
     : localActions.map((item) => {
       if (item.id !== actionId) return item;
       if (action === "done") return { ...item, status: "done", completedAt: new Date().toISOString() };
+      if (action === "pending-review") return { ...item, status: "pending-review", completedAt: undefined };
       if (action === "defer") return { ...item, status: "defer", dueDate: nextDate.toISOString().slice(0, 10) };
       return item;
     });
@@ -2035,6 +2036,11 @@ localActionListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-local-action]");
   if (!button) return;
   updateLocalAction(button.dataset.actionId, button.dataset.localAction).catch((error) => setRuntimeFeedback(error.message));
+});
+localActionListPanel?.addEventListener("change", (event) => {
+  const select = event.target.closest("select[data-local-action-status]");
+  if (!select) return;
+  updateLocalAction(select.dataset.localActionStatus, select.value).catch((error) => setRuntimeFeedback(error.message));
 });
 
 Object.defineProperty(window, "__atlasDebugState", {

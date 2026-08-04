@@ -1132,6 +1132,21 @@ summary:focus-visible {
   margin-top: 2px;
 }
 
+.recommendation-history-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  border-top: 1px solid #e1e8e5;
+  padding-top: 8px;
+}
+
+.recommendation-history-item span,
+.recommendation-history-item small {
+  color: #627572;
+  overflow-wrap: anywhere;
+}
+
 .local-action-row {
   align-items: center;
 }

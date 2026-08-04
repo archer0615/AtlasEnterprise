@@ -95,6 +95,9 @@ try {
   await page.locator(".rationale-templates button").first().click();
   assert((await page.locator("#recommendationRationaleInput").inputValue()).length > 0, "rationale template did not fill textarea");
   await page.waitForFunction(() => document.querySelector(".recommendation-compact-summary")?.textContent.includes("可轉入"));
+  await page.fill("#recommendationRationaleInput", "Test accepted rationale");
+  await page.click("#acceptRecommendationButton");
+  await page.waitForFunction(() => document.querySelector(".recommendation-history-item")?.textContent.includes("接受"));
 
   await page.click("#createActionFromRecommendationButton");
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("建議轉入"));
@@ -111,6 +114,8 @@ try {
   await page.click("#clearDoneLocalActionsButton");
   await page.waitForFunction(() => !document.querySelector("#localActionListPanel")?.textContent.includes("Persisted action"));
   await page.selectOption("#localActionFilterInput", "all");
+  await page.locator("select[data-local-action-status]").first().selectOption("done");
+  await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("完成"));
 
   const importPath = path.join(os.tmpdir(), `atlas-local-actions-import-${Date.now()}.json`);
   await writeFile(importPath, JSON.stringify({
