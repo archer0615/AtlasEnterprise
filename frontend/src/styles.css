@@ -1118,6 +1118,33 @@ summary:focus-visible {
   text-decoration: line-through;
 }
 
+.local-action-group {
+  margin: 12px 0 0;
+  color: #243130;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.file-action-button {
+  display: inline-grid;
+  align-items: center;
+  border: 1px solid #c9d5d1;
+  background: #f7f9f8;
+  color: #243130;
+  padding: 7px 9px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.file-action-button input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .rationale-field {
   display: grid;
   gap: 6px;
@@ -1509,7 +1536,8 @@ button:disabled {
 
   .local-action-tracker .compact-actions input,
   .local-action-tracker .compact-actions select,
-  .local-action-tracker .compact-actions button {
+  .local-action-tracker .compact-actions button,
+  .local-action-tracker .compact-actions .file-action-button {
     width: 100%;
     min-height: 38px;
   }

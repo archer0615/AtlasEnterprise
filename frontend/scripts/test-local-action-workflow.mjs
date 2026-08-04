@@ -1,5 +1,7 @@
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { chromium } from "playwright";
 
@@ -60,6 +62,7 @@ try {
   });
   await page.reload({ waitUntil: "networkidle" });
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Persisted action"));
+  await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("已到期"));
   await page.waitForFunction(() => {
     const text = document.querySelector("#localActionListPanel")?.textContent || "";
     return text.indexOf("Persisted action") < text.indexOf("Undated action");
@@ -107,6 +110,21 @@ try {
   await page.click("#clearDoneLocalActionsButton");
   await page.waitForFunction(() => !document.querySelector("#localActionListPanel")?.textContent.includes("Persisted action"));
   await page.selectOption("#localActionFilterInput", "all");
+
+  const importPath = path.join(os.tmpdir(), `atlas-local-actions-import-${Date.now()}.json`);
+  await writeFile(importPath, JSON.stringify({
+    schema: "atlas-enterprise.local-actions.v1",
+    actions: [{
+      id: "imported-action",
+      title: "Imported restore action",
+      dueDate: "2026-08-11",
+      status: "pending-review",
+      createdFrom: "import-test",
+      createdAt: "2026-08-04T00:00:00.000Z",
+    }],
+  }));
+  await page.setInputFiles("#importLocalActionsInput", importPath);
+  await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Imported restore action"));
 
   const downloadPromise = page.waitForEvent("download");
   await page.click("#exportLocalActionsButton");

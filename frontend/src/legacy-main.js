@@ -163,6 +163,7 @@ const localActionSearchInput = $("#localActionSearchInput");
 const localActionFilterInput = $("#localActionFilterInput");
 const addLocalActionButton = $("#addLocalActionButton");
 const exportLocalActionsButton = $("#exportLocalActionsButton");
+const importLocalActionsInput = $("#importLocalActionsInput");
 const completeDueLocalActionsButton = $("#completeDueLocalActionsButton");
 const clearDoneLocalActionsButton = $("#clearDoneLocalActionsButton");
 const localActionReminderPanel = $("#localActionReminderPanel");
@@ -923,9 +924,26 @@ function renderLocalActions() {
   ].some((value) => String(value || "").toLowerCase().includes(keyword)));
   const sorted = [...source].sort(compareLocalActions);
   localActionListPanel.innerHTML = sorted.length
-    ? sorted.map((action) => `<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><button type="button" data-local-action="done" data-action-id="${escapeAttribute(action.id)}">完成</button><button type="button" data-local-action="defer" data-action-id="${escapeAttribute(action.id)}">延後</button><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`).join("")
+    ? renderGroupedLocalActions(sorted)
     : `<div class="empty-runtime">尚無本機行動。<a href="#execution">新增下一步行動</a></div>`;
   renderLocalActionReminder();
+}
+
+function renderGroupedLocalActions(actions) {
+  let currentGroup = "";
+  return actions.map((action) => {
+    const group = getLocalActionGroupLabel(action);
+    const heading = group === currentGroup ? "" : `<h6 class="local-action-group">${escapeHtml(group)}</h6>`;
+    currentGroup = group;
+    return `${heading}<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><button type="button" data-local-action="done" data-action-id="${escapeAttribute(action.id)}">完成</button><button type="button" data-local-action="defer" data-action-id="${escapeAttribute(action.id)}">延後</button><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`;
+  }).join("");
+}
+
+function getLocalActionGroupLabel(action) {
+  if (action.status === "done") return "已完成";
+  if (!action.dueDate) return "未設定期限";
+  const today = new Date().toISOString().slice(0, 10);
+  return action.dueDate <= today ? "已到期" : "未來期限";
 }
 
 function compareLocalActions(a, b) {
@@ -1058,6 +1076,30 @@ function exportLocalActions() {
     actions: localActions,
   }, "atlas-local-actions.json");
   setRuntimeFeedback("本機行動已匯出。");
+}
+
+async function importLocalActions(file) {
+  if (!file) return;
+  const payload = JSON.parse(await file.text());
+  const imported = Array.isArray(payload) ? payload : payload.actions;
+  if (!Array.isArray(imported)) throw new Error("行動匯入檔案格式不正確。");
+  const normalized = imported.map((action, index) => ({
+    id: String(action.id || `imported-action-${Date.now()}-${index}`),
+    title: String(action.title || "").trim(),
+    dueDate: String(action.dueDate || ""),
+    status: ["pending-review", "defer", "done"].includes(action.status) ? action.status : "pending-review",
+    createdFrom: String(action.createdFrom || "import"),
+    sourceRecommendationId: action.sourceRecommendationId ? String(action.sourceRecommendationId) : undefined,
+    createdAt: String(action.createdAt || new Date().toISOString()),
+    completedAt: action.completedAt ? String(action.completedAt) : undefined,
+  })).filter((action) => action.title.length >= 2);
+  const existingIds = new Set(localActions.map((action) => action.id));
+  localActions = [...normalized.filter((action) => !existingIds.has(action.id)), ...localActions].slice(0, 50);
+  persistLocalActions();
+  await persistAuditEntry("local-action-import", { importedCount: normalized.length, keptCount: localActions.length });
+  renderLocalActions();
+  renderDashboardById(selectedDashboardSnapshotId);
+  setRuntimeFeedback(`已匯入 ${normalized.length} 個本機行動。`);
 }
 
 function parseProfileNumber(value) {
@@ -1966,6 +2008,7 @@ csvDryRunButton?.addEventListener("click", () => previewCsvImport().catch((error
 csvClearPreviewButton?.addEventListener("click", clearCsvImportPreview);
 addLocalActionButton?.addEventListener("click", () => addLocalAction().catch((error) => setRuntimeFeedback(error.message)));
 exportLocalActionsButton?.addEventListener("click", exportLocalActions);
+importLocalActionsInput?.addEventListener("change", () => importLocalActions(importLocalActionsInput.files?.[0]).catch((error) => setRuntimeFeedback(error.message)));
 completeDueLocalActionsButton?.addEventListener("click", () => completeDueLocalActions().catch((error) => setRuntimeFeedback(error.message)));
 clearDoneLocalActionsButton?.addEventListener("click", () => clearDoneLocalActions().catch((error) => setRuntimeFeedback(error.message)));
 localActionFilterInput?.addEventListener("change", renderLocalActions);
