@@ -1101,6 +1101,37 @@ summary:focus-visible {
   padding: 8px 10px;
 }
 
+#localActionImportPreviewPanel:empty {
+  display: none;
+}
+
+.recommendation-compact-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.recommendation-compact-summary div {
+  border: 1px solid #d7dfdc;
+  background: #f7f9f8;
+  padding: 8px;
+}
+
+.recommendation-compact-summary span,
+.recommendation-compact-summary strong {
+  display: block;
+}
+
+.recommendation-compact-summary span {
+  color: #627572;
+  font-size: 12px;
+}
+
+.recommendation-compact-summary strong {
+  color: #1f6f78;
+  margin-top: 2px;
+}
+
 .local-action-row {
   align-items: center;
 }
@@ -1554,6 +1585,10 @@ button:disabled {
 
   #localActionReminderPanel .runtime-row {
     padding-top: 6px;
+  }
+
+  .recommendation-compact-summary {
+    grid-template-columns: 1fr;
   }
 
   .document-list,

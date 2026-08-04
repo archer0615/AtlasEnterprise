@@ -94,6 +94,7 @@ try {
 
   await page.locator(".rationale-templates button").first().click();
   assert((await page.locator("#recommendationRationaleInput").inputValue()).length > 0, "rationale template did not fill textarea");
+  await page.waitForFunction(() => document.querySelector(".recommendation-compact-summary")?.textContent.includes("可轉入"));
 
   await page.click("#createActionFromRecommendationButton");
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("建議轉入"));
@@ -125,6 +126,12 @@ try {
   }));
   await page.setInputFiles("#importLocalActionsInput", importPath);
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Imported restore action"));
+  await page.waitForFunction(() => document.querySelector("#localActionImportPreviewPanel")?.textContent.includes("匯入預覽"));
+
+  const invalidImportPath = path.join(os.tmpdir(), `atlas-local-actions-invalid-${Date.now()}.json`);
+  await writeFile(invalidImportPath, JSON.stringify({ items: [] }));
+  await page.setInputFiles("#importLocalActionsInput", invalidImportPath);
+  await page.waitForFunction(() => document.querySelector("#localActionImportPreviewPanel")?.textContent.includes("找不到 actions"));
 
   const downloadPromise = page.waitForEvent("download");
   await page.click("#exportLocalActionsButton");

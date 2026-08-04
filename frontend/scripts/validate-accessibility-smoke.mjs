@@ -39,7 +39,7 @@ try {
     assert(await page.locator(selector).count() >= 1, `${selector} is missing`);
   }
 
-  for (const selector of ["#homeSummaryPanel", "#assetLiabilitySummaryPanel", "#cashflowSummaryPanel", "#goalSummaryPanel", "#insuranceSummaryPanel", "#recommendationRationaleInput", ".rationale-templates", "#createActionFromRecommendationButton", ".raw-data-panel", ".settings-grid", "#localActionTitleInput", "#localActionDueInput", "#localActionSearchInput", "#localActionFilterInput", "#exportLocalActionsButton", "#importLocalActionsInput", "#completeDueLocalActionsButton", "#clearDoneLocalActionsButton", "#localActionReminderPanel", "#localActionListPanel"]) {
+  for (const selector of ["#homeSummaryPanel", "#assetLiabilitySummaryPanel", "#cashflowSummaryPanel", "#goalSummaryPanel", "#insuranceSummaryPanel", "#recommendationRationaleInput", ".rationale-templates", "#createActionFromRecommendationButton", ".raw-data-panel", ".settings-grid", "#localActionTitleInput", "#localActionDueInput", "#localActionSearchInput", "#localActionFilterInput", "#exportLocalActionsButton", "#importLocalActionsInput", "#completeDueLocalActionsButton", "#clearDoneLocalActionsButton", "#localActionReminderPanel", "#localActionImportPreviewPanel", "#localActionListPanel"]) {
     assert(await page.locator(selector).count() === 1, `${selector} is missing`);
   }
 

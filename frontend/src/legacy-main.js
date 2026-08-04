@@ -167,6 +167,7 @@ const importLocalActionsInput = $("#importLocalActionsInput");
 const completeDueLocalActionsButton = $("#completeDueLocalActionsButton");
 const clearDoneLocalActionsButton = $("#clearDoneLocalActionsButton");
 const localActionReminderPanel = $("#localActionReminderPanel");
+const localActionImportPreviewPanel = $("#localActionImportPreviewPanel");
 const localActionListPanel = $("#localActionListPanel");
 
 const ownerProvider = createCurrentOwnerProvider(indexedDbSettingsRepository);
@@ -422,7 +423,8 @@ function renderRecommendationControls(snapshot) {
     renderRecommendationHistory();
     return;
   }
-  recommendationControlPanel.innerHTML = `<div class="runtime-row"><span>狀態</span><strong>${escapeHtml(translateStatus(result.recommendation.status))}</strong></div><div class="runtime-row"><span>分數</span><strong>${escapeHtml(result.score)}</strong></div><div class="runtime-note">${escapeHtml(translateRecommendationText(result.recommendation.explanation))}</div>`;
+  const existingAction = localActions.some((action) => action.sourceRecommendationId === result.fixtureId && action.status !== "done");
+  recommendationControlPanel.innerHTML = `<div class="recommendation-compact-summary"><div><span>狀態</span><strong>${escapeHtml(translateStatus(result.recommendation.status))}</strong></div><div><span>分數</span><strong>${escapeHtml(result.score)}</strong></div><div><span>行動</span><strong>${existingAction ? "已轉入" : "可轉入"}</strong></div></div><div class="runtime-note">${escapeHtml(translateRecommendationText(result.recommendation.explanation))}</div>`;
   renderRecommendationDecisionLog(result.fixtureId);
   renderRecommendationHistory();
 }
@@ -1080,9 +1082,18 @@ function exportLocalActions() {
 
 async function importLocalActions(file) {
   if (!file) return;
-  const payload = JSON.parse(await file.text());
+  let payload;
+  try {
+    payload = JSON.parse(await file.text());
+  } catch {
+    renderLocalActionImportPreview("匯入失敗：JSON 格式不正確。");
+    throw new Error("行動匯入檔案格式不正確。");
+  }
   const imported = Array.isArray(payload) ? payload : payload.actions;
-  if (!Array.isArray(imported)) throw new Error("行動匯入檔案格式不正確。");
+  if (!Array.isArray(imported)) {
+    renderLocalActionImportPreview("匯入失敗：找不到 actions 陣列。");
+    throw new Error("行動匯入檔案格式不正確。");
+  }
   const normalized = imported.map((action, index) => ({
     id: String(action.id || `imported-action-${Date.now()}-${index}`),
     title: String(action.title || "").trim(),
@@ -1094,12 +1105,19 @@ async function importLocalActions(file) {
     completedAt: action.completedAt ? String(action.completedAt) : undefined,
   })).filter((action) => action.title.length >= 2);
   const existingIds = new Set(localActions.map((action) => action.id));
-  localActions = [...normalized.filter((action) => !existingIds.has(action.id)), ...localActions].slice(0, 50);
+  const accepted = normalized.filter((action) => !existingIds.has(action.id));
+  localActions = [...accepted, ...localActions].slice(0, 50);
   persistLocalActions();
-  await persistAuditEntry("local-action-import", { importedCount: normalized.length, keptCount: localActions.length });
+  await persistAuditEntry("local-action-import", { importedCount: normalized.length, acceptedCount: accepted.length, keptCount: localActions.length });
   renderLocalActions();
+  renderLocalActionImportPreview(`匯入預覽：讀取 ${imported.length} 筆，接受 ${accepted.length} 筆，略過 ${imported.length - accepted.length} 筆。`);
   renderDashboardById(selectedDashboardSnapshotId);
-  setRuntimeFeedback(`已匯入 ${normalized.length} 個本機行動。`);
+  setRuntimeFeedback(`已匯入 ${accepted.length} 個本機行動。`);
+}
+
+function renderLocalActionImportPreview(message) {
+  if (!localActionImportPreviewPanel) return;
+  localActionImportPreviewPanel.textContent = message;
 }
 
 function parseProfileNumber(value) {
