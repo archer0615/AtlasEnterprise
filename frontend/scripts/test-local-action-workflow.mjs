@@ -49,13 +49,29 @@ try {
       status: "pending-review",
       createdFrom: "test",
       createdAt: "2020-01-01T00:00:00.000Z",
+    }, {
+      id: "undated-action",
+      title: "Undated action",
+      dueDate: "",
+      status: "pending-review",
+      createdFrom: "test",
+      createdAt: "2020-01-02T00:00:00.000Z",
     }]));
   });
   await page.reload({ waitUntil: "networkidle" });
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Persisted action"));
+  await page.waitForFunction(() => {
+    const text = document.querySelector("#localActionListPanel")?.textContent || "";
+    return text.indexOf("Persisted action") < text.indexOf("Undated action");
+  });
   await page.waitForFunction(() => document.querySelector("#localActionReminderPanel")?.textContent.includes("已到期"));
   await page.waitForFunction(() => document.querySelector("#businessCalendarPanel")?.textContent.includes("Persisted action"));
   await page.waitForFunction(() => document.querySelector("#notificationListPanel")?.textContent.includes("行動到期"));
+
+  await page.goto(`http://127.0.0.1:${server.address().port}/#maintenance-settings`, { waitUntil: "networkidle" });
+  await page.waitForSelector("#settings[open]");
+  await page.waitForSelector("#maintenance-settings details[open]");
+  assert(await page.locator("#maintenance-settings").evaluate((element) => getComputedStyle(element).borderTopColor !== "rgba(0, 0, 0, 0)"), "settings deep link target should be visually addressable");
 
   await page.goto(`http://127.0.0.1:${server.address().port}/#execution`, { waitUntil: "networkidle" });
   await page.waitForSelector("#localActionTitleInput", { state: "visible" });

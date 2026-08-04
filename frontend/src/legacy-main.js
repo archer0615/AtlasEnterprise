@@ -911,11 +911,24 @@ function renderLocalActions() {
     if (filter === "open") return action.status !== "done";
     return action.status === filter;
   });
-  const sorted = [...source].sort((a, b) => String(a.dueDate || "").localeCompare(String(b.dueDate || "")));
+  const sorted = [...source].sort(compareLocalActions);
   localActionListPanel.innerHTML = sorted.length
     ? sorted.map((action) => `<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><button type="button" data-local-action="done" data-action-id="${escapeAttribute(action.id)}">完成</button><button type="button" data-local-action="defer" data-action-id="${escapeAttribute(action.id)}">延後</button><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`).join("")
     : `<div class="empty-runtime">尚無本機行動。<a href="#execution">新增下一步行動</a></div>`;
   renderLocalActionReminder();
+}
+
+function compareLocalActions(a, b) {
+  return getLocalActionSortRank(a) - getLocalActionSortRank(b)
+    || String(a.dueDate || "9999-12-31").localeCompare(String(b.dueDate || "9999-12-31"))
+    || String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
+}
+
+function getLocalActionSortRank(action) {
+  if (action.status === "done") return 4;
+  if (!action.dueDate) return 3;
+  const today = new Date().toISOString().slice(0, 10);
+  return action.dueDate <= today ? 1 : 2;
 }
 
 function renderLocalActionReminder() {
