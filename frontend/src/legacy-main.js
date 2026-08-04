@@ -71,6 +71,7 @@ const resetLoanButton = $("#resetLoanButton");
 const loanEditableOutput = $("#loanEditableOutput");
 const saveScenarioButton = $("#saveScenarioButton");
 const deleteScenarioButton = $("#deleteScenarioButton");
+const resetScenarioConfirmInput = $("#resetScenarioConfirmInput");
 const resetScenariosButton = $("#resetScenariosButton");
 const exportBackupButton = $("#exportBackupButton");
 const exportEncryptedBackupButton = $("#exportEncryptedBackupButton");
@@ -821,10 +822,11 @@ async function deleteLastScenario() {
 }
 
 async function resetScenarios() {
-  if (!window.confirm("重設會清空所有自訂情境。請確認你已匯出備份。")) return;
+  if (!resetScenarioConfirmInput?.checked) throw new Error("請先勾選確認已匯出備份，才能重設情境。");
   await indexedDbScenarioRepository.clear();
   await persistAuditEntry("scenario-reset", { count: localScenarios.length });
   localScenarios = [];
+  if (resetScenarioConfirmInput) resetScenarioConfirmInput.checked = false;
   renderDashboardById(selectedDashboardSnapshotId);
   setRuntimeFeedback("自訂情境已清空。");
 }
@@ -1107,11 +1109,12 @@ async function importLocalActions(file) {
   })).filter((action) => action.title.length >= 2);
   const existingIds = new Set(localActions.map((action) => action.id));
   const accepted = normalized.filter((action) => !existingIds.has(action.id));
+  const duplicateCount = normalized.length - accepted.length;
   localActions = [...accepted, ...localActions].slice(0, 50);
   persistLocalActions();
-  await persistAuditEntry("local-action-import", { importedCount: normalized.length, acceptedCount: accepted.length, keptCount: localActions.length });
+  await persistAuditEntry("local-action-import", { importedCount: normalized.length, acceptedCount: accepted.length, duplicateCount, keptCount: localActions.length });
   renderLocalActions();
-  renderLocalActionImportPreview(`匯入預覽：讀取 ${imported.length} 筆，接受 ${accepted.length} 筆，略過 ${imported.length - accepted.length} 筆。`);
+  renderLocalActionImportPreview(`匯入預覽：讀取 ${imported.length} 筆，接受 ${accepted.length} 筆，重複 ${duplicateCount} 筆，略過 ${imported.length - accepted.length} 筆。`);
   renderDashboardById(selectedDashboardSnapshotId);
   setRuntimeFeedback(`已匯入 ${accepted.length} 個本機行動。`);
 }
@@ -2027,7 +2030,11 @@ csvDryRunButton?.addEventListener("click", () => previewCsvImport().catch((error
 csvClearPreviewButton?.addEventListener("click", clearCsvImportPreview);
 addLocalActionButton?.addEventListener("click", () => addLocalAction().catch((error) => setRuntimeFeedback(error.message)));
 exportLocalActionsButton?.addEventListener("click", exportLocalActions);
-importLocalActionsInput?.addEventListener("change", () => importLocalActions(importLocalActionsInput.files?.[0]).catch((error) => setRuntimeFeedback(error.message)));
+importLocalActionsInput?.addEventListener("change", () => importLocalActions(importLocalActionsInput.files?.[0])
+  .catch((error) => setRuntimeFeedback(error.message))
+  .finally(() => {
+    importLocalActionsInput.value = "";
+  }));
 completeDueLocalActionsButton?.addEventListener("click", () => completeDueLocalActions().catch((error) => setRuntimeFeedback(error.message)));
 clearDoneLocalActionsButton?.addEventListener("click", () => clearDoneLocalActions().catch((error) => setRuntimeFeedback(error.message)));
 localActionFilterInput?.addEventListener("change", renderLocalActions);

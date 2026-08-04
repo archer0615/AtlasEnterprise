@@ -132,6 +132,11 @@ try {
   await page.setInputFiles("#importLocalActionsInput", importPath);
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Imported restore action"));
   await page.waitForFunction(() => document.querySelector("#localActionImportPreviewPanel")?.textContent.includes("匯入預覽"));
+  await page.setInputFiles("#importLocalActionsInput", importPath);
+  await page.waitForFunction(() => {
+    const text = document.querySelector("#localActionImportPreviewPanel")?.textContent || "";
+    return text.includes("重複 1 筆") && text.includes("接受 0 筆");
+  });
 
   const invalidImportPath = path.join(os.tmpdir(), `atlas-local-actions-invalid-${Date.now()}.json`);
   await writeFile(invalidImportPath, JSON.stringify({ items: [] }));
