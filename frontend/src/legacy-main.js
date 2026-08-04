@@ -159,6 +159,7 @@ const csvClearPreviewButton = $("#csvClearPreviewButton");
 const csvImportDryRunPanel = $("#csvImportDryRunPanel");
 const localActionTitleInput = $("#localActionTitleInput");
 const localActionDueInput = $("#localActionDueInput");
+const localActionSearchInput = $("#localActionSearchInput");
 const localActionFilterInput = $("#localActionFilterInput");
 const addLocalActionButton = $("#addLocalActionButton");
 const exportLocalActionsButton = $("#exportLocalActionsButton");
@@ -908,11 +909,18 @@ function persistLocalActions() {
 function renderLocalActions() {
   if (!localActionListPanel) return;
   const filter = localActionFilterInput?.value || "open";
+  const keyword = (localActionSearchInput?.value || "").trim().toLowerCase();
   const source = localActions.filter((action) => {
     if (filter === "all") return true;
     if (filter === "open") return action.status !== "done";
     return action.status === filter;
-  });
+  }).filter((action) => !keyword || [
+    action.title,
+    action.dueDate,
+    action.status,
+    action.createdFrom,
+    action.sourceRecommendationId ? "建議轉入" : "手動新增",
+  ].some((value) => String(value || "").toLowerCase().includes(keyword)));
   const sorted = [...source].sort(compareLocalActions);
   localActionListPanel.innerHTML = sorted.length
     ? sorted.map((action) => `<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><button type="button" data-local-action="done" data-action-id="${escapeAttribute(action.id)}">完成</button><button type="button" data-local-action="defer" data-action-id="${escapeAttribute(action.id)}">延後</button><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`).join("")
@@ -1961,6 +1969,7 @@ exportLocalActionsButton?.addEventListener("click", exportLocalActions);
 completeDueLocalActionsButton?.addEventListener("click", () => completeDueLocalActions().catch((error) => setRuntimeFeedback(error.message)));
 clearDoneLocalActionsButton?.addEventListener("click", () => clearDoneLocalActions().catch((error) => setRuntimeFeedback(error.message)));
 localActionFilterInput?.addEventListener("change", renderLocalActions);
+localActionSearchInput?.addEventListener("input", renderLocalActions);
 localActionListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-local-action]");
   if (!button) return;

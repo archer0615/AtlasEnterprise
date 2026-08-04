@@ -1501,6 +1501,33 @@ button:disabled {
     display: none;
   }
 
+  .local-action-tracker .compact-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .local-action-tracker .compact-actions input,
+  .local-action-tracker .compact-actions select,
+  .local-action-tracker .compact-actions button {
+    width: 100%;
+    min-height: 38px;
+  }
+
+  .local-action-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .local-action-row strong {
+    text-align: left;
+  }
+
+  #localActionReminderPanel .runtime-row {
+    padding-top: 6px;
+  }
+
   .document-list,
   .document-viewer {
     max-height: none;

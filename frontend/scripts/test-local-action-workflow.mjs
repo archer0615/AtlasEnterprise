@@ -84,6 +84,10 @@ try {
   assert(!(await page.locator("#localActionListPanel").textContent()).includes("Manual follow up"), "done filter should hide open actions");
   await page.selectOption("#localActionFilterInput", "all");
   assert((await page.locator("#localActionListPanel").textContent()).includes("Manual follow up"), "all filter should show open actions");
+  await page.fill("#localActionSearchInput", "Manual");
+  assert((await page.locator("#localActionListPanel").textContent()).includes("Manual follow up"), "keyword search should show matching actions");
+  assert(!(await page.locator("#localActionListPanel").textContent()).includes("Undated action"), "keyword search should hide non-matching actions");
+  await page.fill("#localActionSearchInput", "");
 
   await page.locator(".rationale-templates button").first().click();
   assert((await page.locator("#recommendationRationaleInput").inputValue()).length > 0, "rationale template did not fill textarea");
