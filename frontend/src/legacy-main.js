@@ -15,6 +15,8 @@ import { createActionPlansFromExecutionPlan } from "./runtime/action-plan-runtim
 import { buildBusinessCalendar } from "./runtime/business-calendar-runtime.js";
 import { createExecutionPlanFromRecommendation } from "./runtime/execution-plan-runtime.js";
 import { evaluateScheduler } from "./runtime/scheduler-runtime.js";
+import { dryRunCsvImport } from "./domain/import/csv-import-dry-run.js";
+import { renderCsvImportDryRun } from "./features/import/csv-import-view.js";
 
 const state = { documents: [], searchDocuments: new Map(), categories: [], selectedCategory: "all", selectedDocumentId: "", query: "" };
 const storageKeys = { dashboardSnapshotId: dashboardStorage.snapshotIdKey };
@@ -26,6 +28,11 @@ const documentViewer = $("#documentViewer");
 const searchInput = $("#searchInput");
 const statusText = $("#statusText");
 const pageTitle = $("#pageTitle");
+const homeSummaryPanel = $("#homeSummaryPanel");
+const assetLiabilitySummaryPanel = $("#assetLiabilitySummaryPanel");
+const cashflowSummaryPanel = $("#cashflowSummaryPanel");
+const goalSummaryPanel = $("#goalSummaryPanel");
+const insuranceSummaryPanel = $("#insuranceSummaryPanel");
 const resultCount = $("#resultCount");
 const clearFiltersButton = $("#clearFiltersButton");
 const dashboardDate = $("#dashboardDate");
@@ -49,8 +56,11 @@ const notificationListPanel = $("#notificationListPanel");
 const loanScenarioPanel = $("#loanScenarioPanel");
 const exportPortfolioReportButton = $("#exportPortfolioReportButton");
 const recommendationDecisionLog = $("#recommendationDecisionLog");
+const recommendationRationaleInput = $("#recommendationRationaleInput");
 const acceptRecommendationButton = $("#acceptRecommendationButton");
 const rejectRecommendationButton = $("#rejectRecommendationButton");
+const deferRecommendationButton = $("#deferRecommendationButton");
+const createActionFromRecommendationButton = $("#createActionFromRecommendationButton");
 const loanBalanceInput = $("#loanBalanceInput");
 const loanRateInput = $("#loanRateInput");
 const loanMonthsInput = $("#loanMonthsInput");
@@ -141,6 +151,14 @@ const createGoalButton = $("#createGoalButton");
 const goalListPanel = $("#goalListPanel");
 const goalProgressPanel = $("#goalProgressPanel");
 const financialHealthPanel = $("#financialHealthPanel");
+const csvImportInput = $("#csvImportInput");
+const csvDryRunButton = $("#csvDryRunButton");
+const csvClearPreviewButton = $("#csvClearPreviewButton");
+const csvImportDryRunPanel = $("#csvImportDryRunPanel");
+const localActionTitleInput = $("#localActionTitleInput");
+const localActionDueInput = $("#localActionDueInput");
+const addLocalActionButton = $("#addLocalActionButton");
+const localActionListPanel = $("#localActionListPanel");
 
 const ownerProvider = createCurrentOwnerProvider(indexedDbSettingsRepository);
 const assetService = createAssetApplicationService({ repository: indexedDbAssetRepository, ownerProvider, auditRepository: indexedDbAuditRepository });
@@ -163,6 +181,7 @@ let offlineRepairAudit = [];
 let restoreAuditReports = [];
 let persistentAuditEntries = [];
 let userProfile = { income: "", assets: "", debt: "", goal: "balanced" };
+let localActions = [];
 let selectedScenarioTemplateId = "home";
 const scenarioTemplates = [
   { id: "home", name: "買房準備", score: "72", detail: "檢查頭期款、交易成本與貸款壓力。" },
@@ -279,12 +298,56 @@ function renderDashboard(snapshot) {
   metricGrid.innerHTML = snapshot.metrics.map((metric) => `<div class="metric-card"><span>${escapeHtml(metric.label)}</span><strong>${escapeHtml(formatDisplayToken(metric.value))}</strong><small>${escapeHtml(metric.detail)}</small></div>`).join("");
   scenarioList.innerHTML = [...snapshot.scenarios, ...localScenarios].map((scenario) => `<div class="scenario-row"><span>${escapeHtml(scenario.name)}</span><strong>${escapeHtml(formatDisplayToken(scenario.score))}</strong><small>${escapeHtml(translateStatus(scenario.status))}</small></div>`).join("");
   actionList.innerHTML = snapshot.actions.map((action) => `<div class="action-row">${escapeHtml(action)}</div>`).join("");
+  renderHomeSummary(snapshot);
   renderScenarioComparison(snapshot);
   renderPortfolioReport(snapshot);
   renderRecommendationControls(snapshot);
   renderSelectedBatchReadModels(snapshot);
   renderLoanScenarioPanel(snapshot);
   renderExportPreview(snapshot);
+}
+
+function renderHomeSummary(snapshot) {
+  if (!homeSummaryPanel) return;
+  const scoreMetric = snapshot.metrics.find((metric) => /分數|score/i.test(metric.label)) || snapshot.metrics[0];
+  const pendingRecommendationCount = Math.max(0, (snapshot.actions || []).length - recommendationDecisions.length);
+  const latestDecision = recommendationDecisions
+    .sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")))[0];
+  const items = [
+    ["目前分數", formatDisplayToken(scoreMetric?.value ?? "N/A"), scoreMetric?.detail || "尚未載入分數"],
+    ["本機情境", `${localScenarios.length}`, localScenarios.length ? "可進行情境比較" : "尚未建立自訂情境"],
+    ["待處理建議", `${pendingRecommendationCount}`, latestDecision ? `最近：${translateDecision(latestDecision.decision)}` : "尚未記錄決策"],
+  ];
+  homeSummaryPanel.innerHTML = items.map(([label, value, detail]) => `<div><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong><small>${escapeHtml(detail)}</small></div>`).join("");
+}
+
+function updateNavigationState() {
+  const activeHash = window.location.hash.split("?")[0] || "#today";
+  const activeMap = {
+    "#assets": "#data",
+    "#cashflow": "#data",
+    "#goals": "#data",
+    "#insurance": "#data",
+    "#csv-import": "#settings",
+    "#loan": "#dashboard",
+    "#portfolio": "#dashboard",
+    "#execution": "#dashboard",
+    "#calendar": "#dashboard",
+    "#notifications": "#dashboard",
+  };
+  const navHash = activeMap[activeHash] || activeHash;
+  if (activeHash === "#settings") document.querySelector("#settings")?.setAttribute("open", "");
+  if (activeHash === "#help") document.querySelector("#help")?.setAttribute("open", "");
+  if (["#csv-import", "#settings"].includes(activeHash)) document.querySelector("#settings")?.setAttribute("open", "");
+  document.querySelectorAll(".workflow-nav a, .mobile-toolbar a").forEach((link) => {
+    const isActive = link.getAttribute("href") === navHash;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
 }
 
 function renderScenarioComparison(snapshot) {
@@ -330,7 +393,7 @@ function renderPortfolioReport(snapshot) {
   const formulaIds = (runtimeSnapshot?.metrics || []).flatMap((metric) => metric.formulaIds || []);
   const isPortfolio = formulaIds.includes("FORM-PORTFOLIO-DRAWDOWN") || formulaIds.includes("FORM-DRAWDOWN-ATTRIBUTION");
   if (!isPortfolio || !result) {
-    portfolioReportPanel.innerHTML = `<div class="empty-runtime">此情境沒有投資報表資料。</div>`;
+    portfolioReportPanel.innerHTML = `<div class="empty-runtime">此情境沒有投資報表資料。<a href="#dashboard">切換其他情境</a></div>`;
     return;
   }
   const metrics = Object.entries(result.metrics).map(([key, value]) => [translateMetricName(key), formatMetricValue(value)]);
@@ -340,7 +403,7 @@ function renderPortfolioReport(snapshot) {
 function renderRecommendationControls(snapshot) {
   const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
   if (!result?.recommendation) {
-    recommendationControlPanel.innerHTML = `<div class="empty-runtime">此情境沒有可執行建議。</div>`;
+    recommendationControlPanel.innerHTML = `<div class="empty-runtime">此情境沒有可執行建議。<a href="#dashboard">先建立或切換情境</a></div>`;
     recommendationDecisionLog.textContent = "";
     renderRecommendationHistory();
     return;
@@ -505,7 +568,7 @@ function renderLoanScenarioPanel(snapshot) {
   const formulaIds = result?.formulaEvaluation?.formulaIds || [];
   const isLoan = formulaIds.some((formulaId) => ["FORM-PMT", "FORM-LOAN-AMORTIZATION", "FORM-REFI-BREAK-EVEN", "FORM-PREPAYMENT-IMPACT"].includes(formulaId));
   if (!isLoan || !result) {
-    loanScenarioPanel.innerHTML = `<div class="empty-runtime">此情境沒有貸款試算資料。</div>`;
+    loanScenarioPanel.innerHTML = `<div class="empty-runtime">此情境沒有貸款試算資料。<a href="#loan">手動輸入貸款條件</a></div>`;
     return;
   }
   loanScenarioPanel.innerHTML = Object.entries(result.metrics).filter(([key]) => /payment|loan|refinance|interest|balance|prepayment|fee/i.test(key)).slice(0, 5).map(([label, value]) => `<div class="runtime-row"><span>${escapeHtml(translateMetricName(label))}</span><strong>${escapeHtml(formatMetricValue(value))}</strong></div>`).join("");
@@ -518,11 +581,15 @@ async function setRecommendationDecision(decision) {
     setRuntimeFeedback("目前沒有可決策的建議。");
     return;
   }
-  await indexedDbRecommendationDecisionRepository.save({ decisionId: `decision-${Date.now()}`, decision, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status, score: String(result.score), decidedAt: new Date().toISOString() });
-  await persistAuditEntry("recommendation-decision", { decision, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status });
+  const rationale = recommendationRationaleInput?.value?.trim() || "";
+  if (!rationale) throw new Error("請先填寫決策理由。");
+  await indexedDbRecommendationDecisionRepository.save({ decisionId: `decision-${Date.now()}`, decision, rationale, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status, score: String(result.score), decidedAt: new Date().toISOString() });
+  await persistAuditEntry("recommendation-decision", { decision, rationale, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status });
   recommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
+  if (recommendationRationaleInput) recommendationRationaleInput.value = "";
   renderRecommendationDecisionLog(result.fixtureId);
   renderRecommendationHistory();
+  renderHomeSummary(snapshot);
   setRuntimeFeedback(`建議已${translateDecision(decision)}：${result.fixtureId} / ${translateStatus(result.recommendation.status)}`);
 }
 
@@ -665,7 +732,7 @@ function translateStatus(value) {
 }
 
 function translateDecision(value) {
-  return { accepted: "接受", rejected: "拒絕" }[value] || value;
+  return { accepted: "接受", rejected: "拒絕", deferred: "延後" }[value] || value;
 }
 
 function translateMetricName(value) {
@@ -706,6 +773,7 @@ async function deleteLastScenario() {
     setRuntimeFeedback("目前沒有可刪除的自訂情境。");
     return;
   }
+  if (!window.confirm("刪除最新情境前，建議先匯出備份。確定要刪除？")) return;
   await indexedDbScenarioRepository.delete(latest.scenarioId);
   await persistAuditEntry("scenario-delete", { scenarioId: latest.scenarioId, sourceSnapshotId: latest.sourceSnapshotId });
   localScenarios = await indexedDbScenarioRepository.list();
@@ -714,6 +782,7 @@ async function deleteLastScenario() {
 }
 
 async function resetScenarios() {
+  if (!window.confirm("重設會清空所有自訂情境。請確認你已匯出備份。")) return;
   await indexedDbScenarioRepository.clear();
   await persistAuditEntry("scenario-reset", { count: localScenarios.length });
   localScenarios = [];
@@ -724,7 +793,7 @@ async function resetScenarios() {
 async function exportBackup() {
   const backup = await indexedDbBackupRepository.exportBackup();
   downloadJson(backup, "atlas-pwa-runtime-backup.json");
-  setRuntimeFeedback("備份已匯出。");
+  setRuntimeFeedback("備份已匯出，包含本機行動追蹤設定。");
 }
 
 async function exportEncryptedBackup() {
@@ -733,7 +802,7 @@ async function exportEncryptedBackup() {
   const backup = await indexedDbBackupRepository.exportEncryptedBackup(passphrase);
   downloadJson(backup, "atlas-pwa-runtime-encrypted-backup.json");
   backupPassphraseInput.value = "";
-  setRuntimeFeedback("加密備份已匯出。");
+  setRuntimeFeedback("加密備份已匯出，包含本機行動追蹤設定。");
 }
 
 async function previewBackup(file) {
@@ -784,6 +853,89 @@ function setRuntimeFeedback(message) {
 
 function profileStorageKey() {
   return "atlas.user.profile.v1";
+}
+
+function localActionStorageKey() {
+  return "atlas.local.actions.v1";
+}
+
+async function loadLocalActions() {
+  const stored = await readStoredValue(localActionStorageKey());
+  localActions = stored ? JSON.parse(stored) : [];
+  renderLocalActions();
+}
+
+function persistLocalActions() {
+  writeStoredValue(localActionStorageKey(), JSON.stringify(localActions));
+}
+
+function renderLocalActions() {
+  if (!localActionListPanel) return;
+  const sorted = [...localActions].sort((a, b) => String(a.dueDate || "").localeCompare(String(b.dueDate || "")));
+  localActionListPanel.innerHTML = sorted.length
+    ? sorted.map((action) => `<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><button type="button" data-local-action="done" data-action-id="${escapeAttribute(action.id)}">完成</button><button type="button" data-local-action="defer" data-action-id="${escapeAttribute(action.id)}">延後</button><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`).join("")
+    : `<div class="empty-runtime">尚無本機行動。<a href="#execution">新增下一步行動</a></div>`;
+}
+
+async function addLocalAction() {
+  const title = localActionTitleInput?.value?.trim() || "";
+  if (title.length < 2) throw new Error("行動名稱至少需要 2 個字。");
+  localActions = [{
+    id: `local-action-${Date.now()}`,
+    title,
+    dueDate: localActionDueInput?.value || "",
+    status: "pending-review",
+    createdFrom: selectedDashboardSnapshotId,
+    createdAt: new Date().toISOString(),
+  }, ...localActions].slice(0, 50);
+  persistLocalActions();
+  if (localActionTitleInput) localActionTitleInput.value = "";
+  if (localActionDueInput) localActionDueInput.value = "";
+  await persistAuditEntry("local-action-create", { title, snapshotId: selectedDashboardSnapshotId });
+  renderLocalActions();
+  setRuntimeFeedback("本機行動已新增。");
+}
+
+async function createActionFromRecommendation() {
+  const snapshot = currentSnapshot();
+  const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
+  if (!result?.recommendation) throw new Error("目前情境沒有可轉成行動的建議。");
+  const sourceRecommendationId = result.fixtureId;
+  if (localActions.some((action) => action.sourceRecommendationId === sourceRecommendationId && action.status !== "done")) {
+    throw new Error("此建議已存在未完成行動。");
+  }
+  const dueDate = new Date();
+  dueDate.setDate(dueDate.getDate() + 14);
+  localActions = [{
+    id: `local-action-${Date.now()}`,
+    title: translateRecommendationText(result.recommendation.explanation || snapshot.label || "處理建議"),
+    dueDate: dueDate.toISOString().slice(0, 10),
+    status: "pending-review",
+    createdFrom: snapshot.snapshotId,
+    sourceRecommendationId,
+    createdAt: new Date().toISOString(),
+  }, ...localActions].slice(0, 50);
+  persistLocalActions();
+  await persistAuditEntry("recommendation-to-action", { fixtureId: sourceRecommendationId, snapshotId: snapshot.snapshotId });
+  renderLocalActions();
+  setRuntimeFeedback("建議已轉成本機行動。");
+}
+
+async function updateLocalAction(actionId, action) {
+  const nextDate = new Date();
+  nextDate.setDate(nextDate.getDate() + 7);
+  localActions = action === "delete"
+    ? localActions.filter((item) => item.id !== actionId)
+    : localActions.map((item) => {
+      if (item.id !== actionId) return item;
+      if (action === "done") return { ...item, status: "done", completedAt: new Date().toISOString() };
+      if (action === "defer") return { ...item, status: "defer", dueDate: nextDate.toISOString().slice(0, 10) };
+      return item;
+    });
+  persistLocalActions();
+  await persistAuditEntry("local-action-update", { actionId, action });
+  renderLocalActions();
+  setRuntimeFeedback("本機行動已更新。");
 }
 
 function parseProfileNumber(value) {
@@ -842,6 +994,7 @@ async function saveUserProfile() {
 }
 
 async function resetUserProfile() {
+  if (!window.confirm("重設會清空基本財務設定。請確認你已備份重要資料。")) return;
   userProfile = { income: "", assets: "", debt: "", goal: "balanced" };
   writeStoredValue(profileStorageKey(), JSON.stringify(userProfile));
   await persistAuditEntry("profile-reset", {});
@@ -1318,6 +1471,7 @@ async function refreshLocalFinancialData() {
   renderAssetList(assets);
   renderLiabilityList(liabilities);
   renderNetWorthProjection(assets, liabilities);
+  renderAssetLiabilitySummary(assets, liabilities);
 }
 
 async function refreshLocalCashFlowData() {
@@ -1328,6 +1482,7 @@ async function refreshLocalCashFlowData() {
   renderIncomeList(incomes);
   renderExpenseList(expenses);
   renderCashFlowProjection(incomes, expenses);
+  renderCashflowSummary(incomes, expenses);
 }
 
 async function refreshLocalGoalHealthData() {
@@ -1341,34 +1496,83 @@ async function refreshLocalGoalHealthData() {
   renderGoalList(goals);
   renderGoalProgress(goals, assets, liabilities, incomes, expenses);
   renderFinancialHealth(goals, assets, liabilities, incomes, expenses);
+  renderGoalSummary(goals);
+}
+
+function sumBy(items, key) {
+  return items.reduce((total, item) => total + Number(String(item[key] ?? 0).replace(/,/g, "")), 0);
+}
+
+function renderSummaryCard(element, title, value, detail, href) {
+  if (!element) return;
+  element.innerHTML = `<a class="summary-card" href="${escapeAttribute(href)}"><span>${escapeHtml(title)}</span><strong>${escapeHtml(value)}</strong><small>${escapeHtml(detail)}</small></a>`;
+}
+
+function renderAssetLiabilitySummary(assets, liabilities) {
+  const assetTotal = sumBy(assets.filter((item) => item.status !== "archived"), "currentValue");
+  const liabilityTotal = sumBy(liabilities.filter((item) => item.status !== "archived"), "outstandingBalance");
+  renderSummaryCard(assetLiabilitySummaryPanel, "淨值", formatMoney(assetTotal - liabilityTotal), `資產 ${assets.length} / 負債 ${liabilities.length}`, "#assets");
+}
+
+function renderCashflowSummary(incomes, expenses) {
+  const incomeTotal = sumBy(incomes.filter((item) => item.status !== "archived"), "amount");
+  const expenseTotal = sumBy(expenses.filter((item) => item.status !== "archived"), "amount");
+  renderSummaryCard(cashflowSummaryPanel, "月現金流", formatMoney(incomeTotal - expenseTotal), `收入 ${formatMoney(incomeTotal)} / 支出 ${formatMoney(expenseTotal)}`, "#cashflow");
+}
+
+function renderGoalSummary(goals) {
+  const activeGoals = goals.filter((item) => item.status !== "archived");
+  const average = activeGoals.length
+    ? activeGoals.reduce((total, goal) => total + Math.min(100, Math.round((Number(goal.currentAmount || 0) / Math.max(1, Number(goal.targetAmount || 1))) * 100)), 0) / activeGoals.length
+    : 0;
+  renderSummaryCard(goalSummaryPanel, "目標進度", `${Math.round(average)}%`, `目標 ${activeGoals.length} 個`, "#goals");
+}
+
+function renderInsuranceSummary() {
+  renderSummaryCard(insuranceSummaryPanel, "保險保單", "待補齊", "建立保單後顯示保障摘要", "#insurance");
+}
+
+async function previewCsvImport() {
+  const file = csvImportInput?.files?.[0];
+  if (!file) throw new Error("請先選擇 CSV 檔案。");
+  const text = await file.text();
+  const result = dryRunCsvImport(text, { ownerId: "owner-1" });
+  renderCsvImportDryRun(csvImportDryRunPanel, result);
+  setRuntimeFeedback("CSV 匯入預演完成。");
+}
+
+function clearCsvImportPreview() {
+  if (csvImportInput) csvImportInput.value = "";
+  renderCsvImportDryRun(csvImportDryRunPanel, null);
+  setRuntimeFeedback("CSV 預覽已清除。");
 }
 
 function renderAssetList(assets) {
   if (!assetListPanel) return;
   assetListPanel.innerHTML = assets.length
     ? assets.map((asset) => `<div class="runtime-row"><span>${escapeHtml(asset.name)} / ${escapeHtml(asset.assetType)} / ${escapeHtml(asset.currency)}</span><strong>${escapeHtml(formatDisplayToken(asset.currentValue))}</strong><button type="button" data-asset-archive="${escapeAttribute(asset.id)}">${asset.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
-    : `<div class="empty-runtime">尚未建立資產，本機儀表板會顯示空狀態。</div>`;
+    : `<div class="empty-runtime">尚未建立資產。<a href="#assets">新增第一筆資產</a></div>`;
 }
 
 function renderLiabilityList(liabilities) {
   if (!liabilityListPanel) return;
   liabilityListPanel.innerHTML = liabilities.length
     ? liabilities.map((liability) => `<div class="runtime-row"><span>${escapeHtml(liability.name)} / ${escapeHtml(liability.liabilityType)} / ${escapeHtml(liability.currency)}</span><strong>${escapeHtml(formatDisplayToken(liability.outstandingBalance))}</strong><button type="button" data-liability-archive="${escapeAttribute(liability.id)}">${liability.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
-    : `<div class="empty-runtime">尚未建立負債，本機儀表板會顯示空狀態。</div>`;
+    : `<div class="empty-runtime">尚未建立負債。<a href="#assets">新增第一筆負債</a></div>`;
 }
 
 function renderIncomeList(incomes) {
   if (!incomeListPanel) return;
   incomeListPanel.innerHTML = incomes.length
     ? incomes.map((income) => `<div class="runtime-row"><span>${escapeHtml(income.name)} / ${escapeHtml(income.incomeType)} / ${escapeHtml(income.frequency)}</span><strong>${escapeHtml(formatDisplayToken(income.amount))}</strong><button type="button" data-income-archive="${escapeAttribute(income.id)}">${income.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
-    : `<div class="empty-runtime">尚未建立收入資料。</div>`;
+    : `<div class="empty-runtime">尚未建立收入資料。<a href="#cashflow">新增第一筆收入</a></div>`;
 }
 
 function renderExpenseList(expenses) {
   if (!expenseListPanel) return;
   expenseListPanel.innerHTML = expenses.length
     ? expenses.map((expense) => `<div class="runtime-row"><span>${escapeHtml(expense.name)} / ${escapeHtml(expense.expenseType)} / ${escapeHtml(expense.frequency)}</span><strong>${escapeHtml(formatDisplayToken(expense.amount))}</strong><button type="button" data-expense-archive="${escapeAttribute(expense.id)}">${expense.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
-    : `<div class="empty-runtime">尚未建立支出資料。</div>`;
+    : `<div class="empty-runtime">尚未建立支出資料。<a href="#cashflow">新增第一筆支出</a></div>`;
 }
 
 function renderCashFlowProjection(incomes, expenses) {
@@ -1390,7 +1594,7 @@ function renderGoalList(goals) {
   if (!goalListPanel) return;
   goalListPanel.innerHTML = goals.length
     ? goals.map((goal) => `<div class="runtime-row"><span>${escapeHtml(goal.name)} / ${escapeHtml(goal.goalType)} / ${escapeHtml(goal.status)}</span><strong>${escapeHtml(formatDisplayToken(goal.currentAmount))} / ${escapeHtml(formatDisplayToken(goal.targetAmount))}</strong><button type="button" data-goal-action="activate" data-goal-id="${escapeAttribute(goal.id)}">啟用</button><button type="button" data-goal-action="deactivate" data-goal-id="${escapeAttribute(goal.id)}">停用</button><button type="button" data-goal-action="complete" data-goal-id="${escapeAttribute(goal.id)}">完成</button><button type="button" data-goal-action="archive" data-goal-id="${escapeAttribute(goal.id)}">${goal.status === "archived" ? "還原" : "封存"}</button></div>`).join("")
-    : `<div class="empty-runtime">尚未建立目標資料。</div>`;
+    : `<div class="empty-runtime">尚未建立目標資料。<a href="#goals">新增第一個目標</a></div>`;
 }
 
 function renderGoalProgress(goals, assets, liabilities, incomes, expenses) {
@@ -1552,6 +1756,8 @@ importBackupInput.addEventListener("change", (event) => {
 applyBackupButton.addEventListener("click", () => applyBackup().catch((error) => setRuntimeFeedback(error.message)));
 acceptRecommendationButton.addEventListener("click", () => setRecommendationDecision("accepted").catch((error) => setRuntimeFeedback(error.message)));
 rejectRecommendationButton.addEventListener("click", () => setRecommendationDecision("rejected").catch((error) => setRuntimeFeedback(error.message)));
+deferRecommendationButton?.addEventListener("click", () => setRecommendationDecision("deferred").catch((error) => setRuntimeFeedback(error.message)));
+createActionFromRecommendationButton?.addEventListener("click", () => createActionFromRecommendation().catch((error) => setRuntimeFeedback(error.message)));
 recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
 exportRecommendationHistoryButton.addEventListener("click", exportRecommendationHistory);
 sampleExportButton.addEventListener("click", () => loadSample("reports/export-report-sample.json", exportPreviewPanel).catch((error) => setRuntimeFeedback(error.message)));
@@ -1625,6 +1831,14 @@ scenarioTemplateList?.addEventListener("click", (event) => {
 });
 applyScenarioTemplateButton?.addEventListener("click", applyScenarioTemplate);
 saveScenarioTemplateButton?.addEventListener("click", () => saveScenarioFromTemplate().catch((error) => setRuntimeFeedback(error.message)));
+csvDryRunButton?.addEventListener("click", () => previewCsvImport().catch((error) => setRuntimeFeedback(error.message)));
+csvClearPreviewButton?.addEventListener("click", clearCsvImportPreview);
+addLocalActionButton?.addEventListener("click", () => addLocalAction().catch((error) => setRuntimeFeedback(error.message)));
+localActionListPanel?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-local-action]");
+  if (!button) return;
+  updateLocalAction(button.dataset.actionId, button.dataset.localAction).catch((error) => setRuntimeFeedback(error.message));
+});
 
 Object.defineProperty(window, "__atlasDebugState", {
   configurable: true,
@@ -1635,7 +1849,11 @@ Object.defineProperty(window, "__atlasDebugState", {
   }),
 });
 
-window.addEventListener("hashchange", openDocumentFromHash);
+window.addEventListener("hashchange", () => {
+  updateNavigationState();
+  openDocumentFromHash();
+});
+updateNavigationState();
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 
 loadDashboard();
@@ -1644,4 +1862,6 @@ loadUserProfile().catch(() => {});
 refreshLocalFinancialData().catch(() => {});
 refreshLocalCashFlowData().catch(() => {});
 refreshLocalGoalHealthData().catch(() => {});
+renderInsuranceSummary();
+loadLocalActions().catch(() => {});
 renderScenarioTemplates();

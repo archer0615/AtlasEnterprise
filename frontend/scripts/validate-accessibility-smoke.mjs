@@ -39,13 +39,24 @@ try {
     assert(await page.locator(selector).count() >= 1, `${selector} is missing`);
   }
 
+  for (const selector of ["#homeSummaryPanel", "#assetLiabilitySummaryPanel", "#cashflowSummaryPanel", "#goalSummaryPanel", "#insuranceSummaryPanel", "#recommendationRationaleInput", "#createActionFromRecommendationButton", ".raw-data-panel", ".settings-grid", "#localActionTitleInput", "#localActionDueInput", "#localActionListPanel"]) {
+    assert(await page.locator(selector).count() === 1, `${selector} is missing`);
+  }
+
+  await page.goto(`http://127.0.0.1:${server.address().port}/#settings`, { waitUntil: "networkidle" });
+  assert(await page.locator("#settings[open]").count() === 1, "settings must open from hash navigation");
+  assert(await page.locator('.workflow-nav a[href="#settings"][aria-current="page"]').count() === 1, "settings navigation active state missing");
+
+  await page.goto(`http://127.0.0.1:${server.address().port}/#loan`, { waitUntil: "networkidle" });
+  assert(await page.locator('.workflow-nav a[href="#dashboard"][aria-current="page"]').count() === 1, "loan hash must map to dashboard navigation");
+
   const statusAnnouncements = await page.locator('[role="status"][aria-live][aria-atomic="true"]').count();
   assert(statusAnnouncements >= 2, "status announcements must expose atomic aria-live regions");
 
   const buttonsWithoutText = await page.locator("button").evaluateAll((buttons) => buttons.filter((button) => !button.textContent.trim() && !button.getAttribute("aria-label")).length);
   assert(buttonsWithoutText === 0, "button missing text or aria-label");
 
-  const missingLabels = await page.locator("input, select").evaluateAll((controls) => controls.filter((control) => {
+  const missingLabels = await page.locator("input, select, textarea").evaluateAll((controls) => controls.filter((control) => {
     const id = control.id;
     return !control.getAttribute("aria-label") && !(id && document.querySelector(`label[for="${id}"]`)) && !control.closest("label");
   }).map((control) => `${control.tagName.toLowerCase()}#${control.id || "(no-id)"}`));
