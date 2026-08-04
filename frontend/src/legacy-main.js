@@ -162,6 +162,8 @@ const localActionDueInput = $("#localActionDueInput");
 const localActionFilterInput = $("#localActionFilterInput");
 const addLocalActionButton = $("#addLocalActionButton");
 const exportLocalActionsButton = $("#exportLocalActionsButton");
+const completeDueLocalActionsButton = $("#completeDueLocalActionsButton");
+const clearDoneLocalActionsButton = $("#clearDoneLocalActionsButton");
 const localActionReminderPanel = $("#localActionReminderPanel");
 const localActionListPanel = $("#localActionListPanel");
 
@@ -946,6 +948,8 @@ function renderLocalActionReminder() {
     `<div class="runtime-row"><span>下一期限</span><strong>${escapeHtml(nextDueDate)}</strong></div>`,
   ].join("");
   exportLocalActionsButton?.toggleAttribute("disabled", localActions.length === 0);
+  completeDueLocalActionsButton?.toggleAttribute("disabled", due.length === 0);
+  clearDoneLocalActionsButton?.toggleAttribute("disabled", doneCount === 0);
 }
 
 async function addLocalAction() {
@@ -1010,6 +1014,32 @@ async function updateLocalAction(actionId, action) {
   renderLocalActions();
   renderDashboardById(selectedDashboardSnapshotId);
   setRuntimeFeedback("本機行動已更新。");
+}
+
+async function completeDueLocalActions() {
+  const today = new Date().toISOString().slice(0, 10);
+  let updatedCount = 0;
+  localActions = localActions.map((item) => {
+    if (item.status === "done" || !item.dueDate || item.dueDate > today) return item;
+    updatedCount += 1;
+    return { ...item, status: "done", completedAt: new Date().toISOString() };
+  });
+  persistLocalActions();
+  await persistAuditEntry("local-action-bulk-complete-due", { updatedCount });
+  renderLocalActions();
+  renderDashboardById(selectedDashboardSnapshotId);
+  setRuntimeFeedback(`已完成 ${updatedCount} 個到期行動。`);
+}
+
+async function clearDoneLocalActions() {
+  const beforeCount = localActions.length;
+  localActions = localActions.filter((item) => item.status !== "done");
+  const removedCount = beforeCount - localActions.length;
+  persistLocalActions();
+  await persistAuditEntry("local-action-bulk-clear-done", { removedCount });
+  renderLocalActions();
+  renderDashboardById(selectedDashboardSnapshotId);
+  setRuntimeFeedback(`已清除 ${removedCount} 個完成行動。`);
 }
 
 function exportLocalActions() {
@@ -1928,6 +1958,8 @@ csvDryRunButton?.addEventListener("click", () => previewCsvImport().catch((error
 csvClearPreviewButton?.addEventListener("click", clearCsvImportPreview);
 addLocalActionButton?.addEventListener("click", () => addLocalAction().catch((error) => setRuntimeFeedback(error.message)));
 exportLocalActionsButton?.addEventListener("click", exportLocalActions);
+completeDueLocalActionsButton?.addEventListener("click", () => completeDueLocalActions().catch((error) => setRuntimeFeedback(error.message)));
+clearDoneLocalActionsButton?.addEventListener("click", () => clearDoneLocalActions().catch((error) => setRuntimeFeedback(error.message)));
 localActionFilterInput?.addEventListener("change", renderLocalActions);
 localActionListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-local-action]");

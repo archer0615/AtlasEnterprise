@@ -90,6 +90,19 @@ try {
 
   await page.click("#createActionFromRecommendationButton");
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("建議轉入"));
+  await page.click("#createActionFromRecommendationButton");
+  await page.waitForFunction(() => document.querySelector("#statusText")?.textContent.includes("已存在未完成行動"));
+
+  await page.click("#completeDueLocalActionsButton");
+  await page.waitForFunction(() => {
+    const text = document.querySelector("#localActionReminderPanel")?.textContent || "";
+    return text.includes("已到期") && text.includes("0 個");
+  });
+  await page.selectOption("#localActionFilterInput", "done");
+  await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Persisted action"));
+  await page.click("#clearDoneLocalActionsButton");
+  await page.waitForFunction(() => !document.querySelector("#localActionListPanel")?.textContent.includes("Persisted action"));
+  await page.selectOption("#localActionFilterInput", "all");
 
   const downloadPromise = page.waitForEvent("download");
   await page.click("#exportLocalActionsButton");
