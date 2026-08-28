@@ -1612,3 +1612,74 @@ button:disabled {
     min-height: auto;
   }
 }
+
+/* Visual refinement layer: presentation-only, preserving existing runtime hooks. */
+:root {
+  --ui-ink: #183235;
+  --ui-muted: #5d7475;
+  --ui-line: #d8e4e1;
+  --ui-brand: #176b72;
+  --ui-accent: #e9b949;
+  --ui-surface: #ffffff;
+  --ui-soft: #f5f9f8;
+  --ui-shadow: 0 8px 24px rgba(18, 63, 69, 0.07);
+}
+
+body { background: #f3f6f5; color: var(--ui-ink); line-height: 1.45; }
+#app { grid-template-columns: 272px minmax(0, 1fr); }
+.sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 28px 20px; background: linear-gradient(180deg, #123f45 0%, #16545a 100%); }
+.brand-mark { border-radius: 12px; background: var(--ui-accent); color: #123f45; }
+.workflow-nav a { border: 1px solid transparent; border-radius: 10px; padding: 11px 12px; transition: .18s ease; }
+.workflow-nav a:hover { background: rgba(255,255,255,.1); transform: translateX(2px); }
+.workflow-nav a.active, .workflow-nav a[aria-current="page"] { background: var(--ui-accent); border-color: var(--ui-accent); color: #123f45; box-shadow: 0 6px 14px rgba(0,0,0,.12); }
+.workspace { width: min(100%, 1480px); padding: 34px clamp(20px, 4vw, 56px) 48px; }
+.decision-focus, .decision-lanes, .onboarding-panel, .section-hub, .settings-shell, .profile-settings, .dashboard-prototype, .help-screen { border: 1px solid var(--ui-line); border-radius: 16px; box-shadow: var(--ui-shadow); }
+.decision-focus, .onboarding-panel, .section-hub, .profile-settings, .dashboard-prototype { padding: 24px; }
+.decision-focus { border-left: 6px solid #d47a45; }
+.decision-lanes article { border: 1px solid var(--ui-line); border-radius: 12px; background: var(--ui-soft); padding: 18px; transition: .18s ease; }
+.decision-lanes article:hover { border-color: #9cc4c0; box-shadow: var(--ui-shadow); transform: translateY(-2px); }
+.focus-actions a, .onboarding-steps a, .hub-links a, .decision-lanes a { border-radius: 9px; transition: .18s ease; }
+.focus-actions a:first-child { background: var(--ui-brand); border-color: var(--ui-brand); color: #fff; }
+.focus-actions a:hover, .onboarding-steps a:hover, .hub-links a:hover, .decision-lanes a:hover { transform: translateY(-1px); }
+button, .dashboard-actions button, .profile-grid button { border-radius: 8px; border: 1px solid var(--ui-brand); background: var(--ui-brand); color: #fff; padding: 9px 14px; font-weight: 750; cursor: pointer; transition: .18s ease; }
+button:hover, .dashboard-actions button:hover, .profile-grid button:hover { filter: brightness(.94); transform: translateY(-1px); box-shadow: 0 4px 10px rgba(23,107,114,.18); }
+input, select { min-height: 40px; border-radius: 8px; border-color: #bfd2cf !important; background: #fbfdfc !important; }
+input:focus, select:focus { border-color: var(--ui-brand) !important; box-shadow: 0 0 0 3px rgba(23,107,114,.12); }
+.status { border-radius: 999px; color: #21645d; background: #eaf6f1; border-color: #b9ddd0; padding: 8px 14px; font-weight: 700; }
+.metric-card { border-radius: 12px; background: linear-gradient(145deg, #fff, #f4faf8); box-shadow: 0 2px 8px rgba(18,63,69,.06); }
+.metric-card strong, .summary-card strong, .home-summary strong { color: var(--ui-brand); }
+
+.skip-link { position: fixed; z-index: 10; top: 12px; left: 12px; transform: translateY(-160%); border-radius: 8px; background: #fff; color: #123f45; padding: 10px 14px; font-weight: 800; box-shadow: var(--ui-shadow); }
+.skip-link:focus { transform: translateY(0); }
+.topbar { position: sticky; top: 0; z-index: 3; padding: 10px 0 16px; background: rgba(243,246,245,.94); backdrop-filter: blur(10px); }
+.eyebrow { color: var(--ui-brand); font-weight: 800; letter-spacing: .04em; }
+.section-help, .profile-grid label, .decision-lanes p { color: var(--ui-muted); }
+.profile-grid { align-items: end; }
+.profile-grid label:focus-within span { color: var(--ui-brand); }
+input:user-invalid, select:user-invalid { border-color: #c4552d !important; background: #fff8f5 !important; }
+button:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+.runtime-feedback:not(:empty), .decision-log:not(:empty) { border-radius: 10px; background: var(--ui-soft); border: 1px solid var(--ui-line); padding: 10px 12px; }
+.empty-state { border-radius: 10px; background: var(--ui-soft); border: 1px dashed #bfd2cf; padding: 14px; }
+.report-list:empty::before, .decision-log:empty::before { content: "尚無資料，完成上方操作後會顯示在這裡。"; display: block; color: var(--ui-muted); font-size: 13px; padding: 12px 0; }
+.settings-links { position: sticky; top: 62px; z-index: 2; background: var(--ui-surface); padding-bottom: 12px; }
+.settings-group, .scenario-templates, .advanced-controls { border-radius: 10px; }
+.danger-zone { background: #fffaf7; }
+.developer-mode { border-style: dashed; }
+.dashboard-header { padding-bottom: 4px; border-bottom: 1px solid var(--ui-line); }
+.dashboard-switcher button.active, .dashboard-switcher button:hover { background: #eaf6f1; }
+.primary-actions { border-radius: 10px; background: #edf7f5; }
+.runtime-footer { padding-bottom: 8px; }
+
+@media (max-width: 860px) {
+  #app { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; padding: 12px 16px 10px; gap: 10px; }
+  .brand { gap: 9px; }
+  .brand-mark { width: 34px; height: 34px; border-radius: 9px; }
+  .brand h1 { font-size: 15px; }
+  .brand p { font-size: 11px; }
+  .workflow-nav { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 4px; scrollbar-width: thin; }
+  .workflow-nav a { flex: 0 0 auto; padding: 8px 10px; font-size: 12px; white-space: nowrap; }
+  .workflow-nav a:hover { transform: none; }
+  .workspace { padding: 20px 16px 32px; }
+  .decision-focus, .onboarding-panel, .section-hub, .profile-settings, .dashboard-prototype { padding: 18px; }
+}
