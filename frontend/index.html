@@ -9,6 +9,7 @@
     <title>Atlas Enterprise 財務決策工作台</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">跳至主要內容</a>
     <div id="app">
       <aside class="sidebar">
         <div class="brand">
@@ -19,10 +20,13 @@
           </div>
         </div>
         <nav class="workflow-nav" aria-label="主要工作流程">
-          <a href="#help">使用說明</a>
-          <a href="#dashboard">儀表板</a>
+          <a href="#today">今日總覽</a>
+          <a href="#onboarding">快速建檔</a>
+          <a href="#dashboard">情境儀表板</a>
+          <a href="#recommendation">建議決策</a>
+          <a href="#data">財務資料</a>
+          <a href="#settings">設定維護</a>
           <a href="#portfolio">投資報表</a>
-          <a href="#recommendation">建議管理</a>
           <a class="batch-nav-link" href="#execution">執行規劃</a>
           <a class="batch-nav-link" href="#calendar">行事曆</a>
           <a class="batch-nav-link" href="#notifications">通知</a>
@@ -30,14 +34,14 @@
           <a href="#insurance">保險</a>
         </nav>
       </aside>
-      <main class="workspace">
+      <main id="main-content" class="workspace">
         <nav class="mobile-toolbar" aria-label="行動版工作流程導覽">
-          <a href="#help">說明</a>
+          <a href="#today">總覽</a>
+          <a href="#onboarding">建檔</a>
           <a href="#dashboard">儀表板</a>
-          <a href="#portfolio">報表</a>
           <a href="#recommendation">建議</a>
-          <a href="#loan">貸款</a>
-          <a href="#insurance">保險</a>
+          <a href="#data">資料</a>
+          <a href="#settings">設定</a>
         </nav>
         <header class="topbar">
           <div>
@@ -46,12 +50,61 @@
           </div>
           <div class="status" id="statusText" role="status" aria-live="polite" aria-atomic="true">系統已就緒</div>
         </header>
-        <section class="user-summary" aria-label="使用者流程摘要">
-          <div><span>1</span><strong>檢視目前狀態</strong><small>從儀表板確認財務情境、分數與待辦事項。</small></div>
-          <div><span>2</span><strong>處理建議與情境</strong><small>新增情境、接受或拒絕建議，保留本機操作紀錄。</small></div>
-          <div><span>3</span><strong>匯出與備份</strong><small>匯出報表、驗證結果與本機備份。</small></div>
+        <section id="today" class="decision-focus" aria-label="今日決策總覽">
+          <div class="focus-copy">
+            <p class="eyebrow">今日總覽</p>
+            <h3>先看狀態，再處理一個決策</h3>
+            <p>首頁只保留最常用的決策入口；進階維護、驗證、備份與匯入移到設定區，降低日常操作負擔。</p>
+          </div>
+          <div class="focus-actions" aria-label="今日主要操作">
+            <a href="#dashboard">查看財務狀態</a>
+            <a href="#recommendation">處理建議</a>
+            <a href="#onboarding">補齊資料</a>
+          </div>
+          <div id="homeSummaryPanel" class="home-summary" aria-live="polite"></div>
         </section>
-        <section id="help" class="help-screen" aria-label="系統使用說明">
+        <section class="decision-lanes" aria-label="核心決策任務">
+          <article>
+            <span>房貸</span>
+            <h4>提前還款或保留現金</h4>
+            <p>用情境分數、貸款試算與現金流檢查資金壓力。</p>
+            <a href="#loan">開始試算</a>
+          </article>
+          <article>
+            <span>退休</span>
+            <h4>退休準備是否足夠</h4>
+            <p>用目標、資產與情境比較檢查長期可持續性。</p>
+            <a href="#goals">檢查目標</a>
+          </article>
+          <article>
+            <span>投資</span>
+            <h4>投資組合風險是否過高</h4>
+            <p>先看投資報表，再保留接受或拒絕建議的紀錄。</p>
+            <a href="#portfolio">查看報表</a>
+          </article>
+        </section>
+        <section class="user-summary" aria-label="使用者流程摘要">
+          <div><span>1</span><strong>建立基準資料</strong><small>先輸入收入、資產、負債與主要目標，形成可比較的財務基準。</small></div>
+          <div><span>2</span><strong>比較情境與建議</strong><small>切換情境、建立假設，確認建議分數與決策影響。</small></div>
+          <div><span>3</span><strong>執行、備份、追蹤</strong><small>保留決策紀錄，低頻維護集中在設定區處理。</small></div>
+        </section>
+        <section id="onboarding" class="onboarding-panel" aria-label="快速建檔">
+          <div>
+            <p class="eyebrow">快速建檔</p>
+            <h3>第一次使用只需要完成四項</h3>
+          </div>
+          <div class="onboarding-steps">
+            <a href="#profile">收入與總資產</a>
+            <a href="#data">資產、負債、現金流</a>
+            <a href="#goals">目標與健康分數</a>
+            <a href="#dashboard">建立第一個情境</a>
+          </div>
+        </section>
+        <details id="help" class="help-screen secondary-section" aria-label="系統使用說明">
+          <summary>
+            <span>完整操作說明</span>
+            <small>需要時再展開</small>
+          </summary>
           <div class="help-header">
             <div>
               <p class="eyebrow">使用說明</p>
@@ -102,8 +155,8 @@
             <div>
               <h4>每日使用</h4>
               <ul>
-                <li>確認發布狀態與驗證歷史。</li>
                 <li>檢視當前財務情境與建議行動。</li>
+                <li>只處理一個最重要的財務決策。</li>
                 <li>記錄接受或拒絕建議的原因。</li>
               </ul>
             </div>
@@ -124,8 +177,8 @@
               </ul>
             </div>
           </div>
-        </section>
-        <section class="profile-settings" aria-label="使用者資料設定">
+        </details>
+        <section id="profile" class="profile-settings priority-panel" aria-label="使用者資料設定">
           <div>
             <p class="eyebrow">使用者資料</p>
             <h3>基本財務設定</h3>
@@ -141,6 +194,25 @@
             <button id="resetProfileButton" type="button">重設資料</button>
           </div>
           <div id="profileSummaryPanel" class="report-list"></div>
+        </section>
+        <section id="data" class="section-hub" aria-label="財務資料入口">
+          <div>
+            <p class="eyebrow">財務資料</p>
+            <h3>依需要補齊資料，不必一次完成</h3>
+          </div>
+          <div class="hub-links">
+            <a href="#assets">資產與負債</a>
+            <a href="#cashflow">收入與支出</a>
+            <a href="#goals">目標與健康</a>
+            <a href="#insurance">保險保單</a>
+            <a href="#settings">CSV 匯入</a>
+          </div>
+          <div class="data-summary-grid" aria-label="財務資料摘要">
+            <div id="assetLiabilitySummaryPanel"></div>
+            <div id="cashflowSummaryPanel"></div>
+            <div id="goalSummaryPanel"></div>
+            <div id="insuranceSummaryPanel"></div>
+          </div>
         </section>
         <section id="assets" class="profile-settings asset-liability-panel" aria-label="資產與負債管理">
           <div>
@@ -205,18 +277,6 @@
           <div id="goalProgressPanel" class="decision-log" aria-live="polite"></div>
           <div id="financialHealthPanel" class="decision-log" aria-live="polite"></div>
         </section>
-        <section id="csv-import" class="profile-settings csv-import-panel" aria-label="CSV 匯入預演">
-          <div>
-            <p class="eyebrow">本機資料匯入</p>
-            <h3>CSV 匯入預演</h3>
-          </div>
-          <div class="dashboard-actions compact-actions">
-            <label><span>CSV 檔案</span><input id="csvImportInput" type="file" accept=".csv,text/csv" /></label>
-            <button id="csvDryRunButton" type="button">執行預演</button>
-            <button id="csvClearPreviewButton" type="button">清除預覽</button>
-          </div>
-          <div id="csvImportDryRunPanel" class="decision-log" aria-live="polite"></div>
-        </section>
         <section id="insurance" class="profile-settings insurance-panel" aria-label="保險保單管理">
           <div>
             <p class="eyebrow">本機保險資料</p>
@@ -235,44 +295,86 @@
           </div>
           <div id="insurancePolicyListPanel" class="report-list" aria-live="polite"></div>
         </section>
-        <section class="release-dashboard" aria-label="發布狀態">
-          <div>
-            <h3>發布狀態</h3>
-            <div id="releaseDashboardPanel" class="report-list"></div>
-          </div>
-          <div>
-            <h3>範例資料</h3>
+        <details id="settings" class="settings-shell" aria-label="設定與維護" open>
+          <summary>
+            <span>設定與維護</span>
+            <small>備份、匯入、驗證、發布狀態</small>
+          </summary>
+        <div class="settings-links" aria-label="設定快速入口">
+          <a href="#csv-import-settings">CSV 匯入預演</a>
+          <a href="#backup-settings">情境備份還原</a>
+          <a href="#maintenance-settings">發布與驗證</a>
+        </div>
+        <section class="settings-grid" aria-label="設定分組">
+          <div id="csv-import-settings" class="settings-group">
+            <h3>資料匯入</h3>
+            <p class="section-help">CSV 匯入只做預演，確認欄位、筆數與錯誤後再進入寫入流程。</p>
             <div class="dashboard-actions compact-actions">
-              <button id="sampleExportButton" type="button">載入報表範例</button>
-              <button id="sampleBackupButton" type="button">載入備份範例</button>
-              <button id="releaseNoteButton" type="button">載入發布說明</button>
+              <label><span>CSV 檔案</span><input id="csvImportInput" type="file" accept=".csv,text/csv" /></label>
+              <button id="csvDryRunButton" type="button">執行預演</button>
+              <button id="csvClearPreviewButton" type="button">清除預覽</button>
             </div>
-            <div id="sampleLoaderPanel" class="decision-log"></div>
-            <div id="releaseNotePanel" class="release-note-panel"></div>
+            <div id="csvImportDryRunPanel" class="decision-log" aria-live="polite"></div>
           </div>
-          <div>
-            <h3>驗證與維護</h3>
-            <div id="validationHistoryPanel" class="decision-log"></div>
-            <small id="cacheVersionText"></small>
-            <div id="reportVersionPanel" class="decision-log"></div>
-            <div id="reportVersionHistoryPanel" class="decision-log"></div>
-            <div class="dashboard-actions compact-actions">
-              <button id="exportValidationButton" type="button">匯出驗證結果</button>
-              <button id="generateValidationSummaryButton" type="button">產生驗證摘要</button>
-              <button id="offlineRepairButton" type="button">修復離線資料</button>
+          <div id="backup-settings" class="settings-group danger-zone">
+            <h3>備份與還原</h3>
+            <p class="section-help">重要操作前先匯出備份；套用備份會改變本機資料。</p>
+            <div class="dashboard-actions" aria-label="進階資料操作控制">
+              <button id="exportBackupButton" type="button">匯出 JSON 備份</button>
+              <input id="backupPassphraseInput" type="password" placeholder="加密密碼" autocomplete="new-password" aria-label="備份加密密碼" />
+              <button id="exportEncryptedBackupButton" type="button">匯出加密 JSON 備份</button>
+              <label><span>匯入備份</span><input id="importBackupInput" type="file" accept="application/json" /></label>
+              <label><span>衝突策略</span><select id="backupConflictPolicySelect"><option value="replace-all">覆蓋本機</option><option value="skip-existing">保留本機</option></select></label>
+              <label class="restore-confirmation"><input id="restoreConfirmInput" type="checkbox" /><span>確認已先備份，並允許套用本機資料變更</span></label>
+              <button id="applyBackupButton" type="button">套用備份</button>
             </div>
-            <div id="validationExportPanel" class="decision-log"></div>
-            <div id="performanceBudgetTrendPanel" class="decision-log"></div>
-            <div id="releaseEvidenceArchivePanel" class="decision-log"></div>
-            <div id="offlineRepairPanel" class="decision-log"></div>
-            <div id="offlineRepairAuditPanel" class="decision-log"></div>
+            <div class="backup-preview" id="backupPreview"></div>
+            <div class="backup-dry-run" id="backupDryRunPanel"></div>
             <div id="restoreAuditPanel" class="decision-log"></div>
-            <div id="persistentAuditPanel" class="decision-log" hidden></div>
-            <div id="reportDiffPanel" class="decision-log" hidden></div>
-            <div id="validationFailureDiagnosisPanel" class="decision-log" hidden></div>
+          </div>
+          <div id="maintenance-settings" class="settings-group developer-mode">
+            <details>
+              <summary>發布狀態</summary>
+              <div id="releaseDashboardPanel" class="report-list"></div>
+            </details>
+          </div>
+          <div class="settings-group developer-mode">
+            <details>
+              <summary>範例資料</summary>
+              <div class="dashboard-actions compact-actions">
+                <button id="sampleExportButton" type="button">載入報表範例</button>
+                <button id="sampleBackupButton" type="button">載入備份範例</button>
+                <button id="releaseNoteButton" type="button">載入發布說明</button>
+              </div>
+              <div id="sampleLoaderPanel" class="decision-log"></div>
+              <div id="releaseNotePanel" class="release-note-panel"></div>
+            </details>
+          </div>
+          <div class="settings-group developer-mode">
+            <details>
+              <summary>驗證與維護</summary>
+              <div id="validationHistoryPanel" class="decision-log"></div>
+              <small id="cacheVersionText"></small>
+              <div id="reportVersionPanel" class="decision-log"></div>
+              <div id="reportVersionHistoryPanel" class="decision-log"></div>
+              <div class="dashboard-actions compact-actions">
+                <button id="exportValidationButton" type="button">匯出驗證結果</button>
+                <button id="generateValidationSummaryButton" type="button">產生驗證摘要</button>
+                <button id="offlineRepairButton" type="button">修復離線資料</button>
+              </div>
+              <div id="validationExportPanel" class="decision-log"></div>
+              <div id="performanceBudgetTrendPanel" class="decision-log"></div>
+              <div id="releaseEvidenceArchivePanel" class="decision-log"></div>
+              <div id="offlineRepairPanel" class="decision-log"></div>
+              <div id="offlineRepairAuditPanel" class="decision-log"></div>
+              <div id="persistentAuditPanel" class="decision-log" hidden></div>
+              <div id="reportDiffPanel" class="decision-log" hidden></div>
+              <div id="validationFailureDiagnosisPanel" class="decision-log" hidden></div>
+            </details>
           </div>
         </section>
-        <section id="dashboard" class="dashboard-prototype" aria-label="財務儀表板">
+        </details>
+        <section id="dashboard" class="dashboard-prototype decision-zone" aria-label="財務儀表板">
           <div class="dashboard-header">
             <div>
               <p class="eyebrow">財務儀表板</p>
@@ -286,9 +388,13 @@
             <input id="scenarioScoreInput" type="text" placeholder="分數或 N/A" aria-label="情境分數" />
             <button id="saveScenarioButton" type="button">儲存情境</button>
           </div>
-          <div class="scenario-templates" aria-label="情境範本管理">
+          <details class="scenario-templates" aria-label="情境範本管理">
+            <summary>
+              <span>情境範本</span>
+              <small>買房、退休、投資、降債</small>
+            </summary>
             <div class="template-header">
-              <h4>情境範本</h4>
+              <h4>選擇範本</h4>
               <div class="dashboard-actions compact-actions">
                 <button id="applyScenarioTemplateButton" type="button">套用範本</button>
                 <button id="saveScenarioTemplateButton" type="button">直接儲存範本</button>
@@ -296,23 +402,15 @@
             </div>
             <div id="scenarioTemplateList" class="template-list"></div>
             <div id="scenarioTemplatePreview" class="decision-log"></div>
-          </div>
+          </details>
           <details class="advanced-controls">
-            <summary>進階資料操作</summary>
-            <div class="dashboard-actions" aria-label="進階資料操作控制">
+            <summary>情境危險操作</summary>
+            <div class="dashboard-actions" aria-label="情境危險操作控制">
               <button id="deleteScenarioButton" type="button">刪除最新情境</button>
+              <label class="restore-confirmation"><input id="resetScenarioConfirmInput" type="checkbox" /><span>確認已匯出備份，允許清空自訂情境</span></label>
               <button id="resetScenariosButton" type="button">重設情境</button>
-              <button id="exportBackupButton" type="button">匯出備份</button>
-              <input id="backupPassphraseInput" type="password" placeholder="加密密碼" autocomplete="new-password" aria-label="備份加密密碼" />
-              <button id="exportEncryptedBackupButton" type="button">匯出加密備份</button>
-              <label><span>匯入備份</span><input id="importBackupInput" type="file" accept="application/json" /></label>
-              <label><span>衝突策略</span><select id="backupConflictPolicySelect"><option value="replace-all">覆蓋本機</option><option value="skip-existing">保留本機</option></select></label>
-              <label class="restore-confirmation"><input id="restoreConfirmInput" type="checkbox" /><span>確認覆寫本機情境</span></label>
-              <button id="applyBackupButton" type="button">套用備份</button>
             </div>
           </details>
-          <div class="backup-preview" id="backupPreview"></div>
-          <div class="backup-dry-run" id="backupDryRunPanel"></div>
           <div class="runtime-feedback" id="runtimeFeedback" role="status" aria-live="polite" aria-atomic="true"></div>
           <div class="dashboard-switcher" id="dashboardSwitcher" aria-label="儀表板情境切換"></div>
           <div class="metric-grid" id="metricGrid"></div>
@@ -332,46 +430,82 @@
             <div id="scenarioComparisonPanel" class="report-list"></div>
           </div>
           <div class="runtime-panels">
-            <section id="portfolio">
+            <section id="portfolio" class="runtime-card">
               <h4>投資報表</h4>
-              <div class="dashboard-actions compact-actions"><button id="exportPortfolioReportButton" type="button">匯出報表</button></div>
+              <div class="dashboard-actions compact-actions"><button id="exportPortfolioReportButton" type="button">匯出 JSON 報表</button></div>
               <div id="portfolioReportPanel" class="report-list"></div>
               <div id="positionPanel" class="report-list" aria-live="polite"></div>
-              <pre id="exportPreviewPanel" class="export-preview" aria-label="匯出報表預覽"></pre>
+              <details class="raw-data-panel">
+                <summary>原始 JSON 預覽</summary>
+                <pre id="exportPreviewPanel" class="export-preview" aria-label="匯出報表預覽"></pre>
+              </details>
             </section>
-            <section id="recommendation">
+            <section id="recommendation" class="runtime-card">
               <h4>建議管理</h4>
               <div id="recommendationControlPanel" class="execution-panel"></div>
               <div id="recommendationDecisionLog" class="decision-log"></div>
+              <div class="rationale-templates" aria-label="決策理由模板">
+                <button type="button" data-rationale-template="資金安全邊際足夠，先執行並追蹤結果。">安全邊際足夠</button>
+                <button type="button" data-rationale-template="目前資料不足，延後到下次檢視。">資料不足</button>
+                <button type="button" data-rationale-template="風險或現金流壓力過高，暫不採納。">風險過高</button>
+              </div>
+              <label class="rationale-field"><span>決策理由</span><textarea id="recommendationRationaleInput" rows="3" placeholder="記錄接受、拒絕或延後的原因"></textarea></label>
               <div class="dashboard-actions compact-actions">
                 <button id="acceptRecommendationButton" type="button">接受建議</button>
                 <button id="rejectRecommendationButton" type="button">拒絕建議</button>
+                <button id="deferRecommendationButton" type="button">延後建議</button>
+                <button id="createActionFromRecommendationButton" type="button">轉成行動</button>
               </div>
               <div class="dashboard-actions compact-actions">
                 <select id="recommendationFilterInput" aria-label="建議歷史篩選">
                   <option value="all">全部紀錄</option>
                   <option value="accepted">接受</option>
                   <option value="rejected">拒絕</option>
+                  <option value="deferred">延後</option>
                 </select>
                 <button id="exportRecommendationHistoryButton" type="button">匯出建議歷史</button>
               </div>
               <div id="recommendationHistoryPanel" class="decision-log"></div>
             </section>
-            <section id="execution" class="batch-readonly-panel">
-              <h4>執行規劃</h4>
+            <section id="execution" class="batch-readonly-panel runtime-card">
+              <h4>執行規劃 <span class="surface-badge">唯讀</span></h4>
               <div id="executionPlanPanel" class="report-list" aria-live="polite"></div>
               <div id="actionPlanPanel" class="report-list" aria-live="polite"></div>
+              <div class="local-action-tracker" aria-label="本機行動追蹤">
+                <h5>本機行動追蹤</h5>
+                <p class="section-help">行動追蹤儲存在本機設定內，會跟著 JSON 備份一起匯出與還原。</p>
+                <div class="dashboard-actions compact-actions">
+                  <input id="localActionTitleInput" type="text" placeholder="下一步行動" aria-label="下一步行動" />
+                  <input id="localActionDueInput" type="date" aria-label="行動期限" />
+                  <input id="localActionSearchInput" type="search" placeholder="搜尋行動" aria-label="搜尋行動" />
+                  <select id="localActionFilterInput" aria-label="行動篩選">
+                    <option value="open">未完成</option>
+                    <option value="all">全部</option>
+                    <option value="pending-review">待處理</option>
+                    <option value="defer">延後</option>
+                    <option value="done">完成</option>
+                  </select>
+                  <button id="addLocalActionButton" type="button">新增行動</button>
+                  <button id="exportLocalActionsButton" type="button">匯出行動</button>
+                  <label class="file-action-button"><span>匯入行動</span><input id="importLocalActionsInput" type="file" accept="application/json" aria-label="匯入行動 JSON" /></label>
+                  <button id="completeDueLocalActionsButton" type="button">完成到期</button>
+                  <button id="clearDoneLocalActionsButton" type="button">清除已完成</button>
+                </div>
+                <div id="localActionReminderPanel" class="decision-log" aria-live="polite"></div>
+                <div id="localActionImportPreviewPanel" class="decision-log" aria-live="polite"></div>
+                <div id="localActionListPanel" class="report-list" aria-live="polite"></div>
+              </div>
             </section>
-            <section id="calendar" class="batch-readonly-panel">
-              <h4>行事曆</h4>
+            <section id="calendar" class="batch-readonly-panel runtime-card">
+              <h4>行事曆 <span class="surface-badge">唯讀</span></h4>
               <div id="businessCalendarPanel" class="report-list" aria-live="polite"></div>
               <div id="schedulerStatusPanel" class="decision-log" aria-live="polite"></div>
             </section>
-            <section id="notifications" class="batch-readonly-panel">
-              <h4>通知</h4>
+            <section id="notifications" class="batch-readonly-panel runtime-card">
+              <h4>通知 <span class="surface-badge">唯讀</span></h4>
               <div id="notificationListPanel" class="report-list" aria-live="polite"></div>
             </section>
-            <section id="loan">
+            <section id="loan" class="runtime-card">
               <h4>貸款試算</h4>
               <div class="dashboard-actions compact-actions">
                 <input id="loanBalanceInput" type="text" placeholder="本金" inputmode="decimal" aria-label="貸款本金" />
