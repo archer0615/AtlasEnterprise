@@ -61,6 +61,8 @@ try {
     }]));
   });
   await page.reload({ waitUntil: "networkidle" });
+  assert(await page.evaluate(() => Number.isFinite(window.__atlasDebugState?.performanceMetrics?.firstInteractive)), "first interactive timing missing");
+  assert(await page.evaluate(() => Number.isFinite(window.__atlasDebugState?.runtimeCacheStats?.misses) && window.__atlasDebugState.runtimeCacheStats.misses > 0), "runtime cache miss metrics missing");
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Persisted action"));
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("已到期"));
   await page.waitForFunction(() => {
@@ -82,12 +84,14 @@ try {
   await page.fill("#localActionDueInput", "2026-08-10");
   await page.click("#addLocalActionButton");
   await page.waitForFunction(() => document.querySelector("#localActionListPanel")?.textContent.includes("Manual follow up"));
+  assert(await page.evaluate(() => Number.isFinite(window.__atlasDebugState?.performanceMetrics?.localActionUpdate)), "local action timing missing");
 
   await page.selectOption("#localActionFilterInput", "done");
   assert(!(await page.locator("#localActionListPanel").textContent()).includes("Manual follow up"), "done filter should hide open actions");
   await page.selectOption("#localActionFilterInput", "all");
   assert((await page.locator("#localActionListPanel").textContent()).includes("Manual follow up"), "all filter should show open actions");
   await page.fill("#localActionSearchInput", "Manual");
+  await page.waitForTimeout(180);
   assert((await page.locator("#localActionListPanel").textContent()).includes("Manual follow up"), "keyword search should show matching actions");
   assert(!(await page.locator("#localActionListPanel").textContent()).includes("Undated action"), "keyword search should hide non-matching actions");
   await page.fill("#localActionSearchInput", "");
@@ -142,6 +146,21 @@ try {
   await writeFile(invalidImportPath, JSON.stringify({ items: [] }));
   await page.setInputFiles("#importLocalActionsInput", invalidImportPath);
   await page.waitForFunction(() => document.querySelector("#localActionImportPreviewPanel")?.textContent.includes("找不到 actions"));
+
+  const oversizedImportPath = path.join(os.tmpdir(), `atlas-local-actions-oversized-${Date.now()}.json`);
+  await writeFile(oversizedImportPath, JSON.stringify({
+    schema: "atlas-enterprise.local-actions.v1",
+    actions: Array.from({ length: 60 }, (_, index) => ({
+      id: `oversized-action-${index}`,
+      title: `Oversized action ${index}`,
+      status: "pending-review",
+      createdFrom: "capacity-test",
+      createdAt: `2026-08-04T00:${String(index).padStart(2, "0")}:00.000Z`,
+    })),
+  }));
+  await page.setInputFiles("#importLocalActionsInput", oversizedImportPath);
+  await page.waitForFunction(() => document.querySelector("#localActionImportPreviewPanel")?.textContent.includes("容量略過"));
+  assert((await page.locator("#localActionListPanel .local-action-row").count()) === 50, "local action capacity must remain 50");
 
   const downloadPromise = page.waitForEvent("download");
   await page.click("#exportLocalActionsButton");

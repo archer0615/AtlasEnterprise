@@ -18,8 +18,15 @@ import { createExecutionPlanFromRecommendation } from "./runtime/execution-plan-
 import { evaluateScheduler } from "./runtime/scheduler-runtime.js";
 import { dryRunCsvImport } from "./domain/import/csv-import-dry-run.js";
 import { renderCsvImportDryRun } from "./features/import/csv-import-view.js";
+import { createResourceCache } from "./runtime/resource-cache.js";
+import { getLocalActionGroupLabel, getVisibleLocalActions, summarizeLocalActions, todayDate } from "./runtime/local-action-runtime.js";
+import { createDebouncedRender, runButtonTask } from "./runtime/ui-interaction-runtime.js";
 
-const state = { documents: [], searchDocuments: new Map(), categories: [], selectedCategory: "all", selectedDocumentId: "", query: "" };
+const state = { documents: [], searchDocuments: new Map(), searchText: new Map(), categories: [], categoryCounts: Object.create(null), selectedCategory: "all", selectedDocumentId: "", query: "" };
+const resourceCache = createResourceCache();
+const deferredRuntimeSections = new Set();
+const PERFORMANCE_MARKS = Object.freeze({ firstInteractive: "atlas:first-interactive", localActionUpdate: "atlas:local-action-update" });
+const performanceMetrics = {};
 const storageKeys = { dashboardSnapshotId: dashboardStorage.snapshotIdKey };
 const $ = (selector) => document.querySelector(selector);
 
@@ -195,6 +202,10 @@ let persistentAuditEntries = [];
 let userProfile = { income: "", assets: "", debt: "", goal: "balanced" };
 let localActions = [];
 let selectedScenarioTemplateId = "home";
+const now = () => new Date();
+const localDataCache = new Map();
+const batchReadModelCache = new Map();
+let knowledgeIndexPromise = null;
 const scenarioTemplates = [
   { id: "home", name: "買房準備", score: "72", detail: "檢查頭期款、交易成本與貸款壓力。" },
   { id: "retirement", name: "退休準備", score: "68", detail: "檢查退休提領、通膨與長期資產配置。" },
@@ -216,32 +227,52 @@ const validationFailureFixtures = [
 ];
 
 async function loadIndex() {
-  const response = await fetch("knowledge/index.json", { cache: "no-cache" });
-  if (!response.ok) throw new Error(`知識索引載入失敗：${response.status}`);
-  const index = await response.json();
-  const searchResponse = await fetch("knowledge/search-index.json", { cache: "no-cache" });
-  const searchIndex = searchResponse.ok ? await searchResponse.json() : { documents: [] };
+  const index = await fetchRuntimeJson("knowledge/index.json");
+  const searchIndex = await fetchRuntimeJson("knowledge/search-index.json").catch(() => ({ documents: [] }));
   state.documents = index.documents || [];
   state.searchDocuments = new Map((searchIndex.documents || []).map((doc) => [doc.id, doc]));
+  state.searchText = new Map(state.documents.map((doc) => {
+    const searchDoc = state.searchDocuments.get(doc.id);
+    return [doc.id, [doc.title, doc.path, doc.category, doc.summary, searchDoc?.terms, ...(searchDoc?.headings || [])].join(" ").toLowerCase()];
+  }));
   state.categories = index.categories || [];
+  state.categoryCounts = state.documents.reduce((counts, doc) => {
+    counts[doc.category] = (counts[doc.category] || 0) + 1;
+    return counts;
+  }, Object.create(null));
   statusText.textContent = `已載入 ${state.documents.length} 份知識文件`;
   renderCategories();
   renderList();
   openDocumentFromHash();
 }
 
+function ensureKnowledgeIndex() {
+  if (!knowledgeIndexPromise) {
+    knowledgeIndexPromise = loadIndex().catch((error) => {
+      knowledgeIndexPromise = null;
+      throw error;
+    });
+  }
+  return knowledgeIndexPromise;
+}
+
 async function loadDashboard() {
   try {
-    const response = await fetch("fixtures/dashboard-snapshots.json", { cache: "no-cache" });
-    if (!response.ok) throw new Error(`儀表板資料載入失敗：${response.status}`);
-    const collection = normalizeDashboardCollection(await response.json());
+    markPerformance("atlas:bootstrap-start");
+    // The dashboard fixture is fetched through the shared cache: fetch("fixtures/dashboard-snapshots.json"
+    const [dashboardPayload] = await Promise.all([
+      fetchRuntimeJson("fixtures/dashboard-snapshots.json"),
+      loadRuntimeContracts(),
+    ]);
+    const collection = normalizeDashboardCollection(dashboardPayload);
     dashboardSnapshots = collection.snapshots;
-    await loadRuntimeContracts();
     selectedDashboardSnapshotId = await readStoredDashboardSnapshotId() || collection.defaultSnapshotId;
     await indexedDbMigrationRepository.markCurrent().catch(() => {});
     localScenarios = await indexedDbScenarioRepository.list().catch(() => []);
     recommendationDecisions = await indexedDbRecommendationDecisionRepository.list().catch(() => []);
     renderDashboardById(selectedDashboardSnapshotId);
+    markPerformance(PERFORMANCE_MARKS.firstInteractive);
+    measurePerformance("firstInteractive", "atlas:bootstrap-start", PERFORMANCE_MARKS.firstInteractive);
   } catch (error) {
     dashboardSnapshots = [fallbackDashboardSnapshot];
     selectedDashboardSnapshotId = fallbackDashboardSnapshot.snapshotId;
@@ -250,10 +281,45 @@ async function loadDashboard() {
   }
 }
 
+async function fetchRuntimeJson(path) {
+  return resourceCache.json(path);
+}
+
+function markPerformance(name) {
+  if (typeof performance?.mark !== "function") return;
+  if (name.endsWith("-start")) performance.clearMarks(name);
+  if (performance.getEntriesByName(name).length) return;
+  performance.mark(name);
+}
+
+function measurePerformance(label, startMark, endMark) {
+  if (typeof performance?.measure !== "function") return;
+  const measureName = `atlas:${label}`;
+  try {
+    performance.measure(measureName, startMark, endMark);
+    performanceMetrics[label] = performance.getEntriesByName(measureName).at(-1)?.duration ?? null;
+  } catch {}
+}
+
+function deferUntilIdle(task) {
+  const schedule = window.requestIdleCallback || ((callback) => window.setTimeout(callback, 0));
+  schedule(() => task().catch((error) => setRuntimeFeedback(error.message || "延後資料載入失敗。")));
+}
+
+async function fetchRuntimeText(path) {
+  return resourceCache.text(path);
+}
+
 function renderCategories() {
-  const counts = state.documents.reduce((acc, doc) => ({ ...acc, [doc.category]: (acc[doc.category] || 0) + 1 }), {});
-  const categories = [{ id: "all", label: "全部", count: state.documents.length }, ...state.categories.map((category) => ({ id: category, label: category, count: counts[category] || 0 }))];
-  categoryNav.innerHTML = categories.map((category) => `<button class="${category.id === state.selectedCategory ? "active" : ""}" data-category="${escapeAttribute(category.id)}" type="button"><span>${escapeHtml(translateCategory(category.label))}</span><span>${category.count}</span></button>`).join("");
+  const categories = [{ id: "all", label: "全部", count: state.documents.length }, ...state.categories.map((category) => ({ id: category, label: category, count: state.categoryCounts[category] || 0 }))];
+  const buttons = [...categoryNav.querySelectorAll("button[data-category]")];
+  const needsBuild = buttons.length !== categories.length
+    || buttons.some((button, index) => button.dataset.category !== categories[index]?.id);
+  if (needsBuild) {
+    categoryNav.innerHTML = categories.map((category) => `<button class="${category.id === state.selectedCategory ? "active" : ""}" data-category="${escapeAttribute(category.id)}" type="button"><span>${escapeHtml(translateCategory(category.label))}</span><span>${category.count}</span></button>`).join("");
+    return;
+  }
+  buttons.forEach((button) => button.classList.toggle("active", button.dataset.category === state.selectedCategory));
 }
 
 function renderList() {
@@ -272,9 +338,9 @@ function normalizeQuery(value) {
 
 function scoreDocument(doc, tokens) {
   if (!tokens.length) return 0;
-  const searchDoc = state.searchDocuments.get(doc.id);
-  const values = [doc.title, doc.path, doc.category, doc.summary, searchDoc?.terms, ...(searchDoc?.headings || [])].join(" ").toLowerCase();
-  return tokens.reduce((score, token) => score + (values.includes(token) ? 2 : 0) + (String(doc.title).toLowerCase().includes(token) ? 8 : 0), 0);
+  const values = state.searchText.get(doc.id) || "";
+  const title = String(doc.title).toLowerCase();
+  return tokens.reduce((score, token) => score + (values.includes(token) ? 2 : 0) + (title.includes(token) ? 8 : 0), 0);
 }
 
 async function openDocument(id) {
@@ -283,12 +349,13 @@ async function openDocument(id) {
   state.selectedDocumentId = id;
   window.history.replaceState(null, "", `#doc=${encodeURIComponent(id)}`);
   renderList();
-  const response = await fetch(`knowledge/documents/${doc.id}.json`);
-  if (!response.ok) {
+  let payload;
+  try {
+    payload = await fetchRuntimeJson(`knowledge/documents/${doc.id}.json`);
+  } catch {
     documentViewer.innerHTML = `<p class="empty-state">知識文件載入失敗。</p>`;
     return;
   }
-  const payload = await response.json();
   documentViewer.innerHTML = `<div class="document-meta"><span>${escapeHtml(translateCategory(payload.category))}</span><span>${escapeHtml(payload.canonicalPath)}</span></div><h2>${escapeHtml(translateKnowledgeText(payload.title))}</h2>${renderHeadingLinks(translateKnowledgeHeadings(payload.headings || []))}<pre>${escapeHtml(translateKnowledgeMarkdown(payload.bodyMarkdown || ""))}</pre>`;
 }
 
@@ -299,14 +366,15 @@ function renderHeadingLinks(headings) {
 
 function renderDashboardById(snapshotId) {
   const snapshot = dashboardSnapshots.find((item) => item.snapshotId === snapshotId) || dashboardSnapshots[0];
+  const snapshotChanged = selectedDashboardSnapshotId !== snapshot.snapshotId;
   selectedDashboardSnapshotId = snapshot.snapshotId;
-  writeStoredValue(storageKeys.dashboardSnapshotId, selectedDashboardSnapshotId);
+  if (snapshotChanged) writeStoredValue(storageKeys.dashboardSnapshotId, selectedDashboardSnapshotId);
   renderDashboard(snapshot);
 }
 
 function renderDashboard(snapshot) {
   dashboardDate.textContent = snapshot.asOfDate;
-  dashboardSwitcher.innerHTML = dashboardSnapshots.map((item) => `<button class="${item.snapshotId === selectedDashboardSnapshotId ? "active" : ""}" type="button" data-snapshot-id="${escapeAttribute(item.snapshotId)}">${escapeHtml(item.label || item.snapshotId)}</button>`).join("");
+  renderDashboardSwitcher();
   metricGrid.innerHTML = snapshot.metrics.map((metric) => `<div class="metric-card"><span>${escapeHtml(metric.label)}</span><strong>${escapeHtml(formatDisplayToken(metric.value))}</strong><small>${escapeHtml(metric.detail)}</small></div>`).join("");
   scenarioList.innerHTML = [...snapshot.scenarios, ...localScenarios].map((scenario) => `<div class="scenario-row"><span>${escapeHtml(scenario.name)}</span><strong>${escapeHtml(formatDisplayToken(scenario.score))}</strong><small>${escapeHtml(translateStatus(scenario.status))}</small></div>`).join("");
   actionList.innerHTML = snapshot.actions.map((action) => `<div class="action-row">${escapeHtml(action)}</div>`).join("");
@@ -319,11 +387,32 @@ function renderDashboard(snapshot) {
   renderExportPreview(snapshot);
 }
 
+function renderDashboardSwitcher() {
+  if (!dashboardSwitcher) return;
+  const buttons = [...dashboardSwitcher.querySelectorAll("button[data-snapshot-id]")];
+  const needsBuild = buttons.length !== dashboardSnapshots.length
+    || buttons.some((button, index) => button.dataset.snapshotId !== dashboardSnapshots[index]?.snapshotId);
+  if (needsBuild) {
+    dashboardSwitcher.innerHTML = dashboardSnapshots.map((item) => `<button class="${item.snapshotId === selectedDashboardSnapshotId ? "active" : ""}" type="button" data-snapshot-id="${escapeAttribute(item.snapshotId)}">${escapeHtml(item.label || item.snapshotId)}</button>`).join("");
+    return;
+  }
+  buttons.forEach((button) => button.classList.toggle("active", button.dataset.snapshotId === selectedDashboardSnapshotId));
+}
+
+function refreshLocalActionViews() {
+  const snapshot = currentSnapshot();
+  const summary = summarizeLocalActions(localActions, now);
+  renderLocalActions(summary);
+  renderHomeSummary(snapshot);
+  renderRecommendationControls(snapshot);
+  renderSelectedBatchReadModels(snapshot);
+}
+
 function renderHomeSummary(snapshot) {
   if (!homeSummaryPanel) return;
   const scoreMetric = snapshot.metrics.find((metric) => /分數|score/i.test(metric.label)) || snapshot.metrics[0];
   const pendingRecommendationCount = Math.max(0, (snapshot.actions || []).length - recommendationDecisions.length);
-  const latestDecision = recommendationDecisions
+  const latestDecision = [...recommendationDecisions]
     .sort((a, b) => String(b.decidedAt || "").localeCompare(String(a.decidedAt || "")))[0];
   const items = [
     ["目前分數", formatDisplayToken(scoreMetric?.value ?? "N/A"), scoreMetric?.detail || "尚未載入分數"],
@@ -470,27 +559,36 @@ function exportRecommendationHistory() {
 }
 
 function renderSelectedBatchReadModels(snapshot) {
-  const executionPlan = buildReadOnlyExecutionPlan(snapshot);
-  renderExecutionPlanPreview(executionPlan);
-  const actionPlans = executionPlan ? createActionPlansFromExecutionPlan(executionPlan, readOnlyRuntimeContext()) : [];
-  renderActionPlanPreview(actionPlans);
-  const calendarEntries = buildBusinessCalendar({
-    ownerId: "local-owner",
-    recommendations: [buildReadOnlyRecommendation(snapshot)].filter(Boolean),
-    executionPlans: executionPlan ? [executionPlan] : [],
-    actionPlans,
-  }, readOnlyRuntimeContext());
+  const base = getCachedBatchReadModel(snapshot);
+  renderExecutionPlanPreview(base.executionPlan);
+  renderActionPlanPreview(base.actionPlans);
   const localCalendarEntries = buildLocalActionCalendarEntries();
-  renderBusinessCalendarPreview([...calendarEntries, ...localCalendarEntries]);
+  renderBusinessCalendarPreview([...base.calendarEntries, ...localCalendarEntries]);
   const scheduler = evaluateScheduler({
     ownerId: "local-owner",
     asOfDate: snapshot.asOfDate,
-    calendarEntries: [...calendarEntries, ...localCalendarEntries],
+    calendarEntries: [...base.calendarEntries, ...localCalendarEntries],
     automationResults: [],
   }, readOnlyRuntimeContext());
   const localNotifications = buildLocalActionNotifications();
   renderSchedulerPreview({ ...scheduler, schedulerState: { ...scheduler.schedulerState, generatedNotificationCount: scheduler.schedulerState.generatedNotificationCount + localNotifications.length } });
   renderNotificationPreview([...scheduler.notifications, ...localNotifications]);
+}
+
+function getCachedBatchReadModel(snapshot) {
+  const key = snapshot.snapshotId;
+  if (!batchReadModelCache.has(key)) {
+    const executionPlan = buildReadOnlyExecutionPlan(snapshot);
+    const actionPlans = executionPlan ? createActionPlansFromExecutionPlan(executionPlan, readOnlyRuntimeContext()) : [];
+    const calendarEntries = buildBusinessCalendar({
+      ownerId: "local-owner",
+      recommendations: [buildReadOnlyRecommendation(snapshot)].filter(Boolean),
+      executionPlans: executionPlan ? [executionPlan] : [],
+      actionPlans,
+    }, readOnlyRuntimeContext());
+    batchReadModelCache.set(key, { executionPlan, actionPlans, calendarEntries });
+  }
+  return batchReadModelCache.get(key);
 }
 
 function buildReadOnlyExecutionPlan(snapshot) {
@@ -570,7 +668,7 @@ function buildLocalActionCalendarEntries() {
 }
 
 function buildLocalActionNotifications() {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayDate();
   return localActions
     .filter((action) => action.status !== "done" && action.dueDate && action.dueDate <= today)
     .map((action) => ({
@@ -626,6 +724,7 @@ async function setRecommendationDecision(decision) {
   await indexedDbRecommendationDecisionRepository.save({ decisionId: `decision-${Date.now()}`, decision, rationale, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status, score: String(result.score), decidedAt: new Date().toISOString() });
   await persistAuditEntry("recommendation-decision", { decision, rationale, fixtureId: result.fixtureId, snapshotId: snapshot.snapshotId, status: result.recommendation.status });
   recommendationDecisions = await indexedDbRecommendationDecisionRepository.list();
+  batchReadModelCache.clear();
   if (recommendationRationaleInput) recommendationRationaleInput.value = "";
   renderRecommendationDecisionLog(result.fixtureId);
   renderRecommendationHistory();
@@ -881,7 +980,13 @@ async function applyBackup() {
   backupDryRunPanel.textContent = "";
   restoreConfirmInput.checked = false;
   localScenarios = await indexedDbScenarioRepository.list();
+  batchReadModelCache.clear();
+  invalidateLocalData();
   renderDashboardById(selectedDashboardSnapshotId);
+  refreshLocalFinancialData().catch((error) => setRuntimeFeedback(error.message));
+  refreshLocalCashFlowData().catch((error) => setRuntimeFeedback(error.message));
+  refreshLocalGoalHealthData().catch((error) => setRuntimeFeedback(error.message));
+  renderInsuranceSummary().catch((error) => setRuntimeFeedback(error.message));
   renderRestoreAudit();
   setRuntimeFeedback("備份已套用。");
 }
@@ -901,88 +1006,65 @@ function localActionStorageKey() {
 }
 
 async function loadLocalActions() {
-  const stored = await readStoredValue(localActionStorageKey());
-  localActions = stored ? JSON.parse(stored) : [];
-  renderLocalActions();
-  renderDashboardById(selectedDashboardSnapshotId);
+  try {
+    const stored = await readStoredValue(localActionStorageKey());
+    localActions = stored ? JSON.parse(stored) : [];
+    if (!Array.isArray(localActions)) throw new Error("本機行動資料不是陣列。 ");
+  } catch (error) {
+    localActions = [];
+    renderLocalActionImportPreview("本機行動資料無法讀取，已使用空白列表。請重新匯入備份。");
+    setRuntimeFeedback(error.message || "本機行動資料讀取失敗。");
+  }
+  refreshLocalActionViews();
 }
 
-function persistLocalActions() {
-  writeStoredValue(localActionStorageKey(), JSON.stringify(localActions));
+async function persistLocalActions() {
+  const previous = localActions;
+  try {
+    await writeStoredValue(localActionStorageKey(), JSON.stringify(localActions));
+  } catch (error) {
+    localActions = previous;
+    throw new Error(`本機行動儲存失敗：${error.message || "請稍後重試"}`);
+  }
 }
 
-function renderLocalActions() {
+function renderLocalActions(summary = summarizeLocalActions(localActions, now)) {
   if (!localActionListPanel) return;
   const filter = localActionFilterInput?.value || "open";
   const keyword = (localActionSearchInput?.value || "").trim().toLowerCase();
-  const source = localActions.filter((action) => {
-    if (filter === "all") return true;
-    if (filter === "open") return action.status !== "done";
-    return action.status === filter;
-  }).filter((action) => !keyword || [
-    action.title,
-    action.dueDate,
-    action.status,
-    action.createdFrom,
-    action.sourceRecommendationId ? "建議轉入" : "手動新增",
-  ].some((value) => String(value || "").toLowerCase().includes(keyword)));
-  const sorted = [...source].sort(compareLocalActions);
+  const sorted = getVisibleLocalActions(localActions, filter, keyword, now);
   localActionListPanel.innerHTML = sorted.length
-    ? renderGroupedLocalActions(sorted)
+    ? renderGroupedLocalActions(sorted, now)
     : `<div class="empty-runtime">尚無本機行動。<a href="#execution">新增下一步行動</a></div>`;
-  renderLocalActionReminder();
+  renderLocalActionReminder(summary);
 }
 
-function renderGroupedLocalActions(actions) {
+function renderGroupedLocalActions(actions, clock = now) {
   let currentGroup = "";
   return actions.map((action) => {
-    const group = getLocalActionGroupLabel(action);
+    const group = getLocalActionGroupLabel(action, clock);
     const heading = group === currentGroup ? "" : `<h6 class="local-action-group">${escapeHtml(group)}</h6>`;
     currentGroup = group;
     return `${heading}<div class="runtime-row local-action-row ${action.status === "done" ? "done" : ""}"><span>${escapeHtml(action.title)}<small>${escapeHtml(action.dueDate || "未設定期限")} / ${escapeHtml(translateStatus(action.status))} / ${action.sourceRecommendationId ? "建議轉入" : "手動新增"}</small></span><strong>${escapeHtml(action.createdFrom || "本機")}</strong><select data-local-action-status="${escapeAttribute(action.id)}" aria-label="行動狀態：${escapeAttribute(action.title)}"><option value="pending-review" ${action.status === "pending-review" ? "selected" : ""}>待處理</option><option value="defer" ${action.status === "defer" ? "selected" : ""}>延後</option><option value="done" ${action.status === "done" ? "selected" : ""}>完成</option></select><button type="button" data-local-action="delete" data-action-id="${escapeAttribute(action.id)}">刪除</button></div>`;
   }).join("");
 }
 
-function getLocalActionGroupLabel(action) {
-  if (action.status === "done") return "已完成";
-  if (!action.dueDate) return "未設定期限";
-  const today = new Date().toISOString().slice(0, 10);
-  return action.dueDate <= today ? "已到期" : "未來期限";
-}
-
-function compareLocalActions(a, b) {
-  return getLocalActionSortRank(a) - getLocalActionSortRank(b)
-    || String(a.dueDate || "9999-12-31").localeCompare(String(b.dueDate || "9999-12-31"))
-    || String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
-}
-
-function getLocalActionSortRank(action) {
-  if (action.status === "done") return 4;
-  if (!action.dueDate) return 3;
-  const today = new Date().toISOString().slice(0, 10);
-  return action.dueDate <= today ? 1 : 2;
-}
-
-function renderLocalActionReminder() {
+function renderLocalActionReminder(summary = summarizeLocalActions(localActions, now)) {
   if (!localActionReminderPanel) return;
-  const today = new Date().toISOString().slice(0, 10);
-  const due = localActions.filter((action) => action.status !== "done" && action.dueDate && action.dueDate <= today);
-  const upcoming = localActions.filter((action) => action.status !== "done" && action.dueDate && action.dueDate > today);
-  const openCount = localActions.filter((action) => action.status !== "done").length;
-  const doneCount = localActions.filter((action) => action.status === "done").length;
-  const nextDueDate = [...upcoming].sort((a, b) => String(a.dueDate).localeCompare(String(b.dueDate)))[0]?.dueDate || "未設定";
+  const { openCount, dueCount, doneCount, nextDueDate } = summary;
   localActionReminderPanel.innerHTML = [
     `<div class="runtime-row"><span>未完成</span><strong>${openCount} 個</strong></div>`,
-    `<div class="runtime-row"><span>已到期</span><strong>${due.length} 個</strong></div>`,
+    `<div class="runtime-row"><span>已到期</span><strong>${dueCount} 個</strong></div>`,
     `<div class="runtime-row"><span>已完成</span><strong>${doneCount} 個</strong></div>`,
     `<div class="runtime-row"><span>下一期限</span><strong>${escapeHtml(nextDueDate)}</strong></div>`,
   ].join("");
   exportLocalActionsButton?.toggleAttribute("disabled", localActions.length === 0);
-  completeDueLocalActionsButton?.toggleAttribute("disabled", due.length === 0);
+  completeDueLocalActionsButton?.toggleAttribute("disabled", dueCount === 0);
   clearDoneLocalActionsButton?.toggleAttribute("disabled", doneCount === 0);
 }
 
 async function addLocalAction() {
+  markPerformance("atlas:local-action-start");
   const title = localActionTitleInput?.value?.trim() || "";
   if (title.length < 2) throw new Error("行動名稱至少需要 2 個字。");
   localActions = [{
@@ -993,16 +1075,18 @@ async function addLocalAction() {
     createdFrom: selectedDashboardSnapshotId,
     createdAt: new Date().toISOString(),
   }, ...localActions].slice(0, 50);
-  persistLocalActions();
+  await persistLocalActions();
   if (localActionTitleInput) localActionTitleInput.value = "";
   if (localActionDueInput) localActionDueInput.value = "";
   await persistAuditEntry("local-action-create", { title, snapshotId: selectedDashboardSnapshotId });
-  renderLocalActions();
-  renderDashboardById(selectedDashboardSnapshotId);
+  refreshLocalActionViews();
+  markPerformance(PERFORMANCE_MARKS.localActionUpdate);
+  measurePerformance("localActionUpdate", "atlas:local-action-start", PERFORMANCE_MARKS.localActionUpdate);
   setRuntimeFeedback("本機行動已新增。");
 }
 
 async function createActionFromRecommendation() {
+  markPerformance("atlas:local-action-start");
   const snapshot = currentSnapshot();
   const result = getRuntimeResult(getRuntimeSnapshot(snapshot));
   if (!result?.recommendation) throw new Error("目前情境沒有可轉成行動的建議。");
@@ -1021,14 +1105,16 @@ async function createActionFromRecommendation() {
     sourceRecommendationId,
     createdAt: new Date().toISOString(),
   }, ...localActions].slice(0, 50);
-  persistLocalActions();
+  await persistLocalActions();
   await persistAuditEntry("recommendation-to-action", { fixtureId: sourceRecommendationId, snapshotId: snapshot.snapshotId });
-  renderLocalActions();
-  renderDashboardById(selectedDashboardSnapshotId);
+  refreshLocalActionViews();
+  markPerformance(PERFORMANCE_MARKS.localActionUpdate);
+  measurePerformance("localActionUpdate", "atlas:local-action-start", PERFORMANCE_MARKS.localActionUpdate);
   setRuntimeFeedback("建議已轉成本機行動。");
 }
 
 async function updateLocalAction(actionId, action) {
+  markPerformance("atlas:local-action-start");
   const nextDate = new Date();
   nextDate.setDate(nextDate.getDate() + 7);
   localActions = action === "delete"
@@ -1040,14 +1126,16 @@ async function updateLocalAction(actionId, action) {
       if (action === "defer") return { ...item, status: "defer", dueDate: nextDate.toISOString().slice(0, 10) };
       return item;
     });
-  persistLocalActions();
+  await persistLocalActions();
   await persistAuditEntry("local-action-update", { actionId, action });
-  renderLocalActions();
-  renderDashboardById(selectedDashboardSnapshotId);
+  refreshLocalActionViews();
+  markPerformance(PERFORMANCE_MARKS.localActionUpdate);
+  measurePerformance("localActionUpdate", "atlas:local-action-start", PERFORMANCE_MARKS.localActionUpdate);
   setRuntimeFeedback("本機行動已更新。");
 }
 
 async function completeDueLocalActions() {
+  markPerformance("atlas:local-action-start");
   const today = new Date().toISOString().slice(0, 10);
   let updatedCount = 0;
   localActions = localActions.map((item) => {
@@ -1055,21 +1143,24 @@ async function completeDueLocalActions() {
     updatedCount += 1;
     return { ...item, status: "done", completedAt: new Date().toISOString() };
   });
-  persistLocalActions();
+  await persistLocalActions();
   await persistAuditEntry("local-action-bulk-complete-due", { updatedCount });
-  renderLocalActions();
-  renderDashboardById(selectedDashboardSnapshotId);
+  refreshLocalActionViews();
+  markPerformance(PERFORMANCE_MARKS.localActionUpdate);
+  measurePerformance("localActionUpdate", "atlas:local-action-start", PERFORMANCE_MARKS.localActionUpdate);
   setRuntimeFeedback(`已完成 ${updatedCount} 個到期行動。`);
 }
 
 async function clearDoneLocalActions() {
+  markPerformance("atlas:local-action-start");
   const beforeCount = localActions.length;
   localActions = localActions.filter((item) => item.status !== "done");
   const removedCount = beforeCount - localActions.length;
-  persistLocalActions();
+  await persistLocalActions();
   await persistAuditEntry("local-action-bulk-clear-done", { removedCount });
-  renderLocalActions();
-  renderDashboardById(selectedDashboardSnapshotId);
+  refreshLocalActionViews();
+  markPerformance(PERFORMANCE_MARKS.localActionUpdate);
+  measurePerformance("localActionUpdate", "atlas:local-action-start", PERFORMANCE_MARKS.localActionUpdate);
   setRuntimeFeedback(`已清除 ${removedCount} 個完成行動。`);
 }
 
@@ -1085,6 +1176,7 @@ function exportLocalActions() {
 
 async function importLocalActions(file) {
   if (!file) return;
+  markPerformance("atlas:local-action-start");
   let payload;
   try {
     payload = JSON.parse(await file.text());
@@ -1110,12 +1202,17 @@ async function importLocalActions(file) {
   const existingIds = new Set(localActions.map((action) => action.id));
   const accepted = normalized.filter((action) => !existingIds.has(action.id));
   const duplicateCount = normalized.length - accepted.length;
-  localActions = [...accepted, ...localActions].slice(0, 50);
-  persistLocalActions();
-  await persistAuditEntry("local-action-import", { importedCount: normalized.length, acceptedCount: accepted.length, duplicateCount, keptCount: localActions.length });
-  renderLocalActions();
-  renderLocalActionImportPreview(`匯入預覽：讀取 ${imported.length} 筆，接受 ${accepted.length} 筆，重複 ${duplicateCount} 筆，略過 ${imported.length - accepted.length} 筆。`);
-  renderDashboardById(selectedDashboardSnapshotId);
+  const merged = [...accepted, ...localActions];
+  const capacitySkippedCount = Math.max(0, merged.length - 50);
+  localActions = merged.slice(0, 50);
+  const retainedImportedCount = Math.min(accepted.length, Math.max(0, 50 - (merged.length - accepted.length)));
+  const invalidCount = imported.length - normalized.length;
+  await persistLocalActions();
+  await persistAuditEntry("local-action-import", { importedCount: imported.length, normalizedCount: normalized.length, acceptedCount: accepted.length, retainedImportedCount, duplicateCount, invalidCount, capacitySkippedCount, keptCount: localActions.length });
+  refreshLocalActionViews();
+  markPerformance(PERFORMANCE_MARKS.localActionUpdate);
+  measurePerformance("localActionUpdate", "atlas:local-action-start", PERFORMANCE_MARKS.localActionUpdate);
+  renderLocalActionImportPreview(`匯入預覽：讀取 ${imported.length} 筆，接受 ${accepted.length} 筆（實際保留 ${retainedImportedCount} 筆），重複 ${duplicateCount} 筆，無效 ${invalidCount} 筆，容量略過 ${capacitySkippedCount} 筆。`);
   setRuntimeFeedback(`已匯入 ${accepted.length} 個本機行動。`);
 }
 
@@ -1194,6 +1291,7 @@ function currentScenarioTemplate() {
 
 function renderScenarioTemplates() {
   if (!scenarioTemplateList) return;
+  document.querySelector(".scenario-templates")?.setAttribute("open", "");
   scenarioTemplateList.innerHTML = scenarioTemplates.map((template) => `<button class="${template.id === selectedScenarioTemplateId ? "active" : ""}" type="button" data-template-id="${escapeAttribute(template.id)}"><span>${escapeHtml(template.name)}</span><small>${escapeHtml(template.detail)}</small><strong>${escapeHtml(template.score)}</strong></button>`).join("");
   renderScenarioTemplatePreview();
 }
@@ -1225,9 +1323,11 @@ function validateScenarioInput(name, score) {
 }
 
 async function loadRuntimeContracts() {
-  const [runtimeResponse, simulatorResponse] = await Promise.all([fetch("fixtures/dashboard-runtime-snapshots.json", { cache: "no-cache" }), fetch("fixtures/scenario-results.json", { cache: "no-cache" })]);
-  runtimeSnapshots = runtimeResponse.ok ? (await runtimeResponse.json()).snapshots || [] : [];
-  const simulatorPayload = simulatorResponse.ok ? await simulatorResponse.json() : { results: [] };
+  const [runtimePayload, simulatorPayload] = await Promise.all([
+    fetchRuntimeJson("fixtures/dashboard-runtime-snapshots.json").catch(() => ({ snapshots: [] })),
+    fetchRuntimeJson("fixtures/scenario-results.json").catch(() => ({ results: [] })),
+  ]);
+  runtimeSnapshots = runtimePayload.snapshots || [];
   simulatorResults = new Map((simulatorPayload.results || []).map((result) => [result.fixtureId, result]));
 }
 
@@ -1358,14 +1458,13 @@ function currentSnapshot() {
 }
 
 async function loadJsonOrNull(path) {
-  const response = await fetch(path, { cache: "no-cache" });
-  return response.ok ? response.json() : null;
+  return fetchRuntimeJson(path).catch(() => null);
 }
 
 async function renderReleaseDashboard() {
   const [history, swVersion] = await Promise.all([
     loadJsonOrNull("reports/validation-history.json").catch(() => null),
-    fetch("sw-version.js", { cache: "no-cache" }).then((response) => response.ok ? response.text() : "").catch(() => ""),
+    fetchRuntimeText("sw-version.js").catch(() => ""),
   ]);
   validationHistoryRecords = Array.isArray(history) ? history : [];
   persistentAuditEntries = await indexedDbAuditRepository.list().catch(() => []);
@@ -1450,6 +1549,7 @@ async function repairOfflineData() {
   });
   localScenarios = (await indexedDbScenarioRepository.list().catch(() => [])).filter((scenario) => scenario?.scenarioId && scenario?.name);
   recommendationDecisions = await indexedDbRecommendationDecisionRepository.list().catch(() => []);
+  batchReadModelCache.clear();
   renderDashboardById(selectedDashboardSnapshotId);
   const message = repaired ? `離線資料已修復：${repaired} 項` : "離線資料檢查通過，無需修復。";
   offlineRepairPanel.textContent = [
@@ -1596,17 +1696,16 @@ async function loadSampleBackup() {
 }
 
 async function loadReleaseNote() {
-  const response = await fetch("reports/release-note.md", { cache: "no-cache" });
-  if (!response.ok) {
+  try {
+    releaseNotePanel.textContent = await fetchRuntimeText("reports/release-note.md");
+  } catch {
     releaseNotePanel.textContent = "Release note unavailable.";
-    return;
   }
-  releaseNotePanel.textContent = await response.text();
 }
 
 function openDocumentFromHash() {
   const id = new URLSearchParams(window.location.hash.replace(/^#/, "")).get("doc");
-  if (id) openDocument(id);
+  if (id) ensureKnowledgeIndex().then(() => openDocument(id)).catch((error) => setRuntimeFeedback(error.message));
 }
 
 async function readStoredValue(key) {
@@ -1635,10 +1734,12 @@ async function readStoredDashboardSnapshotId() {
 }
 
 function writeStoredValue(key, value) {
-  indexedDbSettingsRepository.set(key, value).catch(() => {});
   try {
     localStorage.setItem(key, value);
-  } catch {}
+  } catch (error) {
+    throw error;
+  }
+  indexedDbSettingsRepository.set(key, value).catch(() => {});
 }
 
 function escapeHtml(value) {
@@ -1650,39 +1751,122 @@ function escapeAttribute(value) {
 }
 
 async function refreshLocalFinancialData() {
-  const [assets, liabilities] = await Promise.all([
-    assetService.listAssets({ includeArchived: true }),
-    liabilityService.listLiabilities({ includeArchived: true }),
-  ]);
-  renderAssetList(assets);
-  renderLiabilityList(liabilities);
-  renderNetWorthProjection(assets, liabilities);
-  renderAssetLiabilitySummary(assets, liabilities);
+  return runPanelTask([assetListPanel, liabilityListPanel, assetLiabilitySummaryPanel], async () => {
+    const { assets, liabilities } = await loadLocalFinancialData();
+    renderAssetList(assets);
+    renderLiabilityList(liabilities);
+    renderNetWorthProjection(assets, liabilities);
+    renderAssetLiabilitySummary(assets, liabilities);
+  });
 }
 
 async function refreshLocalCashFlowData() {
-  const [incomes, expenses] = await Promise.all([
-    incomeService.listIncomes({ includeArchived: true }),
-    expenseService.listExpenses({ includeArchived: true }),
-  ]);
-  renderIncomeList(incomes);
-  renderExpenseList(expenses);
-  renderCashFlowProjection(incomes, expenses);
-  renderCashflowSummary(incomes, expenses);
+  return runPanelTask([incomeListPanel, expenseListPanel, cashflowSummaryPanel], async () => {
+    const { incomes, expenses } = await loadLocalCashFlowData();
+    renderIncomeList(incomes);
+    renderExpenseList(expenses);
+    renderCashFlowProjection(incomes, expenses);
+    renderCashflowSummary(incomes, expenses);
+  });
 }
 
 async function refreshLocalGoalHealthData() {
-  const [goals, assets, liabilities, incomes, expenses] = await Promise.all([
-    goalService.listGoals({ includeArchived: true }),
-    assetService.listAssets({ includeArchived: true }),
-    liabilityService.listLiabilities({ includeArchived: true }),
-    incomeService.listIncomes({ includeArchived: true }),
-    expenseService.listExpenses({ includeArchived: true }),
+  return runPanelTask([goalListPanel, goalProgressPanel, financialHealthPanel, goalSummaryPanel], async () => {
+    const { goals, assets, liabilities, incomes, expenses } = await loadLocalGoalHealthData();
+    renderGoalList(goals);
+    renderGoalProgress(goals, assets, liabilities, incomes, expenses);
+    renderFinancialHealth(goals, assets, liabilities, incomes, expenses);
+    renderGoalSummary(goals);
+  });
+}
+
+async function runPanelTask(panels, task) {
+  panels.filter(Boolean).forEach((panel) => panel.setAttribute("aria-busy", "true"));
+  try {
+    return await task();
+  } finally {
+    panels.filter(Boolean).forEach((panel) => panel.removeAttribute("aria-busy"));
+  }
+}
+
+async function refreshInitialLocalData() {
+  const panelGroups = [
+    [assetListPanel, liabilityListPanel],
+    [incomeListPanel, expenseListPanel],
+    [goalListPanel, goalProgressPanel, financialHealthPanel, goalSummaryPanel],
+  ];
+  panelGroups.flat().filter(Boolean).forEach((panel) => panel.setAttribute("aria-busy", "true"));
+  const settlePanelGroup = (promise, panels) => promise.finally(() => {
+    panels.filter(Boolean).forEach((panel) => panel.removeAttribute("aria-busy"));
+  });
+  const results = await Promise.allSettled([
+    settlePanelGroup(loadLocalFinancialData(), panelGroups[0]),
+    settlePanelGroup(loadLocalCashFlowData(), panelGroups[1]),
+    settlePanelGroup(loadLocalGoalHealthData(), panelGroups[2]),
   ]);
-  renderGoalList(goals);
-  renderGoalProgress(goals, assets, liabilities, incomes, expenses);
-  renderFinancialHealth(goals, assets, liabilities, incomes, expenses);
-  renderGoalSummary(goals);
+  const [financial, cashflow, goalHealth] = results;
+  if (financial.status === "fulfilled") {
+    renderAssetList(financial.value.assets);
+    renderLiabilityList(financial.value.liabilities);
+    renderNetWorthProjection(financial.value.assets, financial.value.liabilities);
+    renderAssetLiabilitySummary(financial.value.assets, financial.value.liabilities);
+  } else setRuntimeFeedback(financial.reason?.message || "資產負債資料載入失敗。");
+  if (cashflow.status === "fulfilled") {
+    renderIncomeList(cashflow.value.incomes);
+    renderExpenseList(cashflow.value.expenses);
+    renderCashFlowProjection(cashflow.value.incomes, cashflow.value.expenses);
+    renderCashflowSummary(cashflow.value.incomes, cashflow.value.expenses);
+  } else setRuntimeFeedback(cashflow.reason?.message || "收支資料載入失敗。");
+  if (goalHealth.status === "fulfilled") {
+    renderGoalList(goalHealth.value.goals);
+    renderGoalProgress(goalHealth.value.goals, goalHealth.value.assets, goalHealth.value.liabilities, goalHealth.value.incomes, goalHealth.value.expenses);
+    renderFinancialHealth(goalHealth.value.goals, goalHealth.value.assets, goalHealth.value.liabilities, goalHealth.value.incomes, goalHealth.value.expenses);
+    renderGoalSummary(goalHealth.value.goals);
+  } else setRuntimeFeedback(goalHealth.reason?.message || "目標與財務健康資料載入失敗。");
+}
+
+function getCachedLocalData(key, loader) {
+  if (!localDataCache.has(key)) localDataCache.set(key, loader());
+  return localDataCache.get(key).catch((error) => {
+    localDataCache.delete(key);
+    throw error;
+  });
+}
+
+function invalidateLocalData(...keys) {
+  if (!keys.length) localDataCache.clear();
+  keys.forEach((key) => localDataCache.delete(key));
+}
+
+function loadLocalFinancialData() {
+  return getCachedLocalData("financial", async () => {
+    const [assets, liabilities] = await Promise.all([
+      assetService.listAssets({ includeArchived: true }),
+      liabilityService.listLiabilities({ includeArchived: true }),
+    ]);
+    return { assets, liabilities };
+  });
+}
+
+function loadLocalCashFlowData() {
+  return getCachedLocalData("cashflow", async () => {
+    const [incomes, expenses] = await Promise.all([
+      incomeService.listIncomes({ includeArchived: true }),
+      expenseService.listExpenses({ includeArchived: true }),
+    ]);
+    return { incomes, expenses };
+  });
+}
+
+function loadLocalGoalHealthData() {
+  return getCachedLocalData("goal-health", async () => {
+    const [{ goals }, { assets, liabilities }, { incomes, expenses }] = await Promise.all([
+      getCachedLocalData("goals", () => goalService.listGoals({ includeArchived: true }).then((goals) => ({ goals }))),
+      loadLocalFinancialData(),
+      loadLocalCashFlowData(),
+    ]);
+    return { goals, assets, liabilities, incomes, expenses };
+  });
 }
 
 function sumBy(items, key) {
@@ -1835,6 +2019,7 @@ async function createAssetFromInput() {
   if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
   assetNameInput.value = "";
   assetValueInput.value = "";
+  invalidateLocalData("financial", "goal-health");
   await refreshLocalFinancialData();
 }
 
@@ -1850,6 +2035,7 @@ async function createLiabilityFromInput() {
   if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
   liabilityNameInput.value = "";
   liabilityBalanceInput.value = "";
+  invalidateLocalData("financial", "goal-health");
   await refreshLocalFinancialData();
 }
 
@@ -1866,6 +2052,7 @@ async function createIncomeFromInput() {
   if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
   incomeNameInput.value = "";
   incomeAmountInput.value = "";
+  invalidateLocalData("cashflow", "goal-health");
   await refreshLocalCashFlowData();
 }
 
@@ -1882,6 +2069,7 @@ async function createExpenseFromInput() {
   if (!result.ok) throw new Error(result.errors.map((item) => item.code).join(", "));
   expenseNameInput.value = "";
   expenseAmountInput.value = "";
+  invalidateLocalData("cashflow", "goal-health");
   await refreshLocalCashFlowData();
 }
 
@@ -1901,6 +2089,7 @@ async function createGoalFromInput() {
   goalNameInput.value = "";
   goalTargetAmountInput.value = "";
   goalCurrentAmountInput.value = "";
+  invalidateLocalData("goals", "goal-health");
   await refreshLocalGoalHealthData();
 }
 
@@ -1908,8 +2097,10 @@ categoryNav?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-category]");
   if (!button) return;
   state.selectedCategory = button.dataset.category;
-  renderCategories();
-  renderList();
+  ensureKnowledgeIndex().then(() => {
+    renderCategories();
+    renderList();
+  }).catch((error) => setRuntimeFeedback(error.message));
 });
 documentList?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-id]");
@@ -1920,9 +2111,10 @@ dashboardSwitcher.addEventListener("click", (event) => {
   if (button) renderDashboardById(button.dataset.snapshotId);
 });
 scenarioComparisonSortInput.addEventListener("change", () => renderDashboardById(selectedDashboardSnapshotId));
+const debouncedKnowledgeSearchRender = createDebouncedRender(() => ensureKnowledgeIndex().then(() => renderList()).catch((error) => setRuntimeFeedback(error.message)), 120);
 searchInput?.addEventListener("input", (event) => {
   state.query = event.target.value;
-  renderList();
+  debouncedKnowledgeSearchRender();
 });
 clearFiltersButton?.addEventListener("click", () => {
   state.query = "";
@@ -1931,9 +2123,9 @@ clearFiltersButton?.addEventListener("click", () => {
   renderCategories();
   renderList();
 });
-saveScenarioButton.addEventListener("click", () => saveCurrentScenario().catch((error) => setRuntimeFeedback(error.message)));
-deleteScenarioButton.addEventListener("click", () => deleteLastScenario().catch((error) => setRuntimeFeedback(error.message)));
-resetScenariosButton.addEventListener("click", () => resetScenarios().catch((error) => setRuntimeFeedback(error.message)));
+saveScenarioButton.addEventListener("click", () => runButtonTask(saveScenarioButton, saveCurrentScenario).catch((error) => setRuntimeFeedback(error.message)));
+deleteScenarioButton.addEventListener("click", () => runButtonTask(deleteScenarioButton, deleteLastScenario).catch((error) => setRuntimeFeedback(error.message)));
+resetScenariosButton.addEventListener("click", () => runButtonTask(resetScenariosButton, resetScenarios).catch((error) => setRuntimeFeedback(error.message)));
 exportBackupButton.addEventListener("click", () => exportBackup().catch((error) => setRuntimeFeedback(error.message)));
 exportEncryptedBackupButton?.addEventListener("click", () => exportEncryptedBackup().catch((error) => setRuntimeFeedback(error.message)));
 exportPortfolioReportButton.addEventListener("click", () => exportPortfolioReport());
@@ -1943,11 +2135,11 @@ importBackupInput.addEventListener("change", (event) => {
   previewBackup(file).catch((error) => setRuntimeFeedback(error.message));
   event.target.value = "";
 });
-applyBackupButton.addEventListener("click", () => applyBackup().catch((error) => setRuntimeFeedback(error.message)));
-acceptRecommendationButton.addEventListener("click", () => setRecommendationDecision("accepted").catch((error) => setRuntimeFeedback(error.message)));
-rejectRecommendationButton.addEventListener("click", () => setRecommendationDecision("rejected").catch((error) => setRuntimeFeedback(error.message)));
-deferRecommendationButton?.addEventListener("click", () => setRecommendationDecision("deferred").catch((error) => setRuntimeFeedback(error.message)));
-createActionFromRecommendationButton?.addEventListener("click", () => createActionFromRecommendation().catch((error) => setRuntimeFeedback(error.message)));
+applyBackupButton.addEventListener("click", () => runButtonTask(applyBackupButton, applyBackup).catch((error) => setRuntimeFeedback(error.message)));
+acceptRecommendationButton.addEventListener("click", () => runButtonTask(acceptRecommendationButton, () => setRecommendationDecision("accepted")).catch((error) => setRuntimeFeedback(error.message)));
+rejectRecommendationButton.addEventListener("click", () => runButtonTask(rejectRecommendationButton, () => setRecommendationDecision("rejected")).catch((error) => setRuntimeFeedback(error.message)));
+deferRecommendationButton?.addEventListener("click", () => runButtonTask(deferRecommendationButton, () => setRecommendationDecision("deferred")).catch((error) => setRuntimeFeedback(error.message)));
+createActionFromRecommendationButton?.addEventListener("click", () => runButtonTask(createActionFromRecommendationButton, createActionFromRecommendation).catch((error) => setRuntimeFeedback(error.message)));
 recommendationFilterInput.addEventListener("change", renderRecommendationHistory);
 exportRecommendationHistoryButton.addEventListener("click", exportRecommendationHistory);
 rationaleTemplates?.addEventListener("click", (event) => {
@@ -1969,40 +2161,40 @@ calculateLoanButton.addEventListener("click", () => {
   }
 });
 resetLoanButton.addEventListener("click", resetLoanInputs);
-saveProfileButton?.addEventListener("click", () => saveUserProfile().catch((error) => setRuntimeFeedback(error.message)));
-resetProfileButton?.addEventListener("click", () => resetUserProfile().catch((error) => setRuntimeFeedback(error.message)));
-createAssetButton?.addEventListener("click", () => createAssetFromInput().catch((error) => setRuntimeFeedback(error.message)));
-createLiabilityButton?.addEventListener("click", () => createLiabilityFromInput().catch((error) => setRuntimeFeedback(error.message)));
-createIncomeButton?.addEventListener("click", () => createIncomeFromInput().catch((error) => setRuntimeFeedback(error.message)));
-createExpenseButton?.addEventListener("click", () => createExpenseFromInput().catch((error) => setRuntimeFeedback(error.message)));
-createGoalButton?.addEventListener("click", () => createGoalFromInput().catch((error) => setRuntimeFeedback(error.message)));
+saveProfileButton?.addEventListener("click", () => runButtonTask(saveProfileButton, saveUserProfile).catch((error) => setRuntimeFeedback(error.message)));
+resetProfileButton?.addEventListener("click", () => runButtonTask(resetProfileButton, resetUserProfile).catch((error) => setRuntimeFeedback(error.message)));
+createAssetButton?.addEventListener("click", () => runButtonTask(createAssetButton, createAssetFromInput).catch((error) => setRuntimeFeedback(error.message)));
+createLiabilityButton?.addEventListener("click", () => runButtonTask(createLiabilityButton, createLiabilityFromInput).catch((error) => setRuntimeFeedback(error.message)));
+createIncomeButton?.addEventListener("click", () => runButtonTask(createIncomeButton, createIncomeFromInput).catch((error) => setRuntimeFeedback(error.message)));
+createExpenseButton?.addEventListener("click", () => runButtonTask(createExpenseButton, createExpenseFromInput).catch((error) => setRuntimeFeedback(error.message)));
+createGoalButton?.addEventListener("click", () => runButtonTask(createGoalButton, createGoalFromInput).catch((error) => setRuntimeFeedback(error.message)));
 assetListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-asset-archive]");
   if (!button) return;
   assetService.getAsset(button.dataset.assetArchive).then((asset) => (
     asset?.status === "archived" ? assetService.restoreAsset(asset.id) : assetService.archiveAsset(asset.id)
-  )).then(refreshLocalFinancialData).catch((error) => setRuntimeFeedback(error.message));
+  )).then(() => { invalidateLocalData("financial", "goal-health"); return refreshLocalFinancialData(); }).catch((error) => setRuntimeFeedback(error.message));
 });
 liabilityListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-liability-archive]");
   if (!button) return;
   liabilityService.getLiability(button.dataset.liabilityArchive).then((liability) => (
     liability?.status === "archived" ? liabilityService.restoreLiability(liability.id) : liabilityService.archiveLiability(liability.id)
-  )).then(refreshLocalFinancialData).catch((error) => setRuntimeFeedback(error.message));
+  )).then(() => { invalidateLocalData("financial", "goal-health"); return refreshLocalFinancialData(); }).catch((error) => setRuntimeFeedback(error.message));
 });
 incomeListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-income-archive]");
   if (!button) return;
   incomeService.getIncome(button.dataset.incomeArchive).then((income) => (
     income?.status === "archived" ? incomeService.restoreIncome(income.id) : incomeService.archiveIncome(income.id)
-  )).then(refreshLocalCashFlowData).catch((error) => setRuntimeFeedback(error.message));
+  )).then(() => { invalidateLocalData("cashflow", "goal-health"); return refreshLocalCashFlowData(); }).catch((error) => setRuntimeFeedback(error.message));
 });
 expenseListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-expense-archive]");
   if (!button) return;
   expenseService.getExpense(button.dataset.expenseArchive).then((expense) => (
     expense?.status === "archived" ? expenseService.restoreExpense(expense.id) : expenseService.archiveExpense(expense.id)
-  )).then(refreshLocalCashFlowData).catch((error) => setRuntimeFeedback(error.message));
+  )).then(() => { invalidateLocalData("cashflow", "goal-health"); return refreshLocalCashFlowData(); }).catch((error) => setRuntimeFeedback(error.message));
 });
 goalListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-goal-id]");
@@ -2016,7 +2208,7 @@ goalListPanel?.addEventListener("click", (event) => {
       return goal?.status === "archived" ? goalService.restoreGoal(id) : goalService.archiveGoal(id);
     },
   };
-  actions[button.dataset.goalAction]?.(button.dataset.goalId).then(refreshLocalGoalHealthData).catch((error) => setRuntimeFeedback(error.message));
+  actions[button.dataset.goalAction]?.(button.dataset.goalId).then(() => { invalidateLocalData("goals", "goal-health"); return refreshLocalGoalHealthData(); }).catch((error) => setRuntimeFeedback(error.message));
 });
 scenarioTemplateList?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-template-id]");
@@ -2028,26 +2220,39 @@ applyScenarioTemplateButton?.addEventListener("click", applyScenarioTemplate);
 saveScenarioTemplateButton?.addEventListener("click", () => saveScenarioFromTemplate().catch((error) => setRuntimeFeedback(error.message)));
 csvDryRunButton?.addEventListener("click", () => previewCsvImport().catch((error) => setRuntimeFeedback(error.message)));
 csvClearPreviewButton?.addEventListener("click", clearCsvImportPreview);
-addLocalActionButton?.addEventListener("click", () => addLocalAction().catch((error) => setRuntimeFeedback(error.message)));
+addLocalActionButton?.addEventListener("click", () => runButtonTask(addLocalActionButton, addLocalAction).catch((error) => setRuntimeFeedback(error.message)));
 exportLocalActionsButton?.addEventListener("click", exportLocalActions);
 importLocalActionsInput?.addEventListener("change", () => importLocalActions(importLocalActionsInput.files?.[0])
   .catch((error) => setRuntimeFeedback(error.message))
   .finally(() => {
     importLocalActionsInput.value = "";
   }));
-completeDueLocalActionsButton?.addEventListener("click", () => completeDueLocalActions().catch((error) => setRuntimeFeedback(error.message)));
-clearDoneLocalActionsButton?.addEventListener("click", () => clearDoneLocalActions().catch((error) => setRuntimeFeedback(error.message)));
+completeDueLocalActionsButton?.addEventListener("click", () => runButtonTask(completeDueLocalActionsButton, completeDueLocalActions).catch((error) => setRuntimeFeedback(error.message)));
+clearDoneLocalActionsButton?.addEventListener("click", () => runButtonTask(clearDoneLocalActionsButton, clearDoneLocalActions).catch((error) => setRuntimeFeedback(error.message)));
 localActionFilterInput?.addEventListener("change", renderLocalActions);
-localActionSearchInput?.addEventListener("input", renderLocalActions);
+const debouncedLocalActionRender = createDebouncedRender(renderLocalActions, 120);
+localActionSearchInput?.addEventListener("input", debouncedLocalActionRender);
 localActionListPanel?.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-local-action]");
   if (!button) return;
-  updateLocalAction(button.dataset.actionId, button.dataset.localAction).catch((error) => setRuntimeFeedback(error.message));
+  runButtonTask(button, () => updateLocalAction(button.dataset.actionId, button.dataset.localAction)).catch((error) => setRuntimeFeedback(error.message));
 });
 localActionListPanel?.addEventListener("change", (event) => {
   const select = event.target.closest("select[data-local-action-status]");
-  if (!select) return;
-  updateLocalAction(select.dataset.localActionStatus, select.value).catch((error) => setRuntimeFeedback(error.message));
+  if (!select || select.disabled) return;
+  const action = localActions.find((item) => item.id === select.dataset.localActionStatus);
+  const previousStatus = action?.status;
+  select.disabled = true;
+  select.setAttribute("aria-busy", "true");
+  updateLocalAction(select.dataset.localActionStatus, select.value)
+    .catch((error) => {
+      if (previousStatus) select.value = previousStatus;
+      setRuntimeFeedback(error.message);
+    })
+    .finally(() => {
+      select.disabled = false;
+      select.removeAttribute("aria-busy");
+    });
 });
 
 Object.defineProperty(window, "__atlasDebugState", {
@@ -2056,22 +2261,33 @@ Object.defineProperty(window, "__atlasDebugState", {
     restoreAuditReports,
     offlineRepairAudit,
     persistentAuditEntries,
+    performanceMetrics: { ...performanceMetrics },
+    runtimeCacheStats: resourceCache.getStats(),
   }),
 });
+
+async function loadDeferredRuntimeSections() {
+  if (deferredRuntimeSections.has("maintenance")) return;
+  deferredRuntimeSections.add("maintenance");
+  await renderReleaseDashboard();
+}
 
 window.addEventListener("hashchange", () => {
   updateNavigationState();
   openDocumentFromHash();
+  if (["#settings", "#maintenance-settings", "#backup-settings"].includes(window.location.hash.split("?")[0])) {
+    loadDeferredRuntimeSections().catch((error) => setRuntimeFeedback(error.message));
+  }
 });
 updateNavigationState();
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 
 loadDashboard();
-renderReleaseDashboard().catch(() => {});
+if (["#settings", "#maintenance-settings", "#backup-settings"].includes(window.location.hash.split("?")[0])) {
+  deferUntilIdle(() => loadDeferredRuntimeSections());
+}
 loadUserProfile().catch(() => {});
-refreshLocalFinancialData().catch(() => {});
-refreshLocalCashFlowData().catch(() => {});
-refreshLocalGoalHealthData().catch(() => {});
-renderInsuranceSummary().catch(() => {});
+refreshInitialLocalData().catch((error) => setRuntimeFeedback(error.message || "本機資料載入失敗。"));
+deferUntilIdle(() => runPanelTask([insuranceSummaryPanel], renderInsuranceSummary));
 loadLocalActions().catch(() => {});
 renderScenarioTemplates();

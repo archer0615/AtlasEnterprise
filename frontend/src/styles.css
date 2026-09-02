@@ -1682,4 +1682,26 @@ button:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow:
   .workflow-nav a:hover { transform: none; }
   .workspace { padding: 20px 16px 32px; }
   .decision-focus, .onboarding-panel, .section-hub, .profile-settings, .dashboard-prototype { padding: 18px; }
+  button, .file-action-button, .mobile-toolbar a, .workflow-nav a, summary { min-height: 44px; }
+  .mobile-toolbar { overflow-x: auto; grid-template-columns: repeat(6, minmax(76px, 1fr)); }
+  .dashboard-actions, .compact-actions { align-items: stretch; }
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(233, 185, 73, .95);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
